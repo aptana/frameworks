@@ -1,0 +1,405 @@
+/**
+  *  @projectDescription
+  *  <p>AFLAX(tm) is a JavaScript library for the Macromedia Flash(tm) Platform</p>
+  *
+  *  <p>AFLAX is a trademark of Paul Colton. All Rights Reserved.</p>
+  *
+  *  <p>The contents of this file are subject to the Mozilla Public License Version
+  *  1.1 (the "License"); you may not use this file except in compliance with
+  *  the License. You may obtain a copy of the License at
+  *  http://www.mozilla.org/MPL/</p>
+  *
+  *  <p>Software distributed under the License is distributed on an "AS IS" basis,
+  *  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+  *  for the specific language governing rights and limitations under the
+  *  License.</p>
+  *
+  *  <p>The Original Code is The AFLAX Library.</p>
+  *
+  *  <p>The Initial Developer of the Original Code is Paul Colton.
+  *  Portions created by the Initial Developer are Copyright (C) 2005
+  *  the Initial Developer. All Rights Reserved.</p>
+  *
+  *  <p>Contributor(s):</p>
+  *  <p>(End of contributor(s) list.)</p>
+  *
+  *  <p>Paul Colton can be contacted at paul at aflax dot org</p>
+  * 
+  *  <p>For more information, updates and demos, visit http://www.aflax.org</p>
+  *
+  *  @author			Paul Colton
+  *  @version			1.0
+  *
+  */
+  
+/*
+ * MovieClip dynamic property documentation
+ */
+
+/**
+ * Sets the X coordinate of this MovieClip
+ * @alias AFLAX.MovieClip.prototype.set_x
+ * @param {Number} x The X coordinate
+ */
+
+/**
+ * Returns the X coordinate of this MovieClip
+ * @alias AFLAX.MovieClip.prototype.get_x
+ * @return {Number} The X coordinate
+ */
+
+/**
+ * Sets the Y coordinate of this MovieClip
+ * @alias AFLAX.MovieClip.prototype.set_y
+ * @param {Number} x The Y coordinate
+ */
+
+/**
+ * Returns the Y coordinate of this MovieClip
+ * @alias AFLAX.MovieClip.prototype.get_y
+ * @return {Number} The Y coordinate
+ */
+
+/**
+ * Sets the height of a movie clip instance (in pixels).
+ * @alias AFLAX.MovieClip.prototype.set_height
+ * @param {Number} height Height of the movie clip instance
+ */
+
+/**
+ * Returns the height of a movie clip instance (in pixels).
+ * @alias AFLAX.MovieClip.prototype.get_height
+ * @return {Number} Height of the movie clip instance
+ */
+
+/**
+ * Sets the width of a movie clip instance (in pixels).
+ * @alias AFLAX.MovieClip.prototype.set_width
+ * @param {Number} width Width of the movie clip instance
+ */
+
+/**
+ * Returns the width of a movie clip instance (in pixels).
+ * @alias AFLAX.MovieClip.prototype.get_width
+ * @return {Number} Width of the movie clip instance
+ */
+
+/**
+ * Sets the degree of rotation of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.set_rotation
+ * @param {Number} Degree of rotation
+ */
+
+/**
+ * Returns the degree of rotation of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.get_rotation
+ * @return {Number} Degree of rotation
+ */
+
+/**
+ * Sets the x coordinate of the cursor within a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.set_xmouse
+ * @param {Number} xmouse	X coordinate of the cursor
+ */
+
+/**
+ * Returns the x coordinate of the cursor within a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.get_xmouse
+ * @return {Number} X coordinate of the cursor
+ */
+
+/**
+ * Sets the y coordinate of the cursor within a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.set_ymouse
+ * @param {Number} ymouse Y coordinate of the cursor
+ */
+
+/**
+ * Returns the y coordinate of the cursor within a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.get_ymouse
+ * @return {Number} Y coordinate of the cursor
+ */
+
+/**
+ * Sets the value specifying the percentage for horizontally scaling a movie clip.
+ * @alias AFLAX.MovieClip.prototype.set_xscale
+ * @param {Number} xscale Percentage for the horizontal scale
+ */
+
+/**
+ * Returns the value specifying the percentage for horizontally scaling a movie clip.
+ * @alias AFLAX.MovieClip.prototype.get_xscale
+ * @return {Number} Percentage for the horizontal scale
+ */
+
+/**
+ * Sets the value specifying the percentage for vertically scaling a movie clip.
+ * @alias AFLAX.MovieClip.prototype.set_yscale
+ * @param {Number} Percentage for the vertical scale
+ */
+
+/**
+ * Returns the value specifying the percentage for vertically scaling a movie clip.
+ * @alias AFLAX.MovieClip.prototype.get_yscale
+ * @return {Number} Percentage for the vertical scale
+ */
+
+/**
+ * Sets the transparency value of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.set_alpha
+ * @param {Number} Transparency value
+ */
+
+/**
+ * Returns the transparency value of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.get_alpha
+ * @return {Number} Transparency value
+ */
+
+/**
+ * Sets the blend mode value for a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.setBlendMode
+ * @param {Number | String} Integer from 1-14 or its corresponding string. Valid values are
+ * 1 = "normal", 2 = "layer", 3 = "multiply", 4 = "screen", 5 = "lighten", 6 = "darken", 7 = "difference"
+ * 8 = "add", 9 = "subtract", 10 = "invert", 11 = "alpha", 12 = "erase", 13 = "overlay", 14 = "hardlight".
+ */
+
+/**
+ * Returns the blend mode value for a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.getBlendMode
+ * @return {String} Blend mode value
+ */
+
+/**
+ * Sets a Boolean value that determines whether a movie clip instance is hidden or visible.
+ * @alias AFLAX.MovieClip.prototype.set_visible
+ * @param {Boolean} visible If true, specifies the movie clip is visible
+ */
+
+/**
+ * Returns a Boolean value that determines whether a movie clip instance is hidden or visible.
+ * @alias AFLAX.MovieClip.prototype.get_visible
+ * @return {Boolean} If true, specifies the movie clip is visible
+ */
+
+/**
+ * Sets a Boolean value that determines whether the Flash Player caches an internal bitmap representation of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.setCacheAsBitmap
+ * @param {Boolean} cacheAsBitmap If true, specifies the Flash Player caches an internal bitmap representation of a movie clip instance.
+ */
+
+/**
+ * Returns a Boolean value that determines whether the Flash Player caches an internal bitmap representation of a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.getCacheAsBitmap
+ * @return {Boolean} If true, specifies the Flash Player caches an internal bitmap representation of a movie clip instance
+ */
+	
+/*
+ * MovieClip dynamic function documentation
+ */
+	
+/**
+ * Begins drawing a fill on the Stage.
+ * @alias AFLAX.MovieClip.prototype.beginFill
+ * @param {Number} rgb Color to fill with(0x000000 - 0xFFFFFF). A fill is not created if rgb is not specified or is undefined.
+ * @param {Number} [alpha] Alpha level to fill with (0-100)
+ */
+
+/**
+ * Removes all the drawing commands associated with a movie clip instance.
+ * @alias AFLAX.MovieClip.prototype.clear
+ */
+
+/**
+ * Draws a curve using the latest line style.
+ * @alias AFLAX.MovieClip.prototype.curveTo
+ * @param {Number} controlX	X control coordinate
+ * @param {Number} controlY Y control coordinate
+ * @param {Number} anchorX X anchor coordinate
+ * @param {Number} anchorY Y anchor coordinate
+ */
+
+/**
+ * Ends the fill specified by beginFill or beginGradientFill.
+ * @alias AFLAX.MovieClip.prototype.endFill
+ */
+
+/**
+ * Retrieves a document from a URL.
+ * @alias AFLAX.MovieClip.prototype.getURL
+ * @param {String} url Url string
+ * @param {String} [window] Window to load the doc into (_self, _blank, _parent or _top)
+ * @param {String} [method] Method used to send variables (GET or POST)
+ */
+
+/**
+ * Defines the stroke of lines created with the lineTo and curveTo methods. 
+ * @alias AFLAX.MovieClip.prototype.lineStyle
+ * @param {Number} thickness Line width measured in pixels.
+ * @param {Number} rgb Hexadecimal value for line color
+ * @param {Number} alpha Line transparency (0-100)
+ */
+
+/**
+ * Draws a line using the current line style.
+ * @alias AFLAX.MovieClip.prototype.lineTo
+ * @param {Number} x X coordinate to draw to
+ * @param {Number} y Y coordinate to draw to
+ */
+
+/**
+ * Moves the current drawing position to specified coordinates.
+ * @alias AFLAX.MovieClip.prototype.moveTo
+ * @param {Number} x X coordinate to draw to
+ * @param {Number} y Y coordinate to draw to
+ */
+
+/**
+ * Removes the movie clip from the Timeline if it was created with a duplicateMovieClip action or method or the attachMovie method.
+ * @alias AFLAX.MovieClip.prototype.removeMovieClip
+ */
+
+/*
+ * Movieclip dynamic mapping documentation
+ */
+
+/**
+ * Adds an event handler to a movie clip.
+ * @alias AFLAX.MovieClip.prototype.addEventHandler
+ * @param {Object} Event handler to attach
+ * @param {Object} Event for the event handler
+ */
+
+/**
+ * Applies a filter object to a source image.
+ * @alias AFLAX.MovieClip.prototype.applyFilter
+ * @param {Object} sourceBitmap	Bitmap image
+ * @param {Object} sourceRect	Rectangle that defines the area of the source image
+ * @param {Object} destPoint	Coordinate in the image that matches the upper-left corner of the source rectangle
+ * @param {Object} filter	Filter to use
+ * @return {Number} Returns 0 if the filter was successfully applied. Returns a negative number if the application failed.
+ */
+
+/**
+ * Attaches a bitmap image.
+ * @alias AFLAX.MovieClip.prototype.attachBitmap
+ * @param {Object} bmp Bitmap image
+ * @param {Number} depth	Depth level within the movie clip to place the bitmap image
+ * @param {String} [pixelSnapping]	Positions the bitmap relative to the nearest whole pixel as "auto", "always", or "never"
+ * @param {Boolean} [smoothing]	If true, specifies that smoothing mode is enabled
+ */
+
+/**
+ * Specifies the video stream to display.
+ * @alias AFLAX.MovieClip.prototype.attachVideo
+ * @param {Object} source	Camera or Netstream object that is capturing the video stream
+ */
+
+/**
+ * Creates a text field as a child of the movie clip.
+ * @alias AFLAX.MovieClip.prototype.createTextField
+ * @param {String} instanceName	Name of the TextField instance
+ * @param {Number} depth	Depth of the TextField
+ * @param {Number} x	X coordinate of the TextField
+ * @param {Number} y	Y coordinate of the TextField
+ * @param {Number} width	Width of the TextField
+ * @param {Number} height	Height of the TextField
+ * @return {TextField} Returns a new TextField object
+ */
+
+/**
+ * Loads a SWF, JPEG, GIF, or PNG file into a movie clip as the original SWF plays
+ * @alias AFLAX.MovieClip.prototype.loadMovie
+ * @param {String} url	URL of the movie clip to load
+ * @param {String} method	Method used to send variables (GET or POST)
+ */
+
+/*
+ * TextField dynamic property documentation
+ */
+
+/**
+ * Specifies whether a text field is an input text field or dynamic text field. 
+ * Valid values are "dynamic" (can't be edited) and "input" (which can).
+ * @alias AFLAX.TextField.prototype.setType
+ * @param {String} type "dynamic" (read-only) or "input" (read-write)
+ */
+
+/**
+ * Returns whether a text field is an input text field or dynamic text field. 
+ * Valid values are "dynamic" (can't be edited) and "input" (which can).
+ * @alias AFLAX.TextField.prototype.getType
+ * @return {String} Returns the string "dynamic" (read-only) or "input" (read-write)
+ */
+
+/**
+ * Specifies whether the text field contains multiple lines. 
+ * @alias AFLAX.TextField.prototype.setMultiline
+ * @param {Boolean} multiline If true, the text field contains multiple lines
+ */
+
+/**
+ * Returns whether the text field contains multiple lines. 
+ * @alias AFLAX.TextField.prototype.getMultiline
+ * @return {Boolean} If true, the text field contains multiple lines
+ */
+
+/**
+ * Specifies whether the text field word-wraps. 
+ * @alias AFLAX.TextField.prototype.setWordWrap
+ * @param {Boolean} multiline If true, the text field word-wraps
+ */
+
+/**
+ * Returns whether the text field word-wraps.
+ * @alias AFLAX.TextField.prototype.getWordWrap
+ * @return {Boolean} If true, the text field word-wraps
+ */
+
+/**
+ * Sets the current text in the text field. 
+ * @alias AFLAX.TextField.prototype.setText
+ * @param {String} text Current text in the text field
+ */
+
+/**
+ * Returns the current text in the text field.
+ * @alias AFLAX.TextField.prototype.getText
+ * @return {String} Current text in the text field
+ */
+
+/**
+ * Sets the HTML representation of a text field's contents. 
+ * @alias AFLAX.TextField.prototype.setHtmlText
+ * @param {String} text HTML representation of a text field's contents
+ */
+
+/**
+ * Returns the HTML representation of a text field's contents.
+ * @alias AFLAX.TextField.prototype.getHtmlText
+ * @return {String} HTML representation of a text field's contents
+ */
+
+/**
+ * Specifies whether the text field uses embedded font outlines (true) or device fonts (false). 
+ * @alias AFLAX.TextField.prototype.setEmbedFonts
+ * @param {Boolean} embedFonts If true, the text field uses embedded font outlines
+ */
+
+/**
+ * Returns whether the text field word-wraps.
+ * @alias AFLAX.TextField.prototype.getEmbedFonts
+ * @return {Boolean} If true, the text field uses embedded font outlines
+ */
+
+/*
+ * TextField dynamic function documentation
+ */
+
+/**
+ * Sets the default text format assigned to newly inserted text.
+ * @alias AFLAX.TextField.prototype.setTextFormat
+ * @param {Number} beginIndex	Character position to begin the format change.
+ * @param {Number} endIndex Character position to end the format change.
+ * @param {String} textFormat Name of the new text format.
+ */	

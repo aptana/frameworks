@@ -1,0 +1,1 @@
+{"dojo.profile":{"meta":{"objects":{"dojo.profile":{"meta":{"variables":["_pns","start","end","dump"]}}}}}}

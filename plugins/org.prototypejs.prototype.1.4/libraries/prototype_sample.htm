@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="lib/prototype/prototype.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h3>Prototype Example</h3>
+Sample from: <a href="http://www.sergiopereira.com/articles/prototype.js.html#EnumeratingArrays" target="_window">http://www.sergiopereira.com/articles/prototype.js.html#EnumeratingArrays</a>
+
+<p>
+
+Like we mentioned above, it's very common for all the elements in your array 
+to be of the same kind, with the same properties and methods. Let's see how we can take 
+advantage of iterator functions with our new souped-up arrays.</p>
+
+<p>Finding an element according to a criteria. </p>
+
+
+<script>
+	function findEmployeeById(emp_id){
+		var listBox = $('lstEmployees')
+		var options = listBox.getElementsByTagName('option');
+		options = $A(options);
+		var opt = options.find( function(employee){
+			return (employee.value == emp_id);
+		});
+		//displays the employee name
+		document.getElementById("results").innerHTML = opt.innerHTML;
+	}
+</script>
+
+<p>
+<select id="lstEmployees" size="10" >
+	<option value="5">Buchanan, Steven</option>
+	<option value="8">Callahan, Laura</option>
+	<option value="1">Davolio, Nancy</option>
+</select>
+</p>
+
+<p><input type="button" value="Find Laura" onclick="findEmployeeById(8);" ></p>
+
+<div id="results">[Results Area]</div>
+</body>
+</html>

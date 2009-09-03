@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>cleanWhitespace</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">cleanWhitespace </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">cleanWhitespace(element) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Removes all of element's text nodes which contain only whitespace. Returns element.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">cleanWhitespace()</span> removes whitespace-only text nodes. This can be very useful when using standard methods like <span class="f_CourierFixed">nextSibling</span>, <span class="f_CourierFixed">previousSibling</span>, <span class="f_CourierFixed">firstChild</span> or <span class="f_CourierFixed">lastChild</span> to walk the DOM.</p>
+<p>&nbsp;</p>
+<p>If you only need to access element nodes (and not text nodes), try using Element's new <span class="f_CourierFixed"><a href="element_up.html">up()</a></span>, <span class="f_CourierFixed"><a href="element_down.html">down()</a></span>, <span class="f_CourierFixed"><a href="element_next.html">next()</a></span> and <span class="f_CourierFixed"><a href="element_previous.html">previous()</a></span> methods instead. You won't regret it!</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p>Consider the following HTML snippet:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;ul&nbsp;id="apples"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&gt;Mutsu&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&gt;McIntosh&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&gt;Ida&nbsp;Red&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/ul&gt;</span></p>
+<p>&nbsp;</p>
+<p>Let's grab what we think is the first list item:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;element&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'apples'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">element.firstChild.innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;undefined</span></p>
+<p>&nbsp;</p>
+<p>That doesn't seem to work to well. Why is that ? <span class="f_CourierFixed" style="font-weight: bold;">ul#apples's</span> first child is actually a text node containing only whitespace that sits between <span class="f_CourierFixed">&lt;ul id="apples"&gt;</span> and <span class="f_CourierFixed">&lt;li&gt;Mutsu&lt;/li&gt;.</span></p>
+<p>&nbsp;</p>
+<p>Let's remove all this useless whitespace:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">element.cleanWhitespace();</span></p>
+<p>&nbsp;</p>
+<p>That's what our DOM looks like now:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;UL&nbsp;id="apples"&gt;&lt;LI&gt;Mutsu&lt;/LI&gt;&lt;LI&gt;McIntosh&lt;/LI&gt;&lt;LI&gt;Ida&nbsp;Red&lt;/LI&gt;&lt;/UL&gt;</span></p>
+<p>&nbsp;</p>
+<p>And guess what, firstChild now works as expected!</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">element.firstChild.innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'Mutsu'</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

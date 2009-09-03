@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>create</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">create </span><span class="f_TopicHeading" style="color: #ccffff;">:: Class</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">create() -&gt; Function</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Returns an function that acts like a Ruby class.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">Class.create()</span> returns a function that, when called, will fire its own <span class="f_CourierFixed">initialize</span> method. This allows for more Ruby-like OOP. It also lets you more easily subclass by overriding a parent's constructor.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example:</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Animal&nbsp;=&nbsp;Class.create();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Animal.prototype&nbsp;=&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;initialize:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(name,&nbsp;sound)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;this.name&nbsp;&nbsp;=&nbsp;name;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;this.sound&nbsp;=&nbsp;sound;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;},</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;speak:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;alert(name&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">&quot;&nbsp;says:&nbsp;&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;sound&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">&quot;!&quot;</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;snake&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Animal(</span><span class="f_CodeExample" style="color: #800000;">&quot;Ringneck&quot;</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">&quot;hissssssssss&quot;</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">snake.speak();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;alerts&nbsp;&quot;Ringneck&nbsp;says:&nbsp;hissssssssss!&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Dog&nbsp;=&nbsp;Class.create();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Dog.prototype&nbsp;=&nbsp;Object.extend(</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Animal(),&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;initialize:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(name)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;this.name&nbsp;&nbsp;=&nbsp;name;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;this.sound&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #800000;">&quot;woof&quot;</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;fido&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Dog(</span><span class="f_CodeExample" style="color: #800000;">&quot;Fido&quot;</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">fido.speak();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;alerts&nbsp;&quot;Fido&nbsp;says:&nbsp;woof!&quot;</span></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* Text Styles */
+hr { color: #000000}
+body, table /* Normal */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.f_CodeExample /* Code Example */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+}
+span.f_CodeExample2 /* Code Example2 */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+}
+span.f_Comment /* Comment */
+{
+}
+span.f_CourierFixed /* Courier Fixed */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+}
+span.f_Heading1 /* Heading1 */
+{
+ font-size: 12pt;
+ font-weight: bold;
+ color: #ff6600;
+}
+span.f_ImageCaption /* Image Caption */
+{
+ font-size: 8pt;
+ font-weight: bold;
+}
+span.f_IndexHeading /* Index Heading */
+{
+ font-size: 14pt;
+ font-weight: bold;
+ color: #808080;
+}
+span.f_Notes /* Notes */
+{
+}
+span.f_TopicHeading /* Topic Heading */
+{
+ font-size: 16pt;
+ font-weight: bold;
+ color: #ffffff;
+ letter-spacing: -1px;
+}
+/* Paragraph styles */
+p /* Normal */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 5px;
+}
+.p_CodeExample /* Code Example */
+{
+ white-space: nowrap;
+ background: #fbffe1;
+}
+.p_CodeExample2 /* Code Example2 */
+{
+ white-space: nowrap;
+ background: #e0fccf;
+}
+.p_Comment /* Comment */
+{
+}
+.p_Heading1 /* Heading1 */
+{
+ border-color: #99ccff;
+ border-style: solid;
+ border-width: 2px;
+ border-top: none;
+ border-right: none;
+ border-left: none;
+}
+.p_ImageCaption /* Image Caption */
+{
+}
+.p_IndexHeading /* Index Heading */
+{
+}
+.p_Notes /* Notes */
+{
+ background: #cae8ff;
+ margin: 0px 5px 0px 5px;
+}
+.p_TopicHeading /* Topic Heading */
+{
+ margin: 0px 10px 0px 0px;
+}

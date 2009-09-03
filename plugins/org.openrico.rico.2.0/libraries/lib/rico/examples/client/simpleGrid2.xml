@@ -1,0 +1,398 @@
+﻿<?xml-stylesheet type="text/xsl" href="../../src/ricoSimpleGrid.xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SimpleGrid Demo</title>
+<script src="../../src/rico.js" type="text/javascript"></script>
+<link href="../client/css/demo.css" type="text/css" rel="stylesheet" />
+<link href="../../src/css/ricoGrid.css" type="text/css" rel="stylesheet" />
+<link href="../../src/css/greenHdg.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript">
+//<![CDATA[
+
+function ricoInit() {
+  try {
+  Rico.loadModule('Accordion');
+  Rico.loadModule('SimpleGrid');
+  Rico.onLoad(ricoInit2);
+  } catch(e) { alert(e.message); }
+}
+
+var acc,grid1,grid2,grid3,grid4
+function ricoInit2() {
+  //try {
+  grid1=new Rico.SimpleGrid ('grid1', { maxHt:150, windowResize:false });
+  grid2=new Rico.SimpleGrid ('grid2', { maxHt:150, windowResize:false });
+  grid3=new Rico.SimpleGrid ('grid3', { maxHt:150, windowResize:false });
+  grid4=new Rico.SimpleGrid ('grid4', { maxHt:150, windowResize:false });
+  var matches=window.location.search.match(/tabloc=(\w+)\b/);
+  var tabloc=matches && matches.length>0 ? matches[1] : 'inline';
+  var buttons=document.getElementsByName('tabloc');
+  for (var i=0; i<buttons.length; i++)
+    buttons[i].checked=(buttons[i].value==tabloc);
+  acc=new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent'), { panelHeight: 200, tabLocation: tabloc, hoverClass: 'panelHover', selectedClass: 'panelSelected' } );
+  //} catch(e) { alert(e.message); }
+}
+
+function excel1() {
+  alert('This function has been disabled while I wait for my host provider to enable the PHP XSLT extension');
+  if (window.location.hostname.match(/dowdybrown.com/i)) return;
+  var src='php';  // or 'asp'
+  var xlscript='../'+src+'/excel.'+src;
+  var axslpath=window.location.pathname.split('/');
+  var l=axslpath.length-1;
+  axslpath[l]='ricoSimpleGrid';
+  axslpath[l-1]='xsl';
+  window.open(xlscript+'?xsl='+escape(axslpath.join('/'))+'&xml='+escape(window.location.pathname)+'&name='+document.title.replace(/\W/g,'_'));
+}
+
+function excel2() {
+  var gridID=acc.lastExpandedTab.titleBar.id.slice(0,5);
+  window[gridID].printVisible('plain');
+}
+
+function excel3() {
+  if (Rico.isIE) {
+    var gridID=acc.lastExpandedTab.titleBar.id.slice(0,5);
+    window[gridID].printVisible('owc');
+  } else
+    alert('OWC is only supported by Internet Explorer');
+}
+
+//]]>
+</script>
+
+<style>
+body {font-family: Arial, Tahoma, Verdana;}
+#accordionExample {
+    border : 1px solid #4f4f4f;
+    width: 600px;
+}
+
+.panelheader{
+	background-image: url('images/example1_panelBG.png');
+  height: 22px;
+	color : #ECECEC;
+	font-weight : normal;
+  padding-left: 5px;
+}
+
+.panelHover {
+  background-image: url('images/example1_panelBGHover.png');
+  height: 22px;
+	color : #ffffff;
+  padding-left: 5px;
+}
+
+.panelClicked {
+   background-image: url('images/example1_panelBGClick.png');
+   height: 22px;
+   color : #ffffff;
+   padding-left: 5px;
+}
+
+.panelSelected {
+	background-image: url('images/example1_panelBGSelected.png');
+  height: 22px;
+	color : #494949;
+	font-weight : bold;
+  padding-left: 5px;
+}
+.panelContent {
+    background-image: url('images/example1_contentBG');
+    background: #f8f8f8;
+    overflow: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Rico SimpleGrid Demo</h2>
+
+<button onclick='excel1()'>Export to Excel using XSLT</button>
+<button onclick='excel2()'>Export to web page</button>
+<button onclick='excel3()'>Export to OWC Spreadsheet</button>
+
+<hr />
+
+<div id="accordionExample">
+
+<div id="panel1">
+  <div id="grid1Header" class="panelheader">Grid 1</div>
+	<div id="grid1Content"  class="panelContent">
+
+<table id='grid1' class='ricoSimpleGrid' cellspacing='0' cellpadding='0'>
+<thead>
+<tr>
+<td colspan='2' class='ricoFrozen'>Table with thead/tbody</td>
+<td colspan='3'>Main row marked with ricoHeading class</td>
+</tr>
+<tr>
+<td colspan='2' class='ricoFrozen'>Test of a really, really long heading</td>
+<td colspan='3'>Test</td>
+</tr>
+<tr class='ricoHeading'>
+<td class='ricoFrozen'>Heading 1</td>
+<td class='ricoFrozen'>Heading 2</td>
+<td>Heading 3</td>
+<td>Heading 4</td>
+<td>Heading 5</td>
+</tr>
+<tr>
+<td colspan='2' class='ricoFrozen'>Test of a really, really long heading</td>
+<td colspan='3'>Test</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test row 1</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 2</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 3</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 4 - Test row 4</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 5</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 6</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 7</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+</tbody>
+</table>
+
+</div></div>
+
+<div id="panel2">
+  <div id="grid2Header" class="panelheader">Grid 2</div>
+	<div id="grid2Content"  class="panelContent">
+
+<table id='grid2' class='ricoSimpleGrid' cellspacing='0' cellpadding='0'>
+<thead>
+<tr>
+<td colspan='2' class='ricoFrozen'>Table with thead/tbody</td>
+<td colspan='3'>No row with ricoHeading class</td>
+</tr>
+<tr>
+<td colspan='2' class='ricoFrozen'>Test of a really, really long heading</td>
+<td colspan='3'>Test 2</td>
+</tr>
+<tr>
+<td class='ricoFrozen'>Heading 1</td>
+<td class='ricoFrozen'>Heading 2</td>
+<td>Heading 3</td>
+<td>Heading 4</td>
+<td>Heading 5</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test row 1</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 2</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 3</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 4 - Test row 4</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 5</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 6</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 7</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+</tbody>
+</table>
+
+</div></div>
+<div id="panel3">
+  <div id="grid3Header" class="panelheader">Grid 3</div>
+	<div id="grid3Content"  class="panelContent">
+
+<table id='grid3' class='ricoSimpleGrid' cellspacing='0' cellpadding='0'>
+<tbody>
+<tr>
+<td class='ricoFrozen'>tbody</td>
+<td>no thead</td>
+<td>Heading 3</td>
+<td>Heading 4</td>
+<td>Heading 5</td>
+</tr>
+<tr>
+<td>Test row 1</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 2</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 3</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 4 - Test row 4</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 5</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+</tbody>
+</table>
+
+</div></div>
+<div id="panel4">
+  <div id="grid4Header" class="panelheader">Grid 4</div>
+	<div id="grid4Content"  class="panelContent">
+
+<table id='grid4' class='ricoSimpleGrid' cellspacing='0' cellpadding='0'>
+<tr>
+<td class='ricoFrozen'>no thead</td>
+<td class='ricoFrozen'>no tbody</td>
+<td>Heading 3</td>
+<td>Heading 4</td>
+<td>Heading 5</td>
+</tr>
+<tr>
+<td>Test row 1</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 2</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 3</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 4 - Test row 4</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 5</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+<tr>
+<td>Test row 6</td>
+<td>Test column 2</td>
+<td>This is some really, really long content</td>
+<td>Test column 4</td>
+<td>Test column 5</td>
+</tr>
+</table>
+
+</div></div>
+</div>
+
+<!--
+<textarea id='debugmsgs' rows='5' cols='80'></textarea>
+<script type="text/javascript">
+Rico.setDebugArea('debugmsgs');
+</script>
+-->
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿Installing assembly 'C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.exe
+   logfile = C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.InstallLog
+Installing service ChatService...
+Service ChatService has been successfully installed.
+Creating EventLog source ChatService in log Application...
+Committing assembly 'C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.exe
+   logfile = C:\halon\aflax\examples\sockets\ChatService\ChatService\bin\Release\ChatService.InstallLog

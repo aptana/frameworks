@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>AFLAX: The AJAX Library for the Adobe Flash&trade; Platform</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<LINK href='../../include/style.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="css/screen.css">
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+<script type="text/javascript" src="lib/Yahoo/YAHOO.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/key.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/event.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/dom.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/animation.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/dragdrop.js" ></script>
+<script type="text/javascript" src="lib/Yahoo/slider.js" ></script>
+<script type="text/javascript" src="spirograph.js"></script>
+<script>
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf");
+	
+	function go()
+	{
+		init();
+	}
+</script>
+</head>
+<body >
+	<div id="body">
+		<script type="text/javascript">
+		window.onload = function(){
+			standardSliderInit();
+			setTimeout("setInitValues()", 500);
+		}
+		</script> 
+	  <h1>Spirograph Demo</h1>
+	</div>
+	<div id="content">
+	
+		<div>
+		
+			<p>Spirograph -- original ActionScript version by <a target="_blank" href="http://www.krazydad.com/bestiary/bestiary_spyrograph.html">Jim Bumgardner</a>.
+			</p>
+			
+			<script>
+				aflax.insertFlash(400,400, "#FFFFFF", "go");
+			</script>
+		
+			<table border=0 width="400">
+				<tr>
+					<td>
+						<label>Disc Size:</label>
+					</td>
+					<td width="100">
+			             <div class="horizBGDiv" id="horizBGDiv1">
+			             	<div class="horizHandleDiv" id="horizHandleDiv1"><img src="img/horizSlider.png">
+			             </div>
+   					</td>
+					<td>
+						<label id="horizVal1">0</label>
+					</td>
+					<td>
+						<button style="width: 75px" onClick="showGuide = (showGuide == false);">Guide</button>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Pen Hole:</label>
+					</td>
+					<td width="100">
+			             <div class="horizBGDiv" id="horizBGDiv2"><div class="horizHandleDiv" id="horizHandleDiv2" ><img src="img/horizSlider.png"></div>
+					</td>
+					<td>
+						<label id="horizVal2">0</label>
+					</td>
+					<td>
+						<button style="width: 75px" onClick="resetDots();">Clear</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Thickness:</label>
+					</td>
+					<td width="100">
+			             <div class="horizBGDiv" id="horizBGDiv3"><div class="horizHandleDiv" id="horizHandleDiv3" ><img src="img/horizSlider.png"></div>
+					</td>
+					<td>
+						<label id="horizVal3">0</label>
+					</td>
+					<td>
+						<button style="width: 75px" onClick="isTiger = (isTiger == false); adjustColor();">Tiger</button>
+					</td>
+				</tr>
+				
+			</table>
+		</div>
+		<p></p>
+				
+	</div>
+		
+<script type="text/javascript">
+	var slider1, slider2, slider3;
+	
+	function setInitValues()
+	{
+		slider1.setValue(83*2, false);
+		slider2.setValue(72*2, false);
+		slider3.setValue(80, false);
+		setTimeout("start()", 1000);
+	}
+	
+	function standardSliderInit() {
+		slider1 = YAHOO.widget.Slider.getHorizSlider("horizBGDiv1", "horizHandleDiv1", 0, 200, 1);
+		slider1.onChange = function(offsetFromStart) {
+			var val = Math.floor(offsetFromStart / 2);
+			if(val < 2) val = 2;
+			if(val > 99) val = 99;
+			discRadR = val / 100;
+			document.getElementById("horizVal1").innerHTML = discRadR;
+		}
+		
+		slider2 = YAHOO.widget.Slider.getHorizSlider("horizBGDiv2", "horizHandleDiv2", 0, 200, 1);
+		slider2.onChange = function(offsetFromStart) {
+			var val = Math.floor(offsetFromStart / 2);
+			penRadR = val / 100;
+			document.getElementById("horizVal2").innerHTML = penRadR;
+		}
+		slider3 = YAHOO.widget.Slider.getHorizSlider("horizBGDiv3", "horizHandleDiv3", 0, 200, 1);
+		slider3.onChange = function(offsetFromStart) {
+			var val = Math.floor(offsetFromStart / 2);
+			lineThick = val / 10;
+			document.getElementById("horizVal3").innerHTML = lineThick;
+		}
+	}
+</script>	
+	
+</script>
+</body>

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Sortable.serialize</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Sortable.serialize</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The Sortable object also provides a function to serialize the Sortable in a format suitable for HTTP GET or POST requests. This can be used to submit the order of the Sortable via an Ajax call:</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">Sortable.serialize('id_of_container',[options]);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="66" bgcolor="#99cc00" style="width:66px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="53" bgcolor="#99cc00" style="width:53px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="110" bgcolor="#99cc00" style="width:110px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="431" bgcolor="#99cc00" style="width:431px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="66" style="width:66px;"><p>tag</p>
+</td>
+<td valign="top" width="53" style="width:53px;"><p>V1.0</p>
+</td>
+<td valign="top" width="110" style="width:110px;"><p>tag originally used on Sortable.create</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Sets the kind of tag (of the child elements of the container) that will be serialized.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="66" style="width:66px;"><p>name</p>
+</td>
+<td valign="top" width="53" style="width:53px;"><p>V1.0</p>
+</td>
+<td valign="top" width="110" style="width:110px;"><p>id of container  &nbsp; &nbsp; &nbsp; &nbsp;</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Sets the name of the key that will be used to create the key/value pairs for serializing in HTTP GET/POST format (that is, key[]=value&amp;key[]=value …)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">var&nbsp;userTopTen&nbsp;=&nbsp;Sortable.serialize('top10');</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">//&nbsp;userTopTen&nbsp;now&nbsp;contains&nbsp;key[]=value&nbsp;pairs&nbsp;seperated&nbsp;by&nbsp;&amp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new&nbsp;Ajax.Request('/users/mytop10/saveorder',&nbsp;{parameters:&nbsp;userTopTen});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>For this to work, the elements contained in your Sortable must have id attributes in the following form:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;li&nbsp;id="image_1"&gt;Something&lt;/li&gt;</span></p>
+<p>&nbsp;</p>
+<p>You can tweak this by modifying the format parameter in the <a href="sortable_create.htm">Sortable.create</a> call</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

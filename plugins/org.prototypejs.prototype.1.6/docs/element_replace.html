@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>replace</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">replace </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">replace(element[, html]) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Replaces element by the content of the html argument and returns the removed element.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">html</span> can be either plain text, an HTML snippet or any JavaScript object which has a <span class="f_CourierFixed">toString()</span> method.</p>
+<p>&nbsp;</p>
+<p>If it contains any <span class="f_CourierFixed">&lt;script&gt;</span> tags, these will be evaluated after <span class="f_CourierFixed">element</span> has been replaced (<span class="f_CourierFixed">replace()</span> internally calls<span class="f_CourierFixed"> String.evalScripts</span>).</p>
+<p>&nbsp;</p>
+<p>Note that if no argument is provided, <span class="f_CourierFixed">replace()</span> will simply clear element of its content. However, using <span class="f_CourierFixed">remove()</span> to do so is both faster and more standard compliant.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;div&nbsp;id="food"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;div&nbsp;id="fruits"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;id="first"&gt;Kiwi,&nbsp;banana&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;apple.&lt;/p&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;/div&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>Passing an HTML snippet:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('first').replace('&lt;ul&nbsp;id="favorite"&gt;&lt;li&gt;kiwi&lt;/li&gt;&lt;li&gt;banana&lt;/li&gt;&lt;li&gt;apple&lt;/li&gt;&lt;/ul&gt;');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(p#first)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('fruits').innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'&lt;ul&nbsp;id="favorite"&gt;&lt;li&gt;kiwi&lt;/li&gt;&lt;li&gt;banana&lt;/li&gt;&lt;li&gt;apple&lt;/li&gt;&lt;/ul&gt;'</span></p>
+<p>&nbsp;</p>
+<p>Again, with a <span class="f_CourierFixed">&lt;script&gt;</span> tag thrown in:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('favorite').replace('&lt;p&nbsp;id="still-first"&gt;Melon,&nbsp;oranges&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;grapes.&lt;/p&gt;&lt;script&gt;alert("removed!")&lt;/script&gt;');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(ul#favorite)&nbsp;and&nbsp;prints&nbsp;"removed!"&nbsp;in&nbsp;an&nbsp;alert&nbsp;dialog.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('fruits').innerHTML</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'&lt;p&nbsp;id="still-first"&gt;Melon,&nbsp;oranges&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;grapes.&lt;/p&gt;'</span></p>
+<p>&nbsp;</p>
+<p>With plain text:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('still-first').replace('Melon,&nbsp;oranges&nbsp;and&nbsp;grapes.');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(p#still-first)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('fruits').innerHTML</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'Melon,&nbsp;oranges&nbsp;and&nbsp;grapes.'</span></p>
+<p>&nbsp;</p>
+<p>Finally, relying on the toString() method:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('fruits').update(123);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('food').innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'123'</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

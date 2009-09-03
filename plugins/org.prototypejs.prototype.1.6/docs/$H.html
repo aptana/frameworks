@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>$H</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">$H </span><span class="f_TopicHeading" style="color: #ccffff;">:: Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">$H([obj]) -&gt; EnumerableHash</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">The only way to obtain a hash (which is synonymous to “map” or “associative array” for our purposes). Returns a new object featuring all the methods in the Hash and Enumerable modules. If an original object was passed, clones all its properties in the result before mixing in the modules.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">$H</span> function is the only proper way to obtain a hash.</p>
+<p>&nbsp;</p>
+<p>Indeed, Hash is a module, not a class participating in Prototype’s class mechanism: doing a <span class="f_CourierFixed">new Hash()</span> is not going to help much: it will raise a ”Hash is not a constructor” error.</p>
+<p>&nbsp;</p>
+<p>The Hash module is designed to be mixed into objects that also mix in Enumerable, so the <span class="f_CourierFixed">$H</span> function makes sure it provides you with a result object that mixes in both of those.</p>
+<p>&nbsp;</p>
+<p>You can call <span class="f_CourierFixed">$H() </span>without any argument: you’ll obtain an “empty” hash (one that only features the methods in the mixed-in modules). If you pass it an argument, it starts by cloning out the passed object before mixing the modules in. Any property from that object whose name conflicts with a method in the modules will therefore get erased.</p>
+<p>&nbsp;</p>
+<p>There currently is a pending patch by our beloved Mislav, which provides “safe hashes,” i.e. hashes that can use any key name, without any risk of conflict or syntactic limitation. This page will get updated when/if this issue evolves.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

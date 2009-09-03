@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>update</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">update </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">update(element[, newContent]) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Replaces the content of element with the provided newContent argument and returns element.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">newContent</span> can be plain text, an HTML snippet, or any JavaScript object which has a<span class="f_CourierFixed"> toString()</span> method.</p>
+<p>&nbsp;</p>
+<p>If it contains any <span class="f_CourierFixed">&lt;script&gt;</span> tags, these will be evaluated after element has been updated (<span class="f_CourierFixed">update()</span> internally calls<span class="f_CourierFixed"> String.evalScripts()</span>).</p>
+<p>&nbsp;</p>
+<p>If no argument is provided, <span class="f_CourierFixed">update()</span> will simply clear <span class="f_CourierFixed">element</span> of its content.</p>
+<p>&nbsp;</p>
+<p>Note that this method allows seamless content update of table related elements in Internet Explorer 6 and beyond.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;div&nbsp;id="fruits"&gt;carrot,&nbsp;eggplant&nbsp;and&nbsp;cucumber&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>Passing a regular string:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'kiwi,&nbsp;banana&nbsp;and&nbsp;apple'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'kiwi,&nbsp;banana&nbsp;and&nbsp;apple'</span></p>
+<p>&nbsp;</p>
+<p>Clearing the element’s content:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;''&nbsp;(an&nbsp;empty&nbsp;string)</span></p>
+<p>&nbsp;</p>
+<p>And now inserting an HTML snippet:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'&lt;p&gt;Kiwi,&nbsp;banana&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;apple.&lt;/p&gt;'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'&lt;p&gt;Kiwi,&nbsp;banana&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;apple.&lt;/p&gt;'</span></p>
+<p>&nbsp;</p>
+<p>… with a &lt;script&gt; tag thrown in:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'&lt;p&gt;Kiwi,&nbsp;banana&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;apple.&lt;/p&gt;&lt;script&gt;alert(&quot;updated!&quot;)&lt;/script&gt;'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(and&nbsp;prints&nbsp;&quot;updated!&quot;&nbsp;in&nbsp;an&nbsp;alert&nbsp;dialog).</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'&lt;p&gt;Kiwi,&nbsp;banana&nbsp;&lt;em&gt;and&lt;/em&gt;&nbsp;apple.&lt;/p&gt;'</span></p>
+<p>&nbsp;</p>
+<p>Relying on the <span class="f_CourierFixed">toString()</span> method:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #ff0000;">123</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'123'</span></p>
+<p>&nbsp;</p>
+<p>Finally, you can do some pretty funky stuff by defining your own toString() method on your custom objects:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Fruit&nbsp;=&nbsp;Class.create();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Fruit.prototype&nbsp;=&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;initialize:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(fruit){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;this.fruit&nbsp;=&nbsp;fruit;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;},</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;toString:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'I&nbsp;am&nbsp;a&nbsp;fruit&nbsp;and&nbsp;my&nbsp;name&nbsp;is&nbsp;&quot;'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;this.fruit&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'&quot;.'</span><span class="f_CodeExample" style="color: #000000;">;&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;apple&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Fruit(</span><span class="f_CodeExample" style="color: #800000;">'apple'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).update(apple);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).innerHTML;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'I&nbsp;am&nbsp;a&nbsp;fruit&nbsp;and&nbsp;my&nbsp;name&nbsp;is&nbsp;&quot;apple&quot;.'</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

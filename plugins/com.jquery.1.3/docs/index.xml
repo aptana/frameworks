@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="jQuery 1.3 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries">
+	<topic label="jQuery 1.3"  href="docs/index.html"> 
+		<topic label="Core">
+			<topic href="docs/j.html#link-jQuery-html" label="jQuery(html)"></topic>
+			<topic href="docs/j.html#link-jQuery-elements" label="jQuery(elements)"></topic>
+			<topic href="docs/j.html#link-jQuery-callback" label="jQuery(callback)"></topic>
+			<topic href="docs/j.html#link-jQuery-expressioncontext" label="jQuery(expression, context)"></topic>
+			<topic href="docs/c.html#link-context-" label="context"></topic>
+			<topic href="docs/e.html#link-each-callback" label="each(callback)"></topic>
+			<topic href="docs/e.html#link-eq-position" label="eq(position)"></topic>
+			<topic href="docs/g.html#link-get-" label="get()"></topic>
+			<topic href="docs/g.html#link-get-index" label="get(index)"></topic>
+			<topic href="docs/i.html#link-index-subject" label="index(subject)"></topic>
+			<topic href="docs/l.html#link-length-" label="length"></topic>
+			<topic href="docs/s.html#link-selector" label="selector"></topic>
+			<topic href="docs/s.html#link-size-" label="size()"></topic>
+			<topic href="docs/j.html#link-jQueryextend-object" label="jQuery.extend(object)"></topic>
+			<topic href="docs/j.html#link-jQueryfnextend-object" label="jQuery.fn.extend(object)"></topic>
+			<topic href="docs/j.html#link-jQuerynoConflict-" label="jQuery.noConflict()"></topic>
+			<topic href="docs/j.html#link-jQuerynoConflict-extreme" label="jQuery.noConflict(extreme)"></topic>
+		</topic>
+		<topic label="Selectors">
+			<topic label="*" href="docs/a.html#link-all-"></topic>
+			<topic label=".class" href="docs/c.html#link-class-class"></topic>
+			<topic label="element" href="docs/e.html#link-element-element"></topic>
+			<topic label="#id" href="docs/i.html#link-id-id"></topic>
+			<topic label="selector1, selector2, selectorN" href="docs/m.html#link-multiple-selector1selector2selectorN"></topic>
+			<topic label="parent &gt; child" href="docs/c.html#link-child-parentchild"></topic>
+			<topic label="ancestor descendant" href="docs/d.html#link-descendant-ancestordescendant"></topic>
+			<topic label="prev + next" href="docs/n.html#link-next-prevnext"></topic>
+			<topic label="prev ~ siblings" href="docs/s.html#link-siblings-prevsiblings"></topic>
+			<topic label=":animated" href="docs/a.html#link-animated-"></topic>
+			<topic label=":eq(index)" href="docs/e.html#link-eq-index"></topic>
+			<topic label=":even" href="docs/e.html#link-even-"></topic>
+			<topic label=":first" href="docs/f.html#link-first-"></topic>
+			<topic label=":gt(index)" href="docs/g.html#link-gt-index"></topic>
+			<topic label=":header" href="docs/h.html#link-header-"></topic>
+			<topic label=":last" href="docs/l.html#link-last-"></topic>
+			<topic label=":lt(index)" href="docs/l.html#link-lt-index"></topic>
+			<topic label=":not(selector)" href="docs/n.html#link-not-selector"></topic>
+			<topic label=":odd" href="docs/o.html#link-odd-"></topic>
+			<topic label=":contains(text)" href="docs/c.html#link-contains-text"></topic>
+			<topic label=":empty" href="docs/e.html#link-empty-"></topic>
+			<topic label=":has(selector)" href="docs/h.html#link-has-selector"></topic>
+			<topic label=":parent" href="docs/p.html#link-parent-"></topic>
+			<topic label=":hidden" href="docs/h.html#link-hidden-"></topic>
+			<topic label=":visible" href="docs/v.html#link-visible-"></topic>
+			<topic label="[attribute*=value]" href="docs/a.html#link-attributeContains-attributevalue"></topic>
+			<topic label="[attribute$=value]" href="docs/a.html#link-attributeEndsWith-attributevalue"></topic>
+			<topic label="[attribute=value]" href="docs/a.html#link-attributeEquals-attributevalue"></topic>
+			<topic label="[attribute]" href="docs/a.html#link-attributeHas-attribute"></topic>
+			<topic label="[selector1][selector2][selectorN]" href="docs/a.html#link-attributeMultiple-selector1selector2selectorN"></topic>
+			<topic label="[attribute!=value]" href="docs/a.html#link-attributeNotEqual-attributevalue"></topic>
+			<topic label="[attribute^=value]" href="docs/a.html#link-attributeStartsWith-attributevalue"></topic>
+			<topic label=":first-child" href="docs/f.html#link-firstChild-"></topic>
+			<topic label=":last-child" href="docs/l.html#link-lastChild-"></topic>
+			<topic label=":nth-child(index/even/odd/equation)" href="docs/n.html#link-nthChild-index"></topic>
+			<topic label=":only-child" href="docs/o.html#link-onlyChild-"></topic>
+			<topic label=":button" href="docs/b.html#link-button-"></topic>
+			<topic label=":checkbox" href="docs/c.html#link-checkbox-"></topic>
+			<topic label=":file" href="docs/f.html#link-file-"></topic>
+			<topic label=":hidden" href="docs/h.html#link-hidden-"></topic>
+			<topic label=":image" href="docs/i.html#link-image-"></topic>
+			<topic label=":input" href="docs/i.html#link-input-"></topic>
+			<topic label=":password" href="docs/p.html#link-password-"></topic>
+			<topic label=":radio" href="docs/r.html#link-radio-"></topic>
+			<topic label=":reset" href="docs/r.html#link-reset-"></topic>
+			<topic label=":submit" href="docs/s.html#link-submit-"></topic>
+			<topic label=":text" href="docs/t.html#link-text-"></topic>
+			<topic label=":checked" href="docs/c.html#link-checked-"></topic>
+			<topic label=":disabled" href="docs/d.html#link-disabled-"></topic>
+			<topic label=":enabled" href="docs/e.html#link-enabled-"></topic>
+			<topic label=":selected" href="docs/s.html#link-selected-"></topic>
+		</topic>
+		<topic label="Attributes">
+			<topic href="docs/a.html#link-attr-name" label="attr(name)"></topic>
+			<topic href="docs/a.html#link-attr-properties" label="attr(properties)"></topic>
+			<topic href="docs/a.html#link-attr-keyvalue" label="attr(key, value)"></topic>
+			<topic href="docs/a.html#link-attr-keyfn" label="attr(key, fn)"></topic>
+			<topic href="docs/r.html#link-removeAttr-name" label="removeAttr(name)"></topic>
+
+			<topic href="docs/a.html#link-addClass-class" label="addClass(class)"></topic>
+			<topic href="docs/r.html#link-removeClass-class" label="removeClass(class)"></topic>
+			<topic href="docs/t.html#link-toggleClass-class" label="toggleClass(class)"></topic>
+			<topic href="docs/t.html#link-toggleClass-class-switch" label="toggleClass(class, switch)"></topic>
+
+			<topic href="docs/h.html#link-html-" label="html()"></topic>
+			<topic href="docs/h.html#link-html-val" label="html(val)"></topic>
+
+			<topic href="docs/t.html#link-text-" label="text()"></topic>
+			<topic href="docs/t.html#link-text-val" label="text(val)"></topic>
+
+			<topic href="docs/v.html#link-val-" label="val()"></topic>
+			<topic href="docs/v.html#link-val-val" label="val(val)"></topic>
+			<topic href="docs/v.html#link-val-val" label="val(val)"></topic>
+		</topic>
+		<topic label="Traversing">
+			<topic href="docs/c.html#link-closest-" label="closest(expr)"></topic>
+			<topic href="docs/e.html#link-eq-index" label="eq(index)"></topic>
+			<topic href="docs/f.html#link-filter-expr" label="filter(expr)"></topic>
+			<topic href="docs/f.html#link-filter-fn" label="filter(fn)"></topic>
+			<topic href="docs/h.html#link-hasClass-class" label="hasClass(class)"></topic>
+			<topic href="docs/i.html#link-is-expr" label="is(expr)"></topic>
+			<topic href="docs/m.html#link-map-callback" label="map(callback)"></topic>
+			<topic href="docs/n.html#link-not-expr" label="not(expr)"></topic>
+			<topic href="docs/s.html#link-slice-startend" label="slice(start, end)"></topic>
+
+			<topic href="docs/a.html#link-add-expr" label="add(expr)"></topic>
+			<topic href="docs/c.html#link-children-expr" label="children(expr)"></topic>
+			<topic href="docs/c.html#link-contents-" label="contents()"></topic>
+			<topic href="docs/f.html#link-find-expr" label="find(expr)"></topic>
+			<topic href="docs/n.html#link-next-expr" label="next(expr)"></topic>
+			<topic href="docs/n.html#link-nextAll-expr" label="nextAll(expr)"></topic>
+			<topic href="docs/p.html#link-parent-expr" label="parent(expr)"></topic>
+			<topic href="docs/p.html#link-parents-expr" label="parents(expr)"></topic>
+			<topic href="docs/p.html#link-prev-expr" label="prev(expr)"></topic>
+			<topic href="docs/p.html#link-prevAll-expr" label="prevAll(expr)"></topic>
+			<topic href="docs/s.html#link-siblings-expr" label="siblings(expr)"></topic>
+
+			<topic href="docs/a.html#link-andSelf-" label="andSelf()"></topic>
+			<topic href="docs/e.html#link-end-" label="end()"></topic>
+		  </topic>
+		  <topic label="Manipulation">
+			<topic href="docs/h.html#link-html-" label="html()"></topic>
+			<topic href="docs/h.html#link-html-val" label="html(val)"></topic>
+			<topic href="docs/t.html#link-text-" label="text()"></topic>
+			<topic href="docs/t.html#link-text-val" label="text(val)"></topic>
+
+			<topic href="docs/a.html#link-append-content" label="append(content)"></topic>
+			<topic href="docs/a.html#link-appendTo-content" label="appendTo(content)"></topic>
+			<topic href="docs/p.html#link-prepend-content" label="prepend(content)"></topic>
+			<topic href="docs/p.html#link-prependTo-content" label="prependTo(content)"></topic>
+
+			<topic href="docs/a.html#link-after-content" label="after(content)"></topic>
+			<topic href="docs/b.html#link-before-content" label="before(content)"></topic>
+			<topic href="docs/i.html#link-insertAfter-content" label="insertAfter(content)"></topic>
+			<topic href="docs/i.html#link-insertBefore-content" label="insertBefore(content)"></topic>
+
+			<topic href="docs/w.html#link-wrap-html" label="wrap(html)"></topic>
+			<topic href="docs/w.html#link-wrap-elem" label="wrap(elem)"></topic>
+			<topic href="docs/w.html#link-wrapAll-html" label="wrapAll(html)"></topic>
+			<topic href="docs/w.html#link-wrapAll-elem" label="wrapAll(elem)"></topic>
+			<topic href="docs/w.html#link-wrapInner-html" label="wrapInner(html)"></topic>
+			<topic href="docs/w.html#link-wrapInner-elem" label="wrapInner(elem)"></topic>
+
+			<topic href="docs/r.html#link-replaceAll-selector" label="replaceAll(selector)"></topic>
+			<topic href="docs/r.html#link-replaceWith-content" label="replaceWith(content)"></topic>
+
+			<topic href="docs/e.html#link-empty-" label="empty()"></topic>
+			<topic href="docs/r.html#link-remove-expr" label="remove(expr)"></topic>
+
+			<topic href="docs/c.html#link-clone-" label="clone()"></topic>
+			<topic href="docs/c.html#link-clone-true" label="clone(true)"></topic>              
+		  </topic>
+		  <topic label="CSS">
+			<topic href="docs/c.html#link-css-name" label="css(name)"></topic>
+			<topic href="docs/c.html#link-css-properties" label="css(properties)"></topic>
+			<topic href="docs/c.html#link-css-namevalue" label="css(name, value)"></topic>
+			<topic label="height()" href="docs/h.html#link-height-"></topic>
+			<topic label="height(val)" href="docs/h.html#link-height-val"></topic>
+			<topic href="docs/o.html#link-offset-" label="offset()"></topic>
+			<topic label="width()" href="docs/w.html#link-width-"></topic>
+			<topic label="width(val)" href="docs/w.html#link-width-val"></topic>
+		  </topic>
+		  
+		  <topic label="Events">
+			<topic label="bind(type, data, fn)" href="docs/b.html#link-bind-typedatafn"></topic>
+			<topic label="blur()" href="docs/b.html#link-blur-"></topic>
+			<topic label="blur(fn)" href="docs/b.html#link-blur-fn"></topic>
+			<topic label="change()" href="docs/c.html#link-change-"></topic>
+			<topic label="change(fn)" href="docs/c.html#link-change-fn"></topic>
+			<topic label="click()" href="docs/c.html#link-click-"></topic>
+			<topic label="click(fn)" href="docs/c.html#link-click-fn"></topic>
+			<topic label="dblclick()" href="docs/d.html#link-dblclick-"></topic>
+			<topic label="dblclick(fn)" href="docs/d.html#link-dblclick-fn"></topic>
+	        <topic label="die(type, fn)" href="docs/d.html#link-die-"></topic>
+			<topic label="error()" href="docs/e.html#link-error-"></topic>
+			<topic label="error(fn)" href="docs/e.html#link-error-fn"></topic>
+			<topic label="focus()" href="docs/f.html#link-focus-"></topic>
+			<topic label="focus(fn)" href="docs/f.html#link-focus-fn"></topic>
+			<topic label="hover(over, out)" href="docs/h.html#link-hover-overout"></topic>
+			<topic label="keydown()" href="docs/k.html#link-keydown-"></topic>
+			<topic label="keydown(fn)" href="docs/k.html#link-keydown-fn"></topic>
+			<topic label="keypress()" href="docs/k.html#link-keypress-"></topic>
+			<topic label="keypress(fn)" href="docs/k.html#link-keypress-fn"></topic>
+			<topic label="keyup()" href="docs/k.html#link-keyup-"></topic>
+			<topic label="keyup(fn)" href="docs/k.html#link-keyup-fn"></topic>
+			<topic href="docs/l.html#link-live-" label="live(type, fn)"></topic>
+			<topic label="load (fn)" href="docs/l.html#link-load -fn"></topic>
+			<topic label="mousedown (fn)" href="docs/m.html#link-mousedown -fn"></topic>
+			<topic label="mousemove(fn)" href="docs/m.html#link-mousemove-fn"></topic>
+			<topic label="mouseout(fn)" href="docs/m.html#link-mouseout-fn"></topic>
+			<topic label="mouseover(fn)" href="docs/m.html#link-mouseover-fn"></topic>
+			<topic label="mouseup(fn)" href="docs/m.html#link-mouseup-fn"></topic>		
+			<topic label="one(type, data, fn)" href="docs/o.html#link-one-typedatafn"></topic>
+			<topic label="ready(fn)" href="docs/r.html#link-ready-fn"></topic>
+			<topic label="resize(fn)" href="docs/r.html#link-resize-fn"></topic>
+			<topic label="scroll(fn)" href="docs/s.html#link-scroll-fn"></topic>
+			<topic label="select()" href="docs/s.html#link-select-"></topic>		
+			<topic label="select(fn)" href="docs/s.html#link-select-fn"></topic>
+			<topic label="submit()" href="docs/s.html#link-submit-"></topic>
+			<topic label="submit(fn)" href="docs/s.html#link-submit-fn"></topic>
+			<topic label="toggle(fn, fn)" href="docs/t.html#link-toggle-fnfn"></topic>
+			<topic label="trigger(type , data )" href="docs/t.html#link-trigger-type data "></topic>
+			<topic label="triggerHandler(type , data )" href="docs/t.html#link-triggerHandler-type data "></topic>
+			<topic label="unbind(type , data )" href="docs/u.html#link-unbind-type data "></topic>
+			<topic label="unload(fn)" href="docs/u.html#link-unload-fn"></topic>
+		  </topic>
+		  <topic label="Effects">
+			<topic label="animate(params, options)" href="docs/a.html#link-animate-paramsoptions"></topic>
+			<topic label="animate(params, duration, easing, callback)" href="docs/a.html#link-animate-paramsdurationeasingcallback"></topic>
+			<topic label="dequeue()" href="docs/d.html#link-dequeue-"></topic>
+		  	<topic label="hide()" href="docs/h.html#link-hide-"></topic>
+			<topic label="hide(speed, callback)" href="docs/h.html#link-hide-speedcallback"></topic>
+			<topic label="jQuery.fx.off" href="docs/j.html#link-jQuery-fx-off"></topic>
+			<topic label="queue()" href="docs/q.html#link-queue-"></topic>
+			<topic label="queue(callback)" href="docs/q.html#link-queue-callback"></topic>
+			<topic label="queue(queue)" href="docs/q.html#link-queue-queue"></topic>
+			<topic label="show()" href="docs/s.html#link-show-"></topic>
+			<topic label="show(speed, callback)" href="docs/s.html#link-show-speedcallback"></topic>
+			<topic label="slideDown(speed, callback)" href="docs/s.html#link-slideDown-speedcallback"></topic>
+			<topic label="slideToggle(speed, callback)" href="docs/s.html#link-slideToggle-speedcallback"></topic>
+			<topic label="slideUp(speed, callback)" href="docs/s.html#link-slideUp-speedcallback"></topic>
+			<topic label="slideDown(speed, callback)" href="docs/s.html#link-slideDown-speedcallback"></topic>
+			<topic label="slideToggle(speed, callback)" href="docs/s.html#link-slideToggle-speedcallback"></topic>
+			<topic label="slideUp(speed, callback)" href="docs/s.html#link-slideUp-speedcallback"></topic>
+			<topic label="stop()" href="docs/s.html#link-stop-"></topic>
+			<topic label="toggle()" href="docs/t.html#link-toggle-"></topic>
+			<topic label="toggle(switch)" href="docs/t.html#link-toggle-switch"></topic>
+		  </topic>
+		  <topic label="Ajax">
+			<topic label="jQuery.ajax(options)" href="docs/j.html#link-jQueryajax-options"></topic>
+			<topic label="jQuery.get(url, data, callback)" href="docs/j.html#link-jQueryget-urldatacallback"></topic>
+			<topic label="jQuery.getJSON(url, data, callback)" href="docs/j.html#link-jQuerygetJSON-urldatacallback"></topic>
+			<topic label="jQuery.getScript(url, callback)" href="docs/j.html#link-jQuerygetScript-urlcallback"></topic>
+						
+			<topic label="jQuery.post(url, data, callback)" href="docs/j.html#link-jQuerypost-urldatacallback"></topic>
+			<topic label="load(url, data, callback)" href="docs/l.html#link-load-urldatacallback"></topic>
+			<topic label="ajaxComplete(callback)" href="docs/a.html#link-ajaxComplete-callback"></topic>
+			<topic label="ajaxError(callback)" href="docs/a.html#link-ajaxError-callback"></topic>
+			<topic label="ajaxSend(callback)" href="docs/a.html#link-ajaxSend-callback"></topic>
+			<topic label="ajaxStart(callback)" href="docs/a.html#link-ajaxStart-callback"></topic>
+			<topic label="ajaxStop(callback)" href="docs/a.html#link-ajaxStop-callback"></topic>
+			<topic label="ajaxSuccess(callback)" href="docs/a.html#link-ajaxSuccess-callback"></topic>
+			<topic label="jQuery.ajaxSetup(options)" href="docs/j.html#link-jQueryajaxSetup-options"></topic>
+			<topic label="serialize()" href="docs/s.html#link-serialize-"></topic>
+			<topic label="serializeArray()" href="docs/s.html#link-serializeArray-"></topic>		  
+		  </topic>
+		  <topic label="Utilities">
+			<topic label="jQuery.boxModel" href="docs/j.html#link-jQueryboxModel-"></topic>
+			<topic label="jQuery.browser" href="docs/j.html#link-jQuerybrowser-"></topic>
+			<topic label="jQuery.browser.version" href="docs/j.html#link-jQuerybrowserversion-"></topic>
+			<topic label="jQuery.each(object, callback)" href="docs/j.html#link-jQueryeach-objectcallback"></topic>
+			<topic label="jQuery.extend(target, object1, objectN)" href="docs/j.html#link-jQueryextend-targetobject1objectN"></topic>			
+			<topic label="jQuery.grep(array, callback, invert)" href="docs/j.html#link-jQuerygrep-arraycallbackinvert"></topic>
+			<topic label="jQuery.inArray(value, array)" href="docs/j.html#link-jQueryinArray-valuearray"></topic>
+			<topic label="jQuery.isArray(obj)" href="docs/j.html#link-jQueryisArray"></topic>
+			<topic label="jQuery.isFunction(obj)" href="docs/j.html#link-jQueryisFunction-obj"></topic>
+			<topic label="jQuery.makeArray(obj)" href="docs/j.html#link-jQuerymakeArray-obj"></topic>
+			<topic label="jQuery.map(array, callback)" href="docs/j.html#link-jQuerymap-arraycallback"></topic>
+			<topic label="jQuery.support" href="docs/j.html#link-jQuery-support"></topic>		  
+			<topic label="jQuery.trim(str)" href="docs/j.html#link-jQuerytrim-str"></topic>		  
+			<topic label="jQuery.unique(array)" href="docs/j.html#link-jQueryunique-array"></topic>
+		  </topic>
+		  <topic label="Internals">
+			<topic label="jQuery.data(elem)" href="docs/j.html#link-jQuerydata-elem"></topic>
+			<topic label="jQuery.data(elem, name)" href="docs/j.html#link-jQuerydata-elemname"></topic>
+			<topic label="jQuery.data(elem, name, value)" href="docs/j.html#link-jQuerydata-elemnamevalue"></topic>
+			
+			<topic label="jQuery.removeData(elem)" href="docs/j.html#link-jQueryremoveData-elem"></topic>
+			<topic label="jQuery.removeData(elem, name)" href="docs/j.html#link-jQueryremoveData-elemname"></topic>
+			<topic label="jQuery.param(obj)" href="docs/j.html#link-jQueryparam-obj"></topic>
+		  </topic>
+</topic>
+</toc>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>$</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">$ </span><span class="f_TopicHeading" style="color: #ccffff;">:: Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">$(id | element) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed" style="color: #0000ff;">$((id | element)...) -&gt; [HTMLElement...]</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">If provided with a string, returns the element in the document with matching ID; otherwise returns the passed element. Takes in an arbitrary number of arguments. All elements returned by the function are extended with Prototype DOM extensions.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The <span style="font-family: 'Courier New';">$</span> function is the cornerstone of Prototype, its Swiss Army knife. Not only does it provide a handy alias for <span style="font-family: 'Courier New';">document.getElementById</span>, it also lets you pass indifferently IDs (strings) or DOM node references to your functions:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">function&nbsp;foo(element)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;element&nbsp;=&nbsp;$(element);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="font-style: italic; color: #000080;">/*&nbsp;&nbsp;rest&nbsp;of&nbsp;the&nbsp;function...&nbsp;*/</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">}</span></p>
+<p>&nbsp;</p>
+<p>Code written this way is flexible — you can pass it the ID of the element or the element itself without any type sniffing.</p>
+<p>&nbsp;</p>
+<p>Invoking it with only one argument returns the element, while invoking it with multiple arguments returns an array of elements (and this works recursively: if you're twisted, you could pass it an array containing some arrays, and so forth). As this is dependent on getElementById, W3C specs apply: nonexistent IDs will yield null and IDs present multiple times in the DOM will yield erratic results. <span style="font-weight: bold;">If you're assigning the same ID to multiple elements, you're doing it wrong!</span></p>
+<p>&nbsp;</p>
+<p>The function also <span style="font-weight: bold;">extends every returned element </span>with Element.extend so you can use Prototype's DOM extensions on it. In the following code, the two lines are equivalent. However, the second one feels significantly more object-oriented:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;Note&nbsp;quite&nbsp;OOP-like...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Element.hide(</span><span class="f_CodeExample" style="color: #800000;">'itemId'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;A&nbsp;cleaner&nbsp;feel,&nbsp;thanks&nbsp;to&nbsp;guaranted&nbsp;extension</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'itemId'</span><span class="f_CodeExample" style="color: #000000;">).hide();</span></p>
+<p>&nbsp;</p>
+<p>However, when using iterators, leveraging the $ function makes for more elegant, more concise, and also more efficient code:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[</span><span class="f_CodeExample" style="color: #800000;">'item1'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'item2'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'item3'</span><span class="f_CodeExample" style="color: #000000;">].each(Element.hide);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;The&nbsp;better&nbsp;way:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'item1'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'item2'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'item3'</span><span class="f_CodeExample" style="color: #000000;">).invoke(</span><span class="f_CodeExample" style="color: #800000;">'hide'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

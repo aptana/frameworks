@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Get Node Text</title>
+<link href="lib/spry/css/samples.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="lib/spry/includes/SpryData.js"></script>
+<script language="JavaScript" type="text/javascript">
+function getText(node){
+	var x = Spry.Utils.getNodeText(document.getElementById(node))
+	alert(x);
+}
+</script>
+</head>
+<body>
+<h3>getInnerText</h3>
+<p>getInnerText extracts the text of the specified element.  </p>
+<p><a href="#" onclick="getText('removeMe');">Get Inner Text</a></p>
+<div id="removeMe">This is the Inner Text </div>
+</body>
+</html>

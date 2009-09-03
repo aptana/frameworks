@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-last-">
+<span class="fn"><a class="name" href="#link-last-">last</a>(  ) returns <span class="type"><span class="tooltip" title="The Javascript object representation of a DOM Element.">Element</span></span></span>
+<div class="more">
+<div class="desc">Matches the last selected element.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the last table row.</p>
+<pre><code class="javascript">$(<span class="string">"tr:last"</span>).css({backgroundColor:&nbsp;<span class="string">'yellow'</span>,&nbsp;fontWeight:&nbsp;<span class="string">'bolder'</span>});</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;table</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>First&nbsp;Row<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Middle&nbsp;Row<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Last&nbsp;Row<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-lastChild-">
+<span class="fn"><a class="name" href="#link-lastChild-">lastChild</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches the last child of its parent.<br>While &lt;a
+href='Selectors/last'&gt;:last&lt;/a&gt; matches only a single element,
+this matches more then one: One for each parent.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the last span in each matched div and adds some css plus a hover state.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div&nbsp;span:last-child"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css({color:<span class="string">"red"</span>,&nbsp;fontSize:<span class="string">"80%"</span>})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.hover(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).addClass(<span class="string">"solast"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).removeClass(<span class="string">"solast"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>John,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Karl,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Brandon,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Sam<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Glen,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Tane,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Ralph,<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>David<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-length-">
+<span class="fn"><a class="name" href="#link-length-">length</a> returns <span class="type"><span class="tooltip" title="A valid numeric.">Number</span></span></span>
+<div class="more">
+<div class="desc">The number of elements in the jQuery object.<br>In a The number of elements currently matched. The &lt;a href='Core/size'&gt;size&lt;/a&gt; function will return the same value.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Count the divs.  Click to add more.</p>
+<pre><code class="javascript">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).append($(<span class="string">"&lt;div&gt;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;$(<span class="string">"div"</span>).length;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">"There&nbsp;are&nbsp;"</span>&nbsp;+&nbsp;n&nbsp;+&nbsp;<span class="string">"&nbsp;divs."</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Click&nbsp;to&nbsp;add&nbsp;more."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}).trigger(<span class="string">'click'</span>);&nbsp;<span class="com">//&nbsp;trigger&nbsp;the&nbsp;click&nbsp;to&nbsp;start</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-load-urldatacallback">
+<span class="fn"><a class="name" href="#link-load-urldatacallback">load</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The URL of the HTML page to load.">url</span>, <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs that will be sent to the server.">data</span>, <span class="arg-type tooltip" title="">Callback</span> <span class="arg-name tooltip" title="The function called when the ajax request is complete (not necessarily success).
+
+&lt;pre&gt;function (responseText, textStatus, XMLHttpRequest) {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Load HTML from a remote file and inject it into the DOM.<br>A GET request will be performed by default - but if you pass in any extra parameters then a POST will occur.<br>
+<br>In jQuery 1.2 you can now specify a jQuery selector in the URL.
+Doing so will filter the incoming HTML document, only injecting the
+elements that match the selector. The syntax looks something like "url
+#some &gt; selector". See the examples for more information.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load a piece of the documentation sidebar navigation into a custom unordered list.</p>
+<pre><code class="javascript">$(<span class="string">"#links"</span>).load(<span class="string">"/Main_Page&nbsp;#p-Getting-Started&nbsp;li"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;b</span><span class="tag">&gt;</span>jQuery&nbsp;Links:<span class="tag">&lt;/b&gt;</span>&nbsp;
+<span class="tag">&lt;ul</span><span class="aname">&nbsp;id</span>=<span class="avalue">"links"</span><span class="tag">&gt;</span><span class="tag">&lt;/ul&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load the feeds.html file into the div with the ID of feeds.</p>
+<pre><code class="javascript">$(<span class="string">"#feeds"</span>).load(<span class="string">"feeds.html"</span>);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"feeds"</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>45<span class="tag">&lt;/b&gt;</span>&nbsp;feeds&nbsp;found.<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Same as above, but will POST the additional parameters to the server
+and a callback that is executed when the server is finished responding.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#feeds"</span>).load(<span class="string">"feeds.php"</span>,&nbsp;{limit:&nbsp;<span class="numbers">25</span>},&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"The&nbsp;last&nbsp;25&nbsp;entries&nbsp;in&nbsp;the&nbsp;feed&nbsp;have&nbsp;been&nbsp;loaded"</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-load -fn">
+<span class="fn"><a class="name" href="#link-load%20-fn">load </a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the load event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the load event of each matched element.<br>When
+bound to the window element, the event fires when the user agent
+finishes loading all content within a document, including window,
+frames, objects and images. For elements, it fires when the target
+element and all of its content has finished loading.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Run a function when the page is fully loaded including graphics.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">window</span>).load(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;run&nbsp;code</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-lt-index">
+<span class="fn"><a class="name" href="#link-lt-index">lt</a>( <span class="arg-type tooltip" title="A valid numeric.">Number</span> <span class="arg-name tooltip" title="Zero-based index.">index</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements with an index below the given one.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds TDs less than the one with the 4th index (TD#4).</p>
+<pre><code class="javascript">$(<span class="string">"td:lt(4)"</span>).css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;table</span><span class="aname">&nbsp;border</span>=<span class="avalue">"1"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#0<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#1<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#2<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#3<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#4<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#5<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#6<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#7<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#8<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

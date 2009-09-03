@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.ms.ajax.3.5_3.5.21022.8.jar" id="com.ms.ajax.3.5" version="3.5.21022.8">
+      <category name="MS Ajax"/>
+   </feature>
+   <category-def name="MS Ajax" label="Aptana Support for MS Ajax"/>
+</site>

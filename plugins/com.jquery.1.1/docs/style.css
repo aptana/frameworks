@@ -1,0 +1,112 @@
+body {
+	color: black;
+	font-family: arial, helvetica, sans-serif;
+	margin: 0;
+}
+h1 {
+	font-size: 110%;
+	margin: 0;
+	padding: 6px 4px;
+	color: white !important;
+	background-color: #212121;
+}
+h1 img {
+	margin: 0 4px;
+}
+h1 a, h1 a:visited {
+	float: right;
+	color: #ccc !important;
+	font-size: 70%;
+	font-weight: normal;
+}
+a {
+	text-decoration: none !important;
+	color: #000 !important;
+}
+a:visited {
+	color: #999 !important;
+}
+a:hover {
+	text-decoration: underline;
+}
+h2 {
+	margin: 0;
+	padding: 0 4px;
+	color: black !important;
+}
+h3.func {
+	font-weight: normal;
+	margin-bottom: 0;
+	color: white;
+	background-color: #666;
+	padding: 4px 6px;
+}
+div.example {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+div.examples {
+	display: none;
+}
+h4 {
+	margin: 0;
+	color: #999 !important;
+	font-weight: normal;
+	cursor: pointer;
+	padding-left: 17px;
+	background: url(right.png) 1px 4px no-repeat;
+}
+h4.selected {
+	background-image: url(down.png);
+}
+div.example p {
+	margin: 0;
+}
+pre, h5, div.example p {
+	padding: 4px;
+}
+h5 {
+	color: #666;
+	margin: 0;
+}
+pre {
+	margin: 4px;
+	background-color: #eee;
+}
+div.body {
+	margin: 4px;
+}
+.right {
+	text-align: right;
+	margin: 0;
+	padding-right: 6px;
+}
+td, th {
+	vertical-align: top;
+	padding: 0 3px;
+}
+th {
+	text-align: left;
+	padding-left: 6px;
+	color: #666;
+}
+table {
+	width: 100%;
+	background-color: #eee;
+}
+a.index {
+	padding-left: 6px;
+}
+#menu {
+	background-color: #ccc;
+	margin-bottom: 1em;
+	padding: 4px 4px 6px 4px;
+}
+#menu a {
+	padding: 0 8px 1px 8px;
+	color: #333;
+}
+#menu.index a.index, #menu.contents a.contents {
+	color: #ccc;
+	background-color: #212121;
+}

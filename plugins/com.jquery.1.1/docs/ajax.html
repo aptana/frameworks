@@ -1,0 +1,384 @@
+<html>
+<head>
+<title>Ajax - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="ajax">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Ajax</h2><h3 class='func' id='loadIfModified'><b>loadIfModified</b>(String <b>url</b>, Map <b>params</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the HTML file to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Map</td><td>(optional) Key/value pairs that will be sent to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded (parameters: responseText, status and response itself).</td></tr>
+</table>
+<p>Load HTML from a remote file and inject it into the DOM, only if it's been modified by the server.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;feeds&quot;&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;#feeds&quot;).loadIfModified(&quot;feeds.html&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;feeds&quot;&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='load'><b>load</b>(String <b>url</b>, Object <b>params</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the HTML file to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Object</td><td>(optional) A set of key/value pairs that will be sent as data to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded (parameters: responseText, status and response itself).</td></tr>
+</table>
+<p>Load HTML from a remote file and inject it into the DOM.</p><p>Note: Avoid to use this to load scripts, instead use $.getScript. IE strips script tags when there aren't any other characters in front of it.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;feeds&quot;&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;#feeds&quot;).load(&quot;feeds.html&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;feeds&quot;&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</pre>
+</div>
+<div class='example'>
+<p>Same as above, but with an additional parameter
+and a callback that is executed when the data was loaded.</p>
+<h5>Code</h5>
+<pre>$(&quot;#feeds&quot;).load(&quot;feeds.html&quot;,
+  {limit: 25},
+  function() { alert(&quot;The last 25 entries in the feed have been loaded&quot;); }
+);</pre>
+</div>
+</div>
+<h3 class='func' id='serialize'><b>serialize</b>() : String</h3>
+<p>Serializes a set of input elements into a string of data. This will serialize all given elements.</p><p>A serialization similar to the form submit of a browser is provided by the form plugin. It also takes multiple-selects  into account, while this method recognizes only a single option.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Serialize a selection of input elements to a string</p>
+<h5>Before</h5>
+<pre>&lt;input type='text' name='name' value='John'/&gt;
+&lt;input type='text' name='location' value='Boston'/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;input[@type=text]&quot;).serialize();</pre>
+</div>
+</div>
+<h3 class='func' id='evalScripts'><b>evalScripts</b>() : jQuery</h3>
+<p>Evaluate all script tags inside this jQuery. If they have a src attribute, the script is loaded, otherwise it's content is evaluated.</p><h3 class='func' id='ajaxStart'><b>ajaxStart</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed whenever an AJAX request begins and there is none already active.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Show a loading message whenever an AJAX request starts
+(and none is already active).</p>
+<h5>Code</h5>
+<pre>$(&quot;#loading&quot;).ajaxStart(function(){
+  $(this).show();
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ajaxStop'><b>ajaxStop</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed whenever all AJAX requests have ended.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Hide a loading message after all the AJAX requests have stopped.</p>
+<h5>Code</h5>
+<pre>$(&quot;#loading&quot;).ajaxStop(function(){
+  $(this).hide();
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ajaxComplete'><b>ajaxComplete</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed whenever an AJAX request completes.</p><p>The XMLHttpRequest and settings used for that request are passed as arguments to the callback.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Show a message when an AJAX request completes.</p>
+<h5>Code</h5>
+<pre>$(&quot;#msg&quot;).ajaxComplete(function(request, settings){
+  $(this).append(&quot;&lt;li&gt;Request Complete.&lt;/li&gt;&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ajaxSuccess'><b>ajaxSuccess</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed whenever an AJAX request completes successfully.</p><p>The XMLHttpRequest and settings used for that request are passed as arguments to the callback.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Show a message when an AJAX request completes successfully.</p>
+<h5>Code</h5>
+<pre>$(&quot;#msg&quot;).ajaxSuccess(function(request, settings){
+  $(this).append(&quot;&lt;li&gt;Successful Request!&lt;/li&gt;&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ajaxError'><b>ajaxError</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed whenever an AJAX request fails.</p><p>The XMLHttpRequest and settings used for that request are passed as arguments to the callback. A third argument, an exception object, is passed if an exception occured while processing the request.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Show a message when an AJAX request fails.</p>
+<h5>Code</h5>
+<pre>$(&quot;#msg&quot;).ajaxError(function(request, settings){
+  $(this).append(&quot;&lt;li&gt;Error requesting page &quot; + settings.url + &quot;&lt;/li&gt;&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ajaxSend'><b>ajaxSend</b>(Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>The function to execute.</td></tr>
+</table>
+<p>Attach a function to be executed before an AJAX request is sent.</p><p>The XMLHttpRequest and settings used for that request are passed as arguments to the callback.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Show a message before an AJAX request is sent.</p>
+<h5>Code</h5>
+<pre>$(&quot;#msg&quot;).ajaxSend(function(request, settings){
+  $(this).append(&quot;&lt;li&gt;Starting request at &quot; + settings.url + &quot;&lt;/li&gt;&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='$.get'><b>$.get</b>(String <b>url</b>, Map <b>params</b>, Function <b>callback</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the page to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Map</td><td>(optional) Key/value pairs that will be sent to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded.</td></tr>
+</table>
+<p>Load a remote page using an HTTP GET request.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.get(&quot;test.cgi&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.get(&quot;test.cgi&quot;, { name: &quot;John&quot;, time: &quot;2pm&quot; } );</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.get(&quot;test.cgi&quot;, function(data){
+  alert(&quot;Data Loaded: &quot; + data);
+});</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.get(&quot;test.cgi&quot;,
+  { name: &quot;John&quot;, time: &quot;2pm&quot; },
+  function(data){
+    alert(&quot;Data Loaded: &quot; + data);
+  }
+);</pre>
+</div>
+</div>
+<h3 class='func' id='$.getIfModified'><b>$.getIfModified</b>(String <b>url</b>, Map <b>params</b>, Function <b>callback</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the page to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Map</td><td>(optional) Key/value pairs that will be sent to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded.</td></tr>
+</table>
+<p>Load a remote page using an HTTP GET request, only if it hasn't been modified since it was last retrieved.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getIfModified(&quot;test.html&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getIfModified(&quot;test.html&quot;, { name: &quot;John&quot;, time: &quot;2pm&quot; } );</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getIfModified(&quot;test.cgi&quot;, function(data){
+  alert(&quot;Data Loaded: &quot; + data);
+});</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getifModified(&quot;test.cgi&quot;,
+  { name: &quot;John&quot;, time: &quot;2pm&quot; },
+  function(data){
+    alert(&quot;Data Loaded: &quot; + data);
+  }
+);</pre>
+</div>
+</div>
+<h3 class='func' id='$.getScript'><b>$.getScript</b>(String <b>url</b>, Function <b>callback</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the page to load.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded.</td></tr>
+</table>
+<p>Loads, and executes, a remote JavaScript file using an HTTP GET request.</p><p>Warning: Safari <= 2.0.x is unable to evalulate scripts in a global context synchronously. If you load functions via getScript, make sure to call them after a delay.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getScript(&quot;test.js&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getScript(&quot;test.js&quot;, function(){
+  alert(&quot;Script loaded and executed.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='$.getJSON'><b>$.getJSON</b>(String <b>url</b>, Map <b>params</b>, Function <b>callback</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the page to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Map</td><td>(optional) Key/value pairs that will be sent to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>A function to be executed whenever the data is loaded.</td></tr>
+</table>
+<p>Load JSON data using an HTTP GET request.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getJSON(&quot;test.js&quot;, function(json){
+  alert(&quot;JSON Data: &quot; + json.users[3].name);
+});</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.getJSON(&quot;test.js&quot;,
+  { name: &quot;John&quot;, time: &quot;2pm&quot; },
+  function(json){
+    alert(&quot;JSON Data: &quot; + json.users[3].name);
+  }
+);</pre>
+</div>
+</div>
+<h3 class='func' id='$.post'><b>$.post</b>(String <b>url</b>, Map <b>params</b>, Function <b>callback</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>url</th><td width='15%'>String</td><td>The URL of the page to load.</td></tr>
+<tr><th width='15%'>params</th><td width='15%'>Map</td><td>(optional) Key/value pairs that will be sent to the server.</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the data is loaded.</td></tr>
+</table>
+<p>Load a remote page using an HTTP POST request.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.post(&quot;test.cgi&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.post(&quot;test.cgi&quot;, { name: &quot;John&quot;, time: &quot;2pm&quot; } );</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.post(&quot;test.cgi&quot;, function(data){
+  alert(&quot;Data Loaded: &quot; + data);
+});</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.post(&quot;test.cgi&quot;,
+  { name: &quot;John&quot;, time: &quot;2pm&quot; },
+  function(data){
+    alert(&quot;Data Loaded: &quot; + data);
+  }
+);</pre>
+</div>
+</div>
+<h3 class='func' id='$.ajaxTimeout'><b>$.ajaxTimeout</b>(Number <b>time</b>) : undefined</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>time</th><td width='15%'>Number</td><td>How long before an AJAX request times out.</td></tr>
+</table>
+<p>Set the timeout of all AJAX requests to a specific amount of time. This will make all future AJAX requests timeout after a specified amount of time.</p><p>Set to null or 0 to disable timeouts (default).</p><p>You can manually abort requests with the XMLHttpRequest's (returned by all ajax functions) abort() method.</p><p>Deprecated. Use $.ajaxSetup instead.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Make all AJAX requests timeout after 5 seconds.</p>
+<h5>Code</h5>
+<pre>$.ajaxTimeout( 5000 );</pre>
+</div>
+</div>
+<h3 class='func' id='$.ajaxSetup'><b>$.ajaxSetup</b>(Map <b>settings</b>) : undefined</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>settings</th><td width='15%'>Map</td><td>Key/value pairs to use for all AJAX requests</td></tr>
+</table>
+<p>Setup global settings for AJAX requests.</p><p>See $.ajax for a description of all available options.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Sets the defaults for AJAX requests to the url "/xmlhttp/",
+disables global handlers and uses POST instead of GET. The following
+AJAX requests then sends some data without having to set anything else.</p>
+<h5>Code</h5>
+<pre>$.ajaxSetup( {
+  url: &quot;/xmlhttp/&quot;,
+  global: false,
+  type: &quot;POST&quot;
+} );
+$.ajax({ data: myData });</pre>
+</div>
+</div>
+<h3 class='func' id='$.ajax'><b>$.ajax</b>(Map <b>properties</b>) : XMLHttpRequest</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>properties</th><td width='15%'>Map</td><td>Key/value pairs to initialize the request with.</td></tr>
+</table>
+<p>Load a remote page using an HTTP request.</p><p>This is jQuery's low-level AJAX implementation. See $.get, $.post etc. for higher-level abstractions.</p><p>$.ajax() returns the XMLHttpRequest that it creates. In most cases you won't need that object to manipulate directly, but it is available if you need to abort the request manually.</p><p>Note: Make sure the server sends the right mimetype (eg. xml as "text/xml"). Sending the wrong mimetype will get you into serious trouble that jQuery can't solve.</p><p>Supported datatypes are (see dataType option):</p><p>"xml": Returns a XML document that can be processed via jQuery.</p><p>"html": Returns HTML as plain text, included script tags are evaluated.</p><p>"script": Evaluates the response as Javascript and returns it as plain text.</p><p>"json": Evaluates the response as JSON and returns a Javascript Object</p><p>$.ajax() takes one argument, an object of key/value pairs, that are used to initalize and handle the request. These are all the key/values that can be used:</p><p>(String) url - The URL to request.</p><p>(String) type - The type of request to make ("POST" or "GET"), default is "GET".</p><p>(String) dataType - The type of data that you're expecting back from the server. No default: If the server sends xml, the responseXML, otherwise the responseText is passed to the success callback.</p><p>(Boolean) ifModified - Allow the request to be successful only if the response has changed since the last request. This is done by checking the Last-Modified header. Default value is false, ignoring the header.</p><p>(Number) timeout - Local timeout to override global timeout, eg. to give a single request a longer timeout while all others timeout after 1 second. See $.ajaxTimeout() for global timeouts.</p><p>(Boolean) global - Whether to trigger global AJAX event handlers for this request, default is true. Set to false to prevent that global handlers like ajaxStart or ajaxStop are triggered.</p><p>(Function) error - A function to be called if the request fails. The function gets passed tree arguments: The XMLHttpRequest object, a string describing the type of error that occurred and an optional exception object, if one occured.</p><p>(Function) success - A function to be called if the request succeeds. The function gets passed one argument: The data returned from the server, formatted according to the 'dataType' parameter.</p><p>(Function) complete - A function to be called when the request finishes. The function gets passed two arguments: The XMLHttpRequest object and a string describing the type of success of the request.</p><p>(Object|String) data - Data to be sent to the server. Converted to a query string, if not already a string. Is appended to the url for GET-requests. See processData option to prevent this automatic processing.</p><p>(String) contentType - When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases.</p><p>(Boolean) processData - By default, data passed in to the data option as an object other as string will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send DOMDocuments, set this option to false.</p><p>(Boolean) async - By default, all requests are sent asynchronous (set to true). If you need synchronous requests, set this option to false.</p><p>(Function) beforeSend - A pre-callback to set custom headers etc., the XMLHttpRequest is passed as the only argument.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Load and execute a JavaScript file.</p>
+<h5>Code</h5>
+<pre>$.ajax({
+  type: &quot;GET&quot;,
+  url: &quot;test.js&quot;,
+  dataType: &quot;script&quot;
+})</pre>
+</div>
+<div class='example'>
+<p>Save some data to the server and notify the user once its complete.</p>
+<h5>Code</h5>
+<pre>$.ajax({
+  type: &quot;POST&quot;,
+  url: &quot;some.php&quot;,
+  data: &quot;name=John&amp;location=Boston&quot;,
+  success: function(msg){
+    alert( &quot;Data Saved: &quot; + msg );
+  }
+});</pre>
+</div>
+<div class='example'>
+<p>Loads data synchronously. Blocks the browser while the requests is active.
+It is better to block user interaction with others means when synchronization is
+necessary, instead to block the complete browser.</p>
+<h5>Code</h5>
+<pre>var html = $.ajax({
+ url: &quot;some.php&quot;,
+ async: false
+}).responseText;</pre>
+</div>
+<div class='example'>
+<p>Sends an xml document as data to the server. By setting the processData
+option to false, the automatic conversion of data to strings is prevented.</p>
+<h5>Code</h5>
+<pre>var xmlDocument = [create xml document];
+$.ajax({
+  url: &quot;page.php&quot;,
+  processData: false,
+  data: xmlDocument,
+  success: handleResponse
+});</pre>
+</div>
+</div>

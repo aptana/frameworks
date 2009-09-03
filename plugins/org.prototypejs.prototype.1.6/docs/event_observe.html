@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>observe</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">observe </span><span class="f_TopicHeading" style="color: #ccffff;">:: Event</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">Event.observe(element, eventName, handler[, useCapture = false])</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Registers an event handler on a DOM element.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">An important note</span></p>
+<p>&nbsp;</p>
+<p>First, if you're coming from a background where you'd use HTML event attributes (e.g. &lt;body onload="return myFunction()"&gt;) or DOM Level-0 event properties (e.g. window.onload = myFunction;), you must shed those vile ways :-) and understand what observe does.</p>
+<p>&nbsp;</p>
+<p>It does not replace existing handlers for that same element+event pair. It adds to the list of handlers for that pair. Using observe will never incapacitate earlier calls.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">What are those arguments about?</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">1.</span></td><td>The DOM element you want to observe; as always in Prototype, this can be either an actual DOM reference, or the ID string for the element.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">2.</span></td><td>The standardized event name, as per the DOM level supported by your browser (usually DOM Level 2 Events, see section 1.6 for event names and details). This can be as simple as '<span class="f_CourierFixed">click</span>'.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">3.</span></td><td>The handler function. This can be an anonymous function you create on-the-fly, a vanilla function, a bound event listener, it's up to you.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">4.</span></td><td>Optionally, you can request <span style="font-style: italic;">capturing</span> instead of <span style="font-style: italic;">bubbling</span>. The details are in the DOM spec referred to above. Note that capturing is not supported on several major browsers, and is seldom what you need, anyway. Most often, you won't even provide this argument.</td></tr></table></div><p>&nbsp;</p>
+<p>The requirement people too often forget…</p>
+<p>&nbsp;</p>
+<p>To register a function as an event handler, the<span style="font-weight: bold;"> DOM element</span> that you want to observe<span style="font-weight: bold;"> must already exist</span> in the DOM (in other words, it must have appeared in the source, or been dynamically created and inserted, before your handler-registration script line runs).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">A simple example</span></p>
+<p>&nbsp;</p>
+<p>Let us assume the following (X)HTML fragment:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;form&nbsp;id="signinForm"&nbsp;method="post"&nbsp;action="/auth/signin"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">…</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/form&gt;</span></p>
+<p>&nbsp;</p>
+<p>Here's how to register your function checkForm on form submission:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(</span><span class="f_CodeExample" style="color: #800000;">'signinForm'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'submit'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;checkForm);</span></p>
+<p>&nbsp;</p>
+<p>Of course, you'd want this line of code to run once the form exists in the DOM; but putting inline scripts in the document is pretty obstrusive, so instead we'll go for a simple approach that waits till the page is fully loaded:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(window,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'load'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;Event.observe(</span><span class="f_CodeExample" style="color: #800000;">'signinForm'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'submit'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;checkForm);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>Just a little wrapping…</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Note that</span> if your page is heavy, you might want to run this code before the page is fully loaded: just wait until the DOM is loaded, that will be enough. There is currently no standard event for this, but here is a helpful article you can use.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">The tricky case of methods that need </span><span class="f_Heading1" style="font-family: 'Courier New';">this</span></p>
+<p>&nbsp;</p>
+<p>Passing your event handler as a function argument, you lose its binding. That is, you lose its ability to know what this means to the original function. If you're passing in a method that does need to use the this reference (for instance, to access fields of its container object), you're in trouble.</p>
+<p>&nbsp;</p>
+<p>Or not.</p>
+<p>&nbsp;</p>
+<p>This is an issue specifically addressed by Prototype's <span class="f_CourierFixed">bindAsEventListener</span> function. Check it out if you don't know it already. Usage is simple:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Checks&nbsp;=&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;some&nbsp;stuff&nbsp;our&nbsp;'generic'&nbsp;function&nbsp;needs</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;generic:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(event)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Some&nbsp;generic,&nbsp;all-purpose&nbsp;checking&nbsp;(e.g.&nbsp;empty&nbsp;required&nbsp;fields)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(</span><span class="f_CodeExample" style="color: #800000;">'signinForm'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'submit'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;Checks.generic.bindAsEventListener(Checks));</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">See also</span></p>
+<p>&nbsp;</p>
+<p>The <a href="event_stopobserving.html">stopObserving</a> and <a href="event_unloadcache.html">unloadCache</a> methods are closely related, and worth a look.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

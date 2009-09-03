@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/api/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/dojo_small.png"
+            name="Dojo 1.0.2"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/dojo_small.png"
+                   name="Dojo Samples"/>
+          </extension>
+          <!--
+		   <extension
+		         point="org.eclipse.ui.views">
+		      <view
+		            category="com.aptana.ide.documentation"
+		            class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+		            icon="icons/dojo_small.png"
+		            id="com.aptana.ide.documentation.dojo.shrinksafe"
+		            name="Dojo ShrinkSafe">
+		         <description>bundleresource://org.dojotoolkit.dojo.0.4/views/shrinksafe/shrinksafe.html</description>
+		      </view>
+		   </extension>
+		   -->         
+		   		   		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="org.dojotoolkit.dojo.1.0">
+             </feature>
+          </extension>
+</plugin>

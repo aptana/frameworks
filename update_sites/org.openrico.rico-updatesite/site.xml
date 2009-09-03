@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.openrico.rico.2.0_2.0.0.00002.jar" id="org.openrico.rico.2.0" version="2.0.0.00002">
+      <category name="Rico"/>
+   </feature>
+   <category-def name="Rico" label="Aptana Support for Rico"/>
+</site>

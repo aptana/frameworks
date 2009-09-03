@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Fx.Transitions</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Fx"><a href="#Fx">Class: Fx</a></h1>
+
+<p class="description">Fx.Transitions overrides the base <a href="Fx.htm">Fx</a> constructor, and adds the possibility to use the transition option as string.</p>
+
+<h3>Transition option:</h3>
+
+<p>The equation to use for the effect. See <a href="#Fx-Transitions">Fx.Transitions</a>.
+It accepts both a function (ex: Fx.Transitions.Sine.easeIn) or a string
+('sine:in', 'bounce:out' or 'quad:in:out') that will map to
+Fx.Transitions.Sine.easeIn / Fx.Transitions.Bounce.easeOut /
+Fx.Transitions.Quad.easeInOut</p>
+
+<h1 id="Fx-Transitions"><a href="#Fx-Transitions">Hash: Fx.Transitions</a></h1>
+
+<p class="description">A collection of tweening transitions for use with the <a href="Fx.htm">Fx</a> classes.</p>
+
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">//Elastic.easeOut with default values:</span>
+<span class="kw2">var</span> myFx = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">effect</span><span class="br0">(</span><span class="st0">'margin'</span>, <span class="br0">{</span>transition: Fx.<span class="me1">Transitions</span>.<span class="me1">Elastic</span>.<span class="me1">easeOut</span><span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See also:</h3>
+
+<ul>
+<li><a href="http://www.robertpenner.com/easing/">Robert Penner's Easing Equations</a></li>
+</ul>
+<h2 id="Fx-Transitions:linear"><a href="#Fx-Transitions:linear">Fx.Transitions Method: linear</a></h2>
+
+<p class="description">Displays a linear transition.</p>
+
+<h2 id="Fx-Transitions:quad"><a href="#Fx-Transitions:quad">Fx.Transitions Method: quad</a></h2>
+
+<p class="description">Displays a quadratic transition. Must be used as Quad.easeIn or Quad.easeOut or Quad.easeInOut.</p>
+
+<h2 id="Fx-Transitions:cubic"><a href="#Fx-Transitions:cubic">Fx.Transitions Method: cubic</a></h2>
+
+<p class="description">Displays a cubicular transition. Must be used as Cubic.easeIn or Cubic.easeOut or Cubic.easeInOut.</p>
+
+<h2 id="Fx-Transitions:quart"><a href="#Fx-Transitions:quart">Fx.Transitions Method: quart</a></h2>
+
+<p class="description">Displays a quartetic transition. Must be used as Quart.easeIn or Quart.easeOut or Quart.easeInOut.</p>
+
+<h2 id="Fx-Transitions:quint"><a href="#Fx-Transitions:quint">Fx.Transitions Method: quint</a></h2>
+
+<p class="description">Displays a quintic transition. Must be used as Quint.easeIn or Quint.easeOut or Quint.easeInOut</p>
+
+<h2 id="Fx-Transitions:pow"><a href="#Fx-Transitions:pow">Fx.Transitions Method: pow</a></h2>
+
+<p class="description">Used to generate Quad, Cubic, Quart and Quint.</p>
+
+<h3>Note:</h3>
+
+<ul>
+<li>The default is <code>p^6</code>.</li>
+</ul>
+<h2 id="Fx-Transitions:expo"><a href="#Fx-Transitions:expo">Fx.Transitions Method: expo</a></h2>
+
+<p class="description">Displays a exponential transition. Must be used as Expo.easeIn or Expo.easeOut or Expo.easeInOut.</p>
+
+<h2 id="Fx-Transitions:circ"><a href="#Fx-Transitions:circ">Fx.Transitions Method: circ</a></h2>
+
+<p class="description">Displays a circular transition. Must be used as Circ.easeIn or Circ.easeOut or Circ.easeInOut.</p>
+
+<h2 id="Fx-Transitions:sine"><a href="#Fx-Transitions:sine">Fx.Transitions Method: sine</a></h2>
+
+<p class="description">Displays a sineousidal transition. Must be used as Sine.easeIn or Sine.easeOut or Sine.easeInOut.</p>
+
+<h2 id="Fx-Transitions:back"><a href="#Fx-Transitions:back">Fx.Transitions Method: back</a></h2>
+
+<p class="description">Makes the transition go back, then all forth. Must be used as Back.easeIn or Back.easeOut or Back.easeInOut.</p>
+
+<h2 id="Fx-Transitions:bounce"><a href="#Fx-Transitions:bounce">Fx.Transitions Method: bounce</a></h2>
+
+<p class="description">Makes the transition bouncy. Must be used as Bounce.easeIn or Bounce.easeOut or Bounce.easeInOut.</p>
+
+<h2 id="Fx-Transitions:elastic"><a href="#Fx-Transitions:elastic">Fx.Transitions Method: elastic</a></h2>
+
+<p class="description">Elastic curve. Must be used as Elastic.easeIn or Elastic.easeOut or Elastic.easeInOut</p>
+
+<h1 id="Fx-Transition"><a href="#Fx-Transition">Class: Fx.Transition</a></h1>
+
+<p class="description">This class is only useful for math geniuses who want to write their own easing equations.
+Returns an <a href="Fx.htm">Fx</a> transition function with 'easeIn', 'easeOut', and 'easeInOut' methods.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myTransition = <span class="kw2">new</span> Fx.<span class="me1">Transition</span><span class="br0">(</span>transition<span class="br0">[</span>, params<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>transition - (<em>function</em>) Can be a <a href="#Fx-Transitions">Fx.Transitions</a> function or a user-provided function which will be extended with easing functions.</li>
+<li>params     - (<em>mixed</em>, optional) Single value or an array for multiple values to pass as the second parameter for the transition function.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>function</em>) A function with easing functions.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">//Elastic.easeOut with user-defined value for elasticity.</span>
+<span class="kw2">var</span> myTransition = <span class="kw2">new</span> Fx.<span class="me1">Transition</span><span class="br0">(</span>Fx.<span class="me1">Transitions</span>.<span class="me1">Elastic</span>, <span class="nu0">3</span><span class="br0">)</span>;
+<span class="kw2">var</span> myFx = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">effect</span><span class="br0">(</span><span class="st0">'margin'</span>, <span class="br0">{</span>transition: myTransition.<span class="me1">easeOut</span><span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Fx-Transitions">Fx.Transitions</a></li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Fx">Fx</a></h4>
+<h4 class="menu-item"><a href="#Fx-Transitions">Fx.Transitions</a></h4>
+<div class="menu-item"><a href="#Fx-Transitions:linear">linear</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:quad">quad</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:cubic">cubic</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:quart">quart</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:quint">quint</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:pow">pow</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:expo">expo</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:circ">circ</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:sine">sine</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:back">back</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:bounce">bounce</a></div>
+<div class="menu-item"><a href="#Fx-Transitions:elastic">elastic</a></div>
+<h4 class="menu-item"><a href="#Fx-Transition">Fx.Transition</a></h4>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

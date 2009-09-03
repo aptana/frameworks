@@ -1,0 +1,199 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Draggable</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Draggable</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>To make an element draggable, you create a new instance of class Draggable. </p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">new&nbsp;Draggable('id_of_element',[options]);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="81" bgcolor="#99cc00" style="width:81px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="56" bgcolor="#99cc00" style="width:56px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="67" bgcolor="#99cc00" style="width:67px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="473" bgcolor="#99cc00" style="width:473px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>handle</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Sets whether the element should only be draggable by an embedded handle. The value must be an element reference or element id.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>handle</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.5</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>As above, except now the value may be a string referencing a CSS class value. The first child/grandchild/etc. element found within the element that has this CSS class value will be used as the handle.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>revert</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>false</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If set to true, the element returns to its original position when the drags ends.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>revert</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>false</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Revert can also be an arbitrary function reference, called when the drag ends.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>snap</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>false</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If set to false no snapping occurs. Otherwise takes the forms – xy or [x,y] or function(x,y){ return [x,y] }.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>zindex</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>1000</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>The css zindex of the draggable item.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>constraint</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0 </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If set to ‘horizontal’ or ‘vertical’ the drag will be constrained to take place only horizontally or vertically.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>ghosting</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>??</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>false</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Clones the element and drags the clone, leaving the original in place until the clone is dropped.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>starteffect</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>??</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>Opacity</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Defines the effect to use when the draggable starts being dragged.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>reverteffect</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>?? </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>Move</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Defines the effect to use when the draggable reverts back to its starting position.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>endeffect</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>?? </p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>Opacity</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Defines the effect to use when the draggable stops being dragged.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Additionally, the options parameter can take the following callback function:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="91" bgcolor="#99cc00" style="width:91px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="586" bgcolor="#99cc00" style="width:586px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="91" style="width:91px;"><p>change</p>
+</td>
+<td valign="top" width="586" style="width:586px;"><p>Called whenever the Draggable is moved by dragging. The called function gets the Draggable instance as its parameter.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">//&nbsp;from&nbsp;the&nbsp;shopping&nbsp;cart&nbsp;demo</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Draggable('product_1',{revert:true});</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">//&nbsp;constrain&nbsp;direction&nbsp;and&nbsp;give&nbsp;a&nbsp;handle</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Draggable('my_div',{constraint:'horizontal',handle:'handle'});</span></p>
+<p>&nbsp;</p>
+<p>To disable draggables later on, store it in a variable like:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">var&nbsp;mydrag&nbsp;=&nbsp;new&nbsp;Draggable('product_1',&nbsp;{revert:true})</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;(...&nbsp;do&nbsp;stuff&nbsp;..)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">mydrag.destroy();</span></p>
+<p>&nbsp;</p>
+<p>This way, you can enable and disable dragging at will.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,759 @@
+/**
+ * ScriptDoc for DOM.js
+ */
+
+/**
+ * Constructs an object with w and h properties. obj.toString() returns something like {w: 0, h: 42} for debugging.
+ * @id MochiKit.DOM.Dimensions
+ * @deprecated
+ * @alias Dimensions
+ * @param {Object} w    Width of the object.
+ * @param {Object} h    Height of the object.
+ * @return {Object} Returns an object with the specified width and height.
+ */
+
+/**
+ * Constructs an object with x and y properties. obj.toString() returns something like {x: 0, y: 42} for debugging.
+ * @id MochiKit.DOM.Coordinates
+ * @deprecated
+ * @alias Coordinates
+ * @param {Object} x    X-coordinate of the object.
+ * @param {Object} y    Y-coordinate of the object.
+ * @return {Object} Returns an object with the specified x and y properties.
+ */
+
+/**
+ * Sets opacity for an element.
+ * @id MochiKit.DOM.setOpacity
+ * @deprecated
+ * @alias setOpacity
+ * @alias MochiKit.DOM.setOpacity
+ * @param {Element, String} elem    Element (or string id) to set the opacity for.
+ * @param {Number} o Opacity value for the element. Specify a number from 0 (invisible) to 1 (opaque).
+ */
+
+/**
+ * Returns the absolute pixel width and height of element as an object with w and h properties.
+ * @id MochiKit.DOM.elementDimensions 
+ * @deprecated
+ * @alias elementDimensions
+ * @alias MochiKit.DOM.elementDimensions
+ * @param {Element, String} elem    Element (or string id) to look up.
+ * @return {Object} Returns the absolute pixel width and height of element as an object with w and h properties.
+ * Returns undefined if the element is not found.
+ */
+
+/**
+ * Returns the absolute pixel position of element in the document as an object with x and y properties.
+ * @id MochiKit.DOM.elementPosition 
+ * @deprecated
+ * @alias elementPosition
+ * @alias MochiKit.DOM.elementPosition
+ * @param {Element, String} elem    Element (or string id) to look up.
+ * @param {Element, String} [relativeTo] Element (or string id) that elem is positioned relative to.
+ * If relativeTo is specified, then its coordinates are subtracted from the absolute position of element.
+ * @return {Object} Returns the absolute pixel position of element in the document as an object with x and y properties.
+ * Returns undefined if the element is not found.
+ */
+
+/**
+ * Sets the dimensions of element in the document from an object with w and h properties.
+ * @id MochiKit.DOM.setElementDimensions
+ * @deprecated
+ * @alias setElementDimensions
+ * @alias MochiKit.DOM.setElementDimensions
+ * @param {Element, String} elem Element (or string id) to set the dimensions of.
+ * @param {Object} newSize    Object with w and h properties.
+ * @param {Object} [units] Units for the dimensions. Default is px.
+ */
+
+/**
+ * Sets the absolute position of element in the document from an object with x and y properties.
+ * @id MochiKit.DOM.setElementPosition
+ * @deprecated
+ * @alias setElementPosition
+ * @alias MochiKit.DOM.setElementPosition
+ * @param {Element, String} elem    Element (or string id) to set the position for.
+ * @param {Object} newPos    Object with x and y properties.
+ * @param {Object} [units]    Units for the position. Default is px.
+ */
+
+
+/**
+ * Returns the pixel width and height of the viewport as an object with w and h properties.
+ * @id MochiKit.DOM.getViewportDimensions
+ * @deprecated
+ * @alias getViewportDimensions
+ * @alias MochiKit.DOM.getViewportDimensions
+ * @return {Object} Returns the pixel width and height of the viewport as an object with w and h properties.
+ */
+
+/**
+ * Returns the current window in the DOM Context. 
+ * This will always be the same as the global window unless withWindow is currently executing.
+ * @id MochiKit.DOM.currentWindow
+ * @alias currentWindow
+ * @alias MochiKit.DOM.currentWindow
+ * @return {Window}    Returns the current Window.
+ */
+
+/** 
+ * Returns the current document in the DOM Context. 
+ * This will always be the same as the global document unless withDocument or withWindow is currently executing.
+ * @id MochiKit.DOM.currentDocument
+ * @alias currentDocument
+ * @alias MochiKit.DOM.currentDocument
+ * @return {Document} Returns the current Document.
+ */
+
+/**
+ * Calls func with the window DOM Context set to win and the document DOM Context set to win.document. 
+ * When func() returns or throws an error, the DOM Context will be restored to its previous state.
+ * @id MochiKit.DOM.withWindow
+ * @alias withWindow
+ * @alias MochiKit.DOM.withWindow
+ * @param {Object} win    Window DOM Context for the window.
+ * @param {Function} func    Function to call.
+ * @return {Object} Returns the result of calling func.
+ */
+
+/** 
+ * Searches the DOM tree, starting at elem, for any elements with a name and value attribute.
+ * @id MochiKit.DOM.formContents 
+ * @alias formContents
+ * @alias MochiKit.DOM.formContents
+ * @param {Element} elem    Element to start the search with. Default is Document.
+ * @return {Array} Returns a 2-element Array of names and values suitable for use with MochiKit.Base.queryString.
+ */
+
+/**
+ * Calls func with the doc DOM Context set to doc. 
+ * When func() returns or throws an error, the DOM Context will be restored to its previous state.
+ * @id MochiKit.DOM.withDocument
+ * @alias withDocument
+ * @alias MochiKit.DOM.withDocument
+ * @param {Object} doc    Document DOM Context for the Document.
+ * @param {Function} func    Function to call.
+ * @return {Object} Returns the result of calling func.
+ */
+
+/**
+ * Registers an adapter to convert objects that match check(obj, ctx) to either a DOM element, 
+ * or something that can be converted to a DOM element (e.g. number, bool, string, function, iterable).
+ * @id MochiKit.DOM.registerDOMConverter
+ * @alias registerDOMConverter
+ * @alias MochiKit.DOM.registerDOMConverter
+ * @param {String} name    Unique name of the adapter to register.
+ * @param {Function} check    Function that returns true if check(obj, ctx) returns true.
+ * @param {Function} wrap    Converter function to be registered.
+ * @param {Object} [override]    If present and true, makes the converter the highest precedence function. 
+ * Otherwise, it will be the lowest.
+ */
+
+/**
+ * Used internally by createDOM to coerce a node, a DOM object, or an iterable to null.
+ * @id MochiKit.DOM.coerceToDOM
+ * @alias coerceToDOM
+ * @alias MochiKit.DOM.coerceToDOM
+ * @param {Node} node    Node to coerce.
+ * @param {Object} ctx    Used when node is a function.
+ * @return {Node} Returns the node.
+ */
+
+/**
+ * Sets the value of the given attribute for a DOM element without ever raising an exception.
+ * To set multiple attributes, use updateNodeAttributes.
+ * @id MochiKit.DOM.setNodeAttribute
+ * @alias setNodeAttribute
+ * @alias MochiKit.DOM.setNodeAttribute
+ * @param {Node} node    Node to update.
+ * @param {String} attr    Name of the attribute to update. (IE safe.)
+ * @param {Value} value    Value of the attribute.
+ * @return    {Node, null} Returns the node with updated attributes, or returns null on exception.
+ * @see updateNodeAttributes
+ */
+
+/**
+ * Gets the value of the given attribute for a DOM element without ever raising an exception.
+ * Returns null on exception.
+ * @id MochiKit.DOM.getNodeAttribute
+ * @alias getNodeAttribute
+ * @alias MochiKit.DOM.getNodeAttribute
+ * @param {Node} node    DOM element node to get.
+ * @param {Attr} attr    Name of the attribute. (IE safe.)
+ * @return {Object} Returns the value of the attribute or null.
+ */
+
+/**
+ * Updates the attributes of a DOM element from a specified object.
+ * @id MochiKit.DOM.updateNodeAttributes
+ * @alias updateNodeAttributes
+ * @alias MochiKit.DOM.updateNodeAttributes
+ * @param {Element, String} node    DOM element (or string id) to update.
+ * @param {Object} attrs    Object whose properties will be used to set the attributes 
+ * (e.g. {'class': 'invisible'}), or null if no attributes need to be set. 
+ * If an object is given for the attribute value (e.g. {'style': {'display': 'block'}}),
+ *  MochiKit.Base.updatetree will be used to set that attribute.
+ * @return {Element} Returns the updated DOM element.
+ */
+
+/** 
+ * Appends child nodes to a DOM element using the DOM Coercion Rules.
+ * @id MochiKit.DOM.appendChildNodes
+ * @alias appendChildNodes
+ * @alias MochiKit.DOM.appendChildNodes
+ * @param {Node} ...    One or more child nodes to append.
+ * @return {Element} Returns the modified DOM element.
+ * 
+ */
+
+/**
+ * Removes all children from the specified DOM element, and appends any specified childNodes to it.
+ * @id MochiKit.DOM.replaceChildNodes
+ * @alias replaceChildNodes
+ * @alias MochiKit.DOM.replaceChildNodes
+ * @param {Element} node    Node to remove children from.
+ * @param {Node, Array} [...] One or more child nodes to append.
+ * @return {Element}    Returns the node with its child nodes replaced.
+ */
+
+/**
+ * Creates a DOM fragment of the specified type with the specified attributes and child nodes..
+ * Partially applied versions of this function for common tags are available as aliases.
+ * @id MochiKit.DOM.createDOM
+ * @alias createDOM
+ * @alias MochiKit.DOM.createDOM
+ * @param {String} name    Type of fragment to create (e.g. 'span', 'li', etc).
+ * @param {Object} attr    Object whose properties will be used as the attributes (e.g. {'style': 'display:block'}). 
+ * Null if no attributes need to be set. If attrs is a string, null is used and the string will be considered the first node.
+ * @param {Object} [nodes]    Any child nodes to append using the DOM Coercion Rules.
+ * @return    {Element} Returns a DOM element.
+ * @see updateNodeAttributes
+ */
+
+/** 
+ * Creates a partially applied createDOM function for creating multiple copies of a tag with similar characteristics. 
+ * Use createDOMFunc if you are creating convenience functions for creating tags, 
+ * or if you are creating many tags with similar attributes or contents.
+ * @id MochiKit.DOM.createDOMFunc
+ * @alias createDOMFunc
+ * @alias MochiKit.DOM.createDOMFunc
+ * @param {String} tag    Name of the tag to create.
+ * @param {Object} [attrs]    Attributes to apply to the tag.
+ * @param {Object} [...]    One or more child nodes to apply to the tag.
+ * @return    {Function} Returns a partially applied createDOM function.
+ * @see createDOM
+ */
+
+/**
+ * Removes and returns the specified element.
+ * @id MochiKit.DOM.removeElement
+ * @alias removeElement
+ * @alias MochiKit.DOM.removeElement
+ * @param {Node} elem    Element to remove.
+ * @return {Node} Returns the removed element.
+ */
+
+/**
+ * Replaces one element in a DOM tree with another element and returns the replacement element.
+ * @id MochiKit.DOM.swapDOM
+ * @alias swapDOM
+ * @alias MochiKit.DOM.swapDOM
+ * @param {Element, String} dest    DOM element (or string id of one) to be replaced
+ * @param {Element, String} src    DOM element (or string id) to replace dest with. Specify null to remove dest without replacing it.
+ * @return {Element} Returns the src element.
+ */
+
+/**
+ * Encapsulates the getElementById function, including a check to make sure that the method can be used.
+ * If multiple arguments are given, an Array will be returned.
+ * @id MochiKit.DOM.getElement
+ * @alias getElement
+ * @alias MochiKit.DOM.getElement
+ * @param {Object} ...    One or more id's to get the elements for.
+ * @return    {Element, Array, Object} Returns the Element associated with the id. Returns the id if it is not a string. 
+ * If you specify multiple id's, returns an Array.
+ * @see $(...)
+ */
+
+/**
+ * Looks up a CSS property for the given element.
+ * @id MochiKit.DOM.computedStyle
+ * @deprecated
+ * @alias computedStyle
+ * @alias MochiKit.DOM.computedStyle
+ * @param {Element, String} htmlElement    Element (or string id) to look up.
+ * @param {String} cssProperty    CSS property to look up.
+ * @param {String} mozillaEquivalentCSS    Mozilla equivalent CSS property to look up.
+ * @return {String} Returns the value of the property.
+ */
+
+/**
+ * Returns an array of elements in a parent element that match the tag name and class name provided.
+ * @id MochiKit.DOM.getElementsByTagAndClassName
+ * @alias getElementsByTagAndClassName
+ * @alias MochiKit.DOM.getElementsByTagAndClassName 
+ * @param {Object} tagName    Tag name to look up.
+ * If tagName is null or "*", all elements will be searched for the matching class.
+ * @param {Object} className    Class name to look up.
+ * If className is null, all elements matching the provided tag are returned.
+ * @param {Object} [parent]    Parent element to look up the elements under. 
+ * If parent is a string, it will be looked up with getElement.
+ * @return {Array} Returns an Array of elements that match the specified criteria.
+ */
+
+/**
+ * Sets the property path of target to a function that calls the existing function at that property (if any), then calls func.
+ * If called several times for the same target[path], it will create a stack of functions (instead of just a pair).
+ * addToCallStack is not compatible with MochiKit.Signal. 
+ * Once an event is connected with MochiKit.Signal, no other APIs may be used for that same event.
+ * @id MochiKit.DOM.addToCallStack
+ * @alias addToCallStack
+ * @alias MochiKit.DOM.addToCallStack
+ * @param {Object} target    Target to set the property path for.
+ * @param {Object} path    Property path for the target.
+ * @param {Function} func    Function to call after calling the existing function at the property. 
+ * If target[path]() returns exactly false, func will not be called.
+ * @param {Boolean} once    If true, specifies to set  the target[path] to null after the function call stack has completed.
+ */
+
+/**
+ * Stacks window.onload functions on top of each other. 
+ * Each function added will be called on the onload event in the order that it was added.
+ * You cannot use addLoadEvent in combination with MochiKit.Signal if the onload event is connected. 
+ * Once an event is connected with MochiKit.Signal, you cannot use other APIs for that same event.
+ * @id MochiKit.DOM.addLoadEvent
+ * @alias addLoadEvent
+ * @alias MochiKit.DOM.addLoadEvent
+ * @param {Function} func    Function to add to the onload event.
+ */
+
+/**
+ * Adds an onload event to focus the given element.
+ * You cannot use focusOnLoad in combination with MochiKit.Signal if the onload event is connected. 
+ * Once an event is connected with MochiKit.Signal, you cannot use other APIs for that same event.
+ * @id MochiKit.DOM.focusOnLoad
+ * @alias focusOnLoad
+ * @alias MochiKit.DOM.focusOnLoad
+ * @param {Object} element    Element to give focus to.
+ */
+
+/**
+ * Sets the entire class attribute of element to className.
+ * @id MochiKit.DOM.setElementClass
+ * @alias setElementClass
+ * @alias MochiKit.DOM.setElementClass
+ * @param {Element, String} element    Element or string id to look up.
+ * @param {Object} className    Class name to set the class attribute as.
+ */
+
+/**
+ * Toggles the presence of a given className in the class attribute of all given elements.
+ * @id MochiKit.DOM.toggleElementClass
+ * @alias toggleElementClass
+ * @alias MochiKit.DOM.toggleElementClass 
+ * @param {Object} className    Class name to toggle.
+ * @param {Element, String}  [...] One or more elements (or string id's) to toggle the className on.
+ */
+
+/**
+ * Checks that the element has className set as part of its class attribute, and adds className if it is not already present.
+ * @id MochiKit.DOM.addElementClass
+ * @alias addElementClass
+ * @alias MochiKit.DOM.addElementClass 
+ * @param {Object, String} element    Element to check. (Accepts either the element or string id.)
+ * @param {Object} className    Class name to check for and add, if necessary.
+ * @return {Boolean} Returns true when the className is present.
+ */
+
+/**
+ * Checks that the specified className is present on the element, and if it is, removes the className.
+ * @id MochiKit.DOM.removeElementClass
+ * @alias removeElementClass
+ * @alias MochiKit.DOM.removeElementClass
+ * @param {Element} element    Element to remove the class name from.
+ * @param {String} className    Class name to remove.
+ * @return {Node} Returns the deleted node.
+ */
+
+/**
+ * Replaces fromClass with toClass on an element if fromClass is set. Does not affect other classes on the element.
+ * @id MochiKit.DOM.swapElementClass
+ * @alias swapElementClass
+ * @alias MochiKit.DOM.swapElementClass 
+ * @param {Element, String} element    Element (or string id) to swap the class for.
+ * @param {String} fromClass    The class to swap out.
+ * @param {String} toClass    Replacement class.
+ * @return {Element} Returns the element with the class replaced.
+ */
+
+/**
+ * Returns true if the specified className is found on the element.
+ * @id MochiKit.DOM.hasElementClass
+ * @alias hasElementClass
+ * @alias MochiKit.DOM.hasElementClass 
+ * @param {Element, String} element    Element or string id corresponding to the element to look up.
+ * @param {String} ...    One or more class names to look up for the element.
+ * @return {Boolean} Returns true if the specified className is found on the element. 
+ */
+
+/**
+ * Formats a string for HTML by converting characters that need to be escaped (e.g. lt, gt, quot, apos, amp).
+ * @id MochiKit.DOM.escapeHTML
+ * @alias escapeHTML
+ * @alias MochiKit.DOM.escapeHTML
+ * @param {String} s    String to format.
+ * @return {String} Returns an HTML-safe version of the string.
+ */
+
+/**
+ * Converts a DOM tree to a HTML string using emitHTML.
+ * @id MochiKit.DOM.toHTML
+ * @alias toHTML
+ * @alias MochiKit.DOM.toHTML
+ * @param {Object} dom    DOM tree to convert.
+ * @return {String} Returns an HTML string.
+ */
+
+/**
+ * Convert a DOM tree to an Array of HTML string fragments. Also see toHTML.
+ * @id MochiKit.DOM.emitHTML
+ * @alias emitHTML
+ * @alias MochiKit.DOM.emitHTML
+ * @param {Object} dom    DOM tree to convert.
+ * @param {Object} [lst]    List of HTML string fragments to add to.
+ * @return {Object}    Returns a list of HTML string fragments.
+ * @see toHTML
+ */
+
+/**
+ * Changes the style.display for the given element(s). 
+ * Usually used as the partial forms "showElement(element, ...)" or "hideElement(element, ...)"
+ * @id MochiKit.DOM.setDisplayForElement
+ * @alias setDisplayForElement
+ * @alias MochiKit.DOM.setDisplayForElement
+ * @deprecated
+ * @param {Object} display    Display property for the element.
+ * @param {Element, String, Array} ...    One or more Elements (or string id's) to set the display property for.
+ */
+
+/**
+ * Walks a DOM tree in order and scrapes all of the text out of it as a string.
+ * @id MochiKit.DOM.scrapeText
+ * @alias scrapeText
+ * @alias MochiKit.DOM.scrapeText
+ * @param {Node} node    Node to start the node walking with.
+ * @param {Object} [asArray]    If present and true, specifies that the individual text nodes should be returned in an Array.
+ * @return {String, Array} String or Array of the text nodes in the DOM tree.
+ */
+
+/**
+ * Removes all text node children that contain only whitespace from the specified element. 
+ * Useful in situations where such empty text nodes can interfere with DOM traversal.
+ * @id MochiKit.DOM.removeEmptyTextNodes
+ * @alias removeEmptyTextNodes
+ * @alias MochiKit.DOM.removeEmptyTextNodes
+ * @param {Node} element    Node to remove the empty text node children from.
+ */
+
+/**
+ * Shorthand for createDOMFunc("ul");
+ * @id MochiKit.DOM.UL
+ * @alias UL
+ * @alias MochiKit.DOM.UL
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("ol");
+ * @id MochiKit.DOM.OL
+ * @alias OL
+ * @alias MochiKit.DOM.OL
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("li");
+ * @id MochiKit.DOM.LI
+ * @alias LI
+ * @alias MochiKit.DOM.LI
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("td");
+ * @id MochiKit.DOM.TD
+ * @alias TD
+ * @alias MochiKit.DOM.TD
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("tr");
+ * @id MochiKit.DOM.TR
+ * @alias TR
+ * @alias MochiKit.DOM.TR
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("tbody");
+ * @id MochiKit.DOM.TBODY
+ * @alias TBODY
+ * @alias MochiKit.DOM.TBODY
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("thead");
+ * @id MochiKit.DOM.THEAD
+ * @alias THEAD
+ * @alias MochiKit.DOM.THEAD
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("tfoot");
+ * @id MochiKit.DOM.TFOOT
+ * @alias TFOOT
+ * @alias MochiKit.DOM.TFOOT
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("table");
+ * @id MochiKit.DOM.TABLE
+ * @alias TABLE
+ * @alias MochiKit.DOM.TABLE
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("th");
+ * @id MochiKit.DOM.TH
+ * @alias TH
+ * @alias MochiKit.DOM.TH
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("input");
+ * @id MochiKit.DOM.INPUT
+ * @alias INPUT
+ * @alias MochiKit.DOM.INPUT
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("span");
+ * @id MochiKit.DOM.SPAN
+ * @alias SPAN
+ * @alias MochiKit.DOM.SPAN
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("a");
+ * @id MochiKit.DOM.A
+ * @alias A
+ * @alias MochiKit.DOM.A
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("div");
+ * @id MochiKit.DOM.DIV
+ * @alias DIV
+ * @alias MochiKit.DOM.DIV
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("img");
+ * @id MochiKit.DOM.IMG
+ * @alias IMG
+ * @alias MochiKit.DOM.IMG
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("button");
+ * @id MochiKit.DOM.BUTTON
+ * @alias BUTTON
+ * @alias MochiKit.DOM.BUTTON
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("tt");
+ * @id MochiKit.DOM.TT
+ * @alias TT
+ * @alias MochiKit.DOM.TT
+ * @see createDOMFunc
+ */
+
+/** 
+ * Shorthand for createDOMFunc("pre");
+ * @id MochiKit.DOM.PRE
+ * @alias PRE
+ * @alias MochiKit.DOM.PRE
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("h1");
+ * @id MochiKit.DOM.H1
+ * @alias H1
+ * @alias MochiKit.DOM.H1
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("h2");
+ * @id MochiKit.DOM.H2
+ * @alias H2
+ * @alias MochiKit.DOM.H2
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("h3");
+ * @id MochiKit.DOM.H3
+ * @alias H3
+ * @alias MochiKit.DOM.H3
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("br");
+ * @id MochiKit.DOM.BR
+ * @alias BR
+ * @alias MochiKit.DOM.BR
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("hr");
+ * @id MochiKit.DOM.HR
+ * @alias HR
+ * @alias MochiKit.DOM.HR
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("label");
+ * @id MochiKit.DOM.LABEL
+ * @alias LABEL
+ * @alias MochiKit.DOM.LABEL
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("textarea");
+ * @id MochiKit.DOM.TEXTAREA
+ * @alias TEXTAREA
+ * @alias MochiKit.DOM.TEXTAREA
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("form");
+ * @id MochiKit.DOM.FORM
+ * @alias FORM
+ * @alias MochiKit.DOM.FORM
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("p");
+ * @id MochiKit.DOM.P
+ * @alias P
+ * @alias MochiKit.DOM.P
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("select");
+ * @id MochiKit.DOM.SELECT
+ * @alias SELECT
+ * @alias MochiKit.DOM.SELECT
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("option");
+ * @id MochiKit.DOM.OPTION
+ * @alias OPTION
+ * @alias MochiKit.DOM.OPTION
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("optgroup");
+ * @id MochiKit.DOM.OPTGROUP
+ * @alias OPTGROUP
+ * @alias MochiKit.DOM.OPTGROUP
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("legend");
+ * @id MochiKit.DOM.LEGEND
+ * @alias LEGEND
+ * @alias MochiKit.DOM.LEGEND
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("fieldset");
+ * @id MochiKit.DOM.FIELDSET
+ * @alias FIELDSET
+ * @alias MochiKit.DOM.FIELDSET
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("strong");
+ * @id MochiKit.DOM.STRONG
+ * @alias STRONG
+ * @alias MochiKit.DOM.STRONG
+ * @see createDOMFunc
+ */
+
+/**
+ * Shorthand for createDOMFunc("canvas");
+ * @id MochiKit.DOM.CANVAS
+ * @alias CANVAS
+ * @alias MochiKit.DOM.CANVAS
+ * @see createDOMFunc
+ */
+
+/**
+ * Partial form of setDisplayForElement, specifically "partial(setDisplayForElement, 'none')".
+ * @id MochiKit.DOM.hideElement
+ * @alias hideElement
+ * @alias MochiKit.DOM.hideElement
+ */
+
+/**
+ * Partial form of setDisplayForElement, specifically "partial(setDisplayForElement, 'block')".
+ * @id MochiKit.DOM.showElement
+ * @alias showElement
+ * @alias MochiKit.DOM.showElement
+ */
+
+/**
+ * Removes and returns node from a DOM tree.
+ * @id MochiKit.DOM.removeElement
+ * @alias removeElement
+ * @alias MochiKit.DOM.removeElement
+ * @return {Element} Returns the removed element.
+ */
+
+/**
+ * Alias for getElement(id[, ... ])
+ * @id MochiKit.DOM.$
+ * @alias $
+ * @alias MochiKit.DOM.$
+ * @see getElement
+ */

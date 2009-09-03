@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-text-">
+<span class="fn"><a class="name" href="#link-text-">text</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input elements of type text.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all text inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;input&nbsp;=&nbsp;$(<span class="string">":text"</span>).css({background:<span class="string">"yellow"</span>,&nbsp;border:<span class="string">"3px&nbsp;red&nbsp;solid"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"For&nbsp;this&nbsp;type&nbsp;jQuery&nbsp;found&nbsp;"</span>&nbsp;+&nbsp;input.length&nbsp;+&nbsp;<span class="string">"."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;option</span><span class="tag">/&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-text-">
+<span class="fn"><a class="name" href="#link-text-">text</a>(  ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Get the combined text contents of all matched elements.<br>The
+result is a string that contains the combined text contents of all
+matched elements. This method works on both HTML and XML documents.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the text in the first paragraph (stripping out the html), then
+set the html of the last paragraph to show it is just text (the red
+bold is gone).</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;$(<span class="string">"p:first"</span>).text();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p:last"</span>).html(str);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Test<span class="tag">&lt;/b&gt;</span>&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-text-">
+<span class="fn"><a class="name" href="#link-text-">text</a>(  ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Get the combined text contents of all matched elements.<br>The
+result is a string that contains the combined text contents of all
+matched elements. This method works on both HTML and XML documents.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the text in the first paragraph (stripping out the html), then
+set the html of the last paragraph to show it is just text (the red
+bold is gone).</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;$(<span class="string">"p:first"</span>).text();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p:last"</span>).html(str);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Test<span class="tag">&lt;/b&gt;</span>&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-text-val">
+<span class="fn"><a class="name" href="#link-text-val">text</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The text value to set the contents of the element to.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the text contents of all matched elements.<br>Similar to html(), but escapes HTML (replace "&lt;" and "&gt;" with their HTML entities).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add text to the paragraph (notice the bold tag is escaped).</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).text(<span class="string">"&lt;b&gt;Some&lt;/b&gt;&nbsp;new&nbsp;text."</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Test&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-text-val">
+<span class="fn"><a class="name" href="#link-text-val">text</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The text value to set the contents of the element to.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the text contents of all matched elements.<br>Similar to html(), but escapes HTML (replace "&lt;" and "&gt;" with their HTML entities).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add text to the paragraph (notice the bold tag is escaped).</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).text(<span class="string">"&lt;b&gt;Some&lt;/b&gt;&nbsp;new&nbsp;text."</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Test&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-toggle-">
+<span class="fn"><a class="name" href="#link-toggle-">toggle</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Toggles each of the set of matched elements.<br>If they are shown, toggle makes them hidden. If they are hidden, toggle makes them shown.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Toggles all paragraphs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).toggle();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Toggle<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:&nbsp;none"</span><span class="tag">&gt;</span>Good&nbsp;Bye<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-toggle-fnfn">
+<span class="fn"><a class="name" href="#link-toggle-fnfn">toggle</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute on every even click.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute on every odd click.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Toggle between two function calls every other click.<br>&lt;p&gt;Whenever
+a matched element is clicked, the first specified function is fired,
+when clicked again, the second is fired. All subsequent clicks continue
+to rotate through the two functions.&lt;/p&gt;&lt;p&gt;Use
+unbind("click") to remove.&lt;/p&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click to toggle highlight on the list item.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"li"</span>).toggle(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"list-style-type"</span>,&nbsp;<span class="string">"disc"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"blue"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({<span class="string">"list-style-type"</span>:<span class="string">""</span>,&nbsp;<span class="string">"color"</span>:<span class="string">""</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Go&nbsp;to&nbsp;the&nbsp;store<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Pick&nbsp;up&nbsp;dinner<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Debug&nbsp;crash<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Take&nbsp;a&nbsp;jog<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To toggle a style on table cells:</p>
+<pre><code class="javascript">$(<span class="string">"td"</span>).toggle(&nbsp;
+&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).addClass(<span class="string">"selected"</span>);&nbsp;
+&nbsp;&nbsp;},&nbsp;
+&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).removeClass(<span class="string">"selected"</span>);&nbsp;
+&nbsp;&nbsp;}&nbsp;
+);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-toggleClass-class">
+<span class="fn"><a class="name" href="#link-toggleClass-class">toggleClass</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A CSS class to toggle on the elements.">class</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Adds the specified class if it is not present, removes the specified class if it is present.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Toggle the class 'highlight' when a paragraph is clicked.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).toggleClass(<span class="string">"highlight"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue"</span><span class="tag">&gt;</span>Click&nbsp;to&nbsp;toggle<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue&nbsp;highlight"</span><span class="tag">&gt;</span>highlight<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue"</span><span class="tag">&gt;</span>on&nbsp;these<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue"</span><span class="tag">&gt;</span>paragraphs<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-trigger-type data ">
+<span class="fn"><a class="name" href="#link-trigger-type%20data%20">trigger</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An event type to trigger.">type </span>, <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="Additional data to pass as arguments (after the event object) to the event handler.">data </span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Trigger a type of event on every matched element.<br>&lt;p&gt;This
+will also cause the default action of the browser with the same name
+(if one exists) to be executed. For example, passing 'submit' to the
+trigger() function will also cause the browser to submit the form. This
+default action can be prevented by returning false from one of the
+functions bound to the event.&lt;/p&gt;&lt;p&gt;You can also trigger
+custom events registered with bind.&lt;/p&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Clicks to button #2 also trigger a click for button #1.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button:first"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update($(<span class="string">"span:first"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button:last"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button:first"</span>).trigger(<span class="string">'click'</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update($(<span class="string">"span:last"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;update(j)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;<span class="global">parseInt</span>(j.text(),&nbsp;<span class="numbers">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j.text(n&nbsp;+&nbsp;<span class="numbers">1</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Button&nbsp;#1<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button&nbsp;#2<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>0<span class="tag">&lt;/span&gt;</span>&nbsp;button&nbsp;#1&nbsp;clicks.<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>0<span class="tag">&lt;/span&gt;</span>&nbsp;button&nbsp;#2&nbsp;clicks.<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To submit the first form without using the submit() function, try:</p>
+<pre><code class="javascript">$(<span class="string">"form:first"</span>).trigger(<span class="string">"submit"</span>)</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To pass arbitrary data to an event:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).click(&nbsp;<span class="keywords">function</span>&nbsp;(event,&nbsp;a,&nbsp;b)&nbsp;{&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;when&nbsp;a&nbsp;normal&nbsp;click&nbsp;fires,&nbsp;a&nbsp;and&nbsp;b&nbsp;are&nbsp;undefined</span>&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;for&nbsp;a&nbsp;trigger&nbsp;like&nbsp;below&nbsp;a&nbsp;refers&nbsp;too&nbsp;"foo"&nbsp;and&nbsp;b&nbsp;refers&nbsp;to&nbsp;"bar"</span>&nbsp;
+&nbsp;
+}&nbsp;).trigger(<span class="string">"click"</span>,&nbsp;[<span class="string">"foo"</span>,&nbsp;<span class="string">"bar"</span>]);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>This would display a "Hello World!" alert box.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).bind(<span class="string">"myEvent"</span>,&nbsp;<span class="keywords">function</span>&nbsp;(event,&nbsp;message1,&nbsp;message2)&nbsp;{&nbsp;
+&nbsp;&nbsp;alert(message1&nbsp;+&nbsp;<span class="string">'&nbsp;'</span>&nbsp;+&nbsp;message2);&nbsp;
+});&nbsp;
+$(<span class="string">"p"</span>).trigger(<span class="string">"myEvent"</span>,&nbsp;[<span class="string">"Hello"</span>,<span class="string">"World!"</span>]);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-triggerHandler-type data ">
+<span class="fn"><a class="name" href="#link-triggerHandler-type%20data%20">triggerHandler</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An event type to trigger.">type </span>, <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="Additional data to pass as arguments (after the event object) to the event handler.">data </span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">This particular method triggers all bound event
+handlers on an element (for a specific event type) WITHOUT executing
+the browsers default actions.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>If you called .triggerHandler() on a focus event - the browsers
+default focus action would not be triggered, only the event handlers
+bound to the focus event.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#old"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).trigger(<span class="string">"focus"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#new"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).triggerHandler(<span class="string">"focus"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).focus(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"&lt;span&gt;Focused!&lt;/span&gt;"</span>).appendTo(<span class="string">"body"</span>).fadeOut(<span class="numbers">1000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"old"</span><span class="tag">&gt;</span>.trigger("focus")<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"new"</span><span class="tag">&gt;</span>.triggerHandler("focus")<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"To&nbsp;Be&nbsp;Focused"</span><span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

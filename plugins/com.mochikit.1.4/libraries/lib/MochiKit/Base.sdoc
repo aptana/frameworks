@@ -1,0 +1,1023 @@
+/**
+ * ScriptDoc for Base.js
+ */
+
+/**
+ * Replaces the key:value pairs of self with those from other object(s). 
+ * Key:value pairs from later objects will overwrite those from earlier objects.
+ * @id MochiKit.Base.update
+ * @alias update
+ * @param {Object} self    Self object to update.
+ * @param {Object} ... One or more objects to use as the source for the new key:value pairs for self.
+ * @return {Object} Returns a mutated self object with new key:value pairs. If self is null, creates
+ * and returns a new object instance. To create a new object instead of mutating self, use the merge function.
+ */
+ 
+/**
+ * Converts a hyptenated string to camel-case format (e.g. stringToCamelCase).
+ * @id MochiKit.Base.camelize
+ * @alias camelize
+ * @alias MochiKit.Base.camelize
+ * @param {String} selector Hyphenated string.
+ * @return {String} Returns a camel-case version of the string.
+ */ 
+ 
+/**
+ * Returns a function that will return a number one greater than the previous returned value, starting at n.
+ * @id MochiKit.Base.counter
+ * @alias counter
+ * @alias MochiKit.Base.counter
+ * @param {Object} n    Number to start with. Default is 1.
+ * @return {Function) Returns a function that will return a number one greater than the previous returned value, starting at n.
+ */
+ 
+/**
+ * Clones the specified object using that object as its prototype.
+ * @id MochiKit.Base.clone
+ * @alias clone
+ * @alias MochiKit.Base.clone
+ * @param {Object} obj    Object to use as the prototype for the clone.
+ * @return {Object} Returns a clone of the object.
+ */
+
+/**
+ * Returns an Array of all of the items in the list. Flattens items that are already Arrays recursively.
+ * e.g. compare(flattenArray([1, [2, 3, [4, 5]]]), [1, 2, 3, 4, 5]) == 0.
+ * @id MochiKit.Base.flattenArray
+ * @alias flattenArray
+ * @alias MochiKit.Base.flattenArray
+ * @param {Object} lst    List of items to flatten into an Array.
+ * @return {Array} Returns a new Array.
+ */
+ 
+/**
+ * Creates an Array out of the specified arguments.
+ * @id MochiKit.Base.flattenArguments
+ * @alias flattenArguments
+ * @alias MochiKit.Base.flattenArguments
+ * @param {Object} ...    One or more arguments to create the Array from.
+ * @return {Array} Returns a new Array.
+ */ 
+ 
+/**
+ * Extends an array with an array-like object, starting from the skip index, if given. 
+ * @id MochiKit.Base.extend
+ * @alias extend
+ * @alias MochiKit.Base.extend
+ * @param {Array} self Array to extend. Creates a new array if self is null.
+ * @param {Object} obj    Array-like object to extend self with.
+ * @param {Object} [skip]    Index to start extending self from.
+ * @return {Array} Returns a mutated self Array.
+ */
+
+/**
+ * Replaces the key:value pairs of self with those from other object(s). 
+ * If a given key has an object value in both self and obj,
+ * this function will be called recursively, updating instead of replacing that object.
+ * @id MochiKit.Base.updatetree
+ * @alias updatetree
+ * @alias MochiKit.Base.updatetree
+ * @param {Object} self    Self object to update.
+ * @param {Object} ...    One or more objects to use as the source for the new key:value pairs of self.
+ * @return {Object}  Returns a mutated self object. If self is null, creates and returns a new object instance.
+ */
+ 
+/**
+ * Adds all properties from other object(s) to self that it does not already have set.
+ * @id MochiKit.Base.setdefault
+ * @alias setdefault
+ * @alias MochiKit.Base.setdefault
+ * @param {Object} self Self object to add the properties to.
+ * @param {Object} ... One or more objects to add the properties to self from.
+ * @return {Object} Returns a mutated self object. If self is null, returns a newly created object instance.
+ */
+ 
+/**
+ * Returns an Array of the property names of an object.
+ * @id MochiKit.Base.keys
+ * @alias keys
+ * @alias MochiKit.Base.keys
+ * @param {Object} obj    Object to return the property names for.
+ * @return {Array} Returns an Array of the property names of an object.
+ */
+ 
+/**
+ * Returns an Array of [propertyName, propertyValue] pairs for the given object.
+ * @id MochiKit.Base.items
+ * @alias items
+ * @alias MochiKit.Base.items
+ * @param {Object} obj    Object to get the propertyName-Value pairs for.
+ * @return {Array} Returns an Array of [propertyName, propertyValue] pairs with the order determined by propertyName.
+ */ 
+
+/**
+ * @classDescription This class contains a table of JavaScript's operators for usage with map, filter, etc.
+ * @id MochiKit.Base.operator
+ * @alias operator
+ * @alias MochiKit.Base.operator
+ */
+
+/**
+ * Returns the logical truth of a.
+ * @id MochiKit.Base.truth
+ * @alias truth
+ * @alias MochiKit.Base.truth
+ * @param {Object} a Object to get the logical truth of.
+ * @return {Object} Returns the logical truth of a.
+ */     
+
+/**
+ * Returns the logical not of a.
+ * @id MochiKit.Base.lognot
+ * @alias lognot
+ * @alias MochiKit.Base.lognot
+ * @param {Object} a    Object to get the logical not of.
+ * @return {Object} Returns the logical not of a.
+ */
+
+/**
+ * Returns the logical identity of a.
+ * @id MochiKit.Base.identity
+ * @alias identity
+ * @alias MochiKit.Base.identity
+ * @param {Object} a    Object to get the logical identity of.
+ * @return {Object} Returns the logical identity of a.
+ */ 
+
+/**
+ * Returns the bitwise not of a.
+ * @id MochiKit.Base.not
+ * @alias not
+ * @alias MochiKit.Base.not
+ * @param {Number} a    Number to get the bitwise not of.
+ * @return {Number}    Returns the bitwise not of a.
+ */
+
+/**
+ * Negates a.
+ * @id MochiKit.Base.neg
+ * @alias neg
+ * @alias MochiKit.Base.neg
+ * @param {Number} a    Number to be negated.
+ * @return {Number} Returns the negation of a.
+ */
+
+/**
+ * Adds a and b.
+ * @id MochiKit.Base.add
+ * @alias add
+ * @alias MochiKit.Base.add
+ * @param {Number} a    First number to add.
+ * @param {Number} b    Second number to add.
+ * @return {Number} Returns the sum of a and b.
+ */
+
+/**
+ * Subtracts b from a.
+ * @id MochiKit.Base.sub
+ * @alias sub
+ * @alias MochiKit.Base.sub
+ * @param {Number} a    Number to subtract b from.
+ * @param {Number} b    Number to subtract.
+ * @return {Number} Returns the difference of a and b.
+ */
+
+/**
+ * Divides a by b.
+ * @id MochiKit.Base.div
+ * @alias div
+ * @alias MochiKit.Base.div
+ * @param {Number} a    Number to divide by b.
+ * @param {Number} b    Number to divide into a.
+ * @return {Number} Returns the result of a / b.
+ */
+
+/**
+ * Returns the remainder of a / b.
+ * @id MochiKit.Base.mod
+ * @alias mod
+ * @alias MochiKit.Base.mod
+ * @param {Number} a    Number to divide by b.
+ * @param {Number} b    Number to divide into a.
+ * @return {Number} Returns the remainder of a / b.
+ */
+
+/**
+ * Multiplies a * b.
+ * @id MochiKit.Base.mul
+ * @alias mul
+ * @alias MochiKit.Base.mul
+ * @param {Number} a    Number to multiply by b.
+ * @param {Number} b    Number to multiply by a.
+ * @return {Number} Returns the product of a * b.
+ */
+
+/**
+ * Bitwise and of a & b.
+ * @id MochiKit.Base.and
+ * @alias and
+ * @alias MochiKit.Base.and
+ * @param {Object} a    Object to get the bitwise and of with b.
+ * @param {Object} b    Object to get the bitwise and of with a.
+ * @return {Object} Returns the bitwise and of a & b.
+ */  
+
+/**
+ * Bitwise or of a | b.
+ * @id MochiKit.Base.or
+ * @alias or
+ * @alias MochiKit.Base.or
+ * @param {Object} a    Object to get the bitwise or of with b.
+ * @param {Object} b    Object to get the bitwise or of with a.
+ * @return {Object} Returns the bitwise or of a | b.
+ */
+
+/**
+ * Bitwise exclusive or of a ^ b.
+ * @alias xor
+ * @alias MochiKit.Base.xor
+ * @param {Object} a    Object to get the bitwise exclusive or of with b.
+ * @param {Object} b    Object to get the bitwise exclusive or of with a.
+ * @return {Object} Returns the bitwise exclusive or of a ^ b.
+ */
+
+/**
+ * Bitwise left shift of a << b.
+ * @id MochiKit.Base.lshift
+ * @alias lshift
+ * @alias MochiKit.Base.lshift
+ * @param {Object} a    Object to get the bitwise left shift of with b.
+ * @param {Object} b    Object to get the bitwise left shift of with a.
+ * @return {Object} Returns the bitwise left shift of a << b.
+ */
+
+/**
+ * Bitwise right shift of a >> b.
+ * @id MochiKit.Base.rshift
+ * @alias rshift
+ * @alias MochiKit.Base.rshift
+ * @param {Object} a    Object to get the bitwise right shift of with b.
+ * @param {Object} b    Object to get the bitwise right shift of with a.
+ * @return {Object} Returns the bitwise right shift of a >> b.
+ */    
+
+/**
+ * Bitwise unsigned right shift of a >>> b.
+ * @id MochiKit.Base.zrshift
+ * @alias zrshift
+ * @alias MochiKit.Base.zrshift
+ * @param {Object} a    Object to get the bitwise unsigned right shift of with b.
+ * @param {Object} b    Object to get the bitwise unsigned right shift of with a.
+ * @return {Object} Returns the bitwise unsigned right shift of a >>> b.
+ */
+
+/**
+ * Returns true if a == b.
+ * @id MochiKit.Base.eq
+ * @alias eq
+ * @alias MochiKit.Base.eq
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a == b.
+ */
+
+/**
+ * Returns true if a != b.
+ * @id MochiKit.Base.ne
+ * @alias ne
+ * @alias MochiKit.Base.ne
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a != b.
+ */
+
+/**
+ * Returns true if a is greater than (>) b.
+ * @id MochiKit.Base.gt
+ * @alias gt
+ * @alias MochiKit.Base.gt
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a > b.
+ */    
+
+/**
+ * Returns true if a is greater than or equal to (>=) b.
+ * @id MochiKit.Base.ge
+ * @alias ge
+ * @alias MochiKit.Base.ge
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return    {Boolean} Returns true if a >= b.
+ */
+
+/**
+ * Returns true if a is less than (<) b.
+ * @id MochiKit.Base.lt
+ * @alias lt
+ * @alias MochiKit.Base.lt
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a < b.
+ */
+
+/**
+ * Returns true if a is less than or equal to (<=) b.
+ * @id MochiKit.Base.le
+ * @alias le
+ * @alias MochiKit.Base.le
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a <= b.
+ */
+
+/**
+ * Uses the compare function to return true if a == b.
+ * @id MochiKit.Base.ceq
+ * @alias ceq
+ * @alias MochiKit.Base.ceq
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a == b.
+ */
+
+/**
+ * Uses the compare function to return true if a != b.
+ * @id MochiKit.Base.cne
+ * @alias cne
+ * @alias MochiKit.Base.cne
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a != b.
+ */
+
+/**
+ * Uses the compare function to return true if a > b.
+ * @id MochiKit.Base.cgt
+ * @alias cgt
+ * @alias MochiKit.Base.cgt
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a > b.
+ */ 
+
+/**
+ * Uses the compare function to return true if a >= b.
+ * @id MochiKit.Base.cge
+ * @alias cge
+ * @alias MochiKit.Base.cge
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a >= b.
+ */
+
+/**
+ * Uses the compare function to return true if a < b.
+ * @id MochiKit.Base.clt
+ * @alias clt
+ * @alias MochiKit.Base.clt
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a < b.
+ */
+
+/**
+ * Uses the compare function to return true if a <= b.
+ * @id MochiKit.Base.cle
+ * @alias cle
+ * @alias MochiKit.Base.cle
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Boolean} Returns true if a <= b.
+ */  
+
+/**
+ * Binary logical and operator.
+ * @id MochiKit.Base.logand
+ * @alias logand
+ * @alias MochiKit.Base.logand
+ * @param {Object} a    Object to get the binary logical and with b.
+ * @param {Object} b    Object to get the binary logical and with a.
+ * @return    {Object} Returns the binary logical and of a && b.
+ */ 
+
+/**
+ * Binary logical or operator.
+ * @id MochiKit.Base.logor
+ * @alias logor
+ * @alias MochiKit.Base.logor
+ * @param {Object} a    Object to get the binary logical or with b.
+ * @param {Object} b    Object to get the binary logical or with a.
+ * @return {Object} Returns the binary logical or of a || b.
+ */
+
+/**
+ * Binary logical "has" property.
+ * @id MochiKit.Base.contains
+ * @alias contains
+ * @alias MochiKit.Base.contains
+ * @param {Object} a    Property to get b in.
+ * @param {Object} b    Property to get in a.
+ * @return {Object} Returns b in a.
+ */  
+
+/**
+ * Returns a function that forwards a function call to this.name.
+ * @id MochiKit.Base.forwardCall
+ * @alias forwardcall
+ * @alias MochiKit.Base.forwardcall
+ * @param {Function} func    Function call to forward.
+ * @return {Function} Returns a function that forwards a function call to this.name.
+ */ 
+
+/** 
+ * Returns a function that returns the argument of the function.
+ * @id MochiKit.Base.itemgetter
+ * @alias itemgetter
+ * @alias MochiKit.Base.itemgetter
+ * @param {Function} func    Function to return the argument of.
+ * @return {Function} Returns a function.
+ */
+
+/**
+ * Given a set of types (as string arguments), returns a function(obj[, ...]) 
+ * that returns true if the types of the given arguments are all members of that set.
+ * @id MochiKit.Base.typeMatcher    
+ * @alias typeMatcher
+ * @alias MochiKit.Base.typeMatcher
+ * @param {Object} ...    One or more types to test.
+ * @return {Function} Function that returns true if all of the specified types are members of the set.
+ */
+
+/**
+ * Returns true if all the given arguments are null.
+ * @id MochiKit.Base.isNull
+ * @alias isNull
+ * @alias MochiKit.Base.isNull
+ * @param {Object} ... One or more arguments to test for being null.
+ * @return {Boolean} Returns true if all given arguments are null.
+ */
+
+/**
+ * Returns true if all arguments are undefined or null
+ * @id MochiKit.Base.isUndefinedOrNull
+ * @alias isUndefinedOrNull
+ * @alias MochiKit.Base.isUndefinedOrNull
+ * @param {Object} ...    One or more arguments to test for being undefined or null.
+ * @return {Boolean} Returns true if all given arguments are undefined or null.
+ */
+
+/**
+ * Returns true if all the given Array-like or string arguments are empty (i.e. obj.length == 0).
+ * @alias isEmpty
+ * @alias MochiKit.Base.isEmpty
+ * @param {Object} ... One or more arguments to test for being empty.
+ * @return {Boolean} Returns true if all given arguments are empty.
+ */
+
+/**
+ * Returns true if all the given Array-like or string arguments are not empty (i.e. obj.length > 0).
+ * @alias isNotEmpty
+ * @alias MochiKit.Base.isNotEmpty
+ * @param {Object} ...    One or more arguments to test for being not empty.
+ * @return {Boolean} Returns true if all given arguments are not empty.
+ */
+
+/**
+ * Returns true if all given arguments are Array-like (i.e. have a length property and typeof(obj) == 'object').
+ * @id MochiKit.Base.isArrayLike
+ * @alias isArrayLike
+ * @alias MochiKit.Base.isArrayLike
+ * @param {Object} ... One or more arguments to test for being Array-like.
+ * @return {Boolean} Returns true if all given arguments are Array-like. 
+ */
+ 
+/**
+ * Returns true if all given arguments are Date-like (i.e. have a getTime() method).
+ * @id MochiKit.Base.isDateLike
+ * @alias isDateLike
+ * @alias MochiKit.Base.isDateLike
+ * @param {Object} ... One or more arguments to test for being Date-like.
+ * @return {Boolean} Returns true if all given arguments are Date-like.
+ */ 
+
+/**
+ * Returns a new Array composed of fn(obj) for every obj given as an argument.
+ * @id MochiKit.Base.xmap
+ * @alias xmap
+ * @alias MochiKit.Base.xmap
+ * @param {Object} fn    Function used to test the obj arguments. If fn is null, operator.identity is used.
+ * @param {Object}  ...    One or more obj objects to test.
+ * @return {Array} Returns a new Array composed of fn(obj) for every obj given as an argument. 
+ */
+
+/**
+ * Returns a new array composed of the results of fn(x) for every x in an array-like object.
+ * @id MochiKit.Base.map
+ * @alias map
+ * @alias MochiKit.Base.map
+ * @param {Object} fn    Function to call on each element in the array-like object.
+ * @param {Object} ...    One or more array-like objects.
+ * @return {Array} Returns a new array composed of the results of fn(x) for every x in an array-like object.
+ */
+
+/**
+ * Returns a new Array composed of the arguments where fn(obj) returns a true value.
+ * @id MochiKit.Base.xfilter
+ * @alias xfilter
+ * @alias MochiKit.Base.xfilter
+ * @param {Object} fn    Function to test the obj arguments for. If fn is null, operator.truth will be used.
+ * @param {Object}  ... One or more obj objects to test.
+ * @return {Array} Returns a new Array composed of the arguments where fn(obj) returns a true value.
+ */
+
+/**
+ * Returns a new Array of elements from lst where fn(lst[i]) returns a true value.
+ * @id MochiKit.Base.filter
+ * @alias filter
+ * @alias MochiKit.Base.filter
+ * @param {Object} fn    Function that will evaluate the arguments. Default is operator.truth.
+ * @param {Array} lst    List of arguments to be evaluated.
+ * @param {Object} self    Source object for the filter.
+ * @return    {Array}    Returns a new Array.
+ */ 
+
+/**
+ * Returns a function that calls a specified method on the specified args.
+ * @id MochiKit.Base.methodcaller
+ * @alias methodcaller
+ * @alias MochiKit.Base.methodcaller
+ * @param {Function} func    Function to call on the arguments.
+ * @param {Object}  [args]    Argument to call the method on. Optional.
+ * @param {Object} [...]    One or more additional arguments. Optional.
+ * @return {Function} Returns a function that calls a specified method on the specified args.
+ */   
+
+/**
+ * Alternate form of the bind function. Takes the object before the function.
+ * @id MochiKit.Base.method
+ * @alias method
+ * @alias MochiKit.Base.method
+ * @param {Object} self    Self object to bind to the function.
+ * @param {Function} func    Function to bind.
+ * @return {Function} Returns a copy of the function func bound to self.
+ */   
+
+/**
+ * Combines the specified function arguments into a single function. Equivalent to f1(f2(arguments)).
+ * @id MochiKit.Base.compose
+ * @alias compose
+ * @alias MochiKit.Base.compose
+ * @param {Function} f1 First function to combine.
+ * @param {Function} f2    Second function to combine.
+ * @param {Function}  [...]    One or more additional optional functions to combine.
+ * @return {Function} Returns the arguments combined into a single function.
+ */
+
+/**
+ * Creates a copy of a function that is bound to itself.
+ * <p>For a self-bound function, "this" will always reference the given self.
+ * If you specify any optional additional arguments, the expressions "bind(oldfunc, self, arg1, arg2)" and 
+ * "bind(partial(oldfunc, arg1, arg2), self)" are both equivalent to the expression "partial(bind(oldfunc, self), arg1, arg2)".</p>
+ * @id MochiKit.Base.bind
+ * @alias bind
+ * @alias MochiKit.Base.bind
+ * @param {Function} func    Function to bind.
+ * @param {Object} self    Self to bind the function to.
+ * @param {Object} [...] One or more additional arguments to be partially applied to the function.
+ * @return {Function}    Returns a copy of the function func bound to self.
+ */
+
+/**
+ * Replaces all functions on self with bind(func, self). 
+ * Emulates Python's bound instance methods, where there is no need to worry about preserving 
+ * this when the method is used as a callback.
+ * @id MochiKit.Base.bindMethods
+ * @alias bindMethods
+ * @alias MochiKit.Base.bindMethods
+ * @param {Function} self    Function to bind to self.
+ */
+
+/**
+ * Registers a comparator for use with the compare function.
+ * @id MochiKit.Base.registerComparator
+ * @alias registerComparator
+ * @alias MochiKit.Base.registerComparator
+ * @param {String} name    Unique name of the comparator.
+ * @param {Function} check    Function(a, b) that returns true if a and b can be compared with the comparator.
+ * @param {Function} comparator    Function that returns 0 if a==b. Returns 1 if a > b. Returns -1 if a < b.
+ * @param {Boolean} [override]    If present and true, makes the comparator the highest precedence comparator. 
+ * Otherwise, it will be the lowest.
+ */
+
+/**
+ * Compares two objects using the following guidelines:
+ * <ul>
+ * <li>undefined and null compare equal to each other.</li>
+ * <li>undefined and null are less than anything else.</li>
+ * <li>If JavaScript says a == b, then we trust it.</li>
+ * <li>comparators registered with registerComparator are used to find a good comparator. 
+ * (Built-in comparators are currently available for Array-like and Date-like objects.)</li>
+ * <li>Otherwise hope that the built-in comparison operators do something useful, 
+ * which should work for numbers and strings.</li>
+ * <li>If neither a < b or a > b, then throw a TypeError</li>
+ * </ul>
+ * @id MochiKit.Base.compare
+ * @alias compare
+ * @alias MochiKit.Base.compare
+ * @param {Object} a    First object to compare.
+ * @param {Object} b    Second object to compare.
+ * @return {Number}    Returns 0 if a==b. Returns 1 if a > b. Returns -1 if a < b.
+ */
+
+/**
+ * Compares two Date-like objects.
+ * @id MochiKit.Base.compareDateLike
+ * @alias compareDateLike
+ * @alias MochiKit.Base.compareDateLike
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Object} Returns the result of the comparison.
+ */ 
+
+/**
+ * Compares two Array-like objects.
+ * @id MochiKit.Base.compareArrayLike
+ * @alias compareArrayLike
+ * @alias MochiKit.Base.compareArrayLike
+ * @param {Object} a    Object to compare to b.
+ * @param {Object} b    Object to compare to a.
+ * @return {Object} Returns the result of the comparison.
+ */
+
+/**
+ * Registers a programmer representation function. 
+ * Repr functions should take one argument and return a string representation of it suitable 
+ * for developers. Used for debugging.
+ * @id MochiKit.Base.registerRepr
+ * @alias registerRepr
+ * @alias MochiKit.Base.registerRepr
+ * @param {String} name    Unique name for the repr function.
+ * @param {Function} check    Function that returns true if function(a) can return a string representation of a.
+ * @param {Function} wrap    Repr function to be regsitered.
+ * @param {Object} [override]    If present and true, makes the repr the highest precedence function. 
+ * Otherwise, it will be the lowest.
+ */
+
+/**
+ * Takes one argument and return a string representation of it suitable 
+ * for developers. Used for debugging.
+ * @id MochiKit.Base.repr
+ * @alias repr
+ * @alias MochiKit.Base.repr
+ * @param {Object} o    Object to return the string representation of.
+ * @return {String} Returns a string representation of the object.
+ */
+
+/**
+ * Creates a string representation of an Array-like object.
+ * @id MochiKit.Base.reprArrayLike
+ * @alias reprArrayLike
+ * @alias MochiKit.Base.reprArrayLike
+ * @param {Object} o    Array-like object.
+ * @return {String} Returns a string representation of an Array-like object.
+ */
+
+/**
+ * Creates a string representation of a string object.
+ * @id MochiKit.Base.reprString
+ * @alias reprString
+ * @alias MochiKit.Base.reprString
+ * @param {Object} o    Object to create the string representation of.
+ * @return {String} Returns a string representation of the object.
+ */
+
+/**
+ * Creates a string representation of a number object.
+ * @id MochiKit.Base.reprNumber
+ * @alias reprNumber
+ * @alias MochiKit.Base.reprNumber
+ * @param {Object} o    Object to create the string representation of.
+ * @return {String} Returns a string representation of the object.
+ */
+
+/**
+ * Register a simplifier function for use with serializeJSON.
+ * @id MochiKit.Base.registerJSON
+ * @alias registerJSON
+ * @alias MochiKit.Base.registerJSON
+ * @param {String} name    Unique name of the serialization.
+ * @param {Function} check    Function(obj) that returns true if the simplifier can simplify obj for serialization.
+ * @param {Function} wrap    function(obj) that returns a simpler object that can be further serialized by serializeJSON.
+ * @param {Object} [override]    If present and true, makes the comparator the highest precedence function. 
+ * Otherwise, it will be the lowest.
+ */
+
+/**
+ * Uses the eval function to unserialize a JSON representation of an object.
+ * @id MochiKit.Base.evalJSON 
+ * @alias evalJSON
+ * @alias MochiKit.Base.evalJSON
+ */     
+
+/**
+ * Serializes an Object in the JSON format.
+ * @id MochiKit.Base.serializeJSON
+ * @alias serializeJSON
+ * @alias MochiKit.Base.serializeJSON 
+ * @param {Object} o    Object to serialize in JSON format.
+ * @return {Object} Returns a serialized version of the object. 
+ * If the object cannot be serialized (e.g. functions that do not have an adapter, __json__ method, or json method),
+ * returns undefined.
+ */
+
+/**
+ * Returns true if compare(a, b) == 0.
+ * @id MochiKit.Base.objEqual
+ * @alias objEqual
+ * @alias MochiKit.Base.objEqual
+ * @param {Object} a    First object to compare.
+ * @param {Object} b    Second object to compare.
+ * @return {Boolean} Returns true if compare(a, b) == 0.
+ */
+
+/**
+ * Compares two arrays for equality by calling compare on each element.
+ * Uses a fast-path for length differences.
+ * @id MochiKit.Base.arrayEqual
+ * @alias arrayEqual
+ * @alias MochiKit.Base.arrayEqual
+ * @param {Array} self    First array in the comparison.
+ * @param {Array} arr    Second array in the comparison.
+ * @return {Boolean} Returns true if the two arrays are equal.
+ */
+
+/**
+ * Concatenates a set of array-like arguments into a single array.
+ * @id MochiKit.Base.concat
+ * @alias concat
+ * @alias MochiKit.Base.concat
+ * @param {Object} ...    One or more array-like arguments.
+ * @return {Array}    Returns a new Array.
+ */  
+
+/**
+ * This comparator function compares a[key] with b[key].
+ * @id MochiKit.Base.keyComparator
+ * @alias keyComparator
+ * @alias MochiKit.Base.keyComparator
+ * @param {Object} ... One or more objects to compare the keys of.
+ * @return {Object} Returns the result of the comparison. 
+ */
+
+/**
+ * A comparator that compares a[key] with b[key] in reverse.
+ * @id MochiKit.Base.reverseKeyComparator
+ * @alias reverseKeyComparator
+ * @alias MochiKit.Base.reverseKeyComparator
+ * @param {Object} key    Key for the comparator.
+ * @return {Object} Returns the result of the comparison.
+ */
+
+/**
+ * Returns a partially applied function. Does not alter the bound self.
+ * @id MochiKit.Base.partial
+ * @alias partial
+ * @alias MochiKit.Base.partial
+ * @param {Function} func    Function to partially apply.
+ * @return    {Function} Returns a partially bound function.
+ */
+
+/**
+ * Returns either the smallest or largest element of an array-like object.
+ * @id MochiKit.Base.listMinMax
+ * @alias listMinMax
+ * @alias MochiKit.Base.listMinMax
+ * @param {Object} which    Specifies which value to return. Specify -1 to return the smallest element. Specify 1 to return the largest element.
+ * @param {Object} lst    Array-like object to get the minimum or maximum value for.
+ * @return {Object} Returns the requested minimum or maximum value.
+ */  
+
+/**
+ * Return the maximum object according to compare out of the given arguments. 
+ * Similar to listMax, except objMax uses the arguments instead of an array-like object.
+ * @id MochiKit.Base.objMax
+ * @alias objMax
+ * @alias MochiKit.Base.objMax
+ * @param {Object} ...    One or more objects to get the maximum object for.
+ * @return {Object} Returns the maximum object.
+ */
+
+/**
+ * Return the minimum object according to compare out of the given arguments. 
+ * Similar to listMin, except objMin uses the arguments instead of an array-like object.
+ * @id MochiKit.Base.objMin
+ * @alias objMin
+ * @alias MochiKit.Base.objMin
+ * @param {Object} ...    One or more objects to get the minimum object for.
+ * @return {Object} Returns the minimum object.
+ */           
+
+/**
+ * Uses the === operator to find the index of the specified value in the Array-like object lst.
+ * Use findIdentical instead of findValue when list contains objects that have no defined comparator
+ * and you want to find an identical object (i.e. the same instance), or for better performance when 1st
+ * contains only numbers and strings.
+ * @id MochiKit.Base.findIdentical
+ * @alias findIdentical
+ * @alias MochiKit.Base.findIdentical
+ * @param {Object} lst    Array-like object to search.
+ * @param {Object} value    Value to search for.
+ * @param {Number} start    Start index to start searching at.
+ * @param {Number} end    End index (-1) to stop searching at.
+ * @return {Number}Returns the index of the value. If the value is not found, returns -1.
+ */
+
+/** 
+ * Uses compare to find the index of the specified value in the Array-like object lst.
+ * @id MochiKit.Base.findValue
+ * @alias findValue
+ * @alias MochiKit.Base.findValue
+ * @param {Object} lst    Array-like object to search.
+ * @param {Object} value    Value to search for.
+ * @param {Number} start    Start index to start searching at.
+ * @param {Number} end    End index (minus 1) to stop searching at.
+ * @return {Number}    Returns the index of the value. If the value is not found, returns -1.
+ */ 
+
+/**
+ * Walks the nodes of a DOM tree, starting with walking all sibling nodes before walking any child nodes.
+ * @id MochiKit.Base.nodeWalk
+ * @alias nodeWalk
+ * @alias MochiKit.Base.nodeWalk
+ * @param {Object} node    Initial node to search.
+ * @param {Object} visitor    Visitor function to call that should return a list of nodes to be searched next (e.g. node.childNodes).
+ * Leaf nodes may return null or undefined.
+ */   
+
+/**
+ * Gives "name" properties to all functions in a namespace that has a "name" property.
+ * @id MochiKit.Base.nameFunctions
+ * @alias nameFunctions
+ * @alias MochiKit.Base.nameFunctions
+ * @param {Object} namespace    Namespace to give names to the functions for.
+ */ 
+
+/**
+ * Creates a URL query string from a pair of Array-like objects representing names and values. 
+ * Encodes each name=value pair with urlEncode. 
+ * Skips name=value pairs with a value of undefined or null.
+ * @id MochiKit.Base.queryString
+ * @alias queryString
+ * @alias MochiKit.Base.queryString
+ * @param {Object} names    Array-like object containing the names for the query string.
+ * @param {Object} values    Array-like object containing the values for the query string.
+ * @return {String} Returns a URL query string.
+ */
+
+/**
+ * Parses a name=value pair URL query string into an object with a property for each pair. 
+ * @id MochiKit.Base.parseQueryString
+ * @alias parseQueryString
+ * @alias MochiKit.Base.parseQueryString
+ * @param {String} encodedString    URL query string to parse.
+ * @param {Boolean} useArrays    If true, indicates that arrays should store the name=value pairs.
+ * @return {Object} Returns the parsed query string.
+ */
+
+/**
+ * Registry to facilitate adaptation. All check/wrap function pairs in a registry must take the same number of arguments.
+ * @id MochiKit.Base.AdapterRegistry
+ * @alias AdapterRegistry
+ */    
+
+/**
+ * Registers a check/wrap function pair. Every wrap/check function pair in the registry should have the same number of arguments.
+ * @id MochiKit.Base.AdapterRegistry.prototype.register
+ * @alias register
+ * @alias MochiKit.Base.AdapterRegistry.register
+ * @param {String} name    Unique identifier for the adapter. 
+ * @param {Function} check    Function that returns true if the given arguments are appropriate for the wrap function.
+ * @param {Object} wrap    Function that takes the same parameters as check and does the adaptation.  
+ * @param {Object} override    if true, the check function will be given highest priority. Otherwise, the lowest.
+ */
+
+/**
+ * Finds an adapter for the given arguments by calling every check function until one returns true.
+ * @id MochiKit.Base.AdapterRegistry.prototype.match
+ * @alias match
+ * @alias MochiKit.Base.AdapterRegistry.match
+ * @param {Object} ...    One or more arguments to find a match for.
+ * @exception {NotFound} Throws NotFound if no adapter is found.
+ */
+
+/**
+ * Removes an adapter name from the registry.
+ * @id MochiKit.Base.AdapterRegistry.prototype.unregister
+ * @alias unregister
+ * @alias MochiKit.Base.AdapterRegistry.unregister
+ * @param {Object} name    Name of the adapter to remove.
+ * @return    {Boolean} Returns true if the removal is successful.
+ */
+
+/**
+ * Placeholder function. Call noop to avoid Internet Explorer cyclic garbage leakage instead of calling (function () {}).
+ * @id MochiKit.Base.noop
+ * @alias noop
+ * @alias MochiKit.Base.noop
+ */
+
+/**
+ * Converts unencoded into a URL-encoded string. Converts spaces to %20 instead of "+".
+ * @id MochiKit.Base.urlEncode 
+ * @alias urlEncode
+ * @alias MochiKit.Base.urlEncode
+ * @param {Object} unencoded    Object to convert.
+ * @return {String} Returns a URL-encoded string.
+ */
+
+/**
+ * Creates a new error.
+ * @id MochiKit.Base.NamedError
+ * @alias NamedError
+ * @alias MochiKit.Base.NamedError
+ * @param {String} name    Name of the new error to create.
+ * @return {NamedError} Returns a new NamedError object. 
+ */
+
+/**
+ * Singleton error raised when no suitable adapter is found.
+ * @id MochiKit.Base.NotFound
+ * @alias NotFound
+ * @alias MochiKit.Base.NotFound
+ */
+
+/**
+ * Return the largest element of an Array-like object, as determined by compare.
+ * Equivalent to "partial(listMinMax, 1)."
+ * @id MochiKit.Base.listMax
+ * @alias listMax
+ * @alias MochiKit.Base.listMax
+ */
+
+/**
+ * Return the smallest element of an Array-like object, as determined by compare. 
+ * Equivalent to "partial(listMinMax, -1)."
+ * @id MochiKit.Base.listMin
+ * @alias listMin
+ * @alias MochiKit.Base.listMin
+ */    
+
+/**
+ * Returns true if the type is a function.
+ * @id MochiKit.Base.isCallable
+ * @alias isCallable
+ * @alias MochiKit.Base.isCallable
+ * @return {Boolean} Returns true if the type is a function.
+ */
+
+/**
+ * Returns true if the type is undefined.
+ * @id MochiKit.Base.isUndefined
+ * @alias isUndefined
+ * @alias MochiKit.Base.isUndefined
+ * @return {Boolean} Returns true if the type is undefined.
+ */
+
+/**
+ * Creates a new instance of Object that contains every property from all given objects. 
+ * If a property is defined on more than one of the objects, the last property is used.
+ * Equivalent to "update(self, obj[, ...])" defined as "partial(update, null)".
+ * @id MochiKit.Base.merge
+ * @alias merge
+ * @alias MochiKit.Base.merge
+ */
+
+/**
+ * Equivalent to "partial(map, null);".
+ * @id MochiKit.Base.zip
+ * @alias zip
+ * @alias MochiKit.Base.zip
+ */
+
+/**
+ * Creates a new comparatorRegistry.
+ * @id MochiKit.Base.comparatorRegistry
+ * @alias comparatorRegistry
+ * @alias MochiKit.Base.comparatorRegistry
+ */
+
+/** 
+ * Creates a new reprRegistry.
+ * @id MochiKit.Base.reprRegistry
+ * @alias reprRegistry
+ * @alias MochiKit.Base.reprRegistry
+ */
+
+/**
+ * Creates a new jsonRegistry.
+ * @id MochiKit.Base.jsonRegistry
+ * @alias jsonRegistry
+ * @alias MochiKit.Base.jsonRegistry
+ */                 
+  

@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>DOM - jQuery</title>
+<!-- jQuery 1.0.4 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="dom">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>DOM</h2><h3 class='func' id='attr'><b>attr</b>(String <b>name</b>) : Object</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>name</th><td width='15%'>String</td><td>The name of the property to access.</td></tr>
+</table>
+<p>Access a property on the first matched element. This method makes it easy to retrieve a property value from the first matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;img src=&quot;test.jpg&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).attr(&quot;src&quot;);</pre>
+<h5>Result</h5>
+<pre>test.jpg</pre>
+</div>
+<h3 class='func'><b>attr</b>(Hash <b>prop</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>prop</th><td width='15%'>Hash</td><td>A set of key/value pairs to set as object properties.</td></tr>
+</table>
+<p>Set a hash of key/value object properties to all matched elements. This serves as the best way to set a large number of properties on all matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;img/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).attr({ src: &quot;test.jpg&quot;, alt: &quot;Test Image&quot; });</pre>
+<h5>Result</h5>
+<pre>&lt;img src=&quot;test.jpg&quot; alt=&quot;Test Image&quot;/&gt;</pre>
+</div>
+<h3 class='func'><b>attr</b>(String <b>key</b>, Object <b>value</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>key</th><td width='15%'>String</td><td>The name of the property to set.</td></tr>
+<tr><th width='15%'>value</th><td width='15%'>Object</td><td>The value to set the property to.</td></tr>
+</table>
+<p>Set a single property to a value, on all matched elements.</p><p>Note that you can't set the name property of input elements in IE. Use $(html) or $().append(html) or $().html(html) to create elements on the fly including the name property.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;img/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).attr(&quot;src&quot;,&quot;test.jpg&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;img src=&quot;test.jpg&quot;/&gt;</pre>
+</div>
+<h3 class='func' id='text'><b>text</b>() : String</h3>
+<p>Retrieve the text contents of all matched elements. The result is a string that contains the combined text contents of all matched elements. This method works on both HTML and XML documents.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).text();</pre>
+<h5>Result</h5>
+<pre>Test Paragraph.</pre>
+</div>
+<h3 class='func' id='removeAttr'><b>removeAttr</b>(String <b>name</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>name</th><td width='15%'>String</td><td>The name of the attribute to remove.</td></tr>
+</table>
+<p>Remove an attribute from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;input disabled=&quot;disabled&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;input&quot;).removeAttr(&quot;disabled&quot;)</pre>
+<h5>Result</h5>
+<pre>&lt;input/&gt;</pre>
+</div>
+<h3 class='func' id='addClass'><b>addClass</b>(String <b>class</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>class</th><td width='15%'>String</td><td>A CSS class to add to the elements</td></tr>
+</table>
+<p>Adds the specified class to each of the set of matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).addClass(&quot;selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+<h3 class='func' id='removeClass'><b>removeClass</b>(String <b>class</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>class</th><td width='15%'>String</td><td>A CSS class to remove from the elements</td></tr>
+</table>
+<p>Removes the specified class from the set of matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p class=&quot;selected&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).removeClass(&quot;selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+<h3 class='func' id='toggleClass'><b>toggleClass</b>(String <b>class</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>class</th><td width='15%'>String</td><td>A CSS class with which to toggle the elements</td></tr>
+</table>
+<p>Adds the specified class if it is not present, removes it if it is present.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).toggleClass(&quot;selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello&lt;/p&gt;, &lt;p&gt;Hello Again&lt;/p&gt; ]</pre>
+</div>

@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-parent-">
+<span class="fn"><a class="name" href="#link-parent-">parent</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are parents - they have child elements, including text.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all tds with children, including text.</p>
+<pre><code class="javascript">$(<span class="string">"td:parent"</span>).fadeTo(<span class="numbers">1500</span>,&nbsp;<span class="numbers">0.3</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;table</span><span class="aname">&nbsp;border</span>=<span class="avalue">"1"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Value&nbsp;1<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span><span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Value&nbsp;2<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span><span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-parent-expr">
+<span class="fn"><a class="name" href="#link-parent-expr">parent</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the parents with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing the unique parents of the matched set of elements.<br>You may use an optional expression to filter the set of parent elements that will match. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows the parent of each element as (parent &gt; child).  Check the View Source to see the raw html.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"*"</span>,&nbsp;<span class="global">document</span>.body).each(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;parentTag&nbsp;=&nbsp;$(<span class="keywords">this</span>).parent().get(<span class="numbers">0</span>).tagName;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).prepend(<span class="global">document</span>.createTextNode(parentTag&nbsp;+&nbsp;<span class="string">"&nbsp;&gt;&nbsp;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>div,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span,&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>b&nbsp;<span class="tag">&lt;/b&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>em&nbsp;<span class="tag">&lt;/em&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;strong</span><span class="tag">&gt;</span>strong,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span,&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>em,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>b,&nbsp;<span class="tag">&lt;/b&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/em&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/strong&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>b&nbsp;<span class="tag">&lt;/b&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the parent element of each paragraph with a class "selected".</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).parent(<span class="string">".selected"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-parents-expr">
+<span class="fn"><a class="name" href="#link-parents-expr">parents</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the ancestors with">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing the unique ancestors of the matched set of elements (except for the root element).<br>
+<br>The matched elements can be filtered with an optional expression. <br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all parent elements of each span.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;parentEls&nbsp;=&nbsp;$(<span class="string">"b"</span>).parents()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">this</span>.tagName;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.get().join(<span class="string">",&nbsp;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"b"</span>).append(<span class="string">"&lt;strong&gt;"</span>&nbsp;+&nbsp;parentEls&nbsp;+&nbsp;<span class="string">"&lt;/strong&gt;"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>My&nbsp;parents&nbsp;are:&nbsp;<span class="tag">&lt;/b&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click to find all unique div parent elements of each span.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;showParents()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).css(<span class="string">"border-color"</span>,&nbsp;<span class="string">"white"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;len&nbsp;=&nbsp;$(<span class="string">"span.selected"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.parents(<span class="string">"div"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"border"</span>,&nbsp;<span class="string">"2px&nbsp;red&nbsp;solid"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.length;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"b"</span>).text(<span class="string">"Unique&nbsp;div&nbsp;parents:&nbsp;"</span>&nbsp;+&nbsp;len);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).toggleClass(<span class="string">"selected"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showParents();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>And&nbsp;Hello&nbsp;Again<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>Click&nbsp;Hellos&nbsp;to&nbsp;toggle&nbsp;their&nbsp;parents.<span class="tag">&lt;/b&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-password-">
+<span class="fn"><a class="name" href="#link-password-">password</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input elements of type password.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all password inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;input&nbsp;=&nbsp;$(<span class="string">":password"</span>).css({background:<span class="string">"yellow"</span>,&nbsp;border:<span class="string">"3px&nbsp;red&nbsp;solid"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"For&nbsp;this&nbsp;type&nbsp;jQuery&nbsp;found&nbsp;"</span>&nbsp;+&nbsp;input.length&nbsp;+&nbsp;<span class="string">"."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;option</span><span class="tag">/&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-prepend-content">
+<span class="fn"><a class="name" href="#link-prepend-content">prepend</a>( <span class="arg-type tooltip" title="">String, Element, jQuery</span> <span class="arg-name tooltip" title="Content to prepend to the target.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Prepend content to the inside of every matched element.<br>This operation is the best way to insert elements inside, at the beginning, of all matched elements.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Prepends some HTML to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).prepend(<span class="string">"&lt;b&gt;Hello&nbsp;&lt;/b&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>there&nbsp;friend!<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>amigo!<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Prepends a DOM Element to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).prepend(<span class="global">document</span>.createTextNode(<span class="string">"Hello&nbsp;"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>is&nbsp;what&nbsp;I'd&nbsp;say<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>is&nbsp;what&nbsp;I&nbsp;said<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Prepends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).prepend(&nbsp;$(<span class="string">"b"</span>)&nbsp;);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;is&nbsp;what&nbsp;was&nbsp;said.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-prependTo-content">
+<span class="fn"><a class="name" href="#link-prependTo-content">prependTo</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="target to which the content will be prepended.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Prepend all of the matched elements to another, specified, set of elements.<br>This
+operation is, essentially, the reverse of doing a regular
+$(A).prepend(B), in that instead of prepending B to A, you're
+prepending A to B.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Prepends all spans to the element with the ID "foo"</p>
+<pre><code class="javascript">$(<span class="string">"span"</span>).prependTo(<span class="string">"#foo"</span>);&nbsp;<span class="com">//&nbsp;check&nbsp;prepend()&nbsp;examples</span></code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span>FOO!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>I&nbsp;have&nbsp;something&nbsp;to&nbsp;say...&nbsp;<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-prev-expr">
+<span class="fn"><a class="name" href="#link-prev-expr">prev</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the previous Elements with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing the unique previous siblings of each of the matched set of elements.<br>Use an optional expression to filter the matched set.<br>
+<br>Only the immediately previous sibling is returned, not all previous siblings. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the very previous sibling of each div.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;$curr&nbsp;=&nbsp;$(<span class="string">"#start"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$curr.css(<span class="string">"background"</span>,&nbsp;<span class="string">"#f99"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$curr&nbsp;=&nbsp;$curr.prev();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">""</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$curr.css(<span class="string">"background"</span>,&nbsp;<span class="string">"#f99"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>has&nbsp;child<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"start"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;button</span><span class="tag">&gt;</span>Go&nbsp;to&nbsp;Prev<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the very previous sibling of each paragraph that has a class "selected".</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).prev(<span class="string">".selected"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>And&nbsp;Again<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-prevAll-expr">
+<span class="fn"><a class="name" href="#link-prevAll-expr">prevAll</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the previous Elements with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Find all sibling elements before the current element.<br>Use an optional expression to filter the matched set. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Locate all the divs before the last and give them a class.</p>
+<pre><code class="javascript">$(<span class="string">"div:last"</span>).prevAll().addClass(<span class="string">"before"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

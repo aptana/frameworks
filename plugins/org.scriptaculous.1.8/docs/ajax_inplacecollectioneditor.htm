@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.InPlaceCollectionEditor</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Ajax.InPlaceCollectionEditor</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Generates a selectbox from the values in the <span style="font-weight: bold;">collection</span> array.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new&nbsp;Ajax.InPlaceCollectionEditor(&nbsp;element,&nbsp;url,&nbsp;{&nbsp;collection:&nbsp;[array],&nbsp;[moreOptions]&nbsp;}&nbsp;);</span></p>
+<p>&nbsp;</p>
+<p>The constructor takes three parameters. </p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">1.</span></td><td><span style="font-weight: bold;">element</span>: The element that should support in-place editing.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">2.</span></td><td><span style="font-weight: bold;">url</span>: The url to submit the changed value to. The server should respond with the updated value (the server might have post-processed it or validation might have prevented it from changing). </td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="15"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">3.</span></td><td><span style="font-weight: bold;">hash</span>: The third is a hash of options. Within that hash of options should be a field called collection that is an array of values to place inside your select box.</td></tr></table></div><p>&nbsp;</p>
+<p>For <span style="font-weight: bold;">moreOptions</span> see <a href="ajax_inplaceeditor.htm">Ajax.InPlaceEditor</a></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p class="p_Heading2"><span class="f_Heading2">&nbsp;</span></p>
+<p><span style="font-weight: bold;">HTML</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;p&nbsp;title="Click&nbsp;to&nbsp;edit"&nbsp;id="tobeedited"&gt;Click&nbsp;me,&nbsp;click&nbsp;me!&lt;/p&gt;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Javascript</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">new Ajax.InPlaceCollectionEditor(</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">  'tobeedited', 'ajax_inplaceeditor_result.php, {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">  collection: ['one','two','three']</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">});</span></p>
+<p>&nbsp;</p>
+<p>The server side component gets the new value as the parameter ‘value’ (POST method), and should send the new value as the body of the response.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Character encoding</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;">The form data is sent encoded in UTF-8 regardless of the page encoding. </p>
+<p style="margin: 0px 0px 0px 10px;">This is as of the prototype function Form.serialize. <a href="http://dev.rubyonrails.org/ticket/2151" target="_blank" class="weblink">More info here</a> (web).</p>
+<p style="margin: 0px 0px 0px 10px;">If this doesn’t work, you can use iconv <a href="http://wiki.rubyonrails.com/rails/pages/HowToUseUnicodeStrings" target="_blank" class="weblink">as outlined here</a> (web).</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Remove and force InPlaceEditor</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">To disable the InPlaceEditor behavior later on, store it in a variable like:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">var&nbsp;editor&nbsp;=&nbsp;new&nbsp;Ajax.InPlaceEditor('product_1',...);</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Later you can then remove the behaviour by calling:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">editor.dispose();</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">This way, you can enable and disable In Place Editing at will.</p>
+<p style="margin: 0px 0px 0px 12px;">You can also arbitrarily force it into edit mode like so:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">editor.enterEditMode('click');</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

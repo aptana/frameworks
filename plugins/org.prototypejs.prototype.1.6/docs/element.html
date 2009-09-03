@@ -1,0 +1,340 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Element</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The <span style="font-weight: bold;">Element</span> object sports a flurry of powerful DOM methods which you can access either as methods of Element (but that’s rather old-fashioned now) or directly as methods of an extended element (thanks to Element.extend for that added bit of syntactic sugar).</p>
+<p>&nbsp;</p>
+<p>Before you pursue, you really should read “<a href="http://www.prototypejs.org/learn/extensions" target="_blank" class="weblink" title="Tutorial at prototypejs.org">How Prototype extends the DOM</a>” which will walk you through the arcane inner workings of Prototype’s magic DOM extension mechanism.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">On this page</span></p>
+<p><span style="color: #3366ff;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="element.html#examples" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Examples</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="element.html#index" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Moduleindex</a></span></td></tr></table></div><p style="text-indent: -1px; margin: 0px 0px 0px 12px;"><span style="color: #33cccc;">&nbsp;</span></p>
+<p style="text-indent: -1px; margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="examples"></a><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;div&nbsp;id="message"&nbsp;class=""&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'message'</span><span class="f_CodeExample" style="color: #000000;">).addClassName(</span><span class="f_CodeExample" style="color: #800000;">'read'</span><span class="f_CodeExample" style="color: #000000;">);&nbsp;//&nbsp;Toggle&nbsp;the&nbsp;CSS&nbsp;class&nbsp;name&nbsp;of&nbsp;div#message</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;div#message</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;Element.toggleClassName(</span><span class="f_CodeExample" style="color: #800000;">'message'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'read'</span><span class="f_CodeExample" style="color: #000000;">);&nbsp;//&nbsp;You&nbsp;could&nbsp;also&nbsp;use&nbsp;a&nbsp;syntactic-sugar-free&nbsp;version:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;div#message</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Since most methods of <span class="f_CourierFixed">Element</span> return the element they are applied to, you can chain methods like so:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'message'</span><span class="f_CodeExample" style="color: #000000;">).addClassName(</span><span class="f_CodeExample" style="color: #800000;">'read'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'I&nbsp;read&nbsp;this&nbsp;message!'</span><span class="f_CodeExample" style="color: #000000;">).setStyle({opacity:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.5</span><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Isn’t that just beautiful?!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">addClassName</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">addClassName(element,&nbsp;className)&nbsp;-&gt;&nbsp;HTMLElement&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Adds a CSS class to element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">addMethods</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">addMethods([methods])</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Takes a hash of methods and makes them available as methods of extended elements and of the Element object.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">ancestors</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">ancestors(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of element’s ancestors and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">classNames</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">classNames(element)&nbsp;-&gt;&nbsp;[className...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns a new instance of ClassNames, an Enumerable object used to read and write class names of the element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">cleanWhitespace</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">cleanWhitespace(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Removes all of element's text nodes which contain only whitespace. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">descendantOf</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">descendantOf(element,&nbsp;ancestor)&nbsp;-&gt;&nbsp;Boolean&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Checks if element is a descendant of ancestor.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">descendants</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">descendants(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of element’s descendants and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">down</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">down(element[,&nbsp;cssRule][,&nbsp;index&nbsp;=&nbsp;0])&nbsp;-&gt;&nbsp;HTMLElement&nbsp;|&nbsp;undefined</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns element’s first descendant (or the n-th descendant if index is specified) that matches cssRule. If no cssRule is provided, all descendants are considered. If no descendant matches these criteria, undefined is returned.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">empty</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">empty(element)&nbsp;-&gt;&nbsp;Boolean</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Tests whether element is empty (i.e. contains only whitespace).</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">extend</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">extend(element)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Extends element with all of the methods contained in Element.Methods and Element.Methods.Simulated. If element is an input, textarea or select tag, it will also be extended with the methods from Form.Element.Methods. If it is a form tag, it will also be extended with Form.Methods.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getDimensions</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getDimensions(element)&nbsp;-&gt;&nbsp;{height:&nbsp;Number,&nbsp;width:&nbsp;Number}</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Finds the computed width and height of element and returns them as key/value pairs of an object.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getElementsByClassName</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getElementsByClassName(element,&nbsp;className)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Fetches all of element’s descendants which have a CSS class of className and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getElementsBySelector</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getElementsBySelector(element,&nbsp;selector...)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Takes an arbitrary number of CSS selectors (strings) and returns a document-order array of extended children of element that match any of them.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getHeight</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getHeight(element)&nbsp;-&gt;&nbsp;Number</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Finds and returns the computed height of element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getStyle</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getStyle(element,&nbsp;property)&nbsp;-&gt;&nbsp;String&nbsp;|&nbsp;null</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the given CSS property value of element. property can be specified in either of its CSS or camelized form.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">getWidth</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">getWidth(element)&nbsp;-&gt;&nbsp;Number</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Finds and returns the computed width of element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">hasClassName</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">hasClassName(element,&nbsp;className)&nbsp;-&gt;&nbsp;Boolean</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Checks whether element has the given CSS className.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">hide</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">hide(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Hides and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">immediateDescendants</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">immediateDescendants(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of the element’s immediate descendants (i.e. children) and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">inspect</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">inspect(element)&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the debug-oriented string representation of element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">makeClipping</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">makeClipping(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Simulates the poorly supported CSS clip property by setting element's overflow value to 'hidden'. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">makePositioned</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">makePositioned(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Allows for the easy creation of CSS containing block by setting an element's CSS position to 'relative' if its initial position is either 'static' or undefined. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">match</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">match(element,&nbsp;selector)&nbsp;-&gt;&nbsp;Boolean</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Checks if element matches the given CSS selector.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">next</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">next(element[,&nbsp;cssRule][,&nbsp;index&nbsp;=&nbsp;0])&nbsp;-&gt;&nbsp;HTMLElement&nbsp;|&nbsp;undefined</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns element’s following sibling (or the index’th one, if index is specified) that matches cssRule. If no cssRule is provided, all following siblings are considered. If no following sibling matches these criteria, undefined is returned.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">nextSiblings</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">nextSiblings(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of element’s next siblings and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">observe</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">observe(element,&nbsp;eventName,&nbsp;handler[,&nbsp;useCapture&nbsp;=&nbsp;false])&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Registers an event handler on element and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">previous</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">previous(element[,&nbsp;cssRule][,&nbsp;index&nbsp;=&nbsp;0])&nbsp;-&gt;&nbsp;HTMLElement&nbsp;|&nbsp;undefined</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns element's previous sibling (or the index'th one, if index is specified) that matches cssRule. If no cssRule is provided, all previous siblings are considered. If no previous sibling matches these criteria, undefined is returned.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">previousSiblings</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">previousSiblings(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of element’s previous siblings and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">readAttribute</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">readAttribute(element,&nbsp;attribute)&nbsp;-&gt;&nbsp;String&nbsp;|&nbsp;null</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the value of element's attribute or null if attribute has not been specified.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">recursivelyCollect</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">recursivelyCollect(element,&nbsp;property)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Recursively collects elements whose relationship is specified by property. property has to be a property (a method won’t do!) of element that points to a single DOM node. Returns an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">remove</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">remove(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Completely removes element from the document and returns it.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">removeClassName</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">removeClassName(element,&nbsp;className)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Removes element’s CSS className and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">replace</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">replace(element[,&nbsp;html])&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Replaces element by the content of the html argument and returns the removed element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">scrollTo</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">scrollTo(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Scrolls the window so that element appears at the top of the viewport. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">setStyle</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">setStyle(element,&nbsp;styles)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Modifies element’s CSS style properties. Styles are passed as a hash of property-value pairs in which the properties are specified in their camelized form.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">show</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">show(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Displays and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">siblings</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">siblings(element)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Collects all of element’s siblings and returns them as an array of extended elements.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">stopObserving</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">stopObserving(element,&nbsp;eventName,&nbsp;handler)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Unregisters handler and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">toggle</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">toggle(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Toggles the visibility of element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">toggleClassName</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">toggleClassName(element,&nbsp;className)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Toggles element’s CSS className and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">undoClipping</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">undoClipping(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Sets element’s CSS overflow property back to the value it had before makeClipping() was applied. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">undoPositioned</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">undoPositioned(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Sets element back to the state it was before makePositioned() was applied to it. Returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">up</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">up([cssRule][, index = 0]) -&gt; HTMLElement | undefined</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns element’s first ancestor (or the index’th ancestor, if index is specified) that matches cssRule. If no cssRule is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">update</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">update(element[,&nbsp;newContent])&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Replaces the content of element with the provided newContent argument and returns element.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">visible</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">visible(element) -&gt; Boolean</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns a Boolean indicating whether or not element is visible (i.e. whether its inline style property is set to "display: none;").</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,5 @@
+@import "lib/dojo/resources/dojo.css";
+@import "lib/dijit/themes/tundra/tundra.css";
+@import "lib/dijit/themes/tundra/tundra_rtl.css";
+
+body { padding:1em }

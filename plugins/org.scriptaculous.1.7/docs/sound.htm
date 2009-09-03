@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Sound</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Sound</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Plays a sound file. The sound player uses native sound support on Internet Explorer, and falls back to using &lt;embed&gt; on other browsers, which means it uses QuickTime for most cases. </p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.7.1 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Sound.play(soundfileUrl,&nbsp;[options])</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="122" bgcolor="#99cc00" style="width:122px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="97" bgcolor="#99cc00" style="width:97px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="442" bgcolor="#99cc00" style="width:442px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>track</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>'global'</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>Name of the sound container</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>replace</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>false </p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>If true, will stop all currently playing sounds and play the new sound. If no track is given, it will stop all sounds in 'global'</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p>Play sound immediately in 'global' track</p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Sound.play('alert.mp3');&nbsp;&nbsp;&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Stop playing all sounds in 'global' track and play the new sound</p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Sound.play('notice.mp3',&nbsp;{replace:true});&nbsp;&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Place the given sound into 'chat' track, and play all sounds in 'chat'</p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Sound.play('info.mp3',&nbsp;{track:'chat'});&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Stop playing all sounds in 'chat' track and play the new sound</p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Sound.play('error.mp3',&nbsp;{track:'chat',&nbsp;replace:true});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>The recommended format to use is MP3. </p>
+
+</td></tr></table>
+
+</body>
+</html>

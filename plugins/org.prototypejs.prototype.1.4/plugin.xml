@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/prototype_small.png"
+            name="Prototype 1.4.0"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/prototype_small.png"
+                   name="Prototype Samples"/>
+          </extension>
+          		   		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="org.prototypejs.prototype.1.4">
+             </feature>
+          </extension>
+</plugin>

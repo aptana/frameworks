@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/yui_small.png"
+            name="Yahoo User Interface (YUI) 2.4.1"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/yui_small.png"
+                   name="Yahoo 2.4 User Interface Samples"
+                   previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+		          <include path="libraries/lib"/>
+		    </samplesinfo>
+          </extension>
+		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.yahoo.yui.2.4">
+             </feature>
+          </extension>  </plugin>

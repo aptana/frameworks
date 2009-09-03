@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>$$</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">$$ </span><span class="f_TopicHeading" style="color: #ccffff;">:: Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">$$(cssRule...) -&gt; [HTMLElement...]</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Takes an arbitrary number of CSS selectors (strings) and returns a document-order array of extended DOM elements that match any of them.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Sometimes the usual tools from your DOM arsenal – <span class="f_CourierFixed">document.getElementById()</span> encapsulated by <span class="f_CourierFixed">$()</span>, <span class="f_CourierFixed">getElementsByTagName() </span>and even Prototype’s very own <span class="f_CourierFixed"><a href="document_getelementsbyclassname.html">getElementsByClassName()</a></span> extensions – just aren’t enough to quickly find our elements or collections of elements. If you know the DOM tree structure, you can simply resort to CSS selectors to get the job done.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Performance: when better alternatives should be used instead of $$</span></p>
+<p>&nbsp;</p>
+<p>Now, this function is powerful, but if misused, it will suffer performance issues. So here are a few guidelines:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>If you’re just looking for elements with a specific CSS class name among their class name set, use Prototype’s <span class="f_CourierFixed">document.getElementsByClassName()</span> extension.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Better yet: if this search is constrained within a given container element, use the Element.getElementsByClassName() extension.</td></tr></table></div><p>&nbsp;</p>
+<p>Those methods should be favored in the case of simple CSS-class-based lookups, because they’re, at any rate, faster than <span class="f_CourierFixed">$$</span>. On browsers supporting DOM Level 3 XPath, they’re potentially blazing fast.</p>
+<p>&nbsp;</p>
+<p>Now, if you’re going for more complex stuff, indeed use <span class="f_CourierFixed">$$</span>. But use it well. The <span style="font-weight: bold;">$$ function searches</span>, by default,<span style="font-weight: bold;"> the whole document</span>. So if you can, scope your CSS rules as early as you can, e.g. by having them start with ID selectors. That’ll help reduce the search tree as fast as possible, and speed up your operation.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">('div')</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;all&nbsp;DIVs&nbsp;in&nbsp;the&nbsp;document.&nbsp;&nbsp;Same&nbsp;as&nbsp;document.getElementsByTagName('div')!</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">'</span><span class="f_CodeExample" style="color: #000000;">#contents'</span><span class="f_CodeExample" style="color: #800000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;same&nbsp;as&nbsp;$('contents'),&nbsp;only&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;anyway.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">('li.faux')</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;all&nbsp;LI&nbsp;elements&nbsp;with&nbsp;class&nbsp;'faux'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">'</span><span class="f_CodeExample" style="color: #000000;">#contents&nbsp;a[rel]'</span><span class="f_CodeExample" style="color: #800000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;all&nbsp;links&nbsp;inside&nbsp;the&nbsp;element&nbsp;of&nbsp;ID&nbsp;&quot;contents&quot;&nbsp;with&nbsp;a&nbsp;rel&nbsp;attribute</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">('a[href=&quot;#&quot;]')</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;all&nbsp;links&nbsp;with&nbsp;a&nbsp;href&nbsp;attribute&nbsp;of&nbsp;value&nbsp;&quot;#&quot;&nbsp;(eyeew!)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$$</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">'</span><span class="f_CodeExample" style="color: #000000;">#navbar&nbsp;li'</span><span class="f_CodeExample" style="color: #800000;">,&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">#sidebar&nbsp;li'</span><span class="f_CodeExample" style="color: #800000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;all&nbsp;links&nbsp;within&nbsp;the&nbsp;elements&nbsp;of&nbsp;ID&nbsp;&quot;navbar&quot;&nbsp;or&nbsp;&quot;sidebar&quot;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Supported CSS syntax</span></p>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">$$</span> function does not rely on the browser’s internal CSS parsing capabilities (otherwise, we’d be in cross-browser trouble…), and therefore offers a consistent set of selectors across all supported browsers. The flip side is, it currently doesn’t support as many selectors as browsers that are very CSS-capable.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Here is the current set of supported selectors:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Type selector: tag names, as in div.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Descendant selector: the space(s) between other selectors, as in #a li.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Attribute selectors: the full CSS 2.1 set of [attr], [attr=value], [attr~=value] and [attr|=value]. It also supports [attr!=value]. </td></tr></table></div><p>&nbsp;</p>
+<p>If the value you’re matching against includes a space, be sure to enclose the value in quotation marks. ([title=&amp;#8221;Hello World!&amp;#8221;])</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Class selector: CSS class names, as in .highlighted or .example.wrong.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>ID selector: as in #item1.</td></tr></table></div><p>&nbsp;</p>
+<p>However, it currently does not support child selectors (&gt;), adjacent sibling selectors (+), pseudo-elements (e.g. :after) and pseudo-classes (e.g. :hover).</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

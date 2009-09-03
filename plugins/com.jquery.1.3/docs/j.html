@@ -1,0 +1,1557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-jQuery-html">
+<span class="fn"><a class="name" href="#link-jQuery-html">jQuery</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A string of HTML to create on the fly.">html</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Create DOM elements on-the-fly from the provided String of raw HTML.<br>You
+can pass in plain HTML Strings written by hand, create them using some
+template engine or plugin, or load them via AJAX. There are limitations
+when creating input elements, see the second example. Also when passing
+strings that may include slashes (such as an image path), escape the
+slashes. When creating single elements use the closing tag or XHTML
+format. For example, to create a span use $("&lt;span/&gt;") or
+$("&lt;span&gt;&lt;/span&gt;") instead of without the closing slash/tag.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Creates a div element (and all of its contents) dynamically, and
+appends it to the body element. Internally, an element is created and
+its innerHTML property set to the given markup. It is therefore both
+quite flexible and limited.</p>
+<pre><code class="javascript">$(<span class="string">"&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;"</span>).appendTo(<span class="string">"body"</span>)</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Do not create &amp;lt;input&amp;gt;-Elements without a
+type-attribute, due to Microsofts read/write-once-rule for the
+type-attribute of &amp;lt;input&amp;gt;-elements, see this
+[http://msdn2.microsoft.com/en-us/library/ms534700.aspx official
+statement] for details.</p>
+<pre><code class="javascript"><span class="com">//&nbsp;Does&nbsp;NOT&nbsp;work&nbsp;in&nbsp;IE:</span>&nbsp;
+$(<span class="string">"&lt;input/&gt;"</span>).attr(<span class="string">"type"</span>,&nbsp;<span class="string">"checkbox"</span>);&nbsp;
+<span class="com">//&nbsp;Does&nbsp;work&nbsp;in&nbsp;IE:</span>&nbsp;
+$(<span class="string">"&lt;input&nbsp;type='checkbox'/&gt;"</span>);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuery-elements">
+<span class="fn"><a class="name" href="#link-jQuery-elements">jQuery</a>( <span class="arg-type tooltip" title="">Element, Array&lt;Element&gt;</span> <span class="arg-name tooltip" title="DOM element(s) to be encapsulated by a jQuery object.">elements</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap jQuery functionality around a single or multiple DOM Element(s).<br>This function also accepts XML Documents and Window objects as valid arguments (even though they are not DOM Elements).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Sets the background color of the page to black.</p>
+<pre><code class="javascript">$(<span class="global">document</span>.body).css(&nbsp;<span class="string">"background"</span>,&nbsp;<span class="string">"black"</span>&nbsp;);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Hides all the input elements within a form.</p>
+<pre><code class="javascript">$(myForm.elements).hide()</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuery-callback">
+<span class="fn"><a class="name" href="#link-jQuery-callback">jQuery</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute when the DOM is ready.">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">A shorthand for $(document).ready().<br>Allows you to
+bind a function to be executed when the DOM document has finished
+loading. This function behaves just like $(document).ready(), in that
+it should be used to wrap other $() operations on your page that depend
+on the DOM being ready to be operated on. While this function is,
+technically, chainable - there really isn't much use for chaining
+against it.<br>
+<br>You can have as many $(document).ready events on your page as you like.<br>
+<br>See ready(Function) for details about the ready event. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Executes the function when the DOM is ready to be used.</p>
+<pre><code class="javascript">$(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;Document&nbsp;is&nbsp;ready</span>&nbsp;
+});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Uses both the shortcut for $(document).ready() and the argument to
+write failsafe jQuery code using the $ alias, without relying on the
+global alias.</p>
+<pre><code class="javascript">jQuery(<span class="keywords">function</span>($)&nbsp;{&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;Your&nbsp;code&nbsp;using&nbsp;failsafe&nbsp;$&nbsp;alias&nbsp;here...</span>&nbsp;
+});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuery-expressioncontext">
+<span class="fn"><a class="name" href="#link-jQuery-expressioncontext">jQuery</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to search with.">expression</span>, <span class="arg-type tooltip" title="">Element, jQuery</span> <span class="arg-name tooltip" title="A DOM Element, Document or jQuery to use as context">context</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">This function accepts a string containing a CSS selector which is then used to match a set of elements.<br>The
+core functionality of jQuery centers around this function. Everything
+in jQuery is based upon this, or uses this in some way. The most basic
+use of this function is to pass in an expression (usually consisting of
+CSS), which then finds all matching elements.<br>
+<br>By default, if no context is specified, $() looks for DOM elements
+within the context of the current HTML document. If you do specify a
+context, such as a DOM element or jQuery object, the expression will be
+matched against the contents of that context.<br>
+<br>See &lt;a href='Selectors'&gt;Selectors&lt;/a&gt; for the allowed CSS syntax for expressions. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all p elements that are children of a div element.</p>
+<pre><code class="javascript">$(<span class="string">"div&nbsp;&gt;&nbsp;p"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"1px&nbsp;solid&nbsp;gray"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>one<span class="tag">&lt;/p&gt;</span>&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>two<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>three<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>two<span class="tag">&lt;/p&gt;</span>&nbsp;]</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs of type radio within the first form in the document.</p>
+<pre><code class="javascript">$(<span class="string">"input:radio"</span>,&nbsp;<span class="global">document</span>.forms[<span class="numbers">0</span>]);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all div elements within an XML document from an AJAX response.</p>
+<pre><code class="javascript">$(<span class="string">"div"</span>,&nbsp;xml.responseXML);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryajax-options">
+<span class="fn"><a class="name" href="#link-jQueryajax-options">jQuery.ajax</a>( <span class="arg-type tooltip" title="">Options</span> <span class="arg-name tooltip" title="A set of key/value pairs that configure the Ajax request. All options are optional. A default can be set for any option with &lt;a href='Ajax/jQuery.ajaxSetup'&gt;$.ajaxSetup&lt;/a&gt;().">options</span> ) returns <span class="type"><span class="tooltip" title="An XMLHttpRequest object (referencing a HTTP request).">XMLHttpRequest</span></span></span>
+<div class="more">
+<div class="desc">Load a remote page using an HTTP request.<br>This is
+jQuery's low-level AJAX implementation. See $.get, $.post etc. for
+higher-level abstractions that are often easier to understand and use,
+but don't offer as much functionality (such as error callbacks).<br>
+<br>'''Warning: All POST are converted to GET when 'script' is the dataType.(because it loads script as a dom script tag)'''<br>
+<br>$.ajax() returns the XMLHttpRequest that it creates. In most cases
+you won't need that object to manipulate directly, but it is available
+if you need to abort the request manually.<br>
+<br>'''Note:''' If you specify the dataType option described below,
+make sure
+the server sends the correct MIME type in the response (eg. xml as
+"text/xml").
+Sending the wrong MIME type can lead to unexpected problems in your
+script.
+See &lt;a
+href='Specifying_the_Data_Type_for_AJAX_Requests'&gt;Specifying the
+Data Type for AJAX Requests&lt;/a&gt; for more information.<br>
+<br>$.ajax() takes one argument, an object of key/value pairs, that are
+used to initialize and handle the request. See below for a full list of
+the key/values that can be used.<br>
+<br>As of jQuery 1.2, you can load JSON data located on another domain
+if you specify a
+[http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/ JSONP]
+callback, which can be done like so: "myurl?callback=?". jQuery
+automatically replaces the ? with the correct method name to call,
+calling your specified callback. Or, if you set the dataType to "jsonp"
+a callback will be automatically added to your Ajax request.</div>
+<h3>Options</h3>
+<ul class="options">
+<li>
+<span>async (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: true</span>
+<div>By default, all requests are sent asynchronous (e.g. this is set
+to true by default). If you need synchronous requests, set this option
+to false. Note that synchronous requests may temporarily lock the
+browser, disabling any actions while the request is active.</div>
+</li>
+<li>
+<span>beforeSend (<span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span>), default: </span>
+<div>A pre-callback to modify the XMLHttpRequest object before it is
+sent. Use this to set custom headers etc. The XMLHttpRequest is passed
+as the only argument. This is an &lt;a href='Ajax_Events'&gt;Ajax
+Event&lt;/a&gt;.
+&lt;pre&gt;function (XMLHttpRequest) { this; // the options for this
+ajax request
+}
+&lt;/pre&gt;</div>
+</li>
+<li>
+<span>cache (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: true</span>
+<div>Added in jQuery 1.2, if set to false it will force the pages that you request to not be cached by the browser.</div>
+</li>
+<li>
+<span>complete (<span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span>), default: </span>
+<div>A function to be called when the request finishes (after success
+and error callbacks are executed). The function gets passed two
+arguments: The XMLHttpRequest object and a string describing the type
+of success of the request. This is an &lt;a href='Ajax_Events'&gt;Ajax
+Event&lt;/a&gt;.
+&lt;pre&gt;function (XMLHttpRequest, textStatus) { this; // the options
+for this ajax request
+}
+&lt;/pre&gt;</div>
+</li>
+<li>
+<span>contentType (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: "application/x-www-form-urlencoded"</span>
+<div>When sending data to the server, use this content-type. Default is
+"application/x-www-form-urlencoded", which is fine for most cases.</div>
+</li>
+<li>
+<span>data (<span class="arg-type tooltip" title="">Object, String</span>), default: </span>
+<div>Data to be sent to the server. It is converted to a query string,
+if not already a string. It's appended to the url for GET-requests. See
+processData option to prevent this automatic processing. Object must be
+Key/Value pairs. If value is an Array, jQuery serializes multiple
+values with same key i.e. {foo:["bar1", "bar2"]} becomes
+'&amp;foo=bar1&amp;foo=bar2'.</div>
+</li>
+<li>
+<span>dataType (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: Intelligent Guess (xml or html)</span>
+<div>The type of data that you're expecting back from the server. If
+none is specified, jQuery will intelligently pass either responseXML or
+responseText to your success callback, based on the MIME type of the
+response. The available types (and the result passed as the first
+argument to your success callback) are:
+*"xml": Returns a XML document that can be processed via jQuery.
+*"html": Returns HTML as plain text; included script tags are
+evaluated.
+*'''warning "script" will turn posts into gets'''
+*"script": Evaluates the response as JavaScript and returns it as plain
+text. Disables caching unless option "cache" is used.
+*"json": Evaluates the response as JSON and returns a JavaScript
+Object.
+*"jsonp": Loads in a JSON block using
+[http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/
+JSONP]. Will add an extra "?callback=?" to the end of your URL to
+specify the callback. (Added in jQuery 1.2)
+*"text": A plain text string.</div>
+</li>
+<li>
+<span>error (<span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span>), default: </span>
+<div>A function to be called if the request fails. The function gets
+passed three arguments: The XMLHttpRequest object, a string describing
+the type of error that occurred and an optional exception object, if
+one occurred. This is an &lt;a href='Ajax_Events'&gt;Ajax
+Event&lt;/a&gt;.
+&lt;pre&gt;function (XMLHttpRequest, textStatus, errorThrown) { //
+typically only one of textStatus or errorThrown // will have info this;
+// the options for this ajax request
+}
+&lt;/pre&gt;</div>
+</li>
+<li>
+<span>global (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: true</span>
+<div>Whether to trigger global AJAX event handlers for this request.
+The default is true. Set to false to prevent the global handlers like
+ajaxStart or ajaxStop from being triggered. This can be used to control
+various &lt;a href='Ajax_Events'&gt;Ajax Events&lt;/a&gt;.</div>
+</li>
+<li>
+<span>ifModified (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: false</span>
+<div>Allow the request to be successful only if the response has
+changed since the last request. This is done by checking the
+Last-Modified header. Default value is false, ignoring the header.</div>
+</li>
+<li>
+<span>jsonp (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: </span>
+<div>Override the callback function name in a jsonp request. This value
+will be used instead of 'callback' in the 'callback=?' part of the
+query string in the url for a GET or the data for a POST. So
+{jsonp:'onJsonPLoad'} would result in 'onJsonPLoad=?' passed to the
+server.</div>
+</li>
+<li>
+<span>processData (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: true</span>
+<div>By default, data passed in to the data option as an object
+(technically, anything other than a string) will be processed and
+transformed into a query string, fitting to the default content-type
+"application/x-www-form-urlencoded". If you want to send DOMDocuments,
+or other non-processed data, set this option to false.</div>
+</li>
+<li>
+<span>success (<span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span>), default: </span>
+<div>A function to be called if the request succeeds. The function gets
+passed two arguments: The data returned from the server, formatted
+according to the 'dataType' parameter, and a string describing the
+status. This is an &lt;a href='Ajax_Events'&gt;Ajax Event&lt;/a&gt;.
+&lt;pre&gt;function (data, textStatus) { // data could be xmlDoc,
+jsonObj, html, text, etc... this; // the options for this ajax request
+}
+&lt;/pre&gt;</div>
+</li>
+<li>
+<span>timeout (<span class="arg-type tooltip" title="A valid numeric.">Number</span>), default: </span>
+<div>Set a local timeout in ms for the request. This will override the
+global timeout, if one is set via &lt;a
+href='Ajax/jQuery.ajaxSetup'&gt;$.ajaxSetup&lt;/a&gt;. For example, you
+could use this property to give a single request a longer timeout than
+all other requests that you've set to time out in one second. See &lt;a
+href='Ajax/jQuery.ajaxSetup'&gt;$.ajaxSetup&lt;/a&gt;() for global
+timeouts.</div>
+</li>
+<li>
+<span>type (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: "GET"</span>
+<div>The type of request to make ("POST" or "GET"), default is "GET".
+Note: Other HTTP request methods, such as PUT and DELETE, can also be
+used here, but they are not supported by all browsers.</div>
+</li>
+<li>
+<span>url (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: The current page</span>
+<div>The URL to request.</div>
+</li>
+</ul>
+<div class="example">
+<h3>Example:</h3>
+<p>Load and execute a JavaScript file.</p>
+<pre><code class="javascript">&nbsp;$.ajax({&nbsp;
+&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">"GET"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">"test.js"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;dataType:&nbsp;<span class="string">"script"</span>&nbsp;
+&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Save some data to the server and notify the user once its complete.</p>
+<pre><code class="javascript">&nbsp;$.ajax({&nbsp;
+&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">"POST"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">"some.php"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;data:&nbsp;<span class="string">"name=John&amp;location=Boston"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;success:&nbsp;<span class="keywords">function</span>(msg){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(&nbsp;<span class="string">"Data&nbsp;Saved:&nbsp;"</span>&nbsp;+&nbsp;msg&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Retrieve the latest version of an HTML page.</p>
+<pre><code class="javascript">$.ajax({&nbsp;
+&nbsp;&nbsp;url:&nbsp;<span class="string">"test.html"</span>,&nbsp;
+&nbsp;&nbsp;cache:&nbsp;<span class="keywords">false</span>,&nbsp;
+&nbsp;&nbsp;success:&nbsp;<span class="keywords">function</span>(html){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).append(html);&nbsp;
+&nbsp;&nbsp;}&nbsp;
+});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Loads data synchronously. Blocks the browser while the requests is active.
+It is better to block user interaction by other means when synchronization is
+necessary.</p>
+<pre><code class="javascript">&nbsp;<span class="keywords">var</span>&nbsp;html&nbsp;=&nbsp;$.ajax({&nbsp;
+&nbsp;&nbsp;url:&nbsp;<span class="string">"some.php"</span>,&nbsp;
+&nbsp;&nbsp;async:&nbsp;<span class="keywords">false</span>&nbsp;
+&nbsp;}).responseText;</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Sends an xml document as data to the server. By setting the processData
+option to false, the automatic conversion of data to strings is prevented.</p>
+<pre><code class="javascript">&nbsp;<span class="keywords">var</span>&nbsp;xmlDocument&nbsp;=&nbsp;[create&nbsp;xml&nbsp;<span class="global">document</span>];&nbsp;
+&nbsp;$.ajax({&nbsp;
+&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">"page.php"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;processData:&nbsp;<span class="keywords">false</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;data:&nbsp;xmlDocument,&nbsp;
+&nbsp;&nbsp;&nbsp;success:&nbsp;handleResponse&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryajaxSetup-options">
+<span class="fn"><a class="name" href="#link-jQueryajaxSetup-options">jQuery.ajaxSetup</a>( <span class="arg-type tooltip" title="">Options</span> <span class="arg-name tooltip" title="A set of key/value pairs that configure the default Ajax request. All options are optional.">options</span> ) returns <span class="type"><span class="tooltip" title=""></span></span></span>
+<div class="more">
+<div class="desc">Setup global settings for AJAX requests.<br>See &lt;a href='Ajax/jQuery.ajax'&gt;$.ajax&lt;/a&gt; for a description of all available options.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Sets the defaults for AJAX requests to the url "/xmlhttp/", disables
+global handlers and uses POST instead of GET. The following AJAX
+requests then sends some data without having to set anything else.</p>
+<pre><code class="javascript">&nbsp;$.ajaxSetup({&nbsp;
+&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">"/xmlhttp/"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;global:&nbsp;<span class="keywords">false</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">"POST"</span>&nbsp;
+&nbsp;
+&nbsp;});&nbsp;
+&nbsp;$.ajax({&nbsp;data:&nbsp;myData&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryboxModel-">
+<span class="fn"><a class="name" href="#link-jQueryboxModel-">jQuery.boxModel</a> returns <span class="type"><span class="tooltip" title="true or false.">Boolean</span></span></span>
+<div class="more">
+<div class="desc">States if the current page, in the user's browser, is
+being rendered using the [http://www.w3.org/TR/REC-CSS2/box.html W3C
+CSS Box Model].<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns the box model for the iframe.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).html(<span class="string">"The&nbsp;box&nbsp;model&nbsp;for&nbsp;this&nbsp;iframe&nbsp;is:&nbsp;&lt;span&gt;"</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.boxModel&nbsp;+&nbsp;<span class="string">"&lt;/span&gt;"</span>);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns false if the page is in QuirksMode in Internet Explorer</p>
+<pre><code class="javascript">$.boxModel</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">false</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerybrowser-">
+<span class="fn"><a class="name" href="#link-jQuerybrowser-">jQuery.browser</a> returns <span class="type"><span class="tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span></span></span>
+<div class="more">
+<div class="desc">Contains flags for the useragent, read from navigator.userAgent.<br>Available flags are:
+* safari
+* opera
+* msie
+* mozilla<br>
+<br>This property is available before the DOM is ready, therefore you can use it to add ready events only for certain browsers.<br>
+<br>There are situations where object detection is not reliable enough, in such cases it makes sense to use browser detection.<br>
+<br>A combination of browser and object detection yields quite reliable results. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show the browser info.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.each(jQuery.browser,&nbsp;<span class="keywords">function</span>(i,&nbsp;val)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"&lt;div&gt;"</span>&nbsp;+&nbsp;i&nbsp;+&nbsp;<span class="string">"&nbsp;:&nbsp;&lt;span&gt;"</span>&nbsp;+&nbsp;val&nbsp;+&nbsp;<span class="string">"&lt;/span&gt;"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.appendTo(<span class="global">document</span>.body);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Browser&nbsp;info:<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns true if the current useragent is some version of Microsoft's Internet Explorer</p>
+<pre><code class="javascript">$.browser.msie</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alerts "this is safari!" only for safari browsers</p>
+<pre><code class="javascript"><span class="keywords">if</span>&nbsp;($.browser.safari)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"this&nbsp;is&nbsp;safari!"</span>);&nbsp;
+&nbsp;}</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerybrowserversion-">
+<span class="fn"><a class="name" href="#link-jQuerybrowserversion-">jQuery.browser.version</a> returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">The version number of the rendering engine for the user's browser.<br>Here are some typical results:
+* Internet Explorer: 6.0, 7.0
+* Mozilla/Firefox/Flock/Camino: 1.7.12, 1.8.1.3
+* Opera: 9.20
+* Safari/Webkit: 312.8, 418.9</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns the browser version.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).html(<span class="string">"The&nbsp;browser&nbsp;version&nbsp;is:&nbsp;&lt;span&gt;"</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.browser.version&nbsp;+&nbsp;<span class="string">"&lt;/span&gt;"</span>);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alerts the version of IE that is being used</p>
+<pre><code class="javascript"><span class="keywords">if</span>&nbsp;(&nbsp;$.browser.msie&nbsp;)&nbsp;
+&nbsp;&nbsp;alert(&nbsp;$.browser.version&nbsp;);&nbsp;
+}</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Often you only care about the "major number," the whole number. This
+can be accomplished with JavaScript's built-in parseInt() function:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+<span class="keywords">if</span>&nbsp;(jQuery.browser.msie)&nbsp;{&nbsp;
+&nbsp;&nbsp;alert(<span class="global">parseInt</span>(jQuery.browser.version));&nbsp;
+}&nbsp;
+</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerydata-elem">
+<span class="fn"><a class="name" href="#link-jQuerydata-elem">jQuery.data</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="DOM element of interest.">elem</span> ) returns <span class="type"><span class="tooltip" title="A valid numeric.">Number</span></span></span>
+<div class="more">
+<div class="desc">Returns a unique ID for the element.<br>Typically
+this function will only be used internally. It is called automatically
+when necessary when using the other data() functionality.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Get the store id of an element.  It is assigned on the data() function call if one hasn't been assigned yet.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).click(<span class="keywords">function</span>(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;id&nbsp;=&nbsp;jQuery.data(e.target);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(id);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>A&nbsp;div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Another<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>The&nbsp;id&nbsp;of&nbsp;this&nbsp;div&nbsp;is&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>?<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerydata-elemname">
+<span class="fn"><a class="name" href="#link-jQuerydata-elemname">jQuery.data</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="DOM element of interest.">elem</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="Name of the data stored.">name</span> ) returns <span class="type"><span class="tooltip" title="">Any</span></span></span>
+<div class="more">
+<div class="desc">Returns value at named data store for the element.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Get the data named "blah" stored at for an element.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;adiv&nbsp;=&nbsp;$(<span class="string">"div"</span>).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;value;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">switch</span>&nbsp;($(<span class="string">"button"</span>).index(<span class="keywords">this</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">case</span>&nbsp;<span class="numbers">0</span>&nbsp;:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"blah"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">case</span>&nbsp;<span class="numbers">1</span>&nbsp;:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"blah"</span>,&nbsp;<span class="string">"hello"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;<span class="string">"Stored!"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">case</span>&nbsp;<span class="numbers">2</span>&nbsp;:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"blah"</span>,&nbsp;<span class="numbers">86</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;<span class="string">"Stored!"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">case</span>&nbsp;<span class="numbers">3</span>&nbsp;:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.removeData(adiv);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;<span class="string">"Removed!"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;value);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>A&nbsp;div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Get&nbsp;"blah"&nbsp;from&nbsp;the&nbsp;div<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Set&nbsp;"blah"&nbsp;to&nbsp;"hello"<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Set&nbsp;"blah"&nbsp;to&nbsp;86<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Remove&nbsp;"blah"&nbsp;from&nbsp;the&nbsp;div<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>The&nbsp;"blah"&nbsp;value&nbsp;of&nbsp;this&nbsp;div&nbsp;is&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>?<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerydata-elemnamevalue">
+<span class="fn"><a class="name" href="#link-jQuerydata-elemnamevalue">jQuery.data</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="DOM element of interest.">elem</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="Name of the data to store.">name</span>, <span class="arg-type tooltip" title="">Any</span> <span class="arg-name tooltip" title="Value to be stored.">value</span> ) returns <span class="type"><span class="tooltip" title="">Any</span></span></span>
+<div class="more">
+<div class="desc">Stores the value in the named spot and also returns the value.<br>This
+function can be useful for attaching data to elements without having to
+create a new expando. It also isn't limited to a string. The value can
+be any format.<br>
+<br>To avoid conflicts in plugins, it is usually effective to store one
+object using the plugin name and put all the necessary information in
+that object.<br>
+<br>
+&lt;code&gt;
+  var obj = jQuery.data($("#target").get(0), "pluginname", {});
+  obj[...] = ...
+&lt;/code&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Store then retrieve a value from the div element.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;adiv&nbsp;=&nbsp;$(<span class="string">"div"</span>).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test"</span>,&nbsp;{&nbsp;first:&nbsp;<span class="numbers">16</span>,&nbsp;last:&nbsp;<span class="string">"pizza!"</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:first"</span>).text(jQuery.data(adiv,&nbsp;<span class="string">"test"</span>).first);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:last"</span>).text(jQuery.data(adiv,&nbsp;<span class="string">"test"</span>).last);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;values&nbsp;stored&nbsp;were&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryeach-objectcallback">
+<span class="fn"><a class="name" href="#link-jQueryeach-objectcallback">jQuery.each</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The object, or array, to iterate over.">object</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function that will be executed on every object.
+&lt;pre&gt;function callback(indexInArray, valueOfElement) {
+  var booleanKeepGoing;
+
+  this; // == valueOfElement
+
+  return booleanKeepGoing; // optional, unless false 
+                           // and want to stop looping
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A simple Javascript object..">Object</span></span></span>
+<div class="more">
+<div class="desc">A generic iterator function, which can be used to seamlessly iterate over both objects and arrays.<br>This
+function is not the same as $().each() - which is used to iterate,
+exclusively, over a jQuery object. This function can be used to iterate
+over anything.<br>
+<br>The callback has two arguments:the key (objects) or index (arrays) as the first, and the value as the second.<br>
+<br>If you wish to break the each() loop at a particular iteration you
+can do so by making your function return false. Other return values are
+ignored.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Filters the original array of numbers leaving that are not 5 and
+have an index greater than 3. Then it removes all 9s while inverting it.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;arr&nbsp;=&nbsp;[&nbsp;<span class="string">"one"</span>,&nbsp;<span class="string">"two"</span>,&nbsp;<span class="string">"three"</span>,&nbsp;<span class="string">"four"</span>,&nbsp;<span class="string">"five"</span>&nbsp;];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;obj&nbsp;=&nbsp;{&nbsp;one:<span class="numbers">1</span>,&nbsp;two:<span class="numbers">2</span>,&nbsp;three:<span class="numbers">3</span>,&nbsp;four:<span class="numbers">4</span>,&nbsp;five:<span class="numbers">5</span>&nbsp;};&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.each(arr,&nbsp;<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#"</span>&nbsp;+&nbsp;<span class="keywords">this</span>).text(<span class="string">"My&nbsp;id&nbsp;is&nbsp;"</span>&nbsp;+&nbsp;<span class="keywords">this</span>&nbsp;+&nbsp;<span class="string">"."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;(<span class="keywords">this</span>&nbsp;!=&nbsp;<span class="string">"four"</span>);&nbsp;<span class="com">//&nbsp;will&nbsp;stop&nbsp;running&nbsp;to&nbsp;skip&nbsp;"five"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.each(obj,&nbsp;<span class="keywords">function</span>(i,&nbsp;val)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#"</span>&nbsp;+&nbsp;i).append(<span class="global">document</span>.createTextNode(<span class="string">"&nbsp;-&nbsp;"</span>&nbsp;+&nbsp;val));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"one"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"two"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"three"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"four"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"five"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Iterates over items in an array, accessing both the current item and its index.</p>
+<pre><code class="javascript">&nbsp;$.each(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>],&nbsp;<span class="keywords">function</span>(i,&nbsp;n){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(&nbsp;<span class="string">"Item&nbsp;#"</span>&nbsp;+&nbsp;i&nbsp;+&nbsp;<span class="string">":&nbsp;"</span>&nbsp;+&nbsp;n&nbsp;);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Iterates over the properties in an object, accessing both the current item and its key.</p>
+<pre><code class="javascript">$.each(&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;lang:&nbsp;<span class="string">"JS"</span>&nbsp;},&nbsp;<span class="keywords">function</span>(i,&nbsp;n){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(&nbsp;<span class="string">"Name:&nbsp;"</span>&nbsp;+&nbsp;i&nbsp;+&nbsp;<span class="string">",&nbsp;Value:&nbsp;"</span>&nbsp;+&nbsp;n&nbsp;);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryextend-object">
+<span class="fn"><a class="name" href="#link-jQueryextend-object">jQuery.extend</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The object that will be merged into the jQuery object.">object</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Extends the jQuery object itself.<br>Can be used to
+add functions into the jQuery namespace. See &lt;a
+href='Core/jQuery.fn.extend'&gt;jQuery.fn.extend&lt;/a&gt; for more
+information on using this method to add &lt;a
+href='Plugins/Authoring'&gt;Plugins&lt;/a&gt;.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds two functions into the jQuery namespace.</p>
+<pre><code class="javascript">jQuery.extend({&nbsp;
+&nbsp;&nbsp;min:&nbsp;<span class="keywords">function</span>(a,&nbsp;b)&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;a&nbsp;&lt;&nbsp;b&nbsp;?&nbsp;a&nbsp;:&nbsp;b;&nbsp;},&nbsp;
+&nbsp;&nbsp;max:&nbsp;<span class="keywords">function</span>(a,&nbsp;b)&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;a&nbsp;&gt;&nbsp;b&nbsp;?&nbsp;a&nbsp;:&nbsp;b;&nbsp;}&nbsp;
+});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">jQuery.min(2,3);&nbsp;//&nbsp;=<span class="tag">&gt;</span>&nbsp;2&nbsp;
+jQuery.max(4,5);&nbsp;//&nbsp;=<span class="tag">&gt;</span>&nbsp;5</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryextend-targetobject1objectN">
+<span class="fn"><a class="name" href="#link-jQueryextend-targetobject1objectN">jQuery.extend</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The object to extend.">target</span>, <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The object that will be merged into the first.">object1</span>, <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="More objects to merge into the first.">objectN</span> ) returns <span class="type"><span class="tooltip" title="A simple Javascript object..">Object</span></span></span>
+<div class="more">
+<div class="desc">Extend one object with one or more others, returning the original, modified, object.<br>This is a great utility for simple inheritance.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Merge settings and options, modifying settings.</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;settings&nbsp;=&nbsp;{&nbsp;validate:&nbsp;<span class="keywords">false</span>,&nbsp;limit:&nbsp;<span class="numbers">5</span>,&nbsp;name:&nbsp;<span class="string">"foo"</span>&nbsp;};&nbsp;
+<span class="keywords">var</span>&nbsp;options&nbsp;=&nbsp;{&nbsp;validate:&nbsp;<span class="keywords">true</span>,&nbsp;name:&nbsp;<span class="string">"bar"</span>&nbsp;};&nbsp;
+jQuery.extend(settings,&nbsp;options);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">settings&nbsp;==&nbsp;{&nbsp;validate:&nbsp;true,&nbsp;limit:&nbsp;5,&nbsp;name:&nbsp;"bar"&nbsp;}</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Merge defaults and options, without modifying the defaults.</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;empty&nbsp;=&nbsp;{}&nbsp;
+<span class="keywords">var</span>&nbsp;defaults&nbsp;=&nbsp;{&nbsp;validate:&nbsp;<span class="keywords">false</span>,&nbsp;limit:&nbsp;<span class="numbers">5</span>,&nbsp;name:&nbsp;<span class="string">"foo"</span>&nbsp;};&nbsp;
+<span class="keywords">var</span>&nbsp;options&nbsp;=&nbsp;{&nbsp;validate:&nbsp;<span class="keywords">true</span>,&nbsp;name:&nbsp;<span class="string">"bar"</span>&nbsp;};&nbsp;
+<span class="keywords">var</span>&nbsp;settings&nbsp;=&nbsp;$.extend(empty,&nbsp;defaults,&nbsp;options);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">settings&nbsp;==&nbsp;{&nbsp;validate:&nbsp;true,&nbsp;limit:&nbsp;5,&nbsp;name:&nbsp;"bar"&nbsp;}<span class="aname">&nbsp;
+empty</span>&nbsp;==&nbsp;{&nbsp;validate:&nbsp;true,&nbsp;limit:&nbsp;5,&nbsp;name:&nbsp;"bar"&nbsp;}</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryfnextend-object">
+<span class="fn"><a class="name" href="#link-jQueryfnextend-object">jQuery.fn.extend</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The object that will be merged into the jQuery object.">object</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Extends the jQuery element set to provide new methods (used to make a typical jQuery plugin).<br>Can be used to add functions into the to add &lt;a href='Plugins/Authoring'&gt;plugin methods (plugins)&lt;/a&gt;. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds two plugin methods.</p>
+<pre><code class="javascript">jQuery.fn.extend({&nbsp;
+&nbsp;&nbsp;check:&nbsp;<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">this</span>.each(<span class="keywords">function</span>()&nbsp;{&nbsp;<span class="keywords">this</span>.checked&nbsp;=&nbsp;<span class="keywords">true</span>;&nbsp;});&nbsp;
+&nbsp;&nbsp;},&nbsp;
+&nbsp;&nbsp;uncheck:&nbsp;<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">this</span>.each(<span class="keywords">function</span>()&nbsp;{&nbsp;<span class="keywords">this</span>.checked&nbsp;=&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;
+&nbsp;&nbsp;}&nbsp;
+});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">$("input[@type=checkbox]").check();&nbsp;
+$("input[@type=radio]").uncheck();</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuery-fx-off">
+<span class="fn"><a class="name" href="#link-jQuery-fx-off">jQuery.fx.off</a> returns <span class="arg-type tooltip" title="true or false.">Boolean</span></span>
+  <div class="more">
+    <div class="desc">
+      <p>Setting this property to true will disable all animations from occurring (the effect will happen instantaneously, instead). This may be desirable for a couple reasons:</p>
+      <p>
+        # You're using jQuery on a low-resource device.<br>
+        # Some of your users are encountering http://www.jdeegan.phlegethon.org/turn_off_animation.html with the animations.</p>
+      <p>Animations can be turned back on by setting the property to false.</p>
+    </div>
+    <div class="example">
+      <h3>Example:</h3>
+      <p>Run a disabled animation.</p>
+      <pre><code class="javascript">jQuery.fx.off = <span class="keywords">true</span>;
+    $(<span class="string">"input"</span>).click(<span class="keywords">function</span>(){
+      $(<span class="string">"div"</span>).toggle(<span class="string">"slow"</span>);
+    });</code>
+  </pre>
+      <h4>HTML:</h4>
+      <pre><code class="html"><span class="tag">&lt;input</span> <span class="aname">type</span>=<span class="avalue">&quot;button&quot;</span> <span class="aname">value</span>=<span class="avalue">&quot;Run&quot;</span>/&gt;<br><span class="tag">&lt;div</span> <span class="aname">style</span>=<span class="avalue">&quot;display: block;&quot;</span>/&gt;</code></pre>
+    </div>
+  </div>
+</li>
+<li id="link-jQueryget-urldatacallback">
+<span class="fn"><a class="name" href="#link-jQueryget-urldatacallback">jQuery.get</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The URL of the page to load.">url</span>, <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs that will be sent to the server.">data</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the data is loaded successfully.
+
+&lt;pre&gt;function (data, textStatus) {
+  // data could be xmlDoc, jsonObj, html, text, etc...
+  this; // the options for this ajax request
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="An XMLHttpRequest object (referencing a HTTP request).">XMLHttpRequest</span></span></span>
+<div class="more">
+<div class="desc">Load a remote page using an HTTP GET request.<br>This
+is an easy way to send a simple GET request to a server without having
+to use the more complex $.ajax function. It allows a single callback
+function to be specified that will be executed when the request is
+complete (and only if the response has a successful response code). If
+you need to have both error and success callbacks, you may want to use
+$.ajax.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Request the test.php page, but ignore the return results.</p>
+<pre><code class="javascript">&nbsp;$.get(<span class="string">"test.php"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Request the test.php page and send some additional data along (while still ignoring the return results).</p>
+<pre><code class="javascript">&nbsp;$.get(<span class="string">"test.php"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;}&nbsp;);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.php (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.get(<span class="string">"test.php"</span>,&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.cgi with an additional payload of data (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.get(<span class="string">"test.cgi"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;},&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;&nbsp;&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerygetJSON-urldatacallback">
+<span class="fn"><a class="name" href="#link-jQuerygetJSON-urldatacallback">jQuery.getJSON</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The URL of the page to load.">url</span>, <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs that will be sent to the server.">data</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the data is loaded successfully.
+
+&lt;pre&gt;function (data, textStatus) {
+  // data will be a jsonObj
+  this; // the options for this ajax request
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="An XMLHttpRequest object (referencing a HTTP request).">XMLHttpRequest</span></span></span>
+<div class="more">
+<div class="desc">Load JSON data using an HTTP GET request.<br>As of
+jQuery 1.2, you can load JSON data located on another domain if you
+specify a
+[http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/ JSONP]
+callback, which can be done like so: "myurl?callback=?". jQuery
+automatically replaces the ? with the correct method name to call,
+calling your specified callback.<br>
+<br>
+Note: Keep in mind, that lines after this function will be executed before callback.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Loads the four most recent cat pictures from the Flickr JSONP API.</p>
+<pre><code class="javascript">$.getJSON(<span class="string">"http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.each(data.items,&nbsp;<span class="keywords">function</span>(i,item){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"&lt;img/&gt;"</span>).attr(<span class="string">"src"</span>,&nbsp;item.media.m).appendTo(<span class="string">"#images"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(&nbsp;i&nbsp;==&nbsp;<span class="numbers">3</span>&nbsp;)&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"images"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load the JSON data from test.js and access a name from the returned JSON data.</p>
+<pre><code class="javascript">&nbsp;$.getJSON(<span class="string">"test.js"</span>,&nbsp;<span class="keywords">function</span>(json){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"JSON&nbsp;Data:&nbsp;"</span>&nbsp;+&nbsp;json.users[<span class="numbers">3</span>].name);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load the JSON data from test.js, passing along additional data, and access a name from the returned JSON data.</p>
+<pre><code class="javascript">&nbsp;$.getJSON(<span class="string">"test.js"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;},&nbsp;<span class="keywords">function</span>(json){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"JSON&nbsp;Data:&nbsp;"</span>&nbsp;+&nbsp;json.users[<span class="numbers">3</span>].name);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.php (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.getIfModified(<span class="string">"test.php"</span>,&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.php with an additional payload of data (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.getIfModified(<span class="string">"test.cgi"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;},&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;&nbsp;&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>list the result of a consultation of pages,php in HTML as an array. by Manuel Gonzalez.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+<span class="keywords">var</span>&nbsp;id=$(<span class="string">"#id"</span>).attr(<span class="string">"value"</span>);&nbsp;
+&nbsp;&nbsp;$.getJSON(<span class="string">"pages.php"</span>,{id:id},dates);&nbsp;
+<span class="keywords">function</span>&nbsp;dates(datos)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;$(<span class="string">"#list"</span>).html(<span class="string">"Name:"</span>+datos[<span class="numbers">1</span>].name+<span class="string">"&lt;br&gt;"</span>+<span class="string">"Last&nbsp;Name:"</span>+datos[<span class="numbers">1</span>].lastname+<span class="string">"&lt;br&gt;"</span>+<span class="string">"Address:"</span>+datos[<span class="numbers">1</span>].address);&nbsp;
+}&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerygetScript-urlcallback">
+<span class="fn"><a class="name" href="#link-jQuerygetScript-urlcallback">jQuery.getScript</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The URL of the page to load.">url</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the data is loaded successfully.
+&lt;pre&gt;function (data, textStatus) {
+  // data should be javascript
+  this; // the options for this ajax request
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="An XMLHttpRequest object (referencing a HTTP request).">XMLHttpRequest</span></span></span>
+<div class="more">
+<div class="desc">Loads, and executes, a local JavaScript file using an HTTP GET request.<br>Before
+jQuery 1.2, getScript was only able to load scripts from the same
+domain as the original page. As of 1.2, you can now load JavaScript
+files from any domain.<br>
+<br>Warning: Safari 2 and older is unable to evaluate scripts in a
+global context synchronously. If you load functions via getScript, make
+sure to call them after a delay.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>We load the new [http://jquery.com/plugins/project/color official
+jQuery Color Animation plugin] dynamically and bind some color
+animations to occur once the new functionality is loaded.</p>
+<pre><code class="javascript">$.getScript(<span class="string">"http://dev.jquery.com/view/trunk/plugins/color/jquery.color.js"</span>,&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;$(<span class="string">"#go"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).animate(&nbsp;{&nbsp;backgroundColor:&nbsp;<span class="string">'pink'</span>&nbsp;},&nbsp;<span class="numbers">1000</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate(&nbsp;{&nbsp;backgroundColor:&nbsp;<span class="string">'blue'</span>&nbsp;},&nbsp;<span class="numbers">1000</span>);&nbsp;
+&nbsp;&nbsp;});&nbsp;
+});</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Run<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"block"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load the test.js JavaScript file and execute it.</p>
+<pre><code class="javascript">&nbsp;$.getScript(<span class="string">"test.js"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Load the test.js JavaScript file and execute it, displaying an alert message when the execution is complete.</p>
+<pre><code class="javascript">&nbsp;$.getScript(<span class="string">"test.js"</span>,&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"Script&nbsp;loaded&nbsp;and&nbsp;executed."</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerygrep-arraycallbackinvert">
+<span class="fn"><a class="name" href="#link-jQuerygrep-arraycallbackinvert">jQuery.grep</a>( <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="The Array to find items in.">array</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to process each item against.  The first argument to the function is the list item, and the second argument is the list index.  The function should return a Boolean value.  Optionally, this argument may be a string rather than a function.  If the argument is a string, it is treated as a short &quot;lambda-form&quot; function, with &quot;a&quot; representing the list item and &quot;i&quot; representing the index.  For example, &quot;a &gt; 0&quot; may be passed instead of &quot;function(a){ return a &gt; 0; }&quot;.
+
+&lt;pre&gt;function callback(elementOfArray, indexInArray) {
+  var shouldKeepIt;
+
+  this; // unmapped
+
+  return shouldKeepIt;
+}
+&lt;/pre&gt;">callback</span>, <span class="arg-type tooltip" title="true or false.">Boolean</span> <span class="arg-name tooltip" title="If &quot;invert&quot; is false, or not provided, then the function returns an array consisting of all elements for which &quot;callback&quot; returns true.  If &quot;invert&quot; is true, then the function returns an array consisting of all elements for which &quot;callback&quot; returns false.">invert</span> ) returns <span class="type"><span class="tooltip" title="">Array</span></span></span>
+<div class="more">
+<div class="desc">Filter items out of an array, by using a filter function.<br>The
+specified function will be passed two arguments: The current array item
+and the index of the item in the array. The function must return 'true'
+to keep the item in the array, false to remove it.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Filters the original array of numbers leaving that are not 5 and
+have an index greater than 3. Then it removes all 9s while inverting it.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;arr&nbsp;=&nbsp;[&nbsp;<span class="numbers">1</span>,&nbsp;<span class="numbers">9</span>,&nbsp;<span class="numbers">3</span>,&nbsp;<span class="numbers">8</span>,&nbsp;<span class="numbers">6</span>,&nbsp;<span class="numbers">1</span>,&nbsp;<span class="numbers">5</span>,&nbsp;<span class="numbers">9</span>,&nbsp;<span class="numbers">4</span>,&nbsp;<span class="numbers">7</span>,&nbsp;<span class="numbers">3</span>,&nbsp;<span class="numbers">8</span>,&nbsp;<span class="numbers">6</span>,&nbsp;<span class="numbers">9</span>,&nbsp;<span class="numbers">1</span>&nbsp;];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;arr&nbsp;=&nbsp;jQuery.grep(arr,&nbsp;<span class="keywords">function</span>(n,&nbsp;i){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;(n&nbsp;!=&nbsp;<span class="numbers">5</span>&nbsp;&amp;&amp;&nbsp;i&nbsp;&gt;&nbsp;<span class="numbers">4</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;arr&nbsp;=&nbsp;jQuery.grep(arr,&nbsp;<span class="string">"a&nbsp;!=&nbsp;9"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Filter an array of numbers to include only numbers bigger then zero.</p>
+<pre><code class="javascript">$.grep(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>],&nbsp;<span class="keywords">function</span>(n,i){&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;n&nbsp;&gt;&nbsp;<span class="numbers">0</span>;&nbsp;
+&nbsp;});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[1,&nbsp;2]</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Filter an array of numbers to exclude numbers bigger then zero using the third parameter, invert.</p>
+<pre><code class="javascript">$.grep(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>,<span class="numbers">3</span>,<span class="numbers">4</span>,<span class="numbers">5</span>],&nbsp;<span class="string">"a&nbsp;&gt;&nbsp;1"</span>,&nbsp;<span class="keywords">true</span>);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[0,&nbsp;1]</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryinArray-valuearray">
+<span class="fn"><a class="name" href="#link-jQueryinArray-valuearray">jQuery.inArray</a>( <span class="arg-type tooltip" title="">Any</span> <span class="arg-name tooltip" title="Value to see if it exists in the array.">value</span>, <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="Array to look through for the value.">array</span> ) returns <span class="type"><span class="tooltip" title="A valid numeric.">Number</span></span></span>
+<div class="more">
+<div class="desc">Determine the index of the first parameter in the Array (-1 if not found).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p></p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;arr&nbsp;=&nbsp;[&nbsp;<span class="numbers">4</span>,&nbsp;<span class="string">"Pete"</span>,&nbsp;<span class="numbers">8</span>,&nbsp;<span class="string">"John"</span>&nbsp;];&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(0)"</span>).text(jQuery.inArray(<span class="string">"John"</span>,&nbsp;arr));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(1)"</span>).text(jQuery.inArray(<span class="numbers">4</span>,&nbsp;arr));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(2)"</span>).text(jQuery.inArray(<span class="string">"David"</span>,&nbsp;arr));&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>"John"&nbsp;found&nbsp;at&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>4&nbsp;found&nbsp;at&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>"David"&nbsp;found&nbsp;at&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryisArray"> <span class="fn"><a class="name" href="#link-jQueryisArray">jQuery.isArray</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="Object to test whether or not it is a function.">obj</span> ) returns <span class="arg-type tooltip" title="true or false.">Boolean</span></span></span>
+  <div class="more">
+<div class="desc">Determine if the parameter passed is an array.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds out if the parameter is an array.</p>
+<pre><code class="javascript">$(<span class="string">"b"</span>).append( <span class="string">""</span> + $.isArray([]) );</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">Is [] an Array?<br><span class="tag">&lt;b&gt;</span>true<span class="tag">&lt;/b&gt;</span></code></pre>
+    </div>
+  </div>
+</li>
+<li id="link-jQueryisFunction-obj">
+<span class="fn"><a class="name" href="#link-jQueryisFunction-obj">jQuery.isFunction</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="Object to test whether or not it is a function.">obj</span> ) returns <span class="type"><span class="tooltip" title="">boolean</span></span></span>
+<div class="more">
+<div class="desc">Determine if the parameter passed is a function.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Test a few parameter examples.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;stub()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;objs&nbsp;=&nbsp;[&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{},&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;x:<span class="numbers">15</span>,&nbsp;y:<span class="numbers">20</span>&nbsp;},&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">null</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stub,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"function"</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.each(objs,&nbsp;<span class="keywords">function</span>&nbsp;(i)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;isFunc&nbsp;=&nbsp;jQuery.isFunction(objs[i]);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(&nbsp;"</span>&nbsp;+&nbsp;i&nbsp;+&nbsp;<span class="string">")"</span>).text(isFunc);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html">&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>jQuery.isFunction(objs[0])&nbsp;=&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>jQuery.isFunction(objs[1])&nbsp;=&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>jQuery.isFunction(objs[2])&nbsp;=&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>jQuery.isFunction(objs[3])&nbsp;=&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>jQuery.isFunction(objs[4])&nbsp;=&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds out if the parameter is a funcion.</p>
+<pre><code class="javascript">$.isFunction(<span class="keywords">function</span>(){});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">true</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerymakeArray-obj">
+<span class="fn"><a class="name" href="#link-jQuerymakeArray-obj">jQuery.makeArray</a>( <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="Array-like object to turn in to an actual Array.">obj</span> ) returns <span class="type"><span class="tooltip" title="">Array</span></span></span>
+<div class="more">
+<div class="desc">Turns an array-like object into a true array.<br>Array-like
+objects have a length property and its properties are numbered from 0
+to length - 1. Typically it will be unnecessary to use this function if
+you are using jQuery which uses this function internally.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Turn a collection of HTMLElements into an Array of them.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;arr&nbsp;=&nbsp;jQuery.makeArray(<span class="global">document</span>.getElementsByTagName(<span class="string">"div"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;arr.reverse();&nbsp;<span class="com">//&nbsp;use&nbsp;an&nbsp;Array&nbsp;method&nbsp;on&nbsp;list&nbsp;of&nbsp;dom&nbsp;elements</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(arr).appendTo(<span class="global">document</span>.body);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>First<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Second<span class="tag">&lt;/div&gt;</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Third<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Fourth<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerymap-arraycallback">
+<span class="fn"><a class="name" href="#link-jQuerymap-arraycallback">jQuery.map</a>( <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="The Array to translate.">array</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to process each item against.  The argument to the function is the list item. The function can return any value.  Optionally, this argument may be a string rather than a function. If the argument is a string, it is treated as a short &quot;lambda-form&quot; function, with &quot;a&quot; representing the list item. For example, &quot;a * a&quot; may be passed instead of &quot;function(a){ return a * a; }&quot;. 
+
+&lt;pre&gt;function callback(elementOfArray, indexInArray) {
+  var replacementValue;
+
+  this; // unmapped
+
+  return replacementValue;
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="">Array</span></span></span>
+<div class="more">
+<div class="desc">Translate all items in an array to another array of items.<br>The
+translation function that is provided to this method is called for each
+item in the array and is passed one argument: The item to be translated.<br>
+<br>The function can then return the translated value, 'null' (to
+remove the item), or an array of values - which will be flattened into
+the full array. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original array to a new one and adds 4 to each value.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;arr&nbsp;=&nbsp;[&nbsp;<span class="string">"a"</span>,&nbsp;<span class="string">"b"</span>,&nbsp;<span class="string">"c"</span>,&nbsp;<span class="string">"d"</span>,&nbsp;<span class="string">"e"</span>&nbsp;]&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;arr&nbsp;=&nbsp;jQuery.map(arr,&nbsp;<span class="keywords">function</span>(n,&nbsp;i){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;(n.toUpperCase()&nbsp;+&nbsp;i);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;arr&nbsp;=&nbsp;jQuery.map(arr,&nbsp;<span class="string">"a&nbsp;+&nbsp;a"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(arr.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original array to a new one and adds 4 to each value.</p>
+<pre><code class="javascript">$.map(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>],&nbsp;<span class="keywords">function</span>(n){&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;n&nbsp;+&nbsp;<span class="numbers">4</span>;&nbsp;
+&nbsp;});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[4,&nbsp;5,&nbsp;6]</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original array to a new one and adds 1 to each value if it is bigger then zero, otherwise it's removed.</p>
+<pre><code class="javascript">$.map(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>],&nbsp;<span class="keywords">function</span>(n){&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;n&nbsp;&gt;&nbsp;<span class="numbers">0</span>&nbsp;?&nbsp;n&nbsp;+&nbsp;<span class="numbers">1</span>&nbsp;:&nbsp;<span class="keywords">null</span>;&nbsp;
+&nbsp;});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[2,&nbsp;3]</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original array to a new one, each element is added with it's original value and the value plus one.</p>
+<pre><code class="javascript">$.map(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>],&nbsp;<span class="keywords">function</span>(n){&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;[&nbsp;n,&nbsp;n&nbsp;+&nbsp;<span class="numbers">1</span>&nbsp;];&nbsp;
+&nbsp;});</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[0,&nbsp;1,&nbsp;1,&nbsp;2,&nbsp;2,&nbsp;3]</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original array to a new one, each element is squared.</p>
+<pre><code class="javascript">$.map(&nbsp;[<span class="numbers">0</span>,<span class="numbers">1</span>,<span class="numbers">2</span>,<span class="numbers">3</span>],&nbsp;<span class="string">"a&nbsp;*&nbsp;a"</span>&nbsp;);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[0,&nbsp;1,&nbsp;4,&nbsp;9]</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerynoConflict-">
+<span class="fn"><a class="name" href="#link-jQuerynoConflict-">jQuery.noConflict</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Run this function to give control of the $ variable back to whichever library first implemented it.<br>This helps to make sure that jQuery doesn't conflict with the $ object of other libraries.<br>
+<br>By using this function, you will only be able to access jQuery
+using the 'jQuery' variable. For example, where you used to do $("div
+p"), you now must do jQuery("div p").</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Maps the original object that was referenced by $ back to $.</p>
+<pre><code class="javascript">jQuery.noConflict();&nbsp;
+<span class="com">//&nbsp;Do&nbsp;something&nbsp;with&nbsp;jQuery</span>&nbsp;
+jQuery(<span class="string">"div&nbsp;p"</span>).hide();&nbsp;
+<span class="com">//&nbsp;Do&nbsp;something&nbsp;with&nbsp;another&nbsp;library's&nbsp;$()</span>&nbsp;
+$(<span class="string">"content"</span>).style.display&nbsp;=&nbsp;<span class="string">'none'</span>;</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Reverts the $ alias and then creates and executes a function to
+provide the $ as a jQuery alias inside the functions scope. Inside the
+function the original $ object is not available. This works well for
+most plugins that don't rely on any other library.</p>
+<pre><code class="javascript">jQuery.noConflict();&nbsp;
+(<span class="keywords">function</span>($)&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;$(<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;more&nbsp;code&nbsp;using&nbsp;$&nbsp;as&nbsp;alias&nbsp;to&nbsp;jQuery</span>&nbsp;
+&nbsp;&nbsp;});&nbsp;
+})(jQuery);&nbsp;
+<span class="com">//&nbsp;other&nbsp;code&nbsp;using&nbsp;$&nbsp;as&nbsp;an&nbsp;alias&nbsp;to&nbsp;the&nbsp;other&nbsp;library</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Creates a different alias instead of jQuery to use in the rest of the script.</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;j&nbsp;=&nbsp;jQuery.noConflict();&nbsp;
+<span class="com">//&nbsp;Do&nbsp;something&nbsp;with&nbsp;jQuery</span>&nbsp;
+j(<span class="string">"div&nbsp;p"</span>).hide();&nbsp;
+<span class="com">//&nbsp;Do&nbsp;something&nbsp;with&nbsp;another&nbsp;library's&nbsp;$()</span>&nbsp;
+$(<span class="string">"content"</span>).style.display&nbsp;=&nbsp;<span class="string">'none'</span>;</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerynoConflict-extreme">
+<span class="fn"><a class="name" href="#link-jQuerynoConflict-extreme">jQuery.noConflict</a>( <span class="arg-type tooltip" title="true or false.">Boolean</span> <span class="arg-name tooltip" title="Set to true to enable the extreme rollback of jQuery and it's variables.">extreme</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Revert control of both the $ and jQuery variables to their original owners. '''Use with discretion.'''<br>This
+is a more-extreme version of the simple &lt;a
+href='Core/jQuery.noConflict'&gt;noConflict&lt;/a&gt; method, as this
+one will completely undo what jQuery has introduced. This is to be used
+in an extreme case where you'd like to embed jQuery into a
+high-conflict environment. '''NOTE:''' It's very likely that plugins
+won't work after this particular method has been called.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Completely move jQuery to a new namespace in another object.</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;dom&nbsp;=&nbsp;{};&nbsp;
+dom.query&nbsp;=&nbsp;jQuery.noConflict(<span class="keywords">true</span>);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">//&nbsp;Do&nbsp;something&nbsp;with&nbsp;the&nbsp;new&nbsp;jQuery&nbsp;
+dom.query("div&nbsp;p").hide();&nbsp;
+//&nbsp;Do&nbsp;something&nbsp;with&nbsp;another&nbsp;library's&nbsp;$()&nbsp;
+$("content").style.display&nbsp;=&nbsp;<span class="avalue">'none'</span>;&nbsp;
+//&nbsp;Do&nbsp;something&nbsp;with&nbsp;another&nbsp;version&nbsp;of&nbsp;jQuery&nbsp;
+jQuery("div&nbsp;<span class="tag">&gt;</span>&nbsp;p").hide();</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryparam-obj">
+<span class="fn"><a class="name" href="#link-jQueryparam-obj">jQuery.param</a>( <span class="arg-type tooltip" title="">Array&lt;Elements&gt;, jQuery, Object</span> <span class="arg-name tooltip" title="An Array or jQuery object is serialized by name/value pairs.  An object by key/value pairs.">obj</span> ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Serializes an array of form elements or an object (core of &lt;a href='Ajax/serialize'&gt;.serialize()&lt;/a&gt; method).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Serialize a key/value object.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;params&nbsp;=&nbsp;{&nbsp;width:<span class="numbers">1680</span>,&nbsp;height:<span class="numbers">1050</span>&nbsp;};&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;jQuery.param(params);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).text(str);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"results"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuerypost-urldatacallback">
+<span class="fn"><a class="name" href="#link-jQuerypost-urldatacallback">jQuery.post</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The URL of the page to load.">url</span>, <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs that will be sent to the server.">data</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the data is loaded successfully.
+
+&lt;pre&gt;function (data, textStatus) {
+  // data could be xmlDoc, jsonObj, html, text, etc...
+  this; // the options for this ajax request
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="An XMLHttpRequest object (referencing a HTTP request).">XMLHttpRequest</span></span></span>
+<div class="more">
+<div class="desc">Load a remote page using an HTTP POST request.<br>This
+is an easy way to send a simple POST request to a server without having
+to use the more complex $.ajax function. It allows a single callback
+function to be specified that will be executed when the request is
+complete (and only if the response has a successful response code). If
+you need to have both error and success callbacks, you may want to use
+$.ajax.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Request the test.php page, but ignore the return results.</p>
+<pre><code class="javascript">&nbsp;$.post(<span class="string">"test.php"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Request the test.php page and send some additional data along (while still ignoring the return results).</p>
+<pre><code class="javascript">&nbsp;$.post(<span class="string">"test.php"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;}&nbsp;);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.php (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.post(<span class="string">"test.php"</span>,&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Alert out the results from requesting test.php with an additional payload of data (HTML or XML, depending on what was returned).</p>
+<pre><code class="javascript">&nbsp;$.post(<span class="string">"test.cgi"</span>,&nbsp;{&nbsp;name:&nbsp;<span class="string">"John"</span>,&nbsp;time:&nbsp;<span class="string">"2pm"</span>&nbsp;},&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>(data){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"Data&nbsp;Loaded:&nbsp;"</span>&nbsp;+&nbsp;data);&nbsp;
+&nbsp;&nbsp;&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryremoveData-elem">
+<span class="fn"><a class="name" href="#link-jQueryremoveData-elem">jQuery.removeData</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="Element to delete the data store from.">elem</span> ) returns <span class="type"><span class="tooltip" title=""></span></span></span>
+<div class="more">
+<div class="desc">Remove the expando attribute that allows data storage on an element.<br>This is the complement function to jQuery.data(elem) which is called as necessary by jQuery.data(elem, name, value).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Set a data store then remove it.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;adiv&nbsp;=&nbsp;$(<span class="string">"div"</span>).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(0)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>,&nbsp;<span class="string">"VALUE-1"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test2"</span>,&nbsp;<span class="string">"VALUE-2"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(1)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.removeData(adiv);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(2)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(3)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test2"</span>));&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;before&nbsp;creation:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;after&nbsp;creation:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;after&nbsp;removal:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value2&nbsp;after&nbsp;removal:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryremoveData-elemname">
+<span class="fn"><a class="name" href="#link-jQueryremoveData-elemname">jQuery.removeData</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="Element to delete the named data store property from.">elem</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the data store property to remove.">name</span> ) returns <span class="type"><span class="tooltip" title=""></span></span></span>
+<div class="more">
+<div class="desc">Removes just this one named data store.<br>This is the complement function to jQuery.data(elem, name, value).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Set a data store for 2 names then remove one of them.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;adiv&nbsp;=&nbsp;$(<span class="string">"div"</span>).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(0)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>,&nbsp;<span class="string">"VALUE-1"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test2"</span>,&nbsp;<span class="string">"VALUE-2"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(1)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;jQuery.removeData(adiv,&nbsp;<span class="string">"test1"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(2)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test1"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:eq(3)"</span>).text(<span class="string">""</span>&nbsp;+&nbsp;jQuery.data(adiv,&nbsp;<span class="string">"test2"</span>));&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;before&nbsp;creation:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;after&nbsp;creation:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value1&nbsp;after&nbsp;removal:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>value2&nbsp;after&nbsp;removal:&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQuery-support"> <span class="fn"><a class="name" href="#link-jQuery-support">jQuery.support</a> returns <span class="type"><span class="tooltip" title="A simple Javascript object..">Object</span></span></span></span>
+  <div class="more">
+    <div class="desc">
+      <p>jQuery comes with a number of properties included, you should feel free to add your own. Many of these properties are rather low-level so it's doubtful that they'll be useful in general day-to-day development, but mostly used by plugin and core developers.</p>
+      <p>The values of all the support properties are determined using feature detection (and do not use any form of browser sniffing). There are some excellent resources that explain how feature detection works:</p>
+      <ul>
+      <li><a href="http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting" target="_blank">http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting</a></li>
+        <li><a href="http://yura.thinkweb2.com/cft/" target="_blank">http://yura.thinkweb2.com/cft/</a></li>
+        <li><a href="http://www.jibbering.com/faq/faq_notes/not_browser_detect.html" target="_blank">http://www.jibbering.com/faq/faq_notes/not_browser_detect.html</a></li>
+      </ul>
+      <p>The tests included in jQuery.support are as follows:</p>
+      <ul>
+      	<li><strong>boxModel: </strong>Is equal to true if the page and browser are rendering according to the <a href="http://www.w3.org/TR/REC-CSS2/box.html" target="_blank">http://www.w3.org/TR/REC-CSS2/box.html</a> (is currently false in IE 6 and 7 when they are in Quirks Mode). This property is null until document ready occurs.</li>
+        <li><strong>cssFloat: </strong>Is equal to true if style.cssFloat is used to access the current CSS float value (is currently false in IE, it uses styleFloat instead).</li>
+        <li><strong>hrefNormalized: </strong>Is equal to true if the browser leaves intact the results from getAttribute(&quot;href&quot;)(is currently false in IE, the URLs are normalized).</li>
+        <li><strong>htmlSerialize: </strong>Is equal to true if the browser properly serializes link elements when innerHTML is used (is currently false in IE).</li>
+        <li><strong>leadingWhitespace: </strong>Is equal to true if the browser preserves leading whitespace when innerHTML is used (is currently false in IE 6-8).</li>
+        <li><strong>noCloneEvent: </strong>Is equal to true if the browser does not clone event handlers when elements are cloned (is currently false in IE).</li>
+        <li><strong>objectAll: </strong>Is equal to true if doing getElementsByTagName(&quot;&quot;) on an object element returns all descendant elements (is currently false in IE 7).</li>
+        <li><strong>opacity: </strong>Is equal to true if a browser can properly interpret the opacity style property (is currently false in IE, it uses alpha filters instead).</li>
+        <li><strong>scriptEval: </strong>Is equal to true if using appendChild/createTextNode to inject inline scripts executes them (is currently false in IE, it uses .text to insert executable scripts).</li>
+        <li><strong>style: </strong>Is equal to true if getAttribute(&quot;style&quot;) is able to return the inline style specified by an element (is currently false in IE - it uses cssText instead).</li>
+        <li><strong>tbody: </strong>Is equal to true if the browser allows table elements without tbody elements (is currently false in IE, which automatically inserts tbody if it is not present).</li>
+    </ul>
+
+    </div>
+    <div class="example">
+      <h3>Example:</h3>
+      <p>Returns the box model for the iframe.</p>
+      <pre><code class="javascript">$(<span class="string">&quot;p&quot;</span>).html(<span class="string">&quot;This frame uses the W3C box model: &lt;span&gt;&quot;</span> +
+      jQuery.support.boxModel + <span class="string">&quot;&lt;/span&gt;&quot;</span>);&nbsp;
+&nbsp;</code></pre>
+      <h4>Result:</h4>
+      <pre><code class="html"><span class="tag">&lt;p&gt;</span>
+This frame uses the W3C box model:<br><span class="tag">&lt;span&gt;</span>true<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/p&gt;</span></code></pre>
+    </div>
+  </div>
+</li>
+<li id="link-jQuerytrim-str">
+<span class="fn"><a class="name" href="#link-jQuerytrim-str">jQuery.trim</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The string to trim.">str</span> ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Remove the whitespace from the beginning and end of a string.<br>Uses a regular expression to remove whitespace from the given string.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes the two whitespaces at the start and at the end of the string.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lots&nbsp;of&nbsp;spaces&nbsp;before&nbsp;and&nbsp;after&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"'"</span>&nbsp;+&nbsp;str&nbsp;+&nbsp;<span class="string">"'"</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;=&nbsp;jQuery.trim(str);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">"'"</span>&nbsp;+&nbsp;str&nbsp;+&nbsp;<span class="string">"'&nbsp;-&nbsp;no&nbsp;longer"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Show&nbsp;Trim&nbsp;Example<span class="tag">&lt;/button&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes the two whitespaces at the start and at the end of the string.</p>
+<pre><code class="javascript">&nbsp;$.trim(<span class="string">"&nbsp;&nbsp;hello,&nbsp;how&nbsp;are&nbsp;you?&nbsp;&nbsp;"</span>);</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">"hello,&nbsp;how&nbsp;are&nbsp;you?"</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-jQueryunique-array">
+<span class="fn"><a class="name" href="#link-jQueryunique-array">jQuery.unique</a>( <span class="arg-type tooltip" title="">Array</span> <span class="arg-name tooltip" title="The Array to translate.">array</span> ) returns <span class="type"><span class="tooltip" title="">Array</span></span></span>
+<div class="more">
+<div class="desc">Remove all duplicate elements from an array of elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes any duplicate elements from the array of divs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;divs&nbsp;=&nbsp;$(<span class="string">"div"</span>).get();&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;add&nbsp;3&nbsp;elements&nbsp;of&nbsp;class&nbsp;dup&nbsp;too&nbsp;(they&nbsp;are&nbsp;divs)</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;divs&nbsp;=&nbsp;divs.concat($(<span class="string">".dup"</span>).get());&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:eq(1)"</span>).text(<span class="string">"Pre-unique&nbsp;there&nbsp;are&nbsp;"</span>&nbsp;+&nbsp;divs.length&nbsp;+&nbsp;<span class="string">"&nbsp;elements."</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;divs&nbsp;=&nbsp;jQuery.unique(divs);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:eq(2)"</span>).text(<span class="string">"Post-unique&nbsp;there&nbsp;are&nbsp;"</span>&nbsp;+&nbsp;divs.length&nbsp;+&nbsp;<span class="string">"&nbsp;elements."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>There&nbsp;are&nbsp;6&nbsp;divs&nbsp;in&nbsp;this&nbsp;document.<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"dup"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"dup"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"dup"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes any duplicate elements from the array of divs.</p>
+<pre><code class="javascript">$.unique(<span class="global">document</span>.getElementsByTagName(<span class="string">"div"</span>));</code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[<span class="tag">&lt;div</span><span class="tag">&gt;</span>,&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>,&nbsp;...]</code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Hash</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Hash</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-weight: bold;">Hash</span> can be thought of as an associative array, binding unique keys to values (which are not necessarily unique), though it can not guarantee consistent order its elements when iterating. Because of the nature of JavaScript programming language, every object is in fact a hash; but Hash adds a number of methods that let you enumerate keys and values, iterate over key/value pairs, merge two hashes together, encode the hash into a query string representation, etc.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">On this page</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="hash.html#topic1" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Creating a hash</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="hash.html#topic2" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">A combined example</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="hash.html#topic3" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Notes!</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="hash.html#index" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Moduleindex</a></span></td></tr></table></div><p style="margin: 0px 0px 0px 6px;"><span style="color: #ff6600; text-decoration: underline;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic1"></a><span class="f_Heading1">Creating a hash</span></p>
+<p>&nbsp;</p>
+<p>There are two ways to construct a Hash instance: the first is regular JavaScript object instantiation with the new keyword, and the second is using the <a href="$h.html">$H</a> function. Passing a plain JavaScript object to any of them would clone it, keeping your original object intact, but passing a Hash instance to <a href="$h.html">$H</a> will return the same instance unchanged.</p>
+<p>&nbsp;</p>
+<p>You can call both constructor methods without arguments, too; they will assume an empty hash.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic2"></a><span class="f_Heading1">A combined example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;h&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">$H</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;name:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'Prototype'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;version:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">1.5</span><span class="f_CodeExample" style="color: #000000;">&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;equivalent:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;h&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">Hash</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;...&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;h.keys().sort().join(</span><span class="f_CodeExample" style="color: #800000;">',&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;'name,&nbsp;version'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;h.merge({&nbsp;version:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'1.5&nbsp;final'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;author:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'Sam&nbsp;Stephenson'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;h.each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(pair)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;alert(pair.key&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'&nbsp;=&nbsp;&quot;'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;pair.value&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'&quot;'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;Alerts,&nbsp;in&nbsp;non-guaranteed&nbsp;order,&nbsp;'name&nbsp;=&nbsp;&quot;Prototype&quot;',&nbsp;'version&nbsp;=&nbsp;&quot;1.5&nbsp;final&quot;'&nbsp;and&nbsp;'author&nbsp;=&nbsp;&quot;Sam&nbsp;Stephenson&quot;'.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;$H</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;action:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'ship'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;order_id:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">123</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;fees:&nbsp;[</span><span class="f_CodeExample" style="color: #800000;">'fee1'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'fee2'</span><span class="f_CodeExample" style="color: #000000;">]&nbsp;}).toQueryString()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;action=ship&amp;order_id=123&amp;fees=fee1&amp;fees=fee2</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic3"></a><span class="f_Heading1">Notes</span></p>
+<p>&nbsp;</p>
+<p>Hash can not hold any key because of having Enumerable mixed in, as well as its own methods. After adding a key that has the same name as any of those methods, this method will no longer be callable. You can get away with doing that to methods you will not need, but imagine the following:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;h&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">Hash</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;...&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;h[</span><span class="f_CodeExample" style="color: #800000;">'each'</span><span class="f_CodeExample" style="color: #000000;">]&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'my&nbsp;own&nbsp;stuff'</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;h.map();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;errors&nbsp;out&nbsp;because&nbsp;'each'&nbsp;is&nbsp;not&nbsp;a&nbsp;function</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>The most important method in Enumerable is ‘each’, and—since almost every other method uses it—overwriting it renders our hash instance practically useless. You won’t get away with using ‘_each’, too, since it also is an internal Enumerable method.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">each</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">each(iterator)&nbsp;-&gt;&nbsp;Hash</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Iterates over the name/value pairs in the hash.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">inspect</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">inspect()&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Returns the debug-oriented string representation of the hash.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">keys</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">keys()&nbsp;-&gt;&nbsp;[String...]</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Provides an Array of keys (that is, property names) for the hash.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">merge</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">merge(hash)&nbsp;-&gt;&nbsp;alteredHash</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Injects all the pairs in the given hash into the current one, which is then returned.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">remove</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">remove(key)&nbsp;-&gt;&nbsp;value</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">remove(key1,&nbsp;key2...)&nbsp;-&gt;&nbsp;Array</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Removes keys from a hash and returns their values.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">toQueryString</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">toQueryString()&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Turns a hash into its URL-encoded query string representation.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 13px;"><span class="f_Heading1">values</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">values()&nbsp;-&gt;&nbsp;Array</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Collect the values of a hash and returns them in an array.</p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

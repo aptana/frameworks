@@ -1,0 +1,660 @@
+/*******************************************************************************
+*                                                                              *
+*  Typo Theme  :  Phokus                                                       *
+*  Author      :  John Serris (a.k.a JB)                                       *
+*  Web         :  http://phonophunk.com/                                       *
+*  E-mail      :  phonophunk ( at ) gmail ( dot ) ( com )                      *
+*  Modified    :  04-DEC-2005                                                  *
+*                                                                              *
+*******************************************************************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	padding: 10px;
+}
+body {
+	background: #4f4f4f;
+	color: #fff;
+	font: 76% "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	overflow: auto;
+}
+
+/* Layout
+*******************************************************************************/
+
+#page {
+	font-size: 1em;
+	margin: 0 auto;
+	width: 758px;
+}
+#header {
+	background: #1381d4 url(../../images/phokus/hd-bg-02.gif) no-repeat;
+	height: 168px;
+	margin: 0 4px;
+	position: relative;
+	width: 750px;
+}
+#main {
+	background: #fff url(../../images/phokus/mn-bg.gif) repeat-y;
+	color: #444;
+	float: right;
+	margin: 0 4px 0 0;
+	padding: 0;
+	width: 551px;
+}
+#sidebar {
+	background: #696969 url(../../images/phokus/sb-bg.gif) repeat-y;
+	color: #fff;
+	float: left;
+	font-size: .9em;
+	margin: 0 0 4px 4px;
+	padding: 0;
+	width: 199px;
+}
+#footer {
+	background: #696969 url(../../images/phokus/ft-top.gif) no-repeat;
+	color: #aaa;
+	float: right;
+	font-size: .8em;
+	margin: 0 4px 0 0;
+	text-align: center;
+	width: 551px;
+}
+.layout-002 #main {
+	float: left;
+	margin: 0 0 0 4px;
+}
+.layout-002 #sidebar {
+	float: right;
+	margin: 0 4px 4px 0;
+}
+.layout-002 #footer {
+	float: left;
+	margin: 0 0 0 4px;
+}
+
+/* General
+*******************************************************************************/
+
+h1,
+h2 {
+	color: #fff;
+	font-family: "Lucida Grande", "Century Gothic", Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+h3,
+h4,
+h5,
+h6 {
+	color: #777;
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	margin: 1em 0;
+}
+h4 {
+	font-size: 1.2em;
+}
+h5 {
+	font-size: 1em;
+}
+h6 {
+	font-size: 1em;
+	font-style: italic;
+}
+a {
+	border-bottom: 1px solid #0a78cb;
+	color: #0a78cb;
+	text-decoration: none;
+}
+a:hover {
+	border-bottom-color: #aed9fb;
+}
+h1 a,
+h2 a {
+	background: none;
+	border: none;
+	color: #fff;
+	text-decoration: none;
+}
+h1 a:hover,
+h2 a:hover {
+	background: none;
+	border: none;
+	color: #c2e5ff;
+	text-decoration: none;
+}
+img {
+	border: none;
+	max-width: 501px;
+}
+p,
+ul,
+ol,
+dl,
+pre {
+	margin: 1em 0;
+}
+ul ul,
+ol ol {
+	margin: 0;
+}
+li {
+	list-style-position: inside;
+}
+li li {
+	margin: 0 0 0 1em;
+}
+ul li {
+	background: url(../../images/phokus/blt-01.gif) no-repeat 0 .2em;
+	list-style: none;
+	padding: 0 0 0 16px;
+}
+blockquote {
+	background: #f5f5f5;
+	border: 1px solid #eee;
+	font-style: italic;
+	margin: 1em;
+	padding: 0 1em;
+}
+pre,
+code {
+	background: #e5f6ff;
+	color: #074f88;
+	font-family: Courier, monospace;
+	font-size: 1em;
+}
+pre {
+	border: 1px solid #c2e5ff;
+	overflow: hidden;
+	padding: 10px;
+	width: 479px;
+}
+input,
+textarea {
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+/* Header
+*******************************************************************************/
+
+h1 {
+	bottom: 50%;
+	font-size: 2.8em;
+	margin: 0 0 5px 40px;
+	position: absolute;
+}
+#header small {
+	color: #c2e5ff;
+	font-size: .9em;
+	margin: 5px 0 0 40px;
+	position: absolute;
+	top: 50%;
+}
+
+/* Posts
+*******************************************************************************/
+
+.post {
+	background: url(../../images/phokus/mn-bottom.gif) no-repeat 0 100%;
+	color: #444;
+	padding: 0 25px 9px;
+	position: relative;
+	width: 501px;
+}
+h2 {
+	background: #0a78cb url(../../images/phokus/mn-top.gif) no-repeat 0 0;
+	font-size: 2.2em;
+	margin: 0 0 0 -25px;
+	padding: 15px 34px 12px 20px;
+	width: 497px;
+}
+.auth,
+.meta,
+.meta.alt {
+	background: #c2e5ff url(../../images/phokus/meta-top.gif) no-repeat;
+	color: #0a78cb;
+	font-size: .9em;
+	margin: 0 0 15px -25px;
+	padding: 10px 25px 10px 25px;
+	position: relative;
+	width: 501px;
+}
+.meta {
+	background: #c2e5ff url(../../images/phokus/meta-bottom.gif) no-repeat 0 100%;
+	margin: 20px 0 -10px -25px;
+	padding-bottom: 19px;
+}
+.toggle {
+	background: url(../../images/phokus/sb-tog-02.gif) no-repeat 0 0;
+	cursor: pointer;
+	display: block;
+	height: 15px;
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	width: 21px;
+}
+#sidebar .toggle {
+	background-image: url(../../images/phokus/sb-tog-01.gif);
+}
+.toggle-content-off .toggle {
+	background-position: 0 -15px;
+}
+.post.toggle-content-off {
+	display: block;
+	background: url(../../images/phokus/meta-bottom.gif) no-repeat 0 100%;
+}
+.post.toggle-content-off .post-content {
+	display: none;
+}
+
+/* Comments
+*******************************************************************************/
+
+#commentList {
+	color: #444;
+	font-size: 1em;
+	list-style: none;
+	margin: 0 0 10px -16px;
+	padding: 0;
+	width: 533px;
+}
+#commentList li {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 5px 15px;
+	position: relative;
+	width: 503px;
+}
+#commentList li.alt {
+	background-color: #f5f5f5;
+}
+#commentList .author-details {
+	background: #f5f5f5;
+	border: 1px #eee;
+	border-style: solid none;
+	font-size: .9em;
+	margin: 0 0 0 -15px;
+	padding: 6px 40px;
+	position: relative;
+	width: 453px;
+}
+.author-details cite {
+	font-style: normal;
+	font-weight: bold;
+}
+a.comment-link,
+a.comment-link:hover {
+	background: url(../../images/phokus/ico-comment.gif) no-repeat;
+	height: 17px;
+	width: 17px;
+	float: left;
+	text-indent: -5000px;
+	position: absolute;
+	top: 4px;
+	left: 15px;
+	text-decoration: none;
+	border: none;
+}
+
+/* Comment Form
+*******************************************************************************/
+
+#commentform {
+	margin: 0 0 0 -16px;
+	padding: 0;
+	width: 533px;
+}
+.frm-tbl small {
+	font-size: .8em;
+}
+.frm-tbl {
+	margin: 0 0 10px;
+	padding: 0;
+	width: 533px;
+}
+.frm-tbl td,
+.frm-tbl th {
+	border-top: 1px solid #eee;
+	padding: 8px 16px;
+	vertical-align: top;
+}
+.frm-tbl th {
+	padding: 8px 0;
+}
+.frm-tbl p {
+	margin: 0;
+}
+.frm-tbl td p {
+	background: #fff;
+	border: 1px solid #ddd;
+	display: block;
+	padding: 2px;
+	position: relative;
+}
+.frm-tbl th p {
+	background: #0a78cb url(../../images/phokus/lb-top.gif) no-repeat 100% 0;
+	display: block;
+	padding: 0;
+	position: relative;
+}
+.frm-tbl label {
+	background: url(../../images/phokus/lb-bottom.gif) no-repeat 100% 100%;
+	color: #fff;
+	display: block;
+	font-size: .9em;
+	font-weight: bold;
+	padding: 6px 8px 6px 5px;
+	text-align: right;
+}
+.frm-tbl input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: .9em;
+}
+#comment_author,
+#comment_url,
+#comment_email,
+#comment_body {
+	background: #c2e5ff;
+	border-top: 2px #8ccfff;
+	border-style: solid none none none;
+	padding: 2px 0;
+	width: 100%;
+}
+#commentform input[type=text]:focus,
+#commentform textarea:focus {
+	background: #f5f5f5;
+	border-top-color: #ddd;
+}
+#frm-btns td {
+	text-align: right;
+}
+#form-submit-button {
+	background: #0a78cb url(../../images/phokus/lb-top.gif) no-repeat 0 -2px;
+	border: 2px solid #0a78cb;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px;
+}
+
+/* Side Bar
+*******************************************************************************/
+
+#sidebar h3,
+#sform label {
+	background: url(../../images/phokus/sb-top.gif) no-repeat;
+	color: #fff;
+	display: block;
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0 0 5px -15px;
+	padding: 15px 34px 0 15px;
+	position: relative;
+	text-transform: uppercase;
+	width: 150px;
+}
+#sidebar .sidebar-node {
+	background: url(../../images/phokus/sb-bottom.gif) no-repeat 0 100%;
+	padding: 0 15px 15px;
+}
+#sidebar .toggle {
+	top: 12px;
+	right: 12px;
+}
+#sidebar .toggle-content-off h3,
+#sidebar .toggle-content-off label {
+	color: #aaa;
+}
+#sidebar .toggle-content-off .toggle {
+	background-position: 0 -15px;
+	display: block;
+}
+#sidebar .toggle-content-off {
+	display: block;
+	padding: 0 15px 10px;
+}
+#sidebar .toggle-content-off div,
+#sidebar .toggle-content-off p,
+#sidebar .toggle-content-off ul,
+#sidebar .toggle-content-off input {
+	display: none;
+}
+#sidebar ul,
+#sidebar li {
+	background: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#sidebar a {
+	border: none;
+	color: #ddd;
+}
+#sidebar li a {
+	display: block;
+	border: none;
+	width: 154px;
+}
+#sidebar li a:hover {
+	color: #2392e4;
+}
+#sidebar em {
+	color: #c2e5ff;
+	font-style: normal;	
+}
+#sidebar li em {
+	position: absolute;
+	top: 6px;
+	right: 0;
+}
+#sidebar #flickr img {
+	background: #fff;
+	padding: 2px;
+	border: 1px solid #555;
+	vertical-align: bottom;
+}
+#customize,
+#customize ul {
+	height: 39px;
+	width: 199px;
+	background: url(../../images/phokus/cz-03.gif) no-repeat;
+}
+.layout-002 #customize ul {
+	background: url(../../images/phokus/cz-03.gif) no-repeat 0 -39px;
+}
+#customize li {
+	cursor: pointer;
+	height: 39px;
+	width: 199px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+.layout-002 #customize #layout-001-btn {
+	display: block;
+}
+.layout-002 #customize #layout-002-btn {
+	display: none;
+}
+#customize #layout-002-btn {
+	display: block;
+}
+#sform {
+	position: relative;
+	margin: 0 0 5px 0;
+}
+#search_spinner {
+	background: url(../../images/phokus/spinner.gif) no-repeat 50% 50%;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#q {
+	border: none;
+	margin: 5px 0 0 0;
+	width: 145px;
+}
+#search-results h4 {
+	background: #0a78cb url(../../images/phokus/shr-bg.gif) no-repeat;
+	border: 1px;
+	border-color: #5e5e5e #000 #808080 #000;
+	border-style: solid none;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	margin: 10px 0 0 -11px;
+	padding: 10px 10px 10px 25px;
+	position: relative;
+	text-transform: uppercase;
+	width: 156px;
+}
+#search-results h4 span {
+	background: url(../../images/phokus/sb-close.gif) no-repeat;
+	cursor: pointer;
+	height: 17px;
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	width: 17px;
+}
+
+/* Footer
+*******************************************************************************/
+
+#badges {
+	display: table;
+	margin: 0 auto;
+	padding: 15px 15px 0;
+	white-space: nowrap;
+}
+#footer ul,
+#footer li {
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+}
+#footer ul {
+	display: table-row;
+}
+#footer li {
+	background: url(../../images/phokus/btn-bg.gif) no-repeat;
+	display: table-cell;
+}
+#footer li a {
+	border: none;
+	display: block;
+	padding: 2px;
+}
+#footer li img {
+	border: none;
+	display: block;
+	height: 15px;
+	width: 80px;
+}
+#footer p {
+	background: url(../../images/phokus/ft-bottom.gif) no-repeat 0 100%;
+	font: bold .9em/1em Arial, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	margin: 0 auto;
+	padding: 10px 15px 20px;
+	text-transform: uppercase;
+}
+#footer a {
+	border-color: #888;
+	color: #ccc;
+}
+
+/* Link icons
+*******************************************************************************/
+
+.link-ico {
+	border: none;
+	display: inline-table;
+	position: relative;
+	padding: 0;
+	top: 5px;
+	width: 17px;
+}
+.link-ico span {
+	background-color: #fff;
+	background-repeat: no-repeat;
+	display: table-cell;
+	height: 1.5em;
+	width: 17px;
+}
+#sidebar .link-ico {
+	padding: 0;
+	width: 19px;
+}
+#sidebar .link-ico span {
+	background-color: transparent;
+	width: 19px;
+}
+#commentList .author-details .link-ico span {
+	background-color: #f5f5f5;
+}
+.meta .link-ico span {
+	background-color: #c2e5ff;
+}
+.ico-feed {
+	background-image: url(../../images/phokus/ico-feed.gif);
+}
+.ico-external {
+	background-image: url(../../images/phokus/ico-external.gif);
+}
+
+/* Admin Tools
+*******************************************************************************/
+
+.admintools a,
+.admintools a:hover,
+.author-details div a,
+.author-details div a:hover {
+	background: #0a78cb url(../../images/phokus/lb-top.gif) no-repeat 0 -2px;
+	border: 2px solid #0a78cb;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 8px;
+	margin: 0 0 0 5px;
+}
+#admin_article {
+	position: absolute;
+	right: 25px;
+	padding: 0;
+}
+.author-details div {
+	display: inline;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+/* Fixes
+*******************************************************************************/
+
+.clearfix:after {
+	content: ".";
+	display: block; 
+	font-size: 1px;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+	overflow: scroll;
+	margin: 0;
+	line-height: 0px;
+	padding: 0;
+}
+
+

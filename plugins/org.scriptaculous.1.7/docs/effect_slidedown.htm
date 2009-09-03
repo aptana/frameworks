@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Effect.SlideDown</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Effect.SlideDown</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This effect simulates a window blind, where the contents of the affected elements scroll down accordingly.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Effect.SlideDown('id_of_element');</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<p>Items in <span style="font-weight: bold;">bold</span> are default values.</p>
+<p>&nbsp;</p>
+<p>  &nbsp; * scaleX:true, <span style="font-weight: bold;">false</span></p>
+<p>  &nbsp; * scaleY:<span style="font-weight: bold;">true</span>, false</p>
+<p>  &nbsp; * scaleContent:<span style="font-weight: bold;">true</span>, false</p>
+<p>  &nbsp; * scaleFromCenter:true, <span style="font-weight: bold;">false</span></p>
+<p>  &nbsp; * scaleMode:<span style="font-weight: bold;">‘box’</span>,’contents’</p>
+<p>  &nbsp; * scaleFrom:<span style="font-weight: bold;">100.0</span> (0%-100%)</p>
+<p>  &nbsp; * scaleTo:<span style="font-weight: bold;">0</span> (0%-100%)</p>
+<p>  &nbsp; * duration:<span style="font-weight: bold;">1</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p class="p_Heading2">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Effect.SlideDown('id_of_element',&nbsp;{duration:3});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>You must include a second DIV element, wrapping the contents of the outer DIV. So, if you call new Effect.SlideDown('x'), your element must look like this:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;div&nbsp;id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>Because of a bug in Internet Explorer 6 (overflow not correctly hidden), an additional wrapper div is needed if you want to use these effects on absolutely positioned elements (wrapper is the absolutely positioned element, x has position:relative set):</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;id="wrapper"&gt;&lt;div&nbsp;id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>Works only on <a href="block_elements.htm">block elements</a>.</p>
+<p>&nbsp;</p>
+<p>In Internet Explorer 6.0 there’s a problem where floated block level elements don’t animate. If you add a position: relative to the element it all works though.</p>
+
+</td></tr></table>
+
+</body>
+</html>

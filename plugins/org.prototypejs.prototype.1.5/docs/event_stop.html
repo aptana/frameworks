@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>stop</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">stop </span><span class="f_TopicHeading" style="color: #ccffff;">:: Event</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">Event.stop(event)</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Stops the event’s propagation and prevents its default action from being triggered eventually.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>There are two aspects to how your browser handles an event once it fires up:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>The browser usually triggers event handlers on the actual element the event occurred on, then on its parent element, and so on and so forth, until the document’s root element is reached. This is called event bubbling, and is the most common form of event propagation. You may very well want to stop this propagation when you just handled an event, and don’t want it to keep bubbling up (or see no need for it).</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Once your code got a chance to process the event, the browser handles it as well, if that event has a default behavior. For instance, clicking on links navigates to them; submitting forms sends them over to the server side; hitting the Return key in a single-line form field submits it; etc. You may very well want to prevent this default behavior if you do your own handling.</td></tr></table></div><p>&nbsp;</p>
+<p>Because stopping one of those aspects means, in 99.9% of the cases, preventing the other one as well, Prototype bundles both in this stop function. Calling it on an event object stop propagation and prevents the default behavior.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p>Here’s a simple code that prevents a form from being sent to the server side if a certain field is empty.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(</span><span class="f_CodeExample" style="color: #800000;">'signinForm'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'submit'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(event)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;login&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">$F</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">'login'</span><span class="f_CodeExample" style="color: #000000;">).strip();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(</span><span class="f_CodeExample" style="color: #800000;">''</span><span class="f_CodeExample" style="color: #000000;">&nbsp;==&nbsp;login)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;Event.stop(event);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Display&nbsp;the&nbsp;issue&nbsp;one&nbsp;way&nbsp;or&nbsp;another</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

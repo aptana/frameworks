@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>each</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">each </span><span class="f_TopicHeading" style="color: #ccffff;">:: Enumerable</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">each(iterator) -&gt; Enumerable</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">The cornerstone of Enumerable. It lets you iterate over all the elements in a generic fashion, then returns the Enumerable, thereby allowing chain-calling.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Iterations based on each are the core of Enumerable. The iterator function you pass will be called with two parameters:</p>
+<p>&nbsp;</p>
+<p>  &nbsp;1. The current element in the iteration.</p>
+<p>  &nbsp;2. The numerical index, starting at zero, of the current cycle. This second parameter is unused (and therefore undeclared) most of the time, but can come in handy sometimes.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">$break and $continue</span></p>
+<p>&nbsp;</p>
+<p>Regular loops can be short-circuited in JavaScript using the break and continue statements. However, when using iterator functions, your code is outside of the loop scope: the looping code happens behind the scene.</p>
+<p>&nbsp;</p>
+<p>In order to provide you with equivalent (albeit less optimal) functionality, Prototype provides two global exception objects, <span class="f_CourierFixed">$break</span> and <span class="f_CourierFixed">$continue</span>. Throwing these is equivalent to using the corresponding native statement in a vanilla loop. These exceptions are properly caught internally by the each method.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[</span><span class="f_CodeExample" style="color: #800000;">'one'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'two'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'three'</span><span class="f_CodeExample" style="color: #000000;">].each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(s)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;alert(s);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'hello'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'world'</span><span class="f_CodeExample" style="color: #000000;">].each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(s,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">index</span><span class="f_CodeExample" style="color: #000000;">)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;alert(</span><span class="f_CodeExample" style="color: #0000ff;">index</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">':&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;s);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;alerts&nbsp;-&gt;&nbsp;'0:&nbsp;hello'&nbsp;then&nbsp;'1:&nbsp;world'</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;This&nbsp;could&nbsp;be&nbsp;done&nbsp;better&nbsp;with&nbsp;an&nbsp;accumulator&nbsp;using&nbsp;inject,&nbsp;but&nbsp;humor&nbsp;me</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;here...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;result&nbsp;=&nbsp;[];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #ff0000;">1</span><span class="f_CodeExample" style="color: #000000;">,</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">).each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(n)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">&nbsp;==&nbsp;n&nbsp;%&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">2</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">throw</span><span class="f_CodeExample" style="color: #000000;">&nbsp;$continue;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(n&nbsp;&gt;&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">6</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">throw</span><span class="f_CodeExample" style="color: #000000;">&nbsp;$break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;result.push(n);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;result&nbsp;-&gt;&nbsp;[1,&nbsp;3,&nbsp;5]</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">each vs. _each</span></p>
+<p>&nbsp;</p>
+<p>If you read the main <span class="f_CourierFixed">Enumerable</span> page, you may recall that in order for a class to mix in <span class="f_CourierFixed">Enumerable</span>, it has to provide the fundamental looping code appropriate to its internal structure. This basic iteration method must be called <span class="f_CourierFixed">_each</span>, and it only receives one argument: the iterator function. You’ll find further details on the main page.</p>
+<p>&nbsp;</p>
+<p>Basically, <span class="f_CourierFixed">Enumerable.each</span> wraps the actual looping code provided by <span class="f_CourierFixed">_each</span> with:</p>
+<p>&nbsp;</p>
+<p>  &nbsp;1. Support for break/continue, as described above.</p>
+<p>  &nbsp;2. Proper maintenance and passing of the value/index arguments.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Optimized version</span></p>
+<p>&nbsp;</p>
+<p>There is a very common use-case that will probably be better taken care of by a specialized variant: the method-calling scenario. Say you want to invoke the same method on all elements, possibly with arguments. You may or may not want to use the result values. This can be achieved easily with <span class="f_CourierFixed"><a href="enumerable_invoke.html">invoke</a></span>.</p>
+<p>&nbsp;</p>
+<p>This variant usually performs better than each, since it avoids lexical closure costs. However, it does accumulate the result values in an array, which you might not need. At any rate, you might want to benchmark both options in your specific use case.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">See also</span></p>
+<p>&nbsp;</p>
+<p>Enumerable: <a href="enumerable_invoke.html">invoke</a></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

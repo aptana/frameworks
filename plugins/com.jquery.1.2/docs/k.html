@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-keydown-">
+<span class="fn"><a class="name" href="#link-keydown-">keydown</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the keydown event of each matched element.<br>This
+causes all of the functions that have been bound to the keydown event
+to be executed, and calls the browser's default keydown action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the keydown event. The keydown
+event usually fires when a key on the keyboard is pressed.</div>
+</div>
+</li>
+<li id="link-keydown-fn">
+<span class="fn"><a class="name" href="#link-keydown-fn">keydown</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the keydown event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the keydown event of each matched element.<br>The keydown event fires when a key on the keyboard is pressed.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To perform actions in response to keyboard presses on a page, try:</p>
+<pre><code class="javascript">$(<span class="global">window</span>).keydown(<span class="keywords">function</span>(event){&nbsp;
+&nbsp;&nbsp;<span class="keywords">switch</span>&nbsp;(event.keyCode)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;...</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;different&nbsp;keys&nbsp;do&nbsp;different&nbsp;things</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;Different&nbsp;browsers&nbsp;provide&nbsp;different&nbsp;codes</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;see&nbsp;here&nbsp;for&nbsp;details:&nbsp;http://unixpapa.com/js/key.html&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;...</span>&nbsp;
+&nbsp;&nbsp;}&nbsp;
+});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-keypress-">
+<span class="fn"><a class="name" href="#link-keypress-">keypress</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the keypress event of each matched element.<br>This
+causes all of the functions that have been bound to the keypress event
+to be executed, and calls the browser's default keypress action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the keypress event. The
+keypress event usually fires when a key on the keyboard is pressed.<br>
+<br>
+</div>
+</div>
+</li>
+<li id="link-keypress-fn">
+<span class="fn"><a class="name" href="#link-keypress-fn">keypress</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the keypress event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the keypress event of each matched element.<br>The
+keypress event fires when a key on the keyboard is "clicked". A
+keypress is defined as a keydown and keyup on the same key. The
+sequence of these events is:
+&lt;ul&gt;&lt;li&gt;keydown&lt;/li&gt;&lt;li&gt;keyup&lt;/li&gt;&lt;li&gt;keypress&lt;/li&gt;&lt;/ul&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show spaces and letters when typed.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).keypress(<span class="keywords">function</span>&nbsp;(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(e.which&nbsp;==&nbsp;<span class="numbers">32</span>&nbsp;||&nbsp;(<span class="numbers">65</span>&nbsp;&lt;=&nbsp;e.which&nbsp;&amp;&amp;&nbsp;e.which&nbsp;&lt;=&nbsp;<span class="numbers">65</span>&nbsp;+&nbsp;<span class="numbers">25</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;(<span class="numbers">97</span>&nbsp;&lt;=&nbsp;e.which&nbsp;&amp;&amp;&nbsp;e.which&nbsp;&lt;=&nbsp;<span class="numbers">97</span>&nbsp;+&nbsp;<span class="numbers">25</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;c&nbsp;=&nbsp;String.fromCharCode(e.which);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).append($(<span class="string">"&lt;span/&gt;"</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.children(<span class="string">":last"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.append(<span class="global">document</span>.createTextNode(c));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;<span class="keywords">if</span>&nbsp;(e.which&nbsp;==&nbsp;<span class="numbers">8</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;backspace&nbsp;in&nbsp;IE&nbsp;only&nbsp;be&nbsp;on&nbsp;keydown</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).children(<span class="string">":last"</span>).remove();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(e.which);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Add&nbsp;text&nbsp;-&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-keyup-">
+<span class="fn"><a class="name" href="#link-keyup-">keyup</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the keyup event of each matched element.<br>This
+causes all of the functions that have been bound to the keyup event to
+be executed, and calls the browser's default keyup action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the keyup event. The keyup
+event usually fires when a key on the keyboard is released.</div>
+</div>
+</li>
+<li id="link-keyup-fn">
+<span class="fn"><a class="name" href="#link-keyup-fn">keyup</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the keyup event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the keyup event of each matched element.<br>The keyup event fires when a key on the keyboard is released.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To perform an action when the escape key has been released:</p>
+<pre><code class="javascript">$(<span class="global">document</span>).keyup(<span class="keywords">function</span>(event){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(event.keyCode&nbsp;==&nbsp;<span class="numbers">27</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">'escaped!'</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+});</code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

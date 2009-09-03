@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Base - functional programming and useful comparisons</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Base - functional programming and useful comparisons</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Base.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Base.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Base.html#fn-notfound">NotFound<BR></A><A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry<BR></A><A class="mochiref reference" href="Base.html#fn-adapterregistry.prototype.register">AdapterRegistry.prototype.register(name, check, wrap[, override])<BR></A><A class="mochiref reference" href="Base.html#fn-adapterregistry.prototype.match">AdapterRegistry.prototype.match(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-adapterregistry.prototype.unregister">AdapterRegistry.prototype.unregister(name)<BR></A><A class="mochiref reference" href="Base.html#fn-namederror">NamedError<BR></A><A class="mochiref reference" href="Base.html#fn-arrayequal">arrayEqual(self, arr)<BR></A><A class="mochiref reference" href="Base.html#fn-average">average(lst[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-bind">bind(func, self[, arg, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-bindmethods">bindMethods(self)<BR></A><A class="mochiref reference" href="Base.html#fn-camelize">camelize(str)<BR></A><A class="mochiref reference" href="Base.html#fn-clone">clone(obj)<BR></A><A class="mochiref reference" href="Base.html#fn-compare">compare(a, b)<BR></A><A class="mochiref reference" href="Base.html#fn-compose">compose(f1, f2, ..., fN)<BR></A><A class="mochiref reference" href="Base.html#fn-concat">concat(lst[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-counter">counter(n=1)<BR></A><A class="mochiref reference" href="Base.html#fn-extend">extend(self, obj, skip=0)<BR></A><A class="mochiref reference" href="Base.html#fn-evaljson">evalJSON(aJSONString)<BR></A><A class="mochiref reference" href="Base.html#fn-filter">filter(fn, lst)<BR></A><A class="mochiref reference" href="Base.html#fn-findvalue">findValue(lst, value, start=0, end=lst.length)<BR></A><A class="mochiref reference" href="Base.html#fn-findidentical">findIdentical(lst, value, start=0, end=lst.length)<BR></A><A class="mochiref reference" href="Base.html#fn-flattenarguments">flattenArguments(arg[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-flattenarray">flattenArray(lst)<BR></A><A class="mochiref reference" href="Base.html#fn-forwardcall">forwardCall(name)<BR></A><A class="mochiref reference" href="Base.html#fn-isarraylike">isArrayLike(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-isdatelike">isDateLike(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-isempty">isEmpty(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-isnotempty">isNotEmpty(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-isnull">isNull(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-isundefinedornull">isUndefinedOrNull(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-itemgetter">itemgetter(name)<BR></A><A class="mochiref reference" href="Base.html#fn-items">items(obj)<BR></A><A class="mochiref reference" href="Base.html#fn-keycomparator">keyComparator(key[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-keys">keys(obj)<BR></A><A class="mochiref reference" href="Base.html#fn-listmax">listMax(lst)<BR></A><A class="mochiref reference" href="Base.html#fn-listmin">listMin(lst)<BR></A><A class="mochiref reference" href="Base.html#fn-listminmax">listMinMax(which, lst)<BR></A><A class="mochiref reference" href="Base.html#fn-map">map(fn, lst[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-mean">mean(lst[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-median">median(lst[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-merge">merge(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-method">method(self, func, ...)<BR></A><A class="mochiref reference" href="Base.html#fn-methodcaller">methodcaller(name[, args...])<BR></A><A class="mochiref reference" href="Base.html#fn-namefunctions">nameFunctions(namespace)<BR></A><A class="mochiref reference" href="Base.html#fn-noop">noop()<BR></A><A class="mochiref reference" href="Base.html#fn-objequal">objEqual(a, b)<BR></A><A class="mochiref reference" href="Base.html#fn-nodewalk">nodeWalk(node, visitor)<BR></A><A class="mochiref reference" href="Base.html#fn-objmax">objMax(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-objmin">objMin(obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-operator">operator<BR></A><A class="mochiref reference" href="Base.html#fn-parsequerystring">parseQueryString(encodedString[, useArrays=false])<BR></A><A class="mochiref reference" href="Base.html#fn-partial">partial(func, arg[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-querystring">queryString(names, values)<BR></A><A class="mochiref reference" href="Base.html#fn-registercomparator">registerComparator(name, check, comparator[, override])<BR></A><A class="mochiref reference" href="Base.html#fn-registerjson">registerJSON(name, check, simplifier[, override])<BR></A><A class="mochiref reference" href="Base.html#fn-registerrepr">registerRepr(name, check, wrap[, override])<BR></A><A class="mochiref reference" href="Base.html#fn-repr">repr(obj)<BR></A><A class="mochiref reference" href="Base.html#fn-reversekeycomparator">reverseKeyComparator(key)<BR></A><A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON(anObject)<BR></A><A class="mochiref reference" href="Base.html#fn-setdefault">setdefault(self, obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-typematcher">typeMatcher(typ[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-update">update(self, obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-updatetree">updatetree(self, obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-urlencode">urlEncode(unencoded)<BR></A><A class="mochiref reference" href="Base.html#fn-values">values(obj)<BR></A><A class="mochiref reference" href="Base.html#fn-xfilter">xfilter(fn, obj[, ...])<BR></A><A class="mochiref reference" href="Base.html#fn-xmap">xmap(fn, obj[, ...)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">myObjectRepr = function () {
+    // gives a nice, stable string representation for objects,
+    // ignoring any methods
+    var keyValuePairs = [];
+    for (var k in this) {
+        var v = this[k];
+        if (typeof(v) != 'function') {
+            keyValuePairs.push([k, v]);
+        }
+    };
+    keyValuePairs.sort(compare);
+    return "{" + map(
+        function (pair) {
+            return map(repr, pair).join(":");
+        },
+        keyValuePairs
+    ).join(", ") + "}";
+};
+
+// repr() will look for objects that have a repr method
+myObjectArray = [
+    {"a": 3, "b": 2, "repr": myObjectRepr},
+    {"a": 1, "b": 2, "repr": myObjectRepr}
+];
+
+// sort it by the "a" property, check to see if it matches
+myObjectArray.sort(keyComparator("a"));
+expectedRepr = '[{"a": 1, "b": 2}, {"a": 3, "b": 2}]';
+assert( repr(myObjectArray) == expectedRepr );
+
+// get just the "a" values out into an array
+sortedAValues = map(itemgetter("a"), myObjectArray);
+assert( compare(sortedAValues, [1, 3]) == 0 );
+
+// serialize an array as JSON, unserialize it, expect something equivalent
+myArray = [1, 2, "3", null, undefined];
+assert( objEqual(evalJSON(serializeJSON(myArray)), myArray) );
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P><A class="mochiref reference" href="Base.html">MochiKit.Base</A> is the foundation for the MochiKit suite. It provides:</P>
+<UL class="simple">
+<LI>An extensible comparison facility (<A class="mochiref reference" href="Base.html#fn-compare">compare</A>, <A class="mochiref reference" href="Base.html#fn-registercomparator">registerComparator</A>) 
+<LI>An extensible programmer representation facility (<A class="mochiref reference" href="Base.html#fn-repr">repr</A>, <A class="mochiref reference" href="Base.html#fn-registerrepr">registerRepr</A>) 
+<LI>An extensible JSON <A class="footnote-reference" id="id1" href="Base.html#id7" name="id1">[1]</A> serialization and evaluation facility (<A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON</A>, <A class="mochiref reference" href="Base.html#fn-evaljson">evalJSON</A>, <A class="mochiref reference" href="Base.html#fn-registerjson">registerJSON</A>) 
+<LI>A simple adaptation facility (<A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A>) 
+<LI>Convenience functions for manipulating objects and Arrays (<A class="mochiref reference" href="Base.html#fn-update">update</A>, <A class="mochiref reference" href="Base.html#fn-setdefault">setdefault</A>, <A class="mochiref reference" href="Base.html#fn-extend">extend</A>, etc.) 
+<LI>Array-based functional programming (<A class="mochiref reference" href="Base.html#fn-map">map</A>, <A class="mochiref reference" href="Base.html#fn-filter">filter</A>, etc.) 
+<LI>Bound and partially applied functions (<A class="mochiref reference" href="Base.html#fn-bind">bind</A>, <A class="mochiref reference" href="Base.html#fn-method">method</A>, <A class="mochiref reference" href="Base.html#fn-partial">partial</A>) </LI></UL>
+<P>Python users will feel at home with <A class="mochiref reference" href="Base.html">MochiKit.Base</A>, as the facilities are quite similar to those available as part of Python and the Python standard library.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<P>None.</P></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="comparison" name="comparison">Comparison</A></H2>
+<P>The comparators (operators for comparison) in JavaScript are deeply broken, and it is not possible to teach them new tricks.</P>
+<P>MochiKit exposes an extensible comparison facility as a simple <A class="mochiref reference" href="Base.html#fn-compare">compare(a, b)</A> function, which should be used in lieu of JavaScript's operators whenever comparing objects other than numbers or strings (though you can certainly use <A class="mochiref reference" href="Base.html#fn-compare">compare</A> for those, too!).</P>
+<P>The <A class="mochiref reference" href="Base.html#fn-compare">compare</A> function has the same signature and return value as a sort function for <TT class="docutils literal"><SPAN class="pre">Array.prototype.sort</SPAN></TT>, and is often used in that context.</P>
+<P>Defining new comparators for the <A class="mochiref reference" href="Base.html#fn-compare">compare</A> function to use is done by adding an entry to its <A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A> with the <A class="mochiref reference" href="Base.html#fn-registercomparator">registerComparator</A> function.</P></DIV>
+<DIV class="section">
+<H2><A id="programmer-representation" name="programmer-representation">Programmer Representation</A></H2>
+<P>JavaScript's default representation mechanism, <TT class="docutils literal"><SPAN class="pre">toString</SPAN></TT>, is notorious for having terrible default behavior. It's also very unwise to change that default, as other JavaScript code you may be using may depend on it.</P>
+<P>It's also useful to separate the concept of a "string representation" and a "string representation for programmers", much like Python does with its str and repr protocols.</P>
+<P><A class="mochiref reference" href="Base.html#fn-repr">repr</A> provides this programmer representation for JavaScript, in a way that doesn't require object prototype hacking: using an <A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A>.</P>
+<P>Objects that implement the repr protocol can either implement a <TT class="docutils literal"><SPAN class="pre">.repr()</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.__repr__()</SPAN></TT> method, or they can simply have an adapter setup to generate programmer representations. By default, the registry provides nice representations for <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>, and objects or functions with a <TT class="docutils literal"><SPAN class="pre">NAME</SPAN></TT> attribute that use the default <TT class="docutils literal"><SPAN class="pre">toString</SPAN></TT>. For objects that <TT class="docutils literal"><SPAN class="pre">repr</SPAN></TT> doesn't already understand, it simply defaults to <TT class="docutils literal"><SPAN class="pre">toString</SPAN></TT>, so it will integrate seamlessly with code that implements the idiomatic JavaScript <TT class="docutils literal"><SPAN class="pre">toString</SPAN></TT> method!</P>
+<P>To define a programmer representation for your own objects, simply add a <TT class="docutils literal"><SPAN class="pre">.repr()</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.__repr__()</SPAN></TT> method that returns a string. For objects that you didn't create (e.g., from a script you didn't write, or a built-in object), it is instead recommended that you create an adapter with <A class="mochiref reference" href="Base.html#fn-registerrepr">registerRepr</A>.</P></DIV>
+<DIV class="section">
+<H2><A id="json-serialization" name="json-serialization">JSON Serialization</A></H2>
+<P>JSON <A class="footnote-reference" id="id2" href="Base.html#id7" name="id2">[1]</A>, JavaScript Object Notation, is a widely used serialization format in the context of web development. It's extremely simple, lightweight, and fast. In its essence, JSON is a restricted subset of JavaScript syntax suitable for sending over the wire that can be unserialized with a simple eval. It's often used as an alternative to XML in "AJAX" contexts because it is compact, fast, and much simpler to use for most purposes.</P>
+<P>To create a JSON serialization of any object, simply call <A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON()</A> with that object. To unserialize a JSON string, simply call <A class="mochiref reference" href="Base.html#fn-evaljson">evalJSON()</A> with the serialization.</P>
+<P>In order of precedence, <A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON</A> coerces the given argument into a JSON serialization:</P>
+<OL class="arabic simple">
+<LI>Primitive types are returned as their JSON representation: <TT class="docutils literal"><SPAN class="pre">string</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">number</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">boolean</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>. 
+<LI>If the object has a <TT class="docutils literal"><SPAN class="pre">__json__</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">json</SPAN></TT> method, then it is called with no arguments. If the result of this method is not the object itself, then the new object goes through rule processing again (e.g. it may return a string, which is then serialized in JSON format). 
+<LI>If the object is <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like (has a <TT class="docutils literal"><SPAN class="pre">length</SPAN></TT> property that is a number, and is not a function), then it is serialized as a JSON array. Each element will be processed according to these rules in order. Elements that can not be serialized (e.g. functions) will be replaced with <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>. 
+<LI>The <TT class="docutils literal"><SPAN class="pre">jsonRegistry</SPAN></TT> <A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A> is consulted for an adapter for this object. JSON adapters take one argument (the object), and are expected to behave like a <TT class="docutils literal"><SPAN class="pre">__json__</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">json</SPAN></TT> method (return another object to be serialized, or itself). 
+<LI>If the object is <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>, a <TT class="docutils literal"><SPAN class="pre">TypeError</SPAN></TT> is thrown. If you wish to serialize <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT> as <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> or some other value, you should create an adapter to do so. 
+<LI>If no adapter is available, the object is enumerated and serialized as a JSON object (name:value pairs). All names are expected to be strings. Each value is serialized according to these rules, and if it can not be serialized (e.g. methods), then that name:value pair will be skipped. </LI></OL></DIV>
+<DIV class="section">
+<H2><A id="adapter-registries" name="adapter-registries">Adapter Registries</A></H2>
+<P>MochiKit makes extensive use of adapter registries, which enable you to implement object-specific behaviors for objects that you do not necessarily want to modify, such as built-in objects. This is especially useful because JavaScript does not provide a method for hiding user-defined properties from <TT class="docutils literal"><SPAN class="pre">for</SPAN> <SPAN class="pre">propName</SPAN> <SPAN class="pre">in</SPAN> <SPAN class="pre">obj</SPAN></TT> enumeration.</P>
+<P><A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A> is simply an encapsulation for an ordered list of "check" and "wrap" function pairs. Each <A class="mochiref reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A> instance should perform one function, but may have multiple ways to achieve that function based upon the arguments. One way to think of it is as a poor man's generic function, or multiple dispatch (on arbitrary functions, not just type!).</P>
+<P>Check functions take one or more arguments, and return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if the argument list is suitable for the wrap function. Check functions should perform "cheap" checks of an object's type or contents, before the "expensive" wrap function is called.</P>
+<P>Wrap functions take the same arguments as check functions and do some operation, such as creating a programmer representation or comparing both arguments.</P></DIV>
+<DIV class="section">
+<H2><A id="convenience-functions" name="convenience-functions">Convenience Functions</A></H2>
+<P>Much of <A class="mochiref reference" href="Base.html">MochiKit.Base</A> is there to simply remove the grunt work of doing generic JavaScript programming.</P>
+<P>Need to take every property from one object and set them on another? No problem, just call <A class="mochiref reference" href="Base.html#fn-update">update(dest, src)</A>! What if you just wanted to update keys that weren't already set? Look no further than <A class="mochiref reference" href="Base.html#fn-setdefault">setdefault(dest, src[, ...])</A>.</P>
+<P>Want to return a mutable object, but don't want to suffer the consequences if the user mutates it? Just <A class="mochiref reference" href="Base.html#fn-clone">clone(it)</A> and you'll get a copy-on-write clone. Cheaper than a copy!</P>
+<P>Need to extend an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> with another array? Or even an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object such as a <TT class="docutils literal"><SPAN class="pre">NodeList</SPAN></TT> or the special <TT class="docutils literal"><SPAN class="pre">arguments</SPAN></TT> object? Even if you need to skip the first few elements of the source <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object, it's no problem with <A class="mochiref reference" href="Base.html#fn-extend">extend(dstArray, srcArrayLike[, skip])</A>!</P>
+<P>Wouldn't it be convenient to have all of the JavaScript operators were available as functions somewhere? That's what the <A class="mochiref reference" href="Base.html#fn-operators">operators</A> table is for, and it even comes with additional operators based on the <A class="mochiref reference" href="Base.html#fn-compare">compare</A> function.</P>
+<P>Need to walk some tree of objects and manipulate or find something in it? A DOM element tree perhaps? Use <A class="mochiref reference" href="Base.html#fn-nodewalk">nodeWalk(node, visitor)</A>!</P>
+<P>There's plenty more, so check out the <A class="reference" href="Base.html#api-reference">API Reference</A> below.</P></DIV>
+<DIV class="section">
+<H2><A id="functional-programming" name="functional-programming">Functional Programming</A></H2>
+<P>Functional programming constructs such as <A class="mochiref reference" href="Base.html#fn-map">map</A> and <A class="mochiref reference" href="Base.html#fn-filter">filter</A> can save you a lot of time, because JavaScript iteration is error-prone and arduous. Writing less code is the best way to prevent bugs, and functional programming can help you do that.</P>
+<P><A class="mochiref reference" href="Base.html">MochiKit.Base</A> ships with a few simple Array-based functional programming constructs, namely <A class="mochiref reference" href="Base.html#fn-map">map</A> and <A class="mochiref reference" href="Base.html#fn-filter">filter</A>, and their "extended" brethren, <A class="mochiref reference" href="Base.html#fn-xmap">xmap</A> and <A class="mochiref reference" href="Base.html#fn-xfilter">xfilter</A>.</P>
+<P><A class="mochiref reference" href="Base.html#fn-map">map(func, arrayLike[, ...])</A> takes a function and an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object, and creates a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>. The new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> is the result of <TT class="docutils literal"><SPAN class="pre">func(element)</SPAN></TT> for every element of <TT class="docutils literal"><SPAN class="pre">arrayLike</SPAN></TT>, much like the <TT class="docutils literal"><SPAN class="pre">Array.prototype.map</SPAN></TT> extension in Mozilla. However, <A class="mochiref reference" href="Base.html">MochiKit.Base</A> takes that a step further and gives you the full blown Python version of <A class="mochiref reference" href="Base.html#fn-map">map</A>, which will take several <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like objects, and calls the function with one argument per given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like, e.g.:</P><PRE class="literal-block">var arrayOne = [1, 2, 3, 4, 5];
+var arrayTwo = [1, 5, 2, 4, 3];
+var arrayThree = [5, 2, 1, 3, 4];
+var biggestElements = map(objMax, arrayOne, arrayTwo, arrayThree);
+assert( objEqual(biggestElements, [5, 5, 3, 4, 5]) );
+</PRE>
+<P><A class="mochiref reference" href="Base.html#fn-filter">filter(func, arrayLike[, self])</A> takes a function and an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object, and returns a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>. This is basically identical to the <TT class="docutils literal"><SPAN class="pre">Array.prototype.filter</SPAN></TT> extension in Mozilla. self, if given, will be used as <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> in the context of func when called.</P>
+<P><A class="mochiref reference" href="Base.html#fn-xmap">xmap</A> and <A class="mochiref reference" href="Base.html#fn-xfilter">xfilter</A> are just special forms of <A class="mochiref reference" href="Base.html#fn-map">map</A> and <A class="mochiref reference" href="Base.html#fn-filter">filter</A> that accept a function as the first argument, and use the extra arguments as the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like. Not terribly interesting, but a definite time-saver in some cases.</P>
+<P>If you appreciate the functional programming facilities here, you should definitely check out <A class="mochiref reference" href="Iter.html">MochiKit.Iter</A>, which provides full blown iterators, <A class="mochiref reference" href="Iter.html#fn-range">MochiKit.Iter.range</A>, <A class="mochiref reference" href="Iter.html#fn-reduce">MochiKit.Iter.reduce</A>, and a near-complete port of Python's itertools <A class="footnote-reference" id="id3" href="Base.html#id8" name="id3">[2]</A> module, with some extra stuff thrown in for good measure!</P></DIV>
+<DIV class="section">
+<H2><A id="bound-and-partial-functions" name="bound-and-partial-functions">Bound and Partial Functions</A></H2>
+<P>JavaScript's method-calling special form and lack of bound functions (functions that know what <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> should be) are one of the first stumbling blocks that programmers new to JavaScript face. The <A class="mochiref reference" href="Base.html#fn-bind">bind(func, self)</A> method fixes that right up by returning a new function that calls func with the right <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT>.</P>
+<P>In order to take real advantage of all this fancy functional programming stuff, you're probably going to want partial application. This allows you to create a new function from an existing function that remembers some of the arguments. For example, if you wanted to compare a given object to a slew of other objects, you could do something like this:</P><PRE class="literal-block">compareWithOne = partial(compare, 1);
+results = map(compareWithOne, [0, 1, 2, 3]);
+assert( objEqual(results, [-1, 0, 1, 1]) );
+</PRE>
+<P>One of the better uses of partial functions is in <A class="mochiref reference" href="DOM.html">MochiKit.DOM</A>, which is certainly a must-see for those of you creating lots of DOM elements with JavaScript!</P></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="errors" name="errors">Errors</A></H2>
+<P><A name="fn-notfound"></A><A class="mochidef reference" href="Base.html#fn-notfound">NotFound</A>:</P>
+<BLOCKQUOTE>
+<P>A singleton error raised when no suitable adapter is found</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="constructors" name="constructors">Constructors</A></H2>
+<P><A name="fn-adapterregistry"></A><A class="mochidef reference" href="Base.html#fn-adapterregistry">AdapterRegistry</A>:</P>
+<BLOCKQUOTE>
+<P>A registry to facilitate adaptation.</P>
+<P>All <TT class="docutils literal"><SPAN class="pre">check</SPAN></TT>/<TT class="docutils literal"><SPAN class="pre">wrap</SPAN></TT> function pairs in a given registry should take the same number of arguments.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-adapterregistry.prototype.register"></A><A class="mochidef reference" href="Base.html#fn-adapterregistry.prototype.register">AdapterRegistry.prototype.register(name, check, wrap[, override])</A>:</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">name</SPAN></TT>: 
+<DD>a unique identifier used to identify this adapter so that it may be unregistered. 
+<DT><TT class="docutils literal"><SPAN class="pre">check</SPAN></TT>: 
+<DD>function that should return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if the given arguments are appropriate for the <TT class="docutils literal"><SPAN class="pre">wrap</SPAN></TT> function. 
+<DT><TT class="docutils literal"><SPAN class="pre">wrap</SPAN></TT>: 
+<DD>function that takes the same parameters as <TT class="docutils literal"><SPAN class="pre">check</SPAN></TT> and does the adaptation. Every <TT class="docutils literal"><SPAN class="pre">wrap</SPAN></TT>/<TT class="docutils literal"><SPAN class="pre">check</SPAN></TT> function pair in the registry should have the same number of arguments. 
+<DT><TT class="docutils literal"><SPAN class="pre">override</SPAN></TT>: 
+<DD>if <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, the <TT class="docutils literal"><SPAN class="pre">check</SPAN></TT> function will be given highest priority. Otherwise, the lowest. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-adapterregistry.prototype.match"></A><A class="mochidef reference" href="Base.html#fn-adapterregistry.prototype.match">AdapterRegistry.prototype.match(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Find an adapter for the given arguments by calling every <TT class="docutils literal"><SPAN class="pre">check</SPAN></TT> function until one returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>.</P>
+<P>If no suitable adapter is found, throws <A class="mochiref reference" href="Base.html#fn-notfound">NotFound</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-adapterregistry.prototype.unregister"></A><A class="mochidef reference" href="Base.html#fn-adapterregistry.prototype.unregister">AdapterRegistry.prototype.unregister(name)</A>:</P>
+<BLOCKQUOTE>
+<P>Remove a named adapter from the registry</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-namederror"></A><A class="mochidef reference" href="Base.html#fn-namederror">NamedError</A>:</P>
+<BLOCKQUOTE>
+<P>Convenience constructor for creating new errors (e.g. <A class="mochiref reference" href="Base.html#fn-notfound">NotFound</A>)</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-arrayequal"></A><A class="mochidef reference" href="Base.html#fn-arrayequal">arrayEqual(self, arr)</A>:</P>
+<BLOCKQUOTE>
+<P>Compare the arrays <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">arr</SPAN></TT> for equality using <TT class="docutils literal"><SPAN class="pre">compare</SPAN></TT> on each element. Uses a fast-path for length differences.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-average"></A><A class="mochidef reference" href="Base.html#fn-average">average(lst[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>This function is an alias of <A class="mochiref reference" href="Base.html#fn-mean">mean()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-bind"></A><A class="mochidef reference" href="Base.html#fn-bind">bind(func, self[, arg, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a copy of <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> bound to <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>. This means whenever and however the returned function is called, <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> will always reference the given <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>. <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> may be either a function object, or a string. If it is a string, then <TT class="docutils literal"><SPAN class="pre">self[func]</SPAN></TT> will be used, making these two statements equivalent:</P><PRE class="literal-block">bind("method", self);
+bind(self.method, self);
+</PRE>
+<P>Calling <A class="mochiref reference" href="Base.html#fn-bind">bind(func, self)</A> on an already bound function will return a new function that is bound to the new <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>! If <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>, then the previous <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is used. If <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, then the <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> object is used (which may or may not be the global object). To force binding to the global object, you should pass it explicitly.</P>
+<P>Additional arguments, if given, will be partially applied to the function. These three expressions are equivalent and return equally efficient functions (<A class="mochiref reference" href="Base.html#fn-bind">bind</A> and <A class="mochiref reference" href="Base.html#fn-partial">partial</A> share the same code path):</P>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html#fn-bind">bind(oldfunc, self, arg1, arg2)</A> 
+<LI><A class="mochiref reference" href="Base.html#fn-bind">bind(partial(oldfunc, arg1, arg2), self)</A> 
+<LI><A class="mochiref reference" href="Base.html#fn-partial">partial(bind(oldfunc, self), arg1, arg2)</A> </LI></UL>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-bindmethods"></A><A class="mochidef reference" href="Base.html#fn-bindmethods">bindMethods(self)</A>:</P>
+<BLOCKQUOTE>
+<P>Replace all functions <TT class="docutils literal"><SPAN class="pre">meth</SPAN></TT> on <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> with <A class="mochiref reference" href="Base.html#fn-bind">bind(meth, self)</A>. This emulates Python's bound instance methods, where there is no need to worry about preserving <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> when the method is used as a callback.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-camelize"></A><A class="mochidef reference" href="Base.html#fn-camelize">camelize(str)</A>:</P>
+<BLOCKQUOTE>
+<P>Converts hyphenated strings to camelCase:</P><PRE class="literal-block">assert( camelize("border-left") == "borderLeft" );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-clone"></A><A class="mochidef reference" href="Base.html#fn-clone">clone(obj)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new object using <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT> as its prototype. Use this if you want to return a mutable object (e.g. instance state), but don't want the user to mutate it. If they do, it won't have any effect on the original <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT>.</P>
+<P>Note that this is a shallow clone, so mutable properties will have to be cloned separately if you want to "protect" them.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-compare"></A><A class="mochidef reference" href="Base.html#fn-compare">compare(a, b)</A>:</P>
+<BLOCKQUOTE>
+<P>Compare two objects in a sensible manner. Currently this is:</P>
+<OL class="arabic simple">
+<LI><TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> compare equal to each other 
+<LI><TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> are less than anything else 
+<LI>If JavaScript says <TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">b</SPAN></TT>, then we trust it 
+<LI>comparators registered with registerComparator are used to find a good comparator. Built-in comparators are currently available for <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like and <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT>-like objects. 
+<LI>Otherwise hope that the built-in comparison operators do something useful, which should work for numbers and strings. 
+<LI>If neither <TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&lt;</SPAN> <SPAN class="pre">b</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;</SPAN> <SPAN class="pre">b</SPAN></TT>, then throw a <TT class="docutils literal"><SPAN class="pre">TypeError</SPAN></TT> </LI></OL>
+<P>Returns what one would expect from a comparison function:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="42%">
+<COL width="58%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>Value</TD>
+<TD>Condition</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">0</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">b</SPAN></TT></TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">1</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">-1</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&lt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-compose"></A><A class="mochidef reference" href="Base.html#fn-compose">compose(f1, f2, ..., fN)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new function as the combination of the given function arguments, equivalent to <TT class="docutils literal"><SPAN class="pre">f1(f2(arguments))</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-concat"></A><A class="mochidef reference" href="Base.html#fn-concat">concat(lst[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Concatenates all given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like arguments and returns a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>:</P><PRE class="literal-block">var lst = concat(["1","3","5"], ["2","4","6"]);
+assert( lst.toString() == "1,3,5,2,4,6" );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-counter"></A><A class="mochidef reference" href="Base.html#fn-counter">counter(n=1)</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a function that will return a number one greater than the previous returned value, starting at <TT class="docutils literal"><SPAN class="pre">n</SPAN></TT>. For example:</P><PRE class="literal-block">nextId = counter()
+assert( nextId() == 1 )
+assert( nextId() == 2 )
+</PRE>
+<P>For an iterator with this behavior, see <A class="mochiref reference" href="Iter.html#fn-count">MochiKit.Iter.count</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-extend"></A><A class="mochidef reference" href="Base.html#fn-extend">extend(self, obj, skip=0)</A>:</P>
+<BLOCKQUOTE>
+<P>Mutate the array <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> by extending it with an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT>, starting from index <TT class="docutils literal"><SPAN class="pre">skip</SPAN></TT>. If <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> is given as the initial array, a new one will be created.</P>
+<P>This mutates <EM>and returns</EM> <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>, be warned.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-evaljson"></A><A class="mochidef reference" href="Base.html#fn-evaljson">evalJSON(aJSONString)</A>:</P>
+<BLOCKQUOTE>
+<P>Unserialize a JSON <A class="footnote-reference" id="id4" href="Base.html#id7" name="id4">[1]</A> represenation of an object.</P>
+<P>Note that this uses the <TT class="docutils literal"><SPAN class="pre">eval</SPAN></TT> function of the interpreter, and therefore trusts the contents of <TT class="docutils literal"><SPAN class="pre">aJSONString</SPAN></TT> to be safe. This is acceptable when the JSON and JavaScript application originate from the same server, but in other scenarios it may not be the appropriate security model. Currently, a validating JSON parser is beyond the scope of MochiKit, but there is one available from json.org <A class="footnote-reference" id="id5" href="Base.html#id7" name="id5">[1]</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-filter"></A><A class="mochidef reference" href="Base.html#fn-filter">filter(fn, lst)</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> composed of all elements from <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> where <TT class="docutils literal"><SPAN class="pre">fn(lst[i])</SPAN></TT> returns a true value.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">operator.truth</SPAN></TT> will be used.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-findvalue"></A><A class="mochidef reference" href="Base.html#fn-findvalue">findValue(lst, value, start=0, end=lst.length)</A>:</P>
+<BLOCKQUOTE>
+<P>Finds the index of <TT class="docutils literal"><SPAN class="pre">value</SPAN></TT> in the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> using <A class="mochiref reference" href="Base.html#fn-compare">compare</A>. The search starts at the index <TT class="docutils literal"><SPAN class="pre">start</SPAN></TT>, and ends at the index <TT class="docutils literal"><SPAN class="pre">end</SPAN> <SPAN class="pre">-</SPAN> <SPAN class="pre">1</SPAN></TT>. If <TT class="docutils literal"><SPAN class="pre">value</SPAN></TT> is not found in <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT>, it will return <TT class="docutils literal"><SPAN class="pre">-1</SPAN></TT>.</P>
+<P>For example:</P><PRE class="literal-block">assert( findValue([1, 2, 3, 2, 1], 2) == 1 )
+assert( findValue([1, 2, 3, 2, 1], 2, 2) == 3 )
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-findidentical"></A><A class="mochidef reference" href="Base.html#fn-findidentical">findIdentical(lst, value, start=0, end=lst.length)</A>:</P>
+<BLOCKQUOTE>
+<P>Finds the index of <TT class="docutils literal"><SPAN class="pre">value</SPAN></TT> in the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> using the <TT class="docutils literal"><SPAN class="pre">===</SPAN></TT> operator. The search starts at the index <TT class="docutils literal"><SPAN class="pre">start</SPAN></TT>, and ends at the index <TT class="docutils literal"><SPAN class="pre">end</SPAN> <SPAN class="pre">-</SPAN> <SPAN class="pre">1</SPAN></TT>. If <TT class="docutils literal"><SPAN class="pre">value</SPAN></TT> is not found in <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT>, it will return <TT class="docutils literal"><SPAN class="pre">-1</SPAN></TT>.</P>
+<P>You should use this function instead of <A class="mochiref reference" href="Base.html#fn-findvalue">findValue</A> if <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> may be comprised of objects for which no comparator is defined and all you care about is finding an identical object (e.g. the same instance), or if <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> is comprised of just numbers or strings and performance is important.</P>
+<P>For example:</P><PRE class="literal-block">assert( findIdentical([1, 2, 3, 2, 1], 2) == 1 )
+assert( findIdentical([1, 2, 3, 2, 1], 2, 2) == 3 )
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-flattenarguments"></A><A class="mochidef reference" href="Base.html#fn-flattenarguments">flattenArguments(arg[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Given a bunch of arguments, return a single <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> containing all of those arguments. Any <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like argument will be extended in-place, e.g.:</P><PRE class="literal-block">compare(flattenArguments(1, [2, 3, [4, 5]]), [1, 2, 3, 4, 5]) == 0
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-flattenarray"></A><A class="mochidef reference" href="Base.html#fn-flattenarray">flattenArray(lst)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> consisting of every item in lst with <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> items expanded in-place recursively. This differs from <A class="mochiref reference" href="Base.html#fn-flattenarguments">flattenArguments</A> in that it only takes one argument and it only flattens items that are <TT class="docutils literal"><SPAN class="pre">instanceof</SPAN> <SPAN class="pre">Array</SPAN></TT>.</P>
+<BLOCKQUOTE>compare(flattenArray([1, [2, 3, [4, 5]]]), [1, 2, 3, 4, 5]) == 0</BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-forwardcall"></A><A class="mochidef reference" href="Base.html#fn-forwardcall">forwardCall(name)</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a function that forwards a method call to <TT class="docutils literal"><SPAN class="pre">this.name(...)</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isarraylike"></A><A class="mochidef reference" href="Base.html#fn-isarraylike">isArrayLike(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all given arguments are <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like (have a <TT class="docutils literal"><SPAN class="pre">.length</SPAN></TT> property and <TT class="docutils literal"><SPAN class="pre">typeof(obj)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">'object'</SPAN></TT>)</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isdatelike"></A><A class="mochidef reference" href="Base.html#fn-isdatelike">isDateLike(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all given arguments are <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT>-like (have a <TT class="docutils literal"><SPAN class="pre">.getTime()</SPAN></TT> method)</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isempty"></A><A class="mochidef reference" href="Base.html#fn-isempty">isEmpty(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all the given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like or string arguments are empty <TT class="docutils literal"><SPAN class="pre">(obj.length</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">0)</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isnotempty"></A><A class="mochidef reference" href="Base.html#fn-isnotempty">isNotEmpty(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all the given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like or string arguments are not empty <TT class="docutils literal"><SPAN class="pre">(obj.length</SPAN> <SPAN class="pre">&gt;</SPAN> <SPAN class="pre">0)</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isnull"></A><A class="mochidef reference" href="Base.html#fn-isnull">isNull(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all arguments are <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isundefinedornull"></A><A class="mochidef reference" href="Base.html#fn-isundefinedornull">isUndefinedOrNull(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if all arguments are undefined or <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-itemgetter"></A><A class="mochidef reference" href="Base.html#fn-itemgetter">itemgetter(name)</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a <TT class="docutils literal"><SPAN class="pre">function(obj)</SPAN></TT> that returns <TT class="docutils literal"><SPAN class="pre">obj[name]</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-items"></A><A class="mochidef reference" href="Base.html#fn-items">items(obj)</A>:</P>
+<BLOCKQUOTE>
+<P>Return an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> of <TT class="docutils literal"><SPAN class="pre">[propertyName,</SPAN> <SPAN class="pre">propertyValue]</SPAN></TT> pairs for the given <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT> (in the order determined by <TT class="docutils literal"><SPAN class="pre">for</SPAN> <SPAN class="pre">propName</SPAN> <SPAN class="pre">in</SPAN> <SPAN class="pre">obj</SPAN></TT>).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-keycomparator"></A><A class="mochidef reference" href="Base.html#fn-keycomparator">keyComparator(key[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>A comparator factory that compares <TT class="docutils literal"><SPAN class="pre">a[key]</SPAN></TT> with <TT class="docutils literal"><SPAN class="pre">b[key]</SPAN></TT>. e.g.:</P><PRE class="literal-block">var lst = ["a", "bbb", "cc"];
+lst.sort(keyComparator("length"));
+assert( lst.toString() == "a,cc,bbb" );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-keys"></A><A class="mochidef reference" href="Base.html#fn-keys">keys(obj)</A>:</P>
+<BLOCKQUOTE>
+<P>Return an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> of the property names of an object (in the order determined by <TT class="docutils literal"><SPAN class="pre">for</SPAN> <SPAN class="pre">propName</SPAN> <SPAN class="pre">in</SPAN> <SPAN class="pre">obj</SPAN></TT>).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-listmax"></A><A class="mochidef reference" href="Base.html#fn-listmax">listMax(lst)</A>:</P>
+<BLOCKQUOTE>
+<P>Return the largest element of an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object, as determined by <A class="mochiref reference" href="Base.html#fn-compare">compare</A>. This is a special form of <A class="mochiref reference" href="Base.html#fn-listminmax">listMinMax</A>, specifically <A class="mochiref reference" href="Base.html#fn-partial">partial(listMinMax, 1)</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-listmin"></A><A class="mochidef reference" href="Base.html#fn-listmin">listMin(lst)</A>:</P>
+<BLOCKQUOTE>
+<P>Return the smallest element of an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like object, as determined by <A class="mochiref reference" href="Base.html#fn-compare">compare</A>. This is a special form of <A class="mochiref reference" href="Base.html#fn-listminmax">listMinMax</A>, specifically <A class="mochiref reference" href="Base.html#fn-partial">partial(listMinMax, -1)</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-listminmax"></A><A class="mochidef reference" href="Base.html#fn-listminmax">listMinMax(which, lst)</A>:</P>
+<BLOCKQUOTE>
+<P>If <TT class="docutils literal"><SPAN class="pre">which</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">-1</SPAN></TT> then it will return the smallest element of the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT>. This is also available as <A class="mochiref reference" href="Base.html#fn-listmin">listMin(lst)</A>.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">which</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">1</SPAN></TT> then it will return the largest element of the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT>. This is also available as <A class="mochiref reference" href="Base.html#fn-listmax">listMax(list)</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-map"></A><A class="mochidef reference" href="Base.html#fn-map">map(fn, lst[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new array composed of the results of <TT class="docutils literal"><SPAN class="pre">fn(x)</SPAN></TT> for every <TT class="docutils literal"><SPAN class="pre">x</SPAN></TT> in <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT>.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, and only one sequence argument is given the identity function is used.</P>
+<BLOCKQUOTE><A class="mochiref reference" href="Base.html#fn-map">map(null, lst)</A> -&gt; <TT class="docutils literal"><SPAN class="pre">lst.slice()</SPAN></TT>;</BLOCKQUOTE>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is not <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> and more than one sequence argument is given, then one element from each sequence is used to build the argument list for <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT>.</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><A class="mochiref reference" href="Base.html#fn-map">map(fn, p, q, ...)</A> 
+<DD>-&gt; <TT class="docutils literal"><SPAN class="pre">[fn(p[0],</SPAN> <SPAN class="pre">q[0],</SPAN> <SPAN class="pre">..),</SPAN> <SPAN class="pre">fn(p[1],</SPAN> <SPAN class="pre">q[1],</SPAN> <SPAN class="pre">...),</SPAN> <SPAN class="pre">...]</SPAN></TT> </DD></DL></BLOCKQUOTE>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, and more than one sequence is given as arguments, then the <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> function is used, making it equivalent to <A class="mochiref reference" href="Iter.html#fn-zip">MochiKit.Iter.zip</A>.</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><A class="mochiref reference" href="Base.html#fn-map">map(null, p, q, ...)</A> 
+<DD>-&gt; <A class="mochiref reference" href="Iter.html#fn-zip">MochiKit.Iter.zip(p, q, ...)</A> -&gt; <TT class="docutils literal"><SPAN class="pre">[[p0,</SPAN> <SPAN class="pre">q0,</SPAN> <SPAN class="pre">...],</SPAN> <SPAN class="pre">[p1,</SPAN> <SPAN class="pre">q1,</SPAN> <SPAN class="pre">...],</SPAN> <SPAN class="pre">...];</SPAN></TT> </DD></DL></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-mean"></A><A class="mochidef reference" href="Base.html#fn-mean">mean(lst[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns the arithmetic mean (average) of the argument list, or an array. This function applies <A class="mochiref reference" href="Base.html#fn-flattenarguments">flattenArguments()</A> to the argument list.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-median"></A><A class="mochidef reference" href="Base.html#fn-median">median(lst[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns the median of the argument list, or an array. This function applies <A class="mochiref reference" href="Base.html#fn-flattenarguments">flattenArguments()</A> to the argument list.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-merge"></A><A class="mochidef reference" href="Base.html#fn-merge">merge(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Create a new instance of <TT class="docutils literal"><SPAN class="pre">Object</SPAN></TT> that contains every property from all given objects. If a property is defined on more than one of the objects, the last property is used.</P>
+<P>This is a special form of <A class="mochiref reference" href="Base.html#fn-update">update(self, obj[, ...])</A>, specifically, it is defined as <A class="mochiref reference" href="Base.html#fn-partial">partial(update, null)</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-method"></A><A class="mochidef reference" href="Base.html#fn-method">method(self, func, ...)</A>:</P>
+<BLOCKQUOTE>
+<P>Alternate form of <A class="mochiref reference" href="Base.html#fn-bind">bind</A> that takes the object before the function. These two calls are equivalent:</P><PRE class="literal-block">bind("method", myobject)
+method(myobject, "method")
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-methodcaller"></A><A class="mochidef reference" href="Base.html#fn-methodcaller">methodcaller(name[, args...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new function that calls a method on its argument, for example:</P><PRE class="literal-block">lst = map(methodcaller("toLowerCase"), ["THIS", "is", "LoWeRCaSe"]);
+assert( lst.join(" ") == "this is lowercase" );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-namefunctions"></A><A class="mochidef reference" href="Base.html#fn-namefunctions">nameFunctions(namespace)</A>:</P>
+<BLOCKQUOTE>
+<P>Given a <TT class="docutils literal"><SPAN class="pre">namespace</SPAN></TT> (object or function) with a <TT class="docutils literal"><SPAN class="pre">NAME</SPAN></TT> property, find all methods in it and give them nice <TT class="docutils literal"><SPAN class="pre">NAME</SPAN></TT> properties too (for use with <A class="mochiref reference" href="Base.html#fn-repr">repr</A>). e.g.:</P><PRE class="literal-block">namespace = {
+    NAME: "Awesome",
+    Dude: function () {}
+}
+nameFunctions(namespace);
+assert( namespace.Dude.NAME == 'Awesome.Dude' );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-noop"></A><A class="mochidef reference" href="Base.html#fn-noop">noop()</A>:</P>
+<BLOCKQUOTE>
+<P>A function that performs no operation. Use this where you would otherwise use <TT class="docutils literal"><SPAN class="pre">(function</SPAN> <SPAN class="pre">()</SPAN> <SPAN class="pre">{})</SPAN></TT> in order to avoid Internet Explorer cyclic garbage leakage.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4 </DD></DL></BLOCKQUOTE>
+<P><A name="fn-objequal"></A><A class="mochidef reference" href="Base.html#fn-objequal">objEqual(a, b)</A>:</P>
+<BLOCKQUOTE>
+<P>Return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">0</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-nodewalk"></A><A class="mochidef reference" href="Base.html#fn-nodewalk">nodeWalk(node, visitor)</A>:</P>
+<BLOCKQUOTE>
+<P>Non-recursive generic node walking function (e.g. for a DOM).</P>
+<P>The walk order for nodeWalk is breadth first, meaning that all siblings will be visited before any children.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">node</SPAN></TT>: 
+<DD>The initial node to be searched. 
+<DT><TT class="docutils literal"><SPAN class="pre">visitor</SPAN></TT>: 
+<DD>The visitor function, will be called as <TT class="docutils literal"><SPAN class="pre">visitor(node)</SPAN></TT>, and should return an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like of nodes to be searched next (e.g. <TT class="docutils literal"><SPAN class="pre">node.childNodes</SPAN></TT>). Leaf nodes may return <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-objmax"></A><A class="mochidef reference" href="Base.html#fn-objmax">objMax(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return the maximum object according to <A class="mochiref reference" href="Base.html#fn-compare">compare</A> out of the given arguments. This is similar to <A class="mochiref reference" href="Base.html#fn-listmax">listMax</A>, except is uses the arguments instead of a given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-objmin"></A><A class="mochidef reference" href="Base.html#fn-objmin">objMin(obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return the minimum object according to <A class="mochiref reference" href="Base.html#fn-compare">compare</A> out of the given arguments. This is similar to <A class="mochiref reference" href="Base.html#fn-listmin">listMin</A>, except it uses the arguments instead of a given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-operator"></A><A class="mochidef reference" href="Base.html#fn-operator">operator</A>:</P>
+<BLOCKQUOTE>
+<P>A table of JavaScript's operators for usage with <A class="mochiref reference" href="Base.html#fn-map">map</A>, <A class="mochiref reference" href="Base.html#fn-filter">filter</A>, etc.</P>
+<P>Unary Logic Operators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="31%">
+<COL width="40%">
+<COL width="29%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">truth(a)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">!!a</SPAN></TT></TD>
+<TD>Logical truth</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">lognot(a)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">!a</SPAN></TT></TD>
+<TD>Logical not</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">identity(a)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN></TT></TD>
+<TD>Logical identity</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Unary Math Operators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="33%">
+<COL width="43%">
+<COL width="25%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">not(a)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">~a</SPAN></TT></TD>
+<TD>Bitwise not</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">neg(a)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">-a</SPAN></TT></TD>
+<TD>Negation</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Binary Operators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="28%">
+<COL width="28%">
+<COL width="45%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">add(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">+</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Addition</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">sub(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">-</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Subtraction</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">div(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">/</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Division</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">mod(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">%</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Modulus</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">mul(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">*</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Multiplication</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">and(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&amp;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise and</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">or(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">|</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise or</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">xor(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">^</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise exclusive or</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">lshift(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&lt;&lt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise left shift</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">rshift(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;&gt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise signed right shift</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">zrshift(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;&gt;&gt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Bitwise unsigned right shift</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Built-in Comparators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="25%">
+<COL width="31%">
+<COL width="44%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">eq(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Equals</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">ne(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">!=</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Not equals</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">gt(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Greater than</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">ge(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&gt;=</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Greater than or equal to</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">lt(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&lt;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Less than</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">le(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&lt;=</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Less than or equal to</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Strict Built-in Comparators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="25%">
+<COL width="31%">
+<COL width="44%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">seq(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">===</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Strict equals</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">sne(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">!==</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Strict not equals</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Extended Comparators (uses <A class="mochiref reference" href="Base.html#fn-compare">compare</A>):</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="22%">
+<COL width="39%">
+<COL width="39%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">ceq(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">0</SPAN></TT></TD>
+<TD>Equals</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">cne(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">!=</SPAN> <SPAN class="pre">0</SPAN></TT></TD>
+<TD>Not equals</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">cgt(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">1</SPAN></TT></TD>
+<TD>Greater than</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">cge(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">!=</SPAN> <SPAN class="pre">-1</SPAN></TT></TD>
+<TD>Greater than or equal to</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">clt(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">-1</SPAN></TT></TD>
+<TD>Less than</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">cle(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">compare(a,</SPAN> <SPAN class="pre">b)</SPAN> <SPAN class="pre">!=</SPAN> <SPAN class="pre">1</SPAN></TT></TD>
+<TD>Less than or equal to</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Binary Logical Operators:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="33%">
+<COL width="28%">
+<COL width="39%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Operator</TH>
+<TH class="head">Implementation</TH>
+<TH class="head">Description</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">logand(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">&amp;&amp;</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Logical and</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">logor(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">a</SPAN> <SPAN class="pre">||</SPAN> <SPAN class="pre">b</SPAN></TT></TD>
+<TD>Logical or</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">contains(a,</SPAN> <SPAN class="pre">b)</SPAN></TT></TD>
+<TD><TT class="docutils literal"><SPAN class="pre">b</SPAN> <SPAN class="pre">in</SPAN> <SPAN class="pre">a</SPAN></TT></TD>
+<TD>Has property (note order)</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-parsequerystring"></A><A class="mochidef reference" href="Base.html#fn-parsequerystring">parseQueryString(encodedString[, useArrays=false])</A>:</P>
+<BLOCKQUOTE>
+<P>Parse a name=value pair URL query string into an object with a property for each pair. e.g.:</P><PRE class="literal-block">var args = parseQueryString("foo=value%20one&amp;bar=two");
+assert( args.foo == "value one" &amp;&amp; args.bar == "two" );
+</PRE>
+<P>If you expect that the query string will reuse the same name, then give <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> as a second argument, which will use arrays to store the values. e.g.:</P><PRE class="literal-block">var args = parseQueryString("foo=one&amp;foo=two", true);
+assert( args.foo[0] == "one" &amp;&amp; args.foo[1] == "two" );
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-partial"></A><A class="mochidef reference" href="Base.html#fn-partial">partial(func, arg[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a partially applied function, e.g.:</P><PRE class="literal-block">addNumbers = function (a, b) {
+    return a + b;
+}
+
+addOne = partial(addNumbers, 1);
+
+assert(addOne(2) == 3);
+</PRE>
+<P><A class="mochiref reference" href="Base.html#fn-partial">partial</A> is a special form of <A class="mochiref reference" href="Base.html#fn-bind">bind</A> that does not alter the bound <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> (if any). It is equivalent to calling:</P><PRE class="literal-block">bind(func, undefined, arg[, ...]);
+</PRE>
+<P>See the documentation for <A class="mochiref reference" href="Base.html#fn-bind">bind</A> for more details about this facility.</P>
+<P>This could be used to implement, but is NOT currying.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-querystring"></A><A class="mochidef reference" href="Base.html#fn-querystring">queryString(names, values)</A>:</P>
+<BLOCKQUOTE>
+<P>Creates a URL query string from a pair of <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT>-like objects representing <TT class="docutils literal"><SPAN class="pre">names</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">values</SPAN></TT>. Each name=value pair will be URL encoded by <A class="mochiref reference" href="Base.html#fn-urlencode">urlEncode</A>. name=value pairs with a value of <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> will be skipped. e.g.:</P><PRE class="literal-block">var keys = ["foo", "bar"];
+var values = ["value one", "two"];
+assert( queryString(keys, values) == "foo=value%20one&amp;bar=two" );
+</PRE>
+<DL class="docutils">
+<DT>Alternate form 1: 
+<DD><A class="mochiref reference" href="Base.html#fn-querystring">queryString(domElement)</A> </DD></DL>
+<P>If <A class="mochiref reference" href="DOM.html">MochiKit.DOM</A> is loaded, one argument is given, and that argument is either a string or has a <TT class="docutils literal"><SPAN class="pre">nodeType</SPAN></TT> property greater than zero, then <TT class="docutils literal"><SPAN class="pre">names</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">values</SPAN></TT> will be the result of <A class="mochiref reference" href="DOM.html#fn-formcontents">MochiKit.DOM.formContents(domElement)</A>.</P>
+<DL class="docutils">
+<DT>Alternate form 2: 
+<DD><A class="mochiref reference" href="Base.html#fn-querystring">queryString({name: value, ...})</A> </DD></DL>
+<P>Note that when using the alternate form, the order of the name=value pairs in the resultant query string is dependent on how the particular JavaScript implementation handles <TT class="docutils literal"><SPAN class="pre">for</SPAN> <SPAN class="pre">(..in..)</SPAN></TT> property enumeration.</P>
+<P>When using the second alternate form, name=value pairs with <TT class="docutils literal"><SPAN class="pre">typeof(value)</SPAN> <SPAN class="pre">==</SPAN> <SPAN class="pre">"function"</SPAN></TT> are ignored. This is a workaround for the case where a poorly designed library has modified <TT class="docutils literal"><SPAN class="pre">Object.prototype</SPAN></TT> and inserted "convenience functions".</P>
+<P>Values that are Array-like will be expanded as if they were multiply defined HTML elements. For example:</P><PRE class="literal-block">assert( queryString({a: [1,2]}) === "a=1&amp;a=2" );
+</PRE>
+<DL class="docutils">
+<DT>Alternate form 2 (MochiKit 1.4+): 
+<DD><A class="mochiref reference" href="Base.html#fn-querystring">queryString([names, values])</A> </DD></DL>
+<P>This form behaves identically to <A class="mochiref reference" href="Base.html#fn-querystring">queryString(names, values)</A>, except it takes both arguments as a single Array. This mirrors the return value of <A class="mochiref reference" href="DOM.html#fn-formcontents">MochiKit.DOM.formContents</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-registercomparator"></A><A class="mochidef reference" href="Base.html#fn-registercomparator">registerComparator(name, check, comparator[, override])</A>:</P>
+<BLOCKQUOTE>
+<P>Register a comparator for use with <A class="mochiref reference" href="Base.html#fn-compare">compare</A>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">name</SPAN></TT>: 
+<DD>unique identifier describing the comparator. 
+<DT><TT class="docutils literal"><SPAN class="pre">check</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">function(a,</SPAN> <SPAN class="pre">b)</SPAN></TT> that returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">a</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">b</SPAN></TT> can be compared with <TT class="docutils literal"><SPAN class="pre">comparator</SPAN></TT>. 
+<DT><TT class="docutils literal"><SPAN class="pre">comparator</SPAN></TT>: 
+<DD>
+<P class="first"><TT class="docutils literal"><SPAN class="pre">function(a,</SPAN> <SPAN class="pre">b)</SPAN></TT> that returns:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="39%">
+<COL width="61%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>Value</TD>
+<TD>Condition</TD></TR>
+<TR>
+<TD>0</TD>
+<TD>a == b</TD></TR>
+<TR>
+<TD>1</TD>
+<TD>a &gt; b</TD></TR>
+<TR>
+<TD>-1</TD>
+<TD>a &lt; b</TD></TR></TBODY></TABLE>
+<P class="last"><TT class="docutils literal"><SPAN class="pre">comparator</SPAN></TT> is guaranteed to only be called if <TT class="docutils literal"><SPAN class="pre">check(a,</SPAN> <SPAN class="pre">b)</SPAN></TT> returns a <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> value.</P>
+<DT><TT class="docutils literal"><SPAN class="pre">override</SPAN></TT>: 
+<DD>if <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, then this will be made the highest precedence comparator. Otherwise, the lowest. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-registerjson"></A><A class="mochidef reference" href="Base.html#fn-registerjson">registerJSON(name, check, simplifier[, override])</A>:</P>
+<BLOCKQUOTE>
+<P>Register a simplifier function for use with <A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON</A>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">name</SPAN></TT>: 
+<DD>unique identifier describing the serialization. 
+<DT><TT class="docutils literal"><SPAN class="pre">check</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">function(obj)</SPAN></TT> that returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT> can can be simplified for serialization by <TT class="docutils literal"><SPAN class="pre">simplifier</SPAN></TT>. 
+<DT><TT class="docutils literal"><SPAN class="pre">simplifier</SPAN></TT>: 
+<DD>
+<P class="first"><TT class="docutils literal"><SPAN class="pre">function(obj)</SPAN></TT> that returns a simpler object that can be further serialized by <A class="mochiref reference" href="Base.html#fn-serializejson">serializeJSON</A>. For example, you could simplify <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT>-like objects to ISO 8601 timestamp strings with the following simplifier:</P><PRE class="literal-block">var simplifyDateAsISO = function (obj) {
+    return toISOTimestamp(obj, true);
+};
+registerJSON("DateLike", isDateLike, simplifyDateAsISO);
+</PRE>
+<P class="last"><TT class="docutils literal"><SPAN class="pre">simplifier</SPAN></TT> is guaranteed to only be called if <TT class="docutils literal"><SPAN class="pre">check(obj)</SPAN></TT> returns a <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> value.</P>
+<DT><TT class="docutils literal"><SPAN class="pre">override</SPAN></TT>: 
+<DD>if <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, then this will be made the highest precedence serialization. Otherwise, the lowest. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-registerrepr"></A><A class="mochidef reference" href="Base.html#fn-registerrepr">registerRepr(name, check, wrap[, override])</A>:</P>
+<BLOCKQUOTE>
+<P>Register a programmer representation function. <A class="mochiref reference" href="Base.html#fn-repr">repr</A> functions should take one argument and return a string representation of it suitable for developers, primarily used when debugging.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">override</SPAN></TT> is given, it is used as the highest priority repr, otherwise it will be used as the lowest.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-repr"></A><A class="mochidef reference" href="Base.html#fn-repr">repr(obj)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a programmer representation for <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT>. See the <A class="reference" href="Base.html#programmer-representation">Programmer Representation</A> overview for more information about this function.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-reversekeycomparator"></A><A class="mochidef reference" href="Base.html#fn-reversekeycomparator">reverseKeyComparator(key)</A>:</P>
+<BLOCKQUOTE>
+<P>A comparator factory that compares <TT class="docutils literal"><SPAN class="pre">a[key]</SPAN></TT> with <TT class="docutils literal"><SPAN class="pre">b[key]</SPAN></TT> in reverse. e.g.:</P><PRE class="literal-block">var lst = ["a", "bbb", "cc"];
+lst.sort(reverseKeyComparator("length"));
+assert(lst.toString() == "bbb,cc,a");
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-serializejson"></A><A class="mochidef reference" href="Base.html#fn-serializejson">serializeJSON(anObject)</A>:</P>
+<BLOCKQUOTE>
+<P>Serialize <TT class="docutils literal"><SPAN class="pre">anObject</SPAN></TT> in the JSON <A class="footnote-reference" id="id6" href="Base.html#id7" name="id6">[1]</A> format, see <A class="reference" href="Base.html#json-serialization">JSON Serialization</A> for the coercion rules. For unserializable objects (functions that do not have an adapter, <TT class="docutils literal"><SPAN class="pre">__json__</SPAN></TT> method, or <TT class="docutils literal"><SPAN class="pre">json</SPAN></TT> method), this will return <TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT>.</P>
+<P>For those familiar with Python, JSON is similar in scope to pickle, but it can not handle recursive object graphs.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-setdefault"></A><A class="mochidef reference" href="Base.html#fn-setdefault">setdefault(self, obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Mutate <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> by adding all properties from other object(s) that it does not already have set.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, a new <TT class="docutils literal"><SPAN class="pre">Object</SPAN></TT> instance will be created and returned.</P>
+<P>This mutates <EM>and returns</EM> <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>, be warned.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-typematcher"></A><A class="mochidef reference" href="Base.html#fn-typematcher">typeMatcher(typ[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Given a set of types (as string arguments), returns a <TT class="docutils literal"><SPAN class="pre">function(obj[,</SPAN> <SPAN class="pre">...])</SPAN></TT> that will return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if the types of the given arguments are all members of that set.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-update"></A><A class="mochidef reference" href="Base.html#fn-update">update(self, obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Mutate <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> by replacing its key:value pairs with those from other object(s). Key:value pairs from later objects will overwrite those from earlier objects.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, a new <TT class="docutils literal"><SPAN class="pre">Object</SPAN></TT> instance will be created and returned.</P>
+<P>This mutates <EM>and returns</EM> <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>, be warned.</P>
+<P>A version of this function that creates a new object is available as <A class="mochiref reference" href="Base.html#fn-merge">merge(a, b[, ...])</A></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-updatetree"></A><A class="mochidef reference" href="Base.html#fn-updatetree">updatetree(self, obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Mutate <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> by replacing its key:value pairs with those from other object(s). If a given key has an object value in both <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT>, then this function will be called recursively, updating instead of replacing that object.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, a new <TT class="docutils literal"><SPAN class="pre">Object</SPAN></TT> instance will be created and returned.</P>
+<P>This mutates <EM>and returns</EM> <TT class="docutils literal"><SPAN class="pre">self</SPAN></TT>, be warned.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-urlencode"></A><A class="mochidef reference" href="Base.html#fn-urlencode">urlEncode(unencoded)</A>:</P>
+<BLOCKQUOTE>
+<P>Converts <TT class="docutils literal"><SPAN class="pre">unencoded</SPAN></TT> into a URL-encoded string. In this implementation, spaces are converted to %20 instead of "+". e.g.:</P><PRE class="literal-block">assert( URLencode("1+2=2") == "1%2B2%3D2");
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-values"></A><A class="mochidef reference" href="Base.html#fn-values">values(obj)</A>:</P>
+<BLOCKQUOTE>
+<P>Return an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> of the property values of an object (in the order determined by <TT class="docutils literal"><SPAN class="pre">for</SPAN> <SPAN class="pre">propName</SPAN> <SPAN class="pre">in</SPAN> <SPAN class="pre">obj</SPAN></TT>).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-xfilter"></A><A class="mochidef reference" href="Base.html#fn-xfilter">xfilter(fn, obj[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> composed of the arguments where <TT class="docutils literal"><SPAN class="pre">fn(obj)</SPAN></TT> returns a true value.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">operator.truth</SPAN></TT> will be used.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-xmap"></A><A class="mochidef reference" href="Base.html#fn-xmap">xmap(fn, obj[, ...)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> composed of <TT class="docutils literal"><SPAN class="pre">fn(obj)</SPAN></TT> for every <TT class="docutils literal"><SPAN class="pre">obj</SPAN></TT> given as an argument.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">fn</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">operator.identity</SPAN></TT> is used.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id7" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id7">[1]</A></TD>
+<TD><EM>(<A class="fn-backref" href="Base.html#id1">1</A>, <A class="fn-backref" href="Base.html#id2">2</A>, <A class="fn-backref" href="Base.html#id4">3</A>, <A class="fn-backref" href="Base.html#id5">4</A>, <A class="fn-backref" href="Base.html#id6">5</A>)</EM> JSON, JavaScript Object Notation: <A class="reference" href="http://json.org/">http://json.org/</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id8" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Base.html#id3" name="id8">[2]</A></TD>
+<TD>Python's itertools module: <A class="reference" href="http://docs.python.org/lib/module-itertools.html">http://docs.python.org/lib/module-itertools.html</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

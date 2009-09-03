@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Events / Keyboard - jQuery</title>
+<!-- jQuery 1.0.4 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="events / keyboard">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Events / Keyboard</h2><h3 class='func' id='keydown'><b>keydown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keydown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keydown event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keydown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeydown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>keydown</b>() : jQuery</h3>
+<p>Trigger the keydown event of each matched element. This causes all of the functions that have been bound to thet keydown event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeydown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keydown();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onekeydown'><b>onekeydown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keydown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keydown event of each matched element, which will only be executed once. Unlike a call to the normal .keydown() method, calling .onekeydown() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeydown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onekeydown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first keydown</pre>
+</div>
+<h3 class='func' id='unkeydown'><b>unkeydown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the keydown event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound keydown event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeydown=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeydown( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unkeydown</b>() : jQuery</h3>
+<p>Removes all bound keydown events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeydown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeydown();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='keypress'><b>keypress</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keypress event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keypress event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keypress( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeypress=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>keypress</b>() : jQuery</h3>
+<p>Trigger the keypress event of each matched element. This causes all of the functions that have been bound to thet keypress event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeypress=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keypress();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onekeypress'><b>onekeypress</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keypress event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keypress event of each matched element, which will only be executed once. Unlike a call to the normal .keypress() method, calling .onekeypress() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeypress=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onekeypress( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first keypress</pre>
+</div>
+<h3 class='func' id='unkeypress'><b>unkeypress</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the keypress event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound keypress event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeypress=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeypress( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unkeypress</b>() : jQuery</h3>
+<p>Removes all bound keypress events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeypress=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeypress();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='keyup'><b>keyup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keyup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keyup event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keyup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeyup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>keyup</b>() : jQuery</h3>
+<p>Trigger the keyup event of each matched element. This causes all of the functions that have been bound to thet keyup event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeyup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keyup();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onekeyup'><b>onekeyup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keyup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keyup event of each matched element, which will only be executed once. Unlike a call to the normal .keyup() method, calling .onekeyup() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeyup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onekeyup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first keyup</pre>
+</div>
+<h3 class='func' id='unkeyup'><b>unkeyup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the keyup event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound keyup event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeyup=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeyup( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unkeyup</b>() : jQuery</h3>
+<p>Removes all bound keyup events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onkeyup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unkeyup();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>

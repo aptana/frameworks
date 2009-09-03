@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>toQueryString</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">toQueryString </span><span class="f_TopicHeading" style="color: #ccffff;">:: Hash</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">toQueryString() -&gt; String</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Turns a hash into its URL-encoded query string representation.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This is a form of serialization, and is mostly useful to provide complex parameter sets for stuff such as objects in the Ajax namespace (e.g. <span class="f_CourierFixed">Ajax.Request</span>).</p>
+<p>&nbsp;</p>
+<p>Undefined-value pairs will be serialized as if empty-valued. Array-valued pairs will get serialized with one name/value pair per array element. All values get URI-encoded using JavaScript's native <span class="f_CourierFixed">encodeURIComponent</span> function.</p>
+<p>&nbsp;</p>
+<p>The order of pairs in the serialized form is not guaranteed (and mostly irrelevant anyway), except for array-based parts, which are serialized in array order.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$H</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;action:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'ship'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;order_id:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">123</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;fees:&nbsp;[</span><span class="f_CodeExample" style="color: #800000;">'f1'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'f2'</span><span class="f_CodeExample" style="color: #000000;">],&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'label'</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'a&nbsp;demo'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;}).toQueryString()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'action=ship&amp;order_id=123&amp;fees=f1&amp;fees=f2&amp;label=a%20demo'</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$H</span><span class="f_CodeExample" style="color: #000000;">().toQueryString()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;''</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Note</span></p>
+<p>&nbsp;</p>
+<p>This method can be called in two ways: as an instance method (as in the above examples) or as a class method on Hash.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Hash.toQueryString({&nbsp;foo:</span><span class="f_CodeExample" style="color: #800000;">'bar'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'foo=bar'</span></p>
+<p>&nbsp;</p>
+<p>This way you can generate a query string from an object without converting it to a Hash instance, making it possible to serialize hashes that have keys corresponding to Enumerable method names.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

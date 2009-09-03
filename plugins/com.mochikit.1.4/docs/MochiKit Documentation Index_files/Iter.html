@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Iter - itertools for JavaScript; iteration made HARD, and then easy</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Iter - itertools for JavaScript; iteration made HARD, and then easy</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Iter.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Iter.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Iter.html#fn-stopiteration">StopIteration<BR></A><A class="mochiref reference" href="Iter.html#fn-applymap">applymap(fun, seq[, self])<BR></A><A class="mochiref reference" href="Iter.html#fn-chain">chain(p, q[, ...])<BR></A><A class="mochiref reference" href="Iter.html#fn-count">count(n=0)<BR></A><A class="mochiref reference" href="Iter.html#fn-cycle">cycle(p)<BR></A><A class="mochiref reference" href="Iter.html#fn-dropwhile">dropwhile(pred, seq)<BR></A><A class="mochiref reference" href="Iter.html#fn-every">every(iterable, func)<BR></A><A class="mochiref reference" href="Iter.html#fn-exhaust">exhaust(iterable)<BR></A><A class="mochiref reference" href="Iter.html#fn-foreach">forEach(iterable, func[, self])<BR></A><A class="mochiref reference" href="Iter.html#fn-groupby">groupby(iterable[, keyfunc])<BR></A><A class="mochiref reference" href="Iter.html#fn-groupby_as_array">groupby_as_array(iterable[, keyfunc])<BR></A><A class="mochiref reference" href="Iter.html#fn-iextend">iextend(lst, iterable)<BR></A><A class="mochiref reference" href="Iter.html#fn-ifilter">ifilter(pred, seq)<BR></A><A class="mochiref reference" href="Iter.html#fn-ifilterfalse">ifilterfalse(pred, seq)<BR></A><A class="mochiref reference" href="Iter.html#fn-imap">imap(fun, p, q[, ...])<BR></A><A class="mochiref reference" href="Iter.html#fn-islice">islice(seq, [start,] stop[, step])<BR></A><A class="mochiref reference" href="Iter.html#fn-iter">iter(iterable[, sentinel])<BR></A><A class="mochiref reference" href="Iter.html#fn-izip">izip(p, q[, ...])<BR></A><A class="mochiref reference" href="Iter.html#fn-list">list(iterable)<BR></A><A class="mochiref reference" href="Iter.html#fn-next">next(iterator)<BR></A><A class="mochiref reference" href="Iter.html#fn-range">range([start,] stop[, step])<BR></A><A class="mochiref reference" href="Iter.html#fn-reduce">reduce(fn, iterable[, initial])<BR></A><A class="mochiref reference" href="Iter.html#fn-registeriteratorfactory">registerIteratorFactory(name, check, iterfactory[, override])<BR></A><A class="mochiref reference" href="Iter.html#fn-repeat">repeat(elem[, n])<BR></A><A class="mochiref reference" href="Iter.html#fn-reversed">reversed(iterable)<BR></A><A class="mochiref reference" href="Iter.html#fn-some">some(iterable, func)<BR></A><A class="mochiref reference" href="Iter.html#fn-sorted">sorted(iterable[, cmp])<BR></A><A class="mochiref reference" href="Iter.html#fn-sum">sum(iterable, start=0)<BR></A><A class="mochiref reference" href="Iter.html#fn-takewhile">takewhile(pred, seq)<BR></A><A class="mochiref reference" href="Iter.html#fn-tee">tee(iterable, n=2)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">theSum = sum(takewhile(
+        partial(operator.gt, 10),
+        imap(
+            partial(operator.mul, 2),
+            count()
+        )
+    )
+));
+
+assert( theSum == (0 + 0 + 2 + 4 + 6 + 8) );
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>All of the functional programming missing from <A class="mochiref reference" href="Base.html">MochiKit.Base</A> lives here. The functionality in this module is largely inspired by Python's iteration protocol <A class="footnote-reference" id="id1" href="Iter.html#id4" name="id1">[1]</A>, and the itertools module <A class="footnote-reference" id="id2" href="Iter.html#id5" name="id2">[2]</A>.</P>
+<P>MochiKit.Iter defines a standard way to iterate over anything, that you can extend with <A class="mochiref reference" href="Iter.html#fn-registeriterator">registerIterator</A>, or by implementing the <TT class="docutils literal"><SPAN class="pre">.iter()</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.__iterator__()</SPAN></TT> (in MochiKit 1.4+) protocol. Iterators are lazy, so it can potentially be cheaper to build a filter chain of iterators than to build lots of intermediate arrays. Especially when the data set is very large, but the result is not.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="iteration-for-javascript" name="iteration-for-javascript">Iteration for JavaScript</A></H2>
+<P>The best overview right now is in my Iteration for JavaScript <A class="footnote-reference" id="id3" href="Iter.html#id6" name="id3">[3]</A> blog entry. This information will migrate here eventually.</P></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="errors" name="errors">Errors</A></H2>
+<P><A name="fn-stopiteration"></A><A class="mochidef reference" href="Iter.html#fn-stopiteration">StopIteration</A>:</P>
+<BLOCKQUOTE>
+<P>The singleton <A class="mochiref reference" href="Base.html#fn-namederror">MochiKit.Base.NamedError</A> that signifies the end of an iterator</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-applymap"></A><A class="mochidef reference" href="Iter.html#fn-applymap">applymap(fun, seq[, self])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">applymap(fun,</SPAN> <SPAN class="pre">seq)</SPAN></TT> --&gt; fun.apply(self, seq0), fun.apply(self, seq1), ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-chain"></A><A class="mochidef reference" href="Iter.html#fn-chain">chain(p, q[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">chain(p,</SPAN> <SPAN class="pre">q,</SPAN> <SPAN class="pre">...)</SPAN></TT> --&gt; p0, p1, ... plast, q0, q1, ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-count"></A><A class="mochidef reference" href="Iter.html#fn-count">count(n=0)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">count(n=0)</SPAN></TT> --&gt; n, n + 1, n + 2, ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-cycle"></A><A class="mochidef reference" href="Iter.html#fn-cycle">cycle(p)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">cycle(p)</SPAN></TT> --&gt; p0, p1, ... plast, p0, p1, ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-dropwhile"></A><A class="mochidef reference" href="Iter.html#fn-dropwhile">dropwhile(pred, seq)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">dropwhile(pred,</SPAN> <SPAN class="pre">seq)</SPAN></TT> --&gt; seq[n], seq[n + 1], starting when pred(seq[n]) fails</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-every"></A><A class="mochidef reference" href="Iter.html#fn-every">every(iterable, func)</A>:</P>
+<BLOCKQUOTE>
+<P>Return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">func(item)</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> for every item in <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-exhaust"></A><A class="mochidef reference" href="Iter.html#fn-exhaust">exhaust(iterable)</A>:</P>
+<BLOCKQUOTE>
+<P>Exhausts an iterable without saving the results anywhere, like <A class="mochiref reference" href="Iter.html#fn-list">list(iterable)</A> when you don't care what the output is.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-foreach"></A><A class="mochidef reference" href="Iter.html#fn-foreach">forEach(iterable, func[, self])</A>:</P>
+<BLOCKQUOTE>
+<P>Call <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> for each item in <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT>, and don't save the results.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-groupby"></A><A class="mochidef reference" href="Iter.html#fn-groupby">groupby(iterable[, keyfunc])</A>:</P>
+<BLOCKQUOTE>
+<P>Make an iterator that returns consecutive keys and groups from the iterable. The key is a function computing a key value for each element. If not specified or is None, key defaults to an identity function and returns the element unchanged. Generally, the iterable needs to already be sorted on the same key function.</P>
+<P>The returned group is itself an iterator that shares the underlying iterable with <A class="mochiref reference" href="Iter.html#fn-groupby">groupby()</A>. Because the source is shared, when the groupby object is advanced, the previous group is no longer visible. So, if that data is needed later, it should be stored as an array:</P><PRE class="literal-block">var groups = [];
+var uniquekeys = [];
+forEach(groupby(data, keyfunc), function (key_group) {
+    groups.push(list(key_group[1]));
+    uniquekeys.push(key_group[0]);
+});
+</PRE>
+<P>As a convenience, <A class="mochiref reference" href="Iter.html#fn-groupby_as_array">groupby_as_array()</A> is provided to suit the above use case.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-groupby_as_array"></A><A class="mochidef reference" href="Iter.html#fn-groupby_as_array">groupby_as_array(iterable[, keyfunc])</A>:</P>
+<BLOCKQUOTE>
+<P>Perform the same task as <A class="mochiref reference" href="Iter.html#fn-groupby">groupby()</A>, except return an array of arrays instead of an iterator of iterators.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-iextend"></A><A class="mochidef reference" href="Iter.html#fn-iextend">iextend(lst, iterable)</A>:</P>
+<BLOCKQUOTE>
+<P>Just like <A class="mochiref reference" href="Iter.html#fn-list">list(iterable)</A>, except it pushes results on <TT class="docutils literal"><SPAN class="pre">lst</SPAN></TT> rather than creating a new one.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-ifilter"></A><A class="mochidef reference" href="Iter.html#fn-ifilter">ifilter(pred, seq)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">ifilter(pred,</SPAN> <SPAN class="pre">seq)</SPAN></TT> --&gt; elements of seq where <TT class="docutils literal"><SPAN class="pre">pred(elem)</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-ifilterfalse"></A><A class="mochidef reference" href="Iter.html#fn-ifilterfalse">ifilterfalse(pred, seq)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">ifilterfalse(pred,</SPAN> <SPAN class="pre">seq)</SPAN></TT> --&gt; elements of seq where <TT class="docutils literal"><SPAN class="pre">pred(elem)</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">false</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-imap"></A><A class="mochidef reference" href="Iter.html#fn-imap">imap(fun, p, q[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">imap(fun,</SPAN> <SPAN class="pre">p,</SPAN> <SPAN class="pre">q,</SPAN> <SPAN class="pre">...)</SPAN></TT> --&gt; fun(p0, q0, ...), fun(p1, q1, ...), ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-islice"></A><A class="mochidef reference" href="Iter.html#fn-islice">islice(seq, [start,] stop[, step])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">islice(seq,</SPAN> <SPAN class="pre">[start,]</SPAN> <SPAN class="pre">stop[,</SPAN> <SPAN class="pre">step])</SPAN></TT> --&gt; elements from seq[start:stop:step] (in Python slice syntax)</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-iter"></A><A class="mochidef reference" href="Iter.html#fn-iter">iter(iterable[, sentinel])</A>:</P>
+<BLOCKQUOTE>
+<P>Convert the given argument to an iterator (object implementing <TT class="docutils literal"><SPAN class="pre">.next()</SPAN></TT>).</P>
+<OL class="arabic simple">
+<LI>If <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT> is an iterator (implements <TT class="docutils literal"><SPAN class="pre">.next()</SPAN></TT>), then it will be returned as-is. 
+<LI>If <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT> is an iterator factory (implements <TT class="docutils literal"><SPAN class="pre">.iter()</SPAN></TT>), then the result of <TT class="docutils literal"><SPAN class="pre">iterable.iter()</SPAN></TT> will be returned. 
+<LI>If <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT> is a JavaScript 1.7 iterator factory (implements <TT class="docutils literal"><SPAN class="pre">.__iterable__()</SPAN></TT>), then the result of <TT class="docutils literal"><SPAN class="pre">iterable.__iterable__()</SPAN></TT> will be returned (MochiKit 1.4+). 
+<LI>Otherwise, the iterator factory <A class="mochiref reference" href="Base.html#fn-adapterregistry">MochiKit.Base.AdapterRegistry</A> is used to find a match. 
+<LI>If no factory is found, it will throw <TT class="docutils literal"><SPAN class="pre">TypeError</SPAN></TT> </LI></OL>
+<P>Built-in iterator factories are present for Array-like objects, and objects that implement the <TT class="docutils literal"><SPAN class="pre">iterateNext</SPAN></TT> protocol (e.g. the result of Mozilla's <TT class="docutils literal"><SPAN class="pre">document.evaluate</SPAN></TT>).</P>
+<P>When used directly, using an iterator should look like this:</P><PRE class="literal-block">var it = iter(iterable);
+try {
+    while (var o = it.next()) {
+        // use o
+    }
+} catch (e) {
+    if (e != StopIteration) {
+        throw e;
+    }
+    // pass
+}
+</PRE>
+<P>This is ugly, so you should use the higher order functions to work with iterators whenever possible.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-izip"></A><A class="mochidef reference" href="Iter.html#fn-izip">izip(p, q[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">izip(p,</SPAN> <SPAN class="pre">q,</SPAN> <SPAN class="pre">...)</SPAN></TT> --&gt; [p0, q0, ...], [p1, q1, ...], ...</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-list"></A><A class="mochidef reference" href="Iter.html#fn-list">list(iterable)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT> to a new <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-next"></A><A class="mochidef reference" href="Iter.html#fn-next">next(iterator)</A>:</P>
+<BLOCKQUOTE>
+<P>Return <TT class="docutils literal"><SPAN class="pre">iterator.next()</SPAN></TT></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-range"></A><A class="mochidef reference" href="Iter.html#fn-range">range([start,] stop[, step])</A>:</P>
+<BLOCKQUOTE>
+<P>Return an iterator containing an arithmetic progression of integers.</P>
+<P><TT class="docutils literal"><SPAN class="pre">range(i,</SPAN> <SPAN class="pre">j)</SPAN></TT> returns <A class="mochiref reference" href="Iter.html#fn-iter">iter([i, i + 1, i + 2, ..., j - 1])</A></P>
+<P><TT class="docutils literal"><SPAN class="pre">start</SPAN></TT> (!) defaults to <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT>. When <TT class="docutils literal"><SPAN class="pre">step</SPAN></TT> is given, it specifies the increment (or decrement). The end point is omitted!</P>
+<P>For example, <TT class="docutils literal"><SPAN class="pre">range(4)</SPAN></TT> returns <A class="mochiref reference" href="Iter.html#fn-iter">iter([0, 1, 2, 3])</A>. This iterates over exactly the valid indexes for an array of 4 elements.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-reduce"></A><A class="mochidef reference" href="Iter.html#fn-reduce">reduce(fn, iterable[, initial])</A>:</P>
+<BLOCKQUOTE>
+<P>Apply <TT class="docutils literal"><SPAN class="pre">fn(a,</SPAN> <SPAN class="pre">b)</SPAN></TT> cumulatively to the items of an iterable from left to right, so as to reduce the iterable to a single value.</P>
+<P>For example:</P><PRE class="literal-block">reduce(function (a, b) { return x + y; }, [1, 2, 3, 4, 5])
+</PRE>
+<P>calculates:</P><PRE class="literal-block">((((1 + 2) + 3) + 4) + 5).
+</PRE>
+<P>If initial is given, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty.</P>
+<P>Note that the above example could be written more clearly as:</P><PRE class="literal-block">reduce(operator.add, [1, 2, 3, 4, 5])
+</PRE>
+<P>Or even simpler:</P><PRE class="literal-block">sum([1, 2, 3, 4, 5])
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-registeriteratorfactory"></A><A class="mochidef reference" href="Iter.html#fn-registeriteratorfactory">registerIteratorFactory(name, check, iterfactory[, override])</A>:</P>
+<BLOCKQUOTE>
+<P>Register an iterator factory for use with the iter function.</P>
+<P><TT class="docutils literal"><SPAN class="pre">check</SPAN></TT> is a <TT class="docutils literal"><SPAN class="pre">function(a)</SPAN></TT> that returns <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">a</SPAN></TT> can be converted into an iterator with <TT class="docutils literal"><SPAN class="pre">iterfactory</SPAN></TT>.</P>
+<P><TT class="docutils literal"><SPAN class="pre">iterfactory</SPAN></TT> is a <TT class="docutils literal"><SPAN class="pre">function(a)</SPAN></TT> that returns an object with a <TT class="docutils literal"><SPAN class="pre">.next()</SPAN></TT> method that returns the next value in the sequence.</P>
+<P><TT class="docutils literal"><SPAN class="pre">iterfactory</SPAN></TT> is guaranteed to only be called if <TT class="docutils literal"><SPAN class="pre">check(a)</SPAN></TT> returns a true value.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">override</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, then it will be made the highest precedence iterator factory. Otherwise, the lowest.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-repeat"></A><A class="mochidef reference" href="Iter.html#fn-repeat">repeat(elem[, n])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">repeat(elem,</SPAN> <SPAN class="pre">[,n])</SPAN></TT> --&gt; elem, elem, elem, ... endlessly or up to n times</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-reversed"></A><A class="mochidef reference" href="Iter.html#fn-reversed">reversed(iterable)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a reversed array from iterable.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-some"></A><A class="mochidef reference" href="Iter.html#fn-some">some(iterable, func)</A>:</P>
+<BLOCKQUOTE>
+<P>Return <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">func(item)</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> for at least one item in <TT class="docutils literal"><SPAN class="pre">iterable</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sorted"></A><A class="mochidef reference" href="Iter.html#fn-sorted">sorted(iterable[, cmp])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a sorted array from iterable.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sum"></A><A class="mochidef reference" href="Iter.html#fn-sum">sum(iterable, start=0)</A>:</P>
+<BLOCKQUOTE>
+<P>Returns the sum of a sequence of numbers plus the value of parameter <TT class="docutils literal"><SPAN class="pre">start</SPAN></TT> (with a default of 0). When the sequence is empty, returns start.</P>
+<P>Equivalent to:</P><PRE class="literal-block">reduce(operator.add, iterable, start);
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-takewhile"></A><A class="mochidef reference" href="Iter.html#fn-takewhile">takewhile(pred, seq)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">takewhile(pred,</SPAN> <SPAN class="pre">seq)</SPAN></TT> --&gt; seq[0], seq[1], ... until pred(seq[n]) fails</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-tee"></A><A class="mochidef reference" href="Iter.html#fn-tee">tee(iterable, n=2)</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">tee(it,</SPAN> <SPAN class="pre">n=2)</SPAN></TT> --&gt; [it1, it2, it3, ... itn] splits one iterator into n</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id4" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Iter.html#id1" name="id4">[1]</A></TD>
+<TD>The iteration protocol is described in PEP 234 - Iterators: <A class="reference" href="http://www.python.org/peps/pep-0234.html">http://www.python.org/peps/pep-0234.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id5" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Iter.html#id2" name="id5">[2]</A></TD>
+<TD>Python's itertools module: <A class="reference" href="http://docs.python.org/lib/module-itertools.html">http://docs.python.org/lib/module-itertools.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id6" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Iter.html#id3" name="id6">[3]</A></TD>
+<TD>Iteration in JavaScript: <A class="reference" href="http://bob.pythonmac.org/archives/2005/07/06/iteration-in-javascript/">http://bob.pythonmac.org/archives/2005/07/06/iteration-in-javascript/</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

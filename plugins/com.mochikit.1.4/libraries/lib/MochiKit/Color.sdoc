@@ -1,0 +1,556 @@
+/**
+ * ScriptDoc for Color.js
+ */
+
+/**
+ * Creates a new color with the specified red, green, blue, and alpha values.
+ * @id MochiKit.Color.Color
+ * @alias Color
+ * @param {String} red    Red value for the color.
+ * @param {String} green    Green value for the color.
+ * @param {String} blue    Blue value for the color.
+ * @param {String} alpha    Alpha (opacity) value for the color.
+ */
+
+
+// **********************************************************************************************************
+// * Prototype methods
+// **********************************************************************************************************
+
+/**
+ * Returns a new Color based on this color, but with the specified alpha value.
+ * @id MochiKit.Color.Color.prototype.colorWithAlpha
+ * @alias colorWithAlpha
+ * @alias MochiKit.Color.Color.prototype.colorWithAlpha
+ * @constructor
+ * @param {Object} alpha    Alpha value for the Color.
+ * @return {Color} Returns a new Color based on this color, including the specified alpha value.
+ */
+
+/**
+ * Returns a new Color based on this color, but with the specified hue value.
+ * @id MochiKit.Color.Color.prototype.colorWithHue
+ * @alias colorWithHue
+ * @alias MochiKit.Color.Color.prototype.colorWithHue
+ * @constructor
+ * @param {Object} hue    Hue value for the Color.
+ * @return {Color} Returns a new Color based on this color, but with the specified hue value.
+ */
+
+/**
+ * Returns a new Color based on this color, but with the specified saturation value (using the HSL color model).
+ * @id MochiKit.Color.Color.prototype.colorWithSaturation
+ * @alias colorWithSaturation
+ * @alias MochiKit.Color.Color.prototype.colorWithSaturation
+ * @constructor
+ * @param {Object} saturation    Saturation value for the color.
+ * @return    {Color} Returns a new Color based on this color, but with the specified saturation value (using the HSL color model).
+ */
+
+/**
+ * Returns a new Color based on this color, but with the specified lightness value.
+ * @id MochiKit.Color.Color.prototype.colorWithLightness
+ * @alias colorWithLightness
+ * @alias MochiKit.Color.Color.prototype.colorWithLightness
+ * @constructor
+ * @param {Object} lightness    Lightness value for the color.
+ * @return {Color} Returns a new Color based on this color, but with the specified lightness value.
+ */
+
+/**
+ * Returns a new Color based on this color, but darkened by the specified level.
+ * @id MochiKit.Color.Color.prototype.darkerColorWithLevel
+ * @alias darkerColorWithLevel
+ * @alias MochiKit.Color.Color.prototype.darkerColorWithLevel
+ * @constructor
+ * @param {Object} level    Amount to darken the color by. (Specify a number between 0 and 1.0).
+ * @return    {Color} Returns a new Color based on this color, but darkened by the specified level.
+ */
+
+/**
+ * Returns a new Color based on this color, but lightened by the specified level.
+ * @id MochiKit.Color.Color.prototype.lighterColorWithLevel
+ * @alias lighterColorWithLevel
+ * @alias MochiKit.Color.Color.prototype.lighterColorWithLevel
+ * @constructor
+ * @param {Object} level    Amount to lighten the color by. (Specify a number between 0 and 1.0).
+ * @return    {Color} Returns a new Color based on this color, but lightened by the specified level.
+ */
+
+/**
+ * Returns a new Color whose RGBA component values are a weighted sum of this Color and the other Color. 
+ * @id MochiKit.Color.Color.prototype.blendedColor
+ * @alias blendedColor
+ * @alias MochiKit.Color.Color.prototype.blendedColor
+ * @constructor
+ * @param {Object} other    Other color to blend this color with.
+ * @param {Object} [fraction]    Amount of the other color (number from 0-1.0) to use to make up each RGBA component for the new color.
+ * The amount of the components of this color used in the new color will be 1 - fraction. Default is 0.5.
+ * @return {Color} Returns a new Color whose RGBA component values are a weighted sum of this color and other.
+ */
+
+/**
+ * Returns a comparison of the RGBA component values of this Color to the other Color.
+ * @id MochiKit.Color.Color.prototype.compareRGB
+ * @alias compareRGB
+ * @alias MochiKit.Color.Color.prototype.compareRGB
+ * @constructor
+ * @param {Object} other    Color to compare this color to.
+ * @return {Object} Returns the result of the comparison.
+ * @see MochiKit.Base.compare
+ */
+
+/**
+ * Returns true if the lightness value of this color is greater than 0.5.
+ * (Alpha values are ignored for this calculation because color components are not premultiplied.)
+ * @id MochiKit.Color.Color.prototype.isLight
+ * @alias isLight
+ * @alias MochiKit.Color.Color.prototype.isLight
+ * @constructor
+ * @return {Boolean} Returns true if the lightness value of this color is greater than 0.5.
+ */
+
+/** 
+ * Returns true if the lightness value of this color is less than or equal to 0.5.
+ * (Alpha values are ignored for this calculation because color components are not premultiplied.)
+ * @id MochiKit.Color.Color.prototype.isDark
+ * @alias isDark
+ * @alias MochiKit.Color.Color.prototype.isDark
+ * @constructor
+ * @return {Boolean} Returns true if the lightness value of this color is less than or equal to 0.5.
+ */
+
+/**
+ * Returns the decimal "hsl(hue, saturation, lightness)" string representation of this color.
+ * If the alpha component is not 1.0 (fully opaque), the "hsla(hue, saturation, lightness, alpha)" string representation will be used.
+ * The alpha component is completely ignored for hexadecimal string representations.
+ * @id MochiKit.Color.Color.prototype.toHSLString
+ * @alias toHSLString
+ * @alias MochiKit.Color.Color.prototype.toHSLString
+ * @constructor
+ * @return {String} Returns the decimal "hsl(hue, saturation, lightness)" string representation of this color.
+ */
+
+/**
+ * Returns the decimal "rgb(red, green, blue)" string representation of this color.
+ * If the alpha component is not 1.0 (fully opaque), the function uses the "rgba(red, green, blue, alpha)" string representation.
+ * @id MochiKit.Color.Color.prototype.toRGBString
+ * @alias toRGBString
+ * @alias MochiKit.Color.Color.prototype.toRGBString
+ * @constructor
+ * @return    {String} Returns the decimal "rgb(red, green, blue)" string representation of this color.
+ */
+
+/**
+ * Returns an object of the RGB (red, green, blue, alpha) components of this color with r, g, b, and property values between 0.0 and 1.0.
+ * @id MochiKit.Color.Color.prototype.asRGB
+ * @alias asRGB
+ * @alias MochiKit.Color.Color.prototype.asRGB
+ * @constructor
+ * @return    {Object} Returns an object of the RGB (red, green, blue, alpha) components of this color with r, g, b, and property values between 0.0 and 1.0.
+ */
+
+/**
+ * Returns the hexadecimal "#RRGGBB" string representation of this color.
+ * The alpha component is completely ignored for hexadecimal string representations.
+ * @id MochiKit.Color.Color.prototype.toHexString
+ * @alias toHexString
+ * @alias MochiKit.Color.Color.prototype.toHexString
+ * @constructor
+ * @return {String} Returns the hexadecimal "#RRGGBB" string representation of this color.
+ */
+
+/**
+ * Returns an object of the HSV (hue, saturation, value, alpha) components of this color with h, s, v and property values between 0.0 and 1.0.
+ * @id MochiKit.Color.Color.prototype.asHSV
+ * @alias asHSV
+ * @alias MochiKit.Color.Color.prototype.asHSV
+ * @constructor
+ * @return {Object} Returns an object of the HSV (hue, saturation, value, alpha) components of this color with h, s, v and property values between 0.0 and 1.0.
+ */
+
+/**
+ * Returns an object of the HSL (hue, saturation, lightness, alpha) components of this color with h, s, l and property values between 0.0 and 1.0.
+ * @id MochiKit.Color.Color.prototype.asHSL
+ * @alias asHSL
+ * @alias MochiKit.Color.Color.prototype.asHSL
+ * @constructor
+ * @return {Object) Returns an object of the HSL (hue, saturation, lightness, alpha) components of this color with h, s, l and property values between 0.0 and 1.0.
+ */
+
+/**
+ * Returns an RGBString version of a color.
+ * @id MochiKit.Color.Color.prototype.toString
+ * @alias toString
+ * @alias MochiKit.Color.Color.prototype.toString
+ * @return {String} Returns an RGBString version of a color.
+ */
+
+/**
+ * Returns a string representation of the RGB color values of a Color.
+ * @id MochiKit.Color.Color.prototype.repr
+ * @alias repr
+ * @alias MochiKit.Color.Color.prototype.repr
+ * @constructor
+ * @return {String} Returns a string representation of the RGB color values of a Color.
+ */
+
+
+// **********************************************************************************************************
+// * Constructor methods
+// **********************************************************************************************************
+
+/**
+ * Return a Color object from the given red, green, blue, and alpha values. 
+ * Values should be numbers between 0 and 1.0.
+ * @id MochiKit.Color.Color.fromRGB
+ * @alias fromRGB
+ * @alias MochiKit.Color.Color.fromRGB
+ * @constructor
+ * @param {Object} red    Red component of the color.
+ * @param {Object} green    Green component of the color.
+ * @param {Object} blue    Blue component of the color.
+ * @param {Object} [alpha]    Alpha component (opacity) of the color.
+ * If no alpha is specified, a value of 1.0 (completely opaque) will be used.
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Return a Color object from the given hue, saturation, lightness values.
+ * Values should be numbers between 0.0 and 1.0. 
+ * @id MochiKit.Color.Color.fromHSL
+ * @alias fromHSL
+ * @alias MochiKit.Color.Color.fromHSL
+ * @constructor
+ * @param {Object} hue    Hue component of the color.
+ * @param {Object} saturation    Saturation component of the color.
+ * @param {Object} lightness    Lightness component of the color.
+ * @param {Object} [alpha]    Alpha component (opacity) of the color.
+ * If no alpha is specified, a value of 1.0 (completely opaque) will be used.
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Return a Color object from the given hue, saturation, value values. 
+ * Values should be numbers between 0.0 and 1.0.
+ * @id MochiKit.Color.Color.fromHSV
+ * @alias fromHSV
+ * @alias MochiKit.Color.Color.fromHSV
+ * @constructor
+ * @param {Object} hue    Hue component of the color.
+ * @param {Object} saturation    Saturation component of the color.
+ * @param {Object} value    Lightness component of the color.
+ * @param {Object} [alpha]    Alpha component (opacity) of the color.
+ * If no alpha is specified, a value of 1.0 (completely opaque) will be used.
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns a Color object corresponding to the given SVG 1.0 color keyword name as per the W3C. 
+ * "transparent" is a valid color name.
+ * @id MochiKit.Color.Color.fromName
+ * @alias fromName
+ * @alias MochiKit.Color.Color.fromName
+ * @constructor
+ * @param {Object} name    Color name
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns a Color object from the given RGB, HSL, hex, or name. 
+ * @id MochiKit.Color.Color.fromString
+ * @alias fromString
+ * @alias MochiKit.Color.Color.fromString
+ * @constructor
+ * @param {String} colorString    String associated with the Color to get.
+ * @return {Color} Returns a Color object from the given RGB, HSL, hex, or name.
+ * Returns null if the specified string cannot be parsed.
+ * @see Color.fromHexString 
+ * @see Color.fromRGBString
+ * @see Color.fromHSLString
+ * @see Color.fromName
+ */
+
+/**
+ * Returns a Color object from the given hexadecimal color string. 
+ * @id MochiKit.Color.Color.fromHexString
+ * @alias fromHexString
+ * @alias MochiKit.Color.Color.fromHexString
+ * @constructor
+ * @param {Object} hexCode    Hexadecimal code for the color.
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns a Color object based on the result of 
+ * MochiKit.DOM.computedStyle(elem, style, mozillaEquivalentCSS). Returns null if not found.
+ * @id MochiKit.Color.Color.fromComputedStyle
+ * @alias fromComputedStyle
+ * @alias MochiKit.Color.Color.fromComputedStyle
+ * @constructor
+ * @param {Object} elem    Element to get the color of.
+ * @param {Object} style    Style to get the color of.
+ * @param {Object} mozillaEquivalentCSS    Mozilla equivalent CSS for the color.
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns a Color object based on the background of the specified element.
+ * @id MochiKit.Color.Color.fromBackground
+ * @alias fromBackground
+ * @alias MochiKit.Color.Color.fromBackground
+ * @constructor
+ * @param {Object} elem    Element to return the background color of.
+ * @return {Color} Returns a Color object based on the background of the specified element.
+ */
+
+/**
+ * Returns a Color object based on the text color of the provided element.
+ * @id MochiKit.Color.Color.fromText
+ * @alias fromText
+ * @alias MochiKit.Color.Color.fromText
+ * @constructor
+ * @param {Object} elem    Element to provide the text color.
+ * @return {Color} Returns a Color object based on the text color of the provided element.
+ */
+
+/**
+ * Returns an object with properties for each SVG 1.0 color keyword name supported by CSS3. 
+ * Property names are the color keyword name in lowercase, and the value is a string suitable for Color.fromString().
+ * @id MochiKit.Color.Color.namedColors
+ * @alias namedColors
+ * @alias MochiKit.Color.Color.namedColors
+ * @constructor
+ * @return {Object} Returns an object with properties for each SVG 1.0 color keyword name supported by CSS3.
+ * @see Color.fromString
+ */
+
+
+// **********************************************************************************************************
+// * Module level functions
+// **********************************************************************************************************
+
+/**
+ * Returns v * scale clamped between 0 and scale.
+ * When using JSON, clampColorComponent is not exported by default.
+ * @id MochiKit.Color.clampColorComponent
+ * @alias clampColorComponent
+ * @alias MochiKit.Color.clampColorComponent
+ * @param {Number} v    Number to multiply by scale.
+ * @param {Object} scale    Number to multiply by v.
+ * @return {Object} Returns v * scale clamped between 0 and scale.
+ */
+
+/**
+ * Computes RGB values from the provided HSV values.
+ * Alternate form: hsvToRGB({h: hue, s: saturation, v: value, a: alpha}).
+ * hsvToRGB is not exported by default when using JSAN.
+ * @id MochiKit.Color.hsvToRGB
+ * @alias hsvToRGB
+ * @alias MochiKit.Color.hsvToRGB
+ * @param {Number} hue    Hue value of the color.
+ * @param {Number} saturation    Saturation value of the color.
+ * @param {Number} value    Value value of the color.
+ * @param {Number} alpha    Alpha (opacity) value of the color.
+ * @return {Object} Returns a mapping of the RGBA values with "r", "g", "b" and "a" as keys.
+ */
+
+/**
+ * Computes RGB values from the provided HSL values. 
+ * Alternate form: hslToRGB({h: hue, s: saturation, l: lightness, a: alpha}).
+ * hslToRGB is not exported by default when using JSAN.
+ * @id MochiKit.Color.hslToRGB
+ * @alias hslToRGB
+ * @alias MochiKit.Color.hslToRGB
+ * @param {Number} hue    Hue value of the color.
+ * @param {Number} saturation    Saturation value of the color.
+ * @param {Number} lightness    Lightness value of the color.
+ * @param {Number} alpha    Alpha (opacity) value of the color.
+ * @return {Object} Returns a mapping of the RGBA values with "r", "g", "b" and "a" as keys.
+ */
+
+/**
+ * Computes HSV values based on the provided RGB values.
+ * Alternate form: rgbToHSV({r: red, g: green, b: blue, a: alpha}).
+ * rgbToHSV is not exported by default when using JSAN.
+ * @id MochiKit.Color.rgbToHSV
+ * @alias rgbToHSV
+ * @alias MochiKit.Color.rgbToHSV
+ * @param {Number, String} red    Red value of the color.
+ * @param {Number, String} green    Green value of the color.
+ * @param {Number, String} blue    Blue value of the color.
+ * @param {Number} alpha    Alpha (opacity) value of the color.
+ * @return {Object} Returns a mapping of the HSVA values with "h", "s", "v" and "a" as keys.
+ */
+
+/**
+ * Computes HSL values based on the provided RGB values. 
+ * Alternate form: rgbToHSL({r: red, g: green, b: blue, a: alpha}).
+ * rgbToHSL is not exported by default when using JSAN.
+ * @id MochiKit.Color.rgbToHSL
+ * @alias rgbToHSL
+ * @alias MochiKit.Color.rgbToHSL
+ * @param {Number, String} red    Red value of the color.
+ * @param {Number, String} green    Green value of the color.
+ * @param {Number, String} blue    Blue value of the color.
+ * @param {Number, String} alpha    Alpha (opacity) value of the color.
+ * @return {Object} Returns a mapping of the HSLA values with "h", "s", "v" and "a" as keys.
+ */
+
+/**
+ * Converts num to a zero padded hexadecimal digit for use in a hexadecimal color string. 
+ * toColorPart is not exported by default when using JSAN.
+ * @id MochiKit.Color.toColorPart
+ * @alias toColorPart
+ * @alias MochiKit.Color.toColorPart
+ * @param {Object} num    Number to be used in a hexadecimal color string. Specify an integer between 0 and 255.
+ * @return {Number} Returns a zero padded hexadecimal digit for use in a hexadecimal color string.
+ */
+
+/**
+ * Returns a Color object from the given decimal rgb color string. 
+ * For example, "rgb(255,255,255)" would return a Color with RGB values [255/255, 255/255, 255/255] (white).
+ * @id MochiKit.Color.fromRGBString
+ * @alias fromRGBString
+ * @alias MochiKit.Color.fromRGBString
+ * @constructor
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns a Color object from the given decimal hsl color string.
+ * For example, "hsl(0,0%,100%)" returns a Color with HSL values [0/360, 0/360, 360/360] (white).
+ * @id MochiKit.Color.fromHSLString
+ * @alias fromHSLString
+ * @alias MochiKit.Color.fromHSLString
+ * @constructor
+ * @return {Color} Returns a Color object.
+ */
+
+/**
+ * Returns the specified Color object.
+ * @id MochiKit.Color.colors
+ * @alias colors
+ * @alias MochiKit.Color.colors
+ * @return {Color} Returns the specified Color object.
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0, 0, 0 (#000000).
+ * @id MochiKit.Color.blackColor
+ * @alias blackColor
+ * @alias MochiKit.Color.Color.blackColor
+ * @return {Color} Returns a Color object whose RGB values are 0, 0, 0 (#000000).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0, 0, 1 (#0000ff).
+ * @id MochiKit.Color.blueColor
+ * @alias blueColor
+ * @alias MochiKit.Color.Color.blueColor
+ * @return {Color} Returns a Color object whose RGB values are 0, 0, 1 (#0000ff).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0.6, 0.4, 0.2 (#996633).
+ * @id MochiKit.Color.brownColor
+ * @alias brownColor
+ * @alias MochiKit.Color.Color.brownColor
+ * @return {Color} Returns a Color object whose RGB values are 0.6, 0.4, 0.2 (#996633).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0, 1, 1 (#00ffff).
+ * @id MochiKit.Color.cyanColor
+ * @alias cyanColor
+ * @alias MochiKit.Color.Color.cyanColor
+ * @return {Color} Returns a Color object whose RGB values are 0, 1, 1 (#00ffff).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1/3, 1/3, 1/3 (#555555).
+ * @id MochiKit.Color.darkGrayColor
+ * @alias darkGrayColor
+ * @alias MochiKit.Color.Color.darkGrayColor
+ * @return {Color} Returns a Color object whose RGB values are 1/3, 1/3, 1/3 (#555555).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0.5, 0.5, 0.5 (#808080).
+ * @id MochiKit.Color.grayColor
+ * @alias grayColor
+ * @alias MochiKit.Color.Color.grayColor
+ * @return {Color} Returns a Color object whose RGB values are 0.5, 0.5, 0.5 (#808080).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0, 1, 0. (#00ff00).
+ * @id MochiKit.Color.greenColor
+ * @alias greenColor
+ * @alias MochiKit.Color.Color.greenColor
+ * @return {Color} Returns a Color object whose RGB values are 0, 1, 0. (#00ff00).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 2/3, 2/3, 2/3 (#aaaaaa).
+ * @id MochiKit.Color.lightGrayColor
+ * @alias lightGrayColor
+ * @alias MochiKit.Color.Color.lightGrayColor
+ * @return {Color} Returns a Color object whose RGB values are 2/3, 2/3, 2/3 (#aaaaaa).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1, 0, 1 (#ff00ff).
+ * @id MochiKit.Color.magentaColor
+ * @alias magentaColor
+ * @alias MochiKit.Color.Color.magentaColor
+ * @return {Color} Returns a Color object whose RGB values are 1, 0, 1 (#ff00ff).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1, 0.5, 0 (#ff8000).
+ * @id MochiKit.Color.orangeColor
+ * @alias orangeColor
+ * @alias MochiKit.Color.Color.orangeColor
+ * @return {Color} Returns a Color object whose RGB values are 1, 0.5, 0 (#ff8000).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 0.5, 0, 0.5 (#800080).
+ * @id MochiKit.Color.purpleColor
+ * @alias purpleColor
+ * @alias MochiKit.Color.Color.purpleColor
+ * @return {Color} Returns a Color object whose RGB values are 0.5, 0, 0.5 (#800080).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1, 0, 0 (#ff0000).
+ * @id MochiKit.Color.redColor
+ * @alias redColor
+ * @alias MochiKit.Color.Color.redColor
+ * @return {Color} Returns a Color object whose RGB values are 1, 0, 0 (#ff0000).
+ */
+
+/**
+ * Returns a Color object that is completely transparent (has alpha component of 0).
+ * @id MochiKit.Color.transparentColor
+ * @alias transparentColor
+ * @alias MochiKit.Color.Color.transparentColor
+ * @return {Color} Returns a Color object that is completely transparent (has alpha component of 0).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1, 1, 1 (#ffffff).
+ * @id MochiKit.Color.whiteColor
+ * @alias whiteColor
+ * @alias MochiKit.Color.Color.whiteColor
+ * @return {Color} Returns a Color object whose RGB values are 1, 1, 1 (#ffffff).
+ */
+
+/**
+ * Returns a Color object whose RGB values are 1, 1, 0 (#ffff00).
+ * @id MochiKit.Color.yellowColor
+ * @alias yellowColor
+ * @alias MochiKit.Color.Color.yellowColor
+ * @return {Color} Returns a Color object whose RGB values are 1, 1, 0 (#ffff00).
+ */

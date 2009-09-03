@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Dojo API Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries">
+  <topic label="Dojo 1.1" href="docs/index.html">
+  </topic>
+</toc>

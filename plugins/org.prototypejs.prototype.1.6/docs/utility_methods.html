@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Utility Methods</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Prototype provides a number of “convenience” methods. Most are aliases of other Prototype methods, with the exception of the $ method, which wraps DOM nodes with additional functionality.</p>
+<p>&nbsp;</p>
+<p>These utility methods all address scripting needs that are so common that their names were made as concise as can be. Hence the $-based convention.</p>
+<p>&nbsp;</p>
+<p>The most commonly used utility method is without doubt $(), which is, for instance, used pervasively within Prototype’s code to let you pass either element IDs or actual DOM element references just about anywhere an element argument is possible. It actually goes way beyond a simple wrapper around document.getElementById; check it out to see just how useful it is.</p>
+<p>&nbsp;</p>
+<p>These methods are one of the cornerstones of efficient Prototype-based JavaScript coding. </p>
+<p>Take the time to learn them well.</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><span class="f_IndexHeading">Topicindex</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$(id&nbsp;|&nbsp;element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$((id&nbsp;|&nbsp;element)...)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">If provided with a string, returns the element in the document with matching ID; otherwise returns the passed element. Takes in an arbitrary number of arguments. All elements returned by the function are extended with Prototype DOM extensions.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$$</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$$(cssRule...)&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Takes an arbitrary number of CSS selectors (strings) and returns a document-order array of extended DOM elements that match any of them.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$A</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$A(iterable)&nbsp;-&gt;&nbsp;actualArray</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Accepts an array-like collection (anything with numeric indices) and returns its equivalent as an actual Array object. This method is a convenience alias of Array.from, but is the preferred way of casting to an Array.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$F</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$F(element)&nbsp;-&gt;&nbsp;value</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Returns the value of a form control. This is a convenience alias of Form.Element.getValue. Refer to it for full details.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$H</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$H([obj])&nbsp;-&gt;&nbsp;EnumerableHash</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">The only way to obtain a hash (which is synonymous to “map” or “associative array” for our purposes). Returns a new object featuring all the methods in the Hash and Enumerable modules. If an original object was passed, clones all its properties in the result before mixing in the modules.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$R</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$R(start,&nbsp;end[,&nbsp;exclusive&nbsp;=&nbsp;false])&nbsp;-&gt;&nbsp;ObjectRange</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Creates a new ObjectRange object. This method is a convenience wrapper around the [ObjectRange](/api/objectRange constructor, but $R is the preferred alias.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">$w</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">$w(String)&nbsp;-&gt;&nbsp;Array</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Splits a string into an Array, treating all whitespace as delimiters. Equivalent to Ruby's %w{foo bar} or Perl's qw(foo bar).</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">Try.these</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">Try.these(Function...)&nbsp;-&gt;&nbsp;firstOKResult</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Accepts an arbitrary number of functions and returns the result of the first one that doesn't throw an error.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 48px;"><span class="f_Heading1">document.getElementsByClassName</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 48px;"><span class="f_CodeExample">document.getElementsByClassName(className[,&nbsp;element])&nbsp;-&gt;&nbsp;[HTMLElement...]</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Retrieves (and extends) all the elements that have a CSS class name of className. The optional element parameter specifies a parent element to search under.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

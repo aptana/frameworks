@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Scriptaculous 1.7 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+	<topic label="Scriptaculous 1.7"  href="docs/introduction.htm" >
+		<topic label="Introduction"  href="docs/introduction.htm" />
+		<topic label="Usage"  href="docs/usage.htm" />  
+		<topic label="Effects">
+			<topic label="Core Effects"  href="docs/core_effects.htm">
+				<topic label="Effect.Morph"  href="docs/effect_morph.htm" />
+				<topic label="Effect.Move"  href="docs/effect_move.htm" />
+				<topic label="Effect.Opacity"  href="docs/effect_opacity.htm" />
+				<topic label="Effect.Parallel"  href="docs/effect_parallel.htm" />
+				<topic label="Effect.Scale"  href="docs/effect_scale.htm" />
+				<topic label="Effect.Highlight"  href="docs/effect_highlight.htm" />
+			</topic>
+			<topic label="Combination Effects"  href="docs/combination_effects.htm">
+				<topic label="Effect.Appear"  href="docs/effect_appear.htm" />
+				<topic label="Effect.BlindDown"  href="docs/effect_blinddown.htm" />
+				<topic label="Effect.BlindUp"  href="docs/effect_blindup.htm" />
+				<topic label="Effect.DropOut"  href="docs/effect_dropout.htm" />
+				<topic label="Effect.Fade"  href="docs/effect_fade.htm" />
+				<topic label="Effect.Fold"  href="docs/effect_fold.htm" />
+				<topic label="Effect.Grow"  href="docs/effect_grow.htm" />
+				<topic label="Effect.Puff"  href="docs/effect_puff.htm" />
+				<topic label="Effect.Pulsate"  href="docs/effect_pulsate.htm" />
+				<topic label="Effect.Shake"  href="docs/effect_shake.htm" />
+				<topic label="Effect.Shrink"  href="docs/effect_shrink.htm" />
+				<topic label="Effect.SlideDown"  href="docs/effect_slidedown.htm" />
+				<topic label="Effect.SlideUp"  href="docs/effect_slideup.htm" />
+				<topic label="Effect.Squish"  href="docs/effect_squish.htm" />
+				<topic label="Effect.SwitchOff"  href="docs/effect_switchoff.htm" />
+				<topic label="Effect.toggle"  href="docs/effect_toggle.htm" />
+			</topic>
+		</topic>
+		<topic label="Controls">
+			<topic label="Drag and Drop"  href="docs/drag_and_drop.htm">
+				<topic label="Draggables"  href="docs/draggables.htm">
+					<topic label="Draggable"  href="docs/draggable.htm" />
+				</topic>
+				<topic label="Droppables"  href="docs/droppables.htm">
+					<topic label="Droppables.add"  href="docs/droppables_add.htm" />
+					<topic label="Droppables.remove"  href="docs/droppables_remove.htm" />
+				</topic>
+				<topic label="Sortables"  href="docs/sortable.htm">
+					<topic label="Sortable.create"  href="docs/sortable_create.htm" />
+					<topic label="Sortable.destroy"  href="docs/sortable_destroy.htm" />
+					<topic label="Sortable.serialize"  href="docs/sortable_serialize.htm" />
+				</topic>
+			</topic>
+			<topic label="Autocompletion"  href="docs/autocompletion.htm">
+				<topic label="Autocompleter.Local"  href="docs/autocompleter_local.htm" />
+				<topic label="Autocompleter.Base"  href="docs/autocompleter_base.htm" />
+				<topic label="Ajax.Autocompleter"  href="docs/ajax_autocompleter.htm" />
+			</topic>
+			<topic label="InPlace Editing"  href="docs/inplace_editing.htm">
+				<topic label="Ajax.InPlaceEditor"  href="docs/ajax_inplaceeditor.htm" />
+				<topic label="Ajax.InPlaceCollectionEditor"  href="docs/ajax_inplacecollectioneditor.htm" />
+			</topic>
+			<topic label="Slider"  href="docs/slider.htm" />
+		</topic>
+		<topic label="Tools">
+			<topic label="Builder"  href="docs/builder.htm" />
+			<topic label="Sound"  href="docs/sound.htm" />
+		</topic>
+		<topic label="Appendix">
+			<topic label="Block Elements"  href="docs/block_elements.htm" />
+			<topic label="Inline Elements"  href="docs/inline_elements.htm" />
+			<topic label="Giving Elements Layout"  href="docs/giving_elements_layouts.htm" />
+		</topic>
+	</topic>
+</toc>

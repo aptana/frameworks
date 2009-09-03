@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stack Container Demo</title>
+    <style type="text/css">
+        @import "lib/dojo/dijit/themes/tundra/tundra.css";
+        @import "lib/dojo/dojo/resources/dojo.css";
+    </style>
+    <script type="text/javascript" src="lib/dojo/dojo/dojo.js"
+        djConfig="parseOnLoad: true"></script>
+    <script type="text/javascript">
+        dojo.require("dojo.parser");
+        dojo.require("dijit.layout.ContentPane");
+        dojo.require("dijit.layout.StackContainer");
+        dojo.require("dijit.form.Button");
+     </script>
+</head>
+<body class="tundra">
+        <button id="previous" onClick="dijit.byId('mainTabContainer').back()"><</button>
+        <button id="next" onClick="dijit.byId('mainTabContainer').forward()">></button>
+        <div id="mainTabContainer" dojoType="dijit.layout.StackContainer"
+             style="width: 90%; border:1px solid #9b9b9b; height: 20em;
+                         margin: 0.5em 0 0.5em 0; padding: 0.5em;">
+        <p id="Page1" dojoType="dijit.layout.ContentPane" label="Intro">
+                This version of the GNU Lesser General Public License incorporates
+                the terms and conditions of version 3 of the GNU General Public
+                License, supplemented by the additional permissions listed below.
+       
+        <p id="Page2" dojoType="dijit.layout.ContentPane">
+                As used herein, "this License" refers to version 3 of the GNU Lesser
+                General Public License, and the "GNU GPL" refers to version 3 of the GNU
+                General Public License. "The Library" refers to a covered work governed by
+                this License, other than an Application or a Combined Work as defined below.
+       
+        <p id="Page3" dojoType="dijit.layout.ContentPane" >
+                You may convey a covered work under sections 3 and 4 of this License
+                without being bound by section 3 of the GNU GPL.
+       
+   </div>
+</body></html>

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Droppables.add</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Droppables.add</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>To make an element react when a <a href="draggable.htm">Draggable</a> is dropped onto it, you’ll add it to the <a href="droppables.htm">Droppables</a> of the page with the <span style="font-weight: bold;">Droppables.add</span> class method.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Droppables.add('id_of_element',[options]);</span></p>
+<p>&nbsp;</p>
+<p>Options are:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="81" bgcolor="#99cc00" style="width:81px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="56" bgcolor="#99cc00" style="width:56px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="67" bgcolor="#99cc00" style="width:67px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="473" bgcolor="#99cc00" style="width:473px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>accept</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Set accept to a string or an array of strings describing CSS classes. The Droppable will only accept Draggables that have one or more of these CSS classes.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>containment</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>The droppable will only accept the Draggable if the Draggable is contained in the given elements (or element ids). Can be a single element or an array of elements. This option is used by Sortables to control Drag-and-Drop between Sortables.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>hoverclass</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none) </p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If set, the Droppable will have this additional CSS class when an accepted Draggable is hovered over it.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>overlap</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.0</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>(none)</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If set to ‘horizontal’ or ‘vertical’ the droppable will only react to a Draggable if its overlapping by more than 50% in the given direction. Used by Sortables.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="81" style="width:81px;"><p>greedy</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>V1.1b1</p>
+</td>
+<td valign="top" width="67" style="width:67px;"><p>true</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>If true stops processing hovering (don’t look for other Droppables that are under the Draggable)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Additionally, following callbacks can be used in the option parameter:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="97" bgcolor="#99cc00" style="width:97px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="69" bgcolor="#99cc00" style="width:69px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="461" bgcolor="#99cc00" style="width:461px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="97" style="width:97px;"><p>onHover</p>
+</td>
+<td width="69" style="width:69px;"><p>V1.0</p>
+</td>
+<td width="461" style="width:461px;"><p>Called whenever a Draggable is moved over the Droppable and the Droppable is affected (would accept it). The callback gets three parameters: the Draggable, the Droppable element, and the percentage of overlapping as defined by the overlap option. Used by Sortables.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="97" style="width:97px;"><p>onDrop</p>
+</td>
+<td width="69" style="width:69px;"><p>V1.0</p>
+</td>
+<td width="461" style="width:461px;"><p>Called whenever a Draggable is released over the Droppable and the Droppable is accepts it. The callback gets three parameters: the Draggable element, the Droppable element and the Event. You can extract additional information about the drop – like if the Ctrl or Shift keys were pressed – from the Event object.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;//&nbsp;from&nbsp;the&nbsp;shopping&nbsp;cart&nbsp;demo</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;Droppables.add('shopping_cart',&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;accept:&nbsp;'products',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;onDrop:&nbsp;function(element)&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;$('shopping_cart_text').innerHTML&nbsp;=&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 9px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Dropped&nbsp;the&nbsp;'&nbsp;+&nbsp;element.alt&nbsp;+&nbsp;'&nbsp;on&nbsp;me.';&nbsp;}});</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

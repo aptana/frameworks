@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Effect.Parallel</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Effect.Parallel</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This is a special effect to allow to combine more than one core effect into a parallel effect. It’s the only effect that doesn’t take an element as first parameter, but an array of subeffects.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Parallel([array&nbsp;of&nbsp;subeffects],&nbsp;[options]);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">new&nbsp;Effect.Parallel(</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;new&nbsp;Effect.MoveBy(element,&nbsp;100,&nbsp;0,&nbsp;{&nbsp;sync:&nbsp;true&nbsp;}),&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Effect.Opacity(element,&nbsp;&nbsp;{&nbsp;sync:&nbsp;true,&nbsp;to:&nbsp;0.0,&nbsp;from:&nbsp;1.0&nbsp;}&nbsp;)&nbsp;],</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;duration:&nbsp;0.5,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;afterFinish:&nbsp;function(effect)&nbsp;{&nbsp;Element.hide(effect.effects[0].this.parentNode);&nbsp;}&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;&nbsp;);</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

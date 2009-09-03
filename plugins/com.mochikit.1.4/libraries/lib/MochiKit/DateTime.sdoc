@@ -1,0 +1,72 @@
+/**
+ * ScriptDoc for DateTime.js
+ */
+
+/**
+ * Converts an ISO 8601 date (YYYY-MM-DD) into a Date object.
+ * @id MochiKit.DateTime.isoDate
+ * @alias isoDate
+ * @param {Object} str    ISO 8601 date (YYYY-MM-DD) to convert.
+ * @return {Date} Returns a new Date object.
+ */
+
+/**
+ * Converts an ISO 8601 (or similar format) timestamp to a Date object. 
+ * If you do not specify a time zone designator ("Z" or "[+-]HH:MM"), the local timezone is used.
+ * @id MochiKit.DateTime.isoTimestamp
+ * @alias isoTimestamp
+ * @param {Object} str ISO 8601 formatted timestamp. (Use either the format "YYYY-MM-DDThh:mm:ssZ" or "YYYY-MM-DD hh:mm:ss".)
+ * @return {Date} Returns a new Date object.
+ */
+
+/**
+ * Converts a Date object to a string in the form of "hh:mm:ss".
+ * @id MochiKit.DateTime.toISOTime
+ * @alias toISOTime
+ * @param {Date} date    Date object to convert.
+ * @param {Boolean} [realISO]    If present and true, specifies that a leading "0" will be put before any single-digit numbers in the string. (e.g. 8:00 becomes 08:00). 
+ * Default is false.
+ * @return {String} Returns a string version of the date in hh:mm:ss format.
+ */
+
+/**
+ * Converts a Date object to a string that is similar to an ISO 8601 timestamp (YYYY-MM-DD hh:mm:ss). 
+ * @id MochiKit.DateTime.toISOTimeStamp
+ * @alias toISOTimeStamp
+ * @param {Date} date    Date object to convert.
+ * @param {String} [realISO]    If present and true, returns the string in the format "YYYY-MM-DDThh:mm:ssZ". 
+ * Default is false.
+ * @return {String} Returns a string similar to an ISO 8601 timestamp (YYYY-MM-DD hh:mm:ss).
+ */
+
+/**
+ * Converts a Date object to an ISO 8601 date string (YYYY-MM-DD).
+ * @id MochiKit.DateTime.toISODate
+ * @alias toISODate
+ * @param {Date} date    Date object to convert.
+ * @return {String} Returns an ISO 8601 date string (YYYY-MM-DD).
+ */
+
+/**
+ * Converts a MM/DD/YYYY date to a Date object.
+ * @id MochiKit.DateTime.americanDate
+ * @alias americanDate
+ * @param {String} d    "MM/DD/YYYY" formatted date string to convert.
+ * @return {Date} Returns a new Date object.
+ */
+
+/**
+ * Converts a Date object to an MM/DD/YYYY date.
+ * @id MochiKit.DateTime.toPaddedAmericanDate
+ * @alias toPaddedAmericanDate
+ * @param {Date} d    Date object to convert.
+ * @return {String}Returns a string version of the Date in MM/DD/YYYY format.
+ */
+
+/**
+ * Converts a Date object to an M/D/YYYY date.
+ * @id MochiKit.DateTime.toAmericanDate
+ * @alias toAmericanDate
+ * @param {Date} d    Date object to convert.
+ * @return {String} Returns a string version of the Date in M/D/YYYY format.
+ */

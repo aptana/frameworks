@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Cookie</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Cookie"><a href="#Cookie">Object: Cookie</a></h1>
+
+<p class="description">Sets and accesses cookies.</p>
+
+<h3>Credits:</h3>
+
+<ul>
+<li>Based on the functions by Peter-Paul Koch <a href="http://www.quirksmode.org/">QuirksMode</a>.</li>
+</ul>
+<h3 id="Cookie-options">Options:</h3>
+
+<ul>
+<li>domain   - (<em>string</em>: defaults to false) The domain the Cookie belongs to.</li>
+<li>path     - (<em>string</em>: defaults to false) The path the Cookie belongs to.</li>
+<li>duration - (<em>number</em>: defaults to false) The duration of the
+Cookie before it expires, in days. If set to false or 0, the cookie
+will be a session cookie that expires when the browser is closed.</li>
+<li>secure   - (<em>boolean</em>: defaults to false) Stored cookie information can be accessed only from a secure environment.</li>
+</ul>
+<h3>Notes:</h3>
+
+<ul>
+<li>In order to share the Cookie with pages located in a different path, the <a href="#Cookie-options">Cookie.options.domain</a> value must be set.</li>
+</ul>
+<h2 id="Cookie:write"><a href="#Cookie:write">Cookie Method: write</a></h2>
+
+<p class="description">Writes a cookie in the browser.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myCookie = Cookie.<span class="kw1">write</span><span class="br0">(</span>key, value<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>key     - (<em>string</em>) The key (or name) of the cookie.</li>
+<li>value   - (<em>string</em>) The value to set. Cannot contain semicolons.</li>
+<li>options - (<em>mixed</em>, optional) See <a href="#Cookie">Cookie</a>.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) An object with the options, the key and the value. You can give it as first parameter to Cookie.remove.</li>
+</ul>
+<h3>Examples:</h3>
+
+<p>Saves the Cookie for the Duration of the Session:</p>
+
+<pre class="javascript"><span class="kw2">var</span> myCookie = Cookie.<span class="kw1">write</span><span class="br0">(</span><span class="st0">'username'</span>, <span class="st0">'Harald'</span><span class="br0">)</span>;
+</pre>
+
+<p>Saves the Cookie for a Day:</p>
+
+<pre class="javascript"><span class="kw2">var</span> myCookie  = Cookie.<span class="kw1">write</span><span class="br0">(</span><span class="st0">'username'</span>, <span class="st0">'JackBauer'</span>, <span class="br0">{</span>duration: <span class="nu0">1</span><span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Cookie:read"><a href="#Cookie:read">Cookie Method: read</a></h2>
+
+<p class="description">Reads the value of a Cookie.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myCookie = Cookie.<span class="me1">read</span><span class="br0">(</span><span class="kw3">name</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>name - (<em>string</em>) The name of the Cookie to retrieve.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The cookie string value, or null if not found.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">Cookie.<span class="me1">read</span><span class="br0">(</span><span class="st0">&quot;username&quot;</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Cookie:dispose"><a href="#Cookie:dispose">Cookie Method: dispose</a></h2>
+
+<p class="description">Removes a cookie from the browser.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> oldCookie = Cookie.<span class="me1">dispose</span><span class="br0">(</span>cookie<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>name  - (<em>string</em>) The name of the cookie to remove or a previously saved Cookie instance.</li>
+<li>options - (<em>object</em>, optional) See <a href="#Cookie">Cookie</a>.</li>
+</ol>
+<h3>Examples:</h3>
+
+<p>Remove a Cookie:</p>
+
+<pre class="javascript">Cookie.<span class="me1">dispose</span><span class="br0">(</span><span class="st0">'username'</span><span class="br0">)</span>; <span class="co1">//Bye-bye JackBauer! Seeya in 24 Hours.</span>
+</pre>
+
+<p>Creating a Cookie and Removing it Right Away:</p>
+
+<pre class="javascript"><span class="kw2">var</span> myCookie = Cookie.<span class="kw1">write</span><span class="br0">(</span><span class="st0">'username'</span>, <span class="st0">'Aaron'</span>, <span class="br0">{</span>domain: <span class="st0">'mootools.net'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw1">if</span> <span class="br0">(</span>Cookie.<span class="me1">read</span><span class="br0">(</span><span class="st0">'username'</span><span class="br0">)</span> == <span class="st0">'Aaron'</span><span class="br0">)</span> <span class="br0">{</span> Cookie.<span class="me1">dispose</span><span class="br0">(</span>myCookie<span class="br0">)</span>; <span class="br0">}</span>
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Cookie">Cookie</a></h4>
+<div class="menu-item"><a href="#Cookie:write">write</a></div>
+<div class="menu-item"><a href="#Cookie:read">read</a></div>
+<div class="menu-item"><a href="#Cookie:dispose">dispose</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

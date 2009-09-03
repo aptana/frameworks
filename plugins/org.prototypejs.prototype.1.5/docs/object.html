@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Object</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Object</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-weight: bold;">Object </span>is used by Prototype as a namespace; that is, it just keeps a few new methods together, which are intended for namespaced access (i.e. starting with “<span class="f_CourierFixed">Object</span>.”).</p>
+<p>&nbsp;</p>
+<p>For the regular developer (who simply uses Prototype without tweaking it), the most commonly used methods are probably <span class="f_CourierFixed">inspect</span> and, to a lesser degree, <span class="f_CourierFixed">clone</span>.</p>
+<p>&nbsp;</p>
+<p>Advanced users, who wish to create their own objects like Prototype does, or explore objects as if they were hashes, will turn to <span class="f_CourierFixed">extend</span>, <span class="f_CourierFixed">keys</span> and <span class="f_CourierFixed">values</span>.</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">clone</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Object.clone(obj)&nbsp;-&gt;&nbsp;Object</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Clones the passed object using shallow copy (copies all the original’s properties to the result).</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">extend</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Object.extend(dest,&nbsp;src)&nbsp;-&gt;&nbsp;alteredDest</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Copies all properties from the source to the destination object. Used by Prototype to simulate inheritance (rather statically) by copying to prototypes.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">inspect</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Object.inspect(obj)&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the debug-oriented string representation of the object.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">keys</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Object.keys(obj)&nbsp;-&gt;&nbsp;[String...]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Treats any object as a Hash and fetches the list of its property names.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">values</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Object.values(obj)&nbsp;-&gt;&nbsp;Array</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Treats any object as a Hash and fetches the list of its property values.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">toJSON (1.5.1)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">toJSON()&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns a JSON string.</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

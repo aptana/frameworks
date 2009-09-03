@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Template</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Template</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Any time you have a group of similar objects and you need to produce formatted output for these objects, maybe inside a loop, you typically resort to concatenating string literals with the object's fields. There's nothing wrong with the above approach, except that it is hard to visualize the output immediately just by glancing at the concatenation expression. The Template class provides a much nicer and clearer way of achieving this formatting.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">On this page</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="template.html#topic1" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Straight forwar templates</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="template.html#topic2" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Templates are ment to be reused</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="template.html#topic3" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Escape Sequence</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span class="f_Heading1" style="font-size: 10pt; font-weight: normal; color: #3366ff; text-decoration: underline;"><a href="template.html#topic4" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Custom syntaxes</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="template.html#index" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Moduleindex</a></span></td></tr></table></div><p style="margin: 0px 0px 0px 6px;"><span style="color: #ff6600; text-decoration: underline;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic1"></a><span class="f_Heading1">Straight forward templates</span></p>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">Template</span> class users a basic formatting syntax, similar to what is used in Ruby. The templates are created from strings that have embedded symbols in the form #{fieldName} that will be replaced by actual values when the template is applied (evaluated) to an object. A simple example follows.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;the&nbsp;template&nbsp;(our&nbsp;formatting&nbsp;expression)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;myTemplate&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Template(</span><span class="f_CodeExample" style="color: #800000;">'The&nbsp;TV&nbsp;show&nbsp;</span><span class="f_CodeExample" style="font-weight: bold; color: #800000;">#{title}</span><span class="f_CodeExample" style="color: #800000;">&nbsp;was&nbsp;created&nbsp;by&nbsp;#{author}.</span><span class="f_CodeExample" style="color: #000000;">');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;our&nbsp;data&nbsp;to&nbsp;be&nbsp;formatted&nbsp;by&nbsp;the&nbsp;template</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #800000;">&nbsp;show&nbsp;=&nbsp;{</span><span class="f_CodeExample" style="font-weight: bold; color: #800000;">title</span><span class="f_CodeExample" style="color: #800000;">:&nbsp;'The&nbsp;Simpsons',&nbsp;</span><span class="f_CodeExample" style="font-weight: bold; color: #800000;">author</span><span class="f_CodeExample" style="color: #800000;">:&nbsp;'Matt&nbsp;Groening',&nbsp;network:&nbsp;'FOX'&nbsp;};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;let's&nbsp;format&nbsp;our&nbsp;data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;myTemplate.evaluate(</span><span class="f_CodeExample" style="color: #800000;">show</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;The&nbsp;TV&nbsp;show&nbsp;The&nbsp;Simpsons&nbsp;was&nbsp;created&nbsp;by&nbsp;Matt&nbsp;Groening.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic2"></a><span class="f_Heading1">Templates are meant to be reused</span></p>
+<p>&nbsp;</p>
+<p>As the previous example illustrated, the Template objects are not statically tied to the data. The data is bound to the template only during the evaluation of the template, without affecting the template itself. The next example shows the same template being used with a handful of distinct objects.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//creating&nbsp;a&nbsp;few&nbsp;similar&nbsp;objects</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;conversion1&nbsp;=&nbsp;{</span><span class="f_CodeExample" style="color: #0000ff;">from</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'meters'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">to</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'feet'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;factor:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">3.28</span><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;conversion2&nbsp;=&nbsp;{</span><span class="f_CodeExample" style="color: #0000ff;">from</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'kilojoules'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">to</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'BTUs'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;factor:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.9478</span><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;conversion3&nbsp;=&nbsp;{</span><span class="f_CodeExample" style="color: #0000ff;">from</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'megabytes'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">to</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'gigabytes'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;factor:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">1024</span><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//the&nbsp;template&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;templ&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Template(</span><span class="f_CodeExample" style="color: #800000;">'Multiply&nbsp;by&nbsp;</span><span class="f_CodeExample" style="color: #000000;">#{factor}&nbsp;to&nbsp;convert&nbsp;from&nbsp;#{from}&nbsp;to&nbsp;#{to}.');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//let's&nbsp;format&nbsp;each&nbsp;object</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;[</span><span class="f_CodeExample" style="color: #800000;">conversion1</span><span class="f_CodeExample" style="color: #000000;">,</span><span class="f_CodeExample" style="color: #800000;">&nbsp;conversion2</span><span class="f_CodeExample" style="color: #000000;">,</span><span class="f_CodeExample" style="color: #800000;">&nbsp;conversion3</span><span class="f_CodeExample" style="color: #000000;">].each(&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">conv</span><span class="f_CodeExample" style="color: #000000;">){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templ.evaluate(</span><span class="f_CodeExample" style="color: #800000;">conv</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;Multiply&nbsp;by&nbsp;3.28&nbsp;to&nbsp;convert&nbsp;from&nbsp;meters&nbsp;to&nbsp;feet.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;Multiply&nbsp;by&nbsp;0.9478&nbsp;to&nbsp;convert&nbsp;from&nbsp;kilojoules&nbsp;to&nbsp;BTUs.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;Multiply&nbsp;by&nbsp;1024&nbsp;to&nbsp;convert&nbsp;from&nbsp;megabytes&nbsp;to&nbsp;gigabytes.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic3"></a><span class="f_Heading1">Escape sequence</span></p>
+<p>&nbsp;</p>
+<p>There's always the chance that one day you'll need to have a literal in your template that looks like a symbol, but is not supposed to be replaced. For these situations there's an escape sequence - the backslash character ( \ .)</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;note:&nbsp;you're&nbsp;seeing&nbsp;two&nbsp;backslashes&nbsp;here&nbsp;because&nbsp;the&nbsp;backslash&nbsp;is&nbsp;also&nbsp;a&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;escaping&nbsp;character&nbsp;in&nbsp;JavaScript&nbsp;strings</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;t&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Template(</span><span class="f_CodeExample" style="color: #800000;">'in&nbsp;</span><span class="f_CodeExample" style="color: #000000;">#{lang}&nbsp;we&nbsp;also&nbsp;use&nbsp;the&nbsp;\#{variable}&nbsp;syntax&nbsp;for&nbsp;templates.');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #800000;">&nbsp;</span><span class="f_CodeExample" style="color: #000000;">data</span><span class="f_CodeExample" style="color: #800000;">&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #000000;">{</span><span class="f_CodeExample" style="color: #800000;">lang:'Ruby',&nbsp;variable:&nbsp;'(not&nbsp;used)'</span><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;t.</span><span class="f_CodeExample" style="color: #0000ff;">evaluate</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">data</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;in&nbsp;Ruby&nbsp;we&nbsp;also&nbsp;use&nbsp;the&nbsp;#{variable}&nbsp;syntax&nbsp;for&nbsp;templates.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic4"></a><span class="f_Heading1">Custom syntaxes</span></p>
+<p>&nbsp;</p>
+<p>The default syntax of the template strings will probably be enough for most scenarios. In the rare occasion where the default Ruby-like syntax is inadequate there's provision for customization. The Template's constructor accepts an optional second argument that is a regular expression object to match the replaceable symbols in the template string. Let's put together a template that uses a syntax similar to the ubiquitous &lt;%= %&gt; constructs.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;syntax&nbsp;=&nbsp;/(^|.|\r|\n)(\&lt;%=\s*(\w+)\s*%\&gt;)/;&nbsp;//matches&nbsp;symbols&nbsp;like&nbsp;'&lt;%=&nbsp;field&nbsp;%&gt;'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;t&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Template(</span><span class="f_CodeExample" style="color: #800000;">'&lt;div&gt;Name:&nbsp;&lt;b&gt;&lt;%=&nbsp;name&nbsp;%&gt;&lt;/b&gt;,&nbsp;Age:&nbsp;&lt;b&gt;&lt;%=age%&gt;&lt;/b&gt;&lt;/div&gt;'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;syntax);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;t.evaluate(&nbsp;{name:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'John&nbsp;Smith'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;age:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">26</span><span class="f_CodeExample" style="color: #000000;">}&nbsp;);&nbsp;//&nbsp;-&gt;&nbsp;&lt;div&gt;Name:&nbsp;&lt;b&gt;John&nbsp;Smith&lt;/b&gt;,&nbsp;Age:&nbsp;&lt;b&gt;26&lt;/b&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>There are important constraints to any custom syntax. Any syntax must provide at least three groupings in the regular expression. The first grouping is to capture what comes before the symbol, to detect the backslash escape character (no, you cannot use a different character.) The second grouping captures the entire symbol and will be completely replaced upon evaluation. Lastly, the third required grouping captures the name of the field inside the symbol.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">evaluate</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">evaluate(object)&nbsp;-&gt;&nbsp;String</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Applies the template to the given object’s data, producing a formatted string with symbols replaced by corresponding object’s properties.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

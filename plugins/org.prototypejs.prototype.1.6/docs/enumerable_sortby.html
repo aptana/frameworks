@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>sortBy</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">sortBy </span><span class="f_TopicHeading" style="color: #ccffff;">:: Enumerable</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">sortBy(iterator) -&gt; Array</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Provides a custom-sorted view of the elements based on the criteria computed, for each element, by the iterator.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Elements of equivalent criterion value are left in existing order. Computed criteria must have well-defined strict weak ordering semantics (i.e. the <span class="f_CourierFixed">&lt;</span> operator must exist between any two criteria).</p>
+<p>&nbsp;</p>
+<p>Note that arrays already feature a native <span class="f_CourierFixed">sort</span> method, which relies on <span style="font-style: italic;">natural ordering</span> of the array's elements (i.e. the semantics of the <span class="f_CourierFixed">&lt;</span> operator when applied to two such elements). You should use <span class="f_CourierFixed">sortBy</span> only whe natural ordering is inexistent or otherwise unsatisfactory.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[</span><span class="f_CodeExample" style="color: #800000;">'hello'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'world'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'this'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'is'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'nice'</span><span class="f_CodeExample" style="color: #000000;">].sortBy(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(s)&nbsp;{&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;s.length;&nbsp;})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'is',&nbsp;'this',&nbsp;'nice',&nbsp;'hello',&nbsp;'world']</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[</span><span class="f_CodeExample" style="color: #800000;">'hello'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'world'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'this'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'is'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'cool'</span><span class="f_CodeExample" style="color: #000000;">].sortBy(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(s)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;md&nbsp;=&nbsp;s.match(/[aeiouy]/g);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">null</span><span class="f_CodeExample" style="color: #000000;">&nbsp;==&nbsp;md&nbsp;?&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">&nbsp;:&nbsp;md.length;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;[&nbsp;'world',&nbsp;'this',&nbsp;'is',&nbsp;'hello',&nbsp;'cool']&nbsp;(sorted&nbsp;by&nbsp;vowel&nbsp;count)</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Visual - visual effects</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Visual - visual effects</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Visual.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Visual.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Visual.html#fn-roundclass">roundClass(tagName[, className[, options]])<BR></A><A class="mochiref reference" href="Visual.html#fn-roundelement">roundElement(element[, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-toggle">toggle(element[, effect[, options]])<BR></A><A class="mochiref reference" href="Visual.html#fn-tagifytext">tagifyText(element[, tagifyStyle])<BR></A><A class="mochiref reference" href="Visual.html#fn-multiple">multiple(elements, effect[, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-defaultoptions">DefaultOptions<BR></A><A class="mochiref reference" href="Visual.html#fn-base">Base()<BR></A><A class="mochiref reference" href="Visual.html#fn-parallel">Parallel(effects [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-opacity">Opacity(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-move">Move(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-scale">Scale(element, percent [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-highlight">Highlight(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-scrollto">ScrollTo(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-fade">fade(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-appear">appear(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-puff">puff(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-blindup">blindUp(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-blinddown">blindDown(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-switchoff">switchOff(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-dropout">dropOut(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-shake">shake(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-slidedown">slideDown(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-slideup">slideUp(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-squish">squish(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-grow">grow(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-shrink">shrink(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-pulsate">pulsate(element [, options])<BR></A><A class="mochiref reference" href="Visual.html#fn-fold">fold(element [, options])<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">// round the corners of all h1 elements
+roundClass("h1", null);
+
+// round the top left corner of the element with the id "title"
+roundElement("title", {corners: "tl"});
+
+// Add an fade effect to an element
+fade('myelement');
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>MochiKit.Visual provides visual effects and support functions for visuals.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> 
+<LI><A class="mochiref reference" href="Iter.html">MochiKit.Iter</A> 
+<LI><A class="mochiref reference" href="DOM.html">MochiKit.DOM</A> 
+<LI><A class="mochiref reference" href="Color.html">MochiKit.Color</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<P>MochiKit.Visual provides different visual effect: rounded corners and animations for your HTML elements. Rounded corners are created completely through CSS manipulations and require no external images or style sheets. This implementation was adapted from <A class="reference" href="http://www.openrico.org">Rico</A>. Dynamic effects are ported from <A class="reference" href="http://script.aculo.us">Scriptaculous</A>.</P></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-roundclass"></A><A class="mochidef reference" href="Visual.html#fn-roundclass">roundClass(tagName[, className[, options]])</A>:</P>
+<BLOCKQUOTE>
+<P>Rounds all of the elements that match the <TT class="docutils literal"><SPAN class="pre">tagName</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">className</SPAN></TT> specifiers, using the options provided. <TT class="docutils literal"><SPAN class="pre">tagName</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">className</SPAN></TT> can be <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT> to match all tags or classes. For more information about the options, see the <A class="mochiref reference" href="Visual.html#fn-roundelement">roundElement</A> function.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-roundelement"></A><A class="mochidef reference" href="Visual.html#fn-roundelement">roundElement(element[, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Immediately round the corners of the specified element. The element can be given as either a string with the element ID, or as an element object.</P>
+<P>The options mapping has the following defaults:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="35%">
+<COL width="65%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>corners</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">"all"</SPAN></TT></TD></TR>
+<TR>
+<TD>color</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">"fromElement"</SPAN></TT></TD></TR>
+<TR>
+<TD>bgColor</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">"fromParent"</SPAN></TT></TD></TR>
+<TR>
+<TD>blend</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">true</SPAN></TT></TD></TR>
+<TR>
+<TD>border</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">false</SPAN></TT></TD></TR>
+<TR>
+<TD>compact</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">false</SPAN></TT></TD></TR></TBODY></TABLE>
+<P>corners:</P>
+<BLOCKQUOTE>
+<P>specifies which corners of the element should be rounded. Choices are:</P>
+<UL class="simple">
+<LI>all 
+<LI>top 
+<LI>bottom 
+<LI>tl (top left) 
+<LI>bl (bottom left) 
+<LI>tr (top right) 
+<LI>br (bottom right) </LI></UL>
+<DL class="docutils">
+<DT>Example: 
+<DD><TT class="docutils literal"><SPAN class="pre">"tl</SPAN> <SPAN class="pre">br"</SPAN></TT>: top-left and bottom-right corners are rounded </DD></DL></BLOCKQUOTE>
+<DL class="docutils">
+<DT>blend: 
+<DD>specifies whether the color and background color should be blended together to produce the border color. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-toggle"></A><A class="mochidef reference" href="Visual.html#fn-toggle">toggle(element[, effect[, options]])</A>:</P>
+<BLOCKQUOTE>
+<P>Toggle an element between visible and invisible state using an effect.</P>
+<DL class="docutils">
+<DT>effect: 
+<DD>One of the visual pairs to use, between 'slide', 'blind', 'appear', and 'size'. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-tagifytext"></A><A class="mochidef reference" href="Visual.html#fn-tagifytext">tagifyText(element[, tagifyStyle])</A>:</P>
+<BLOCKQUOTE>
+<P>Transform a node text into nodes containing one letter by tag.</P>
+<DL class="docutils">
+<DT>tagifyStyle: 
+<DD>style to apply to character nodes, default to 'position: relative'. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-multiple"></A><A class="mochidef reference" href="Visual.html#fn-multiple">multiple(elements, effect[, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Launch the same effect on a list of elements.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="basic-effects-classes" name="basic-effects-classes">Basic Effects classes</A></H2>
+<P><A name="fn-defaultoptions"></A><A class="mochidef reference" href="Visual.html#fn-defaultoptions">DefaultOptions</A>:</P>
+<BLOCKQUOTE>
+<P>Default options for all Effect creation.</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="22%">
+<COL width="78%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>transition</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">MochiKit.Visual.Transitions.sinoidal</SPAN></TT></TD></TR>
+<TR>
+<TD>duration</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">1.0</SPAN></TT></TD></TR>
+<TR>
+<TD>fps</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">25.0</SPAN></TT></TD></TR>
+<TR>
+<TD>sync</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">false</SPAN></TT></TD></TR>
+<TR>
+<TD>from</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0.0</SPAN></TT></TD></TR>
+<TR>
+<TD>to</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">1.0</SPAN></TT></TD></TR>
+<TR>
+<TD>delay</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0.0</SPAN></TT></TD></TR>
+<TR>
+<TD>queue</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">'parallel'</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-base"></A><A class="mochidef reference" href="Visual.html#fn-base">Base()</A>:</P>
+<BLOCKQUOTE>
+<P>Base class to all effects. Define a basic looping service, use it for creating new effects.</P>
+<P>You can override the methods <TT class="docutils literal"><SPAN class="pre">setup</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">update</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">finish`</SPAN></TT>.</P>
+<P>The class defines a number of events that will be called during effect life. The events are:</P>
+<UL class="simple">
+<LI>beforeStart 
+<LI>beforeSetup 
+<LI>beforeUpdate 
+<LI>afterUpdate 
+<LI>beforeFinish 
+<LI>afterFinish </LI></UL>
+<P>If you want to define your own callbacks, define it in the options parameter of the effect. Example:</P><PRE class="literal-block">// I slide it up and then down again
+slideUp('myelement', {afterFinish: function () {
+    slideDown('myelement');
+});
+</PRE>
+<P>Specific <TT class="docutils literal"><SPAN class="pre">internal</SPAN></TT> events are also available: for each one abone the same exists with 'Internal' (example: 'beforeStartInternal'). Their purpose is mainly for creating your own effect and keep the user access to event callbacks (not overriding the library ones).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-parallel"></A><A class="mochidef reference" href="Visual.html#fn-parallel">Parallel(effects [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Launch effects in parallel.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-opacity"></A><A class="mochidef reference" href="Visual.html#fn-opacity">Opacity(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Change the opacity of an element progressively.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="43%">
+<COL width="57%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>from</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0.0</SPAN></TT></TD></TR>
+<TR>
+<TD>to</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">1.0</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-move"></A><A class="mochidef reference" href="Visual.html#fn-move">Move(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Change the position of an element in small steps, creating a moving effect.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="36%">
+<COL width="64%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>x</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0</SPAN></TT></TD></TR>
+<TR>
+<TD>y</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0</SPAN></TT></TD></TR>
+<TR>
+<TD>position</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">'relative'</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-scale"></A><A class="mochidef reference" href="Visual.html#fn-scale">Scale(element, percent [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Change the size of an element.</P>
+<DL class="docutils">
+<DT>percent: 
+<DD>Final wanted size in percent of current size. The size will be reduced if the value is between 0 and 1, and raised if the value is above 1. </DD></DL>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="57%">
+<COL width="43%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>scaleX</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">true</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleY</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">true</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleContent</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">true</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleFromCenter</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">false</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleMode</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">'box'</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleFrom</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">100.0</SPAN></TT></TD></TR>
+<TR>
+<TD>scaleTo</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">percent</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-highlight"></A><A class="mochidef reference" href="Visual.html#fn-highlight">Highlight(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Highlight an element, flashing with one color.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="44%">
+<COL width="56%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>startcolor</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">'#ffff99'</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-scrollto"></A><A class="mochidef reference" href="Visual.html#fn-scrollto">ScrollTo(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Scroll the window to the position of the given element.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="combination-effects" name="combination-effects">Combination Effects</A></H2>
+<P><A name="fn-fade"></A><A class="mochidef reference" href="Visual.html#fn-fade">fade(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Change the opacity of an element until making it disappear.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="12%">
+<COL width="88%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>from</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">element.opacity</SPAN> <SPAN class="pre">||</SPAN> <SPAN class="pre">1.0</SPAN></TT></TD></TR>
+<TR>
+<TD>to</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0.0</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-appear"></A><A class="mochidef reference" href="Visual.html#fn-appear">appear(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Slowly show an invisible element.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="36%">
+<COL width="64%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>from</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">0.0</SPAN></TT></TD></TR>
+<TR>
+<TD>to</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">1.0</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-puff"></A><A class="mochidef reference" href="Visual.html#fn-puff">puff(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Make an element double size, and then make it disappear.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-blindup"></A><A class="mochidef reference" href="Visual.html#fn-blindup">blindUp(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Blind an element up, changing its vertical size to 0.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-blinddown"></A><A class="mochidef reference" href="Visual.html#fn-blinddown">blindDown(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Blind an element down, restoring its vertical size.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-switchoff"></A><A class="mochidef reference" href="Visual.html#fn-switchoff">switchOff(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>A switch-off like effect, making the element disappear.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-dropout"></A><A class="mochidef reference" href="Visual.html#fn-dropout">dropOut(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Make the element fall and fade.</P>
+<P>options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="53%">
+<COL width="47%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>distance</TD>
+<TD><TT class="docutils literal"><SPAN class="pre">100</SPAN></TT></TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-shake"></A><A class="mochidef reference" href="Visual.html#fn-shake">shake(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Shake an element from left to right.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-slidedown"></A><A class="mochidef reference" href="Visual.html#fn-slidedown">slideDown(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Slide an element down.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-slideup"></A><A class="mochidef reference" href="Visual.html#fn-slideup">slideUp(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Slide an element up.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-squish"></A><A class="mochidef reference" href="Visual.html#fn-squish">squish(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Reduce the horizontal and vertical sizes at the same time, using the top left corner.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-grow"></A><A class="mochidef reference" href="Visual.html#fn-grow">grow(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Restore the size of an element.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-shrink"></A><A class="mochidef reference" href="Visual.html#fn-shrink">shrink(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Shrink an element to its center.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-pulsate"></A><A class="mochidef reference" href="Visual.html#fn-pulsate">pulsate(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Switch an element between appear and fade.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-fold"></A><A class="mochidef reference" href="Visual.html#fn-fold">fold(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Reduce first the vertical size, and then the horizontal size.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="the-effects-queue" name="the-effects-queue">The Effects Queue</A></H2>
+<P>When you create effects based on user input (mouse clicks for example), it can create conflicts between the effects if multiple effects are running at the same time. To manage this problem, the Queue mechanism has been introduced: it's responsible for running the effects as you desired.</P>
+<P>By default, you have one Queue called 'global', and the effects run in 'parallel' (see default options). Every effects have a queue option to customize this. It can be a string, the scope is then global:</P>
+<UL class="simple">
+<LI><CITE>start</CITE>: the effect will be run before any other; 
+<LI><CITE>end</CITE>: the effect will be run after any other; 
+<LI><CITE>break</CITE>: every other effects break when the the effect start; 
+<LI><CITE>parallel</CITE>: the effect run normally with others. </LI></UL>
+<P>But you have even more control if you use an array with the following keys:</P>
+<UL class="simple">
+<LI><CITE>position</CITE> takes a value listed above; 
+<LI><CITE>scope</CITE> manages how the information has to be taken. If it's <CITE>global</CITE> then it's the same information for every effects. Otherwise you can define your own scode. For example, if you add an effect on a specified element, you may use the element id as scode; 
+<LI><CITE>limit</CITE> defines how many effects can run in the current scode. If an effect is added whereas the limit is reached, it will never be run (it's lost). </LI></UL></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id1" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id1">[1]</A></TD>
+<TD>Application Kit Reference - NSColor: <A class="reference" href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/ObjC_classic/Classes/NSColor.html">http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/ObjC_classic/Classes/NSColor.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id2" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id2">[2]</A></TD>
+<TD>SVG 1.0 color keywords: <A class="reference" href="http://www.w3.org/TR/SVG/types.html#ColorKeywords">http://www.w3.org/TR/SVG/types.html#ColorKeywords</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id3" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id3">[3]</A></TD>
+<TD>W3C CSS3 Color Module: <A class="reference" href="http://www.w3.org/TR/css3-color/#svg-color">http://www.w3.org/TR/css3-color/#svg-color</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Kevin Dangoor &lt;<A class="reference" href="mailto:dangoor@gmail.com">dangoor@gmail.com</A>&gt; 
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; 
+<LI>Thomas Herve &lt;<A class="reference" href="mailto:therve@gmail.com">therve@gmail.com</A>&gt; 
+<LI>Round corners originally adapted from Rico &lt;<A class="reference" href="http://openrico.org/">http://openrico.org/</A>&gt; (though little remains) 
+<LI>Effects originally adapted from Script.aculo.us &lt;<A class="reference" href="http://script.aculo.us/">http://script.aculo.us/</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P>
+<P>Portions adapted from <A class="reference" href="http://www.openrico.org">Rico</A> are available under the terms of the <A class="reference" href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</A>.</P>
+<P>Portions adapted from <A class="reference" href="http://script.aculo.us">Scriptaculous</A> are available under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A>.</P></DIV></DIV></BODY></HTML>

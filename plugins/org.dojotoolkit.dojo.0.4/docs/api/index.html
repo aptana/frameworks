@@ -1,0 +1,147 @@
+<!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"-->
+<html>
+<head>
+	<title>Dojo API Reference</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />	<!-- COPIED FROM dtk.org -->
+	<link rel="stylesheet" type="text/css" href="css/text.css" />	<!-- COPIED FROM dtk.org -->
+	<link rel="stylesheet" type="text/css" href="css/ApiRef.css" />
+	<script type="text/javascript">
+		var djConfig = {
+			isDebug: true, 
+			debugAtAllCosts:false,
+			preventBackButtonFix: false 
+		};
+	</script>
+	<!-- NOTE: 	We now assume that for every install of the api ref, dojo is at ../dojo.js .
+				This means that to host the ref, you should check out the entire source tree
+				and sym-link /api to /checkout/api		-->
+	<script type="text/javascript" src="../../libraries/lib/dojo/dojo.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.debug.console");
+		dojo.require("dojo.io.*");
+		dojo.require("dojo.io.BrowserIO");
+		dojo.require("dojo.io.cookie");
+		dojo.require("dojo.uri.*");
+		dojo.require("dojo.Deferred");
+		dojo.require("dojo.DeferredList");
+		dojo.require("dojo.dom");
+		dojo.require("dojo.lang.common");
+		dojo.require("dojo.widget.*");
+		dojo.require("dojo.widget.ComboBox");
+		dojo.require("dojo.widget.TreeV3");
+		dojo.require("dojo.widget.TreeNodeV3");
+		dojo.require("dojo.widget.TreeBasicControllerV3");
+		dojo.require("dojo.widget.TreeSelectorV3");
+		dojo.require("dojo.widget.TreeEmphasizeOnSelect");
+		dojo.require("dojo.lfx.html");
+		dojo.require("dojo.undo.browser");
+	</script>
+
+
+<!-- the following are items that I hacked and haven't been approved yet
+		TODO: move these into the base build -->
+	<script type="text/javascript" src="profile.js"></script>
+	<script type="text/javascript" src="ProfileHelper.js"></script>
+
+<!-- script that does all the heavy lifting -->
+	<script type="text/javascript" src="ApiRef.js"></script>
+
+</head>
+<body>
+	<table style='width:100%;height:100%;table-layout:fixed;' cellspacing=0 cellpadding=5>
+	<thead>
+		<colgroup>
+			<col  style='width:300px'>
+			<col  style='width:100%'>
+			<col  style='width:250px'>
+		</colgroup>
+	</thead>
+	<tbody>
+		<tr><td colspan=3 class='noPad'>
+			<div id="foundation-header">
+					<div id="header-links">
+						<ul>
+							<li><a href="http://dojotoolkit.org/" id="header-index">Home</a></li>
+							<li><a href="http://trac.dojotoolkit.org/" id="header-bugtracking">Bug Tracking</a></li>
+							<li><a href="http://dojo.jot.com/" id="header-wiki">Wiki</a></li>
+							<li><a href="http://blog.dojotoolkit.org/" id="header-blog">Blog</a></li>
+							<li><a href="http://dojotoolkit.org/foundation/" id="header-about">About the Dojo Foundation</a></li>
+						</ul>
+					</div>
+				</div>
+		</td></tr>
+		<tr id="mini-header">
+			<td class='noPad'><a href='http://dojotoolkit.org'><img src='img/dojo-help.gif' width=32 height=24 border=0></a></td>
+			<td class='noPad'></td>
+			<td class='noPad' style='text-align:right'><img src='img/help.gif' width=97 height=24></td>
+		</tr>
+		<tr>
+			<td class="stripe noVPad">
+				<table cellspacing=0 cellpadding=0 border=0>
+					<tr><td class='label'>Search:</td>
+						<td><input id='searchBox' class='searchBox' dojoType="combobox" maxListLength="20" id="search" mode="local" autoComplete="true"></td>
+					</tr>
+				</table>
+			</td>
+			<td class="stripe noVPad"><table cellspacing=0 cellpadding=0>
+					<tr><td id='title' class='label' width="100%">Dojo API Reference</td>
+						<td style='text-align:right;' class='label'>Show:</td>
+						<td><input id='showInherited' type='checkbox' onclick='ApiRef.toggleInherited()'></td><td><div class='toggleDisplayLink' onclick='ApiRef.toggleInherited()'>Inherited</div></td>
+						<td><input id='showPrivate' type='checkbox' onclick='ApiRef.togglePrivate()'></td><td><div class='toggleDisplayLink' onclick='ApiRef.togglePrivate()'>Private</div></td>
+<!-- NOT IMPLEMENTED YET
+						<td><input id='showDeprecated' type='checkbox' onclick='ApiRef.toggleDeprecated()'></td><td class='toggleDisplayLink' onclick='ApiRef.toggleDeprecated()'>Deprecated</td>
+						<td><input id='showExperimental' type='checkbox' onclick='ApiRef.toggleExperimental()'></td><td class='toggleDisplayLink' onclick='ApiRef.toggleExperimental()'>Experimental</td>
+-->
+					</tr>
+				</table>
+			</td>
+			<td class="stripe noVPad" style='text-align:right'>
+					<select class='debugMenu' onchange="ApiRef.debugMenuAction(this.options[this.selectedIndex].getAttribute('action'), this)">
+						<option action=''>Debug:</option>
+						<option>---------</option>
+						<option action='ApiRef.debug_toggleDebug()'>Toggle debug messages</option>
+						<option action='ApiRef.debug_toggleProfile()'>Toggle profiling messages</option>
+						<option>---------</option>
+						<option action='ApiRef.debug_showResourceMap()'>Show Resource -> Function Map</option>
+						<option action='ApiRef.debug_showFunctionMap()'>Show Function->Type Map</option>
+						<option action='ApiRef.debug_showObjectMap()'>" " (w/o functions)</option>
+						<option action='ApiRef.debug_showKnownFunctions()'>Show All Known Functions</option>
+						<option action='ApiRef.debug_showParserData()'>Show Parser Data for File...</option>
+						<option action='ApiRef.debug_showItemData()'>Show Parser Data for Reference...</option>
+						<option action='ApiRef.debug_showItem()'>Show Item for Reference...</option>
+						<option>---------</option>
+						<option action='ApiRef.debug_showTodo()'>Show ApiRef To Do List...</option>
+					</select>
+			</td>		
+		</tr>
+		<tr><td id='fnTreeCell' style='vertical-align:top;height:100%;'>
+				<div class='scrollContainerOuter'>
+					<div id="fnTreeContainer" class='scrollContainerInner'>
+						<div class='loadingPrompt'>
+							Loading Class Tree... 
+							
+							<br><br>(This could take a few moments).
+						</div>
+					</div>
+				</div>
+				</td>
+			<td id='contentCell' style='vertical-align:top;height:100%;' colspan=2>
+				<div class='scrollContainerOuter'>
+					<div id="content" class='scrollContainerInner'>
+					</div>
+				</div>
+			</td>
+<!--
+			<td id='debugCell' style='vertical-align:top;height:100%;'>
+				<div class='scrollContainerOuter'>
+					<div id="debug" class='scrollContainerInner'>
+					</div>
+				</div>
+			</td>
+-->
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,280 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Slider</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Slider</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>To make a slider element, you create a new instance of class <span style="font-weight: bold;">Control.Slider</span>.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.5 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new&nbsp;Control.Slider('id_of_slider_handle','id_of_slider_track',&nbsp;[options]);&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Options</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="109" bgcolor="#99cc00" style="width:109px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="42" bgcolor="#99cc00" style="width:42px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="95" bgcolor="#99cc00" style="width:95px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="431" bgcolor="#99cc00" style="width:431px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>axis</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>'horizontal'</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Sets the direction that the slider will move in. It should either be horizontal or vertical.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>increment</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>1</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Defines the relationship of value to pixels. Setting this to 1 will mean each movement of 1 pixel equates to 1 value.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>maximum</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>length of track in pixels adjusted by increment</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>The maximum value that the slider will move to. For horizontal this is to the right while vertical it is down.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>minimum</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>0</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>The minimum value that the slider can move to. For horizontal this is to the left while vertical it is up. Note: this also sets the beginning of the slider (zeroes it out).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>alignX</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>0</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>This will move the starting point on the x-axis for the handle in relation to the track. It is often used to move the ‘point’ of the handle to where 0 should be. It can also be used to set a different starting point on the track.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>alignY</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>0</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>This will move the starting point on the y-axis for the handle in relation to the track. It is often used to move the ‘point’ of the handle to where 0 should be. It can also be used to set a different starting point on the track.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>sliderValue</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>0</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Will set the initial slider value. The handle will be set to this value, assuming it is within the minimum and maxium values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>handleImage</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>(none) </p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>The id of the image that represents the handle. This is used to swap out the image src with disabled image src when the slider is enabled.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>disabled</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>(none)</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>This will lock the slider so that it will not move and thus is disabled.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>handleDisabled</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>(none)</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>The id of the image that represents the disabled handle. This is used to change the image src when the slider is disabled.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>values</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>V1.5</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>(none) </p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Accepts an array of integers. If set these will be the only legal values for the slider to be at. Thus you can set specific slider values that the user can move the slider to.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p>range</p>
+</td>
+<td valign="top" width="42" style="width:42px;"><p>??</p>
+</td>
+<td valign="top" width="95" style="width:95px;"><p>(none)</p>
+</td>
+<td valign="top" width="431" style="width:431px;"><p>Use the $R(min,max), provided by Prototype Library</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The slider control offers some functions to let javascript update its state:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="110" bgcolor="#99cc00" style="width:110px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Function</span></p>
+</td>
+<td valign="middle" width="575" bgcolor="#99cc00" style="width:575px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>setValue</p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Will update the slider’s value and thus move the slider handle to the appropriate position. If you’re using multiple handles, then the id should be the second paramater (the ‘active’ (last-used?) handle is used by default) NOTE: when using setValue, the callback functions (below) are called.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>setDisabled</p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Will set the slider to the disabled state (disabled = true).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>setEnabled</p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Will set the slider to the enabled state (disabled = false).</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Additionally, the options parameter can take the following callback function:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="110" bgcolor="#99cc00" style="width:110px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="575" bgcolor="#99cc00" style="width:575px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>onSlide</p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Called whenever the Slider is moved by dragging. The called function gets the slider value as its parameter.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>onChange</p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Called whenever the Slider has finished moving or has had its value changed via the setValue function. The called function gets the slider value as its parameter.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>With both of the above, using multiple handles causes an array of their respective values to be passed to the callback. Both receive the Slider object as a second paramater.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p>From the author's first demo of a vertical slider. &nbsp;It begins disabled.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">var&nbsp;s2&nbsp;=&nbsp;new&nbsp;Control.Slider('slider_2','track_2',&nbsp;{axis:'vertical',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">minimum:&nbsp;60,&nbsp;maximum:288,&nbsp;alignX:&nbsp;-28,&nbsp;alignY:&nbsp;-5,&nbsp;disabled:&nbsp;true,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">handleImage:&nbsp;'slider_2handle',&nbsp;handleDisabled:&nbsp;'images/vsliderhandle_gray.gif'});</span></p>
+<p>&nbsp;</p>
+<p>Example of a horizontal slider that allows only 4 possible values</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">var&nbsp;sliderLimited&nbsp;=&nbsp;new&nbsp;Control.Slider('slider_Limited','track_Limited',&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">minimum:2,&nbsp;maximum:30,&nbsp;increment:9,&nbsp;alignX:&nbsp;-5,&nbsp;alignY:&nbsp;-5,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">values:&nbsp;[2,&nbsp;10,&nbsp;15,&nbsp;30]});</span></p>
+<p>&nbsp;</p>
+<p>Setting the callbacks for the first example slider, referenced by "s2"</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">s2.options.onChange&nbsp;=&nbsp;function(value){</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;activeProfile.height&nbsp;=&nbsp;value;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;updateBankDescription();</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;setResizeDesc();</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;$('height_value').innerHTML&nbsp;=&nbsp;value;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">s2.options.onSlide&nbsp;=&nbsp;function(value){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;vidFrame1.setHeight(value);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;$('height_value').innerHTML&nbsp;=&nbsp;value;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;setResizeDesc();</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">};</span></p>
+<p>&nbsp;</p>
+<p>Here are some examples of disabling and setting the values outside of the slider</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">//&nbsp;continued&nbsp;from&nbsp;the&nbsp;above&nbsp;example</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">s2.setValue(60);&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">s2.setDisabled();</span></p>
+<p>&nbsp;</p>
+<p>An easy way to convert the standard output decimal value to whole integers:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">(value*100).toFixed();</span></p>
+<p>&nbsp;</p>
+<p>Leaving minimum, maximum and increment undefined, adding this to your value handling will produce the integers 0-100.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>The handle and track elements have to be loaded into the browser before the Slider instance is created. You should either place the script tags creating the slider after your elements in your HTML document, or use the body.onload callback to create the slider after everything has finished rendering.</p>
+<p>&nbsp;</p>
+<p>See also - Online Slider Demo:</p>
+<p><a href="http://wiki.script.aculo.us/scriptaculous/show/SliderDemo" target="_blank" class="weblink">http://wiki.script.aculo.us/scriptaculous/show/SliderDemo</a></p>
+
+</td></tr></table>
+
+</body>
+</html>

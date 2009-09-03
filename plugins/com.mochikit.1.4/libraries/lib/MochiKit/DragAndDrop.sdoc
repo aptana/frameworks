@@ -1,0 +1,345 @@
+/**
+ * ScriptDoc for DragAndDrop.js
+ */
+
+/**
+ * Creates a new Droppable object.
+ * @id MochiKit.DragAndDrop.Droppable
+ * @alias Droppable
+ * @alias MochiKit.DragAndDrop.Droppable
+ * @param {Object} element    Element to use for the Droppable object.
+ * @param {Object} options    Options for the Droppable object.
+ */
+
+/**
+ * If true, stops the Draggable on the Droppable when the Draggable passes over it. Default is true.
+ * @id MochiKit.DragAndDrop.greedy
+ * @alias greedy
+ * @alias MochiKit.DragAndDrop.Droppable.greedy
+ */
+
+/**
+ * Applies the specified CSS class when the Draggable hovers over the Droppable object. Default is null.
+ * @id MochiKit.DragAndDrop.hoverclass
+ * @alias hoverclass
+ * @alias MochiKit.DragAndDrop.Droppable.hoverclass
+ */
+
+/**
+ * Applies the specified CSS class when a possible Draggable starts its drag. Default is null.
+ * @id MochiKit.DragAndDrop.activeclass
+ * @alias activeclass
+ * @alias MochiKit.DragAndDrop.Droppable.activeclass
+ */
+
+/**
+ * Calls the specified function when a Draggable hovers over the Droppable object. Default is MochiKit.Base.noop.
+ * @id MochiKit.DragAndDrop.hoverfunc
+ * @alias hoverfunc
+ * @alias MochiKit.DragAndDrop.Droppable.hoverfunc
+ */
+
+/**
+ * Array of the CSS classes that may drop on this Droppable object. Default is null.
+ * @id MochiKit.DragAndDrop.accept
+ * @alias accept
+ * @alias MochiKit.DragAndDrop.Droppable.
+ */
+
+/**
+ * Applies the specified CSS class when a Draggable object starts its drag and becomes active. Default is null.
+ * @id MochiKit.DragAndDrop.onactive
+ * @alias onactive
+ * @alias MochiKit.DragAndDrop.Droppable.onactive
+ */
+
+/**
+ * Placeholder text for ondesactive description.
+ * @id MochiKit.DragAndDrop.ondesactive
+ * @alias ondesactive
+ * @alias MochiKit.DragAndDrop.Droppable.ondesactive
+ */
+
+/**
+ * Specifies a function to call when the Draggable hovers over the Droppable. (Mostly used for Sortable.)
+ * Default is MochiKit.Base.noop.
+ * @id MochiKit.DragAndDrop.onhover
+ * @alias onhover
+ * @alias MochiKit.DragAndDrop.Droppable.onhover
+ */
+
+/**
+ * Specifies a function to call when the Draggable is dropped on the Droppable. 
+ * The function should take the Draggable element, Droppable element, and event that raised the drop as arguments.
+ * @id MochiKit.DragAndDrop.ondrop
+ * @alias ondrop
+ * @alias MochiKit.DragAndDrop.Droppable.ondrop
+ */
+
+/**
+ * Array of elements to check for being in the active state.
+ * Only the children of the specified elements may be dropped. 
+ * Mainly useful for Sortable.
+ * @id MochiKit.DragAndDrop.containment
+ * @alias containment
+ * @alias MochiKit.DragAndDrop.Droppable.containment
+ */
+
+/**
+ * Returns true if the element is contained by a parent such that the element.
+ * @id MochiKit.DragAndDrop.isContained
+ * @alias isContained
+ * @alias MochiKit.DragAndDrop.Droppable.isContained
+ * @param {Node} element Element to check.
+ * @return {Boolean} Returns true if the element is contained by a parent such that the element.
+ */
+
+/**
+ * Returns true if the element has a CSS class that is accepted on this object.
+ * @id MochiKit.DragAndDrop.isAccepted
+ * @alias isAccepted
+ * @alias MochiKit.DragAndDrop.Droppable.isAccepted
+ * @param {Node} element Element to check.
+ * @return {Boolean} Returns true if the element has a CSS class that is accepted on this object.
+ */
+
+/**
+ * Returns true if an appropriately contained draggable element can be accepted by
+ * the droppable element and is positioned within the appropriate boundaries for the element.
+ * @id MochiKit.DragAndDrop.isAffected
+ * @alias isAffected
+ * @alias MochiKit.DragAndDrop.Droppable.isAffected
+ * @param {Object} point Current position of the draggable element.
+ * @param {Node} element    Draggable element to get.
+ * @return {Boolean} Returns true if an appropriately contained draggable element can be accepted by
+ * the droppable element and is positioned within the appropriate boundaries for the element.
+ */
+
+/**
+ * Deactivates the droppable. Occurs when the draggable has been over the droppable and left.
+ * @id MochiKit.DragAndDrop.deactivate
+ * @alias deactivate
+ * @alias MochiKit.DragAndDrop.Droppable.deactivate
+ */
+
+/**
+ * Activates the droppable. Occurs when a draggable is over the droppable.
+ * @id MochiKit.DragAndDrop.activate
+ * @alias activate
+ * @alias MochiKit.DragAndDrop.Droppable.activate
+ */
+
+/**
+ * Deletes the droppable.
+ * @id MochiKit.DragAndDrop.destroy
+ * @alias destroy
+ * @alias MochiKit.DragAndDrop.Droppable.destroy
+ */
+
+/**
+ * Returns a string representatio of the droppable and its options.
+ * @id MochiKit.DragAndDrop.repr
+ * @alias repr
+ * @alias MochiKit.DragAndDrop.Droppable.repr
+ */
+
+/**
+ * Creates an object that a user can drag with a mouse.
+ * @id MochiKit.DragAndDrop.Draggable
+ * @alias Draggable
+ * @alias MochiKit.DragAndDrop
+ * @param {Node} element    Element to be dragged.
+ * @param {Object} [...] One or more options that you can use to define the draggable object.
+ */
+
+/**
+ * @id MochiKit.DragAndDrop.handle
+ * @alias handle
+ * @alias MochiKit.DragAndDrop.Draggable.handle
+ * Specifies a handle for the element when stating the drag. Default is the actual element (false).
+ */
+
+/**
+ * Applies an effect to the element when the drag starts. Default is MochiKit.Visual.Opacity.
+ * @id MochiKit.DragAndDrop.starteffect
+ * @alias starteffect
+ * @alias MochiKit.DragAndDrop.Draggable.starteffect
+ * @param {Node} innerelement    Inner element for the draggable element.
+ */
+
+/**
+ * Applies an effect to the element when the drag is cancelled.
+ * Default is to return the element to its original position (MochiKit.Visual.Move).
+ * Define revert before calling reverteffect.
+ * @id MochiKit.DragAndDrop.reverteffect
+ * @alias reverteffect
+ * @alias MochiKit.DragAndDrop.Draggable.reverteffect
+ * @param {Node} innerelement    Inner element for the draggable element.
+ * @param {String} top_offset    Y-coordinate for the element.
+ * @param {String} left_offset    X-coordinate for the element.
+ * @return {Object} Returns a cancellable effect.
+ */
+
+/**
+ * Applies an effect to the element when the drag ends. Default is MochiKit.Visual.Opacity.
+ * @id MochiKit.DragAndDrop.endeffect
+ * @alias endeffect
+ * @alias MochiKit.DragAndDrop.Draggable.endeffect
+ * @param {Node} innerelement    Inner element for the draggable element.
+ */
+
+/**
+ * Calls the specified function when the draggable object is updated. Default is MochiKit.Base.noop.
+ * @id MochiKit.DragAndDrop.onchange
+ * @alias onchange
+ * @alias MochiKit.DragAndDrop.Draggable.onchange
+ */
+
+/**
+ * Z-index of the draggable element. Default is to bring it to the front (1000).
+ * @id MochiKit.DragAndDrop.zindex
+ * @alias zindex
+ * @alias MochiKit.DragAndDrop.Draggable.zindex
+ */
+
+/**
+ * If true, specifies that the reverteffect function should be called. Default is false.
+ * You can also use revert to define a function to be called before reverteffect, with the element as first argument
+ * @id MochiKit.DragAndDrop.revert
+ * @alias revert
+ * @alias MochiKit.DragAndDrop.Draggable.revert
+ */
+
+/**
+ * Specifies an element to scroll around. Default is false (no element).
+ * @id MochiKit.DragAndDrop.scroll
+ * @alias scroll
+ * @alias MochiKit.DragAndDrop.Draggable.scroll
+ */
+
+/**
+ * Specifies scroll sensitivity. Default is 20.
+ * @id MochiKit.DragAndDrop.scrollSensitivity
+ * @alias scrollSensitivity
+ * @alias MochiKit.DragAndDrop.Draggable.scrollSensitivity
+ */
+
+/**
+ * Scroll speed. Default is 15.
+ * @id MochiKit.DragAndDrop.scrollSpeed
+ * @alias scrollSpeed
+ * @alias MochiKit.DragAndDrop.Draggable.scrollSpeed
+ */
+
+/**
+ * Defines the behavior of the draggable element while it moves.  
+ * Specify a function, value or two-value array for snap.
+ * A function should take the (x, y) position of the element as arguments, and return the position in the browser. 
+ * A value should use a modulo for each coordinates. 
+ * For an array, each value is applied for the corresponding coordinate.
+ * @id MochiKit.DragAndDrop.snap
+ * @alias snap
+ * @alias MochiKit.DragAndDrop.Draggable.snap
+ */
+
+/**
+ * Unregisters the Draggable event.
+ * @id MochiKit.DragAndDrop.destroy
+ * @alias destroy
+ * @alias MochiKit.DragAndDrop.Draggable.destroy
+ */
+
+/**
+ * Returns the current change in position of the draggable element.
+ * @id MochiKit.DragAndDrop.currentDelta
+ * @alias currentDelta
+ * @alias MochiKit.DragAndDrop.Draggable.currentDelta
+ * @return {Array} Returns the current change in position of the draggable element.
+ */
+
+/**
+ * Initializes a drag event.
+ * @id MochiKit.DragAndDrop.initDrag
+ * @alias initDrag
+ * @alias MochiKit.DragAndDrop.Draggable.initDrag
+ * @param {Event} event    Event to get.
+ */
+
+/**
+ * Initiates dragging the element.
+ * @id MochiKit.DragAndDrop.startDrag
+ * @alias startDrag
+ * @alias MochiKit.DragAndDrop.Draggable.startDrag
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Updates the drag event.
+ * @id MochiKit.DragAndDrop.updateDrag
+ * @alias updateDrag
+ * @alias MochiKit.DragAndDrop.Draggable.updateDrag
+ * @param {Object} event    Event to get.
+ * @param {Object} pointer Mouse cursor for the drag event. 
+ */
+
+/**
+ * Finishes the drag event.
+ * @id MochiKit.DragAndDrop.finishDrag
+ * @alias finishDrag
+ * @alias MochiKit.DragAndDrop.Draggable.finishDrag
+ * @param {Object} event Event to get.
+ * @param {Object} success If true, specifies that the drag event was a success.
+ */
+
+/**
+ * Gets a key press event during the drag.
+ * @id MochiKit.DragAndDrop.keyPress
+ * @alias keyPress
+ * @alias MochiKit.DragAndDrop.Draggable.keyPress
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Ends a drag event and calls finishDrag.
+ * @id MochiKit.DragAndDrop.endDrag
+ * @alias endDrag
+ * @alias MochiKit.DragAndDrop.Draggable.endDrag
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Draws the element at the specified point.
+ * @id MochiKit.DragAndDrop.draw
+ * @alias draw
+ * @alias MochiKit.DragAndDrop.Draggable.draw
+ * @param {Object} point    Position of the element.
+ */
+
+/**
+ * Stops the scrolling of the element.
+ * @id MochiKit.DragAndDrop.stopScrolling
+ * @alias stopScrolling
+ * @alias MochiKit.DragAndDrop.Draggable.stopScrolling
+ */
+
+/**
+ * Starts the scrolling of the element.
+ * @id MochiKit.DragAndDrop.startScrolling
+ * @alias startScrolling
+ * @alias MochiKit.DragAndDrop.Draggable.startScrolling
+ * @param {Number} speed    Scrolling speed.
+ */
+
+/**
+ * Scrolls the element.
+ * @id MochiKit.DragAndDrop.scroll
+ * @alias scroll
+ * @alias MochiKit.DragAndDrop.Draggable.scroll
+ */
+
+/**
+ * Creates a string representation of the Draggable object and options.
+ * @id MochiKit.DragAndDrop.repr
+ * @alias repr
+ * @alias MochiKit.DragAndDrop.Draggable.repr
+ */

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Prototype 1.5 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries">
+	<topic label="Prototype 1.5"  href="docs/introduction.html"> 
+		<topic label="Utility Methods"  href="docs/utility_methods.html">
+			<topic label="$"  href="docs/$.html"/>
+			<topic label="$$"  href="docs/$$.html"/>
+			<topic label="$A"  href="docs/$A.html"/>
+			<topic label="$F"  href="docs/$F.html"/>
+			<topic label="$H"  href="docs/$H.html"/>
+			<topic label="$R"  href="docs/$R.html"/>
+			<topic label="$w"  href="docs/$w.html"/>
+			<topic label="getElementsByClassName"  href="docs/document_getelementsbyclassname.html"/>
+			<topic label="Try.these"  href="docs/try_these.html"/>
+		</topic>
+		<topic label="Modules"  href="docs/components.html">
+			<topic label="Ajax"  href="docs/ajax.html">
+				<topic label="Ajax.Request"  href="docs/ajax_request.html"/>
+				<topic label="Ajax.Responders"  href="docs/ajax_responders.html"/>
+				<topic label="Ajax.Updater"  href="docs/ajax_updater.html"/>
+				<topic label="Ajax.Options"  href="docs/ajax_options.html"/>
+				<topic label="Ajax.PeriodicalUpdater"  href="docs/ajax_periodicalupdater.html"/>
+			</topic>
+			<topic label="Array"  href="docs/array.html">
+				<topic label="clear"  href="docs/array_clear.html"/>
+				<topic label="clone"  href="docs/array_clone.html"/>
+				<topic label="compact"  href="docs/array_compact.html"/>
+				<topic label="each"  href="docs/array_each.html"/>
+				<topic label="first"  href="docs/array_first.html"/>
+				<topic label="flatten"  href="docs/array_flatten.html"/>
+				<topic label="from"  href="docs/array_from.html"/>
+				<topic label="indexOf"  href="docs/array_indexof.html"/>
+				<topic label="inspect"  href="docs/array_inspect.html"/>
+				<topic label="last"  href="docs/array_last.html"/>
+				<topic label="reduce"  href="docs/array_reduce.html"/>
+				<topic label="reverse"  href="docs/array_reverse.html"/>
+				<topic label="size"  href="docs/array_size.html"/>
+				<topic label="toArray"  href="docs/array_toarray.html"/>
+				<topic label="toJSON"  href="docs/array_tojson.html"/>
+				<topic label="unique"  href="docs/array_unique.html"/>
+				<topic label="without"  href="docs/array_without.html"/>
+			</topic>
+			<topic label="Class"  href="docs/class.html">
+				<topic label="create"  href="docs/class_create.html"/>
+			</topic>
+			<topic label="Date"  href="docs/date.html">
+				<topic label="toJSON"  href="docs/date_tojson.html"/>
+			</topic>
+			<topic label="Element"  href="docs/element.html">
+				<topic label="addClassName"  href="docs/element_addclassname.html"/>
+				<topic label="addMethods"  href="docs/element_addmethods.html"/>
+				<topic label="ancestors"  href="docs/element_ancestors.html"/>
+				<topic label="classNames"  href="docs/element_classnames.html"/>
+				<topic label="cleanWhitespace"  href="docs/element_cleanwhitespace.html"/>
+				<topic label="descendantOf"  href="docs/element_descendantof.html"/>
+				<topic label="down"  href="docs/element_down.html"/>
+				<topic label="empty"  href="docs/element_empty.html"/>
+				<topic label="extend"  href="docs/element_extend.html"/>
+				<topic label="getDimensions"  href="docs/element_getdimensions.html"/>
+				<topic label="getElementsByClassName"  href="docs/element_getelementsbyclassname.html"/>
+				<topic label="getElementsBySelector"  href="docs/element_getelementsbyselector.html"/>
+				<topic label="getHeight"  href="docs/element_getheight.html"/>
+				<topic label="getStyle"  href="docs/element_getstyle.html"/>
+				<topic label="getWidth"  href="docs/element_getwidth.html"/>
+				<topic label="hasClassName"  href="docs/element_hasclassname.html"/>
+				<topic label="hide"  href="docs/element_hide.html"/>
+				<topic label="immediateDescendants"  href="docs/element_immediatedescendants.html"/>
+				<topic label="inspect"  href="docs/element_inspect.html"/>
+				<topic label="makeClipping"  href="docs/element_makeclipping.html"/>
+				<topic label="makePosititioned"  href="docs/element_makepositioned.html"/>
+				<topic label="match"  href="docs/element_match.html"/>
+				<topic label="next"  href="docs/element_next.html"/>
+				<topic label="nextSiblings"  href="docs/element_nextsiblings.html"/>
+				<topic label="observe"  href="docs/element_observe.html"/>
+				<topic label="previous"  href="docs/element_previous.html"/>
+				<topic label="previousSiblings"  href="docs/element_previoussiblings.html"/>
+				<topic label="readAttribute"  href="docs/element_readattribute.html"/>
+				<topic label="recursivelyCollect"  href="docs/element_recursivelycollect.html"/>
+				<topic label="remove"  href="docs/element_remove.html"/>
+				<topic label="removeClassName"  href="docs/element_removeclassname.html"/>
+				<topic label="replace"  href="docs/element_replace.html"/>
+				<topic label="scrollTo"  href="docs/element_scrollto.html"/>
+				<topic label="setStyle"  href="docs/element_setstyle.html"/>
+				<topic label="show"  href="docs/element_show.html"/>
+				<topic label="siblings"  href="docs/element_siblings.html"/>
+				<topic label="stopObserving"  href="docs/element_stopobserving.html"/>
+				<topic label="toggle"  href="docs/element_toggle.html"/>
+				<topic label="toggleClassName"  href="docs/element_toggleclassname.html"/>
+				<topic label="undoClipping"  href="docs/element_undoclipping.html"/>
+				<topic label="undoPositioned"  href="docs/element_undopositioned.html"/>
+				<topic label="up"  href="docs/element_up.html"/>
+				<topic label="update"  href="docs/element_update.html"/>
+				<topic label="visible"  href="docs/element_visible.html"/>
+				<topic label="Element.Methods.Simulated"  href="docs/element_methods_simulated.html">
+					<topic label="hasAttribute"  href="docs/element_methods_simulated_hasattribute.html"/>
+				</topic>
+				<topic label="Element.Methods"  href="docs/element_methods.html">
+					<topic label="hasAttribute"  href="docs/element_methods.html"/>
+				</topic>
+			</topic>
+			<topic label="Enumerable"  href="docs/enumerable.html">
+				<topic label="all"  href="docs/enumerable_all.html"/>
+				<topic label="any"  href="docs/enumerable_any.html"/>
+				<topic label="collect"  href="docs/enumerable_collect.html"/>
+				<topic label="detect"  href="docs/enumerable_detect.html"/>
+				<topic label="each"  href="docs/enumerable_each.html"/>
+				<topic label="entries"  href="docs/enumerable_entries.html"/>
+				<topic label="find"  href="docs/enumerable_find.html"/>
+				<topic label="findAll"  href="docs/enumerable_findAll.html"/>
+				<topic label="grep"  href="docs/enumerable_grep.html"/>
+				<topic label="include"  href="docs/enumerable_include.html"/>
+				<topic label="inject"  href="docs/enumerable_inject.html"/>
+				<topic label="invoke"  href="docs/enumerable_invoke.html"/>
+				<topic label="map"  href="docs/enumerable_map.html"/>
+				<topic label="max"  href="docs/enumerable_max.html"/>
+				<topic label="member"  href="docs/enumerable_member.html"/>
+				<topic label="min"  href="docs/enumerable_min.html"/>
+				<topic label="partition"  href="docs/enumerable_partition.html"/>
+				<topic label="pluck"  href="docs/enumerable_pluck.html"/>
+				<topic label="reject"  href="docs/enumerable_reject.html"/>
+				<topic label="select"  href="docs/enumerable_select.html"/>
+				<topic label="size"  href="docs/enumerable_size.html"/>
+				<topic label="sortBy"  href="docs/enumerable_sortBy.html"/>
+				<topic label="toArray"  href="docs/enumerable_toArray.html"/>
+				<topic label="zip"  href="docs/enumerable_zip.html"/>
+			</topic>
+			<topic label="Event"  href="docs/event.html">
+				<topic label="element"  href="docs/event_element.html"/>
+				<topic label="findElement"  href="docs/event_findelement.html"/>
+				<topic label="isLeftClick"  href="docs/event_isleftclick.html"/>
+				<topic label="observe"  href="docs/event_observe.html"/>
+				<topic label="pointerX"  href="docs/event_pointerx.html"/>
+				<topic label="pointerY"  href="docs/event_pointery.html"/>
+				<topic label="stop"  href="docs/event_stop.html"/>
+				<topic label="stopObserving"  href="docs/event_stopobserving.html"/>
+				<topic label="unloadCache"  href="docs/event_unloadcache.html"/>
+			</topic>
+			<topic label="Form"  href="docs/form.html">
+				<topic label="disable"  href="docs/form_disable.html"/>
+				<topic label="enable"  href="docs/form_enable.html"/>
+				<topic label="findFirstElement"  href="docs/form_findfirstelement.html"/>
+				<topic label="focusFirstElement"  href="docs/form_focusfirstelement.html"/>
+				<topic label="getElements"  href="docs/form_getelements.html"/>
+				<topic label="getInputs"  href="docs/form_getinputs.html"/>
+				<topic label="request"  href="docs/form_request.html"/>
+				<topic label="reset"  href="docs/form_reset.html"/>
+				<topic label="serialize"  href="docs/form_serialize.html"/>
+				<topic label="serializeElements"  href="docs/form_serializeelements.html"/>
+				<topic label="Form.Elements"  href="docs/form_element.html">
+					<topic label="activate"  href="docs/form_element_activate.html"/>
+					<topic label="clear"  href="docs/form_element_clear.html"/>
+					<topic label="disable"  href="docs/form_element_disable.html"/>
+					<topic label="enable"  href="docs/form_element_enable.html"/>
+					<topic label="focus"  href="docs/form_element_focus.html"/>
+					<topic label="getValue"  href="docs/form_element_getvalue.html"/>
+					<topic label="present"  href="docs/form_element_present.html"/>
+					<topic label="select"  href="docs/form_element_select.html"/>
+					<topic label="serialize"  href="docs/form_element_serialize.html"/>
+				</topic>
+			</topic>
+			<topic label="Function"  href="docs/function.html">
+				<topic label="bind"  href="docs/function_bind.html"/>
+				<topic label="bindAsEventListener"  href="docs/function_bindaseventlistener.html"/>
+			</topic>
+			<topic label="Hash"  href="docs/hash.html">
+				<topic label="each"  href="docs/hash_each.html"/>
+				<topic label="inspect"  href="docs/hash_inspect.html"/>
+				<topic label="keys"  href="docs/hash_keys.html"/>
+				<topic label="merge"  href="docs/hash_merge.html"/>
+				<topic label="remove"  href="docs/hash_remove.html"/>
+				<topic label="toQueryString"  href="docs/hash_toquerystring.html"/>
+				<topic label="values"  href="docs/hash_values.html"/>
+			</topic>
+			<topic label="Insertion"  href="docs/insertion.html">
+				<topic label="After"  href="docs/insertion_after.html"/>
+				<topic label="Before"  href="docs/insertion_before.html"/>
+				<topic label="Bottom"  href="docs/insertion_bottom.html"/>
+				<topic label="Top"  href="docs/insertion_top.html"/>
+			</topic>
+			<topic label="Number"  href="docs/number.html">
+				<topic label="succ"  href="docs/number_succ.html"/>
+				<topic label="times"  href="docs/number_times.html"/>
+				<topic label="toColorPart"  href="docs/number_tocolorpart.html"/>
+				<topic label="toPaddedString"  href="docs/number_topaddedstring.html"/>
+			</topic>
+			<topic label="Object"  href="docs/object.html">
+				<topic label="clone"  href="docs/object_clone.html"/>
+				<topic label="extend"  href="docs/object_extend.html"/>
+				<topic label="inspect"  href="docs/object_inspect.html"/>
+				<topic label="keys"  href="docs/object_keys.html"/>
+				<topic label="toJSON"  href="docs/object_tojson.html"/>
+				<topic label="values"  href="docs/object_values.html"/>
+			</topic>
+			<topic label="ObjectRange"  href="docs/objectrange.html">
+				<topic label="include"  href="docs/objectrange_include.html"/>
+			</topic>
+			<topic label="PeriodicalExecuter"  href="docs/periodicalexecuter.html">
+				<topic label="stop"  href="docs/periodicalexecuter.html"/>
+			</topic>
+			<topic label="Position"  href="docs/position.html">
+				<topic label="absolutize"  href="docs/position_absolutize.html"/>
+				<topic label="clone"  href="docs/position_clone.html"/>
+				<topic label="cumulativeOffset"  href="docs/position_cumulativeoffset.html"/>
+				<topic label="offsetParent"  href="docs/position_offsetparent.html"/>
+				<topic label="overlap"  href="docs/position_overlap.html"/>
+				<topic label="page"  href="docs/position_page.html"/>
+				<topic label="positionedOffset"  href="docs/position_positionedoffset.html"/>
+				<topic label="prepare"  href="docs/position_prepare.html"/>
+				<topic label="realOffset"  href="docs/position_realoffset.html"/>
+				<topic label="relativize"  href="docs/position_relativize.html"/>
+				<topic label="within"  href="docs/positio_within.html"/>
+				<topic label="withinIncludingScrolloffsets"  href="docs/position_withinincludingscrolloffsets.html"/>
+			</topic>
+			<topic label="Prototype"  href="docs/prototype.html">
+				<topic label="K"  href="docs/prototype_k.html"/>
+				<topic label="Browser"  href="docs/prototype_browser.html"/>
+				<topic label="emptyFunction"  href="docs/prototype_emptyfunction.html"/>
+			</topic>
+			<topic label="String"  href="docs/string.html">
+				<topic label="blank"  href="docs/string_blank.html"/>
+				<topic label="camelize"  href="docs/string_camelize.html"/>
+				<topic label="capitalize"  href="docs/string_capitalize.html"/>
+				<topic label="dasherize"  href="docs/string_dasherize.html"/>
+				<topic label="empty"  href="docs/string_empty.html"/>
+				<topic label="endsWith"  href="docs/string_endswith.html"/>
+				<topic label="escapeHTML"  href="docs/string_escapehtml.html"/>
+				<topic label="evalJSON"  href="docs/string_evaljson.html"/>
+				<topic label="evalScripts"  href="docs/string_evalscripts.html"/>
+				<topic label="extractScripts"  href="docs/string_extractscripts.html"/>
+				<topic label="gsub"  href="docs/string_gsub.html"/>
+				<topic label="include"  href="docs/string_include.html"/>
+				<topic label="inspect"  href="docs/string_inspect.html"/>
+				<topic label="parseQuery"  href="docs/string_parse1uery.html"/>
+				<topic label="scan"  href="docs/string_scan.html"/>
+				<topic label="startsWith"  href="docs/string_startswith.html"/>
+				<topic label="strip"  href="docs/string_strip.html"/>
+				<topic label="stripScripts"  href="docs/string_stripscripts.html"/>
+				<topic label="stripTags"  href="docs/string_striptags.html"/>
+				<topic label="sub"  href="docs/string_sub.html"/>
+				<topic label="succ"  href="docs/string_succ.html"/>
+				<topic label="times"  href="docs/string_times.html"/>
+				<topic label="toArray"  href="docs/string_toarray.html"/>
+				<topic label="toJSON"  href="docs/string_tojson.html"/>
+				<topic label="toQueryParams"  href="docs/string_toqueryparams.html"/>
+				<topic label="truncate"  href="docs/string_truncate.html"/>
+				<topic label="underscore"  href="docs/string_underscore.html"/>
+				<topic label="unescapeHTML"  href="docs/string_unescapehtml.html"/>
+			</topic>
+			<topic label="Template"  href="docs/template.html">
+				<topic label="evaluate"  href="docs/template_evaluate.html"/>
+			</topic>
+			<topic label="TimedObserver"  href="docs/timedobserver.html">
+				<topic label="Form.Element.Observer"  href="docs/form_element_observer.html"/>
+				<topic label="Form.Observer"  href="docs/form_observer.html"/>
+			</topic>
+		</topic>
+	</topic>
+</toc>

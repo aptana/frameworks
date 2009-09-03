@@ -1,0 +1,234 @@
+<html>
+<head>
+<title>Effects - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="effects">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Effects</h2><h3 class='func' id='show'><b>show</b>() : jQuery</h3>
+<p>Displays each of the set of matched elements if they are hidden.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p style=&quot;display: none&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).show()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p style=&quot;display: block&quot;&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>show</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Show all matched elements using a graceful animation and firing an optional callback after completion.</p><p>The height, width, and opacity of each of the matched elements  are changed dynamically according to the specified speed.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).show(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).show(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='hide'><b>hide</b>() : jQuery</h3>
+<p>Hides each of the set of matched elements if they are shown.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).hide()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p style=&quot;display: none&quot;&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>hide</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Hide all matched elements using a graceful animation and firing an optional callback after completion.</p><p>The height, width, and opacity of each of the matched elements  are changed dynamically according to the specified speed.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).hide(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).hide(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='toggle'><b>toggle</b>() : jQuery</h3>
+<p>Toggles each of the set of matched elements. If they are shown, toggle makes them hidden. If they are hidden, toggle makes them shown.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p style=&quot;display: none&quot;&gt;Hello Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).toggle()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p style=&quot;display: none&quot;&gt;Hello&lt;/p&gt;, &lt;p style=&quot;display: block&quot;&gt;Hello Again&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='slideDown'><b>slideDown</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Reveal all matched elements by adjusting their height and firing an optional callback after completion.</p><p>Only the height is adjusted for this animation, causing all matched elements to be revealed in a "sliding" manner.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideDown(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideDown(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='slideUp'><b>slideUp</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Hide all matched elements by adjusting their height and firing an optional callback after completion.</p><p>Only the height is adjusted for this animation, causing all matched elements to be hidden in a "sliding" manner.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideUp(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideUp(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='slideToggle'><b>slideToggle</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Toggle the visibility of all matched elements by adjusting their height and firing an optional callback after completion.</p><p>Only the height is adjusted for this animation, causing all matched elements to be hidden in a "sliding" manner.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideToggle(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).slideToggle(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='fadeIn'><b>fadeIn</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Fade in all matched elements by adjusting their opacity and firing an optional callback after completion.</p><p>Only the opacity is adjusted for this animation, meaning that all of the matched elements should already have some form of height and width associated with them.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeIn(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeIn(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='fadeOut'><b>fadeOut</b>(String|Number <b>speed</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Fade out all matched elements by adjusting their opacity and firing an optional callback after completion.</p><p>Only the opacity is adjusted for this animation, meaning that all of the matched elements should already have some form of height and width associated with them.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeOut(&quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeOut(&quot;slow&quot;,function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='fadeTo'><b>fadeTo</b>(String|Number <b>speed</b>, Number <b>opacity</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>opacity</th><td width='15%'>Number</td><td>The opacity to fade to (a number from 0 to 1).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>Fade the opacity of all matched elements to a specified opacity and firing an optional callback after completion.</p><p>Only the opacity is adjusted for this animation, meaning that all of the matched elements should already have some form of height and width associated with them.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeTo(&quot;slow&quot;, 0.5);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).fadeTo(&quot;slow&quot;, 0.5, function(){
+  alert(&quot;Animation Done.&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='animate'><b>animate</b>(Hash <b>params</b>, String|Number <b>speed</b>, String <b>easing</b>, Function <b>callback</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>params</th><td width='15%'>Hash</td><td>A set of style attributes that you wish to animate, and to what end.</td></tr>
+<tr><th width='15%'>speed</th><td width='15%'>String|Number</td><td>(optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</td></tr>
+<tr><th width='15%'>easing</th><td width='15%'>String</td><td>(optional) The name of the easing effect that you want to use (Plugin Required).</td></tr>
+<tr><th width='15%'>callback</th><td width='15%'>Function</td><td>(optional) A function to be executed whenever the animation completes.</td></tr>
+</table>
+<p>A function for making your own, custom, animations. The key aspect of this function is the object of style properties that will be animated, and to what end. Each key within the object represents a style property that will also be animated (for example: "height", "top", or "opacity").</p><p>The value associated with the key represents to what end the property will be animated. If a number is provided as the value, then the style property will be transitioned from its current state to that new number. Oterwise if the string "hide", "show", or "toggle" is provided, a default animation will be constructed for that property.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).animate({
+  height: 'toggle', opacity: 'toggle'
+}, &quot;slow&quot;);</pre>
+</div>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).animate({
+  left: 50, opacity: 'show'
+}, 500);</pre>
+</div>
+<div class='example'>
+<p>An example of using an 'easing' function to provide a different style of animation. This will only work if you have a plugin that provides this easing function (Only 'linear' is provided by default, with jQuery).</p>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).animate({
+  opacity: 'show'
+}, &quot;slow&quot;, &quot;easein&quot;);</pre>
+</div>
+</div>

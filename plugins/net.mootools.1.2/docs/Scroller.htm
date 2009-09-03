@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Scroller</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Scroller"><a href="#Scroller">Class: Scroller</a></h1>
+
+<p class="description"><strong>The Scroller is a Class to scroll any
+element with an overflow (including the window) when the mouse cursor
+reaches certain boundaries of that element.</strong></p>
+
+<p><strong>You must call its start method to start listening to mouse movements.</strong></p>
+
+<h3>Note:</h3>
+
+<ul>
+<li>Scroller requires the page to be in <a href="http://hsivonen.iki.fi/doctype/">Standards Mode</a>.</li>
+</ul>
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">new</span> Scroller<span class="br0">(</span>element<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Implements:</h3>
+
+<p><a href="Class.htm.Extras#Events">Events</a>, <a href="Class.htm.Extras#Options">Options</a></p>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>element - (<em>element</em>) The element to scroll.</li>
+<li>options - (<em>object</em>, optional) An object for the Scroller instance's options.</li>
+</ol>
+<h4>Options :</h4>
+
+<ul>
+<li>area     - (<em>number</em>: defaults to 20) The necessary boundaries to make the element scroll.</li>
+<li>velocity - (<em>number</em>: defaults to 1) The modifier for the window scrolling speed.</li>
+</ul>
+<h3>Events:</h3>
+
+<ul>
+<li>change - (<em>function</em>) When the mouse reaches some boundaries, you can choose to alter some other values, instead of the scrolling offsets.</li>
+</ul>
+<h4>Signature:</h4>
+
+<pre class="javascript">onChange<span class="br0">(</span>x, y<span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>x - (<em>number</em>) Current x-mouse position.</li>
+<li>y - (<em>number</em>) Current y-mouse position.</li>
+</ol>
+<h4>Examples:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myScroller = <span class="kw2">new</span> Scroller<span class="br0">(</span>window, <span class="br0">{</span>
+    area: Math.<span class="me1">round</span><span class="br0">(</span>window.<span class="me1">getWidth</span><span class="br0">(</span><span class="br0">)</span> / <span class="nu0">5</span><span class="br0">)</span>
+<span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">this</span>.<span class="kw3">stop</span><span class="br0">(</span><span class="br0">)</span>;
+    <span class="kw1">this</span>.<span class="me1">start</span><span class="br0">(</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>.<span class="me1">periodical</span><span class="br0">(</span><span class="nu0">1000</span>, myScroller<span class="br0">)</span>;
+</pre>
+
+<h2 id="Scroller:start"><a href="#Scroller:start">Scroller Method: start</a></h2>
+
+<p class="description"><strong>The scroller starts listening to mouse movements.</strong></p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myScroller.<span class="me1">start</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myScroller = <span class="kw2">new</span> Scroller<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+myScroller.<span class="me1">start</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Scroller:stop"><a href="#Scroller:stop">Scroller Method: stop</a></h2>
+
+<p class="description"><strong>The scroller stops listening to mouse movements.</strong></p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myScroller.<span class="me1">start</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+<span class="kw2">var</span> myScroller = <span class="kw2">new</span> Scroller<span class="br0">(</span>myElement<span class="br0">)</span>;
+myScroller.<span class="me1">start</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+myElement.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, myScroller.<span class="kw3">stop</span>.<span class="me1">bind</span><span class="br0">(</span>myScroller<span class="br0">)</span><span class="br0">)</span>; <span class="co1">//stop scrolling when the user clicks.</span>
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Scroller">Scroller</a></h4>
+<div class="menu-item"><a href="#Scroller:start">start</a></div>
+<div class="menu-item"><a href="#Scroller:stop">stop</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

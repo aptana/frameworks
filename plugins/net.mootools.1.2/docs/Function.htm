@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Function</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Function"><a href="#Function">Native: Function</a></h1>
+
+<p class="description">Function Methods.</p>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:Function">MDC Function</a></li>
+</ul>
+<h2 id="Function:create"><a href="#Function:create">Function Method: create</a></h2>
+
+<p class="description">Base function for creating functional closures which is used by all other Function prototypes.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> createdFunction = myFunction.<span class="me1">create</span><span class="br0">(</span><span class="br0">[</span>options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>[options] - (<em>object</em>, optional) The options from which the
+function will be created. If options is not provided, then creates a
+copy of the function.</li>
+</ol>
+<h4 id="Function:create:options">Options:</h4>
+
+<ul>
+<li>bind       - (<em>object</em>: defaults to this function) The object that the &quot;this&quot; of the function will refer to.</li>
+<li>event      - (<em>mixed</em>: defaults to false) If set to true,
+the function will act as an event listener and receive an event as its
+first argument. If set to a class name, the function will receive a new
+instance of this class (with the event passed as argument's
+constructor) as first argument.</li>
+<li>arguments  - (<em>mixed</em>: defaults to standard arguments) A
+single argument or an array of arguments that will be passed as
+arguments to the function. If both the event and arguments options are
+set, the event is passed as first argument and the arguments array will
+follow.</li>
+<li>delay      - (<em>number</em>: defaults to no delay) If set, the
+returned function will delay the actual execution by this amount of
+milliseconds and return a timer handle when called.</li>
+<li>periodical - (<em>number</em>: defaults to no periodical execution)
+If set, the returned function will periodically perform the actual
+execution with this specified interval and return a timer handle when
+called.</li>
+<li>attempt    - (<em>boolean</em>: false) If set to true, the returned function will try to execute and return either the results or null on error.</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>function</em>) The function that was created as a result of the options passed in.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFunction = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw3">alert</span><span class="br0">(</span><span class="st0">&quot;I'm a function. :D&quot;</span><span class="br0">)</span>;
+<span class="br0">}</span>;
+&nbsp;
+<span class="kw2">var</span> mySimpleFunction = myFunction.<span class="me1">create</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Just a simple copy.</span>
+&nbsp;
+<span class="kw2">var</span> myAdvancedFunction = myFunction.<span class="me1">create</span><span class="br0">(</span><span class="br0">{</span> <span class="co1">//When called, this function will attempt.</span>
+    arguments: <span class="br0">[</span><span class="nu0">0</span>,<span class="nu0">1</span>,<span class="nu0">2</span>,<span class="nu0">3</span><span class="br0">]</span>,
+    attempt: <span class="kw2">true</span>,
+    delay: <span class="nu0">1000</span>,
+    bind: myElement
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Function:pass"><a href="#Function:pass">Function Method: pass</a></h2>
+
+<p class="description">Returns a closure with arguments and bind.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> newFunction = myFunction.<span class="me1">pass</span><span class="br0">(</span><span class="br0">[</span>args<span class="br0">[</span>, bind<span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>args - (<em>mixed</em>, optional) The arguments to pass to the function (must be an array if passing more than one argument).</li>
+<li>bind - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>function</em>) The function whose arguments are passed when called.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFunction = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw2">var</span> result = <span class="st0">'Passed: '</span>;
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw2">var</span> i = <span class="nu0">0</span>, l = arguments.<span class="me1">length</span>; i &lt; l; i++<span class="br0">)</span><span class="br0">{</span>
+        result += <span class="br0">(</span>arguments<span class="br0">[</span>i<span class="br0">]</span> + <span class="st0">' '</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+    <span class="kw1">return</span> result;
+<span class="br0">}</span>
+<span class="kw2">var</span> myHello = myFunction.<span class="me1">pass</span><span class="br0">(</span><span class="st0">'hello'</span><span class="br0">)</span>;
+<span class="kw2">var</span> myItems = myFunction.<span class="me1">pass</span><span class="br0">(</span><span class="br0">[</span><span class="st0">'peach'</span>, <span class="st0">'apple'</span>, <span class="st0">'orange'</span><span class="br0">]</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Later in the code, the functions can be executed:</span>
+<span class="kw3">alert</span><span class="br0">(</span>myHello<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="co1">//Passes &quot;hello&quot; to myFunction.</span>
+<span class="kw3">alert</span><span class="br0">(</span>myItems<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="co1">//Passes the array of items to myFunction.</span>
+</pre>
+
+<h2 id="Function:attempt"><a href="#Function:attempt">Function Method: attempt</a></h2>
+
+<p class="description">Tries to execute the function.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> result = myFunction.<span class="me1">attempt</span><span class="br0">(</span><span class="br0">[</span>args<span class="br0">[</span>, bind<span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>args - (<em>mixed</em>, optional) The arguments to pass to the function (must be an array if passing more than one argument).</li>
+<li>bind - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The function's return value or <code>null</code> if an exception is thrown.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myObject = <span class="br0">{</span>
+    <span class="st0">'cow'</span>: <span class="st0">'moo!'</span>
+<span class="br0">}</span>;
+&nbsp;
+<span class="kw2">var</span> myFunction = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw2">var</span> i = <span class="nu0">0</span>; i &lt; arguments.<span class="me1">length</span>; i++<span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">if</span><span class="br0">(</span>!<span class="kw1">this</span><span class="br0">[</span>arguments<span class="br0">[</span>i<span class="br0">]</span><span class="br0">]</span><span class="br0">)</span> <span class="kw1">throw</span><span class="br0">(</span><span class="st0">'doh!'</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span>;
+<span class="kw2">var</span> result = myFunction.<span class="me1">attempt</span><span class="br0">(</span><span class="br0">[</span><span class="st0">'pig'</span>, <span class="st0">'cow'</span><span class="br0">]</span>, myObject<span class="br0">)</span>; <span class="co1">//result = null</span>
+</pre>
+
+<h2 id="Function:bind"><a href="#Function:bind">Function Method: bind</a></h2>
+
+<p class="description">Changes the scope of <code>this</code> within the target function to refer to the bind parameter.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myFunction.<span class="me1">bind</span><span class="br0">(</span><span class="br0">[</span>bind<span class="br0">[</span>, args<span class="br0">[</span>, evt<span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>bind - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+<li>args - (<em>mixed</em>, optional) The arguments to pass to the function (must be an array if passing more than one argument).</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>function</em>) The bound function.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">function</span> myFunction<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="co1">//Note that 'this' here refers to window, not an element.</span>
+    <span class="co1">//The function must be bound to the element we want to manipulate.</span>
+    <span class="kw1">this</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'color'</span>, <span class="st0">'red'</span><span class="br0">)</span>;
+<span class="br0">}</span>;
+<span class="kw2">var</span> myBoundFunction = myFunction.<span class="me1">bind</span><span class="br0">(</span>myElement<span class="br0">)</span>;
+myBoundFunction<span class="br0">(</span><span class="br0">)</span>; <span class="co1">//This will make myElement's text red.</span>
+</pre>
+
+<h2 id="Function:bindWithEvent"><a href="#Function:bindWithEvent">Function Method: bindWithEvent</a></h2>
+
+<p class="description">Changes the scope of <code>this</code> within the target function to refer to the bind parameter. It also makes &quot;space&quot; for an event.
+This allows the function to be used in conjunction with <a href="Element.Event.htm#Element:addEvent">Element:addEvent</a> and arguments.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myFunction.<span class="me1">bindWithEvent</span><span class="br0">(</span><span class="br0">[</span>bind<span class="br0">[</span>, args<span class="br0">[</span>, evt<span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>bind - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+<li>args - (<em>mixed</em>, optional) The arguments to pass to the function (must be an array if passing more than one argument).</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>function</em>) The bound function.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">function</span> myFunction<span class="br0">(</span>e, add<span class="br0">)</span><span class="br0">{</span>
+    <span class="co1">//Note that 'this' here refers to window, not an element.</span>
+    <span class="co1">//We'll need to bind this function to the element we want to alter.</span>
+    <span class="kw1">this</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'top'</span>, e.<span class="me1">client</span>.<span class="me1">x</span> + add<span class="br0">)</span>;
+<span class="br0">}</span>;
+$<span class="br0">(</span>myElement<span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, myFunction.<span class="me1">bindWithEvent</span><span class="br0">(</span>myElement, <span class="nu0">100</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="co1">//When clicked, the element will move to the position of the mouse + 100.</span>
+</pre>
+
+<h2 id="Function:delay"><a href="#Function:delay">Function Method: delay</a></h2>
+
+<p class="description">Delays the execution of a function by a specified duration.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> timeoutID = myFunction.<span class="me1">delay</span><span class="br0">(</span><span class="br0">[</span>delay<span class="br0">[</span>, bind<span class="br0">[</span>, args<span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>delay - (<em>number</em>, optional) The duration to wait (in milliseconds).</li>
+<li>bind  - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+<li>args  - (<em>mixed</em>, optional) The arguments passed (must be an array if the arguments are greater than one).</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>number</em>) The JavaScript timeout id (for clearing delays).</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFunction = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'moo! Element id is: '</span> + <span class="kw1">this</span>.<span class="me1">id</span><span class="br0">)</span>; <span class="br0">}</span>;
+<span class="co1">//Wait 50 milliseconds, then call myFunction and bind myElement to it.</span>
+myFunction.<span class="me1">delay</span><span class="br0">(</span><span class="nu0">50</span>, myElement<span class="br0">)</span>; <span class="co1">//Alerts: 'moo! Element id is: ... '</span>
+&nbsp;
+<span class="co1">//An anonymous function which waits a second and then alerts.</span>
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'one second later...'</span><span class="br0">)</span>; <span class="br0">}</span><span class="br0">)</span>.<span class="me1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="Core.htm#clear">$clear</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window.setTimeout">MDC setTimeout</a>
+</li>
+</ul>
+<h2 id="Function:periodical"><a href="#Function:periodical">Function Method: periodical</a></h2>
+
+<p class="description">Executes a function in the specified intervals of time. Periodic execution can be stopped using the <a href="Core.htm#clear">$clear</a> function.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> intervalID = myFunction.<span class="me1">periodical</span><span class="br0">(</span><span class="br0">[</span>period<span class="br0">[</span>, bind<span class="br0">[</span>, args<span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>period - (<em>number</em>, optional) The duration of the intervals between executions.</li>
+<li>bind   - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+<li>args   - (<em>mixed</em>, optional) The arguments passed (must be an array if the arguments are greater than one).</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>number</em>) The Interval id (for clearing a periodical).</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> Site = <span class="br0">{</span> counter: <span class="nu0">0</span> <span class="br0">}</span>;
+<span class="kw2">var</span> addCount = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw1">this</span>.<span class="me1">counter</span>++; <span class="br0">}</span>;
+addCount.<span class="me1">periodical</span><span class="br0">(</span><span class="nu0">1000</span>, Site<span class="br0">)</span>; <span class="co1">//Will add the number of seconds at the Site.</span>
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="Core.htm#clear">$clear</a>, <a href="http://developer.mozilla.org/en/docs/DOM:window.setInterval">MDC setInterval</a>
+</li>
+</ul>
+<h2 id="Function:run"><a href="#Function:run">Function Method: run</a></h2>
+
+<p class="description">Runs the Function with specified arguments and binding. The same as apply but reversed and with support for a single argument.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFunctionResult = myFunction.<span class="me1">run</span><span class="br0">(</span>args<span class="br0">[</span>, bind<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>args - (<em>mixed</em>) An argument, or array of arguments to run the function with.</li>
+<li>bind - (<em>object</em>, optional) The object that the &quot;this&quot; of the function will refer to.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) This Function's return value.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Simple Run:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myFn = <span class="kw2">function</span><span class="br0">(</span>a, b, c<span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">return</span> a + b + c;
+<span class="br0">}</span>
+<span class="kw2">var</span> myArgs = <span class="br0">[</span><span class="nu0">1</span>,<span class="nu0">2</span>,<span class="nu0">3</span><span class="br0">]</span>;
+myFn.<span class="me1">run</span><span class="br0">(</span>myArgs<span class="br0">)</span>; <span class="co1">//Returns: 6</span>
+</pre>
+
+<h4>Run With Binding:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myFn = <span class="kw2">function</span><span class="br0">(</span>a, b, c<span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw1">return</span> a + b + c + <span class="kw1">this</span>;
+<span class="br0">}</span>
+<span class="kw2">var</span> myArgs = <span class="br0">[</span><span class="nu0">1</span>,<span class="nu0">2</span>,<span class="nu0">3</span><span class="br0">]</span>;
+myFn.<span class="me1">run</span><span class="br0">(</span>myArgs, <span class="nu0">6</span><span class="br0">)</span>; <span class="co1">//Returns: 12</span>
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Function">Function</a></h4>
+<div class="menu-item"><a href="#Function:create">create</a></div>
+<div class="menu-item"><a href="#Function:pass">pass</a></div>
+<div class="menu-item"><a href="#Function:attempt">attempt</a></div>
+<div class="menu-item"><a href="#Function:bind">bind</a></div>
+<div class="menu-item"><a href="#Function:bindWithEvent">bindWithEvent</a></div>
+<div class="menu-item"><a href="#Function:delay">delay</a></div>
+<div class="menu-item"><a href="#Function:periodical">periodical</a></div>
+<div class="menu-item"><a href="#Function:run">run</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

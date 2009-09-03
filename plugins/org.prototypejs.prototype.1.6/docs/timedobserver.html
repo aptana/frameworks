@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>TimedObserver</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">TimedObserver</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>An abstract observer class which instances can be used to periodically check some value and trigger a callback when the value has changed. The frequency is in seconds.</p>
+<p>&nbsp;</p>
+<p>A <span class="f_CourierFixed">TimedObserver</span> object will try to check some value using the <span class="f_CourierFixed">getValue()</span> instance method which isn't defined in this class. You must use the concrete implementations of <span class="f_CourierFixed">TimedObserver</span> like <span class="f_CourierFixed"><a href="form_observer.html">Form.Observer</a></span> or <span class="f_CourierFixed"><a href="form_element_observer.html">Form.Element.Observer</a></span>. The former serializes a form and triggers when the result has changed, while the latter simply triggers when the value of a certain form control changes.</p>
+<p>&nbsp;</p>
+<p>Using <span class="f_CourierFixed">TimedObserver</span> implementations is straightforward; simply instantiate them with appropriate arguments. </p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">On this page</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="timedobserver.html#topic1" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Example</a></span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 6px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #3366ff; text-decoration: none;">&#183;</span></td><td><span style="color: #3366ff; text-decoration: underline;"><a href="timedobserver.html#index" style="font-size: 10pt; font-family: 'Arial'; font-style: normal; font-weight: normal; color: #3366ff; background-color: transparent; text-decoration: underline;">Moduleindex</a></span></td></tr></table></div><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><a name="topic1"></a><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">&nbsp;&nbsp;new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Form.Element.Observer(</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'myelement'</span><span class="f_CodeExample" style="color: #000000;">,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.2</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;&nbsp;//&nbsp;200&nbsp;milliseconds</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(el,&nbsp;value){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(</span><span class="f_CodeExample" style="color: #800000;">'The&nbsp;form&nbsp;control&nbsp;has&nbsp;changed&nbsp;value&nbsp;to:&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;value)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>Now that we have instantiated an object, it will check the value of the form control every 0.2 seconds and alert us of any change. While it is useless to alert the user of his own input (like in the example), we could be doing something useful like updating a certain part of the UI or informing the application on server of stuff happening (over Ajax).</p>
+<p>&nbsp;</p>
+<p>The callback function is always called with 2 arguments: the element given when the observer instance was made and the actual value that has changed and caused the callback to be triggered in the first place.</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">Form.Element.Observer</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Form.Element.Observer(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;frequency,&nbsp;callback)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">A timed observer for a specific form control.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">Form.Observer</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Form.Observer(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;frequency,&nbsp;callback)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">A timed observer that triggers when any value changes within the form.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

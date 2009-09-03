@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>scan</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">scan </span><span class="f_TopicHeading" style="color: #ccffff;">:: String</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">scan(pattern, iterator) -&gt; string</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression). Returns the original string.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Internally just calls <span class="f_CourierFixed">gsub()</span> passing it pattern and iterator as arguments.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">'apple,&nbsp;pear&nbsp;&amp;&nbsp;orange'</span><span class="f_CodeExample" style="color: #000000;">.scan(/\w+/,&nbsp;alert);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'apple&nbsp;pear&nbsp;orange'&nbsp;(and&nbsp;displays&nbsp;'apple',&nbsp;'pear'&nbsp;and&nbsp;'orange'&nbsp;in&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three&nbsp;successive&nbsp;alert&nbsp;dialogs)</span></p>
+<p>&nbsp;</p>
+<p>Can be used to populate an array:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">var&nbsp;fruits&nbsp;=&nbsp;[];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">'apple,&nbsp;pear&nbsp;&amp;&nbsp;orange'</span><span class="f_CodeExample" style="color: #000000;">.scan(/\w+/,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(match){&nbsp;fruits.push(match[</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">])});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">fruits.inspect()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;['apple',&nbsp;'pear',&nbsp;'orange']</span></p>
+<p>&nbsp;</p>
+<p>or even to work on the DOM:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">'failure-message,&nbsp;success-message&nbsp;&amp;&nbsp;spinner'</span><span class="f_CodeExample" style="color: #000000;">.scan(/(\w|-)+/,&nbsp;Element.toggle)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'failure-message,&nbsp;success-message&nbsp;&amp;&nbsp;spinner'&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and&nbsp;toggles&nbsp;the&nbsp;visibility&nbsp;of&nbsp;each&nbsp;DOM&nbsp;element)</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Note</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Do not</span> use the "g" flag on the regex as this will create an <span style="font-weight: bold;">infinite loop</span>.</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

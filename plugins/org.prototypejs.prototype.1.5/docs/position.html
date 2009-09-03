@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Position</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Position</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The <span style="font-weight: bold;">Position</span> object provides a series of methods that help with element positioning and layout-related issues. These are mainly used by third party UI libraries like script.aculo.us.</p>
+<p>&nbsp;</p>
+<hr noshade size=3 style="color : #99ccff"><p class="p_IndexHeading"><a name="index"></a><span class="f_IndexHeading">Moduleindex</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">absolutize</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">absolutize(element)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Turns <span class="f_CourierFixed">element</span> into an absolutely-positioned element without changing its position in the page layout.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">clone</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">clone(source,&nbsp;target[,&nbsp;options])&nbsp;-&gt;&nbsp;[Number,&nbsp;Number]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Clones the position and/or dimensions of source onto target as defined by the optional argument options.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">cumulativeOffset</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">cumulativeOffset(element)&nbsp;-&gt;&nbsp;[Number,&nbsp;Number]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the offsets of element from the top left corner of the document.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">offsetParent</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">offsetParent(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns element’s closest positioned ancestor. If none is found, the body element is returned.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">overlap</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">overlap(mode,&nbsp;element)&nbsp;-&gt;&nbsp;Number</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns a <span class="f_CourierFixed">Number</span> between 0 and 1 corresponding to the proportion to which element overlaps the point previously defined by <span class="f_CourierFixed">Position.within</span>. mode can be set to either <span class="f_CourierFixed">vertical</span> or <span class="f_CourierFixed">horizontal</span>.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">page</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">page(element)&nbsp;-&gt;&nbsp;[Number,&nbsp;Number]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Returns the X/Y coordinates of element relative to the viewport.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">positionedOffset</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">positionedOffset(element)&nbsp;-&gt;&nbsp;[Number,&nbsp;Number]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Calculates the <span class="f_CourierFixed">element</span>’s offset relative to its closest positioned ancestor (i.e., the element that would be returned by <span class="f_CourierFixed">Position.offsetParent(element)</span>.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">prepare</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">prepare()</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Calculates document scroll offsets for use with <span class="f_CourierFixed">Position.withinIncludingScrollOffsets</span>.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">realOffset</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">realOffset(element)&nbsp;-&gt;&nbsp;[Number,&nbsp;Number]</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Calculates the cumulative scroll offset of an element in nested scrolling containers.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">relativize</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">relativize(element)</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Turns element into an relatively-positioned element without changing its position in the page layout.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">within</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">within(element,&nbsp;x,&nbsp;y)&nbsp;-&gt;&nbsp;Boolean</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Indicates whether the point x, y (measured from the top-left corner of the document) is within the boundaries of element. Must be called immediately before <span class="f_CourierFixed">Position.overlap</span>.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none; margin: 0px 0px 0px 12px;"><span class="f_Heading1">withinIncludingScrolloffsets</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">withinIncludingScrollOffsets(element,&nbsp;x,&nbsp;y)&nbsp;-&gt;&nbsp;Boolean</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Indicates whether the point x, y (measured from the top-left corner of the document) is within the boundaries of element. Used instead of <span class="f_CourierFixed">Position.within</span> whenever <span class="f_CourierFixed">element</span> is a child of a scrolling container. Must be called immediately before <span class="f_CourierFixed">Position.overlap</span> and immediately after <span class="f_CourierFixed">Position.prepare</span>.</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

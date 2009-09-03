@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Effect.Highlight</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Effect.Highlight</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This effect Flashes a color as the background of an element. It is mostly used to draw attention to a part of the page that has been updated via javascript or AJAX, when the update would not otherwise be obvious.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Highlight('id_of_element',&nbsp;[options]);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Highlight(element,&nbsp;[options]);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Effect-specific parameters</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="550" bgcolor="#99cc00" style="width:550px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>duration</p>
+</td>
+<td width="550" style="width:550px;"><p>Duration of the effect in seconds, given as a float. Defaults to 1.0.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>startcolor</p>
+</td>
+<td width="550" style="width:550px;"><p>Sets the color of first frame of the highlight the highlight.</p>
+<p>Defaults to ”#ffff99” (light yellow)</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>endcolor</p>
+</td>
+<td width="550" style="width:550px;"><p>Sets the color of the last frame of the highlight. This is best set to the background color of the highlighted element. Defaults to ”#ffffff” (white)</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>restorecolor</p>
+</td>
+<td width="550" style="width:550px;"><p>Sets the background color of the element after the highlight has finished.</p>
+<p>Defaults to the current background-color of the highlighted element (see Note)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Highlight('my_field',&nbsp;{startcolor:'#ff99ff',&nbsp;endcolor:'#999999'})</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>If the restorecolor option is not given, Effect.Highlight tries to find out the current background color of the element, which will only work reliably across browsers if the color is given with a CSS rgb triplet, like rgb(0, 255, 0).</p>
+<p>&nbsp;</p>
+<p>Be aware of the synatx: this effect strictly requires a “new” in front, otherwise you will get a javascript error.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

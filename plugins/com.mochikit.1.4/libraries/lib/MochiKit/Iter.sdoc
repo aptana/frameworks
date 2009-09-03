@@ -1,0 +1,366 @@
+/**
+ * ScriptDoc for Iter.js
+ */
+
+/**
+ * Registers an iterator factory for use with the iter function.
+ * @id MochiKit.Iter.registerIteratorFactory 
+ * @alias registerIteratorFactory
+ * @alias MochiKit.Iter.registerIteratorFactory
+ * @param {String} name    Unique name of the iterator factory to register.
+ * @param {Function} check    Function that returns true if name can be converted into an iterator with iterfactory.
+ * @param {Object} iterfactory    Function that returns an object with a "next" function that returns the next value in the sequence. 
+ * iterfactory will only be called if check(name) returns true.
+ * @param {Object} [override]    If specified and true, the function will be the highest priority iterator factory.
+ * Otherwise, it will be the lowest priority iterator factory.
+ */
+
+/**
+ * Converts the iterable argument to an iterator (object implementing "next").
+ * <ul>
+ * <li>If iterable is an iterator (implements .next()), then it will be returned as-is.</li>
+ * <li>If iterable is an iterator factory (implements .iter()), then the result of iterable.iter() will be returned.</li>
+ * <li>If iterable is a JavaScript 1.7 iterator factory (implements .__iterable__()), then the result of iterable.__iterable__() will be returned (MochiKit 1.4+).</li>
+ * <li>Otherwise, the iterator factory MochiKit.Base.AdapterRegistry is used to find a match.</li>
+ * <li>If no factory is found, it will throw TypeError.</li>
+ * <li>Built-in iterator factories are present for Array-like objects, and objects that implement the iterateNext protocol (e.g. the result of Mozilla's document.evaluate).</li>
+ * </ul>
+ * Use higher-order functions than iter to work with iterators, if possible.
+ * @id MochiKit.Iter.iter
+ * @alias iter
+ * @alias MochiKit.Iter.iter 
+ * @param {Object} iterable    Object to convert to an iterator.
+ * @param {Object} [sentinel]
+ */
+
+/**
+ * Increments n and returns the result.
+ * @id MochiKit.Iter.count
+ * @alias count
+ * @alias MochiKit.Iter.count
+ * @param {Number} n    Number to start the count with.
+ * @return {Number} Returns the incremented result.
+ */
+
+/**
+ * Cycles through an array-like object, starting with the first item in the array. 
+ * When it reaches the last item, it starts over again with the first.
+ * @id MochiKit.Iter.cycle
+ * @alias cycle
+ * @alias MochiKit.Iter.cycle
+ * @param {Object} p    Array-like object to be cycled through.
+ * @return {Object} Returns the next item in the cycle.
+ * @exception StopIteration
+ */
+
+/**
+ * Repeats the specified element endlessly or up to a specified number of times.
+ * @id MochiKit.Iter.repeat
+ * @alias repeat
+ * @alias MochiKit.Iter.repeat
+ * @param {Object} elem    Element to repeat.
+ * @param {Number} [n]    Number of times to repeat the element. Default is endlessly.
+ * @return {Object} Returns the repeated element.
+ */
+
+/**
+ * Returns the next element in the iterator.
+ * @id MochiKit.Iter.next
+ * @alias next
+ * @alias MochiKit.Iter.next
+ * @param {Object} iterator    Object containing the elements to be iterated through.
+ * @return {Object} Returns the next element in the iterator.
+ */
+
+/**
+ * Iterates through two or more array-like objects and returns the elements mapped together as an object.
+ * @id MochiKit.Iter.izip
+ * @alias izip
+ * @alias MochiKit.Iter.izip
+ * @param {Object} p    First array-like object to iterate through.
+ * @param {Object} ...    One or more additional array-like objects to iterate through.
+ * @return {Object} Returns the elements mapped together as an object.
+ */
+
+/**
+ * Returns the elements of a sequence where pred(element) is true.
+ * @id MochiKit.Iter.ifilter
+ * @alias ifilter
+ * @alias MochiKit.Iter.ifilter
+ * @param {Function} pred    Function to be used to evaluate the elements of the object.
+ * @param {Object} seq    Sequence whose elements are to be evaluated.
+ * @return {Object} Returns the elements of a sequence where pred(element) is true.
+ */
+
+/**
+ * Returns the elements of a sequence where pred(element) is false.
+ * @id MochiKit.Iter.ifilterfalse
+ * @alias ifilterfalse
+ * @alias MochiKit.Iter.ifilterfalse
+ * @param {Function} pred    Function to be used to evaluate the elements of the object.
+ * @param {Object} seq    Sequence whose elements are to be evaluated.
+ * @return {Object} Returns the elements of a sequence where pred(element) is false.
+ */
+
+/**
+ * Returns a subset of elements from an array-like object from the specified starting point to the specified stopping point.
+ * <p>islice(seq, [start,] stop[, step])  --> elements from seq[start:stop:step]</p>
+ * @id MochiKit.Iter.islice
+ * @alias islice
+ * @alias MochiKit.Iter.islice
+ * @param {Object} seq    Sequence to be "sliced."
+ * @param {Number}  [start]    Start index for the slice.
+ * @param {Number}  [stop]    Stop index for the slice.
+ * @param {Number}  [step]    Number of steps per increment.
+ * @return {Object} Returns the specified "slice" of elements.
+ * @exception StopIteration
+ */
+
+/**
+ * Calls a function on each element of the specified array-like objects.
+ * <p>imap(fun, p, q, ...) --> fun(p0, q0, ...), fun(p1, q1, ...), ... </p>
+ * @id MochiKit.Iter.imap
+ * @alias imap
+ * @alias MochiKit.Iter.imap
+ * @param {Function} fun    Function to call.
+ * @param {Object} p    First array-like object to map to fun.
+ * @param {Object} ...    One or more additional array-like objects to map to fun.
+ * @return {Object} Returns the function mapped to the specified arguments.
+ */
+
+/**
+ * Maps a function so that it takes an element in a sequence as its first argument and self as its second argument.
+ * <p>applymap(fun, seq) is equivalent to "fun.apply(self, seq0)", "fun.apply(self, seq1)", ...</p>
+ * @id MochiKit.Iter.applymap
+ * @alias applymap
+ * @alias MochiKit.Iter.applymap
+ * @param {Function} fun    Function to be mapped.
+ * @param {Object} seq    Sequence containing the elements that will be the first argument for the function.
+ * @param {Object} self    Self object that will be the second argument for the function.
+ * @return {Object} Returns a function mapped to the elements of the sequence and to self.
+ */
+
+/**
+ * Appends the elements of two or more array-like objects so that the first element of
+ * the second array-like object follows the last element of the first array-like object.
+ * <p>e.g. chain(p, q, ...) --> p0, p1, ... plast, q0, q1, ...</p>
+ * @id MochiKit.Iter.chain
+ * @alias chain
+ * @alias MochiKit.Iter.chain
+ * @param {Object} p    First array-like object.
+ * @param {Object} ...    One or more array-like objects to append to p.
+ * @return {Object} Returns an array-like object with the elements of q appended to the elements of p.
+ * @exception StopIteration
+ */
+
+/**
+ * Evaluates each element in a sequence with pred(element) until pred(element) fails and returns the subset of elements for which pred(element) is true.
+ * @id MochiKit.Iter.takewhile
+ * @alias takewhile
+ * @alias MochiKit.Iter.takewhile
+ * @param {Function} pred    function to evaluate the elements of seq.
+ * @param {Object} seq    Sequence of elements to be evaluated.
+ * @return {Object} Returns the subset of elements for which pred(element) is true.
+ * @exception StopIteration
+ */
+
+/**
+ * Evaluates each element in a sequence with pred(element) and returns a subset of elements starting with the element where pred(element) fails.
+ * @id MochiKit.Iter.dropwhile
+ * @alias dropwhile
+ * @alias MochiKit.Iter.dropwhile
+ * @param {Function} pred    Function to be used to evaluate the elements of seq.
+ * @param {Object} seq    Array-like object to have each of its elements sequentially evaluated by pred.
+ * @return {Object} Returns the subset of elements of seq starting with the element where pred(element) fails.
+ */
+
+/**
+ * Splits an iterable into n pieces.
+ * @id MochiKit.Iter.tee
+ * @alias tee
+ * @alias MochiKit.Iter.tee
+ * @param {Object} iterable    Iterable to be split.
+ * @param {Object} [n]    Number of pieces to split the iterable into. Default is 2.
+ * @return {Object} Returns the iterable split into the specified number of pieces.
+ */
+
+/**
+ * Converts an iterable to a new Array.
+ * @id MochiKit.Iter.list
+ * @alias list
+ * @alias MochiKit.Iter.list
+ * @param {Object} iterable Array-like object to convert to an array.
+ * @return {Array} Returns a new Array.
+ * @exception StopIteration.
+ */
+
+/**
+ * Applies a function cumulatively to the elements of an iterable and reduces the iterable to a single value. 
+ * <p>e.g. reduce(operator.add, [1, 2, 3, 4, 5]) --> ((((1 + 2) + 3) + 4) + 5).</p>
+ * @id MochiKit.Iter.reduce
+ * @alias reduce
+ * @alias MochiKit.Iter.reduce
+ * @param {Function} fn    Function to apply.
+ * @param {Object} iterable    Iterable to reduce the elements of.
+ * @param {Object} [initial] If specified, initial is placed before the items in the sequence in the calculation and serves as a default if the sequence is emtpy.
+ * @return {Object} Returns the single-value result of the reduction.
+ * @exception StopIteration
+ */
+
+/**
+ * Returns an iterator containing an arithmetic progression of integers.
+ * @id MochiKit.Iter.range
+ * @alias range
+ * @alias MochiKit.Iter.range
+ * @param {Number} [start] First number in the range. Defaults to 0.
+ * @param {Object} [stop]    Number of elements to include in the range.
+ * e.g. range(4) --> iter([0, 1, 2, 3])
+ * @param {Object} [step]    Nmount to increment (or decrement) each step in the range by. Defaults to 1.
+ * @return {Object} Returns an array-like object containing the specified progressive range of integers.
+ * @exception TypeError
+ * @exception StopIteration
+ */
+
+/**
+ * Returns the sum of a sequence of numbers plus the value of "start".
+ * @id MochiKit.Iter.sum
+ * @alias sum
+ * @alias MochiKit.Iter.sum
+ * @param {Object} iterable Iterable containing the sequence of numbers to be added.
+ * @param {Number} [start]    Number to be added to the iterable. Default is 0.
+ * @return {Number} Returns the sum of a sequence of numbers plus the value of "start".
+ */
+
+/**
+ * Exhausts an iterable without saving the results anywhere, like list(iterable) if the output does not matter.
+ * @id MochiKit.Iter.exhaust
+ * @alias exhaust
+ * @alias MochiKit.Iter.exhaust
+ * @param {Object} iterable    Array-like object to be iterated through.
+ * @exception StopIteration
+ */
+
+/**
+ * Calls func for each item in iterable, and does not save the results.
+ * @id MochiKit.Iter.forEach
+ * @alias forEach
+ * @alias MochiKit.Iter.forEach
+ * @param {Object} iterable    Array-like object to be iterated through by func.
+ * @param {Function} func    Function to be called on each element of iterable.
+ * @param {Object} [self]    If present, func will be bound to self.
+ * @exception StopIteration
+ */
+
+/**
+ * Returns true if func(element) is true for each element of an iterable.
+ * @id MochiKit.Iter.every
+ * @alias every
+ * @alias MochiKit.Iter.every
+ * @param {Object} iterable    Array-like object whose elements will be evaluated by func.
+ * @param {Function} func    Function to evaluate the elements of iterable.
+ * @return {Boolean} Returns true if func(element) is true for each element of an iterable.
+ * @exception StopIteration
+ */
+
+/**
+ * Returns a sorted array from iterable.
+ * @id MochiKit.Iter.sorted
+ * @alias sorted
+ * @alias MochiKit.Iter.sorted
+ * @param {Object} iterable    Iterable to sort.
+ * @param {Object} [cmp]    Function to be used to compare the elements of the iterable for sorting.
+ * Default is the compare function.
+ * @return {Array} Returns a sorted Array.
+ */
+
+/**
+ * Returns a reversed array from iterable.
+ * @id MochiKit.Iter.reversed
+ * @alias reversed
+ * @alias MochiKit.Iter.reversed
+ * @param {Object} iterable    Iterable to reverse.
+ * @return {Array} Returns a reversed array from iterable.
+ * @exception StopIteration
+ */
+
+/**
+ * Returns true if func(element) is true for at least one element in iterable.
+ * @id MochiKit.Iter.some
+ * @alias some
+ * @alias MochiKit.Iter.some
+ * @param {Object} iterable    Iterable to test.
+ * @param {Function} func    Function to call on iterable.
+ * @return {Boolean} Returns true if func(element) is true for at least one element in iterable.
+ * @exception StopIteration
+ */
+
+/**
+ * Converts an iterable into a new array and pushes the results onto lst.
+ * @id MochiKit.Iter.iextend
+ * @alias iextend
+ * @alias MochiKit.Iter.iextend
+ * @param {Array} lst    List that the new array will be pushed onto.
+ * @param {Object} iterable    Iterable to be converted into an array.
+ * @return {lst}    Returns the updated lst.
+ */
+
+/**
+ * Creates an iterator that returns consecutive keys and groups from the iterable. 
+ * Sort the iterable on the keyfunc before calling the groupby function.
+ * @id MochiKit.Iter.groupby
+ * @alias groupby
+ * @alias MochiKit.Iter.groupby
+ * @param {Object} iterable    Array-like object that is the source for the keys and groups.
+ * @param {Function} [keyfunc]    If specified, computes the key value for each element in the iterable.
+ * Defaults to an identity function and returns the element unchanged. 
+ * @return {Object} Returns consecutive keys and groups from the iterable.
+ * @see groupby_as_array
+ */
+
+/**
+ * Creates an array that returns consecutive keys and groups from the iterable. 
+ * Sort the iterable on the keyfunc before calling the groupby function.
+ * Similar to groupby(), except returns an array of arrays instead of an iterator of iterators.
+ * @id MochiKit.Iter.groupby_as_array
+ * @alias groupby_as_array
+ * @alias MochiKit.Iter.groupby_as_array
+ * @param {Object} iterable    Array-like object that is the source for the keys and groups.
+ * @param {Object} [keyfunc]    If specified, computes the key value for each element in the iterable.
+ * Defaults to an identity function and returns the element unchanged.
+ * @return {Array} Returns an array of arrays containing the consecutive keys and groups.
+ * @see groupby
+ */
+
+/**
+ * Creates an array-like object from an iterable.
+ * @id MochiKit.Iter.arrayLikeIter
+ * @alias arrayLikeIter
+ * @alias MochiKit.Iter.arrayLikeIter
+ * @param {Object} iterable    Iterable to create the array-like object from.
+ * @return {iterable} Returns the iterable as an array-like object.
+ */
+
+/**
+ * Returns true if iterable has an iterateNext property.
+ * @id MochiKit.Iter.hasIterateNext
+ * @alias hasIterateNext
+ * @alias MochiKit.Iter.hasIterateNext
+ * @param {Object} iterable    Iterable to test.
+ * @return {Boolean} Returns true if iterable has an iterateNext property.
+ */
+
+/**
+ * Iterates the next iterable.
+ * @id MochiKit.Iter.iterateNextIter
+ * @alias iterateNextIter
+ * @alias MochiKit.Iter.iterateNextIter
+ * @param {Object} iterable    Iterable to start with.
+ */
+
+/**
+ * Singleton MochiKit.Base.NamedError that signifies the end of an iterator.
+ * @id MochiKit.Iter.StopIteration
+ * @alias StopIteration
+ * @alias MochiKit.Iter.StopIteration
+ * @see MochiKit.Base.NamedError
+ */

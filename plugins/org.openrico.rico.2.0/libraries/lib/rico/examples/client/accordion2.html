@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Accordion</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta content="51.992238, -0.179288" name="ICBM" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.example.com/xml/rsd" />
+<link href="http://www.example.com/xml/rss" rel="alternate" title="RSS" type="application/rss+xml" />
+<link href="css/phokus/phokus.css" media="screen" rel="Stylesheet" type="text/css" />
+<!--[if lte IE 7.0]>
+<link href="css/phokus/phokus-ie.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+<script src="../../src/rico.js" type="text/javascript"></script>
+<script src="../../src/ricoEffects.js" type="text/javascript"></script>
+<script src="../../src/ricoBehaviors.js" type="text/javascript"></script>
+<script src="../../src/ricoComponents.js" type="text/javascript"></script>
+<script type='text/javascript'>
+// Rico.loadModule('Accordion');
+Rico.onLoad( function() {
+  new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent'), 
+                      {panelHeight:200, selectPanelIndex: 0, stepping: Rico.Stepping.ease_in });
+});
+</script>
+<style>
+.panel {
+    width: 175px;
+    padding: 0pt 15px 15px;
+    background: transparent url(images/phokus/sb-bottom.gif) no-repeat scroll 0pt 100%;
+}
+
+.panel h3, label{
+     margin: 0pt 0pt 5px -15px;
+     padding: 15px 34px 0pt 15px;
+     width: 150px;
+     background: transparent url('images/phokus/sb-top.gif') no-repeat scroll 0%;
+     color: #FFFFFF;
+     display: block;
+     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+     font-size: 1em;
+     font-weight: bold;
+     position: relative;
+     text-transform: uppercase;
+     cursor: pointer;
+ }
+
+.panelContent {
+   width:170px;
+}
+</style>
+</head>
+<body>
+<div id="page">
+<div id="header">
+<h1><a href="/">Accordion to openRico</a></h1>
+<small></small>
+</div>
+<div id="main">
+<div class="post">
+<h2>openRico 2.0 Demos!</h2>
+<div class="post-content" id="post-caption">
+<p class="auth"><a href="javascript:void(0)" onclick="Rico.animate({fadeOut:$('post-caption')})">Posted by BB</a>
+<span class="typo_date" title="Fri, 24 Mar 2006 12:17:00 GMT">Fri, 24 Mar 2006 12:17:00 GMT</span></p>
+<p>
+Hello! <br/><br/>
+I'm pleased to annouce openRico 2.0 development has begun!  I'm must warn you that the API's are flexible and may change
+in the future.  However, dont worry, we wont break functionality unless theres a dam good reason for it!
+</p>
+<p>
+As our apart of our commitment we will now be creating <strong>real world</strong> demonstrations for users.  This way you can see how openRico could benefit you!  This demonstration shows how css styling can be applied to the Accordion!  Now its much more flexible than before - you have full control of the styling.
+</p>
+<p>
+In case you missed it the Accordion is on the <strong><em>left!</em></strong><br/>
+Click 'Tag Cloud' and you'll see it in action!
+</p>
+<p>
+Many thanks to John Serris's <a href="http://phonophunk.com/typo-themes/">Phokus typo style</a> which provides the css and styling for this demo!
+</p>
+<p>
+More openRico updates soon!
+Ross Lawley
+</p>
+<p class="meta">Posted in <a href="#examples" rel="tag">example</a>&nbsp;<strong>|</strong>&nbsp;Tags <a href="#example" rel="tag">blog</a>, <a href="#example" rel="tag">blah</a>&nbsp;<strong>|</strong>&nbsp;<a href="#comments">261 comments</a>&nbsp;<strong>|</strong>&nbsp;<a href="#trackbacks">99 trackbacks</a></p>
+</div>
+</div>
+
+</div><!-- #main -->
+
+<div id="sidebar">
+     <div id="accordionExample">
+        <div  class="panel">
+            <div class="panelheader">
+                <h3>Categories</h3>
+            </div>
+            <div class="panelContent">
+                <ul id="categories">
+                  <li><a href="#/openRico">openRico</a> <em>(10)</em></li>
+                  <li><a href="#/family">Javscript</a> <em>(5)</em></li>
+                  <li><a href="#/news">News</a> <em>(2)</em></li>
+                </ul>
+            </div>
+        </div>
+		<div class="panel">
+          <div id="search" class="panelheader">
+            <label for="q">Search</label>
+          </div>
+          <div id="search-results" class="panelContent">
+            <form action="/#example" id="sform" method="get">
+             <input type="text" id="q" name="qZ123" value="" size="15" />
+             <span id="search_spinner" style="display:none"></span>
+            </form>
+          </div>
+		</div>
+		<div class="panel">
+		  <div class="panelheader">
+		  	<h3>Tag Cloud</h3>
+		  </div>
+			<div style="display: none;"  class="panelContent">
+            <p style="overflow:hidden; text-align:center;">
+            <span style="font-size:191.4285714285714%"><a href="#example/js">js</a></span>
+            <span style="font-size:228.571428571429%"><a href="#example/web">Web 2.0</a></span>
+            <span style="font-size:45.7142857142857%"><a href="#example/dhtml">dHtml</a></span>
+            <span style="font-size:91.4285714285714%"><a href="#example/flash-fx">flash-fx</a></span>
+            <span style="font-size:191.4285714285714%"><a href="#example/smooth">smooth</a></span>
+            <span style="font-size:320.0%"><a href="#example/rico">openRico</a></span>
+            <span style="font-size:137.142857142857%"><a href="#example/easy">easy</a></span>
+            <span style="font-size:145.7142857142857%"><a href="#example/extend">extendable</a></span>
+            <span style="font-size:145.7142857142857%"><a href="#example/more">more</a></span>
+            <span style="font-size:91.4285714285714%"><a href="#example/coming">coming</a></span>
+            <span style="font-size:45.7142857142857%"><a href="#example/soon">soon</a></span>
+            <span style="font-size:191.4285714285714%"><a href="#example/support">support</a></span>
+            <span style="font-size:91.4285714285714%"><a href="#example/open">open</a></span>
+            <span style="font-size:91.4285714285714%"><a href="#example/source">source</a></span>
+            <span style="font-size:45.7142857142857%"><a href="#example/demo">demo</a></span>
+            <span style="font-size:45.7142857142857%"><a href="#example/update">update</a></span>
+            </p>
+		  </div>
+		</div>
+		<div class="panel">
+		  <div class="panelheader">
+             <h3>Syndicate</h3>
+		  </div>
+			<div class="panelContent">
+            <ul>
+                <li><a href="/xml/rss20/feed.xml" title="Articles feed">Articles</a></li>
+                <li><a href="/xml/rss20/comments/feed.xml" title="Comments feed">Comments</a></li>
+            </ul>
+		  </div>
+		</div>
+      </div>
+      </div>
+    <div id="footer">
+        <div id="badges">
+        <ul>
+        <li><a href="http://validator.w3.org/check?uri=referer"><img src="images/phokus/btn-xhtml.gif" alt="Validate XHTML 1.0" /></a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.example.com/"><img src="images/phokus/btn-css.gif" alt="Validate CSS" /></a></li>
+        <li><a href="http://getfirefox.com/"><img src="images/phokus/btn-firefox.gif" alt="Get Firefox" /></a></li>
+        </ul>
+        </div>
+        <p><a href="http://www.openRico.org">openRico 2.0 Development</a>&nbsp;<a href="http://phonophunk.com/">Theme by phokus</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

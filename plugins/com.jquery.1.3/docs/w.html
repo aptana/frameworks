@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-width-">
+<span class="fn"><a class="name" href="#link-width-">width</a>(  ) returns <span class="type"><span class="tooltip" title="">Integer</span></span></span>
+<div class="more">
+<div class="desc">Get the current computed, pixel, width of the first matched element.<br>In jQuery 1.2, this method is able to find the width of the window and document.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show various widths. Note the values are from the iframe so might be
+smaller than you expected. The yellow highlight shows the iframe body.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;showWidth(ele,&nbsp;w)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"The&nbsp;width&nbsp;for&nbsp;the&nbsp;"</span>&nbsp;+&nbsp;ele&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;is&nbsp;"</span>&nbsp;+&nbsp;w&nbsp;+&nbsp;<span class="string">"px."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getp"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showWidth(<span class="string">"paragraph"</span>,&nbsp;$(<span class="string">"p"</span>).width());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getd"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showWidth(<span class="string">"document"</span>,&nbsp;$(<span class="global">document</span>).width());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getw"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showWidth(<span class="string">"window"</span>,&nbsp;$(<span class="global">window</span>).width());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getp"</span><span class="tag">&gt;</span>Get&nbsp;Paragraph&nbsp;Width<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getd"</span><span class="tag">&gt;</span>Get&nbsp;Document&nbsp;Width<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getw"</span><span class="tag">&gt;</span>Get&nbsp;Window&nbsp;Width<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Sample&nbsp;paragraph&nbsp;to&nbsp;test&nbsp;width&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-width-val">
+<span class="fn"><a class="name" href="#link-width-val">width</a>( <span class="arg-type tooltip" title="">String, Number</span> <span class="arg-name tooltip" title="Set the CSS 'width' property to the specified value.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the CSS width of every matched element.<br>If no explicit unit was specified (like 'em' or '%') then "px" is concatenated to the value.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To set the width of each div on click to 30px plus a color change.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).one(<span class="string">'click'</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).width(<span class="numbers">30</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css({cursor:<span class="string">"auto"</span>,&nbsp;<span class="string">"background-color"</span>:<span class="string">"blue"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrap-html">
+<span class="fn"><a class="name" href="#link-wrap-html">wrap</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A string of HTML that will be created on the fly and wrapped around the target.">html</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap all matched elements with a structure of other elements.<br>This
+wrapping process is most useful for injecting additional structure into
+a document, without ruining the original semantic qualities of a
+document.<br>
+<br>This works by going through the first element provided (which is
+generated, on the fly, from the provided HTML) and finds the deepest
+ancestor element within its structure -- it is that element that will
+enwrap everything else.<br>
+<br>This does not work with elements that contain text. Any necessary text must be added after the wrapping is done.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps a newly created div around all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrap(<span class="string">"&lt;div&nbsp;class='wrap'&gt;&lt;/div&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Test&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps a newly created tree of objects around each span.</p>
+<pre><code class="javascript">$(<span class="string">"span"</span>).wrap(<span class="string">"&lt;div&gt;&lt;div&gt;&lt;p&gt;&lt;em&gt;&lt;b&gt;&lt;/b&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>Span&nbsp;Text<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Another&nbsp;One<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrap-elem">
+<span class="fn"><a class="name" href="#link-wrap-elem">wrap</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="A DOM element that will be wrapped around the target.">elem</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap all matched elements with a structure of other elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps an element with id of "content" around all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrap(<span class="global">document</span>.getElementById(<span class="string">'content'</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Test&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"content"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps a jQuery object (in this case a div) around all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrap($(<span class="string">"&lt;div&gt;"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Test&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Another&nbsp;Paragraph.<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrapAll-html">
+<span class="fn"><a class="name" href="#link-wrapAll-html">wrapAll</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A string of HTML that will be created on the fly and wrapped around the target.">html</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap all the elements in the matched set into a single wrapper element.<br>This
+is different from &lt;a href='Manipulation/wrap'&gt;.wrap()&lt;/a&gt;
+where each element in the matched set would get wrapped with an element.<br>
+<br>This wrapping process is most useful for injecting additional
+structure into a document, without ruining the original semantic
+qualities of a document.<br>
+<br>This works by going through the first element provided (which is
+generated, on the fly, from the provided HTML) and finds the deepest
+ancestor element within its structure -- it is that element that will
+enwrap everything else.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wrap a new div around all of the paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapAll(<span class="string">"&lt;div&gt;&lt;/div&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps a newly created tree of objects around the spans. Notice
+anything in between the spans gets left out like the &lt;strong&gt;
+(red text) in this example. Even the white space between spans is left
+out. Click View Source to see the original html.</p>
+<pre><code class="javascript">$(<span class="string">"span"</span>).wrapAll(<span class="string">"&lt;div&gt;&lt;div&gt;&lt;p&gt;&lt;em&gt;&lt;b&gt;&lt;/b&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>Span&nbsp;Text<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;strong</span><span class="tag">&gt;</span>What&nbsp;about&nbsp;me?<span class="tag">&lt;/strong&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Another&nbsp;One<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrapAll-elem">
+<span class="fn"><a class="name" href="#link-wrapAll-elem">wrapAll</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="A DOM element that will be wrapped around the target.">elem</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap all the elements in the matched set into a single wrapper element.<br>This
+is different from &lt;a href='Manipulation/wrap'&gt;.wrap()&lt;/a&gt;
+where each element in the matched set would get wrapped with an element.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wrap a new div around all of the paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapAll(<span class="global">document</span>.createElement(<span class="string">"div"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wrap a jQuery object double depth div around all of the paragraphs.
+Notice it doesn't move the object but just clones it to wrap around its
+target.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapAll($(<span class="string">".doublediv"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"doublediv"</span><span class="tag">&gt;</span><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrapInner-html">
+<span class="fn"><a class="name" href="#link-wrapInner-html">wrapInner</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A string of HTML that will be created on the fly and wrapped around the target.">html</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap the inner child contents of each matched element (including text nodes) with an HTML structure.<br>This
+wrapping process is most useful for injecting additional structure into
+a document, without ruining the original semantic qualities of a
+document.<br>
+<br>This works by going through the first element provided (which is
+generated, on the fly, from the provided HTML) and finds the deepest
+ancestor element within its structure -- it is that element that will
+enwrap everything else.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs and wraps a bold tag around each of its contents.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Wraps a newly created tree of objects around the inside of the body.</p>
+<pre><code class="javascript">$(<span class="string">"body"</span>).wrapInner(<span class="string">"&lt;div&gt;&lt;div&gt;&lt;p&gt;&lt;em&gt;&lt;b&gt;&lt;/b&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html">Plain&nbsp;old&nbsp;text,&nbsp;or&nbsp;is&nbsp;it?</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-wrapInner-elem">
+<span class="fn"><a class="name" href="#link-wrapInner-elem">wrapInner</a>( <span class="arg-type tooltip" title="The Javascript object representation of a DOM Element.">Element</span> <span class="arg-name tooltip" title="A DOM element that will be wrapped around the target.">elem</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Wrap the inner child contents of each matched element (including text nodes) with a DOM element.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs and wraps a bold tag around each of its contents.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapInner(<span class="global">document</span>.createElement(<span class="string">"b"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs and wraps a jQuery object around each of its contents.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).wrapInner($(<span class="string">"&lt;span&nbsp;class='red'&gt;&lt;/span&gt;"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>cruel<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>World<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

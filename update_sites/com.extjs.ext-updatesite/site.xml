@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.extjs.ext.1.0_1.0.1.0003.jar" id="com.extjs.ext.1.0" version="1.0.1.00003">
+      <category name="ExtJS"/>
+   </feature>
+   <feature url="features/com.extjs.ext.1.1_1.1.0.00006.jar" id="com.extjs.ext.1.1" version="1.1.0.00006">
+      <category name="ExtJS"/>
+   </feature>
+   <feature url="features/com.extjs.ext.2.0_2.0.2.00001.jar" id="com.extjs.ext.2.0" version="2.0.2.00001">
+      <category name="ExtJS"/>
+   </feature>
+   <feature url="features/com.extjs.ext.2.2_2.2.0.0004.jar" id="com.extjs.ext.2.2" version="2.2.0.0004">
+      <category name="ExtJS"/>
+   </feature>
+   <category-def name="ExtJS" label="Aptana Support for EXT"/>
+</site>

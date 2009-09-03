@@ -1,0 +1,319 @@
+<html>
+<head>
+<title>Events / Browser - jQuery</title>
+<!-- jQuery 1.0.4 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="events / browser">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Events / Browser</h2><h3 class='func' id='scroll'><b>scroll</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the scroll event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the scroll event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).scroll( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onscroll=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>scroll</b>() : jQuery</h3>
+<p>Trigger the scroll event of each matched element. This causes all of the functions that have been bound to thet scroll event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onscroll=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).scroll();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onescroll'><b>onescroll</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the scroll event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the scroll event of each matched element, which will only be executed once. Unlike a call to the normal .scroll() method, calling .onescroll() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onscroll=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onescroll( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first scroll</pre>
+</div>
+<h3 class='func' id='unscroll'><b>unscroll</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the scroll event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound scroll event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onscroll=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unscroll( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unscroll</b>() : jQuery</h3>
+<p>Removes all bound scroll events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onscroll=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unscroll();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='error'><b>error</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the error event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the error event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).error( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onerror=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>error</b>() : jQuery</h3>
+<p>Trigger the error event of each matched element. This causes all of the functions that have been bound to thet error event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onerror=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).error();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneerror'><b>oneerror</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the error event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the error event of each matched element, which will only be executed once. Unlike a call to the normal .error() method, calling .oneerror() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onerror=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneerror( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first error</pre>
+</div>
+<h3 class='func' id='unerror'><b>unerror</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the error event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound error event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onerror=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unerror( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unerror</b>() : jQuery</h3>
+<p>Removes all bound error events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onerror=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unerror();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='load'><b>load</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the load event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the load event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).load( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>load</b>() : jQuery</h3>
+<p>Trigger the load event of each matched element. This causes all of the functions that have been bound to thet load event to be executed.</p><p>Marked as private: Calling load() without arguments throws exception because the ajax load does not handle it.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).load();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneload'><b>oneload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the load event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the load event of each matched element, which will only be executed once. Unlike a call to the normal .load() method, calling .oneload() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneload( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first load</pre>
+</div>
+<h3 class='func' id='unload'><b>unload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the load event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound load event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onload=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unload( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unload</b>() : jQuery</h3>
+<p>Removes all bound load events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unload();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='unload'><b>unload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the unload event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the unload event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unload( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onunload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unload</b>() : jQuery</h3>
+<p>Trigger the unload event of each matched element. This causes all of the functions that have been bound to thet unload event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onunload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unload();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneunload'><b>oneunload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the unload event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the unload event of each matched element, which will only be executed once. Unlike a call to the normal .unload() method, calling .oneunload() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onunload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneunload( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first unload</pre>
+</div>
+<h3 class='func' id='ununload'><b>ununload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the unload event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound unload event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onunload=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).ununload( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>ununload</b>() : jQuery</h3>
+<p>Removes all bound unload events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onunload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).ununload();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='resize'><b>resize</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the resize event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the resize event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).resize( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onresize=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>resize</b>() : jQuery</h3>
+<p>Trigger the resize event of each matched element. This causes all of the functions that have been bound to thet resize event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onresize=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).resize();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneresize'><b>oneresize</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the resize event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the resize event of each matched element, which will only be executed once. Unlike a call to the normal .resize() method, calling .oneresize() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onresize=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneresize( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first resize</pre>
+</div>
+<h3 class='func' id='unresize'><b>unresize</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the resize event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound resize event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onresize=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unresize( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unresize</b>() : jQuery</h3>
+<p>Removes all bound resize events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onresize=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unresize();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>

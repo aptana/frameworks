@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Autocompleter.Base</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Autocompleter.Base</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Autocompleter.Base handles all the autocompletion functionality that’s independent of the data source for autocompletion. This includes drawing the autocompletion menu, observing keyboard and mouse events, and similar.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.1b1</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Extending</span></p>
+<p>&nbsp;</p>
+<p>Specific autocompleters need to provide, at the very least, a <span class="f_CourierFixed">getUpdatedChoices</span> function that will be invoked every time the text inside the monitored textbox changes. This method should get the text for which to provide autocompletion by invoking this.getToken(), NOT by directly accessing this.element.value. This is to allow incremental tokenized autocompletion. Specific auto-completion logic (AJAX, etc) belongs in <span class="f_CourierFixed">getUpdatedChoices</span>.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Tokenized autocompletion</span></p>
+<p>&nbsp;</p>
+<p>Tokenized incremental autocompletion is enabled automatically when an autocompleter is instantiated with the 'tokens' option in the options parameter:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Ajax.Autocompleter('id','upd',&nbsp;'/url/',&nbsp;{&nbsp;tokens:&nbsp;','&nbsp;});</span></p>
+<p>&nbsp;</p>
+<p>will incrementally autocomplete with a comma as the token.</p>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">','</span> in the above example can be replaced with an array, e.g. <span class="f_CourierFixed">{ tokens: [',', '\n'] }</span> which enables autocompletion on multiple tokens. This is most useful when one of the tokens is<span class="f_CourierFixed"> \n </span>(a newline), as it allows smart autocompletion after linebreaks.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

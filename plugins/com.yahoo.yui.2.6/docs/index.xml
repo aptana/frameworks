@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Yahoo! UI Library 2.6 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+	<topic label="Yahoo! UI Library 2.6"  href="docs/index.html"> 
+		<topic label="Animation"  href="docs/module_animation.html" />
+		<topic label="Autocomplete"  href="docs/module_autocomplete.html" />
+		<topic label="Button"  href="docs/module_button.html" />
+		<topic label="Calendar"  href="docs/module_calendar.html" />
+		<topic label="Carousel"  href="docs/module_carousel.html" />
+		<topic label="Colorpicker"  href="docs/module_colorpicker.html" />
+		<topic label="Connection"  href="docs/module_connection.html" />
+		<topic label="Container"  href="docs/module_container.html" />
+		<topic label="Datasource"  href="docs/module_datasource.html" />
+		<topic label="Datatable"  href="docs/module_datatable.html" /> 
+		<topic label="DOM"  href="docs/module_dom.html" />
+		<topic label="DragDrop"  href="docs/module_dragdrop.html" />
+		<topic label="Editor"  href="docs/module_editor.html" />
+		<topic label="Element"  href="docs/module_element.html" />
+		<topic label="Event"  href="docs/module_event.html" />
+		<topic label="History"  href="docs/module_history.html" />
+		<topic label="ImageLoader"  href="docs/module_imageloader.html" />
+		<topic label="Logger"  href="docs/module_logger.html" />
+		<topic label="Menu"  href="docs/module_menu.html" />
+		<topic label="Paginator"  href="docs/module_paginator.html" />
+		<topic label="Slider"  href="docs/module_slider.html" />
+		<topic label="Tabview"  href="docs/module_tabview.html" />
+		<topic label="Treeview"  href="docs/module_treeview.html" />
+		<topic label="Yahoo"  href="docs/module_yahoo.html" />
+		<topic label="YUI Loader"  href="docs/module_yuiloader.html" />
+		<topic label="YUI Test"  href="docs/module_yuitest.html" />
+	</topic>
+</toc>

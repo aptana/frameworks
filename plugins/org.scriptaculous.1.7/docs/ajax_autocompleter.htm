@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.Autocompleter</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Ajax.Autocompleter</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The Ajax.Autocompleter class allows for server-powered autocompleting text fields.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.1 ???</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new&nbsp;Ajax.Autocompleter(id_of_text_field,&nbsp;id_of_div_to_populate,&nbsp;url,&nbsp;options);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options </span>(inherited from <a href="autocompleter_base.htm">Autocompleter.Base</a>)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="122" bgcolor="#99cc00" style="width:122px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="97" bgcolor="#99cc00" style="width:97px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="442" bgcolor="#99cc00" style="width:442px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>paramName</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>‘name’ of the element</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>Name of the parameter for the string typed by the user on the autocompletion field</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>tokens</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>(empty array) [] </p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>See <a href="autocompleter_base.htm">Autocompleter.Base</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>frequency</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>0.4</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>minChars</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>1</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>Minimum characters required to query the server</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>indicator</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>null</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>When sending the Ajax request Autocompleter shows this element with Element.show. You can use this to e.g. display an animated “please-wait-while-we-are-working” gif. See here for examples. When the request has been completed it will be hidden with Element.hide.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>updateElement</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>null</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>Hook for a custom function called after the element has been updated (i.e. when the user has selected an entry). This function is called instead of the built-in function that adds the list item text to the input field. The function receives one parameter only, the selected item (the &lt;li&gt; item selected)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="122" style="width:122px;"><p>afterUpdateElement</p>
+</td>
+<td valign="top" width="97" style="width:97px;"><p>null</p>
+</td>
+<td valign="top" width="442" style="width:442px;"><p>Hook for a custom function called after the element has been updated (i.e. when the user has selected an entry). This function is called after the built-in function that adds the list item text to the input field (note differeence from above). The function receives two parameters, the autocompletion input field and the selected item (the &lt;li&gt; item selected)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">HTML</span></p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;input&nbsp;type="text"&nbsp;id="autocomplete"&nbsp;name="autocomplete_parameter"/&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;id="autocomplete_choices"&nbsp;class="autocomplete"&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Javascript</span></p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 15px;"><span class="f_CodeExample">new&nbsp;Ajax.Autocompleter("autocomplete",&nbsp;"autocomplete_choices",&nbsp;"/url/on/server",&nbsp;{});</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">HTML with indicator</span></p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;input&nbsp;type="text"&nbsp;id="autocomplete"&nbsp;name="autocomplete_parameter"/&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;span&nbsp;id="indicator1"&nbsp;style="display:&nbsp;none"&gt;&lt;img&nbsp;src="/images/spinner.gif"&nbsp;alt="Working..."&nbsp;/&gt;&lt;/span&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;id="autocomplete_choices"&nbsp;class="autocomplete"&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>(As with any element destined to work with Prototype’s Element.toggle/show/hide, your indicator element should use an inline style attribute with a display property, here initially set to none. If you need to assign it CSS rules, put the class attribute before the style attribute to avoid override.)</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Javascript with options</span></p>
+<p><span style="font-weight: bold;">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Ajax.Autocompleter("autocomplete",&nbsp;"autocomplete_choices",&nbsp;"/url/on/server",&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">{paramName:&nbsp;"value",&nbsp;minChars:&nbsp;2,&nbsp;updateElement:&nbsp;addItemToList,&nbsp;indicator:&nbsp;'indicator1'});</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">CSS Styles</span></p>
+<p>The styling of the div and the returned UL are important.</p>
+<p>&nbsp;</p>
+<p>Applying a visual cue that an item is selected allows the user to take advantage of the keyboard navigation of the dropdown and adding background colors, borders, positioning, etc to the div (as the demo does) allows the UI element to stand out. The CSS from the demo applied to the examples would be</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">div.autocomplete&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:absolute;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:250px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:white;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:1px&nbsp;solid&nbsp;#888;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:0px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:0px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">div.autocomplete&nbsp;ul&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list-style-type:none;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:0px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:0px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">div.autocomplete&nbsp;ul&nbsp;li.selected&nbsp;{&nbsp;background-color:&nbsp;#ffb;}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">div.autocomplete&nbsp;ul&nbsp;li&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list-style-type:none;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display:block;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:0;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:2px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:32px;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor:pointer;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">}</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Server return</span></p>
+<p>&nbsp;</p>
+<p>Look through your POST environment variable for the current entry in the text-box.</p>
+<p>&nbsp;</p>
+<p>The server-side will receive the typed string as a parameter with the same name as the name of the element of the autocompletion (name attribute). You can override it setting the option paramName.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">The server must return an unordered list.</span></p>
+<p>&nbsp;</p>
+<p>For instance this list might be returned after the user typed the letter “y”</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;ul&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;your&nbsp;mom&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;yodel&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;/ul&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Display additional information</span></p>
+<p>&nbsp;</p>
+<p>If you wish to display additional information in the autocomplete dropdown that you don’t want inserted into the field when you choose an item, surround it in a &lt;span&gt; (could work with others but not tested) with the class of “informal”.</p>
+<p>&nbsp;</p>
+<p>For instance the following shows a list of companies and their addresses, but only the company name will get inserted:</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Response</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;ul&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;ACME&nbsp;Inc&nbsp;&lt;span&nbsp;class="informal"&gt;&nbsp;5012&nbsp;East&nbsp;5th&nbsp;Street&lt;/span&gt;&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Scriptaculous&nbsp;&lt;span&nbsp;class="informal"&gt;&nbsp;1066&nbsp;West&nbsp;Redlands&nbsp;Parkway&lt;/span&gt;&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;/ul&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Working with Callback</span></p>
+<p>&nbsp;</p>
+<p>Another way to get aditional information, just send and ID in every list, and redefine afterUpdate Element?</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Response</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;ul&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="1"&gt;your&nbsp;mom&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="2"&gt;yodel&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;/ul&gt;</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p><span style="font-weight: bold;">Javascript</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Ajax.Autocompleter("autocomplete",&nbsp;"autocomplete_choices",&nbsp;"/url/on/server",&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;{afterUpdateElement&nbsp;:&nbsp;getSelectionId});</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">function&nbsp;getSelectionId(text,&nbsp;li)&nbsp;{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;alert&nbsp;(li.id);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">}</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>When a choice is highlighted the Autocompleter applies a class of “selected” to the li element. This allows the end user to style the selected element as desired.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

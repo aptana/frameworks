@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="jQuery 1.1 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries">
+	<topic label="jQuery 1.1"  href="docs/index.html"> 
+		<topic label="Core"  href="docs/core.html">
+			<topic label="Attributes"  href="docs/dom_attributes.html"/>
+			<topic label="Manipulation"  href="docs/dom_manipulation.html"/>
+			<topic label="Traversing"  href="docs/dom_traversing.html"/>
+		</topic>
+		<topic label="CSS"  href="docs/css.html">
+		</topic>
+		<topic label="JavaScript"  href="docs/javascript.html">
+		</topic>
+		<topic label="Events"  href="docs/events.html">
+		</topic>
+		<topic label="Effects"  href="docs/effects.html">
+		</topic>
+		<topic label="Ajax"  href="docs/ajax.html">
+		</topic>
+	</topic>
+</toc>

@@ -1,0 +1,32 @@
+#addTask {
+	width: 490px;
+	margin: 10px;
+	background: #efefef;
+	border: 1px solid #a7a7a7;
+	text-align: center;
+	padding: 5px;
+}
+
+#todo li .drag-handle {
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	background: url('move.png') no-repeat center;
+	float: left;
+	margin-right: 5px;
+}
+
+#todo {
+	list-style: none;
+	border: 1px solid #ccc;
+	margin: 10px auto 10px auto;
+	width: 75%;
+	padding: 10px 5% 10px 5%;
+}
+
+#listArea {
+	width: 500px;
+	border: 1px solid #ccc;
+	background: #efefef;
+	margin: 10px;
+}

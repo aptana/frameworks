@@ -1,0 +1,770 @@
+/**
+ * ScriptDoc for Controls.js
+ */
+
+/**
+ * Strips script fragments from the specified string.
+ * @id MochiKit.Base.stripScripts
+ * @alias stripScripts
+ * @alias MochiKit.Base.stripScripts
+ * @param {String} str    String to strip script fragments from.
+ * @return {String} Returns the string with the script fragments stripped out.
+ */
+
+/**
+ * Strips HTML tags from the specified string.
+ * @id MochiKit.Base.stripTags
+ * @alias stripTags
+ * @alias MochiKit.Base.stripTags
+ * @param {String} str    String to strip the tags from.
+ * @return {String} Returns the string with the tags stripped out.
+ */
+
+/**
+ * Extracts script fragments from the specified string.
+ * @id MochiKit.Base.extractScripts
+ * @alias extractScripts
+ * @alias MochiKit.Base.extractScripts
+ * @param {String} str    String to extract scripts from.
+ * @return {Object} Returns the script fragments.
+ */
+
+/**
+ * Uses eval to evaluate script fragments extracted from a string.
+ * @id MochiKit.Base.evalScripts 
+ * @alias evalScripts
+ * @alias MochiKit.Base.evalScripts
+ * @param {String} str    String to evaluate scripts from.
+ * @return {Object} Returns the result of the evaluation.
+ */
+
+/**
+ * Serializes form elements into query components joined by a "&".
+ * @id MochiKit.Form.serialize
+ * @alias serialize
+ * @alias MochiKit.Form.serialize
+ * @param {Object} form    Form to serialize.
+ * @return {String} Returns the form elements into query components joined by a "&".
+ */
+
+/**
+ * Returns the elements in the specified form.
+ * @id MochiKit.Form.getElements
+ * @alias getElements
+ * @alias MochiKit.Form.getElements
+ * @param {Object} form    Form to get the elements from.
+ * @return {Array} Returns an array of elements.
+ */
+
+/**
+ * Serializes the specified element into an encodeed URI component string.
+ * @id MochiKit.Form.serializeElement
+ * @alias serializeElement
+ * @alias MochiKit.Form.serializeElement
+ * @param {Object} element    Element to serialize.
+ * @return {String} Returns a string of encoded URI components joined by a "&". 
+ */
+
+/**
+ * Returns the name and value of an input element.
+ * @id MochiKit.Form.Serializers.input
+ * @alias input
+ * @alias MochiKit.Form.Serializers.input
+ * @param {Object} element    Element to get the name and value of. Valid values are "submit", 
+ * "hidden", "password", "text", "checkbox", and "radio".
+ * @return {Array} Returns an array of the element name and value.    
+ */
+
+/**
+ * Returns the name and value of a "checked" input element.
+ * @id MochiKit.Form.Serializers.inputSelector
+ * @alias inputSelector
+ * @alias MochiKit.Form.Serializers.inputSelector.
+ * @param {Object} element    Element to get the name and value of.
+ * @return {Array} Returns an array of the element name and value.
+ */
+
+/**
+ * Returns the name and value of a textarea-style element.
+ * @id MochiKit.Form.Serializers.textarea
+ * @alias textarea
+ * @alias MochiKit.Form.Serializers.textarea
+ * @param {Object} element    Element to get the name and value of.
+ * @return {Array} Returns an array of the element name and value.
+ */
+
+/**
+ * Returns whether a Select element is of a "selectOne" or "selectMany" type.
+ * @id MochiKit.Form.Serializers.select
+ * @alias select
+ * @alias MochiKit.Form.Serializers.select.
+ * @param {Object} element Select element to get.
+ * @return {String} Returns whether a Select element has a type of "select-one" or "select-multiple" type.
+ */
+
+/**
+ * Returns the name and value of a Select element with a type of "select-one".
+ * @id MochiKit.Form.Serializers.selectOne
+ * @alias selectOne
+ * @alias MochiKit.Form.Serializers.selectOne
+ * @param {Object} element    Select element to get.
+ * @return {Array} Returns an array of the element name and value.
+ */
+
+/**
+ * Returns the name and values of a Select element with a type of "select-multiple".
+ * @id MochiKit.Form.Serializers.selectMany
+ * @alias selectMany
+ * @alias MochiKit.Form.Serializers.selectMany
+ * @param {Object} element    Select element to get.
+ * @return {Array} Returns an array of the element name and values.
+ */
+
+/**
+ * Ajax object.
+ * @id Ajax
+ * @alias Ajax
+ * @type Ajax
+ */
+
+/**
+ * Registers an Ajax responder.
+ * @id Ajax.Responders.register
+ * @alias register
+ * @alias Ajax.Responders.register
+ * @param {Object} responderToAdd    Ajax responder to add.
+ */
+
+/**
+ * Unregisters an Ajax responder.
+ * @id Ajax.Responders.unregister
+ * @alias unregister
+ * @alias Ajax.Responders.unregister
+ * @param {Object} responderToRemove    Ajax responder to remove.
+ */
+
+/**
+ * Dispatches an Ajax responder.
+ * @id Ajax.Responders.dispatch
+ * @alias dispatch
+ * @alias Ajax.Responders.dispatch
+ * @param {Function} callback    Callback function.
+ * @param {Object} request    Request object.
+ * @param {Object} transport    Transport object.
+ * @param {Object} json    JSON object.
+ */
+
+/**
+ * Increments the current Ajax active request count by one on the creation of a request.
+ * @id Ajax.Responders.onCreate
+ * @alias onCreate
+ * @alias Ajax.Responders.onCreate
+ */
+
+/**
+ * Decrements the current Ajax active request count by one on the completion of a request.
+ * @id Ajax.Responders.onComplete
+ * @alias onComplete
+ * @alias Ajax.Responders.onComplete
+ */
+
+/**
+ * Ajax.Base object.
+ * @id Ajax.Base
+ * @alias Base
+ * @alias Ajax.Base
+ */
+
+/**
+ * Sets options for an Ajax.Base object.
+ * @id Ajax.Base.prototype.setOptions
+ * @alias setOptions
+ * @alias Ajax.Base.prototype.setOptions
+ * @param {Object} options    Options to set. Valid options are "method", "asynchronous", and "parameters".
+ */
+
+/**
+ * Returns the transport status of the response if is a success.
+ * @id Ajax.Base.prototype.responseIsSuccess
+ * @alias responseIsSuccess
+ * @alias Ajax.Base.prototype.responseIsSuccess
+ * @return {String} Returns the transport status of the response. Values are "undefined", "0", or true.
+ */
+
+/**
+ * Returns the opposite of the responseIsSuccess() function.
+ * @id Ajax.Base.prototype.responseIsFailure
+ * @alias responseIsFailure
+ * @alias Ajax.Base.prototype.responseIsFailure
+ * @return {String} Returns the transport status of the response.
+ */
+
+/**
+ * Initializes an Ajax Request object.
+ * @id Ajax.Request
+ * @alias Request
+ * @alias Ajax.Request
+ * @param {String} url    URL for the request.
+ * @param {Object} options    Options for the request.
+ */
+
+/**
+ * Initializes an Ajax Request Events object.
+ * @id Ajax.Request.Events
+ * @alias Events
+ * @alias Ajax.Request.Events
+ */
+
+/**
+ * Makes an Ajax request.
+ * @id Ajax.Request.prototype.request
+ * @alias request
+ * @alias Ajax.Request.prototype.request
+ * @param {String} url    URL for the request.
+ */
+
+/**
+ * Sets the request headers for an Ajax request.
+ * @id Ajax.Request.prototype.setRequestHeaders
+ * @alias setRequestHeaders
+ * @alias Ajax.Request.prototype.setRequestHeaders
+ */
+
+/**
+ * Calls the response to the ready state when the transport is in the ready state.
+ * @id Ajax.Request.prototype.onStateChange
+ * @alias onStateChange
+ * @alias Ajax.Request.prototype.onStateChange
+ */
+
+/**
+ * Returns the response header of the transport.
+ * @id Ajax.Request.prototype.header
+ * @alias header
+ * @alias Ajax.Request.prototype.header
+ * @param {Object} name Name of the transport.
+ * @return {Object} Returns the response header of the transport.
+ */
+
+/**
+ * Evaluates a JSON object.
+ * @id Ajax.Request.prototype.evalJSON
+ * @alias evalJSON
+ * @alias Ajax.Request.prototype.evalJSON
+ * @return {Object} Returns the result of the evaluation.
+ */
+
+/**
+ * Evaluates an Ajax response.
+ * @id Ajax.Request.prototype.evalResponse
+ * @alias evalResponse
+ * @alias Ajax.Request.prototype.evalResponse
+ * @return {Object} Returns the result of the evaluation.
+ */
+
+/**
+ * Responds to the ready state of the transport.
+ * @id Ajax.Request.prototype.respondToReadyState
+ * @alias respondToReadyState
+ * @alias Ajax.Request.prototype.respondToReadyState
+ * @param {Object} readyState    Ready state of the transport.
+ */
+
+/**
+ * Dispatches an exception.
+ * @id Ajax.Request.prototype.dispatchException
+ * @alias dispatchException
+ * @alias Ajax.Request.prototype.dispatchException
+ * @param {Object} exception    Exception to dispatch.
+ */
+
+/**
+ * Initializes an Ajax Updater object.
+ * @id Ajax.Updater
+ * @alias Updater
+ * @alias Ajax.Updater
+ * @param {Object} container    Container to update.
+ * @param {Object} url    URL for the update.
+ * @param {Object} options    Options to use with the update.
+ */
+
+/**
+ * Updates the content of the Ajax object.
+ * @id Ajax.Updater.prototype.updateContent
+ * @alias updateContent
+ * @alias Ajax.Updater.prototype.updateContent
+ */
+
+/**
+ * Form field.
+ * @id Field
+ * @alias Field
+ * @type Field
+ */
+
+/**
+ * Clears the field.
+ * @id Field.clear
+ * @alias clear
+ * @alias Field.clear
+ */
+
+/**
+ * Gives focus to the field.
+ * @id Field.focus
+ * @alias focus
+ * @alias Field.focus
+ * @param {Object} element    Element to focus on.
+ */
+
+/**
+ * Returns true if the field has a value.
+ * @id Field.present
+ * @alias present
+ * @alias Field.present
+ */
+
+/**
+ * Selects the field.
+ * @id Field.select
+ * @alias select
+ * @alias Field.select
+ * @param {Object} element    Field element to select.
+ */
+
+/**
+ * Activates the field
+ * @id Field.activate
+ * @alias activate
+ * @alias Field.activate
+ * @param {Object} element    Field element to activate.
+ */
+
+/**
+ * Activates the field without scrolling.
+ * @id Field.scrollFreeActivate
+ * @alias scrollFreeActivate
+ * @alias Field.scrollFreeActivate
+ * @param {Object} field    Field to activate.
+ */
+
+/**
+ * Autocompleter object.
+ * @id Autocompleter
+ * @alias Autocompleter
+ */
+
+/**
+ * Autocompleter.Base object
+ * @id Autocompleter.Base
+ * @alias Base
+ * @alias Autocompleter.Base
+ */
+
+/**
+ * Initializes an Autocompleter.Base object.
+ * @id Autocompleter.Base.prototype.baseInitialize
+ * @alias baseInitialize
+ * @alias Autocompleter.Base.prototype.baseInitialize
+ * @param {Object} element    Element to use.
+ * @param {Object} update    Update for the element.
+ * @param {Object} options    Options to use.
+ */
+
+/**
+ * Displays the element.
+ * @id Autocompleter.Base.prototype.show
+ * @alias show
+ * @alias Autocompleter.Base.prototype.show
+ */
+
+/**
+ * Fixes IE overlapping style issues.
+ * @id Autocompleter.Base.prototype.fixIEOverlapping
+ * @alias fixIEOverlapping
+ * @alias Autocompleter.Base.prototype.fixIEOverlapping
+ */
+
+/**
+ * Hides the element.
+ * @id Autocompleter.Base.prototype.hide
+ * @alias hide
+ * @alias Autocompleter.Base.prototype.hide
+ */
+
+/**
+ * Start indicator for the element.
+ * @id Autocompleter.Base.prototype.startIndicator
+ * @alias startIndicator
+ * @alias Autocompleter.Base.prototype.startIndicator
+ */
+
+/**
+ * Stop indicator for the element.
+ * @id Autocompleter.Base.prototype.stopIndicator
+ * @alias stopIndicator
+ * @alias Autocompleter.Base.prototype.stopIndicator
+ */
+
+/**
+ * Event handler for a KeyPress event.
+ * @id Autocompleter.Base.prototype.onKeyPress
+ * @alias onKeyPress
+ * @alias Autocompleter.Base.prototype.onKeyPress
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Finds a target element by event and tag name.
+ * @id Autocompleter.Base.prototype.findElement
+ * @alias findElement
+ * @alias Autocompleter.Base.prototype.findElement
+ * @param {Object} event    Event that occurred.
+ * @param {String} tagName    Tag name of the element.
+ */
+
+/**
+ * Event handler for hover.
+ * @id Autocompleter.Base.prototype.hover
+ * @alias hover
+ * @alias Autocompleter.Base.prototype.hover
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Event handler for click event.
+ * @id Autocompleter.Base.prototype.onClick
+ * @alias onClick
+ * @alias Autocompleter.Base.prototype.onClick
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Event handler for blur event.
+ * @id Autocompleter.Base.prototype.onBlur
+ * @alias onBlur
+ * @alias Autocompleter.Base.prototype.onBlur
+ * @param {Object} event    Event to get.
+ */
+
+/**
+ * Renders the element.
+ * @id Autocompleter.Base.prototype.render
+ * @alias render
+ * @alias Autocompleter.Base.prototype.render
+ */
+
+/**
+ * Marks the previous entry.
+ * @id Autocompleter.Base.prototype.markPrevious
+ * @alias markPrevious
+ * @alias Autocompleter.Base.prototype.markPrevious
+ */
+
+/**
+ * Marks the next entry.
+ * @id Autocompleter.Base.prototype.markNext
+ * @alias markNext
+ * @alias Autocompleter.Base.prototype.markNext
+ */
+
+/**
+ * Gets the entry at the specified index position.
+ * @id Autocompleter.Base.prototype.getEntry
+ * @alias getEntry
+ * @alias Autocompleter.Base.prototype.getEntry
+ * @param {Object} index    Index of the entry.
+ */
+
+/**
+ * Gets the entry at the current index position.
+ * @id Autocompleter.Base.prototype.getCurrentEntry
+ * @alias getCurrentEntry
+ * @alias Autocompleter.Base.prototype.getCurrentEntry
+ */
+
+/**
+ * Selects the current entry.
+ * @id Autocompleter.Base.prototype.selectEntry
+ * @alias selectEntry
+ * @alias Autocompleter.Base.prototype.selectEntry
+ */
+
+/**
+ * Collects the text nodes of the element and ignores the specified CSS class.
+ * @id Autocompleter.Base.prototype.collectTextNodesIgnoreClass
+ * @alias collectTextNodesIgnoreClass
+ * @alias Autocompleter.Base.prototype.collectTextNodesIgnoreClass
+ * @param {Object} element    Element to collect the text nodes for.
+ * @param {String} className    CSS class to ignore.
+ */
+
+/**
+ * Updates the selected element.
+ * @id Autocompleter.Base.prototype.updateElement
+ * @alias updateElement
+ * @alias Autocompleter.Base.prototype.updateElement
+ * @param {Object} selectedElement    Element to update.
+ */
+
+/**
+ * Updates the choices of the element.
+ * @id Autocompleter.Base.prototype.updateChoices
+ * @alias updateChoices
+ * @alias Autocompleter.Base.prototype.updateChoices
+ * @param {Object} choices    Choices to update the element with.
+ */
+
+/**
+ * Adds onHover and onClick observers to the element.
+ * @id Autocompleter.Base.prototype.addObservers
+ * @alias addObservers
+ * @alias Autocompleter.Base.prototype.addObservers
+ * @param {Object} element    Element to observe.
+ */
+
+/**
+ * Handles an observer event.
+ * @id Autocompleter.Base.prototype.onObserverEvent
+ * @alias onObserverEvent
+ * @alias Autocompleter.Base.prototype.onObserverEvent
+ */
+
+/**
+ * Gets the token for the element.
+ * @id Autocompleter.Base.prototype.getToken
+ * @alias getToken
+ * @alias Autocompleter.Base.prototype.getToken
+ */
+
+/**
+ * Finds the last token for the element.
+ * @id Autocompleter.Base.prototype.findLastToken
+ * @alias findLastToken
+ * @alias Autocompleter.Base.prototype.findLastToken
+ */
+
+/**
+ * Initializes an Ajax Autocompleter.
+ * @id Ajax.Autocompleter
+ * @alias Autocompleter
+ * @alias Ajax.Autocompleter
+ * @param {Object} element    Element to autocomplete.
+ * @param {Object} update    Update to use.
+ * @param {Object} url    URL to use.
+ * @param {Object} options    Options to use.
+ */
+
+/**
+ * Gets the choices of the autocompletion menu.
+ * @id Ajax.Autocompleter.prototype.getUpdatedChoices
+ * @alias getUpdatedChoices
+ * @alias Autocompleter.Base.prototype.getUpdatedChoices
+ */
+
+/**
+ * Updates the element choices on completion.
+ * @id Ajax.Autocompleter.prototype.onComplete
+ * @alias onComplete
+ * @alias Autocompleter.Base.prototype.onComplete
+ * @param {Object} request    Request to use.
+ */
+
+/**
+ * Initializes a local array autocompleter
+ * @id Autocompleter.Local
+ * @alias Local
+ * @alias Autocompleter.Local
+ * @constructor
+ * @param {Object} element    ID of the monitored textbox.
+ * @param {Object} update    ID of the autocompletion menu.
+ * @param {Array} array    Array to autocomplete from.
+ * @param {Object} options    Options to use to autocomplete.
+ */
+
+/**
+ * Gets the choices of the autocompletion menu.
+ * @id Autocompleter.Local.prototype.getUpdatedChoices
+ * @alias getUpdatedChoices
+ * @alias Autocompleter.Local.prototype.getUpdatedChoices
+ */
+
+/**
+ * Sets the options for autocompletion.
+ * @id Autocompleter.Local.prototype.setOptions
+ * @alias setOptions
+ * @alias Autocompleter.Local.prototype.setOptions
+ * @param {Object} options    Autocompletion options.
+ */
+
+/**
+ * Initializes an Ajax InPlaceEditor object.
+ * @id Ajax.InPlaceEditor
+ * @alias InPlaceEditor
+ * @alias Ajax.InPlaceEditor
+ * @param {Object} element    Element to use.
+ * @param {Object} url    URL to use.
+ * @param {Object} options    Options to use.
+ */
+
+/**
+ * Sets the default highlight color for the InPlaceEditor.
+ * @id Ajax.InPlaceEditor.defaultHighlightColor
+ * @alias defaultHighlightColor
+ * @alias Ajax.InPlaceEditor.defaultHighlightColor
+ */
+
+/**
+ * Enters edit mode on the specified event.
+ * @id Ajax.InPlaceEditor.prototype.enterEditMode
+ * @alias enterEditMode
+ * @alias Ajax.InPlaceEditor.enterEditMode
+ * @param {Object} evt    Event to use.
+ */
+
+/**
+ * Creates a new form.
+ * @id Ajax.InPlaceEditor.prototype.createForm
+ * @alias createForm
+ * @alias Ajax.InPlaceEditor.createForm
+ */
+
+/**
+ * Returns true if the string has HTML tags that indicate that there are line breaks (i.e. <br> or <p> tags).
+ * @id Ajax.InPlaceEditor.prototype.hasHTMLLineBreaks
+ * @alias hasHTMLLineBreaks
+ * @alias Ajax.InPlaceEditor.hasHTMLLineBreaks
+ * @param {String} string    String to check for line breaks.
+ */
+
+/**
+ * Converts HTML line break tags to newline characters.
+ * @id Ajax.InPlaceEditor.prototype.convertHTMLLineBreaks
+ * @alias convertHTMLLineBreaks
+ * @alias Ajax.InPlaceEditor.convertHTMLLineBreaks
+ * @param {Object} string    String to convert.
+ */
+
+/**
+ * Creates a text field for editing.
+ * @id Ajax.InPlaceEditor.prototype.createEditField
+ * @alias createEditField
+ * @alias Ajax.InPlaceEditor.createEditField
+ */
+
+/**
+ * Gets the innerHTML of an element.
+ * @id Ajax.InPlaceEditor.prototype.getText
+ * @alias getText
+ * @alias Ajax.InPlaceEditor.getText
+ */
+
+/**
+ * Loads the external text for an element.
+ * @id Ajax.InPlaceEditor.prototype.loadExternalText
+ * @alias loadExternalText
+ * @alias Ajax.InPlaceEditor.loadExternalText
+ */
+
+/**
+ * Enables the field for editing and loads the appropriate text when the external text loads.
+ * @id Ajax.InPlaceEditor.prototype.onLoadedExternalText
+ * @alias onLoadedExternalText
+ * @alias Ajax.InPlaceEditor.onLoadedExternalText
+ * @param {Object} transport    Transport to use for the field value.
+ * @see loadExternalText
+ */
+
+/**
+ * Completes and leaves edit mode when the click event is cancelled.
+ * @id Ajax.InPlaceEditor.prototype.onclickCancel
+ * @alias onclickCancel
+ * @alias Ajax.InPlaceEditor.onclickCancel
+ */
+
+/**
+ * Handles the onfailure event for the transport.
+ * @id Ajax.InPlaceEditor.prototype.onFailure
+ * @alias onFailure
+ * @alias Ajax.InPlaceEditor.onFailure
+ * @param {Object} transport    Transport to use.
+ */
+
+/**
+ * Event handler for when the user submits the form.
+ * @id Ajax.InPlaceEditor.prototype.onSubmit
+ * @alias onSubmit
+ * @alias Ajax.InPlaceEditor.onSubmit
+ */
+
+/**
+ * Performs the appropriate actions while the form loads.
+ * @id Ajax.InPlaceEditor.prototype.onLoading
+ * @alias onLoading
+ * @alias Ajax.InPlaceEditor.onLoading
+ */
+
+/**
+ * Performs the appropriate actions while the form is saved.
+ * @id Ajax.InPlaceEditor.prototype.onSaving
+ * @alias onSaving
+ * @alias Ajax.InPlaceEditor.onSaving
+ */
+
+/**
+ * Removes the form from its parent element.
+ * @id Ajax.InPlaceEditor.prototype.removeForm
+ * @alias removeForm
+ * @alias Ajax.InPlaceEditor.removeForm
+ */
+
+/**
+ * Applies the appropriate CSS styles when the cursor enters the element to hover.
+ * @id Ajax.InPlaceEditor.prototype.enterHover
+ * @alias enterHover
+ * @alias Ajax.InPlaceEditor.enterHover
+ */
+
+/**
+ * Applies the appropriate CSS styles when the cursor leaves the element from hovering.
+ * @id Ajax.InPlaceEditor.prototype.leaveHover
+ * @alias leaveHover
+ * @alias Ajax.InPlaceEditor.leaveHover
+ */
+
+/**
+ * Leaves the Edit mode of the form.
+ * @id Ajax.InPlaceEditor.prototype.leaveEditMode
+ * @alias leaveEditMode
+ * @alias Ajax.InPlaceEditor.leaveEditMode
+ */
+
+/**
+ * Handles the appropriate actions on complete.
+ * @id Ajax.InPlaceEditor.prototype.onComplete
+ * @alias onComplete
+ * @alias Ajax.InPlaceEditor.onComplete
+ * @param {Object} transport    Transport to use.
+ */
+
+/**
+ * Handles the appropriate actions on entering edit mode.
+ * @id Ajax.InPlaceEditor.prototype.onEnterEditMode
+ * @alias onEnterEditMode
+ * @alias Ajax.InPlaceEditor.onEnterEditMode
+ */
+
+/**
+ * Handles the approprite actions on leaving edit mode.
+ * @id Ajax.InPlaceEditor.prototype.onLeaveEditMode
+ * @alias onLeaveEditMode
+ * @alias Ajax.InPlaceEditor.onLeaveEditMode
+ */
+
+/**
+  * Disconnects the listeners.
+  * @id Ajax.InPlaceEditor.prototype.dispose
+  * @alias dispose
+  * @alias Ajax.InPlaceEditor.dispose
+  */
+

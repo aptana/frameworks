@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>$R</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">$R </span><span class="f_TopicHeading" style="color: #ccffff;">:: Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">$R(start, end[, exclusive = false]) -&gt; ObjectRange</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Creates a new ObjectRange object. This method is a convenience wrapper around the ObjectRange constructor, but $R is the preferred alias.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"><a href="objectrange.html">ObjectRange</a></span> instances represent a range of consecutive values, be they numerical, textual, or of another type that semantically supports value ranges. See the type’s documentation for further details, and to discover how your own objects can support value ranges.</p>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">$R</span> function takes exactly the same arguments as the original constructor: the lower and upper bounds (value of the same, proper type), and whether the upper bound is exclusive or not. By default, the upper bound is inclusive.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">).include(</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;true</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$A</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">5</span><span class="f_CodeExample" style="color: #000000;">)).join(</span><span class="f_CodeExample" style="color: #800000;">',&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$A</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #800000;">'aa'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'ah'</span><span class="f_CodeExample" style="color: #000000;">)).join(</span><span class="f_CodeExample" style="color: #800000;">',&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'aa,&nbsp;ab,&nbsp;ac,&nbsp;ad,&nbsp;ae,&nbsp;af,&nbsp;ag,&nbsp;ah'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">true</span><span class="f_CodeExample" style="color: #000000;">).include(</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;false</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$R</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">10</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">true</span><span class="f_CodeExample" style="color: #000000;">).each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(value)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;invoked&nbsp;10&nbsp;times&nbsp;for&nbsp;value&nbsp;=&nbsp;0&nbsp;to&nbsp;9</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>Note that <span class="f_CourierFixed">ObjectRange</span> mixes in the Enumerable module: this makes it easy to convert a range to an <span class="f_CourierFixed">Array</span> (<span class="f_CourierFixed">Enumerable</span> provides the <span class="f_CourierFixed"><a href="enumerable_toarray.html">toArray</a></span> method, which makes the <span style="font-family: 'Courier New';">$A</span> conversion straightforward), or to iterate through values. </p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Note</span></p>
+<p>&nbsp;</p>
+<p>Note, however, that getting the bounds back will be more efficiently done using the start and end properties than calling the <span class="f_CourierFixed">min()</span> and <span class="f_CourierFixed">max()</span> methods.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

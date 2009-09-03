@@ -1,0 +1,135 @@
+<html><head>
+
+<script src="../../src/rico.js" type="text/javascript"></script>
+<script src="../../src/ricoEffects.js" type="text/javascript"></script>
+<script src="../../src/ricoBehaviors.js" type="text/javascript"></script>
+<script src="../../src/ricoComponents.js" type="text/javascript"></script>
+<script type='text/javascript'>
+// Rico.loadModule('Accordion');
+Rico.onLoad( function() {
+  new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent'),
+                      {panelHeight:200, hoverClass: 'panelHover', selectedClass: 'panelSelected'});
+});
+</script>
+
+<style>
+body {font-family: Arial, Tahoma, Verdana;}
+#accordionExample {
+    border : 1px solid #4f4f4f;
+    width: 650px;
+}
+
+.panelheader{
+	background-image: url('images/example1_panelBG.png');
+  height: 22px;
+	color : #ECECEC;
+	font-weight : normal;
+  padding-left: 5px;
+}
+
+.panelHover {
+  background-image: url('images/example1_panelBGHover.png');
+  height: 22px;
+	color : #ffffff;
+  padding-left: 5px;
+}
+
+.panelClicked {
+   background-image: url('images/example1_panelBGClick.png');
+   height: 22px;
+   color : #ffffff;
+   padding-left: 5px;
+}
+
+.panelSelected {
+	background-image: url('images/example1_panelBGSelected.png');
+  height: 22px;
+	color : #494949;
+	font-weight : bold;
+  padding-left: 5px;
+}
+.panelContent {
+    background-image: url('images/example1_contentBG');
+    background: #f8f8f8;
+    overflow: auto;
+}
+
+</style>
+</head><body>
+<div>
+     <div id="accordionExample">
+     		<div >
+     		  <div  class="panelheader">
+     		  	Overview
+     		  </div>
+     		  <div class="panelContent">
+     			 <br>This example illustrates how to use the Rico.Accordion behavior to transform a set of 
+     			 divs into a first class accordion component.<br><br>
+     			The Rico.Accordion is actually a very simple component built off of Rico behaviors and effects.
+          It adds the necessary event handlers on the respective divs to handle the visual aspects of expanding, collapsing
+     			and hovering.
+     		  </div>
+     		</div>
+
+     		<div >
+     		  <div class="panelheader">
+     		  	HTML Code
+     		  </div>
+     			<div class="panelContent">
+     			<br>The example HTML structure is an outer div that holds all of the panels.  Then, each panel is just a
+     			couple of DIVs (one for the header and one for the content) wrapped in an outer DIV.  You can actually use 
+     			elements other than divs.
+     	<pre>	&lt;div id="accordionDiv"&gt;
+     	   &lt;div id="overviewPanel"&gt;
+     	     &lt;div id="overviewHeader"&gt;
+     	       Overview
+     	      &lt;/div&gt;
+     	      &lt;div id="panel1Content"&gt;
+     	       ... content text ...
+     	      &lt;/div&gt;
+     	   &lt;/div&gt;
+     	&lt;/div&gt;
+     	</pre>
+     		  </div>
+     		  </div>
+
+     		<div>
+     		  <div class="panelheader">
+     		  	Rico Code
+     		  </div>
+     			<div class="panelContent">
+     			<br>To attach the accordion behavior to the accordion container div, construct a Rico.Accordion
+     			object and pass the panel titles and contents to it.  This is a bit different than the previous version, 
+     			but allows  a lot more flexibilitiy.  With the new Prototype Selector class it is still very easy.
+     			<pre>new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent') );
+     	 -or-
+     	new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent'), 
+     	                {panelHeight:200, 
+     	                 hoverClass: 'mdHover',
+     		               selectedClass: 'mdSelected'}} );</pre>
+     			The second example specifies the height of the accordion panels and the css classes that can be associated 
+     			with the accordion behaviors.  
+          There are many other configuration parameters that can be specified to modify various visual aspects of the
+     			accordion. The panelHeight is the attribute that is most commonly overridden.
+     		  </div>
+     		</div>
+
+
+    		<div>
+    		  <div class="panelheader">
+    		  	Important Note
+    		  </div>
+    			<div class="panelContent">
+    			<br>The accordion is very flexible now and can handle scrollbars on firefox through the use of some new features in Rico.  
+    			However, you do have to make sure the header and content elements passed in to the Accordion constructor have the same 
+    			elements and match up in the order they are passed.  The new Accordion requires far less html attributes than Rico's 
+    			previous versions.
+          <br>
+          </div>
+    		</div>
+    		
+    		
+      </div>
+
+</div>
+</body></html>

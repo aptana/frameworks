@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Slider Demo in Scriptaculous</title>    
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script src="lib/prototype/prototype.js" type="text/javascript"></script>
+	<script src="lib/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+	
+</head>
+
+<body>
+	
+	<div id="content">
+                        
+        <h1 id="pageName">
+
+                Scriptaculous Slider Demo
+        </h1>
+
+		<div id="revision">
+			<p><strong>Standard horizontal slider</strong> 
+  			<div id="track1" style="width:200px;background-color:#aaa;height:5px;">
+
+    			<div id="handle1" style="width:5px;height:10px;background-color:#f00;cursor:move;"> </div>
+ 		 </div>
+ 
+ 		<div id="debug1" style="padding-top: 5px;"></div></p>
+
+
+	<p><strong>Vertical slider</strong>
+  <div id="track2" style="height:100px;background-color:#aaa;width:5px;">
+    <div id="handle2" style="width:10px;height:5px;background-color:#f00;cursor:move;"> </div></div>
+
+  <div id="debug2"></div></p>
+
+
+	<p><strong>Slider with predefined values [0,50,100,150,200]</strong>
+  <div id="track3" style="width:200px;background-color:#aaa;height:5px;">
+    <div id="handle3" style="width:5px;height:10px;background-color:#f00;cursor:move;"> </div>
+  </div>
+  <div id="debug3" style="padding-top: 5px;"></div></p>
+
+	<p><strong>Slider with predefined values [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] and interactions with div area</strong><br /><div id="track4" style="background-color : #CCCCCC; width : 200px; height : 5px;">
+    <div class="selected" id="handle4" style="width: 5px; height: 10px; background-color: rgb(255, 0, 0); cursor: move; left: 0px; position: relative;"> </div><br /></div><br /><div id="barreSortie4" style="background-color : #DCDCDC; width : 0px; height : 7px; border : #232323 1px dashed; margin-top : 10px;"></div><br /><div id="debug4" style="padding-top: 5px;"></div></p>
+
+
+	<p>
+  <script type="text/javascript" language="javascript">
+  // <![CDATA[
+    new Control.Slider('handle1','track1',{
+      onSlide:function(v){$('debug1').innerHTML='slide: '+v},
+      onChange:function(v){$('debug1').innerHTML='changed! '+v}});
+    new Control.Slider('handle2','track2',{axis:'vertical',
+        onSlide:function(v){$('debug2').innerHTML='slide: '+v},
+        onChange:function(v){$('debug2').innerHTML='changed! '+v}});
+    new Control.Slider('handle3','track3',{range:$R(0,200),
+        values:[0,50,100,150,200],
+        onSlide:function(v){$('debug3').innerHTML='slide: '+v},
+        onChange:function(v){$('debug3').innerHTML='changed! '+v}});
+   new Control.Slider('handle4','track4',{range:$R(0,20),
+        values:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+        onSlide:function(v){$('debug4').innerHTML='slide: '+v; $('barreSortie4').style.width=(v*3)+'px';},
+        onChange:function(v){$('debug4').innerHTML='changed! '+v}});
+  // ]]>
+  </script>
+</p>
+
+
+	<p>Available Options.<br /><ul>
+  <li>axis: (horizontal or vertical)</li>
+  <li>increment:</li>
+  <li>step:</li>
+  <li>alignX &#8211; will move the handle so that it aligns properly on the track.  This will move it x pixels on the x-axis.</li>
+
+  <li>alignY &#8211; will move the handle so that it aligns properly on the track.  This will move it x pixels on the y-axis.</li>
+  <li>disabled &#8211; will set the slider&#8217;s state to being &#8216;locked&#8217; and thus won&#8217;t respond to input.</li>
+  <li>maximum:</li>
+
+  <li>minimum:</li>
+  <li>sliderValue:</li>
+  <li>handleImage:</li>
+  <li>handleDisabled:</li>
+  <li>values: [10, 20, 30, 40];</li>
+  <li>onSlide:</li>
+
+  <li>onChange:</li><br /></ul></p>
+
+
+	<p>Another easy addition is to add a <b>cursor: move</b> CSS rule on the slider, the default text cursor gives less feedback as to what is going on, and this would compensate for a sometimes laggy slider. Even better, use cursosr:ns-resize, or ew-resize as appropriate.  I know this is obvious, but thought here was the place to do it.<br />Some other obvious note: put the javascript after the body.  If you put the javascript right after the slider divs, it will work in firefox, but IE will start doing weird bugs.</p>
+	</div>
+
+	<div id="changes" style="display: none">
+
+		<p style="background: #eee; padding: 3px; border: 1px solid silver">
+			<small>
+				Showing changes from revision #8 to #9:
+				<ins class="diffins">Added</ins> | <del class="diffdel">Removed</del>
+			</small>
+		</p>
+
+		<p><strong>Standard horizontal slider</strong> 
+  <div id="track1" style="width:200px;background-color:#aaa;height:5px;">
+
+    <div id="handle1" style="width:5px;height:10px;background-color:#f00;cursor:move;"> </div>
+  </div>
+  <div id="debug1" style="padding-top: 5px;"></div></p>
+
+
+	<p><strong>Vertical slider</strong>
+  <div id="track2" style="height:100px;background-color:#aaa;width:5px;">
+    <div id="handle2" style="width:10px;height:5px;background-color:#f00;cursor:move;"> </div></div>
+
+  <div id="debug2"></div></p>
+
+
+	<p><strong>Slider with predefined values [0,50,100,150,200]</strong>
+  <div id="track3" style="width:200px;background-color:#aaa;height:5px;">
+    <div id="handle3" style="width:5px;height:10px;background-color:#f00;cursor:move;"> </div>
+  </div>
+  <div id="debug3" style="padding-top: 5px;"></div></p>
+
+	<p><strong>Slider with predefined values [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] and interactions with div area</strong><br /><div id="track4" style="background-color : #CCCCCC; width : 200px; height : 5px;">
+    <div class="selected" id="handle4" style="width: 5px; height: 10px; background-color: rgb(255, 0, 0); cursor: move; left: 0px; position: relative;"> </div><br /></div><br /><div id="barreSortie4" style="background-color : #DCDCDC; width : 0px; height : 7px; border : #232323 1px dashed; margin-top : 10px;"></div><br /><div id="debug4" style="padding-top: 5px;"></div></p>
+
+
+	<p>
+  <script type="text/javascript" language="javascript">
+  // <![CDATA[
+    new Control.Slider('handle1','track1',{
+      onSlide:function(v){$('debug1').innerHTML='slide: '+v},
+      onChange:function(v){$('debug1').innerHTML='changed! '+v}});
+    new Control.Slider('handle2','track2',{axis:'vertical',
+        onSlide:function(v){$('debug2').innerHTML='slide: '+v},
+        onChange:function(v){$('debug2').innerHTML='changed! '+v}});
+    new Control.Slider('handle3','track3',{range:$R(0,200),
+        values:[0,50,100,150,200],
+        onSlide:function(v){$('debug3').innerHTML='slide: '+v},
+        onChange:function(v){$('debug3').innerHTML='changed! '+v}});
+   new Control.Slider('handle4','track4',{range:$R(0,20),
+        values:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+        onSlide:function(v){$('debug4').innerHTML='slide: '+v; $('barreSortie4').style.width=(v*3)+'px';},
+        onChange:function(v){$('debug4').innerHTML='changed! '+v}});
+  // ]]>
+  </script>
+</p>
+
+
+	<p>Available Options.<br /><ul>
+  <li>axis: (horizontal or vertical)</li>
+  <li>increment:</li>
+  <li>step:</li>
+  <li>alignX &#8211; will move the handle so that it aligns properly on the track.  This will move it x pixels on the x-axis.</li>
+
+  <li>alignY &#8211; will move the handle so that it aligns properly on the track.  This will move it x pixels on the y-axis.</li>
+  <li>disabled &#8211; will set the slider&#8217;s state to being &#8216;locked&#8217; and thus won&#8217;t respond to input.</li>
+  <li>maximum:</li>
+
+  <li>minimum:</li>
+  <li>sliderValue:</li>
+  <li>handleImage:</li>
+  <li>handleDisabled:</li>
+  <li>values: [10, 20, 30, 40];</li>
+  <li>onSlide:</li>
+
+  <li>onChange:</li><br /></ul></p>
+
+
+	<p>Another easy addition is to add a <b>cursor: move</b> CSS rule on the slider, the default text cursor gives less feedback as to what is going on, and this would compensate for a sometimes laggy slider. <ins class="diffins">Even better, use cursosr:ns-resize, or ew-resize as appropriate.  </ins>I know this is obvious, but thought here was the place to do it.</p><ins class="diffmod"><br />Some other obvious note: put the javascript after the body.  If you put the javascript right after the slider divs, it will work in firefox, but IE will start doing weird bugs.</ins></p>
+	</div>
+
+
+</div>
+
+</body>

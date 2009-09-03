@@ -1,0 +1,549 @@
+<html>
+<head>
+<title>Events - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="events">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Events</h2><h3 class='func' id='bind'><b>bind</b>(String <b>type</b>, Object <b>data</b>, Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>type</th><td width='15%'>String</td><td>An event type</td></tr>
+<tr><th width='15%'>data</th><td width='15%'>Object</td><td>(optional) Additional data passed to the event handler as event.data</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the event on each of the set of matched elements</td></tr>
+</table>
+<p>Binds a handler to a particular event (like click) for each matched element. The event handler is passed an event object that you can use to prevent default behaviour. To stop both default action and event bubbling, your handler has to return false.</p><p>In most cases, you can define your event handlers as anonymous functions (see first example). In cases where that is not possible, you can pass additional data as the second paramter (and the handler function as the third), see  second example.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).bind(&quot;click&quot;, function(){
+  alert( $(this).text() );
+});</pre>
+<h5>Result</h5>
+<pre>alert(&quot;Hello&quot;)</pre>
+</div>
+<div class='example'>
+<p>Pass some additional data to the event handler.</p>
+<h5>Code</h5>
+<pre>function handler(event) {
+  alert(event.data.foo);
+}
+$(&quot;p&quot;).bind(&quot;click&quot;, {foo: &quot;bar&quot;}, handler)</pre>
+<h5>Result</h5>
+<pre>alert(&quot;bar&quot;)</pre>
+</div>
+<div class='example'>
+<p>Cancel a default action and prevent it from bubbling by returning false
+from your function.</p>
+<h5>Code</h5>
+<pre>$(&quot;form&quot;).bind(&quot;submit&quot;, function() { return false; })</pre>
+</div>
+<div class='example'>
+<p>Cancel only the default action by using the preventDefault method.</p>
+<h5>Code</h5>
+<pre>$(&quot;form&quot;).bind(&quot;submit&quot;, function(event){
+  event.preventDefault();
+});</pre>
+</div>
+<div class='example'>
+<p>Stop only an event from bubbling by using the stopPropagation method.</p>
+<h5>Code</h5>
+<pre>$(&quot;form&quot;).bind(&quot;submit&quot;, function(event){
+  event.stopPropagation();
+});</pre>
+</div>
+</div>
+<h3 class='func' id='one'><b>one</b>(String <b>type</b>, Object <b>data</b>, Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>type</th><td width='15%'>String</td><td>An event type</td></tr>
+<tr><th width='15%'>data</th><td width='15%'>Object</td><td>(optional) Additional data passed to the event handler as event.data</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the event on each of the set of matched elements</td></tr>
+</table>
+<p>Binds a handler to a particular event (like click) for each matched element. The handler is executed only once for each element. Otherwise, the same rules as described in bind() apply. 	 The event handler is passed an event object that you can use to prevent default behaviour. To stop both default action and event bubbling, your handler has to return false.</p><p>In most cases, you can define your event handlers as anonymous functions (see first example). In cases where that is not possible, you can pass additional data as the second paramter (and the handler function as the third), see  second example.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).one(&quot;click&quot;, function(){
+  alert( $(this).text() );
+});</pre>
+<h5>Result</h5>
+<pre>alert(&quot;Hello&quot;)</pre>
+</div>
+</div>
+<h3 class='func' id='unbind'><b>unbind</b>(String <b>type</b>, Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>type</th><td width='15%'>String</td><td>(optional) An event type</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>(optional) A function to unbind from the event on each of the set of matched elements</td></tr>
+</table>
+<p>The opposite of bind, removes a bound event from each of the matched elements.</p><p>Without any arguments, all bound events are removed.</p><p>If the type is provided, all bound events of that type are removed.</p><p>If the function that was passed to bind is provided as the second argument, only that specific event handler is removed.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unbind()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unbind( &quot;click&quot; )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unbind( &quot;click&quot;, function() { alert(&quot;Hello&quot;); } )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='trigger'><b>trigger</b>(String <b>type</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>type</th><td width='15%'>String</td><td>An event type to trigger.</td></tr>
+</table>
+<p>Trigger a type of event on every matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p click=&quot;alert('hello')&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).trigger(&quot;click&quot;)</pre>
+<h5>Result</h5>
+<pre>alert('hello')</pre>
+</div>
+</div>
+<h3 class='func' id='toggle'><b>toggle</b>(Function <b>even</b>, Function <b>odd</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>even</th><td width='15%'>Function</td><td>The function to execute on every even click.</td></tr>
+<tr><th width='15%'>odd</th><td width='15%'>Function</td><td>The function to execute on every odd click.</td></tr>
+</table>
+<p>Toggle between two function calls every other click. Whenever a matched element is clicked, the first specified function  is fired, when clicked again, the second is fired. All subsequent  clicks continue to rotate through the two functions.</p><p>Use unbind("click") to remove.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).toggle(function(){
+  $(this).addClass(&quot;selected&quot;);
+},function(){
+  $(this).removeClass(&quot;selected&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='hover'><b>hover</b>(Function <b>over</b>, Function <b>out</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>over</th><td width='15%'>Function</td><td>The function to fire whenever the mouse is moved over a matched element.</td></tr>
+<tr><th width='15%'>out</th><td width='15%'>Function</td><td>The function to fire whenever the mouse is moved off of a matched element.</td></tr>
+</table>
+<p>A method for simulating hovering (moving the mouse on, and off, an object). This is a custom method which provides an 'in' to a  frequent task.</p><p>Whenever the mouse cursor is moved over a matched  element, the first specified function is fired. Whenever the mouse  moves off of the element, the second specified function fires.  Additionally, checks are in place to see if the mouse is still within  the specified element itself (for example, an image inside of a div),  and if it is, it will continue to 'hover', and not move out  (a common error in using a mouseout event handler).</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).hover(function(){
+  $(this).addClass(&quot;over&quot;);
+},function(){
+  $(this).addClass(&quot;out&quot;);
+});</pre>
+</div>
+</div>
+<h3 class='func' id='ready'><b>ready</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function to be executed when the DOM is ready.</td></tr>
+</table>
+<p>Bind a function to be executed whenever the DOM is ready to be traversed and manipulated. This is probably the most important  function included in the event module, as it can greatly improve the response times of your web applications.</p><p>In a nutshell, this is a solid replacement for using window.onload,  and attaching a function to that. By using this method, your bound Function  will be called the instant the DOM is ready to be read and manipulated,  which is exactly what 99.99% of all Javascript code needs to run.</p><p>There is one argument passed to the ready event handler: A reference to the jQuery function. You can name that argument whatever you like, and can therefore stick with the $ alias without risc of naming collisions.</p><p>Please ensure you have no code in your <body> onload event handler,  otherwise $(document).ready() may not fire.</p><p>You can have as many $(document).ready events on your page as you like. The functions are then executed in the order they were added.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(document).ready(function(){ Your code here... });</pre>
+</div>
+<div class='example'>
+<p>Uses both the shortcut for $(document).ready() and the argument
+to write failsafe jQuery code using the $ alias, without relying on the
+global alias.</p>
+<h5>Code</h5>
+<pre>jQuery(function($) {
+  // Your code using failsafe $ alias here...
+});</pre>
+</div>
+</div>
+<h3 class='func' id='scroll'><b>scroll</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the scroll event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the scroll event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).scroll( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onscroll=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='submit'><b>submit</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the submit event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the submit event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Prevents the form submission when the input has no value entered.</p>
+<h5>Before</h5>
+<pre>&lt;form id=&quot;myform&quot;&gt;&lt;input /&gt;&lt;/form&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;#myform&quot;).submit( function() {
+  return $(&quot;input&quot;, this).val().length &gt; 0;
+} );</pre>
+</div>
+</div>
+<h3 class='func'><b>submit</b>() : jQuery</h3>
+<p>Trigger the submit event of each matched element. This causes all of the functions that have been bound to thet submit event to be executed.</p><p>Note: This does not execute the submit method of the form element! If you need to submit the form via code, you have to use the DOM method, eg. $("form")[0].submit();</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Triggers all submit events registered for forms, but does not submit the form</p>
+<h5>Code</h5>
+<pre>$(&quot;form&quot;).submit();</pre>
+</div>
+</div>
+<h3 class='func' id='focus'><b>focus</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the focus event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the focus event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).focus( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onfocus=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>focus</b>() : jQuery</h3>
+<p>Trigger the focus event of each matched element. This causes all of the functions that have been bound to thet focus event to be executed.</p><p>Note: This does not execute the focus method of the underlying elements! If you need to focus an element via code, you have to use the DOM method, eg. $("#myinput")[0].focus();</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onfocus=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).focus();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+</div>
+<h3 class='func' id='keydown'><b>keydown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keydown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keydown event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keydown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeydown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='dblclick'><b>dblclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the dblclick event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the dblclick event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).dblclick( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p ondblclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='keypress'><b>keypress</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keypress event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keypress event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keypress( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeypress=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='error'><b>error</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the error event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the error event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).error( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onerror=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='blur'><b>blur</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the blur event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the blur event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).blur( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onblur=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>blur</b>() : jQuery</h3>
+<p>Trigger the blur event of each matched element. This causes all of the functions that have been bound to thet blur event to be executed.</p><p>Note: This does not execute the blur method of the underlying elements! If you need to blur an element via code, you have to use the DOM method, eg. $("#myinput")[0].blur();</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onblur=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).blur();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+</div>
+<h3 class='func' id='load'><b>load</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the load event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the load event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).load( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='select'><b>select</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the select event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the select event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).select( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>select</b>() : jQuery</h3>
+<p>Trigger the select event of each matched element. This causes all of the functions that have been bound to thet select event to be executed.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).select();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+</div>
+<h3 class='func' id='mouseup'><b>mouseup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseup event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='unload'><b>unload</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the unload event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the unload event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unload( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onunload=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='change'><b>change</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the change event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the change event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).change( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onchange=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='mouseout'><b>mouseout</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseout event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseout event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseout( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseout=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='keyup'><b>keyup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the keyup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the keyup event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).keyup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onkeyup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='click'><b>click</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the click event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the click event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).click( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>click</b>() : jQuery</h3>
+<p>Trigger the click event of each matched element. This causes all of the functions that have been bound to thet click event to be executed.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).click();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+</div>
+<h3 class='func' id='resize'><b>resize</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the resize event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the resize event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).resize( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onresize=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='mousemove'><b>mousemove</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousemove event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousemove event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousemove( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmousemove=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='mousedown'><b>mousedown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousedown event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousedown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmousedown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='mouseover'><b>mouseover</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseover event of each matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseover( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseover=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+</div>

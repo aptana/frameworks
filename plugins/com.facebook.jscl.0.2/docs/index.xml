@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="LibraryName Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+	<topic label="Facebook FBCL 0.2" href="docs/Index.htm">
+		<topic label="ApiClient" href="docs/html/T_FB_ApiClient.htm" />
+		<topic label="ApiClientBase" href="docs/html/T_FB_ApiClientBase.htm" />
+		<topic label="ApiErrorCode" href="docs/html/T_FB_ApiErrorCode.htm" />
+		<topic label="ApiErrorRequestArg" href="docs/html/T_FB_ApiErrorRequestArg.htm" />
+		<topic label="ApiErrorResult" href="docs/html/T_FB_ApiErrorResult.htm" />
+		<topic label="BatchSequencer" href="docs/html/T_FB_BatchSequencer.htm" />
+		<topic label="CallbackWithException" href="docs/html/T_FB_CallbackWithException.htm" />
+		<topic label="OnRequestCompleted" href="docs/html/T_FB_OnRequestCompleted.htm"  />
+		<topic label="PendingResult" href="docs/html/T_FB_PendingResult.htm" />
+		<topic label="SequencerBase" href="docs/html/T_FB_SequencerBase.htm" />
+	</topic>
+</toc>

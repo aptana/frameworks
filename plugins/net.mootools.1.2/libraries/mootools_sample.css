@@ -1,0 +1,300 @@
+body {
+	margin: 0;
+	padding: 0;
+
+	font: 11px/1.7 "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+a img {
+	border: 0;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+	padding: 10px 0 0;
+	margin: 0 0 10px;
+}
+
+h1 {
+	font-size: 22px;
+	border-bottom: 1px solid #ddd;
+}
+
+h2 {
+	font-size: 20px;
+	margin: 0 0 10px 20px;
+	border-bottom: 1px solid #ddd;
+}
+
+h3 {
+	font-size: 18px;
+	margin: 0 0 10px 40px;
+}
+
+h4 {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+a:link, a:visited {
+	color: #e65551;
+}
+
+a:hover, a:active {
+	color: #519ee6;
+}
+
+/*layout*/
+
+#header {
+	height: 100px;
+}
+
+#header h1 a {
+	display: block;
+	height: 28px;
+	width: 233px;
+	background: url(logo.gif) no-repeat;
+}
+
+#header p.userinfo {
+	float: right;
+	margin: 20px 20px 0 -100px;
+}
+
+#header h1 {
+	position: absolute;
+	margin: 20px;
+	border: 0;
+}
+
+#header h1 span {
+	display: none;
+}
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#sidebar {
+	height: 500px;
+	width: 17%;
+	float: left;
+	padding: 5px;
+	background: #f9f9f9;
+	border: 1px solid #eee;
+	margin-right: 20px;
+}
+
+#sidebar h4 {
+	background: #fff;
+	padding: 2px 5px;
+	border: 1px solid #eee;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#content {
+	float: left;
+	width: 80%;
+}
+
+#footer {
+	height: 50px;
+}
+
+#footer input.button {
+	margin-top: 6px;
+	margin-right: 5px;
+}
+
+/*menu*/
+
+#menutop {
+	margin-top: 75px;
+	width: 550px;
+}
+
+#menubottom {
+	width: 670px;
+}
+
+.menu {
+	float: right;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.menu li {
+	float: left;
+}
+
+.menu a:link, .menu a:visited {
+	color: #777;
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	padding: 3px 7px;
+	text-align: center;
+	width: 90px;
+	margin: 0 3px;
+}
+
+.menu a:hover, .menu a:active {
+	color: #333;
+}
+
+#menutop a {
+	background: url(tab.gif) top left;
+}
+
+#menubottom a {
+	background: url(tab.gif) bottom left;
+}
+
+/*page*/
+
+#page {
+	font-size: 12px;
+	padding: 20px;
+	background: #fff;
+}
+
+/*toc*/
+
+div.toc {
+	font-size: 10px;
+	float: right;
+	border: 1px solid #eee;
+	background: #fff;
+	margin: 10px;
+	padding: 5px;
+}
+
+div.toc ul {
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+
+#toc__header {
+	background: #eee;
+	padding: 2px 4px;
+	color: #333;
+	font-weight: bold;
+}
+
+div.level2 {
+	padding-left: 20px;
+}
+
+div.level3 {
+	padding-left: 40px;
+}
+
+.secedit {
+/*	text-align: right;
+	border-bottom: 1px solid #ddd;
+	padding: 3px;*/
+	display: none;
+}
+
+p.info {
+	color: #444;
+	font-size: 10px;
+	text-align: right;
+	clear: both;
+}
+
+/*code*/
+
+pre {
+	font: 11px "Monaco", "Courier new", Verdana, sans-serif;
+	overflow: auto;
+	margin: 0;
+	padding: 8px;
+	background: #f7f7f7;
+	border: 1px solid #ddd;
+}
+
+.kw1 {
+	color: #5292d4;
+}
+
+.kw2 {
+	color: #e89c24;
+}
+
+.kw3 {
+	color: #784e0c;
+}
+
+.br0 {
+	color: #6c6c6c;
+}
+
+.st0 {
+	color: #8aa941;
+}
+
+.co1, .coMULTI {
+	color: #888;
+}
+
+/*login*/
+
+fieldset {
+	border: 1px solid #eee;
+	width: 310px;
+	margin: 0 auto;
+	padding: 10px;
+	background: #f9f9f9;
+}
+
+legend {
+	display: none;
+}
+
+label.block {
+	display: block;
+	padding-bottom: 5px;
+}
+
+label.block span {
+	display: block;
+	width: 100px;
+	float: left;
+}
+
+label.block input {
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+input.button {
+	display: block;
+	float: right;
+}
+
+label.simple {
+	display: block;
+	margin-top: 30px;
+	padding-top: 5px;
+	border-top: 1px solid #ddd;
+}
+
+/*edit*/
+
+textarea {
+	width: 99%;
+	height: 400px;
+	font: 11px "Monaco", "Courier new", Verdana, sans-serif;
+	padding: 2px;
+}

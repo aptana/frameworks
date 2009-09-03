@@ -1,0 +1,268 @@
+/**
+ * Creates a new instance of a Deferred object, which encapsulates a value that is not yet available.
+ * @id MochiKit.Async.Deferred
+ * @alias Deferred
+ * @constructor
+ * @param {Function} [canceller]    Function to call if Deferred.prototype.cancel is called before the Deferred object fires.
+ */
+
+/**
+ * Creates a programmer representation of a Deferred object.
+ * @id MochiKit.Async.Deferred.prototype.repr
+ * @alias repr
+ * @alias MochiKit.Async.Deferred.repr
+ * @return {String} Returns a string representation of the object.
+ */ 
+
+/**
+ * Cancels a Deferred that does not have a value yet, or is waiting on another Deferred for its value. Calls a canceller function (if defined). If canceller is not defined or does not return an error, starts an errback chain with CancelledError.
+ * @id MochiKit.Async.Deferred.prototype.cancel
+ * @alias cancel
+ * @alias MochiKit.Async.Deferred.cancel
+ * @constructor
+ */
+
+/**
+ * Starts the callback sequence with a valid result (i.e. not an error or Deferred). Call callback only once on a Deferred.
+ * @id MochiKit.Async.Deferred.prototype.callback
+ * @alias callback
+ * @alias MochiKit.Async.Deferred.callback
+ * @constructor
+ * @param {Object} res    Result to start the callback sequence with.
+ */
+
+/**
+ * Starts the callback sequence with an error result (and not a Deferred). Call errback only once on a Deferred.
+ * @id MochiKit.Async.Deferred.prototype.errback
+ * @alias errback
+ * @alias MochiKit.Async.Deferred.errback
+ * @constructor
+ * @param {Object} res    Result to start the callback sequence with.
+ */
+
+/**
+ * Adds a function as a callback and errback as the next element in a callback sequence.
+ * @id MochiKit.Async.Deferred.prototype.addBoth
+ * @alias addBoth
+ * @alias MochiKit.Async.Deferred.addBoth
+ * @constructor
+ * @param {Function} ...    Function to add. If you specify multiple functions, uses MochiKit.Base.partial.apply(null, arguments) to create a partially applied function and the result of the callback or errback will be the last argument passed to fn.
+ * @return    {Object}    Returns the callback sequence with the function attached as a callback and errback. (If the object is Deferred, it will no longer be able to accept new callbacks.)
+ */
+
+/**
+ * Adds a callback function to the end of the callback sequence.
+ * @id MochiKit.Async.Deferred.prototype.addCallback
+ * @alias addCallback
+ * @alias MochiKit.Async.Deferred.addCallback
+ * @constructor
+ * @param {Function} ...    Function to add. If you specify multiple functions, uses MochiKit.Base.partial.apply(null, arguments) to create a partially applied function and the result of the callback will be the last argument passed to fn.
+ * @return    {Object}    Returns the callback sequence with the function attached as a callback. (If the object is Deferred, it will no longer be able to accept new callbacks.)
+ */
+
+/**
+ * Adds an errback function to the end of the callback sequence.
+ * @id MochiKit.Async.Deferred.prototype.addErrback
+ * @alias addErrback
+ * @alias MochiKit.Async.Deferred.addErrback
+ * @constructor
+ * @param {Function} ...    Function to add. If you specify multiple functions, uses MochiKit.Base.partial.apply(null, arguments) to create a partially applied function and the result of the errback will be the last argument passed to fn.
+ * @return    {Object}    Returns the callback sequence with the function attached as an errback. (If the object is Deferred, it will no longer be able to accept new callbacks.)
+ */
+
+/**
+ * Adds separate callback and errback to the end of a callback sequence. Either callback or errback may be null, but not both.
+ * @id MochiKit.Async.Deferred.prototype.addCallbacks
+ * @alias addCallbacks
+ * @alias MochiKit.Async.Deferred.addCallbacks
+ * @constructor
+ * @param {Function} cb Callback function to add.
+ * @param {Function} eb    Errback function to add.
+ * @return {Object} Returns the callback sequence with the callback and errback attached.
+ */
+
+/**
+ * Evaluates a JSON XMLHttpRequest.
+ * @id MochiKit.Async.evalJSONRequest
+ * @alias evalJSONRequest
+ * @alias MochiKit.Async.evalJSONRequest
+ * @param {Object} req    Request whose .responseText property is to be evaluated.
+ * @return {Object} Returns the result of the evaluation.
+ */
+
+/**
+ * Returns a Deferred object that has already had callback(result) called.
+ * Use the succeed function to write synchronous code to an asynchronous interface.
+ * @id MochiKit.Async.succeed
+ * @alias succeed
+ * @alias MochiKit.Async.succeed
+ * @param {Object} [result]    Result to pass to Deferred.prototype.callback(result).
+ * @return {Deferred} Returns a new Deferred object.
+ */
+
+/**
+ * Returns a Deferred object that with errback(result) already called.
+ * @id MochiKit.Async.fail
+ * @alias fail
+ * @alias MochiKit.Async.fail
+ * @param {Object} [result]    Result to pass to Deferred.prototype.errback(result).
+ * @return {Deferred} Returns a new Deferred object.
+ */
+
+/**
+ * Returns an XMLHttpRequest compliant object for the current platform. The order of preference for the object is Msxml2.XMLHTTP, Microsoft.XMLHTTP, and Msxml2.XMLHTTP.4.0.
+ * @id MochiKit.Async.getXMLHttpRequest
+ * @alias getXMLHttpRequest
+ * @alias MochiKit.Async.getXMLHttpRequest 
+ * @return {XMLHttpRequest} Returns an XMLHttpRequest compliant object.
+ */
+
+/**
+ * Sets an onreadystatechange handler on an XMLHttpRequest object and sends it off. 
+ * Returns a cancellable Deferred object that will callback on success. 
+ * Currently, 200 (OK) and 304 (NOT_MODIFIED) are success codes.
+ * @id MochiKit.Async.sendXMLHttpRequest
+ * @alias sendXMLHttpRequest
+ * @alias MochiKit.Async.sendXMLHttpRequest
+ * @param {XMLHttpRequest} req    Preconfigured XMLHttpRequest object (open has been called).
+ * @param {String, Object} [sendContent]    String or DOM content to send over the XMLHttpRequest.
+ * @return {Deferred} Returns a Deferred object that will callback with the XMLHttpRequest instance on success.
+ */
+
+/**
+ * Makes a simple XMLHttpRequest and wraps it with a cancellable Deferred object.
+ * @id MochiKit.Async.doSimpleXMLHttpRequest
+ * @alias doSimpleXMLHttpRequest
+ * @alias MochiKit.Async.doSimpleXMLHttpRequest
+ * @param {Object} ...    URL to get. If you specify multiple arguments, they will be appended to the URL.
+ * @return {Deferred} Returns a Deferred object that will callback on success with the XMLHttpRequest instance. 
+ */
+
+/**
+ * Makes a simple XMLHttpRequest to a URL and returns the response as a JSON document.
+ * @id MochiKit.Async.loadJSONDoc
+ * @alias loadJSONDoc
+ * @alias MochiKit.Async.loadJSONDoc
+ * @param {Object} url    URL to make the XMLHttpRequest to.
+ * @return    {Deferred}    Returns a Deferred object that will call back with the evaluated JSON response.
+ */
+
+/**
+ * Returns a new cancellable Deferred object that will callback(res) after the specified number of seconds have elapsed.
+ * @id MochiKit.Async.wait
+ * @alias wait
+ * @alias MochiKit.Async.wait
+ * @param {Number} seconds    Number of seconds to wait.
+ * @param {Object} [value]    Value of the callback result.
+ * @return {Deferred} Returns a new Deferred object.
+ */
+
+/**
+ * Calls the specified function(s) after the specified number of seconds.
+ * @id MochiKit.Async.callLater
+ * @alias callLater
+ * @alias MochiKit.Async.callLater
+ * @param {Number} seconds    Number of seconds to wait.
+ * @param {Function} ... One or more functions to call.
+ * @return {Deferred} Returns a cancellable Deferred object.
+ */
+
+/**
+ * Lock for an asynchronous system.
+ * @id MochiKit.Async.DeferredLock
+ * @alias DeferredLock
+ * @constructor
+ */
+
+/** 
+ * Acquires the lock of a Deferred object with the value of DeferredLock. If locked = true, then Deferred is added to a waiting list.
+ * @id MochiKit.Async.DeferredLock.prototype.acquire
+ * @alias acquire
+ * @alias MochiKit.Async.DeferredLock.acquire
+ * @constructor
+ * @return    {Deferred} Returns a Deferred object that fires when the lock is acquired.
+ */  
+
+/**
+ * Releases the lock of a Deferred object. If a Deferred is on a waiting list, calls the first Deferred on the list.
+ * @id MochiKit.Async.DeferredLock.prototype.release
+ * @alias release
+ * @alias MochiKit.Async.DeferredLock.release
+ * @constructor
+ */
+
+/**
+ * Combines a list of Deferred objects into a single object.
+ * @id MochiKit.Async.DeferredList
+ * @alias DeferredList
+ * @constructor
+ * @param {Object} list    List of Deferred objects.
+ * @param {Object} [fireOnOneCallback]    If present, launches the callback after the first Deferred of the list has returned.
+ * @param {Object} [fireOnOneErrback]    If present, calls the errback at the first error of a Deferred.
+ * @param {Object} [consumeErrors]    If present, indicates that any errors raised in the Deferreds should be consumed by the DeferredList.
+ * @param {Function} [canceller]    Specifies a canceller function to call before the Deferred object fires.
+ */
+
+/**
+ * Returns a DeferredList from a list of Deferred instances that will callback with a results Array, or errback on the first array.
+ * @id MochiKit.Async.gatherResults
+ * @alias gatherResults
+ * @param {Object} deferredList
+ * @return {DeferredList} Returns a DeferredList (Array) object.
+ */
+
+/**
+ * Checks that the results of a function call is a Deferred object.
+ * @id MochiKit.Async.maybeDeferred
+ * @alias maybeDeferred
+ * @param {Function} func    Function to call.
+ * @return {Deferred}    Returns a Deferred object. If the result of the function call is not a Deferred object,
+ * the result (or error) will be wrapped in a Deferred object.
+ */
+
+/**
+ * Raised by the Deferred if callback or errback happens after it was already fired.
+ * @id MochiKit.Async.AlreadyCalledError
+ * @alias AlreadyCalledError
+ * @alias MochiKit.Async.AlreadyCalledError
+ * @param {Deferred} deferred    Deferred object throwing the error.
+ */
+
+/**
+ * Raised by the Deferred cancellation mechanism.
+ * @id MochiKit.Async.CancelledError
+ * @alias CancelledError
+ * @alias MochiKit.Async.CancelledError
+ * @param {Object} deferred    Deferred object throwing the error.
+ */
+
+/**
+ * Raised when the JavaScript runtime is not capable of performing the given function.  
+ * Technically, this should really never be raised because a non-conforming JavaScript runtime probably
+ * isn't going to support exceptions in the first place.
+ * @id MochiKit.Async.BrowserComplianceError
+ * @alias BrowserComplianceError
+ * @alias MochiKit.Async.BrowserComplianceError
+ * @param {Object} msg    Error message.
+ */
+/**
+ * ScriptDoc for Async.js
+ */
+
+/**
+ * Wraps the reesults passed to the fail or errback calls of a Deferred object if !(result instanceof Error).
+ * @id MochiKit.Async.GenericError
+ * @alias GenericError
+ * @alias MochiKit.Async.GenericError
+ * @param {Object} msg    Error message.
+ */
+
+/**
+ * Raised when an XMLHttpRequest does not complete for any reason.
+ * @id MochiKit.Async.XMLHttpRequestError
+ * @alias XMLHttpRequestError
+ * @alias MochiKit.Async.XMLHttpRequestError
+ * @param {Object} req    XMLHttpRequest throwing the error.
+ * @param {Object} msg    Error message.
+ */            
+                    

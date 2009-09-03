@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Slider demo - Color picker - Interface Elements for jQuery</title>
+		<script type="text/javascript" src="jquery/jquery.js"></script>
+		<script type="text/javascript" src="interface/interface.js"></script>
+<style type="text/css">
+#colorPicker
+{
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+#color
+{
+	position: absolute;
+	height: 192px;
+	width: 192px;
+	background-color: #FF0000;
+	background-image: url(images/pickerbg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	top: 0px;
+	left: 0px;
+}
+#colorIndic
+{
+	position: absolute;
+	width: 11px;
+	height: 11px;
+	background-image: url(images/select.gif);
+}
+#hue
+{
+	position: absolute;
+	top: 3px;
+	left: 200px;
+	width: 18px;
+	height: 186px;
+	background-image: url(images/hue.png);
+}
+#hueIndic
+{
+	position:absolute;
+	background-image: url(images/color_indic.gif);
+	width: 18px;
+	height: 7px; 
+}
+#colorCurrent
+{
+	width: 60px;
+	height: 60px;
+	border: 2px solid #999;
+	position: absolute;
+	left: 240px;
+	top: 8px;
+}
+#colorValues
+{
+	position: absolute;
+	left: 240px;
+	top: 80px;
+}
+#colorValues input
+{
+	font-size: 11px;
+	padding: 1px;
+}
+#oldColor
+{
+	position: absolute;
+	background-color: #fff;
+	top: 50%;
+	height: 50%;
+	width: 100%;
+}
+#rgbR, #rgbG, #rgbB
+{
+	width: 20px;
+}
+#hex
+{
+	width: 40px;
+}
+</style>
+<title>Slider demo - Color picker</title>
+</head>
+
+<body>
+<div id="colorPicker">
+	<div id="color">
+		<div id="colorIndic"></div>
+	</div>
+	<div id="hue">
+		<div id="hueIndic"></div>
+	</div>
+	<div id="colorCurrent"><div id="oldColor"></div></div>
+
+	<div id="colorValues">
+		<table cellpadding="0" cellspacing="2">
+			<tr>
+				<td>R:</td><td><input type="text" size="2" id="rgbR" value="255" /></td>
+			</tr>
+			<tr>
+				<td>G:</td><td><input type="text" size="2" id="rgbG" value="255" /></td>
+			</tr>
+
+			<tr>
+				<td>B:</td><td><input type="text" size="2" id="rgbB" value="255" /></td>
+			</tr>
+			<tr>
+				<td>#</td><td><input type="text" size="5" id="hex" value="FFFFFF" /></td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+<script type="text/javascript">
+	var baseColor = {r:255,g:0,b:0};
+	var currentColor = {r:255,g:255,b:255};
+	var lastValues = [0,0];
+	$(document).ready(
+	function()
+	{
+		$('#color').Slider(
+			{
+				accept : '#colorIndic',
+				onSlide : function( cordx, cordy,x, y)
+				{
+					lastValues = [parseInt(cordx * 255/100),parseInt(cordy * 255/100)];
+					setGradientColor();
+				},
+				onChange : function()
+				{
+					document.getElementById('oldColor').style.backgroundColor = 'rgb(' + currentColor.r + ',' + currentColor.g + ',' + currentColor.b + ')';
+				}
+			}
+		);
+		$('#hue').Slider(
+			{
+				accept : '#hueIndic',
+				onSlide : function( cordx, cordy,x, y)
+				{
+					setVertColor(parseInt(cordy * 255 / 100));
+					setGradientColor();
+				},
+				onChange : function()
+				{
+					document.getElementById('oldColor').style.backgroundColor = 'rgb(' + currentColor.r + ',' + currentColor.g + ',' + currentColor.b + ')';
+				}
+			}
+		);
+	}
+);
+function setVertColor(indic){
+	var n=256/6, j=256/n, C=indic, c=C%n;
+
+	baseColor = {
+		r : parseInt(C<n?255:C<n*2?255-c*j:C<n*4?0:C<n*5?c*j:255),
+		g : parseInt(C<n*2?0:C<n*3?c*j:C<n*5?255:255-c*j),
+		b : parseInt(C<n?c*j:C<n*3?255:C<n*4?255-c*j:0)
+	};
+	document.getElementById('color').style.backgroundColor = 'rgb(' + baseColor.r + ',' + baseColor.g + ',' + baseColor.b + ')';
+}
+
+function setGradientColor(){
+	var r = Math.round((1-(1-(baseColor.r/255))*(lastValues[0]/255))*(255-lastValues[1]));
+	var g = Math.round((1-(1-(baseColor.g/255))*(lastValues[0]/255))*(255-lastValues[1]));
+	var b = Math.round((1-(1-(baseColor.b/255))*(lastValues[0]/255))*(255-lastValues[1]));
+	document.getElementById('colorCurrent').style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+	document.getElementById('rgbR').value = r;
+	document.getElementById('rgbG').value = g;
+	document.getElementById('rgbB').value = b;
+	document.getElementById('hex').value = (toHex(r) + toHex(g) + toHex(b)).toUpperCase();
+	currentColor = {r:r,g:g,b:b};
+}
+
+function toHex(color){
+	color=parseInt(color).toString(16);
+	return color.length<2?"0"+color:color;
+}
+</script>
+
+</body>
+</html>

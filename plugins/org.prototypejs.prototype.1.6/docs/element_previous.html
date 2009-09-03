@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>previous</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">previous </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">previous(element[, cssRule][, index = 0]) -&gt; HTMLElement | undefined</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Returns element's previous sibling (or the index'th one, if index is specified) that matches cssRule. If no cssRule is provided, all previous siblings are considered. If no previous sibling matches these criteria, undefined is returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The <span class="f_CourierFixed">previous()</span> method is part of Prototype's ultimate DOM traversal toolkit (check out <span class="f_CourierFixed">up()</span>,<span class="f_CourierFixed"> down()</span> and <span class="f_CourierFixed">next()</span> for some more Prototypish niceness). It allows precise index-based and/or CSS rule-based selection of any of <span class="f_CourierFixed">element</span>'s <span style="font-weight: bold;">previous siblings</span>. (Note that two elements are considered siblings if they have the same parent, so for example, the <span class="f_CourierFixed">head</span> and <span class="f_CourierFixed">body</span> elements are siblings—their parent is the <span class="f_CourierFixed">html</span> element.)</p>
+<p>&nbsp;</p>
+<p>As it totally ignores text nodes (it only returns elements), you don’t have to worry about whitespace-only nodes.</p>
+<p>&nbsp;</p>
+<p>And as an added bonus, all elements returned are already extended allowing chaining:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$(element).down(1).next('li',&nbsp;2).hide();</span></p>
+<p>&nbsp;</p>
+<p>Walking the DOM has never been that easy!</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Arguments</span></p>
+<p>&nbsp;</p>
+<p>If no argument is passed, element's previous sibling is returned (this is similar as calling <span class="f_CourierFixed">previousSibling</span> except previous() returns an already extended <span class="f_CourierFixed">element</span>).</p>
+<p>&nbsp;</p>
+<p>If an <span class="f_CourierFixed">index</span> is passed, element's corresponding previous sibling is returned. (This is equivalent to selecting an element from the array of elements returned by the method <span class="f_CourierFixed">previousSiblings()</span>). Note that the sibling right above element has an <span class="f_CourierFixed">index</span> of 0.</p>
+<p>&nbsp;</p>
+<p>If <span class="f_CourierFixed">cssRule</span> is defined, <span class="f_CourierFixed">previous()</span> will return the element first previous sibling that matches it.</p>
+<p>&nbsp;</p>
+<p>If both <span class="f_CourierFixed">cssRule</span> and <span class="f_CourierFixed">index</span> are defined, <span class="f_CourierFixed">previous()</span> will collect all of element's previous siblings matching the given CSS rule and will return the one specified by the <span class="f_CourierFixed">index</span>.</p>
+<p>&nbsp;</p>
+<p>In all of the above cases, if no previous sibling is found, <span class="f_CourierFixed">undefined</span> will be returned.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;ul&nbsp;id="fruits"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&nbsp;id="apples"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Apples&lt;/h3&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;id="list-of-apples"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="golden-delicious"&nbsp;class="yummy"&gt;Golden&nbsp;Delicious&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="mutsu"&nbsp;class="yummy"&gt;Mutsu&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="mcintosh"&gt;McIntosh&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="ida-red"&gt;Ida&nbsp;Red&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;id="saying"&gt;An&nbsp;apple&nbsp;a&nbsp;day&nbsp;keeps&nbsp;the&nbsp;doctor&nbsp;away.&lt;/p&gt;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/ul&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'saying'</span><span class="f_CodeExample" style="color: #000000;">).previous();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;equivalent:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'saying'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #ff0000;">0</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;ul#list-of-apples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'saying'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #ff0000;">1</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;h3</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'saying'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #800000;">'h3'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;h3</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'ida-red'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #800000;">'.yummy'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;li#mutsu</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'ida-red'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #800000;">'.yummy'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">1</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;li#golden-delicious</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'ida-red'</span><span class="f_CodeExample" style="color: #000000;">).previous(</span><span class="f_CodeExample" style="color: #ff0000;">5</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;undefined</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">See also</span></p>
+<p>&nbsp;</p>
+<p>Element: <a href="element_up.html">up</a> | <a href="element_down.html">down</a> | <a href="element_next.html">next</a></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

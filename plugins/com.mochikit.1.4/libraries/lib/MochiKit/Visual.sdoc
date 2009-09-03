@@ -1,0 +1,508 @@
+/**
+ * ScriptDoc for Visual.js
+ */
+
+/**
+ * Rounds the specified corners of the specified element. 
+ * @id MochiKit.Visual.roundElement
+ * @alias roundElement
+ * @alias MochiKit.Visual.roundElement
+ * @param {Element, String} e    Element (or string id) to round the corners for.
+ * @param {String} ...    String specifying the options for what should be rounded for the element. The following values are valid:
+ * <ul>
+ * <li>corners - "all" (default), "top", "bottom", "tl" (top left), "bl" (bottom left), "tr" (top right), "br" (bottom right)</li>
+ * <li>color - "fromElement" (default) or specify a color.</li>
+ * <li>bgColor - "fromParent" (default) or specify a background color.</li>
+ * <li>blend - true (Color and background color should be blended together to produce the border color) or false. Default is true.</li>
+ * <li>border - false (Does not have a border) or true. Default is false.</li>
+ * <li>compact - false (Is not compacted) or true. Default is false.</li>
+ * </ul>
+ * @see roundClass
+ */
+ 
+ /**
+ * Rounds all of the classes that match the specified tagName and className, using the specified options.
+ * @id MochiKit.Visual.roundClass
+ * @alias roundClass 
+ * @alias MochiKit.Visual.roundClass
+ * @param {String} tagName    Tag name to round the class for. null matches all tag names.
+ * @param {String} className    Class name to round the class for. null matches all class names.
+ * @param {String} ...    String specifying the options for what should be rounded for the class. The following values are valid:
+ * <ul>
+ * <li>corners - "all" (default), "top", "bottom", "tl" (top left), "bl" (bottom left), "tr" (top right), "br" (bottom right)</li>
+ * <li>color - "fromElement" (default) or specify a color.</li>
+ * <li>bgColor - "fromParent" (default) or specify a background color.</li>
+ * <li>blend - true (Color and background color should be blended together to produce the border color) or false. Default is true.</li>
+ * <li>border - false (Does not have a border) or true. Default is false.</li>
+ * <li>compact - false (Is not compacted) or true. Default is false.</li>
+ * </ul>
+ * @see roundElement
+ */
+
+/**
+ * Transforms a text node into character nodes containing one letter by tag.
+ * @id MochiKit.Visual.tagifyText
+ * @alias tagifyText
+ * @alias MochiKit.Visual.tagifyText
+ * @param {Node} element    Element to tagify.
+ * @param {Object} [tagifyStyle]    Style to apply to character nodes, default to 'position: relative'.
+ */
+
+/**
+ * Forces the element to re-render.
+ * @id MochiKit.Visual.forceRerendering
+ * @alias forceRerendering
+ * @alias MochiKit.Visual.forceRerendering
+ * @param {Node} element    Element to re-render.
+ */
+
+/**
+ * Applies the same effect to the specified list of elements.
+ * @id MochiKit.Visual.multiple
+ * @alias multiple
+ * @alias MochiKit.Visual.multiple
+ * @param {Object} elements    List of elements to apply the effect to.
+ * @param {Object} effect    Effect to apply.
+ * @param {Object} [options]    Options to use with the effect.
+ */
+
+/**
+ * Toggles an element between being visible and hidden using the specified effect.
+ * @id MochiKit.Visual.toggle
+ * @alias toggle
+ * @alias MochiKit.Visual.toggle
+ * @param {Node} element    Element to hide or make visible.
+ * @param {String} [effect]    Effect to use. Valid values are 'slide', 'blind', 'appear', and 'size'.
+ * @param {Object} [options]    Options to use with the effect.
+ */
+
+/**
+ * Linear transition.
+ * @id MochiKit.Visual.Transitions.linear
+ * @alias linear
+ * @alias MochiKit.Visual.Transitions.linear
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Sinoidal transition.
+ * @id MochiKit.Visual.Transitions.sinoidal
+ * @alias sinoidal
+ * @alias MochiKit.Visual.Transitions.sinoidal
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Reverse transition.
+ * @id MochiKit.Visual.Transitions.reverse
+ * @alias reverse
+ * @alias MochiKit.Visual.Transitions.reverse
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Flicker transition.
+ * @id MochiKit.Visual.Transitions.flicker
+ * @alias flicker
+ * @alias MochiKit.Visual.Transitions.flicker
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Wobble transition.
+ * @id MochiKit.Visual.Transitions.wobble
+ * @alias wobble
+ * @alias MochiKit.Visual.Transitions.wobble
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Pulse transition.
+ * @id MochiKit.Visual.Transitions.pulse
+ * @alias pulse
+ * @alias MochiKit.Visual.Transitions.pulse
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * No transition.
+ * @id MochiKit.Visual.Transitions.none
+ * @alias none
+ * @alias MochiKit.Visual.Transitions.none
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Full transition.
+ * @id MochiKit.Visual.Transitions.full
+ * @alias none
+ * @alias MochiKit.Visual.Transitions.full
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Adds the specified effect.
+ * @id MochiKit.Visual.Transitions.add
+ * @alias add
+ * @alias MochiKit.Visual.ScopedQueue.prototype.add
+ * @param {Object} effect    Effect to add.
+ */
+
+/**
+ * Removes the specified effect.
+ * @id MochiKit.Visual.Transitions.remove
+ * @alias remove
+ * @alias MochiKit.Visual.ScopedQueue.prototype.remove
+ * @param {Object} effect    Effect to remove.
+ */
+
+/**
+ * Loops the specified effect.
+ * @id MochiKit.Visual.Transitions.loop
+ * @alias loop
+ * @alias MochiKit.Visual.ScopedQueue.prototype.loop
+ */
+
+/**
+ * Starts the specified effect.
+ * @id MochiKit.Visual.Transitions.start
+ * @alias start
+ * @alias MochiKit.Visual.Base.prototype.start
+ * @param {Object} options    Options for the effect.
+ */
+
+/**
+ * Loops the specified effect.
+ * @id MochiKit.Visual.Transitions.loop
+ * @alias loop
+ * @alias MochiKit.Visual.Base.prototype.loop
+ * @param {Object} timePos    Time to pause between the finish of one cycle and the start of another.
+ */
+
+/**
+ * Renders the specified effect.
+ * @id MochiKit.Visual.Transitions.render
+ * @alias render
+ * @alias MochiKit.Visual.Base.prototype.render
+ * @param {Object} pos    Position of the element.
+ */
+
+/**
+ * Cancels the specified effect.
+ * @id MochiKit.Visual.Transitions.cancel
+ * @alias cancel
+ * @alias MochiKit.Visual.Base.prototype.cancel
+ */
+
+/**
+ * Associates the associated event with the effect.
+ * @id MochiKit.Visual.Transitions.event
+ * @alias event
+ * @alias MochiKit.Visual.Base.prototype.event
+ * @param {Object} eventName Event to associate.
+ */
+
+/**
+ * Creates a string representation of the effect and its options.
+ * @id MochiKit.Visual.Transitions.repr
+ * @alias repr
+ * @alias MochiKit.Visual.Base.prototype.repr
+ */
+
+/**
+ * Launches effects in parallel.
+ * @id MochiKit.Visual.Transitions.Parallel
+ * @alias Parallel
+ * @alias MochiKit.Visual.Parallel
+ * @param {Object} effects    Effects to launch.
+ * @param {Object} options    Options to use with the effects.
+ */
+
+/**
+ * Updates the effects at the specified position.
+ * @id MochiKit.Visual.Parallel.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.Parallel.prototype.update
+ * @param {Object} position    Position of the effects.
+ */
+
+/**
+ * Finishes the effects.
+ * @id MochiKit.Visual.Parallel.prototype.finish
+ * @alias finish
+ * @alias MochiKit.Visual.Parallel.prototype.finish
+ */
+
+/**
+ * Changes the opacity of an element progressively.
+ * @id MochiKit.Visual.Parallel.prototype.Opacity
+ * @alias Opacity
+ * @alias MochiKit.Visual.Opacity
+ * @param {Node} element    Element to change the opacity of.
+ * @param {Object} options    Options for changing the opacity.
+ */
+
+/**
+ * Updates the opacity of an element.
+ * @id MochiKit.Visual.Opacity.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.Opacity.prototype.update
+ * @param {Object} position    Position of the element.
+ */
+
+/**
+ * Changes the position of an element in small steps, creating a moving effect.
+ * @id MochiKit.Visual.Opacity.prototype.Move
+ * @alias Move
+ * @alias MochiKit.Visual.Move
+ * @param {Object} element    Element to move.
+ * @param {Object} options    Options to use in "moving" the element. Valid values are "x" and "y".
+ */
+
+/**
+ * Sets up the moving effect.
+ * @id MochiKit.Visual.Move.prototype.setup
+ * @alias setup
+ * @alias MochiKit.Visual.Move.prototype.setup
+ */
+
+/**
+ * Updates the moving effect.
+ * @param {Object} position    Position of the element.
+ * @id MochiKit.Visual.Move.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.Move.prototype.update
+ */
+
+/**
+ * Changes the size of an element.
+ * @id MochiKit.Visual.Move.prototype.Scale
+ * @alias Scale
+ * @alias MochiKit.Visual.Scale
+ * @param {Node} element    Element to scale.
+ * @param {Object} percent    Percent to change the size by. 
+ * @param {Object} options    Options to use to scale the element. Valid options are scaleX, scaleY, scaleContent,
+ * scaleFromCenter, scaleMode, scaleFrom, and scaleTo.
+ */
+
+/**
+ * Sets up the scaling effect.
+ * @id MochiKit.Visual.Scale.prototype.setup
+ * @alias setup
+ * @alias MochiKit.Visual.Scale.prototype.setup
+ */
+
+/**
+ * Updates the scaling effect.
+ * @id MochiKit.Visual.Scale.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.Scale.prototype.update
+ * @param {Object} position    Position of the element.
+ */
+
+/**
+ * Finishes the scaling effect.
+ * @id MochiKit.Visual.Scale.prototype.finish
+ * @alias finish
+ * @alias MochiKit.Visual.Scale.prototype.finish
+ */
+
+/**
+ * Sets the dimensions for the scaling effect.
+ * @id MochiKit.Visual.Scale.prototype.setDimensions
+ * @alias setDimensions
+ * @alias MochiKit.Visual.Scale.prototype.setDimensions
+ * @param {Number} height    Height of the element (in pixels).
+ * @param {Number} width    Width of the element (in pixels).
+ */
+
+/**
+ * Highlights an element with a single color.
+ * @id MochiKit.Visual.Scale.prototype.Highlight
+ * @alias Highlight
+ * @alias MochiKit.Visual.Highlight
+ * @param {Object} element    Element to highlight.
+ * @param {Object} options    Options to use with the highlight effect.
+ */
+
+/**
+ * Sets up the highlight effect.
+ * @id MochiKit.Visual.Highlight.prototype.setup
+ * @alias setup
+ * @alias MochiKit.Visual.Highlight.prototype.setup
+ */
+
+/**
+ * Updates the highlight effect.
+ * @id MochiKit.Visual.Highlight.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.Highlight.prototype.update
+ * @param {Object} position    Position of the element.
+ */
+
+/**
+ * Finishes the highlight effect.
+ * @id MochiKit.Visual.Highlight.prototype.finish
+ * @alias finish
+ * @alias MochiKit.Visual.Highlight.prototype.finish
+ */
+
+/**
+ * Scrolls the window to the position of the specified element.
+ * @id MochiKit.Visual.Highlight.prototype.ScrollTo
+ * @alias ScrollTo
+ * @alias MochiKit.Visual.ScrollTo
+ * @param {Node} element    Element to scroll to.
+ * @param {Object} options    Options to use with the scrolling.
+ */
+
+/**
+ * Sets up the scrolling effect.
+ * @id MochiKit.Visual.ScrollTo.prototype.setup
+ * @alias setup
+ * @alias MochiKit.Visual.ScrollTo.prototype.setup
+ */
+
+/**
+ * Updates the scrolling effect.
+ * @id MochiKit.Visual.ScrollTo.prototype.update
+ * @alias update
+ * @alias MochiKit.Visual.ScrollTo.prototype.update
+ * @param {Object} position    Position of the element.
+ */
+
+/**
+ * Fades an element by gradually changing its opacity until the element is no longer visible.
+ * @id MochiKit.Visual.ScrollTo.prototype.fade
+ * @alias fade
+ * @alias MochiKit.Visual.fade
+ * @param {Node} element    Element to fade.
+ * @param {Object} [options]    Options to use during the fade. Valid options are values for "to" and "from".
+ * @see appear
+ */
+
+/**
+ * Makes an element appear by gradually changing its opacity until the element is visible.
+ * @id MochiKit.Visual.ScrollTo.prototype.appear
+ * @alias appear
+ * @alias MochiKit.Visual.appear
+ * @param {Node} element    Element to make appear.
+ * @param {Object} [options]    Options to use in making the element appear. Valid options are values for "to" and "from".
+ */
+
+/**
+ * Doubles the size of an element, then makes the element disappear.
+ * @id MochiKit.Visual.ScrollTo.prototype.puff
+ * @alias puff
+ * @alias MochiKit.Visual.puff
+ * @param {Node} element    Element to "puff".
+ * @param {Object} [options]    Options to use in puffing the element.
+ */
+
+/**
+ * Makes an element disappear using a "blinds" effect. Reduces the vertical size of the element to 0.
+ * @id MochiKit.Visual.ScrollTo.prototype.blindUp
+ * @alias blindUp
+ * @alias MochiKit.Visual.blindUp
+ * @param {Node} element    Element to blind up.
+ * @param {Object} [options]    Options to use in blinding up the element.
+ */
+
+/**
+ * Makes an element appear using a "blinds" effect. Increases the vertical size of the element to its normal size.
+ * @id MochiKit.Visual.ScrollTo.prototype.blindDown
+ * @alias blindDown
+ * @alias MochiKit.Visual.blindDown
+ * @param {Node} element
+ * @param {Object} [options]
+ */
+
+/**
+ * Makes the element disappear using a "switch off" effect.
+ * @id MochiKit.Visual.ScrollTo.prototype.switchOff
+ * @alias switchOff
+ * @alias MochiKit.Visual.switchOff
+ * @param {Node} element    Element to switch off.
+ * @param {Object} [options] Options to use in switching off the element.
+ */
+
+/**
+ * Makes the element fall and fade.
+ * @id MochiKit.Visual.ScrollTo.prototype.dropOut
+ * @alias dropOut
+ * @alias MochiKit.Visual.dropOut
+ * @param {Node} element    Element to drop out.
+ * @param {Object} [options]    Options to use when dropping out the element.
+ */
+
+/**
+ * Shakes the element from left to right.
+ * @id MochiKit.Visual.ScrollTo.prototype.shake
+ * @alias shake
+ * @alias MochiKit.Visual.shake
+ * @param {Node} element    Element to shake.
+ * @param {Object} [options]    Options to use with shaking the element.
+ */
+
+/**
+ * Slides an element down.
+ * @id MochiKit.Visual.ScrollTo.prototype.slideDown
+ * @alias slideDown
+ * @alias MochiKit.Visual.slideDown
+ * @param {Node} element    Element to slide down.
+ * @param {Object} [options]    Options to use with sliding the element.
+ */
+
+/**
+ * Slides an element up.
+ * @id MochiKit.Visual.ScrollTo.prototype.slideUp
+ * @alias slideUp
+ * @alias MochiKit.Visual.slideUp
+ * @param {Node} element    Element to slide up.
+ * @param {Object} [options]    Options to use with sliding the element.
+ */
+
+/**
+ * Starts at the top left corner to reduce the horizontal and vertical sizes of an element to make it disappear.
+ * @id MochiKit.Visual.ScrollTo.prototype.squish
+ * @alias squish
+ * @alias MochiKit.Visual.squish
+ * @param {Object} element
+ * @param {Object} [options]
+ */
+
+/**
+ * Grows an element to its original size.
+ * @id MochiKit.Visual.ScrollTo.prototype.grow
+ * @alias grow
+ * @alias MochiKit.Visual.grow
+ * @param {Node} element    Element to grow.
+ * @param {Object} [options]    Options to use with growing the element.
+ */
+
+/**
+ * Shrinks an element to its center and makes it disappear.
+ * @id MochiKit.Visual.ScrollTo.prototype.shrink
+ * @alias shrink
+ * @alias MochiKit.Visual.shrink
+ * @param {Node} element    Element to shrink.
+ * @param {Object} [options]    Options to use with shrinking the element.
+ */
+
+/**
+ * Makes the element appear to pulsate by switching between appear and fade effects.
+ * @id MochiKit.Visual.ScrollTo.prototype.pulsate
+ * @alias pulsate
+ * @alias MochiKit.Visual.pulsate
+ * @param {Node} element    Element to pulsate.
+ * @param {Object} [options]    Options to use with making the element pulsate.
+ */
+
+/**
+ * Folds the element by reducing vertical size and then horizontal size.
+ * @id MochiKit.Visual.ScrollTo.prototype.fold
+ * @alias fold
+ * @alias MochiKit.Visual.fold
+ * @param {Node} element    Element to fold.
+ * @param {Object} [options]    Options to use with folding the element.
+ */

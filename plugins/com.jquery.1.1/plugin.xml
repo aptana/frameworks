@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/jquery_small.png"
+            name="jQuery 1.1.3.1"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/jquery_small.png"
+                   name="jQuery 1.1 Samples"/>
+          </extension>
+          
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.aptana.ide.documentation"
+            class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+            icon="views/visual_jquery/images/favicon.png"
+            id="com.aptana.ide.documentation.jquery.visualjquery"
+            name="Visual jQuery">
+         <description>bundleresource://com.jquery.1.1/views/visual_jquery/1.1.html</description>
+      </view>
+   </extension> 
+          		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.jquery.1.1">
+             </feature>
+          </extension>   
+</plugin>

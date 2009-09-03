@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit Documentation Index</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="MochiKit Documentation Index_files/documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="distribution" name="distribution">Distribution</A></H1>
+<P>MochiKit - makes JavaScript suck a bit less</P>
+
+<UL class="simple">
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Async.html">MochiKit.Async</A> - manage asynchronous tasks <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Base.html">MochiKit.Base</A> - functional programming and useful comparisons <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/DOM.html">MochiKit.DOM</A> - painless DOM manipulation API <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/DragAndDrop.html">MochiKit.DragAndDrop</A> - drag and drop <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Color.html">MochiKit.Color</A> - color abstraction with CSS3 support <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/DateTime.html">MochiKit.DateTime</A> - "what time is it anyway?" <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Format.html">MochiKit.Format</A> - string formatting goes here <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Iter.html">MochiKit.Iter</A> - itertools for JavaScript; iteration made HARD, and then easy <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Logging.html">MochiKit.Logging</A> - we're all tired of <TT class="docutils literal"><SPAN class="pre">alert()</SPAN></TT> <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/LoggingPane.html">MochiKit.LoggingPane</A> - interactive <A class="mochiref reference" href="MochiKit Documentation Index_files/Logging.html">MochiKit.Logging</A> pane <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Selector.html">MochiKit.Selector</A> - selecting elements by CSS selector syntax <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Signal.html">MochiKit.Signal</A> - simple universal event handling <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Style.html">MochiKit.Style</A> - painless CSS manipulation API <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Sortable.html">MochiKit.Sortable</A> - sortable <BR>
+<LI><A class="mochiref reference" href="MochiKit Documentation Index_files/Visual.html">MochiKit.Visual</A> - visual effects <BR>
+</UL>
+<DIV class="section">
+<H1><A id="notes" name="notes">Notes</A></H1>
+<P>To turn off MochiKit's export feature (which may be necessary for compatibility with some existing code), do this before loading MochiKit:</P><PRE class="literal-block">&lt;script type="text/javascript"&gt;MochiKit = {__export__: false};&lt;/script&gt;
+</PRE>
+<P>When export mode is off, you must use fully qualified names for all MochiKit functions (e.g. <TT class="docutils literal"><SPAN class="pre">MochiKit.Base.map(...)</SPAN></TT>).</P></DIV>
+<DIV class="section">
+<H1><A id="screencasts" name="screencasts">Screencasts</A></H1>
+<UL class="simple">
+<LI><A class="reference" href="MochiKit Documentation Index_files/MochiKit_Intro-1.htm">MochiKit 1.1 Intro</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<UL class="simple">
+<LI><A class="reference" href="http://groups.google.com/group/mochikit">Google Groups: MochiKit</A>: The official mailing list for discussions related to development of and with MochiKit 
+<LI><A class="reference" href="MochiKit Documentation Index_files/index.htm">mochikit.com</A>: MochiKit's home on the web 
+<LI><A class="reference" href="http://bob.pythonmac.org/">from __future__ import *</A>: Bob Ippolito's blog 
+<LI><A class="reference" href="http://openjsan.org/doc/b/bo/bob/MochiKit/">MochiKit on JSAN</A>: the JSAN distribution page for MochiKit 
+<LI><A class="reference" href="http://del.icio.us/tag/mochikit">MochiKit tag on del.icio.us</A>: Recent bookmarks related to MochiKit 
+<LI><A class="reference" href="http://technorati.com/tag/mochikit">MochiKit tag on Technorati</A>: Recent blog entries related to MochiKit </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="version-history" name="version-history">Version History</A></H1>
+<P>2006-XX-XX v1.4</P>
+<UL class="simple">
+<LI>New removeNodeAttribute function in MochiKit.DOM. 
+<LI>MochiKit.Async.doXHR and dependent functions now accept 201 CREATED and 204 NO CONTENT as valid. 
+<LI>MochiKit.DOM.formContents now treats option tags the same way that form posts do in the case of missing and empty string value attributes, even in IE. 
+<LI>MochiKit.Base.queryString now accepts third queryString([names, values]) form. 
+<LI>MochiKit.DOM.formContents now defaults to document.body if no element is given. 
+<LI>New MochiKit.Selector module 
+<LI>MochiKit.LoggingPane fixes for Internet Explorer 
+<LI>MochiKit.DOM now creates XHTML nodes in XUL documents. 
+<LI>MochiKit.LoggingPane now works on pages with '#' in the URL on IE 
+<LI>New MochiKit.Async.doXHR as a convenient method for doing custom XMLHttpRequests (e.g. extra headers, overrideMimeType, etc.) 
+<LI>New __connect__ protocol for MochiKit.Signal.connect source notifications 
+<LI>Added colSpan, bgColor to the list of DOM renames for Internet Explorer 
+<LI>New MochiKit.Signal.disconnectAllTo function 
+<LI>MochiKit.Base.parseQueryString now accepts leading question mark 
+<LI>New MochiKit.Base.values function 
+<LI>Fixed MochiKit.Signal.disconnect when called from a signal handler invoked by MochiKit.Signal.signal 
+<LI>parseQueryString now splits on HTML entities equivalent to ampersand as well 
+<LI>Better XHTML compatibility (removed obvious cases where uppercase tagName or nodeName was assumed) 
+<LI>MochiKit.Base.queryString now handles array values in the same way HTML forms handle multiple elements of the same name. 
+<LI>MochiKit.Base.parseQueryString now returns {} for empty query string instead of {"": "undefined"} 
+<LI>MochiKit.DOM.formContents now handles option value="" correctly. 
+<LI>MochiKit.DOM now checks for undefined className. 
+<LI>MochiKit.Iter.groupby() now uses compare() to group rather than == and != 
+<LI>serializeJSON no longer serializes undefined, as per the JSON spec 
+<LI>Fixed an infinite recursion bug in serializeJSON if an adapter returns the object itself. 
+<LI>New MochiKit.Base.operator.seq and sne to support strict comparison 
+<LI>MochiKit.Base.isArrayLike no longer returns true for DOM text nodes 
+<LI>Added readonly-readOnly to the list of DOM renames for Internet Explorer 
+<LI>New MochiKit.Signal event method: confirmUnload (sets returnValue for onbeforeunload) 
+<LI>Fix interpreter help() function for Firefox and IE 
+<LI>API version compatibility notes added 
+<LI>New MochiKit.Base functions methodcaller and compose 
+<LI>Support IE-based native console logging (Debugger, Atlas) 
+<LI>Refactored style functions from MochiKit.DOM to MochiKit.Style 
+<LI>MochiKit.Async.DeferredList is now a proper Deferred 
+<LI>MochiKit.DOM.formContents now supports SELECT multiple tags 
+<LI>Re-use StopIteration Error if the browser already has it 
+<LI>Workaround IE type="" bug for INPUT elements 
+<LI>Allow LoggingPane to work in IE with hyphen-containing URLs 
+<LI>Replace percents for Safari native logging to avoid crashing 
+<LI>New MochiKit.DOM.coerceToDOM .dom(node) / .__dom__(node) protocol 
+<LI>MochiKit.DOM's MochiKit.Iter dependency is now optional 
+<LI>Added expand all link to the documentation index 
+<LI>Added MochiKit.DOM.isChildNode 
+<LI>Added synthesizing for onmouseenter/onmouseleave </LI></UL>
+<P>2006-04-29 v1.3.1 (bug fix release)</P>
+<UL class="simple">
+<LI>Fix sendXMLHttpRequest sendContent regression 
+<LI>Internet Explorer fix in MochiKit.Logging (printfire exception) 
+<LI>Internet Explorer XMLHttpRequest object leak fixed in MochiKit.Async </LI></UL>
+<P>2006-04-26 v1.3 "warp zone"</P>
+<UL class="simple">
+<LI>IMPORTANT: Renamed MochiKit.Base.forward to forwardCall (for export) 
+<LI>IMPORTANT: Renamed MochiKit.Base.find to findValue (for export) 
+<LI>New MochiKit.Base.method as a convenience form of bind that takes the object before the method 
+<LI>New MochiKit.Base.flattenArguments for flattening a list of arguments to a single Array 
+<LI>Refactored MochiRegExp example to use MochiKit.Signal 
+<LI>New key_events example demonstrating use of MochiKit.Signal's key handling capabilities. 
+<LI>MochiKit.DOM.createDOM API change for convenience: if attrs is a string, null is used and the string will be considered the first node. This allows for the more natural P("foo") rather than P(null, "foo"). 
+<LI>MochiKit Interpreter example refactored to use MochiKit.Signal and now provides multi-line input and a help() function to get MochiKit function signature from the documentation. 
+<LI>Native Console Logging for the default MochiKit.Logging logger 
+<LI>New MochiKit.Async.DeferredList, gatherResults, maybeDeferred 
+<LI>New MochiKit.Signal example: draggable 
+<LI>Added sanity checking to Deferred to ensure that errors happen when chaining is used incorrectly 
+<LI>Opera sendXMLHttpRequest fix (sends empty string instead of null by default) 
+<LI>Fix a bug in MochiKit.Color that incorrectly generated hex colors for component values smaller than 16/255. 
+<LI>Fix a bug in MochiKit.Logging that prevented logs from being capped at a maximum size 
+<LI>MochiKit.Async.Deferred will now wrap thrown objects that are not instanceof Error, so that the errback chain is used instead of the callback chain. 
+<LI>MochiKit.DOM.appendChildNodes and associated functions now append iterables in the correct order. 
+<LI>New MochiKit-based SimpleTest test runner as a replacement for Test.Simple 
+<LI>MochiKit.Base.isNull no longer matches undefined 
+<LI>example doctypes changed to HTML4 
+<LI>isDateLike no longer throws error on null 
+<LI>New MochiKit.Signal module, modeled after the slot/signal mechanism in Qt 
+<LI>updated elementDimensions to calculate width from offsetWidth instead of clientWidth 
+<LI>formContents now works with FORM tags that have a name attribute 
+<LI>Documentation now uses MochiKit to generate a function index </LI></UL>
+<P>2006-01-26 v1.2 "the ocho"</P>
+<UL class="simple">
+<LI>Fixed MochiKit.Color.Color.lighterColorWithLevel 
+<LI>Added new MochiKit.Base.findIdentical function to find the index of an element in an Array-like object. Uses === for identity comparison. 
+<LI>Added new MochiKit.Base.find function to find the index of an element in an Array-like object. Uses compare for rich comparison. 
+<LI>MochiKit.Base.bind will accept a string for func, which will be immediately looked up as self[func]. 
+<LI>MochiKit.DOM.formContents no longer skips empty form elements for Zope compatibility 
+<LI>MochiKit.Iter.forEach will now catch StopIteration to break 
+<LI>New MochiKit.DOM.elementDimensions(element) for determining the width and height of an element in the document 
+<LI>MochiKit.DOM's initialization is now compatible with HTMLUnit + JWebUnit + Rhino 
+<LI>MochiKit.LoggingPane will now re-use a <TT class="docutils literal"><SPAN class="pre">_MochiKit_LoggingPane</SPAN></TT> DIV element currently in the document instead of always creating one. 
+<LI>MochiKit.Base now has operator.mul 
+<LI>MochiKit.DOM.formContents correctly handles unchecked checkboxes that have a custom value attribute 
+<LI>Added new MochiKit.Color constructors fromComputedStyle and fromText 
+<LI>MochiKit.DOM.setNodeAttribute should work now 
+<LI>MochiKit.DOM now has a workaround for an IE bug when setting the style property to a string 
+<LI>MochiKit.DOM.createDOM now has workarounds for IE bugs when setting the name and for properties 
+<LI>MochiKit.DOM.scrapeText now walks the DOM tree in-order 
+<LI>MochiKit.LoggingPane now sanitizes the window name to work around IE bug 
+<LI>MochiKit.DOM now translates usemap to useMap to work around IE bug 
+<LI>MochiKit.Logging is now resistant to Prototype's dumb Object.prototype hacks 
+<LI>Added new MochiKit.DOM documentation on element visibility 
+<LI>New MochiKit.DOM.elementPosition(element[, relativeTo={x: 0, y: 0}]) for determining the position of an element in the document 
+<LI>Added new MochiKit.DOM createDOMFunc aliases: CANVAS, STRONG </LI></UL>
+<P>2005-11-14 v1.1</P>
+<UL class="simple">
+<LI>Fixed a bug in numberFormatter with large numbers 
+<LI>Massively overhauled documentation 
+<LI>Fast-path for primitives in MochiKit.Base.compare 
+<LI>New groupby and groupby_as_array in MochiKit.Iter 
+<LI>Added iterator factory adapter for objects that implement iterateNext() 
+<LI>Fixed isoTimestamp to handle timestamps with time zone correctly 
+<LI>Added new MochiKit.DOM createDOMFunc aliases: SELECT, OPTION, OPTGROUP, LEGEND, FIELDSET 
+<LI>New MochiKit.DOM formContents and enhancement to queryString to support it 
+<LI>Updated view_source example to use dp.SyntaxHighlighter 1.3.0 
+<LI>MochiKit.LoggingPane now uses named windows based on the URL so that a given URL will get the same LoggingPane window after a reload (at the same position, etc.) 
+<LI>MochiKit.DOM now has currentWindow() and currentDocument() context variables that are set with withWindow() and withDocument(). These context variables affect all MochiKit.DOM functionality (getElement, createDOM, etc.) 
+<LI>MochiKit.Base.items will now catch and ignore exceptions for properties that are enumerable but not accessible (e.g. permission denied) 
+<LI>MochiKit.Async.Deferred's addCallback/addErrback/addBoth now accept additional arguments that are used to create a partially applied function. This differs from Twisted in that the callback/errback result becomes the <EM>last</EM> argument, not the first when this feature is used. 
+<LI>MochiKit.Async's doSimpleXMLHttpRequest will now accept additional arguments which are used to create a GET query string 
+<LI>Did some refactoring to reduce the footprint of MochiKit by a few kilobytes 
+<LI>escapeHTML to longer escapes ' (apos) and now uses String.replace instead of iterating over every char. 
+<LI>Added DeferredLock to Async 
+<LI>Renamed getElementsComputedStyle to computedStyle and moved it from MochiKit.Visual to MochiKit.DOM 
+<LI>Moved all color support out of MochiKit.Visual and into MochiKit.Color 
+<LI>Fixed range() to accept a negative step 
+<LI>New alias to MochiKit.swapDOM called removeElement 
+<LI>New MochiKit.DOM.setNodeAttribute(node, attr, value) which sets an attribute on a node without raising, roughly equivalent to: updateNodeAttributes(node, {attr: value}) 
+<LI>New MochiKit.DOM.getNodeAttribute(node, attr) which gets the value of a node's attribute or returns null without raising 
+<LI>Fixed a potential IE memory leak if using MochiKit.DOM.addToCallStack directly (addLoadEvent did not leak, since it clears the handler) </LI></UL>
+<P>2005-10-24 v1.0</P>
+<UL class="simple">
+<LI>New interpreter example that shows usage of MochiKit.DOM to make an interactive JavaScript interpreter 
+<LI>New MochiKit.LoggingPane for use with the MochiKit.Logging debuggingBookmarklet, with logging_pane example to show its usage 
+<LI>New mochiregexp example that demonstrates MochiKit.DOM and MochiKit.Async in order to provide a live regular expression matching tool 
+<LI>Added advanced number formatting capabilities to MochiKit.Format: numberFormatter(pattern, placeholder="", locale="default") and formatLocale(locale="default") 
+<LI>Added updatetree(self, obj[, ...]) to MochiKit.Base, and changed MochiKit.DOM's updateNodeAttributes(node, attrs) to use it when appropiate. 
+<LI>Added new MochiKit.DOM createDOMFunc aliases: BUTTON, TT, PRE 
+<LI>Added truncToFixed(aNumber, precision) and roundToFixed(aNumber, precision) to MochiKit.Format 
+<LI>MochiKit.DateTime can now handle full ISO 8601 timestamps, specifically isoTimestamp(isoString) will convert them to Date objects, and toISOTimestamp(date, true) will return an ISO 8601 timestamp in UTC 
+<LI>Fixed missing errback for sendXMLHttpRequest when the server does not respond 
+<LI>Fixed infinite recusion bug when using roundClass("DIV", ...) 
+<LI>Fixed a bug in MochiKit.Async wait (and callLater) that prevented them from being cancelled properly 
+<LI>Workaround in MochiKit.Base bind (and partial) for functions that don't have an apply method, such as alert 
+<LI>Reliably return null from the string parsing/manipulation functions if the input can't be coerced to a string (s + "") or the input makes no sense; e.g. isoTimestamp(null) and isoTimestamp("") return null </LI></UL>
+<P>2005-10-08 v0.90</P>
+<UL class="simple">
+<LI>Fixed ISO compliance with toISODate 
+<LI>Added missing operator.sub 
+<LI>Placated Mozilla's strict warnings a bit 
+<LI>Added JSON serialization and unserialization support to MochiKit.Base: serializeJSON, evalJSON, registerJSON. This is very similar to the repr API. 
+<LI>Fixed a bug in the script loader that failed in some scenarios when a script tag did not have a "src" attribute (thanks Ian!) 
+<LI>Added new MochiKit.DOM createDOMFunc aliases: H1, H2, H3, BR, HR, TEXTAREA, P, FORM 
+<LI>Use encodeURIComponent / decodeURIComponent for MochiKit.Base urlEncode and parseQueryString, when available. </LI></UL>
+<P>2005-08-12 v0.80</P>
+<UL class="simple">
+<LI>Source highlighting in all examples, moved to a view-source example 
+<LI>Added some experimental syntax highlighting for the Rounded Corners example, via the LGPL dp.SyntaxHighlighter 1.2.0 now included in examples/common/lib 
+<LI>Use an indirect binding for the logger conveniences, so that the global logger could be replaced by setting MochiKit.Logger.logger to something else (though an observer is probably a better choice). 
+<LI>Allow MochiKit.DOM.getElementsByTagAndClassName to take a string for parent, which will be looked up with getElement 
+<LI>Fixed bug in MochiKit.Color.fromBackground (was using node.parent instead of node.parentNode) 
+<LI>Consider a 304 (NOT_MODIFIED) response from XMLHttpRequest to be success 
+<LI>Disabled Mozilla map(...) fast-path due to Deer Park compatibility issues 
+<LI>Possible workaround for Safari issue with swapDOM, where it would get confused because two elements were in the DOM at the same time with the same id 
+<LI>Added missing THEAD convenience function to MochiKit.DOM 
+<LI>Added lstrip, rstrip, strip to MochiKit.Format 
+<LI>Added updateNodeAttributes, appendChildNodes, replaceChildNodes to MochiKit.DOM 
+<LI>MochiKit.Iter.iextend now has a fast-path for array-like objects 
+<LI>Added HSV color space support to MochiKit.Visual 
+<LI>Fixed a bug in the sortable_tables example, it now converts types correctly 
+<LI>Fixed a bug where MochiKit.DOM referenced MochiKit.Iter.next from global scope </LI></UL>
+<P>2005-08-04 v0.70</P>
+<UL class="simple">
+<LI>New ajax_tables example, which shows off XMLHttpRequest, ajax, json, and a little TAL-ish DOM templating attribute language. 
+<LI>sendXMLHttpRequest and functions that use it (loadJSONDoc, etc.) no longer ignore requests with status == 0, which seems to happen for cached or local requests 
+<LI>Added sendXMLHttpRequest to MochiKit.Async.EXPORT, d'oh. 
+<LI>Changed scrapeText API to return a string by default. This is API-breaking! It was dumb to have the default return value be the form you almost never want. Sorry. 
+<LI>Added special form to swapDOM(dest, src). If src is null, dest is removed (where previously you'd likely get a DOM exception). 
+<LI>Added three new functions to MochiKit.Base for dealing with URL query strings: urlEncode, queryString, parseQueryString 
+<LI>MochiKit.DOM.createDOM will now use attr[k] = v for all browsers if the name starts with "on" (e.g. "onclick"). If v is a string, it will set it to new Function(v). 
+<LI>Another workaround for Internet "worst browser ever" Explorer's setAttribute usage in MochiKit.DOM.createDOM (checked -&gt; defaultChecked). 
+<LI>Added UL, OL, LI convenience createDOM aliases to MochiKit.DOM 
+<LI>Packing is now done by Dojo's custom Rhino interpreter, so it's much smaller now! </LI></UL>
+<P>2005-07-29 v0.60</P>
+<UL class="simple">
+<LI>Beefed up the MochiKit.DOM test suite 
+<LI>Fixed return value for MochiKit.DOM.swapElementClass, could return false unexpectedly before 
+<LI>Added an optional "parent" argument to MochiKit.DOM.getElementsByTagAndClassName 
+<LI>Added a "packed" version in packed/MochiKit/MochiKit.js 
+<LI>Changed build script to rewrite the URLs in tests to account for the JSAN-required reorganization 
+<LI>MochiKit.Compat to potentially work around IE 5.5 issues (5.0 still not supported). Test.Simple doesn't seem to work there, though. 
+<LI>Several minor documentation corrections </LI></UL>
+<P>2005-07-27 v0.50</P>
+<UL class="simple">
+<LI>Initial Release </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>each</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">each </span><span class="f_TopicHeading" style="color: #ccffff;">:: Hash</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">each(iterator) -&gt; Hash</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Iterates over the name/value pairs in the hash.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This is actually the <span class="f_CourierFixed">each</span> method from the mixed-in <span class="f_CourierFixed">Enumerable</span> module. It is documented here to illustrate the structure of the passed first argument, and the order of iteration.</p>
+<p>&nbsp;</p>
+<p>Pairs are passed as the first argument of the iterator, in the form of objects with two properties:</p>
+<p>&nbsp;</p>
+<p>  &nbsp;1. key, which is the key name as a String</p>
+<p>  &nbsp;2. value, which is the corresponding value (and can, possibly, be undefined)</p>
+<p>&nbsp;</p>
+<p>The order of iteration is browser-dependent, as it relies on the native <span class="f_CourierFixed">for…in</span> loop. It is possible to have function values in a hash, though the iteration skips over Hash and Enumerable methods (naturally). More precisely, it skips the properties found on the object’s prototype.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;h&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">$H</span><span class="f_CodeExample" style="color: #000000;">({&nbsp;version:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">1.5</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;author:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'Sam&nbsp;Stephenson'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">h.each(</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(pair)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;alert(pair.key&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'&nbsp;=&nbsp;&quot;'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;pair.value&nbsp;+&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'&quot;'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;Alerts,&nbsp;in&nbsp;non-guaranteed&nbsp;order,&nbsp;''version&nbsp;=&nbsp;&quot;1.5&quot;'&nbsp;and&nbsp;'author&nbsp;=&nbsp;&quot;Sam&nbsp;Stephenson&quot;'.</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Sortable - sortable with drag and drop lists</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Sortable - sortable with drag and drop lists</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Sortable.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Sortable.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Sortable.html#fn-sortableobserver">SortableObserver<BR></A><A class="mochiref reference" href="Sortable.html#fn-sortable.create">Sortable.create(element [, options])<BR></A><A class="mochiref reference" href="Sortable.html#fn-sortable.destroy">Sortable.destroy(element)<BR></A><A class="mochiref reference" href="Sortable.html#fn-sortable.serialize">Sortable.serialize(element [, options])<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">&lt;ul id="dnd_sortable"&gt;
+    &lt;li&gt;mochibot.com&lt;/li&gt;
+    &lt;li&gt;pythonmac.org&lt;/li&gt;
+    &lt;li&gt;undefined.org&lt;/li&gt;
+    &lt;li&gt;python.org&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+  MochiKit.Sortable.Sortable.create('dnd_sortable');
+&lt;/script&gt;
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>MochiKit.Sortable add a new Sortable object to manipulate easily drag&amp;drop in lists.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> 
+<LI><A class="mochiref reference" href="Iter.html">MochiKit.Iter</A> 
+<LI><A class="mochiref reference" href="DOM.html">MochiKit.DOM</A> 
+<LI><A class="mochiref reference" href="Color.html">MochiKit.Color</A> 
+<LI><A class="mochiref reference" href="http://mochikit.com/doc/html/MochiKit/Effect.html">MochiKit.Effect</A> 
+<LI><A class="mochiref reference" href="Signal.html">MochiKit.Signal</A> 
+<LI><A class="mochiref reference" href="DragAndDrop.html">MochiKit.DragAndDrop</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<P>MochiKit.Sortable mainly contains the Sortable object offering facilities to manipulate a list and drag its items to reorder it. It can also be serialized for being send to server. It is ported from <A class="reference" href="http://script.aculo.us">Scriptaculous</A>.</P></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="objects-defined" name="objects-defined">Objects defined</A></H2>
+<P><A name="fn-sortableobserver"></A><A class="mochidef reference" href="Sortable.html#fn-sortableobserver">SortableObserver</A>:</P>
+<BLOCKQUOTE>
+<P>Observer for DragAndDrop object. You normally don't have to access this, only for customization purpose.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sortable.create"></A><A class="mochidef reference" href="Sortable.html#fn-sortable.create">Sortable.create(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Create a new Sortable. Usually you'll call it with a UL element, but it can be customized with options to use something else.</P>
+<P>You have the following options:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="49%">
+<COL width="51%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>element</TD>
+<TD>element</TD></TR>
+<TR>
+<TD>tag</TD>
+<TD>'li'</TD></TR>
+<TR>
+<TD>dropOnEmpty</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>overlap</TD>
+<TD>'vertical'</TD></TR>
+<TR>
+<TD>constraint</TD>
+<TD>'vertical'</TD></TR>
+<TR>
+<TD>containment</TD>
+<TD>element</TD></TR>
+<TR>
+<TD>handle</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>only</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>hoverclass</TD>
+<TD>null</TD></TR>
+<TR>
+<TD>ghosting</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>scroll</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>scrollSensitivity</TD>
+<TD>20</TD></TR>
+<TR>
+<TD>scrollSpeed</TD>
+<TD>15</TD></TR>
+<TR>
+<TD>format</TD>
+<TD>/^[^_]*_(.*)$/</TD></TR>
+<TR>
+<TD>onChange</TD>
+<TD>MochiKit.Base.noop</TD></TR>
+<TR>
+<TD>onUpdate</TD>
+<TD>MochiKit.Base.noop</TD></TR>
+<TR>
+<TD>tree</TD>
+<TD>false</TD></TR>
+<TR>
+<TD>treeTag</TD>
+<TD>'ul'</TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">tag</SPAN></TT>: 
+<DD>Name of the tag used to make the draggable elements. It matches all the childNodes of the Sortable element with this tag. 
+<DT><TT class="docutils literal"><SPAN class="pre">only</SPAN></TT>: 
+<DD>Class or array of classes used to filter the children, combined with the tag criteria. 
+<DT><TT class="docutils literal"><SPAN class="pre">format</SPAN></TT>: 
+<DD>Regular expression which serves as a match filter for serialization, on children' ids. For example, with the default value, you'll get ['1', '2', '3', '4'] with ids ['sort_1', 'sort_2', 'sort_3', 'sort_4']. 
+<DT><TT class="docutils literal"><SPAN class="pre">onChange</SPAN></TT>: 
+<DD>Callback called when an element moves between others in the Sortable. It's called for <EM>each</EM> movements, even if you don't release the mouse. 
+<DT><TT class="docutils literal"><SPAN class="pre">onUpdate</SPAN></TT>: 
+<DD>Callback called when the order changes in the Sortable. It's called only if the Sortable is modified, after you dropped an element. 
+<DT><TT class="docutils literal"><SPAN class="pre">tree</SPAN></TT>: 
+<DD>Option for creating a Sortable tree. It's an experimental setting, that can be very slow even with a few elements. You can customize its behaviour with the <TT class="docutils literal"><SPAN class="pre">treeTag</SPAN></TT> option, that defines the node used to make branches in your tree (that contains leaves). </DD></DL>
+<P>Other options are passed to the Draggables and Droppables objects created. Refer to <A class="mochiref reference" href="DragAndDrop.html">MochiKit.DragAndDrop</A> for more information.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sortable.destroy"></A><A class="mochidef reference" href="Sortable.html#fn-sortable.destroy">Sortable.destroy(element)</A>:</P>
+<BLOCKQUOTE>
+<P>Destroy a previously created sortable. It prevents further use of the Sortable functionnality on the element, unless recreated.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sortable.serialize"></A><A class="mochidef reference" href="Sortable.html#fn-sortable.serialize">Sortable.serialize(element [, options])</A>:</P>
+<BLOCKQUOTE>
+<P>Serialize the content of a Sortable. Useful to send this content through a XMLHTTPRequest. The options overrides the ones of the Sortable only for the serialization.</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="13%">
+<COL width="88%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>tag</TD>
+<TD>tag from the Sortable</TD></TR>
+<TR>
+<TD>only</TD>
+<TD>only from the Sortable</TD></TR>
+<TR>
+<TD>name</TD>
+<TD>id of the element</TD></TR>
+<TR>
+<TD>format</TD>
+<TD>format of the Sortable or /^[^_]*_(.*)$</TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Thomas Herve &lt;<A class="reference" href="mailto:therve@gmail.com">therve@gmail.com</A>&gt; 
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; 
+<LI>Originally adapted from Script.aculo.us &lt;<A class="reference" href="http://script.aculo.us/">http://script.aculo.us/</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P>
+<P>Portions adapted from <A class="reference" href="http://script.aculo.us">Scriptaculous</A> are available under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A>.</P></DIV></DIV></BODY></HTML>

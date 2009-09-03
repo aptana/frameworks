@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Async - manage asynchronous tasks</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Async - manage asynchronous tasks</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1>
+<A id="show_index" href="Async.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Async.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Async.html#fn-alreadycallederror">AlreadyCalledError<BR></A><A class="mochiref reference" href="Async.html#fn-browsercomplianceerror">BrowserComplianceError<BR></A><A class="mochiref reference" href="Async.html#fn-cancellederror">CancelledError<BR></A><A class="mochiref reference" href="Async.html#fn-genericerror">GenericError<BR></A><A class="mochiref reference" href="Async.html#fn-xmlhttprequesterror">XMLHttpRequestError<BR></A><A class="mochiref reference" href="Async.html#fn-deferred">Deferred()<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.addboth">Deferred.prototype.addBoth(func)<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.addcallback">Deferred.prototype.addCallback(func[, ...])<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.addcallbacks">Deferred.prototype.addCallbacks(callback, errback)<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.adderrback">Deferred.prototype.addErrback(func)<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.callback">Deferred.prototype.callback([result])<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.cancel">Deferred.prototype.cancel()<BR></A><A class="mochiref reference" href="Async.html#fn-deferred.prototype.errback">Deferred.prototype.errback([result])<BR></A><A class="mochiref reference" href="Async.html#fn-deferred">Deferred<BR></A><A class="mochiref reference" href="Async.html#fn-deferredlock">DeferredLock()<BR></A><A class="mochiref reference" href="Async.html#fn-deferredlock.prototype.acquire">DeferredLock.prototype.acquire()<BR></A><A class="mochiref reference" href="Async.html#fn-deferredlock.prototype.release">DeferredLock.prototype.release()<BR></A><A class="mochiref reference" href="Async.html#fn-deferredlist">DeferredList(list, [fireOnOneCallback, fireOnOneErrback, consumeErrors, canceller])<BR></A><A class="mochiref reference" href="Async.html#fn-calllater">callLater(seconds, func[, args...])<BR></A><A class="mochiref reference" href="Async.html#fn-doxhr">doXHR(url[, {option: value, ...}])<BR></A><A class="mochiref reference" href="Async.html#fn-dosimplexmlhttprequest">doSimpleXMLHttpRequest(url[, queryArguments...])<BR></A><A class="mochiref reference" href="Async.html#fn-evaljsonrequest">evalJSONRequest(req)<BR></A><A class="mochiref reference" href="Async.html#fn-fail">fail([result])<BR></A><A class="mochiref reference" href="Async.html#fn-gatherresults">gatherResults(deferreds)<BR></A><A class="mochiref reference" href="Async.html#fn-getxmlhttprequest">getXMLHttpRequest()<BR></A><A class="mochiref reference" href="Async.html#fn-maybedeferred">maybeDeferred(func[, argument...])<BR></A><A class="mochiref reference" href="Async.html#fn-loadjsondoc">loadJSONDoc(url[, queryArguments...])<BR></A><A class="mochiref reference" href="Async.html#fn-sendxmlhttprequest">sendXMLHttpRequest(req[, sendContent])<BR></A><A class="mochiref reference" href="Async.html#fn-succeed">succeed([result])<BR></A><A class="mochiref reference" href="Async.html#fn-wait">wait(seconds[, res])<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">var url = "/src/b/bo/bob/MochiKit.Async/META.json";
+/*
+
+    META.json looks something like this:
+
+    {"name": "MochiKit", "version": "0.5"}
+
+*/
+var d = loadJSONDoc(url);
+var gotMetadata = function (meta) {
+    if (MochiKit.Async.VERSION == meta.version) {
+        alert("You have the newest MochiKit.Async!");
+    } else {
+        alert("MochiKit.Async "
+            + meta.version
+            + " is available, upgrade!");
+    }
+};
+var metadataFetchFailed = function (err) {
+  alert("The metadata for MochiKit.Async could not be fetched :(");
+};
+d.addCallbacks(gotMetadata, metadataFetchFailed);
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>MochiKit.Async provides facilities to manage asynchronous (as in AJAX <A class="footnote-reference" id="id1" href="Async.html#id7" name="id1">[1]</A>) tasks. The model for asynchronous computation used in this module is heavily inspired by Twisted <A class="footnote-reference" id="id2" href="Async.html#id8" name="id2">[2]</A>.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="deferred" name="deferred">Deferred</A></H2>
+<P>The Deferred constructor encapsulates a single value that is not available yet. The most important example of this in the context of a web browser would be an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> to a server. The importance of the Deferred is that it allows a consistent API to be exposed for all asynchronous computations that occur exactly once.</P>
+<P>The producer of the Deferred is responsible for doing all of the complicated work behind the scenes. This often means waiting for a timer to fire, or waiting for an event (e.g. <TT class="docutils literal"><SPAN class="pre">onreadystatechange</SPAN></TT> of <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT>). It could also be coordinating several events (e.g. <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> with a timeout, or several Deferreds (e.g. fetching a set of XML documents that should be processed at the same time).</P>
+<P>Since these sorts of tasks do not respond immediately, the producer of the Deferred does the following steps before returning to the consumer:</P>
+<OL class="arabic simple">
+<LI>Create a <TT class="docutils literal"><SPAN class="pre">new</SPAN></TT> <A class="mochiref reference" href="Async.html#fn-deferred">Deferred();</A> object and keep a reference to it, because it will be needed later when the value is ready. 
+<LI>Setup the conditions to create the value requested (e.g. create a new <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT>, set its <TT class="docutils literal"><SPAN class="pre">onreadystatechange</SPAN></TT>). 
+<LI>Return the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> object. </LI></OL>
+<P>Since the value is not yet ready, the consumer attaches a function to the Deferred that will be called when the value is ready. This is not unlike <TT class="docutils literal"><SPAN class="pre">setTimeout</SPAN></TT>, or other similar facilities you may already be familiar with. The consumer can also attach an "errback" to the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, which is a callback for error handling.</P>
+<P>When the value is ready, the producer simply calls <TT class="docutils literal"><SPAN class="pre">myDeferred.callback(theValue)</SPAN></TT>. If an error occurred, it should call <TT class="docutils literal"><SPAN class="pre">myDeferred.errback(theValue)</SPAN></TT> instead. As soon as this happens, the callback that the consumer attached to the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> is called with <TT class="docutils literal"><SPAN class="pre">theValue</SPAN></TT> as the only argument.</P>
+<P>There are quite a few additional "advanced" features baked into <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, such as cancellation and callback chains, so take a look at the API reference if you would like to know more!</P></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="errors" name="errors">Errors</A></H2>
+<P><A name="fn-alreadycallederror"></A><A class="mochidef reference" href="Async.html#fn-alreadycallederror">AlreadyCalledError</A>:</P>
+<BLOCKQUOTE>
+<P>Thrown by a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> if <TT class="docutils literal"><SPAN class="pre">.callback</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.errback</SPAN></TT> are called more than once.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-browsercomplianceerror"></A><A class="mochidef reference" href="Async.html#fn-browsercomplianceerror">BrowserComplianceError</A>:</P>
+<BLOCKQUOTE>
+<P>Thrown when the JavaScript runtime is not capable of performing the given function. Currently, this happens if the browser does not support <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-cancellederror"></A><A class="mochidef reference" href="Async.html#fn-cancellederror">CancelledError</A>:</P>
+<BLOCKQUOTE>
+<P>Thrown by a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> when it is cancelled, unless a canceller is present and throws something else.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-genericerror"></A><A class="mochidef reference" href="Async.html#fn-genericerror">GenericError</A>:</P>
+<BLOCKQUOTE>
+<P>Results passed to <TT class="docutils literal"><SPAN class="pre">.fail</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.errback</SPAN></TT> of a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> are wrapped by this <TT class="docutils literal"><SPAN class="pre">Error</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">!(result</SPAN> <SPAN class="pre">instanceof</SPAN> <SPAN class="pre">Error)</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-xmlhttprequesterror"></A><A class="mochidef reference" href="Async.html#fn-xmlhttprequesterror">XMLHttpRequestError</A>:</P>
+<BLOCKQUOTE>
+<P>Thrown when an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> does not complete successfully for any reason. The <TT class="docutils literal"><SPAN class="pre">req</SPAN></TT> property of the error is the failed <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> object, and for convenience the <TT class="docutils literal"><SPAN class="pre">number</SPAN></TT> property corresponds to <TT class="docutils literal"><SPAN class="pre">req.status</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="constructors" name="constructors">Constructors</A></H2>
+<P><A name="fn-deferred"></A><A class="mochidef reference" href="Async.html#fn-deferred">Deferred()</A>:</P>
+<BLOCKQUOTE>Encapsulates a sequence of callbacks in response to a value that may not yet be available. This is modeled after the Deferred class from Twisted <A class="footnote-reference" id="id3" href="Async.html#id9" name="id3">[3]</A>.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>Why do we want this? JavaScript has no threads, and even if it did, threads are hard. Deferreds are a way of abstracting non-blocking events, such as the final response to an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT>.</P>
+<P>The sequence of callbacks is internally represented as a list of 2-tuples containing the callback/errback pair. For example, the following call sequence:</P><PRE class="literal-block">var d = new Deferred();
+d.addCallback(myCallback);
+d.addErrback(myErrback);
+d.addBoth(myBoth);
+d.addCallbacks(myCallback, myErrback);
+</PRE>
+<P>is translated into a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> with the following internal representation:</P><PRE class="literal-block">[
+    [myCallback, null],
+    [null, myErrback],
+    [myBoth, myBoth],
+    [myCallback, myErrback]
+]
+</PRE>
+<P>The <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> also keeps track of its current status (fired). Its status may be one of the following three values:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="14%">
+<COL width="86%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Value</TH>
+<TH class="head">Condition</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD>-1</TD>
+<TD>no value yet (initial condition)</TD></TR>
+<TR>
+<TD>0</TD>
+<TD>success</TD></TR>
+<TR>
+<TD>1</TD>
+<TD>error</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>A <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> will be in the error state if one of the following conditions are met:</P>
+<OL class="arabic simple">
+<LI>The result given to callback or errback is "<TT class="docutils literal"><SPAN class="pre">instanceof</SPAN> <SPAN class="pre">Error</SPAN></TT>" 
+<LI>The callback or errback threw while executing. If the thrown object is not <TT class="docutils literal"><SPAN class="pre">instanceof</SPAN> <SPAN class="pre">Error</SPAN></TT>, it will be wrapped with <A class="mochiref reference" href="Async.html#fn-genericerror">GenericError</A>. </LI></OL>
+<P>Otherwise, the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> will be in the success state. The state of the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> determines the next element in the callback sequence to run.</P>
+<P>When a callback or errback occurs with the example deferred chain, something equivalent to the following will happen (imagine that exceptions are caught and returned as-is):</P><PRE class="literal-block">// d.callback(result) or d.errback(result)
+if (!(result instanceof Error)) {
+    result = myCallback(result);
+}
+if (result instanceof Error) {
+    result = myErrback(result);
+}
+result = myBoth(result);
+if (result instanceof Error) {
+    result = myErrback(result);
+} else {
+    result = myCallback(result);
+}
+</PRE>
+<P>The result is then stored away in case another step is added to the callback sequence. Since the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> already has a value available, any new callbacks added will be called immediately.</P>
+<P>There are two other "advanced" details about this implementation that are useful:</P>
+<P>Callbacks are allowed to return <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> instances, so you can build complicated sequences of events with (relative) ease.</P>
+<P>The creator of the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> may specify a canceller. The canceller is a function that will be called if <A class="mochiref reference" href="Async.html#fn-deferred.prototype.cancel">Deferred.prototype.cancel</A> is called before the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> fires. You can use this to allow an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> to be cleanly cancelled, for example. Note that cancel will fire the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> with a <A class="mochiref reference" href="Async.html#fn-cancellederror">CancelledError</A> (unless your canceller throws or returns a different <TT class="docutils literal"><SPAN class="pre">Error</SPAN></TT>), so errbacks should be prepared to handle that <TT class="docutils literal"><SPAN class="pre">Error</SPAN></TT> gracefully for cancellable <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> instances.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.addboth"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.addboth">Deferred.prototype.addBoth(func)</A>:</P>
+<BLOCKQUOTE>
+<P>Add the same function as both a callback and an errback as the next element on the callback sequence. This is useful for code that you want to guarantee to run, e.g. a finalizer.</P>
+<P>If additional arguments are given, then <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> will be replaced with <A class="mochiref reference" href="Base.html#fn-partial">MochiKit.Base.partial.apply(null, arguments)</A>. This differs from <A class="reference" href="http://twistedmatrix.com/">Twisted</A>, because the result of the callback or errback will be the <EM>last</EM> argument passed to <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT>.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> returns a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, then it will be chained (its value or error will be passed to the next callback). Note that once the returned <TT class="docutils literal"><SPAN class="pre">Deferred</SPAN></TT> is chained, it can no longer accept new callbacks.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.addcallback"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.addcallback">Deferred.prototype.addCallback(func[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>Add a single callback to the end of the callback sequence.</P>
+<P>If additional arguments are given, then <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> will be replaced with <A class="mochiref reference" href="Base.html#fn-partial">MochiKit.Base.partial.apply(null, arguments)</A>. This differs from <A class="reference" href="http://twistedmatrix.com/">Twisted</A>, because the result of the callback will be the <EM>last</EM> argument passed to <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT>.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> returns a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, then it will be chained (its value or error will be passed to the next callback). Note that once the returned <TT class="docutils literal"><SPAN class="pre">Deferred</SPAN></TT> is chained, it can no longer accept new callbacks.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.addcallbacks"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.addcallbacks">Deferred.prototype.addCallbacks(callback, errback)</A>:</P>
+<BLOCKQUOTE>
+<P>Add separate callback and errback to the end of the callback sequence. Either callback or errback may be <TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>, but not both.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">callback</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">errback</SPAN></TT> returns a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, then it will be chained (its value or error will be passed to the next callback). Note that once the returned <TT class="docutils literal"><SPAN class="pre">Deferred</SPAN></TT> is chained, it can no longer accept new callbacks.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.adderrback"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.adderrback">Deferred.prototype.addErrback(func)</A>:</P>
+<BLOCKQUOTE>
+<P>Add a single errback to the end of the callback sequence.</P>
+<P>If additional arguments are given, then <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> will be replaced with <A class="mochiref reference" href="Base.html#fn-partial">MochiKit.Base.partial.apply(null, arguments)</A>. This differs from <A class="reference" href="http://twistedmatrix.com/">Twisted</A>, because the result of the errback will be the <EM>last</EM> argument passed to <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT>.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> returns a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, then it will be chained (its value or error will be passed to the next callback). Note that once the returned <TT class="docutils literal"><SPAN class="pre">Deferred</SPAN></TT> is chained, it can no longer accept new callbacks.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.callback"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.callback">Deferred.prototype.callback([result])</A>:</P>
+<BLOCKQUOTE>
+<P>Begin the callback sequence with a non-<TT class="docutils literal"><SPAN class="pre">Error</SPAN></TT> result. Result may be any value except for a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>.</P>
+<P>Either <TT class="docutils literal"><SPAN class="pre">.callback</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.errback</SPAN></TT> should be called exactly once on a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.cancel"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.cancel">Deferred.prototype.cancel()</A>:</P>
+<BLOCKQUOTE>
+<P>Cancels a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that has not yet received a value, or is waiting on another <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> as its value.</P>
+<P>If a canceller is defined, the canceller is called. If the canceller did not return an <TT class="docutils literal"><SPAN class="pre">Error</SPAN></TT>, or there was no canceller, then the errback chain is started with <A class="mochiref reference" href="Async.html#fn-cancellederror">CancelledError</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferred.prototype.errback"></A><A class="mochidef reference" href="Async.html#fn-deferred.prototype.errback">Deferred.prototype.errback([result])</A>:</P>
+<BLOCKQUOTE>
+<P>Begin the callback sequence with an error result. Result may be any value except for a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, but if <TT class="docutils literal"><SPAN class="pre">!(result</SPAN> <SPAN class="pre">instanceof</SPAN> <SPAN class="pre">Error)</SPAN></TT>, it will be wrapped with <A class="mochiref reference" href="Async.html#fn-genericerror">GenericError</A>.</P>
+<P>Either <TT class="docutils literal"><SPAN class="pre">.callback</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">.errback</SPAN></TT> should be called exactly once on a <A name="fn-deferred"></A><A class="mochidef reference" href="Async.html#fn-deferred">Deferred</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferredlock"></A><A class="mochidef reference" href="Async.html#fn-deferredlock">DeferredLock()</A>:</P>
+<BLOCKQUOTE>
+<P>A lock for asynchronous systems.</P>
+<P>The <TT class="docutils literal"><SPAN class="pre">locked</SPAN></TT> property of a <A class="mochiref reference" href="Async.html#fn-deferredlock">DeferredLock</A> will be <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if it locked, <TT class="docutils literal"><SPAN class="pre">false</SPAN></TT> otherwise. Do not change this property.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferredlock.prototype.acquire"></A><A class="mochidef reference" href="Async.html#fn-deferredlock.prototype.acquire">DeferredLock.prototype.acquire()</A>:</P>
+<BLOCKQUOTE>
+<P>Attempt to acquire the lock. Returns a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that fires on lock acquisition with the <A class="mochiref reference" href="Async.html#fn-deferredlock">DeferredLock</A> as the value. If the lock is locked, then the <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> goes into a waiting list.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferredlock.prototype.release"></A><A class="mochidef reference" href="Async.html#fn-deferredlock.prototype.release">DeferredLock.prototype.release()</A>:</P>
+<BLOCKQUOTE>
+<P>Release the lock. If there is a waiting list, then the first <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> in that waiting list will be called back.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-deferredlist"></A><A class="mochidef reference" href="Async.html#fn-deferredlist">DeferredList(list, [fireOnOneCallback, fireOnOneErrback, consumeErrors, canceller])</A>:</P>
+<BLOCKQUOTE>
+<P>Combine a list of <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> into one. Track the callbacks and return a list of (success, result) tuples, 'success' being a boolean indicating whether result is a normal result or an error.</P>
+<P>Once created, you have access to all <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> methods, like addCallback, addErrback, addBoth. The behaviour can be changed by the following options:</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">fireOnOneCallback</SPAN></TT>: 
+<DD>Flag for launching the callback once the first Deferred of the list has returned. 
+<DT><TT class="docutils literal"><SPAN class="pre">fireOnOneErrback</SPAN></TT>: 
+<DD>Flag for calling the errback at the first error of a Deferred. 
+<DT><TT class="docutils literal"><SPAN class="pre">consumeErrors</SPAN></TT>: 
+<DD>Flag indicating that any errors raised in the Deferreds should be consumed by the DeferredList. </DD></DL>
+<P>Example:</P><PRE class="literal-block">// We need to fetch data from 2 different urls
+var d1 = loadJSONDoc(url1);
+var d2 = loadJSONDoc(url2);
+var l1 = new DeferredList([d1, d2], false, false, true);
+l1.addCallback(function (resultList) {
+    MochiKit.Base.map(function (result) {
+        if (result[0]) {
+            alert("Data is here: " + result[1]);
+        } else {
+            alert("Got an error: " + result[1]);
+        }
+    }, resultList);
+});
+</PRE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-calllater"></A><A class="mochidef reference" href="Async.html#fn-calllater">callLater(seconds, func[, args...])</A>:</P>
+<BLOCKQUOTE>
+<P>Call <TT class="docutils literal"><SPAN class="pre">func(args...)</SPAN></TT> after at least <TT class="docutils literal"><SPAN class="pre">seconds</SPAN></TT> seconds have elapsed. This is a convenience method for:</P><PRE class="literal-block">func = partial.apply(extend(null, arguments, 1));
+return wait(seconds).addCallback(function (res) { return func() });
+</PRE>
+<P>Returns a cancellable <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-doxhr"></A><A class="mochidef reference" href="Async.html#fn-doxhr">doXHR(url[, {option: value, ...}])</A>:</P>
+<BLOCKQUOTE>
+<P>Perform a customized <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> and wrap it with a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that may be cancelled.</P>
+<P>Note that only <TT class="docutils literal"><SPAN class="pre">200</SPAN></TT> (OK), <TT class="docutils literal"><SPAN class="pre">201</SPAN></TT> (CREATED), <TT class="docutils literal"><SPAN class="pre">204</SPAN></TT> (NO CONTENT) and <TT class="docutils literal"><SPAN class="pre">304</SPAN></TT> (NOT MODIFIED) are considered success codes. All other status codes will result in an errback with an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequestError</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">url</SPAN></TT>: 
+<DD>The URL for this request. </DD></DL>
+<P>The following options are currently accepted:</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">method</SPAN></TT>: 
+<DD>The HTTP method. Default is <TT class="docutils literal"><SPAN class="pre">'GET'</SPAN></TT>. 
+<DT><TT class="docutils literal"><SPAN class="pre">sendContent</SPAN></TT>: 
+<DD>The content to send (e.g. with POST). Default is no content. 
+<DT><TT class="docutils literal"><SPAN class="pre">queryString</SPAN></TT>: 
+<DD>If present it will be used to build a query string to append to the url using <A class="mochiref reference" href="Base.html#fn-querystring">MochiKit.Base.queryString</A>. Default is no query string. 
+<DT><TT class="docutils literal"><SPAN class="pre">username</SPAN></TT>: 
+<DD>The username for the request. Default is no username. 
+<DT><TT class="docutils literal"><SPAN class="pre">password</SPAN></TT>: 
+<DD>The password for the request. Default is no password. 
+<DT><TT class="docutils literal"><SPAN class="pre">headers</SPAN></TT>: 
+<DD>Additional headers to set in the request, either as an object such as <TT class="docutils literal"><SPAN class="pre">{'Accept':</SPAN> <SPAN class="pre">'text/xml'}</SPAN></TT> or as an Array of 2-Arrays <TT class="docutils literal"><SPAN class="pre">[['Accept',</SPAN> <SPAN class="pre">'text/xml']]</SPAN></TT>. Default is no additional headers. 
+<DT><TT class="docutils literal"><SPAN class="pre">mimeType</SPAN></TT>: 
+<DD>An override mime type. The typical use of this is to pass 'text/xml' to force XMLHttpRequest to attempt to parse responseXML. Default is no override. 
+<DT><EM>returns</EM>: 
+<DD><A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will callback with the <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> instance on success 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+. </DD></DL></BLOCKQUOTE>
+<P><A name="fn-dosimplexmlhttprequest"></A><A class="mochidef reference" href="Async.html#fn-dosimplexmlhttprequest">doSimpleXMLHttpRequest(url[, queryArguments...])</A>:</P>
+<BLOCKQUOTE>
+<P>Perform a simple <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> and wrap it with a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that may be cancelled.</P>
+<P>Note that only <TT class="docutils literal"><SPAN class="pre">200</SPAN></TT> (OK), <TT class="docutils literal"><SPAN class="pre">201</SPAN></TT> (CREATED), <TT class="docutils literal"><SPAN class="pre">204</SPAN></TT> (NO CONTENT) and <TT class="docutils literal"><SPAN class="pre">304</SPAN></TT> (NOT MODIFIED) are considered success codes. All other status codes will result in an errback with an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequestError</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">url</SPAN></TT>: 
+<DD>The URL to GET 
+<DT><TT class="docutils literal"><SPAN class="pre">queryArguments</SPAN></TT>: 
+<DD>
+<P class="first">If this function is called with more than one argument, a <TT class="docutils literal"><SPAN class="pre">"?"</SPAN></TT> and the result of <A class="mochiref reference" href="Base.html#fn-querystring">MochiKit.Base.queryString</A> with the rest of the arguments are appended to the URL.</P>
+<P>For example, this will do a GET request to the URL <TT class="docutils literal"><SPAN class="pre">http://example.com?bar=baz</SPAN></TT>:</P><PRE class="last literal-block">doSimpleXMLHttpRequest("http://example.com", {bar: "baz"});
+</PRE>
+<DT><EM>returns</EM>: 
+<DD><A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will callback with the <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> instance on success 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+. Support for 201 and 204 were added in MochiKit 1.4. </DD></DL></BLOCKQUOTE>
+<P><A name="fn-evaljsonrequest"></A><A class="mochidef reference" href="Async.html#fn-evaljsonrequest">evalJSONRequest(req)</A>:</P>
+<BLOCKQUOTE>
+<P>Evaluate a JSON <A class="footnote-reference" id="id4" href="Async.html#id10" name="id4">[4]</A> <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT></P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">req</SPAN></TT>: 
+<DD>The request whose <TT class="docutils literal"><SPAN class="pre">.responseText</SPAN></TT> property is to be evaluated 
+<DT><EM>returns</EM>: 
+<DD>A JavaScript object 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-fail"></A><A class="mochidef reference" href="Async.html#fn-fail">fail([result])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that has already had <TT class="docutils literal"><SPAN class="pre">.errback(result)</SPAN></TT> called.</P>
+<P>See <TT class="docutils literal"><SPAN class="pre">succeed</SPAN></TT> documentation for rationale.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">result</SPAN></TT>: 
+<DD>The result to give to <A class="mochiref reference" href="Async.html#fn-deferred.prototype.errback">Deferred.prototype.errback(result)</A>. 
+<DT><EM>returns</EM>: 
+<DD>A <TT class="docutils literal"><SPAN class="pre">new</SPAN></TT> <A class="mochiref reference" href="Async.html#fn-deferred">Deferred()</A> 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-gatherresults"></A><A class="mochidef reference" href="Async.html#fn-gatherresults">gatherResults(deferreds)</A>:</P>
+<BLOCKQUOTE>
+<P>A convenience function that returns a <A class="mochiref reference" href="Async.html#fn-deferredlist">DeferredList</A> from the given <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> of <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> instances that will callback with an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> of just results when they're available, or errback on the first array.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-getxmlhttprequest"></A><A class="mochidef reference" href="Async.html#fn-getxmlhttprequest">getXMLHttpRequest()</A>:</P>
+<BLOCKQUOTE>
+<P>Return an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> compliant object for the current platform.</P>
+<P>In order of preference:</P>
+<UL class="simple">
+<LI><TT class="docutils literal"><SPAN class="pre">new</SPAN> <SPAN class="pre">XMLHttpRequest()</SPAN></TT> 
+<LI><TT class="docutils literal"><SPAN class="pre">new</SPAN> <SPAN class="pre">ActiveXObject('Msxml2.XMLHTTP')</SPAN></TT> 
+<LI><TT class="docutils literal"><SPAN class="pre">new</SPAN> <SPAN class="pre">ActiveXObject('Microsoft.XMLHTTP')</SPAN></TT> 
+<LI><TT class="docutils literal"><SPAN class="pre">new</SPAN> <SPAN class="pre">ActiveXObject('Msxml2.XMLHTTP.4.0')</SPAN></TT> </LI></UL>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-maybedeferred"></A><A class="mochidef reference" href="Async.html#fn-maybedeferred">maybeDeferred(func[, argument...])</A>:</P>
+<BLOCKQUOTE>
+<P>Call a <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> with the given arguments and ensure the result is a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">func</SPAN></TT>: 
+<DD>The function to call. 
+<DT><EM>returns</EM>: 
+<DD>A new <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> based on the call to <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT>. If <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> does not naturally return a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A>, its result or error value will be wrapped by one. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-loadjsondoc"></A><A class="mochidef reference" href="Async.html#fn-loadjsondoc">loadJSONDoc(url[, queryArguments...])</A>:</P>
+<BLOCKQUOTE>
+<P>Do a simple <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> to a URL and get the response as a JSON <A class="footnote-reference" id="id5" href="Async.html#id10" name="id5">[4]</A> document.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">url</SPAN></TT>: 
+<DD>The URL to GET 
+<DT><TT class="docutils literal"><SPAN class="pre">queryArguments</SPAN></TT>: 
+<DD>
+<P class="first">If this function is called with more than one argument, a <TT class="docutils literal"><SPAN class="pre">"?"</SPAN></TT> and the result of <A class="mochiref reference" href="Base.html#fn-querystring">MochiKit.Base.queryString</A> with the rest of the arguments are appended to the URL.</P>
+<P>For example, this will do a GET request to the URL <TT class="docutils literal"><SPAN class="pre">http://example.com?bar=baz</SPAN></TT>:</P><PRE class="last literal-block">loadJSONDoc("http://example.com", {bar: "baz"});
+</PRE>
+<DT><EM>returns</EM>: 
+<DD><A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will callback with the evaluated JSON <A class="footnote-reference" id="id6" href="Async.html#id10" name="id6">[4]</A> response upon successful <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-sendxmlhttprequest"></A><A class="mochidef reference" href="Async.html#fn-sendxmlhttprequest">sendXMLHttpRequest(req[, sendContent])</A>:</P>
+<BLOCKQUOTE>
+<P>Set an <TT class="docutils literal"><SPAN class="pre">onreadystatechange</SPAN></TT> handler on an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> object and send it off. Will return a cancellable <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will callback on success.</P>
+<P>Note that only <TT class="docutils literal"><SPAN class="pre">200</SPAN></TT> (OK), <TT class="docutils literal"><SPAN class="pre">201</SPAN></TT> (CREATED), <TT class="docutils literal"><SPAN class="pre">204</SPAN></TT> (NO CONTENT) and <TT class="docutils literal"><SPAN class="pre">304</SPAN></TT> (NOT MODIFIED) are considered success codes. All other status codes will result in an errback with an <TT class="docutils literal"><SPAN class="pre">XMLHttpRequestError</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">req</SPAN></TT>: 
+<DD>An preconfigured <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> object (open has been called). 
+<DT><TT class="docutils literal"><SPAN class="pre">sendContent</SPAN></TT>: 
+<DD>Optional string or DOM content to send over the <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT>. 
+<DT><EM>returns</EM>: 
+<DD><A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will callback with the <TT class="docutils literal"><SPAN class="pre">XMLHttpRequest</SPAN></TT> instance on success. 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+. Support for 201 and 204 were added in MochiKit 1.4. </DD></DL></BLOCKQUOTE>
+<P><A name="fn-succeed"></A><A class="mochidef reference" href="Async.html#fn-succeed">succeed([result])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that has already had <TT class="docutils literal"><SPAN class="pre">.callback(result)</SPAN></TT> called.</P>
+<P>This is useful when you're writing synchronous code to an asynchronous interface: i.e., some code is calling you expecting a <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> result, but you don't actually need to do anything asynchronous. Just return <TT class="docutils literal"><SPAN class="pre">succeed(theResult)</SPAN></TT>.</P>
+<P>See <TT class="docutils literal"><SPAN class="pre">fail</SPAN></TT> for a version of this function that uses a failing <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> rather than a successful one.</P>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">result</SPAN></TT>: 
+<DD>The result to give to <A class="mochiref reference" href="Async.html#fn-deferred.prototype.callback">Deferred.prototype.callback(result)</A> 
+<DT><EM>returns</EM>: 
+<DD>a <TT class="docutils literal"><SPAN class="pre">new</SPAN></TT> <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> 
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-wait"></A><A class="mochidef reference" href="Async.html#fn-wait">wait(seconds[, res])</A>:</P>
+<BLOCKQUOTE>
+<P>Return a new cancellable <A class="mochiref reference" href="Async.html#fn-deferred">Deferred</A> that will <TT class="docutils literal"><SPAN class="pre">.callback(res)</SPAN></TT> after at least <TT class="docutils literal"><SPAN class="pre">seconds</SPAN></TT> seconds have elapsed.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id7" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Async.html#id1" name="id7">[1]</A></TD>
+<TD>AJAX, Asynchronous JavaScript and XML: <A class="reference" href="http://en.wikipedia.org/wiki/AJAX">http://en.wikipedia.org/wiki/AJAX</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id8" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Async.html#id2" name="id8">[2]</A></TD>
+<TD>Twisted, an event-driven networking framework written in Python: <A class="reference" href="http://twistedmatrix.com/">http://twistedmatrix.com/</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id9" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Async.html#id3" name="id9">[3]</A></TD>
+<TD>Twisted Deferred Reference: <A class="reference" href="http://twistedmatrix.com/projects/core/documentation/howto/defer.html">http://twistedmatrix.com/projects/core/documentation/howto/defer.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id10" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id10">[4]</A></TD>
+<TD><EM>(<A class="fn-backref" href="Async.html#id4">1</A>, <A class="fn-backref" href="Async.html#id5">2</A>, <A class="fn-backref" href="Async.html#id6">3</A>)</EM> JSON, JavaScript Object Notation: <A class="reference" href="http://json.org/">http://json.org/</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

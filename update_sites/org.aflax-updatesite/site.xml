@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.aflax.1.0_1.0.0.00003.jar" id="org.aflax.1.0" version="1.0.0.00003">
+      <category name="Aflax"/>
+   </feature>
+   <category-def name="Aflax" label="Aptana Support for Aflax"/>
+</site>

@@ -1,0 +1,178 @@
+<html>
+<head>
+<title>JavaScript - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="javascript">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>JavaScript</h2><h3 class='func'><b>$.extend</b>(Object <b>target</b>, Object <b>prop1</b>, Object <b>propN</b>) : Object</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>target</th><td width='15%'>Object</td><td>The object to extend</td></tr>
+<tr><th width='15%'>prop1</th><td width='15%'>Object</td><td>The object that will be merged into the first.</td></tr>
+<tr><th width='15%'>propN</th><td width='15%'>Object</td><td>(optional) More objects to merge into the first</td></tr>
+</table>
+<p>Extend one object with one or more others, returning the original, modified, object. This is a great utility for simple inheritance.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Merge settings and options, modifying settings</p>
+<h5>Code</h5>
+<pre>var settings = { validate: false, limit: 5, name: &quot;foo&quot; };
+var options = { validate: true, name: &quot;bar&quot; };
+jQuery.extend(settings, options);</pre>
+<h5>Result</h5>
+<pre>settings == { validate: true, limit: 5, name: &quot;bar&quot; }</pre>
+</div>
+<div class='example'>
+<p>Merge defaults and options, without modifying the defaults</p>
+<h5>Code</h5>
+<pre>var defaults = { validate: false, limit: 5, name: &quot;foo&quot; };
+var options = { validate: true, name: &quot;bar&quot; };
+var settings = jQuery.extend({}, defaults, options);</pre>
+<h5>Result</h5>
+<pre>settings == { validate: true, limit: 5, name: &quot;bar&quot; }</pre>
+</div>
+</div>
+<h3 class='func' id='$.each'><b>$.each</b>(Object <b>obj</b>, Function <b>fn</b>) : Object</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>obj</th><td width='15%'>Object</td><td>The object, or array, to iterate over.</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function that will be executed on every object.</td></tr>
+</table>
+<p>A generic iterator function, which can be used to seemlessly iterate over both objects and arrays. This function is not the same as $().each() - which is used to iterate, exclusively, over a jQuery object. This function can be used to iterate over anything.</p><p>The callback has two arguments:the key (objects) or index (arrays) as first the first, and the value as the second.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>This is an example of iterating over the items in an array,
+accessing both the current item and its index.</p>
+<h5>Code</h5>
+<pre>$.each( [0,1,2], function(i, n){
+  alert( &quot;Item #&quot; + i + &quot;: &quot; + n );
+});</pre>
+</div>
+<div class='example'>
+<p>This is an example of iterating over the properties in an
+Object, accessing both the current item and its key.</p>
+<h5>Code</h5>
+<pre>$.each( { name: &quot;John&quot;, lang: &quot;JS&quot; }, function(i, n){
+  alert( &quot;Name: &quot; + i + &quot;, Value: &quot; + n );
+});</pre>
+</div>
+</div>
+<h3 class='func' id='$.trim'><b>$.trim</b>(String <b>str</b>) : String</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>str</th><td width='15%'>String</td><td>The string to trim.</td></tr>
+</table>
+<p>Remove the whitespace from the beginning and end of a string.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.trim(&quot;  hello, how are you?  &quot;);</pre>
+<h5>Result</h5>
+<pre>&quot;hello, how are you?&quot;</pre>
+</div>
+</div>
+<h3 class='func' id='$.merge'><b>$.merge</b>(Array <b>first</b>, Array <b>second</b>) : Array</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>first</th><td width='15%'>Array</td><td>The first array to merge.</td></tr>
+<tr><th width='15%'>second</th><td width='15%'>Array</td><td>The second array to merge.</td></tr>
+</table>
+<p>Merge two arrays together, removing all duplicates.</p><p>The new array is: All the results from the first array, followed by the unique results from the second array.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Merges two arrays, removing the duplicate 2</p>
+<h5>Code</h5>
+<pre>$.merge( [0,1,2], [2,3,4] )</pre>
+<h5>Result</h5>
+<pre>[0,1,2,3,4]</pre>
+</div>
+<div class='example'>
+<p>Merges two arrays, removing the duplicates 3 and 2</p>
+<h5>Code</h5>
+<pre>$.merge( [3,2,1], [4,3,2] )</pre>
+<h5>Result</h5>
+<pre>[3,2,1,4]</pre>
+</div>
+</div>
+<h3 class='func' id='$.grep'><b>$.grep</b>(Array <b>array</b>, Function <b>fn</b>, Boolean <b>inv</b>) : Array</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>array</th><td width='15%'>Array</td><td>The Array to find items in.</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function to process each item against.</td></tr>
+<tr><th width='15%'>inv</th><td width='15%'>Boolean</td><td>Invert the selection - select the opposite of the function.</td></tr>
+</table>
+<p>Filter items out of an array, by using a filter function.</p><p>The specified function will be passed two arguments: The current array item and the index of the item in the array. The function must return 'true' to keep the item in the array,  false to remove it.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$.grep( [0,1,2], function(i){
+  return i &gt; 0;
+});</pre>
+<h5>Result</h5>
+<pre>[1, 2]</pre>
+</div>
+</div>
+<h3 class='func' id='$.map'><b>$.map</b>(Array <b>array</b>, Function <b>fn</b>) : Array</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>array</th><td width='15%'>Array</td><td>The Array to translate.</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function to process each item against.</td></tr>
+</table>
+<p>Translate all items in an array to another array of items.</p><p>The translation function that is provided to this method is  called for each item in the array and is passed one argument:  The item to be translated.</p><p>The function can then return the translated value, 'null' (to remove the item), or  an array of values - which will be flattened into the full array.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Maps the original array to a new one and adds 4 to each value.</p>
+<h5>Code</h5>
+<pre>$.map( [0,1,2], function(i){
+  return i + 4;
+});</pre>
+<h5>Result</h5>
+<pre>[4, 5, 6]</pre>
+</div>
+<div class='example'>
+<p>Maps the original array to a new one and adds 1 to each
+value if it is bigger then zero, otherwise it's removed-</p>
+<h5>Code</h5>
+<pre>$.map( [0,1,2], function(i){
+  return i &gt; 0 ? i + 1 : null;
+});</pre>
+<h5>Result</h5>
+<pre>[2, 3]</pre>
+</div>
+<div class='example'>
+<p>Maps the original array to a new one, each element is added
+with it's original value and the value plus one.</p>
+<h5>Code</h5>
+<pre>$.map( [0,1,2], function(i){
+  return [ i, i + 1 ];
+});</pre>
+<h5>Result</h5>
+<pre>[0, 1, 1, 2, 2, 3]</pre>
+</div>
+</div>
+<h3 class='func' id='$.browser'><b>$.browser</b>() : Boolean</h3>
+<p>Contains flags for the useragent, read from navigator.userAgent. Available flags are: safari, opera, msie, mozilla</p><p>This property is available before the DOM is ready, therefore you can use it to add ready events only for certain browsers.</p><p>There are situations where object detections is not reliable enough, in that cases it makes sense to use browser detection. Simply try to avoid both!</p><p>A combination of browser and object detection yields quite reliable results.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Returns true if the current useragent is some version of microsoft's internet explorer</p>
+<h5>Code</h5>
+<pre>$.browser.msie</pre>
+</div>
+<div class='example'>
+<p>Alerts "this is safari!" only for safari browsers</p>
+<h5>Code</h5>
+<pre>if($.browser.safari) { $( function() { alert(&quot;this is safari!&quot;); } ); }</pre>
+</div>
+</div>

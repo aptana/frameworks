@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Request</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Request"><a href="#Request">Class: Request</a></h1>
+
+<p class="description">An XMLHttpRequest Wrapper.</p>
+
+<h3>Implements:</h3>
+
+<p><a href="Class.htm.Extras#Chain">Chain</a>, <a href="Class.htm.Extras#Events">Events</a>, <a href="Class.htm.Extras#Options">Options</a></p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span><span class="br0">[</span>options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>options - (<em>object</em>, optional) See below.</li>
+</ol>
+<h3>Options:</h3>
+
+<ul>
+<li>url        - (<em>string</em>: defaults to null) The URL to request.</li>
+<li>method     - (<em>string</em>: defaults to 'post') The HTTP method for the request, can be either 'post' or 'get'.</li>
+<li>data       - (<em>string</em>: defaults to '') The default data for <a href="#Request:send">Request:send</a>, used when no data is given.</li>
+<li>link       - (<em>string</em>: defaults to 'ignore') Can be 'ignore', 'cancel' and 'chain'.
+
+<ul>
+<li>'ignore' - Any calls made to start while the request is running will be ignored. (Synonymous with 'wait': true from 1.11)</li>
+<li>'cancel' - Any calls made to start while the request is running
+will take precedence over the currently running request. The new
+request will start immediately, canceling the one that is currently
+running. (Synonymous with 'wait': false from 1.11)</li>
+<li>'chain' - Any calls made to start while the request is running will
+be chained up, and will take place as soon as the current request has
+finished, one after another.</li>
+</ul>
+</li>
+<li>async      - (<em>boolean</em>: defaults to true) If set to false, the requests will be synchronous and freeze the browser during request.</li>
+<li>encoding   - (<em>string</em>: defaults to 'utf-8') The encoding to be set in the request header.</li>
+<li>headers    - (<em>object</em>) An object to use in order to set the request headers.</li>
+<li>isSuccess  - (<em>function</em>) Overrides the built-in isSuccess function.</li>
+<li>evalScripts  - (<em>boolean</em>: defaults to true) If set to true, <code>script</code> tags inside the response will be evaluated.</li>
+<li>evalResponse - (<em>boolean</em>: defaults to false) If set to
+true, the entire response will be evaluated. Responses with javascript
+content-type will be evaluated automatically.</li>
+<li>emulation  - (<em>boolean</em>: defaults to true) If set to true, other methods than 'post' or 'get' are appended as post-data named '_method' (used in rails)</li>
+<li>urlEncoded - (<em>boolean</em>: defaults to true) If set to true, the content-type header is set to www-form-urlencoded + encoding</li>
+</ul>
+<h3>Events:</h3>
+
+<h4>request</h4>
+
+<p>Fired when the Request is sent.</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onRequest<span class="br0">(</span><span class="br0">)</span>
+</pre>
+
+<h4>complete</h4>
+
+<p>Fired when the Request is completed.</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onComplete<span class="br0">(</span><span class="br0">)</span>
+</pre>
+
+<h4>cancel</h4>
+
+<p>Fired when a request has been cancelled.</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onCancel<span class="br0">(</span><span class="br0">)</span>
+</pre>
+
+<h4>success</h4>
+
+<p>Fired when the Request is completed successfully.</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onSuccess<span class="br0">(</span>responseText, responseXML<span class="br0">)</span>
+</pre>
+
+<h5>Arguments:</h5>
+
+<ol>
+<li>responseText - (<em>string</em>) The returned text from the request.</li>
+<li>responseXML  - (<em>mixed</em>) The response XML from the request.</li>
+</ol>
+<h4>failure</h4>
+
+<p>Fired when the request failed (error status code).</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onFailure<span class="br0">(</span>xhr<span class="br0">)</span>
+</pre>
+
+<h5>Arguments:</h5>
+
+<p>xhr - (XMLHttpRequest) The transport instance.</p>
+
+<h4>exception</h4>
+
+<p>Fired when setting a request header fails.</p>
+
+<h5>Signature:</h5>
+
+<pre class="javascript">onException<span class="br0">(</span>headerName, value<span class="br0">)</span>
+</pre>
+
+<h5>Arguments:</h5>
+
+<ol>
+<li>headerName - (<em>string</em>) The name of the failing header.</li>
+<li>value      - (<em>string</em>) The value of the failing header.</li>
+</ol>
+<h3>Properties:</h3>
+
+<ul>
+<li>running  - (<em>boolean</em>) True if the request is running.</li>
+<li>response - (<em>object</em>) Object with text and XML as keys. You can access this property in the 'success' event.</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) A new Request instance.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span><span class="br0">{</span>method: <span class="st0">'get'</span>, url: <span class="st0">'requestHandler.php'</span><span class="br0">}</span><span class="br0">)</span>;
+myRequest.<span class="me1">send</span><span class="br0">(</span><span class="st0">'name=john&amp;lastname=dorian'</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Wikipedia: XMLHttpRequest</a></li>
+</ul>
+<h2 id="Request:setHeader"><a href="#Request:setHeader">Request Method: setHeader</a></h2>
+
+<p class="description">Add or modify a header for the request. It will not override headers from the options.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myRequest.<span class="me1">setHeader</span><span class="br0">(</span><span class="kw3">name</span>, value<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>name  - (<em>string</em>) The name for the header.</li>
+<li>value - (<em>string</em>) The value to be assigned.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Request instance.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span><span class="br0">{</span>url: <span class="st0">'getData.php'</span>, method: <span class="st0">'get'</span>, headers: <span class="br0">{</span><span class="st0">'X-Request'</span>: <span class="st0">'JSON'</span><span class="br0">}</span><span class="br0">}</span><span class="br0">)</span>;
+myRequest.<span class="me1">setHeader</span><span class="br0">(</span><span class="st0">'Last-Modified'</span>,<span class="st0">'Sat, 1 Jan 2005 05:00:00 GMT'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Request:getHeader"><a href="#Request:getHeader">Request Method: getHeader</a></h2>
+
+<p class="description">Returns the given response header or null if not found.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myRequest.<span class="me1">getHeader</span><span class="br0">(</span><span class="kw3">name</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>name - (<em>string</em>) The name of the header to retrieve the value of.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>string</em>) The value of the retrieved header.</li>
+<li>(<em>null</em>) <code>null</code> if the header is not found.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span>url, <span class="br0">{</span>method: <span class="st0">'get'</span>, headers: <span class="br0">{</span><span class="st0">'X-Request'</span>: <span class="st0">'JSON'</span><span class="br0">}</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> headers = myRequest.<span class="me1">getHeader</span><span class="br0">(</span><span class="st0">'X-Request'</span><span class="br0">)</span>; <span class="co1">//Returns 'JSON'.</span>
+</pre>
+
+<h2 id="Request:send"><a href="#Request:send">Request Method: send</a></h2>
+
+<p class="description">Opens the Request connection and sends the provided data with the specified options.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myRequest.<span class="me1">send</span><span class="br0">(</span><span class="br0">[</span>options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>options - (<em>object</em>, optional) The options for the sent Request.  Will also accept data as a query string for compatibility reasons.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Request instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span><span class="br0">{</span>url: <span class="st0">'http://localhost/some_url'</span><span class="br0">}</span><span class="br0">)</span>.<span class="me1">send</span><span class="br0">(</span><span class="st0">&quot;save=username&amp;name=John&quot;</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Request:cancel"><a href="#Request:cancel">Request Method: cancel</a></h2>
+
+<p class="description">Cancels the currently running request, if any.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myRequest.<span class="me1">cancel</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Request instance.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRequest = <span class="kw2">new</span> Request<span class="br0">(</span><span class="br0">{</span>url: <span class="st0">'mypage.html'</span>, method: <span class="st0">'get'</span><span class="br0">}</span><span class="br0">)</span>.<span class="me1">send</span><span class="br0">(</span><span class="st0">'some=data'</span><span class="br0">)</span>;
+myRequest.<span class="me1">cancel</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h1 id="Element-Properties"><a href="#Element-Properties">Hash: Element.Properties</a></h1>
+
+<p class="description">see <a href="Element.htm#Element-Properties">Element.Properties</a></p>
+
+<h2 id="Element-Properties:send"><a href="#Element-Properties:send">Element Property: send</a></h2>
+
+<h3 class="description">Setter</h3>
+
+<p>Sets a default Request instance for an Element.  This is useful when handling forms.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">el.<span class="me1">set</span><span class="br0">(</span><span class="st0">'send'</span><span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>options - (<em>object</em>) The Request options.</li>
+</ol>
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>element</em>) The original element.</li>
+</ul>
+<h4>Example:</h4>
+
+<pre class="javascript">myForm.<span class="me1">set</span><span class="br0">(</span><span class="st0">'send'</span>, <span class="br0">{</span>url: <span class="st0">'contact.php'</span>, method: <span class="st0">'get'</span><span class="br0">}</span><span class="br0">)</span>;
+myForm.<span class="me1">send</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Sends the form.</span>
+</pre>
+
+<h3>Getter</h3>
+
+<p>Returns the previously set Request instance (or a new one with default options).</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">el.<span class="me1">get</span><span class="br0">(</span><span class="st0">'send'</span><span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>options - (<em>object</em>, optional) The Request options.  If passed, this method will generate a new instance of the Request class.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) The Request instance.</li>
+</ul>
+<h4>Example:</h4>
+
+<pre class="javascript">el.<span class="me1">get</span><span class="br0">(</span><span class="st0">'send'</span>, <span class="br0">{</span>method: <span class="st0">'get'</span><span class="br0">}</span><span class="br0">)</span>;
+el.<span class="me1">send</span><span class="br0">(</span><span class="br0">)</span>;
+el.<span class="me1">get</span><span class="br0">(</span><span class="st0">'send'</span><span class="br0">)</span>; <span class="co1">//Returns the Request instance.</span>
+</pre>
+
+<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<p class="description">Custom Native to allow all of its methods to be used with any DOM element via the dollar function <a href="Element.htm#dollar">$</a>.</p>
+
+<h2 id="Element:send"><a href="#Element:send">Element Method: send</a></h2>
+
+<p class="description">Sends a form or a container of inputs with an HTML request.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">send</span><span class="br0">(</span>url<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>url - (<em>string</em>, optional) The url you want to send the form
+or the &quot;container of inputs&quot; to. If url is omitted, the action of the
+form will be used. url cannot be omitted for &quot;container of inputs&quot;.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(element) This Element.</li>
+</ul>
+<h3>Example:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;form id=<span class="st0">&quot;myForm&quot;</span> action=<span class="st0">&quot;submit.php&quot;</span>&gt;
+    &lt;p&gt;
+        &lt;input <span class="kw3">name</span>=<span class="st0">&quot;email&quot;</span> value=<span class="st0">&quot;bob@bob.com&quot;</span>&gt;
+        &lt;input <span class="kw3">name</span>=<span class="st0">&quot;zipCode&quot;</span> value=<span class="st0">&quot;90210&quot;</span>&gt;
+    &lt;/p&gt;
+&lt;/form&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myForm'</span><span class="br0">)</span>.<span class="me1">send</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Note:</h3>
+
+<ul>
+<li>The URL is taken from the action attribute of the form.</li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Request">Request</a></h4>
+<div class="menu-item"><a href="#Request:setHeader">setHeader</a></div>
+<div class="menu-item"><a href="#Request:getHeader">getHeader</a></div>
+<div class="menu-item"><a href="#Request:send">send</a></div>
+<div class="menu-item"><a href="#Request:cancel">cancel</a></div>
+<h4 class="menu-item"><a href="#Element-Properties">Element.Properties</a></h4>
+<div class="menu-item"><a href="#Element-Properties:send">send</a></div>
+<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:send">send</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

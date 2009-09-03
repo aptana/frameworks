@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.adobe.spry.1.5"
+      label="%featureName"
+      version="1.5.0.00004"
+      provider-name="%providerName"
+      plugin="com.adobe.spry.1.5">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://update.aptana.com/update/frameworks/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="com.aptana.ide.snippets"/>
+      <import plugin="com.aptana.ide.samples"/>
+      <import plugin="com.aptana.ide.projects"/>
+   </requires>
+
+   <plugin
+         id="com.adobe.spry.1.5"
+         download-size="4000"
+         install-size="4000"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

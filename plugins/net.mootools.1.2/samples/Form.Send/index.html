@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="demo.css" type="text/css" />
+	<script type="text/javascript" src="lib/mootools/mootools-1.2.1-core-yc.js"></script>
+	<script type="text/javascript" src="demo.js"></script>
+	<title>MooTools: Form.Send Demo</title>
+</head>
+<body>
+	
+
+	<h1>Sending a Form with Ajax</h1>
+	<form id="myForm" action="/demos/Form.Send/ajax.form.php" method="post">
+		<div id="form_box">
+			<div>
+				<p>First Name:</p>
+				<input type="text" name="first_name" value="John" />
+			</div>
+			<div>
+				<p>Last Name:</p>
+				<input type="text" name="last_name" value="Q" />
+			</div>
+			<div>
+				<p>E-Mail:</p>
+				<input type="text" name="e_mail" value="john.q@mootools.net" />
+			</div>
+			<div>
+				<p>MooTooler:</p>
+				 <input type="checkbox" name="mootooler" value="yes" checked="checked" />
+			</div>
+			<div>
+				<p>New to Mootools:</p>
+		        <select name="new">
+		          <option value="yes" selected="selected">yes</option>
+		          <option value="no">no</option>
+		        </select>
+			</div>
+			<input type="submit" name="button" id="submitter" />
+		<span class="clr"><!-- spanner --></span>
+		</div>
+	</form>
+	<div id="log">
+		<h3>Ajax Response</h3>
+		<div id="log_res"><!-- spanner --></div>
+	</div>
+	<span class="clr"><!-- spanner --></span>
+</body>
+</html>

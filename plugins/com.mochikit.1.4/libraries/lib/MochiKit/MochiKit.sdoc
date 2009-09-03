@@ -1,0 +1,17 @@
+/**
+ * ScriptDoc for MochiKit.js
+ */
+
+/**
+ * @id MochiKit.MochiKit
+ * MochiKit namespace that all other MochiKit namespaces, objects, and functions are derived
+ * from.
+ */
+
+ /**
+  * @id MochiKit.MochiKit.toString
+  */
+ 
+ /**
+  * @id MochiKit.MochiKit.SUBMODULES
+  */

@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>Events / Form - jQuery</title>
+<!-- jQuery 1.0.4 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="events / form">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Events / Form</h2><h3 class='func' id='submit'><b>submit</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the submit event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the submit event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<p>Prevents the form submission when the input has no value entered.</p>
+<h5>Before</h5>
+<pre>&lt;form id=&quot;myform&quot;&gt;&lt;input /&gt;&lt;/form&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;#myform&quot;).submit( function() {
+  return $(&quot;input&quot;, this).val().length &gt; 0;
+} );</pre>
+</div>
+<h3 class='func'><b>submit</b>() : jQuery</h3>
+<p>Trigger the submit event of each matched element. This causes all of the functions that have been bound to thet submit event to be executed.</p><p>Note: This does not execute the submit method of the form element! If you need to submit the form via code, you have to use the DOM method, eg. $("form")[0].submit();</p><h4>Example</h4>
+<div class='example'>
+<p>Triggers all submit events registered for forms, but does not submit the form</p>
+<h5>Code</h5>
+<pre>$(&quot;form&quot;).submit();</pre>
+</div>
+<h3 class='func' id='onesubmit'><b>onesubmit</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the submit event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the submit event of each matched element, which will only be executed once. Unlike a call to the normal .submit() method, calling .onesubmit() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onsubmit=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onesubmit( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first submit</pre>
+</div>
+<h3 class='func' id='unsubmit'><b>unsubmit</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the submit event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound submit event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onsubmit=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unsubmit( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unsubmit</b>() : jQuery</h3>
+<p>Removes all bound submit events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onsubmit=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unsubmit();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='select'><b>select</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the select event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the select event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).select( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>select</b>() : jQuery</h3>
+<p>Trigger the select event of each matched element. This causes all of the functions that have been bound to thet select event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).select();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneselect'><b>oneselect</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the select event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the select event of each matched element, which will only be executed once. Unlike a call to the normal .select() method, calling .oneselect() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneselect( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first select</pre>
+</div>
+<h3 class='func' id='unselect'><b>unselect</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the select event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound select event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onselect=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unselect( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unselect</b>() : jQuery</h3>
+<p>Removes all bound select events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onselect=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unselect();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='change'><b>change</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the change event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the change event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).change( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onchange=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>change</b>() : jQuery</h3>
+<p>Trigger the change event of each matched element. This causes all of the functions that have been bound to thet change event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onchange=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).change();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onechange'><b>onechange</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the change event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the change event of each matched element, which will only be executed once. Unlike a call to the normal .change() method, calling .onechange() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onchange=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onechange( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first change</pre>
+</div>
+<h3 class='func' id='unchange'><b>unchange</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the change event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound change event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onchange=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unchange( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unchange</b>() : jQuery</h3>
+<p>Removes all bound change events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onchange=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unchange();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>

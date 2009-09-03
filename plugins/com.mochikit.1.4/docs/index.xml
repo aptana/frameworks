@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="MochiKit 1.4 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+	<topic label="MochiKit 1.4"  href="docs/MochiKit Documentation Index.htm"> 
+		<topic label="MochiKit.Async"  href="docs/MochiKit Documentation Index_files/Async.html" /> 
+		<topic label="MochiKit.Base"  href="docs/MochiKit Documentation Index_files/Base.html" /> 
+		<topic label="MochiKit.Color"  href="docs/MochiKit Documentation Index_files/Color.html" /> 
+		<topic label="MochiKit.DateTime"  href="docs/MochiKit Documentation Index_files/DateTime.html" /> 
+		<topic label="MochiKit.DOM"  href="docs/MochiKit Documentation Index_files/DOM.html" /> 
+		<topic label="MochiKit.DragAndDrop"  href="docs/MochiKit Documentation Index_files/DragAndDrop.html" /> 
+		<topic label="MochiKit.Format"  href="docs/MochiKit Documentation Index_files/Format.html" /> 
+		<topic label="MochiKit.Iter"  href="docs/MochiKit Documentation Index_files/Iter.html" /> 
+		<topic label="MochiKit.Logging"  href="docs/MochiKit Documentation Index_files/Logging.html" /> 
+		<topic label="MochiKit.LoggingPane"  href="docs/MochiKit Documentation Index_files/LoggingPane.html" />
+		<topic label="MochiKit.Selector"  href="docs/MochiKit Documentation Index_files/Selector.html" />  
+		<topic label="MochiKit.Signal"  href="docs/MochiKit Documentation Index_files/Signal.html" /> 
+		<topic label="MochiKit.Style"  href="docs/MochiKit Documentation Index_files/Style.html" /> 
+		<topic label="MochiKit.Sortable"  href="docs/MochiKit Documentation Index_files/Sortable.html" /> 
+		<topic label="MochiKit.Visual"  href="docs/MochiKit Documentation Index_files/Visual.html" /> 
+	</topic>
+</toc>

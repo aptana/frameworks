@@ -1,0 +1,110 @@
+/**
+ * ScriptDoc for LoggingPane.js
+ */
+
+/**
+ * Creates or returns an existing LoggingPane for this document with the specified inline setting. 
+ * Use createLoggingPane instead of using LoggingPane directly. Use only one LoggingPane per document.
+ * @id MochiKit.LoggingPane.createLoggingPane
+ * @alias createLoggingPane
+ * @param {Boolean} inline    If true, specifies that the LoggingPane should be created inline as a Div. Default is false.
+ * @return {LoggingPane} Returns a LoggingPane.
+ */
+
+/**
+ * Creates an instance of a listener for a MochiKit.Logging logger with an interactive DOM representation.
+ * @id MochiKit.LoggingPane.LoggingPane
+ * @alias LoggingPane  
+ * @constructor
+ * @param {Boolean} inline    If true, specifies that the LoggingPane will be a DIV at the bottom of the document.
+ * Otherwise, it will be in a pop-up window with a name based on the calling page's URL. 
+ * If there is an element in the document with an id of _MochiKit_LoggingPane, it will be used instead of appending a new DIV to the body.
+ * @param {Object} logger    Reference to the the MochiKit.Logging.Logger to listen to. 
+ * If not specified, the global default logger is used.
+ * @return {LoggingPane} Returns a new LoggingPane.
+ */
+
+/**
+ * Sets the message level for a message.
+ * @id MochiKit.LoggingPane.messageLevel
+ * @alias messageLevel
+ * @alias MochiKit.LoggingPane.messageLevel
+ * @param {Object} msg    Message to set.
+ * @return {Number} Returns the level of the message.
+ */
+
+/**
+ * Sets the text for a message.
+ * @id MochiKit.LoggingPane.messageText
+ * @alias messageText
+ * @alias MochiKit.LoggingPane.messageText
+ * @param {Object} msg    Message to set.
+ * @return {String} Returns the text of the message.
+ */
+
+/**
+ * Adds messageText to a message.
+ * @id MochiKit.LoggingPane.addMessageText
+ * @alias addMessageText
+ * @alias MochiKit.LoggingPane.addMessageText
+ * @param {Object} msg    Message to set.
+ */
+
+/**
+ * Adds a message to the LoggingPane.
+ * @id MochiKit.LoggingPane.addMessage
+ * @alias addMessage
+ * @alias MochiKit.LoggingPane.addMessage
+ * @param {Object} msg    Message to add.
+ */
+
+/**
+ * Builds a message filter.
+ * @id MochiKit.LoggingPane.buildMessageFilter
+ * @alias buildMessageFilter.
+ * @alias MochiKit.LoggingPane.buildMessageFilter
+ * @return {Function} Returns a function to build a message filter.
+ */
+
+/**
+ * Clears the message pane of the LoggingPane.
+ * @id MochiKit.LoggingPane.clearMessagePane
+ * @alias clearMessagePane
+ * @alias MochiKit.LoggingPane.clearMessagePane
+ */
+
+/**
+ * Clears all messages from the LoggingPane.
+ * @id MochiKit.LoggingPane.clearMessages
+ * @alias clearMessages
+ * @alias MochiKit.LoggingPane.clearMessages
+ */
+
+/**
+ * Closes the LoggingPane. (Closes the child window, or removes the _MochiKit_LoggingPane DIV from the document).
+ * @id MochiKit.LoggingPane.closePane
+ * @alias closePane
+ * @alias MochiKit.LoggingPane.closePane
+ */
+
+/**
+ * Clears the message pane and displays the text of messages matching the filter criteria.
+ * @id MochiKit.LoggingPane.filterMessages
+ * @alias filterMessages
+ * @alias MochiKit.LoggingPane.filterMessages
+ */
+
+/**
+ * Loads messages into the message pane.
+ * @id MochiKit.LoggingPane.loadMessages
+ * @alias loadMessages
+ * @alias MochiKit.LoggingPane.loadMessages
+ */
+
+/**
+ * Filters messages when the mouse enters the pane.
+ * @id MochiKit.LoggingPane.filterOnEnter
+ * @alias filterOnEnter
+ * @alias MochiKit.LoggingPane.filterOnEnter
+ * @param {Event} event    Event to capture.
+ */

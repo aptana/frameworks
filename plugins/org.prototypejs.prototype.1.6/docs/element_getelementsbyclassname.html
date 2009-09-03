@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>getElementsByClassName</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">getElementsByClassName </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">getElementsByClassName(element, className) -&gt; [HTMLElement...]</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Fetches all of element’s descendants which have a CSS class of className and returns them as an array of extended elements.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The returned array reflects the document order (e.g. an index of 0 refers to the topmost descendant of <span class="f_CourierFixed">element</span> with class <span class="f_CourierFixed">className</span>).</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;ul&nbsp;id="fruits"&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&nbsp;id="apples"&gt;apples</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="golden-delicious"&gt;Golden&nbsp;Delicious&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="mutsu"&nbsp;class="yummy"&gt;Mutsu&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="mcintosh"&nbsp;class="yummy"&gt;McIntosh&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="ida-red"&gt;Ida&nbsp;Red&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;li&nbsp;id="exotic"&nbsp;class="yummy"&gt;exotic&nbsp;fruits</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="kiwi"&gt;kiwi&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;id="granadilla"&gt;granadilla&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&lt;/li&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/ul&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'fruits'</span><span class="f_CodeExample" style="color: #000000;">).getElementsByClassName(</span><span class="f_CodeExample" style="color: #800000;">'yummy'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;[li#mutsu,&nbsp;li#mcintosh,&nbsp;li#exotic]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'exotic'</span><span class="f_CodeExample" style="color: #000000;">).getElementsByClassName(</span><span class="f_CodeExample" style="color: #800000;">'yummy'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;[]</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

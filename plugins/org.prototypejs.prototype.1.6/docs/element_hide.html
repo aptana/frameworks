@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>hide</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">hide </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">hide(element) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Hides and returns element.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;div&nbsp;id="error-message"&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'error-message'</span><span class="f_CodeExample" style="color: #000000;">).hide();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(and&nbsp;hides&nbsp;div#error-message)</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Backwards compatibility change</span></p>
+<p>&nbsp;</p>
+<p>In previous versions of Prototype, you could pass an arbitrary number of elements to <span class="f_CourierFixed">Element.toggle</span>, <span class="f_CourierFixed">Element.show</span>, and <span class="f_CourierFixed">Element.hide</span>, for consistency, this is <span style="font-weight: bold;">no longer possible in version 1.5</span>!</p>
+<p>&nbsp;</p>
+<p>You can however achieve a similar result by using <span class="f_CourierFixed">Enumerables</span>:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">[</span><span class="f_CodeExample" style="color: #800000;">'content'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'navigation'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'footer'</span><span class="f_CodeExample" style="color: #000000;">].</span><span class="f_CodeExample" style="font-weight: bold; color: #000000;">each</span><span class="f_CodeExample" style="color: #000000;">(Element.hide);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;['content',&nbsp;'navigation',&nbsp;'footer']&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;and&nbsp;displays&nbsp;#content,&nbsp;#navigation&nbsp;and&nbsp;#footer.</span></p>
+<p>&nbsp;</p>
+<p>or even better:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'content'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'navigation'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'footer'</span><span class="f_CodeExample" style="color: #000000;">).</span><span class="f_CodeExample" style="font-weight: bold; color: #000000;">invoke</span><span class="f_CodeExample" style="color: #000000;">('hide');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;[HTMLElement,&nbsp;HTMLElement,&nbsp;HTMLElement]&nbsp;(#content,&nbsp;#navigation&nbsp;and&nbsp;#footer)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;and&nbsp;displays&nbsp;#content,&nbsp;#navigation&nbsp;and&nbsp;#footer.</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">See also</span></p>
+<p>&nbsp;</p>
+<p>Enumerable: <a href="enumerable_invoke.html">invoke</a> | <a href="enumerable_each.html">each</a></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

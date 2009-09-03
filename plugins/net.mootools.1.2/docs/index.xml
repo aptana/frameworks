@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="mootools 1.2 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+<topic label="MooTools 1.2"  href="docs/Core.htm"> 
+	<topic label="Core"  href="docs/Core.htm"> 
+		<topic label="Core"  href="docs/Core.htm" /> 
+		<topic label="Browser"  href="docs/Browser.htm" /> 
+	</topic>
+	<topic label="Native"  href="docs/Array.htm"> 
+		<topic label="Array"  href="docs/Array.htm" /> 
+		<topic label="Function"  href="docs/Function.htm" /> 
+		<topic label="Number"  href="docs/Number.htm" /> 
+		<topic label="String"  href="docs/String.htm" /> 
+		<topic label="Hash"  href="docs/Hash.htm" /> 
+		<topic label="Event"  href="docs/Event.htm" /> 
+	</topic>
+	<topic label="Class" href="docs/Class.htm"> 
+		<topic label="Class"  href="docs/Class.htm" /> 
+		<topic label="Class.Extras"  href="docs/Class.Extras.htm" /> 
+	</topic>
+	<topic label="Element"  href="docs/Element.htm"> 
+		<topic label="Element"  href="docs/Element.htm" /> 
+		<topic label="Element.Event"  href="docs/Element.Event.htm" /> 
+		<topic label="Element.Style"  href="docs/Element.Style.htm" /> 
+		<topic label="Element.Dimensions"  href="docs/Element.Dimensions.htm" /> 
+	</topic>
+	<topic label="Utilities"  href="docs/Selectors.htm"> 
+		<topic label="Selectors"  href="docs/Selectors.htm" /> 
+		<topic label="DomReady"  href="docs/DomReady.htm" /> 
+		<topic label="JSON"  href="docs/JSON.htm" /> 
+		<topic label="Cookie"  href="docs/Cookie.htm" /> 
+		<topic label="Swiff"  href="docs/Swiff.htm" /> 
+	</topic>
+	<topic label="Fx"  href="docs/Fx.htm"> 
+		<topic label="Fx"  href="docs/Fx.htm" /> 
+		<topic label="Fx.CSS"  href="docs/Fx.CSS.htm" /> 
+		<topic label="Fx.Tween"  href="docs/Fx.Tween.htm" /> 
+		<topic label="Fx.Morph"  href="docs/Fx.Morph.htm" /> 
+		<topic label="Fx.Transitions"  href="docs/Fx.Transitions.htm" /> 
+	</topic>
+	<topic label="Request"  href="docs/Request.htm"> 
+		<topic label="Request"  href="docs/Request.htm" /> 
+		<topic label="Request.HTML"  href="docs/Request.HTML.htm" /> 
+		<topic label="Request.JSON"  href="docs/Request.JSON.htm" /> 
+	</topic>
+	<topic label="Plugins"  href="docs/Fx.Slide.htm"> 
+		<topic label="Fx.Slide"  href="docs/Fx.Slide.htm" /> 
+		<topic label="Fx.Scroll"  href="docs/Fx.Scroll.htm" /> 
+		<topic label="Fx.Elements"  href="docs/Fx.Elements.htm" /> 
+		<topic label="Drag"  href="docs/Drag.htm" /> 
+		<topic label="Drag.Move"  href="docs/Drag.Move.htm" /> 
+		<topic label="Color"  href="docs/Color.htm" /> 
+		<topic label="Sortables"  href="docs/Sortables.htm" /> 
+		<topic label="Tips"  href="docs/Tips.htm" /> 
+		<topic label="SmoothScroll"  href="docs/SmoothScroll.htm" /> 
+		<topic label="Slider"  href="docs/Slider.htm" /> 
+		<topic label="Scroller"  href="docs/Scroller.htm" /> 
+		<topic label="Assets"  href="docs/Assets.htm" /> 
+		<topic label="Accordion"  href="docs/Accordion.htm" /> 
+	</topic>
+</topic>
+</toc>

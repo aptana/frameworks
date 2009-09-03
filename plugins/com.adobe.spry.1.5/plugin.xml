@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/spry_small.png"
+            name="Adobe Spry 1.5"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/spry_small.png"
+                   name="Adobe Spry Samples"
+                   previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+				   <include path="libraries/lib"/>                   
+	          </samplesinfo>
+          </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="demos"
+                   iconFile="icons/spry_small.png"
+                   name="Adobe Spry Demos"
+                   previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+				   <include path="libraries/lib"/>                   
+	          </samplesinfo>
+          </extension>
+          <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.adobe.spry.1.5">
+             </feature>
+          </extension>
+</plugin>

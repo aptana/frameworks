@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title> DBIx-LiveGrid Demo </title>
+<link   href="css/dbix-livegrid.css" rel="stylesheet" type="text/css">
+<script src ="scripts/prototype.js"  ></script>
+<script src ="scripts/rico.js"       ></script>
+<script src ="scripts/dbix-livegrid.js"></script>
+<script>var grid = new Array(1)</script>
+
+</head>
+<body onload="javascript:bodyOnLoad()" >
+
+<a id="bookmark">Records</a>
+<div id="data_grid_section"> </div>
+<script>
+var col_names  = new Array('Rank','Country','GDP','HDI');
+var col_widths = new Array(70,180,70,50);
+make_grid(
+    'data_grid',                       // ID
+     10,                               // ROWS TO DISPLAY
+     1000,                             // TOTAL ROWS IN TABLE
+     col_widths,                       // COLUMN WIDTHS
+     col_names,                        // COLUMN NAMES
+    'cgi-bin/livegrid.cgi',            // AJAX HANDLER
+    {                                  // LIVEGRID OPTIONS
+      prefetchBuffer : true ,
+      onscroll       : updateHeader,
+      pageSize       : 70
+    }
+);
+</script>
+
+</body>
+</html>
+
+

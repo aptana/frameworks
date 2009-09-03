@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.DateTime - "what time is it anyway?"</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.DateTime - "what time is it anyway?"</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="DateTime.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="DateTime.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="DateTime.html#fn-isodate">isoDate(str)<BR></A><A class="mochiref reference" href="DateTime.html#fn-isotimestamp">isoTimestamp(str)<BR></A><A class="mochiref reference" href="DateTime.html#fn-toisotime">toISOTime(date)<BR></A><A class="mochiref reference" href="DateTime.html#fn-toisotimestamp">toISOTimestamp(date, realISO=false)<BR></A><A class="mochiref reference" href="DateTime.html#fn-toisodate">toISODate(date)<BR></A><A class="mochiref reference" href="DateTime.html#fn-americandate">americanDate(str)<BR></A><A class="mochiref reference" href="DateTime.html#fn-topaddedamericandate">toPaddedAmericanDate(date)<BR></A><A class="mochiref reference" href="DateTime.html#fn-toamericandate">toAmericanDate(date)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">stringDate = toISOTimestamp(new Date());
+dateObject = isoTimestamp(stringDate);
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>Remote servers don't give you JavaScript Date objects, and they certainly don't want them from you, so you need to deal with string representations of dates and timestamps. MochiKit.Date does that.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<P>None.</P></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-isodate"></A><A class="mochidef reference" href="DateTime.html#fn-isodate">isoDate(str)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert an ISO 8601 date (YYYY-MM-DD) to a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-isotimestamp"></A><A class="mochidef reference" href="DateTime.html#fn-isotimestamp">isoTimestamp(str)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert any ISO 8601 <A class="footnote-reference" id="id1" href="DateTime.html#id3" name="id1">[1]</A> timestamp (or something reasonably close to it) to a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object. Will accept the "de facto" form:</P>
+<BLOCKQUOTE>YYYY-MM-DD hh:mm:ss</BLOCKQUOTE>
+<P>or (the proper form):</P>
+<BLOCKQUOTE>YYYY-MM-DDThh:mm:ssZ</BLOCKQUOTE>
+<P>If a time zone designator ("Z" or "[+-]HH:MM") is not present, then the local timezone is used.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-toisotime"></A><A class="mochidef reference" href="DateTime.html#fn-toisotime">toISOTime(date)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object to a string in the form of hh:mm:ss</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-toisotimestamp"></A><A class="mochidef reference" href="DateTime.html#fn-toisotimestamp">toISOTimestamp(date, realISO=false)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object to something that's ALMOST but not quite an ISO 8601 [1]_timestamp. If it was a proper ISO timestamp it would be:</P>
+<BLOCKQUOTE>YYYY-MM-DDThh:mm:ssZ</BLOCKQUOTE>
+<P>However, we see junk in SQL and other places that looks like this:</P>
+<BLOCKQUOTE>YYYY-MM-DD hh:mm:ss</BLOCKQUOTE>
+<P>So, this function returns the latter form, despite its name, unless you pass <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> for <TT class="docutils literal"><SPAN class="pre">realISO</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-toisodate"></A><A class="mochidef reference" href="DateTime.html#fn-toisodate">toISODate(date)</A>:</P>
+<BLOCKQUOTE>
+<P>Convert a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object to an ISO 8601 <A class="footnote-reference" id="id2" href="DateTime.html#id3" name="id2">[1]</A> date string (YYYY-MM-DD)</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-americandate"></A><A class="mochidef reference" href="DateTime.html#fn-americandate">americanDate(str)</A>:</P>
+<BLOCKQUOTE>
+<P>Converts a MM/DD/YYYY date to a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-topaddedamericandate"></A><A class="mochidef reference" href="DateTime.html#fn-topaddedamericandate">toPaddedAmericanDate(date)</A>:</P>
+<BLOCKQUOTE>
+<P>Converts a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object to an MM/DD/YYYY date, e.g. 01/01/2001</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-toamericandate"></A><A class="mochidef reference" href="DateTime.html#fn-toamericandate">toAmericanDate(date)</A>:</P>
+<BLOCKQUOTE>
+<P>Converts a <TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object to an M/D/YYYY date, e.g. 1/1/2001</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id3" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A name="id3">[1]</A></TD>
+<TD><EM>(<A class="fn-backref" href="DateTime.html#id1">1</A>, <A class="fn-backref" href="DateTime.html#id2">2</A>)</EM> W3C profile of ISO 8601: <A class="reference" href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

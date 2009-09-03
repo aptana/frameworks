@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/docs/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/ext_small.gif"
+            name="Ext 1.0.1"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/ext_small.gif"
+                   name="Ext 1.0 Samples"
+                    previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+				   <include path="libraries/lib"/>                   
+	          </samplesinfo>
+          </extension>
+		   <extension
+		         point="org.eclipse.ui.views">
+		      <view
+		            category="com.aptana.ide.documentation"
+		            class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+		            icon="icons/ext_small.gif"
+		            id="com.aptana.ide.documentation.ext.builder"
+		            name="Ext Custom Build">
+		         <description>bundleresource://com.extjs.ext.1.0/views/builder/build.html</description>
+		      </view>
+		   </extension>  
+		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.extjs.ext.1.0">
+             </feature>
+          </extension>          
+</plugin>

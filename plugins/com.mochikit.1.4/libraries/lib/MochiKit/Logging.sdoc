@@ -1,0 +1,201 @@
+/**
+ * ScriptDoc for Logging.js
+ */
+
+/**
+ * Creates a new instance of a log message.
+ * @id MochiKit.Logging.LogMessage
+ * @alias LogMessage
+ * @constructor
+ * @param {Number} num    Numeric identifier for the log message.
+ * @param {String} level    Level of the log message. (e.g. "INFO", "WARN", "DEBUG", etc.)
+ * @param {Array} info    All other arguments passed to the log function as an Array.
+ * @return {LogMessage} Creates a new LogMessage object.
+ */
+
+/** 
+ * @id MochiKit.Logging.LogMessage.prototype.repr
+ */
+
+/**
+ * @id MochiKit.Logging.LogMessage.prototype.toString 
+ */
+
+/**
+ * Returns a function that will match log messages whose level is at least minLevel.
+ * @id MochiKit.Logging.logLevelAtLeast
+ * @alias logLevelAtLeast
+ * @alias MochiKit.Logging.logLevelAtLeast
+ * @param {String} minLevel    Minimum level of the log messages to match. (e.g. WARNING, ERROR, etc.)
+ * @return {Function} Returns a function that will match log messages whose level is at least minLevel.
+ */
+
+/**
+ * Returns true if every argument is a log message.
+ * @id MochiKit.Logging.isLogMessage
+ * @alias isLogMessage
+ * @alias MochiKit.Logging.isLogMessage
+ * @param {Object} [...]    One or more objects to test.
+ * @return {Boolean} Returns true if every argument is a log message.
+ */
+
+/**
+ * Uses the compare() function to compare the level and information of two log messages.
+ * @id MochiKit.Logging.compareLogMessage
+ * @alias compareLogMessage
+ * @alias MochiKit.Logging.compareLogMessage
+ * @param {Object} a    First log message to compare.
+ * @param {Object} b    Second log message to compare.
+ * @return {Object} Returns the result of the comparison.
+ */
+
+/**
+ * Displays an alert listener.
+ * @id MochiKit.Logging.alertListener
+ * @alias alertListener
+ * @alias MochiKit.Logging.alertListener
+ * @param {Object} msg    Message to display.
+ */
+
+/**
+ * Creates a basic logger object that has a buffer of recent messages and a listener dispatch mechanism for "real-time" logging of important messages.
+ * @id MochiKit.Logging.Logger
+ * @alias Logger
+ * @alias MochiKit.Logging.Logger
+ * @constructor
+ * @param {Number} [maxSize]    Maximum number of entries in the log. To turn off logging, specify a value of 0.
+ * @return {Logger} Creates a new Logger object.
+ */
+
+/**
+ * Clears all messages from the message buffer.
+ * @id MochiKit.Logging.Logger.prototype.clear
+ * @alias clear
+ * @alias MochiKit.Logging.Logger.prototype.clear
+ */
+
+/**
+ * Displays a message in the console.
+ * @id MochiKit.Logging.Logger.prototype.logToConsole
+ * @alias logToConsole
+ * @alias MochiKit.Logging.Logger.prototype.logToConsole
+ * @param {Object} msg    Message to display.
+ */
+
+/**
+ * Dispatches a log message to all listeners.
+ * @id MochiKit.Logging.Logger.prototype.dispatchListeners
+ * @alias dispatchListeners
+ * @alias MochiKit.Logging.Logger.prototype.dispatchListeners
+ * @param {Object} msg    Message to dispatch.
+ */
+
+/**
+ * Adds a listener for log messages.
+ * @id MochiKit.Logging.Logger.prototype.addListener
+ * @alias addListener
+ * @alias MochiKit.Logging.Logger.prototype.addListener
+ * @param {String} ident    Unique identifier for the listener.
+ * @param {String} filter    Specifies how listener(msg) will be called. Can be one of three values:
+ * null - listener(msg) will be called for every log message received.
+ * function - listener(msg) will be called for every message that filter(msg) returns true for.
+ * string - uses logLevelAtLeast(filter) as the function to test the message instead of filter(msg).
+ * @param {Function} listener    Function whose one argument is a LogMessage instance that has at least these properties:
+ * num - Counter that uniquely identifies a log message (per-logger).
+ * level - String or number representing the log level. If you specify a string, use LogLevel[level] for comparison.
+ * info - Array of objects passed as additional arguments to the log function.
+ */
+
+/**
+ * Removes a listener using the ident passed to to Logger.prototype.addListener.
+ * @id MochiKit.Logging.Logger.prototype.removeListener
+ * @alias removeListener
+ * @alias MochiKit.Logging.Logger.prototype.removeListener
+ * @param {String} ident    Identifier for the listener to remove.
+ */
+
+/**
+ * Provides the base functionality behind all of the log functions.
+ * This function is available partially applied as:
+ * <ul>
+ * <li>Logger.debug - 'DEBUG'</li>
+ * <li>Logger.log - 'INFO'</li>
+ * <li>Logger.error - 'ERROR'</li>
+ * <li>Logger.fatal - 'FATAL'</li>
+ * <li>Logger.warning - 'WARNING'</li>
+ * </ul>
+ * @id MochiKit.Logging.Logger.prototype.baseLog
+ * @alias baseLog
+ * @alias MochiKit.Logging.Logger.prototype.baseLog
+ * @param {String, Number} level    Log level
+ * @param {Object} ...    One or more messages in the info list.
+ * @see Logger
+ */
+
+/**
+ * Returns a list of up to howMany messages from the message buffer.
+ * @id MochiKit.Logging.Logger.prototype.getMessages
+ * @alias getMessages
+ * @alias MochiKit.Logging.Logger.prototype.getMessages
+ * @param {Number} howMany    Number of messages to return.
+ * @return {Array} Returns a list of messages.
+ */
+
+/**
+ * Returns a string representing up to the last howMany messages in the message buffer.
+ * The string is formatted as follows:
+ * <pre>LAST {messages.length} MESSAGES:
+ *   [{msg.num}] {msg.level}: {m.info.join(' ')}
+ *   [{msg.num}] {msg.level}: {m.info.join(' ')}
+ * </pre>
+ * @id MochiKit.Logging.Logger.prototype.getMessageText
+ * @alias getMessageText
+ * @alias MochiKit.Logging.Logger.prototype.getMessageText
+ * @param {Object} howMany    Number of messages to return. Default is 30.
+ * @return {String} Returns a string representing up to the last howMany messages in the message buffer.
+ */
+
+/**
+ * Displays the contents of the logger in a useful way for browsers.
+ * Currently, if MochiKit.LoggingPane is loaded, it uses a pop-up MochiKit.LoggingPane.LoggingPane. 
+ * Otherwise, uses an alert with Logger.prototype.getMessageText().
+ * @id MochiKit.Logging.Logger.prototype.debuggingBookmarklet
+ * @alias getMessageText
+ * @alias MochiKit.Logging.Logger.prototype.getMessageText
+ * @param {Boolean} inline    If true, specifies that the LoggingPane will be created inline.
+ */
+
+/**
+ * Connects to a log.
+ * @id MochiKit.Logging.log
+ * @alias log
+ * @alias MochiKit.Logging.log
+ */
+
+/**
+ * Logs an ERROR message to the default logger.
+ * @id MochiKit.Logging.logError
+ * @alias logError
+ * @alias MochiKit.Logging.logError
+ */
+
+/**
+ * Logs a DEBUG message to the default logger.
+ * @id MochiKit.Logging.logDebug
+ * @alias logDebug
+ * @alias MochiKit.Logging.logDebug
+ */
+
+/**
+ * Logs a FATAL message to the default logger.
+ * @id MochiKit.Logging.logFatal
+ * @alias logFatal
+ * @alias MochiKit.Logging.logFatal
+ */
+
+/**
+ * Logs a WARNING message to the default logger.
+ * @id MochiKit.Logging.logWarning
+ * @alias logWarning
+ * @alias MochiKit.Logging.logWarning
+ */

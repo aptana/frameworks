@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Hash.Cookie</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Hash-Cookie"><a href="#Hash-Cookie">Class: Hash.Cookie</a></h1>
+
+<p class="description">Stores and loads a Hash as a Cookie using JSON format.</p>
+
+<h3>Extends:</h3>
+
+<ul>
+<li><a href="Hash.htm#Hash">Hash</a></li>
+</ul>
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myHashCookie = <span class="kw2">new</span> Hash.<span class="me1">Cookie</span><span class="br0">(</span><span class="kw3">name</span><span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>name    - (<em>string</em>) The key (name) for the cookie</li>
+<li>options - (<em>object</em>) All of <a href="Cookie.htm">Cookie</a> options in addition an autoSave option.</li>
+</ol>
+<h4>Options:</h4>
+
+<ol>
+<li>autoSave - (<em>boolean</em>: defaults to true) An option to save the cookie at every operation.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) A new Hash.Cookie instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> fruits = <span class="kw2">new</span> Hash.<span class="me1">Cookie</span><span class="br0">(</span><span class="st0">'myCookieName'</span>, <span class="br0">{</span>duration: <span class="nu0">3600</span><span class="br0">}</span><span class="br0">)</span>;
+fruits.<span class="me1">extend</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="st0">'lemon'</span>: <span class="st0">'yellow'</span>,
+    <span class="st0">'apple'</span>: <span class="st0">'red'</span>
+<span class="br0">}</span><span class="br0">)</span>;
+fruits.<span class="me1">set</span><span class="br0">(</span><span class="st0">'melon'</span>, <span class="st0">'green'</span><span class="br0">)</span>;
+fruits.<span class="me1">get</span><span class="br0">(</span><span class="st0">'lemon'</span><span class="br0">)</span>; <span class="co1">// yellow</span>
+&nbsp;
+<span class="co1">// ... on another page ... values load automatically</span>
+&nbsp;
+<span class="kw2">var</span> fruits = <span class="kw2">new</span> Hash.<span class="me1">Cookie</span><span class="br0">(</span><span class="st0">'myCookieName'</span>, <span class="br0">{</span>duration: <span class="nu0">365</span><span class="br0">}</span><span class="br0">)</span>;
+fruits.<span class="me1">get</span><span class="br0">(</span><span class="st0">'melon'</span><span class="br0">)</span>; <span class="co1">// green</span>
+&nbsp;
+fruits.<span class="me1">erase</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">// delete cookie</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>All Hash methods are available in your Hash.Cookie instance. if
+autoSave options is set, every method call will result in your Cookie
+being saved.</li>
+<li>Cookies have a limit of 4kb (4096 bytes). Therefore, be careful with your Hash size.</li>
+<li>All Hash methods used on Hash.Cookie return the return value of the
+Hash method, unless you exceeded the Cookie size limit. In that case
+the result will be false.</li>
+<li>If you plan to use large Cookies consider turning autoSave to off, and check the status of .save() everytime.</li>
+<li>Creating a new instance automatically loads the data from the Cookie into the Hash. Cool Huh?</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="Hash.htm#Hash">Hash</a></li>
+</ul>
+<h2 id="Hash-Cookie:save"><a href="#Hash-Cookie:save">Hash.Cookie Method: save</a></h2>
+
+<p class="description">Saves the Hash to the cookie. If the hash is empty, removes the cookie.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myHashCookie.<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>boolean</em>) Returns false when the JSON string cookie is too long (4kb), otherwise true.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> login = <span class="kw2">new</span> Hash.<span class="me1">Cookie</span><span class="br0">(</span><span class="st0">'userstatus'</span>, <span class="br0">{</span>autoSave: <span class="kw2">false</span><span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+login.<span class="me1">extend</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="st0">'username'</span>: <span class="st0">'John'</span>,
+    <span class="st0">'credentials'</span>: <span class="br0">[</span><span class="nu0">4</span>, <span class="nu0">7</span>, <span class="nu0">9</span><span class="br0">]</span>
+<span class="br0">}</span><span class="br0">)</span>;
+login.<span class="me1">set</span><span class="br0">(</span><span class="st0">'last_message'</span>, <span class="st0">'User logged in!'</span><span class="br0">)</span>;
+&nbsp;
+login.<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">// finally save the Hash</span>
+</pre>
+
+<h2 id="Hash-Cookie:load"><a href="#Hash-Cookie:load">Hash.Cookie Method: load</a></h2>
+
+<p class="description">Loads the cookie and assigns it to the Hash.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myHashCookie.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Hash.Cookie instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myHashCookie = <span class="kw2">new</span> Hash.<span class="me1">Cookie</span><span class="br0">(</span><span class="st0">'myCookie'</span><span class="br0">)</span>;
+&nbsp;
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    myHashCookie.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span>;
+    <span class="kw1">if</span><span class="br0">(</span>!myHashCookie.<span class="me1">length</span><span class="br0">)</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Cookie Monster must of eaten it!'</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>.<span class="me1">periodical</span><span class="br0">(</span><span class="nu0">5000</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Useful when polling.</li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Hash-Cookie">Hash.Cookie</a></h4>
+<div class="menu-item"><a href="#Hash-Cookie:save">save</a></div>
+<div class="menu-item"><a href="#Hash-Cookie:load">load</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

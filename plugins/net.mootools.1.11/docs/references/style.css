@@ -1,0 +1,329 @@
+﻿body {
+	font: 11px/1.5em "Lucida Grande", Arial, sans-serif;
+	color: #333;
+	background: #e9e9e9 url("bg.png") top left repeat-y;
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+h1 {
+	color: #90bbdc;
+	font-size: 18px;
+	padding: 15px 0;
+}
+
+h1 span {
+	color: #ff3300;
+}
+
+a:link, a:visited {
+	color: #839b4b;
+}
+
+a:hover, a:active {
+	color: #e65551;
+}
+
+h2 {
+	color: #8ac6d8;
+	font-size: 16px;
+	padding: 10px 0 5px;
+	margin-bottom: 5px;
+	background: url("lineh.png") bottom left repeat-x;
+}
+
+h3 {
+	color: #8ac6d8;
+	font-size: 14px;
+	padding: 8px 0 4px;
+	margin-bottom: 4px;
+	background: url("lineh.png") bottom left repeat-x;
+}
+
+h4 {
+	margin: 3px 0;
+	padding: 0;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+p {
+	padding: 2px 0;
+}
+
+
+
+#container {
+	width: 660px;
+}
+
+#header {
+	position: absolute;
+	z-index: 4;
+	height: 49px;
+	width: 189px;
+	background: url("logo.png");
+	margin: 20px;
+}
+
+#header span {
+	display: none;
+}
+
+ul#menu {
+	width: 300px;
+	margin: 20px 0 0 550px !important;
+	margin: 20px 0 0 530px !important;
+	position: fixed !important;
+	position: absolute;
+	padding: 0;
+	list-style: none;
+	z-index: 1;
+}
+
+#menu li {
+	background: url("menu_small.png") center right no-repeat;
+	color: #666;
+	width: 150px;
+	padding-left: 150px;
+	text-align: right;
+}
+
+#menu li.big {
+	font-size: 13px;
+	text-align: left;
+
+	width: 150px;
+}
+
+#menu li a {
+	padding: 6px 10px;
+	width: 130px;
+}
+
+#menu li.big a:link, #menu li.big a:visited, #menu li.big a:hover, #menu li.big a:active {
+	color: #fff;
+	padding: 10px 10px 10px 35px;
+	width: 105px;
+}
+
+#menu a:link, #menu a:visited {
+	display: block;
+	color: #666;
+	text-decoration: none;
+}
+
+#menu a:hover, #menu a:active {
+	color: #e65551;
+}
+
+#menu li.docs {
+	background: url("menu_big_red.png") center right no-repeat;
+}
+
+#menu li.forum {
+	background: url("menu_big_purple.png") center right no-repeat;
+}
+
+#menu li.wiki {
+	background: url("menu_big_orange.png") center right no-repeat;
+}
+
+#menu li.download {
+	background: url("menu_big_blue.png") center right no-repeat;
+}
+
+#menu li.help {
+	background: url("menu_big_green.png") center right no-repeat;
+}
+
+#menu li.feeds {
+	background: url("menu_big_orange.png") center right no-repeat;
+}
+
+#menu li.tools {
+	height: 30px;
+	background: url("menu_tools.png") center right no-repeat;
+	margin-bottom: 5px;
+}
+
+#menu li a span {
+	display: none;
+}
+
+#content {
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	width: 660px;
+	background: #fff;
+	padding: 80px 20px 20px 20px;
+	min-height: 380px;
+	line-height: 1.8;
+	color: #444;
+}
+
+#footer {
+	clear: both;
+	font-size: 10px;
+	text-align: center;
+	padding-top: 30px;
+	color: #666;
+}
+
+ul.credits {
+	font-size: 10px;
+	color: #666;
+}
+
+
+
+label {
+	cursor: pointer;
+	display: block;
+	background: #eee;
+	width: 152px;
+	height: 25px;
+	padding: 1px 0 0;
+	border: 1px solid #fff;
+	background-color: #eee;
+	background-position: top left;
+	vertical-align: middle;
+}
+
+label em {
+	margin-left: -16px;
+	font-style: normal;
+}
+
+label img {
+	position: relative;
+	height: 16px;
+	width: 16px;
+	left: 110px;
+	top: 4px;
+}
+
+label span.size {
+	color: #aaa;
+	font-size: 9px;
+}
+
+label.check {
+	background-image: url("chkbx.png");
+}
+
+label.radio {
+	background-image: url("rdibtn.png");
+}
+
+p.info {
+	font-style: italic;
+	color: #aaa;
+}
+
+div.group {
+	width: 160px;
+	float: left;
+	margin-right: 5px;
+}
+
+div.compression {
+	width: 100%;
+}
+
+p.generate input {
+	vertical-align: top;
+}
+
+p.generate {
+	float: right;
+	margin-top: -50px;
+	text-align: right;
+}
+
+p.credit {
+	clear: both;
+	padding: 20px 10px 10px;
+	font-size: 10px;
+	color: #555;
+	text-align: center;
+}
+
+
+
+.tooltip {
+	color: #fff;
+	width: 172px;
+	z-index: 13000;
+}
+
+.tooltip h4 {
+	font-weight: bold;
+	font-size: 11px;
+	margin: 0;
+	padding: 8px 8px 4px;
+	background: url("bubble.png") top left;
+}
+
+.tooltip p {
+	font-size: 11px;
+	padding: 4px 8px 8px;
+	background: url("bubble.png") bottom right;
+}
+
+.box {
+	left: 0;
+	position: absolute;
+	background: #000000;
+	z-index: 10000;
+	visibility: hidden;
+}
+
+.repo {
+	background: url("/images/report.png") no-repeat !important;
+	background: url("report.gif") no-repeat;
+	position: absolute;
+	z-index: 11000;
+	height: 252px;
+	width: 315px;
+	visibility: hidden;
+}
+
+.repotitle {
+	margin: 10px 10px 5px 10px;
+	padding: 0 0 5px 0;
+	color: #555;
+}
+
+.textrepo {
+	padding: 2px;
+	width: 292px;
+	height: 180px;
+	margin: 5px 10px 5px;
+	border: 1px solid #ccc;
+}
+
+.reposubmit {
+	display: block;
+	height: 20px;
+	width: 56px;
+	float: right;
+	cursor: pointer;
+}
+
+.repoclose {
+	width: 9px;
+	height: 9px;
+	background: url("x.png") no-repeat;
+	float: right;
+	margin: 8px !important;
+	margin: 8px 4px;
+	cursor: pointer;
+}

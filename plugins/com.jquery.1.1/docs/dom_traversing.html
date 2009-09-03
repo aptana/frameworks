@@ -1,0 +1,404 @@
+<html>
+<head>
+<title>DOM / Traversing - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="dom / traversing">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>DOM / Traversing</h2><h3 class='func' id='end'><b>end</b>() : jQuery</h3>
+<p>End the most recent 'destructive' operation, reverting the list of matched elements back to its previous state. After an end operation, the list of matched elements will revert to the last state of matched elements.</p><p>If there was no destructive operation before, an empty set is returned.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Selects all paragraphs, finds span elements inside these, and reverts the
+selection back to the paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).find(&quot;span&quot;).end();</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;...&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='find'><b>find</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>An expression to search with.</td></tr>
+</table>
+<p>Searches for all elements that match the specified expression. This method is a good way to find additional descendant elements with which to process.</p><p>All searching is done using a jQuery expression. The expression can be written using CSS 1-3 Selector syntax, or basic XPath.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Starts with all paragraphs and searches for descendant span
+elements, same as $("p span")</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).find(&quot;span&quot;);</pre>
+<h5>Result</h5>
+<pre>[ &lt;span&gt;Hello&lt;/span&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='filter'><b>filter</b>(String <b>expression</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expression</th><td width='15%'>String</td><td>Expression(s) to search with.</td></tr>
+</table>
+<p>Removes all elements from the set of matched elements that do not match the specified expression(s). This method is used to narrow down the results of a search.</p><p>Provide a comma-separated list of expressions to apply multiple filters at once.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Selects all paragraphs and removes those without a class "selected".</p>
+<h5>Before</h5>
+<pre>&lt;p class=&quot;selected&quot;&gt;Hello&lt;/p&gt;&lt;p&gt;How are you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).filter(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Selects all paragraphs and removes those without class "selected" and being the first one.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;p class=&quot;selected&quot;&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).filter(&quot;.selected, :first&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p class=&quot;selected&quot;&gt;And Again&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>filter</b>(Function <b>filter</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>filter</th><td width='15%'>Function</td><td>A function to use for filtering</td></tr>
+</table>
+<p>Removes all elements from the set of matched elements that do not pass the specified filter. This method is used to narrow down the results of a search.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Remove all elements that have a child ol element</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;&lt;ol&gt;&lt;li&gt;Hello&lt;/li&gt;&lt;/ol&gt;&lt;/p&gt;&lt;p&gt;How are you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).filter(function(index) {
+  return $(&quot;ol&quot;, this).length == 0;
+})</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;How are you?&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='not'><b>not</b>(Element <b>el</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>el</th><td width='15%'>Element</td><td>An element to remove from the set</td></tr>
+</table>
+<p>Removes the specified Element from the set of matched elements. This method is used to remove a single Element from a jQuery object.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p id=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).not( $(&quot;#selected&quot;)[0] )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>not</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>An expression with which to remove matching elements</td></tr>
+</table>
+<p>Removes elements matching the specified expression from the set of matched elements. This method is used to remove one or more elements from a jQuery object.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p id=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).not(&quot;#selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>not</b>(jQuery <b>elems</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elems</th><td width='15%'>jQuery</td><td>A set of elements to remove from the jQuery set of matched elements.</td></tr>
+</table>
+<p>Removes any elements inside the array of elements from the set of matched elements. This method is used to remove one or more elements from a jQuery object.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Removes all elements that match "div p.selected" from the total set of all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).not( $(&quot;div p.selected&quot;) )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='add'><b>add</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>An expression whose matched elements are added</td></tr>
+</table>
+<p>Adds more elements, matched by the given expression, to the set of matched elements.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).add(&quot;span&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>add</b>(String <b>html</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>html</th><td width='15%'>String</td><td>A string of HTML to create on the fly.</td></tr>
+</table>
+<p>Adds more elements, created on the fly, to the set of matched elements.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).add(&quot;&lt;span&gt;Again&lt;/span&gt;&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Again&lt;/span&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>add</b>(Element|Array<Element> <b>elements</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elements</th><td width='15%'>Element|Array<Element></td><td>One or more Elements to add</td></tr>
+</table>
+<p>Adds one or more Elements to the set of matched elements.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span id=&quot;a&quot;&gt;Hello Again&lt;/span&gt;&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).add( document.getElementById(&quot;a&quot;) )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span id=&quot;a&quot;&gt;Hello Again&lt;/span&gt; ]</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;form&gt;&lt;input/&gt;&lt;button/&gt;&lt;/form&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).add( document.forms[0].elements )</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;input/&gt;, &lt;button/&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='is'><b>is</b>(String <b>expr</b>) : Boolean</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>The expression with which to filter</td></tr>
+</table>
+<p>Checks the current selection against an expression and returns true, if at least one element of the selection fits the given expression.</p><p>Does return false, if no element fits or the expression is not valid.</p><p>filter(String) is used internally, therefore all rules that apply there apply here, too.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Returns true, because the parent of the input is a form element</p>
+<h5>Before</h5>
+<pre>&lt;form&gt;&lt;input type=&quot;checkbox&quot; /&gt;&lt;/form&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;input[@type='checkbox']&quot;).parent().is(&quot;form&quot;)</pre>
+<h5>Result</h5>
+<pre>true</pre>
+</div>
+<div class='example'>
+<p>Returns false, because the parent of the input is a p element</p>
+<h5>Before</h5>
+<pre>&lt;form&gt;&lt;p&gt;&lt;input type=&quot;checkbox&quot; /&gt;&lt;/p&gt;&lt;/form&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;input[@type='checkbox']&quot;).parent().is(&quot;form&quot;)</pre>
+<h5>Result</h5>
+<pre>false</pre>
+</div>
+</div>
+<h3 class='func' id='parent'><b>parent</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the parents with</td></tr>
+</table>
+<p>Get a set of elements containing the unique parents of the matched set of elements.</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find the parent element of each paragraph.</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).parent()</pre>
+<h5>Result</h5>
+<pre>[ &lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find the parent element of each paragraph with a class "selected".</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;selected&quot;&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).parent(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;div class=&quot;selected&quot;&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='parents'><b>parents</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the ancestors with</td></tr>
+</table>
+<p>Get a set of elements containing the unique ancestors of the matched set of elements (except for the root element).</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find all parent elements of each span.</p>
+<h5>Before</h5>
+<pre>&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;span&quot;).parents()</pre>
+<h5>Result</h5>
+<pre>[ &lt;body&gt;...&lt;/body&gt;, &lt;div&gt;...&lt;/div&gt;, &lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find all parent elements of each span that is a paragraph.</p>
+<h5>Before</h5>
+<pre>&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;span&quot;).parents(&quot;p&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='next'><b>next</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the next Elements with</td></tr>
+</table>
+<p>Get a set of elements containing the unique next siblings of each of the matched set of elements.</p><p>It only returns the very next sibling, not all next siblings.</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find the very next sibling of each paragraph.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).next()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello Again&lt;/p&gt;, &lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find the very next sibling of each paragraph that has a class "selected".</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;&lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).next(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='prev'><b>prev</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the previous Elements with</td></tr>
+</table>
+<p>Get a set of elements containing the unique previous siblings of each of the matched set of elements.</p><p>Can be filtered with an optional expressions.</p><p>It only returns the immediately previous sibling, not all previous siblings.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find the very previous sibling of each paragraph.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prev()</pre>
+<h5>Result</h5>
+<pre>[ &lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find the very previous sibling of each paragraph that has a class "selected".</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prev(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='siblings'><b>siblings</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the sibling Elements with</td></tr>
+</table>
+<p>Get a set of elements containing all of the unique siblings of each of the matched set of elements.</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find all siblings of each div.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;div&quot;).siblings()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;And Again&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find all siblings with a class "selected" of each div.</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;div&quot;).siblings(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='children'><b>children</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) An expression to filter the child Elements with</td></tr>
+</table>
+<p>Get a set of elements containing all of the unique children of each of the matched set of elements.</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Find all children of each div.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;div&quot;).children()</pre>
+<h5>Result</h5>
+<pre>[ &lt;span&gt;Hello Again&lt;/span&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Find all children with a class "selected" of each div.</p>
+<h5>Before</h5>
+<pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;div&quot;).children(&quot;.selected&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p class=&quot;selected&quot;&gt;Hello Again&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='contains'><b>contains</b>(String <b>str</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>str</th><td width='15%'>String</td><td>The string that will be contained within the text of an element.</td></tr>
+</table>
+<p>Filter the set of elements to those that contain the specified text.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).contains(&quot;test&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;This is just a test.&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='$.parents'><b>$.parents</b>(Element <b>elem</b>) : Array<Element></h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elem</th><td width='15%'>Element</td><td>The element to find the ancestors of.</td></tr>
+</table>
+<p>All ancestors of a given element.</p><h3 class='func' id='$.nth'><b>$.nth</b>(DOMElement <b>cur</b>, String|Number <b>num</b>, String <b>dir</b>) : DOMElement</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>cur</th><td width='15%'>DOMElement</td><td>The element to search from.</td></tr>
+<tr><th width='15%'>num</th><td width='15%'>String|Number</td><td>The Nth result to match. Can be a number or a string (like 'even' or 'odd').</td></tr>
+<tr><th width='15%'>dir</th><td width='15%'>String</td><td>The direction to move in (pass in something like 'previousSibling' or 'nextSibling').</td></tr>
+</table>
+<p>A handy, and fast, way to traverse in a particular direction and find a specific element.</p><h3 class='func' id='$.sibling'><b>$.sibling</b>(Element <b>elem</b>) : Array</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elem</th><td width='15%'>Element</td><td>The element to find all the siblings of (including itself).</td></tr>
+</table>
+<p>All elements on a specified axis.</p>

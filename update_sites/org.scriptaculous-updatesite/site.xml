@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.scriptaculous.1.8_1.8.1.00001.jar" id="org.scriptaculous.1.8" version="1.8.1.00001">
+      <category name="Scriptaculous"/>
+   </feature>
+   <feature url="features/org.scriptaculous.1.7_1.7.0.00006.jar" id="org.scriptaculous.1.7" version="1.7.0.00006">
+      <category name="Scriptaculous"/>
+   </feature>
+   <category-def name="Scriptaculous" label="Aptana Support for Scriptaculous"/>
+</site>

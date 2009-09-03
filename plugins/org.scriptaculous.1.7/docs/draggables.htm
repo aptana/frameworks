@@ -1,0 +1,151 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Draggables</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Draggables</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The Draggables object is a global helper object.</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Property/Method</span></p>
+</td>
+<td valign="middle" width="503" bgcolor="#99cc00" style="width:503px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>drags</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Array of all Draggables on the page</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>observers</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Array of drag observers. Use Draggables.addObserver() and Draggables.removeObserver() to add/remove observers, respectively</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>register() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>function(draggable). Called when you create a new Draggable. If this is the first Draggable on the page, starts observing mouse events necessary for dragging.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>unregister()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>function(draggable). Called by Draggable.destroy(). Stops observing window mouse events if Draggable.drag is empty.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>activate()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Marks a particular Draggable as the activeDraggable</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>deactivate() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Sets Draggables.activeDraggable to null</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>updateDrag() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Passes the window mousemove event to the activeDraggable’s updateDrag function.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>endDrag() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Caught by the window’s mouseup, stops dragging the activeDraggable, if any, via its endDrag function.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>keyPress() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Passes the window keypress event to the activeDraggable’s keyPress function.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>addObserver()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Adds an observer to Draggables.observers</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>removeObserver()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Removes an observer from Draggables.observers. Takes the observer’s element property as a parameter</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>notify()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Calls the observers’ onStart(), onEnd(), and onDrag() functions as necessary</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Draggable Observers</span></p>
+<p>&nbsp;</p>
+<p>A draggable observer, as used in <span style="font-weight: bold;">Draggables.addObserver()</span>, is an object with an element property defined, and one or more of the following functions defined:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Property/Method</span></p>
+</td>
+<td valign="middle" width="503" bgcolor="#99cc00" style="width:503px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>onStart() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Called after dragging begins</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>onDrag()</p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Called on each mousemove during a drag</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>onEnd() </p>
+</td>
+<td valign="top" width="503" style="width:503px;"><p>Called when dragging is finished</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>The parameters passed to these three events are <span style="font-weight: bold;">eventName</span>, <span style="font-weight: bold;">draggable</span>, and <span style="font-weight: bold;">event</span>. The <span style="font-weight: bold;">draggable.element</span> method gives us the html element being dragged.</p>
+
+</td></tr></table>
+
+</body>
+</html>

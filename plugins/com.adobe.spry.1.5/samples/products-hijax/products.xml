@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<products>
+	
+	<product>
+		<name>Adobe Photoshop CS2</name>
+		<boxshot><![CDATA[<img src="../../demos/products/images/photoshop.gif" alt="product box shot" height="130" width="238">]]></boxshot>
+		<overview><![CDATA[
+					<div>
+						Adobe&reg; Photoshop&reg; CS2 software, the professional image-editing standard and
+						leader of the Photoshop digital imaging line, delivers more of what you
+						crave. Groundbreaking creative tools help you achieve extraordinary
+						results. Unprecedented adaptability lets you custom-fit Photoshop to
+						the way you work. And with more efficient editing, processing, and file
+						handling, there's no slowing you down.
+					</div>
+		]]></overview>
+		<features><![CDATA[
+					<div>
+						<ul>
+							<li>Revolutionary Vanishing Point</li>
+							<li>Multiple layer control</li>
+							<li>Smart Objects</li>
+							<li>Multi-image digital camera raw file processing</li>
+							<li>Image Warp</li>
+						</ul>
+					</div>
+		]]></features>		
+	</product>
+	
+	<product>
+		<name>Adobe Illustrator CS2</name>
+		<boxshot><![CDATA[<img src="../../demos/products/images/illustrator.gif" alt="product box shot" height="130" width="238">]]></boxshot>
+		<overview><![CDATA[
+					<div>
+						Adobe&reg; Illustrator&reg; CS2 software gives you new creative freedom that lets you realize
+						your ideas quickly and powerfully. Instantly convert bitmaps to vector artwork and paint more
+						intuitively. Save time with intelligent palettes and optimized workspaces. Plus, tight integration
+						with other software allows you to produce extraordinary graphics for print, video, the web, and mobile devices.
+					</div>
+		]]></overview>
+		<features><![CDATA[
+					<div>
+						<ul class="">
+							<li>Live Trace</li>
+							<li>Live Paint</li>
+							<li>Control palette</li>
+							<li>Custom workspaces</li>
+							<li>Photoshop layer comp support</li>
+						</ul>
+					</div>
+		]]></features>		
+	</product>
+	
+	<product>
+		<name>Adobe InDesign CS2</name>
+		<boxshot><![CDATA[<img src="../../demos/products/images/indesign.gif" alt="product box shot" height="130" width="238">]]></boxshot>
+		<overview><![CDATA[
+					<div>
+						Join the growing ranks of creative professionals discovering new levels of creative freedom and
+						productivity using Adobe&reg; InDesign&reg; CS2 software. Tightly integrated with the Adobe
+						applications you use most, InDesign CS2 delivers faster production workflows and a more fluid
+						creative environment for designing professional layouts with sophisticated graphics and typography.
+					</div>
+		]]></overview>
+		<features><![CDATA[
+					<div>
+						<ul>
+							<li>Object styles</li>
+							<li>Adobe Photoshop and Adobe PDF layer support</li>
+							<li>InDesign snippets</li>
+							<li>Adobe InCopy CS2 assignments</li>
+							<li>Save backwards to InDesign CS</li>
+						</ul>
+					</div>
+		]]></features>		
+	</product>
+	
+	<product>
+		<name>Adobe GoLive CS2</name>
+		<boxshot><![CDATA[<img src="../../demos/products/images/golive.gif" alt="product box shot" height="130" width="238">]]></boxshot>
+		<overview><![CDATA[
+					<div>
+						Adobe&reg; GoLive&reg; CS2 software lets you unlock the power of CSS with intuitive visual
+						tools such as prebuilt CSS objects that you can drag and drop to build sophisticated sites.
+						Jump-start your designs by easily converting Adobe InDesign&reg; layouts into Web pages. Or,
+						design Web and mobile content in an advanced, standards-based coding environment.
+					</div>
+		]]></overview>
+		<features><![CDATA[
+					<div>
+						<ul>
+							<li>Enhanced live rendering</li>
+							<li>Simple visual tools to build and edit CSS-based pages</li>
+							<li>Visual CSS authoring for mobile devices</li>
+							<li>Visual SVG-t inspection and authoring for mobile</li>
+							<li>Total site management</li>
+						</ul>
+					</div>
+		]]></features>		
+	</product>
+	
+	<product>
+		<name>Adobe Dreamweaver 8</name>
+		<boxshot><![CDATA[<img src="../../demos/products/images/dreamweaver.gif" alt="product box shot" height="130" width="238">]]></boxshot>
+		<overview><![CDATA[
+					<div>
+						With Dreamweaver 8, web developers go from start to finish, creating and maintaining basic
+						websites to advanced applications that support best practices and the latest technologies.
+					</div>
+		]]></overview>
+		<features><![CDATA[
+					<div>
+						<ul>
+							<li>Visual authoring with XML data</li>
+							<li>New, unified CSS panel</li>
+							<li>CSS layout visualization</li>
+							<li>Style rendering toolbar</li>
+							<li>CSS rendering improvements</li>
+							<li>Support for WCAG/W3C priority 2 checkpoints</li>
+							<li>Improved WebDAV</li>
+							<li>Background file transfer</li>
+							<li>Zoom</li>
+							<li>Guides</li>
+							<li>Coding toolbar</li>
+							<li>Code collapse</li>
+							<li>Workspace layouts</li>
+							<li>Tabbed documents for the Mac</li>
+							<li>New starter pages</li>
+							<li> Improved site synchronize and check in and check out</li>
+							<li>Compare files</li>
+							<li>Paste special</li>
+							<li> Site relative references</li>
+							<li> Code editing improvements</li>
+							<li> Support for ColdFusion MX 7</li>
+							<li> Support for PHP 5</li>
+							<li> Flash Video</li>
+							<li>Macromedia Web Publishing System notification and event logging</li>
+							<li>Updated reference material from O'Reilly</li>
+						</ul>
+					</div>
+		]]></features>		
+	</product>
+	
+</products>
+

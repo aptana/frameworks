@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Autocompleter.Local</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Autocompleter.Local</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The local array autocompleter. </p>
+<p>&nbsp;</p>
+<p>Used when you’d prefer to inject an array of autocompletion options into the page, rather than sending out Ajax queries.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">new&nbsp;Autocompleter.Local(inputElement,&nbsp;choicesElement,&nbsp;dataArray,&nbsp;[options])</span></p>
+<p>&nbsp;</p>
+<p>The constructor takes four parameters. The first two are, as usual, the id of the monitored textbox, and id of the autocompletion menu. The third is an array of strings that you want to autocomplete from, and the fourth is the options block.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Extra local autocompletion options:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">choices</span>: How many autocompletion choices to offer</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">partialSearch</span>: If false, the autocompleter will match entered text only at the beginning of strings in the autocomplete array. Defaults to true, which will match text at the beginning of any word in the strings in the autocomplete array. If you want to search anywhere in the string, additionally set the option fullSearch to true (default: off).</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">fullSearch</span>: Search anywhere in autocomplete array strings.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">partialChars</span>: How many characters to enter before triggering a partial match (unlike minChars, which defines how many characters are required to do any match at all). Defaults to 2.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">ignoreCase</span>: Whether to ignore case when autocompleting.Defaults to true.</td></tr></table></div><p>&nbsp;</p>
+<p>It’s possible to pass in a custom function as the ‘selector’ option, if you prefer to write your own autocompletion logic. In that case, the other options above will not apply unless you support them.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;p&gt;&lt;label&nbsp;for="bands_from_the_70s"&gt;Your&nbsp;favorite&nbsp;rock&nbsp;&nbsp;band&nbsp;from&nbsp;the&nbsp;70's:&lt;/label&gt;&lt;br&nbsp;/&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;input&nbsp;id="bands_from_the_70s"&nbsp;autocomplete="off"&nbsp;size="40"&nbsp;type="text"&nbsp;value=""&nbsp;/&gt;&lt;/p&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;div&nbsp;class="page_name_auto_complete"&nbsp;id="band_list"&nbsp;style="display:none"&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;script&nbsp;type="text/javascript"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">new&nbsp;Autocompleter.Local('bands_from_the_70s',&nbsp;'band_list',&nbsp;['ABBA',&nbsp;'AC/DC',&nbsp;'Aerosmith',&nbsp;'America',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Bay&nbsp;City&nbsp;Rollers',&nbsp;'Black&nbsp;Sabbath',&nbsp;'Boston',&nbsp;'David&nbsp;Bowie',&nbsp;'Can',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'The&nbsp;Carpenters',&nbsp;'Chicago',&nbsp;'The&nbsp;Commodores',&nbsp;'Crass',&nbsp;'Deep&nbsp;Purple',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'The&nbsp;Doobie&nbsp;Brothers',&nbsp;'Eagles',&nbsp;'Fleetwood&nbsp;Mac',&nbsp;'Haciendo&nbsp;Punto&nbsp;en&nbsp;Otro&nbsp;Son',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Heart',&nbsp;'Iggy&nbsp;Pop&nbsp;and&nbsp;the&nbsp;Stooges',&nbsp;'Journey',&nbsp;'Judas&nbsp;Priest',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'KC&nbsp;and&nbsp;the&nbsp;Sunshine&nbsp;Band',&nbsp;'Kiss',&nbsp;'Kraftwerk',&nbsp;'Led&nbsp;Zeppelin',&nbsp;'Lindisfarne&nbsp;(band)',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Lipps,&nbsp;Inc',&nbsp;'Lynyrd&nbsp;Skynyrd',&nbsp;'Pink&nbsp;Floyd',&nbsp;'Queen',&nbsp;'Ramones',&nbsp;'REO&nbsp;Speedwagon',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Rhythm&nbsp;Heritage',&nbsp;'Rush',&nbsp;'Sex&nbsp;Pistols',&nbsp;'Slade',&nbsp;'Steely&nbsp;Dan',&nbsp;'Stillwater',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Styx',&nbsp;'Supertramp',&nbsp;'Sweet',&nbsp;'Three&nbsp;Dog&nbsp;Night',&nbsp;'The&nbsp;Village&nbsp;People',&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">'Wings&nbsp;(fronted&nbsp;by&nbsp;former&nbsp;Beatle&nbsp;Paul&nbsp;McCartney)',&nbsp;'Yes'],&nbsp;{});</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">&lt;/script&gt;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

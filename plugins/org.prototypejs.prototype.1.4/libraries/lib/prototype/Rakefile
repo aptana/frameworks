@@ -1,0 +1,22 @@
+require 'rake'
+require 'rake/packagetask'
+
+PROTOTYPE_ROOT     = File.expand_path(File.dirname(__FILE__))
+PROTOTYPE_SRC_DIR  = File.join(PROTOTYPE_ROOT, 'src')
+PROTOTYPE_DIST_DIR = File.join(PROTOTYPE_ROOT, '.')
+PROTOTYPE_PKG_DIR  = File.join(PROTOTYPE_ROOT, 'pkg')
+PROTOTYPE_VERSION  = '1.4.0'
+
+task :default => [:dist ]
+
+task :dist do
+  $:.unshift File.join(PROTOTYPE_ROOT, 'lib')
+  require 'protodoc'
+  
+  Dir.chdir(PROTOTYPE_SRC_DIR) do
+    File.open(File.join(PROTOTYPE_DIST_DIR, 'prototype.js'), 'w+') do |dist|
+      dist << Protodoc::Preprocessor.new('prototype.js')
+    end
+  end
+end
+

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Form.Element</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Form.Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This is a collection of methods that assist in dealing with form controls. They provide ways to focus, serialize, disable/enable or extract current value from a specific control.</p>
+<p>&nbsp;</p>
+<p>In Prototype, <span class="f_CourierFixed">Form.Element</span> is also aliased Field and all these methods are available directly on INPUT, SELECT and TEXTAREA elements that have been extended (see “How Prototype extends the DOM”). Therefore, these are equivalent:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; background: #fbffe1; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_CodeExample" style="color: #000000;">Form.Element.activate(</span><span class="f_CodeExample" style="color: #800000;">'myfield'</span><span class="f_CodeExample" style="color: #000000;">)</span></td></tr></table></div><p style="margin: 0px 0px 0px 23px;"><span style="color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; background: #fbffe1; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_CodeExample" style="color: #000000;">Field.activate(</span><span class="f_CodeExample" style="color: #800000;">'myfield'</span><span class="f_CodeExample" style="color: #000000;">)</span></td></tr></table></div><p style="margin: 0px 0px 0px 23px;"><span style="color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; background: #fbffe1; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'myfield'</span><span class="f_CodeExample" style="color: #000000;">).activate()</span></td></tr></table></div><p style="margin: 0px 0px 0px 23px;">&nbsp;</p>
+<p>Naturally, you should always prefer the shortest form suitable in a situation. Most of these methods also return the element itself (as indicated by the return type) for chainability.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">activate</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">activate(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Gives focus to a form control and selects its contents if it is a text input.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">clear</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">clear(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Clears the contents of a text input.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">disable</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">disable(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Disables a form control, effectively preventing its value to be changed until it is enabled again.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">enable</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">enable(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Enables a previously disabled form control.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">focus</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">focus(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Gives keyboard focus to an element.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">getValue</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">getValue(element)&nbsp;-&gt;&nbsp;string&nbsp;|&nbsp;array</span></p>
+<p>&nbsp;</p>
+<p>Returns the current value of a form control. A string is returned for most controls; only multiple select boxes return an array of values. The global shortcut for this method is $F().</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">present</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">present(element)&nbsp;-&gt;&nbsp;boolean</span></p>
+<p>&nbsp;</p>
+<p>Returns true if a text input has contents, false otherwise.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">select</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">select(element)&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Selects the current text in a text input.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">serialize</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">serialize(element)&nbsp;-&gt;&nbsp;string</span></p>
+<p>&nbsp;</p>
+<p>Creates an URL-encoded string representation of a form control in the name=value format.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

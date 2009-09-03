@@ -1,0 +1,270 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Core Effects</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Core Effects</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The six core effects <a href="effect_opacity.htm">Effect.Opacity</a>, <a href="effect_scale.htm">Effect.Scale</a>, <a href="effect_morph.htm">Effect.Morph</a>, <a href="effect_move.htm">Effect.Move</a>, <a href="effect_highlight.htm">Effect.Highlight</a> and <a href="effect_parallel.htm">Effect.Parallel</a> are the foundation of the script.aculo.us Visual Effects Java Script library.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p>The basic syntax to start an effect is:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 17px;"><span class="f_CodeExample">new&nbsp;Effect.</span><span class="f_CodeExample" style="font-weight: bold;">EffectName</span><span class="f_CodeExample">(&nbsp;element,&nbsp;required-params,&nbsp;[options]&nbsp;);</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 17px;"><span style="font-weight: bold;">element</span>: Can be either a string containing the id of the element, or a Java Script DOM element object.</p>
+<p style="margin: 0px 0px 0px 17px;"><span style="font-weight: bold;">required-params</span>: Depends on the effect being called and may not be needed. Most effects do not have required parameters. See the documentation for the core effects to learn if the effect has required parameters or if this parameter should be omitted.</p>
+<p style="margin: 0px 0px 0px 17px;"><span style="font-weight: bold;">options</span>: Used to give any additional customization parameters to the effect. </p>
+<p style="margin: 0px 0px 0px 71px;">There are general and effect-specific options. </p>
+<p style="margin: 0px 0px 0px 17px;">&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 18px;"><span class="f_CodeExample">new&nbsp;Effect.Opacity('my_element',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 18px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;duration:&nbsp;2.0,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 18px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transition:&nbsp;Effect.Transitions.linear,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 18px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from:&nbsp;1.0,&nbsp;to:&nbsp;0.5&nbsp;});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Common parameters</span></p>
+<p>All core effects support following settings in their options parameter:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="73" bgcolor="#99cc00" style="width:73px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="466" bgcolor="#99cc00" style="width:466px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>duration</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Duration of the effect in seconds, given as a float. Defaults to 1.0.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>fps</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Target this many frames per second. Default to 25. Can’t be higher than 100.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>transition</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets a function that modifies the current point of the animation, which is between 0 and 1. Following transitions are supplied: Effect.Transitions.sinoidal (default), Effect.Transitions.linear, Effect.Transitions.reverse, Effect.Transitions.wobble and Effect.Transitions.flicker.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>from</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets the starting point of the transition, a float between 0.0 and 1.0. Defaults to 0.0.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>to</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets the end point of the transition, a float between 0.0 and 1.0. Defaults to 1.0.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>sync</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets whether the effect should render new frames automatically (which it does by default). If true, you can render frames manually by calling the render() instance method of an effect. This is used by Effect.Parallel().</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>queue</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.5</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets queuing options. When used with a string, can be ‘front’ or ‘end’ to queue the effect in the global effects queue at the beginning or end, or a queue parameter object that can have {position:’front/end’, scope:’scope’, limit:1}. For more info on this, see Effect Queues</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>delay</p>
+</td>
+<td width="73" style="width:73px;"><p>V1.5</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets the number of seconds to wait before the effect actually starts. Defaults to 0.0.</p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="124" style="width:124px;"><p>direction</p>
+</td>
+<td width="73" style="width:73px;"><p>unknown</p>
+</td>
+<td width="466" style="width:466px;"><p>Sets the direction of the transition. Values can be either ‘top-left’, ‘top-right’, ‘bottom-left’, ‘bottom-right’ or ‘center’ (Default). Applicable only on Grow and Shrink effects.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Additionally, the options parameter also can be supplied with callback methods, so you can have Java Script executed at various events while the effect is running. The callbacks are supplied with a reference to the effect object as a parameter. Here is an example of getting the element id passed by reference into a callback function:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">function&nbsp;callback(obj){</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;for(var&nbsp;i&nbsp;in&nbsp;obj.effects){</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;alert(obj.effects[i]['element'].id);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">}</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="73" bgcolor="#99cc00" style="width:73px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="494" bgcolor="#99cc00" style="width:494px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>beforeStart</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="494" style="width:494px;"><p>Called before the main effects rendering loop is started.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>beforeUpdate</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="494" style="width:494px;"><p>Called on each iteration of the effects rendering loop, before the redraw takes places.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>afterUpdate</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="494" style="width:494px;"><p>Called on each iteration of the effects rendering loop, after the redraw takes places.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>afterFinish</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="494" style="width:494px;"><p>Called after the last redraw of the effect was made.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Within the effect object, there are several useful variables you can access:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Variable</span></p>
+</td>
+<td valign="middle" width="73" bgcolor="#99cc00" style="width:73px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="484" bgcolor="#99cc00" style="width:484px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.element</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>The element the effect is applied to.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.options</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>Holds the options you gave to the effect.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.currentFrame</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>The number of the last frame rendered.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.startOn</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>The times (in ms) when the effect was started, and when it will be finished.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.finishOn</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>The times (in ms) when the effect was started, and when it will be finished.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>effect.effects[]</p>
+</td>
+<td valign="top" width="73" style="width:73px;"><p>V1.0</p>
+</td>
+<td valign="top" width="484" style="width:484px;"><p>On an Effect.Parallel effect, there’s an effects[] array containing the individual effects the parallel effect is composed of.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example usage of Callback functions</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">function&nbsp;myCallBackOnFinish(obj){</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;alert("the&nbsp;Element's&nbsp;id&nbsp;the&nbsp;effect&nbsp;was&nbsp;applied&nbsp;to&nbsp;is&nbsp;:"&nbsp;+&nbsp;obj.element.id);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">function&nbsp;myCallBackOnStart(obj){</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;alert("the&nbsp;Element&nbsp;object&nbsp;the&nbsp;effect&nbsp;will&nbsp;be&nbsp;applied&nbsp;to&nbsp;is&nbsp;:"&nbsp;+&nbsp;obj.element);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">new&nbsp;Effect.Highlight(myObject,&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;startcolor:'#ffffff',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endcolor:'#ffffcc',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;0.5,</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;afterFinish:&nbsp;myCallBackOnFinish,</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BeforeStart:&nbsp;myCallBackOnStart&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 16px;"><span class="f_CodeExample">});</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

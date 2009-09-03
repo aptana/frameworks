@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>AFLAX: A JavaScript Library for Macromedia's Flash&trade; Platform</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+<script>
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf", true, "localStoreReady");
+	
+	function localStoreReady()
+	{
+		AFLAX.trace("Local Storage Demo: The local storage system is now ready for usage.");
+	}
+	function objectser()
+	{
+		var a = { one: ["foo"], two: ["bar"] };
+		aflax.storeValue("objTest", a, null, true);
+		alert("Stored object 'a': " + JSON.stringify(a));
+		
+		var b = aflax.getStoredValue("objTest");
+		
+		alert("Fetched object 'b' back, 'b.two' value: " + b.two);
+	}
+	
+	function showit()
+	{
+		AFLAX.showFlashSettings();
+	}
+	function hideit()
+	{
+		AFLAX.hideFlashSettings();
+	}
+	
+	function getdata()
+	{
+		var dataKey = $("dataKey").value;
+		$("dataValue").value = aflax.getStoredValue(dataKey);
+	}
+	function savedata()
+	{
+		var dataKey = $("dataKey").value;
+		var dataValue = $("dataValue").value;
+		
+		var result = aflax.storeValue(dataKey, dataValue, "statusCallback");
+		
+		if(result == true)
+			alert("Successfully saved.");
+		else if(result == "pending")
+			alert("Not enough storage allocated, please increase.");
+		else
+			alert("There was an error in saving.");
+	}
+	
+	function statusCallback(status)
+	{
+		alert("Status: " + status);
+	}
+	
+</script>
+</head>
+<body>
+	<div id="body">
+	  <h1>Local Storage Demo</h1>
+	</div>
+	<div id="content">
+	
+		This demo uses Flash's local storage capability to enable cross-browser, unlimited
+		storage (configurable) capability via JavaScript. It can also serialize and deserialize
+		JavaScript objects into the store and access them cross browser.
+		
+		<p></p>	
+		
+		<div style="width:425;border:1px solid #ddd">
+		Enter a variable name (no spaces): <input size="40" id="dataKey" value="TestKey"/>
+		<p></p>
+		Enter some text here: <textarea id="dataValue" cols="40" rows="5"></textarea>
+		
+		<p></p>
+		<input type="button" onclick="savedata();" value="Save Data">
+		<input type="button" onclick="getdata();" value="Get Data">
+		<input type="button" onclick="objectser();" value="Save JS Object">
+		</div>
+		<p></p>
+		<input type="button" onclick="showit();" value="Show Settings">
+		<input type="button" onclick="hideit();" value="Hide Settings">
+		
+		<p></p>
+		<script>
+			aflax.insertFlash(1,1, '#FFFFFF', null, true);
+		</script>
+		<p></p>
+				
+	</div>
+</body>

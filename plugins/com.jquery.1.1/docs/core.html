@@ -1,0 +1,348 @@
+<html>
+<head>
+<title>Core - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="core">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Core</h2><h3 class='func' id='$'><b>$</b>(String <b>expr</b>, Element|jQuery <b>context</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>An expression to search with</td></tr>
+<tr><th width='15%'>context</th><td width='15%'>Element|jQuery</td><td>(optional) A DOM Element, Document or jQuery to use as context</td></tr>
+</table>
+<p>This function accepts a string containing a CSS or basic XPath selector which is then used to match a set of elements.</p><p>The core functionality of jQuery centers around this function. Everything in jQuery is based upon this, or uses this in some way. The most basic use of this function is to pass in an expression (usually consisting of CSS or XPath), which then finds all matching elements.</p><p>By default, $() looks for DOM elements within the context of the current HTML document.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Finds all p elements that are children of a div element.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;div &gt; p&quot;)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;two&lt;/p&gt; ]</pre>
+</div>
+<div class='example'>
+<p>Searches for all inputs of type radio within the first form in the document</p>
+<h5>Code</h5>
+<pre>$(&quot;input:radio&quot;, document.forms[0])</pre>
+</div>
+<div class='example'>
+<p>This finds all div elements within the specified XML document.</p>
+<h5>Code</h5>
+<pre>$(&quot;div&quot;, xml.responseXML)</pre>
+</div>
+</div>
+<h3 class='func'><b>$</b>(String <b>html</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>html</th><td width='15%'>String</td><td>A string of HTML to create on the fly.</td></tr>
+</table>
+<p>Create DOM elements on-the-fly from the provided String of raw HTML.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Creates a div element (and all of its contents) dynamically, 
+and appends it to the element with the ID of body. Internally, an
+element is created and it's innerHTML property set to the given markup.
+It is therefore both quite flexible and limited.</p>
+<h5>Code</h5>
+<pre>$(&quot;&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;&quot;).appendTo(&quot;#body&quot;)</pre>
+</div>
+</div>
+<h3 class='func'><b>$</b>(Element|Array<Element> <b>elems</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elems</th><td width='15%'>Element|Array<Element></td><td>DOM element(s) to be encapsulated by a jQuery object.</td></tr>
+</table>
+<p>Wrap jQuery functionality around a single or multiple DOM Element(s).</p><p>This function also accepts XML Documents and Window objects as valid arguments (even though they are not DOM Elements).</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Sets the background color of the page to black.</p>
+<h5>Code</h5>
+<pre>$(document.body).background( &quot;black&quot; );</pre>
+</div>
+<div class='example'>
+<p>Hides all the input elements within a form</p>
+<h5>Code</h5>
+<pre>$( myForm.elements ).hide()</pre>
+</div>
+</div>
+<h3 class='func'><b>$</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function to execute when the DOM is ready.</td></tr>
+</table>
+<p>A shorthand for $(document).ready(), allowing you to bind a function to be executed when the DOM document has finished loading. This function behaves just like $(document).ready(), in that it should be used to wrap all of the other $() operations on your page. While this function is, technically, chainable - there really isn't much use for chaining against it. You can have as many $(document).ready events on your page as you like.</p><p>See ready(Function) for details about the ready event.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Executes the function when the DOM is ready to be used.</p>
+<h5>Code</h5>
+<pre>$(function(){
+  // Document is ready
+});</pre>
+</div>
+<div class='example'>
+<p>Uses both the shortcut for $(document).ready() and the argument
+to write failsafe jQuery code using the $ alias, without relying on the
+global alias.</p>
+<h5>Code</h5>
+<pre>jQuery(function($) {
+  // Your code using failsafe $ alias here...
+});</pre>
+</div>
+</div>
+<h3 class='func' id='jquery'><b>jquery</b>() : String</h3>
+<p>The current version of jQuery.</p><h3 class='func' id='length'><b>length</b>() : Number</h3>
+<p>The number of elements currently matched.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;img src=&quot;test1.jpg&quot;/&gt; &lt;img src=&quot;test2.jpg&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).length;</pre>
+<h5>Result</h5>
+<pre>2</pre>
+</div>
+</div>
+<h3 class='func' id='size'><b>size</b>() : Number</h3>
+<p>The number of elements currently matched.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;img src=&quot;test1.jpg&quot;/&gt; &lt;img src=&quot;test2.jpg&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).size();</pre>
+<h5>Result</h5>
+<pre>2</pre>
+</div>
+</div>
+<h3 class='func' id='get'><b>get</b>() : Array<Element></h3>
+<p>Access all matched elements. This serves as a backwards-compatible way of accessing all matched elements (other than the jQuery object itself, which is, in fact, an array of elements).</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Selects all images in the document and returns the DOM Elements as an Array</p>
+<h5>Before</h5>
+<pre>&lt;img src=&quot;test1.jpg&quot;/&gt; &lt;img src=&quot;test2.jpg&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).get();</pre>
+<h5>Result</h5>
+<pre>[ &lt;img src=&quot;test1.jpg&quot;/&gt; &lt;img src=&quot;test2.jpg&quot;/&gt; ]</pre>
+</div>
+</div>
+<h3 class='func'><b>get</b>(Number <b>num</b>) : Element</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>num</th><td width='15%'>Number</td><td>Access the element in the Nth position.</td></tr>
+</table>
+<p>Access a single matched element. num is used to access the Nth element matched.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Selects all images in the document and returns the first one</p>
+<h5>Before</h5>
+<pre>&lt;img src=&quot;test1.jpg&quot;/&gt; &lt;img src=&quot;test2.jpg&quot;/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).get(0);</pre>
+<h5>Result</h5>
+<pre>[ &lt;img src=&quot;test1.jpg&quot;/&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='pushStack'><b>pushStack</b>(Elements <b>elems</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elems</th><td width='15%'>Elements</td><td>An array of elements</td></tr>
+</table>
+<p>Set the jQuery object to an array of elements, while maintaining the stack.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).pushStack([ document.body ]);</pre>
+<h5>Result</h5>
+<pre>$(&quot;img&quot;).pushStack() == [ document.body ]</pre>
+</div>
+</div>
+<h3 class='func' id='setArray'><b>setArray</b>(Elements <b>elems</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elems</th><td width='15%'>Elements</td><td>An array of elements</td></tr>
+</table>
+<p>Set the jQuery object to an array of elements. This operation is completely destructive - be sure to use .pushStack() if you wish to maintain the jQuery stack.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).setArray([ document.body ]);</pre>
+<h5>Result</h5>
+<pre>$(&quot;img&quot;).setArray() == [ document.body ]</pre>
+</div>
+</div>
+<h3 class='func' id='each'><b>each</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to execute</td></tr>
+</table>
+<p>Execute a function within the context of every matched element. This means that every time the passed-in function is executed (which is once for every element matched) the 'this' keyword points to the specific element.</p><p>Additionally, the function, when executed, is passed a single argument representing the position of the element in the matched set.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Iterates over two images and sets their src property</p>
+<h5>Before</h5>
+<pre>&lt;img/&gt;&lt;img/&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;img&quot;).each(function(i){
+  this.src = &quot;test&quot; + i + &quot;.jpg&quot;;
+});</pre>
+<h5>Result</h5>
+<pre>&lt;img src=&quot;test0.jpg&quot;/&gt;&lt;img src=&quot;test1.jpg&quot;/&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='index'><b>index</b>(Element <b>subject</b>) : Number</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>subject</th><td width='15%'>Element</td><td>Object to search for</td></tr>
+</table>
+<p>Searches every matched element for the object and returns the index of the element, if found, starting with zero.  Returns -1 if the object wasn't found.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Returns the index for the element with ID foobar</p>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;foobar&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;span id=&quot;foo&quot;&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;*&quot;).index( $('#foobar')[0] )</pre>
+<h5>Result</h5>
+<pre>0</pre>
+</div>
+<div class='example'>
+<p>Returns the index for the element with ID foo within another element</p>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;foobar&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;span id=&quot;foo&quot;&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;*&quot;).index( $('#foo')[0] )</pre>
+<h5>Result</h5>
+<pre>2</pre>
+</div>
+<div class='example'>
+<p>Returns -1, as there is no element with ID bar</p>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;foobar&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;span id=&quot;foo&quot;&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;*&quot;).index( $('#bar')[0] )</pre>
+<h5>Result</h5>
+<pre>-1</pre>
+</div>
+</div>
+<h3 class='func' id='domManip'><b>domManip</b>(Array <b>args</b>, Boolean <b>table</b>, Number <b>dir</b>, Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>args</th><td width='15%'>Array</td><td></td></tr>
+<tr><th width='15%'>table</th><td width='15%'>Boolean</td><td>Insert TBODY in TABLEs if one is not found.</td></tr>
+<tr><th width='15%'>dir</th><td width='15%'>Number</td><td>If dir<0, process args in reverse order.</td></tr>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>The function doing the DOM manipulation.</td></tr>
+</table>
+<p></p><h3 class='func' id='$.extend'><b>$.extend</b>(Object <b>prop</b>) : Object</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>prop</th><td width='15%'>Object</td><td>The object that will be merged into the jQuery object</td></tr>
+</table>
+<p>Extends the jQuery object itself. Can be used to add functions into the jQuery namespace and to add plugin methods (plugins).</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Adds two plugin methods.</p>
+<h5>Code</h5>
+<pre>jQuery.fn.extend({
+  check: function() {
+    return this.each(function() { this.checked = true; });
+  },
+  uncheck: function() {
+    return this.each(function() { this.checked = false; });
+  }
+});
+$(&quot;input[@type=checkbox]&quot;).check();
+$(&quot;input[@type=radio]&quot;).uncheck();</pre>
+</div>
+<div class='example'>
+<p>Adds two functions into the jQuery namespace</p>
+<h5>Code</h5>
+<pre>jQuery.extend({
+  min: function(a, b) { return a &lt; b ? a : b; },
+  max: function(a, b) { return a &gt; b ? a : b; }
+});</pre>
+</div>
+</div>
+<h3 class='func' id='$.noConflict'><b>$.noConflict</b>() : undefined</h3>
+<p>Run this function to give control of the $ variable back to whichever library first implemented it. This helps to make  sure that jQuery doesn't conflict with the $ object of other libraries.</p><p>By using this function, you will only be able to access jQuery using the 'jQuery' variable. For example, where you used to do $("div p"), you now must do jQuery("div p").</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Maps the original object that was referenced by $ back to $</p>
+<h5>Code</h5>
+<pre>jQuery.noConflict();
+// Do something with jQuery
+jQuery(&quot;div p&quot;).hide();
+// Do something with another library's $()
+$(&quot;content&quot;).style.display = 'none';</pre>
+</div>
+<div class='example'>
+<p>Reverts the $ alias and then creates and executes a
+function to provide the $ as a jQuery alias inside the functions
+scope. Inside the function the original $ object is not available.
+This works well for most plugins that don't rely on any other library.</p>
+<h5>Code</h5>
+<pre>jQuery.noConflict();
+(function($) { 
+  $(function() {
+    // more code using $ as alias to jQuery
+  });
+})(jQuery);
+// other code using $ as an alias to the other library</pre>
+</div>
+</div>
+<h3 class='func' id='eq'><b>eq</b>(Number <b>pos</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>pos</th><td width='15%'>Number</td><td>The index of the element that you wish to limit to.</td></tr>
+</table>
+<p>Reduce the set of matched elements to a single element. The position of the element in the set of matched elements starts at 0 and goes to length - 1.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).eq(1)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;So is this&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='lt'><b>lt</b>(Number <b>pos</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>pos</th><td width='15%'>Number</td><td>Reduce the set to all elements below this position.</td></tr>
+</table>
+<p>Reduce the set of matched elements to all elements before a given position. The position of the element in the set of matched elements starts at 0 and goes to length - 1.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).lt(1)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;This is just a test.&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='gt'><b>gt</b>(Number <b>pos</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>pos</th><td width='15%'>Number</td><td>Reduce the set to all elements after this position.</td></tr>
+</table>
+<p>Reduce the set of matched elements to all elements after a given position. The position of the element in the set of matched elements starts at 0 and goes to length - 1.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).gt(0)</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;So is this&lt;/p&gt; ]</pre>
+</div>
+</div>
+<h3 class='func' id='$.find'><b>$.find</b>() : Array<Element></h3>
+<p></p>

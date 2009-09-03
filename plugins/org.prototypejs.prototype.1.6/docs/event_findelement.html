@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>findElement</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">findElement </span><span class="f_TopicHeading" style="color: #ccffff;">:: Event</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">Event.findElement(event, tagName) -&gt; Element</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Returns the first DOM element with a given tag name, upwards from the one on which the event occurred.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Sometimes, you’re not interested in the actual element that got hit by the event. Sometimes you’re interested in its “closest element,” (either the original one, or its container, or its container’s container, etc.), defined by its tag (e.g., &lt;p&gt;). This is what <span class="f_CourierFixed">findElement</span> is for.</p>
+<p>&nbsp;</p>
+<p>The provided tag name will be compared in a case-insensitive manner.</p>
+<p>&nbsp;</p>
+<p>If no matching element is found, the document itself (HTMLDocument node) is returned.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p>Here’s a simple code that lets you click everywhere on the page and hides the closest-fitting paragraph around your click (if any).</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(document.body,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'click'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(event)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;elt&nbsp;=&nbsp;Event.findElement(event,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'P'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(elt&nbsp;!=&nbsp;document)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;$(elt).hide();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>For more complex searches, you’ll need to get the actual element and use up on it, which lets you express your request with CSS syntax, and also search farther than the first match (plus, the result is extension-guaranteed):</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Event.observe(document.body,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'click'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(event)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;First&nbsp;element&nbsp;from&nbsp;event&nbsp;source&nbsp;with&nbsp;'container'&nbsp;among&nbsp;its&nbsp;CSS&nbsp;classes</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;elt&nbsp;=&nbsp;$(Event.element(event)).up(</span><span class="f_CodeExample" style="color: #800000;">'.container'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;Or:&nbsp;second&nbsp;DIV&nbsp;from&nbsp;the&nbsp;event&nbsp;source</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;elt&nbsp;=&nbsp;$(Event.element(event)).up('div',&nbsp;1);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;Or:&nbsp;second&nbsp;DIV&nbsp;with&nbsp;'holder'&nbsp;among&nbsp;its&nbsp;CSS&nbsp;classes...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;//&nbsp;elt&nbsp;=&nbsp;$(Event.element(event)).up('div.holder',&nbsp;1);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;elt.hide();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">See also</span></p>
+<p>&nbsp;</p>
+<p>If you’re looking for the element directly hit by the event, just use the <a href="event_element.html">element</a> function.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

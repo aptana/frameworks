@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/feed.php" />
+	<title>demos:physics - mootools</title>
+	<link rel="stylesheet" href="mootools_sample.css" type="text/css" media="screen" />
+	<script src="lib/mootools/mootools.js" type="text/javascript"></script>
+	
+</head>
+<body>
+		
+		<div id="page">
+				
+<h1><a name="mootools-physics-simulation" id="mootools-physics-simulation">Mootools Physics simulation</a></h1>
+<div>
+<p>
+ This demo uses a custom Physics class, derived from <a href="http://www.spoono.com/flash/tutorials/tutorial.php?url=gravity" class="urlextern" title="http://www.spoono.com/flash/tutorials/tutorial.php?url=gravity"  rel="nofollow">http://www.spoono.com/flash/tutorials/tutorial.php?url=gravity</a>.
+</p>
+<p>
+View the source of this page to grab it.
+</p>
+<p>
+<em>note: you can drag the ball and move it with A and D. Jumps with W.</em>
+</p>
+<p>
+<em>note: Due to ie bugs, the controls in ie are a little wonky.</em>
+</p>
+<p>
+<style type="text/css">
+		#game {
+			background: #ddd;
+			height: 300px;
+		}
+		
+		#ball {
+			position: relative;
+			cursor: move;
+			z-index: 10000;
+		}
+</style>
+<script type="text/javascript">
+var Physics = new Class({
+	
+	setOptions: function(options){
+		this.options = Object.extend({
+			onComplete: Class.empty,
+			onStart: Class.empty,
+			onStep: Class.empty,
+			gravity: 1,
+			restitution: 0.6,
+			friction: 0.9,
+			unit: 'px',
+			fps: 30
+		}, options || {});
+	},
+	
+	initialize: function(el, container, options){
+		this.setOptions(options);
+		this.el = $(el);
+		
+		this.container = $(container);
+		
+		this.velocity = {
+			x: 0,
+			y: 0
+		};
+		
+		this.position = {};
+		this.oldPosition = {};
+		
+		this.oldVelocity = {};
+		
+		this.position.x = this.oldPosition.x = this.el.getLeft();
+		this.position.y = this.oldPosition.y = this.el.getTop();
+		
+		var phys = this;
+		
+		this.dragger = new Drag.Move(this.el, {
+			
+			snap: false,
+			
+			onDrag: function(){
+				phys.dragging = true;
+				
+				if (phys.position.y + phys.el.offsetHeight > phys.container.offsetHeight){ //touches bottom
+					phys.stopDrag();
+				}
+				if (phys.position.y < 0){ //touches top
+					phys.stopDrag();
+				}
+				if (phys.position.x + phys.el.offsetWidth > phys.container.offsetWidth){ //touches right
+					phys.stopDrag();
+				}
+				if (phys.position.x < 0){ //touches left
+					phys.stopDrag();
+				}
+			},
+			
+			onComplete: function(){
+				phys.dragging = false;
+			}
+		});
+	},
+	
+	stopDrag: function(){
+		this.dragging = false;
+		this.dragger.end();
+	},
+	
+	step: function(){
+		
+		this.oldPosition.x = this.position.x;
+		this.oldPosition.y = this.position.y;
+		
+		if (!this.dragging){
+			
+			this.options.onStep.call(this);
+		
+			this.velocity.y += this.options.gravity;
+		
+			this.position.x += this.velocity.x;
+			this.position.y += this.velocity.y;
+			
+			var isOnGround = false;
+		
+			if (this.position.y + this.el.offsetHeight > this.container.offsetHeight){ //touches bottom
+				this.position.y = this.container.offsetHeight - this.el.offsetHeight;
+				this.velocity.y *= -this.options.restitution;
+				if (!this.options.airFriction) this.velocity.x *= this.options.friction;
+				
+				isOnGround = true;
+			}
+			
+			if (isOnGround) {
+				this.isOnGround = true;
+				if (this.el.onGround) this.el.onGround();
+			}
+			else {
+				if (this.el.onAir) this.el.onAir();
+				this.isOnGround = false;
+			}
+		
+			if (this.position.y < 0){ //touches top
+				this.position.y = 0;
+				this.velocity.y *= -this.options.restitution;
+				
+				this.isOnTop = true;
+			} else {
+				this.isOnTop = false;
+			}
+		
+			if (this.position.x + this.el.offsetWidth > this.container.offsetWidth){ //touches right
+				this.position.x = this.container.offsetWidth - this.el.offsetWidth;
+				this.velocity.x *= -this.options.restitution;
+				this.isOnRight = true;
+			} else {
+				this.isOnRight = false;
+			}
+		
+			if (this.position.x < 0){ //touches left
+				this.position.x = 0;
+				this.velocity.x *= -this.options.restitution;
+				
+				this.isOnLeft = true;
+			} else {
+				this.isOnLeft = false;
+			}
+			
+			if (this.options.airFriction){
+				this.velocity.y *= this.options.friction;
+				this.velocity.x *= this.options.friction;
+			}
+			
+			this.el.setStyle('left', this.position.x+'px');
+			this.el.setStyle('top', this.position.y+'px');
+		
+		} else {
+			this.position.x = this.el.style.left.toInt();
+			this.position.y = this.el.style.top.toInt();
+			this.velocity.x = ( this.position.x - this.oldPosition.x ) / 2;
+			this.velocity.y = ( this.position.y - this.oldPosition.y ) / 2;
+		}
+		
+	},
+	
+	start: function(){
+		this.options.onStart.pass(this.el, this).delay(10);
+		this.timer = this.step.periodical(Math.round(1000/this.options.fps), this);
+		return this;
+	},
+	
+	custom: function(velx, vely){
+		this.velocity.x += velx;
+		this.velocity.y += vely;
+	},
+	
+	end: function(){
+		this.options.onComplete.pass(this.el, this).delay(10);
+		this.clearTimer();
+		$('debug').setHTML('ended');
+	},
+	
+	clearTimer: function(){
+		this.timer = $clear(this.timer);
+	}
+});
+/*-------------------------------------------------------------------------------------*/
+Element.prototype.onKey = function(key, fn){
+	
+	this.addEvent('keydown', function(event){
+		if ($checkKey(event || window.event, key)) return fn.call(this);
+	});
+	
+};
+Element.prototype.whileKey = function(key, fn, efn){
+	
+	var timer;
+	
+	this.addEvent('keydown', function(event){
+		
+		if ($checkKey(event || window.event, key)){
+			timer = fn.periodical(10, this);
+		} 
+	});
+	
+	this.addEvent('keyup', function(event){
+	
+		if ($checkKey(event || window.event, key)){
+			timer = $clear(timer);
+			if (efn) efn.call(this);
+		}
+	});
+};
+var $checkKey = function(evt, key){
+	return (evt.keyCode == key);
+};
+document.onKey = Element.prototype.onKey;
+document.whileKey = Element.prototype.whileKey;
+</script>
+<div id="game">
+		
+    <img id="ball" src="miniball.png" height="31px" width="31px" />
+		
+</div>
+	<script type="text/javascript">
+		
+		var myPhys = new Physics($('ball'), 'game', {
+			restitution: 0.6, 
+			friction: 0.8, 
+			gravity: 1, 
+			airFriction: false
+		}).start();
+		
+		$('jump').onclick = function(){
+			myPhys.custom(parseInt($('xinput').value), parseInt($('yinput').value));
+		}
+		
+		document.onKey(87, function(){ //key W
+			if (myPhys.isOnGround) myPhys.custom(0,-15);
+		});
+		
+		document.whileKey(65, function(){ //key A
+			if (myPhys.isOnGround) myPhys.custom(-0.5,0);
+			else myPhys.custom(-0.1,0);
+		});
+		
+		document.whileKey(68, function(){ //key D
+			if (myPhys.isOnGround) myPhys.custom(0.5,0);
+			else myPhys.custom(0.1,0);
+		});
+		
+		
+		
+	</script>
+</p>
+</div>
+			<p class="info">demos/physics.txt &middot; Last modified: 2006/10/09 14:03 by kamicane</p>
+			
+		</div>
+		
+		
+	</div>
+</body>
+</html>

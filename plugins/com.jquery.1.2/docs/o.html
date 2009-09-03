@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-odd-">
+<span class="fn"><a class="name" href="#link-odd-">odd</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches odd elements, zero-indexed.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds odd table rows, matching the second, fourth and so on (index 1, 3, 5 etc.).</p>
+<pre><code class="javascript">$(<span class="string">"tr:odd"</span>).css(<span class="string">"background-color"</span>,&nbsp;<span class="string">"#bbbbff"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;table</span><span class="aname">&nbsp;border</span>=<span class="avalue">"1"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Row&nbsp;with&nbsp;Index&nbsp;#0<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Row&nbsp;with&nbsp;Index&nbsp;#1<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Row&nbsp;with&nbsp;Index&nbsp;#2<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Row&nbsp;with&nbsp;Index&nbsp;#3<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-offset-">
+<span class="fn"><a class="name" href="#link-offset-">offset</a>(  ) returns <span class="type"><span class="tooltip" title="">Object{top,left}</span></span></span>
+<div class="more">
+<div class="desc">Get the current offset of the first matched element relative to the viewport.<br>The
+returned object contains two &lt;a
+href='Types#Integer'&gt;Integer&lt;/a&gt; properties, top and left. The
+method works only with visible elements. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Access the offset of the second paragraph:</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;p&nbsp;=&nbsp;$(<span class="string">"p:last"</span>);&nbsp;
+<span class="keywords">var</span>&nbsp;offset&nbsp;=&nbsp;p.offset();&nbsp;
+p.html(&nbsp;<span class="string">"left:&nbsp;"</span>&nbsp;+&nbsp;offset.left&nbsp;+&nbsp;<span class="string">",&nbsp;top:&nbsp;"</span>&nbsp;+&nbsp;offset.top&nbsp;);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>2nd&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click to see the offset.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"*"</span>,&nbsp;<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;offset&nbsp;=&nbsp;$(<span class="keywords">this</span>).offset();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.stopPropagation();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#result"</span>).text(<span class="keywords">this</span>.tagName&nbsp;+&nbsp;<span class="string">"&nbsp;coords&nbsp;(&nbsp;"</span>&nbsp;+&nbsp;offset.left&nbsp;+&nbsp;<span class="string">",&nbsp;"</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset.top&nbsp;+&nbsp;<span class="string">"&nbsp;)"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"result"</span><span class="tag">&gt;</span>Click&nbsp;an&nbsp;element.<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;best&nbsp;way&nbsp;to&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>find<span class="tag">&lt;/span&gt;</span>&nbsp;an&nbsp;offset.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"abs"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/dov&gt;</span>&nbsp;
+&nbsp;&nbsp;</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-one-typedatafn">
+<span class="fn"><a class="name" href="#link-one-typedatafn">one</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An event type">type</span>, <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="Additional data passed to the event handler as event.data">data</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the specified event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a handler to a particular event to be executed &lt;i&gt;once&lt;/i&gt; for each matched element.<br>&lt;p&gt;The
+handler is executed only once for each element. Otherwise, the same
+rules as described in &lt;a href='Events/bind'&gt;bind&lt;/a&gt;()
+apply. The event handler is passed an event object that you can use to
+prevent default behaviour. To stop both default action and event
+bubbling, your handler should return false.&lt;/p&gt;&lt;p&gt;In most
+cases, you can define your event handlers as anonymous functions (see
+first example). In cases where that is not possible, you can pass
+additional data as the second paramter (and the handler function as the
+third), see second example.&lt;/p&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Tie a one-time click to each div.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;<span class="numbers">0</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).one(<span class="string">"click"</span>,&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;index&nbsp;=&nbsp;$(<span class="string">"div"</span>).index(<span class="keywords">this</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({&nbsp;borderStyle:<span class="string">"inset"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor:<span class="string">"auto"</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(<span class="string">"Div&nbsp;at&nbsp;index&nbsp;#"</span>&nbsp;+&nbsp;index&nbsp;+&nbsp;<span class="string">"&nbsp;clicked."</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;&nbsp;That's&nbsp;"</span>&nbsp;+&nbsp;++n&nbsp;+&nbsp;<span class="string">"&nbsp;total&nbsp;clicks."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Click&nbsp;a&nbsp;green&nbsp;square...<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To display the text of all paragraphs in an alert box the first time each of them is clicked:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).one(<span class="string">"click"</span>,&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;alert(&nbsp;$(<span class="keywords">this</span>).text()&nbsp;);&nbsp;
+});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-onlyChild-">
+<span class="fn"><a class="name" href="#link-onlyChild-">onlyChild</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches the only child of its parent.<br>If the parent has other child elements, nothing is matched.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the button with no siblings in each matched div and modifies look.</p>
+<pre><code class="javascript">$(<span class="string">"div&nbsp;button:only-child"</span>).text(<span class="string">"Alone"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"2px&nbsp;blue&nbsp;solid"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Sibling!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Glen<span class="tag">&lt;/li&gt;</span>&nbsp;]</code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

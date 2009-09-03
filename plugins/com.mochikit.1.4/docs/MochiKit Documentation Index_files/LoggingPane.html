@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.LoggingPane - Interactive MochiKit.Logging pane</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.LoggingPane - Interactive MochiKit.Logging pane</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="LoggingPane.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="LoggingPane.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">LoggingPane(inline=false, logger=MochiKit.Logging.logger)<BR></A><A class="mochiref reference" href="LoggingPane.html#fn-loggingpane.prototype.closepane">LoggingPane.prototype.closePane()<BR></A><A class="mochiref reference" href="LoggingPane.html#fn-createloggingpane">createLoggingPane(inline=false)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">// open a pop-up window
+createLoggingPane()
+// use a div at the bottom of the document
+createLoggingPane(true);
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>MochiKit.Logging does not have any browser dependencies and is completely unobtrusive. MochiKit.LoggingPane is a browser-based colored viewing pane for your <A class="mochiref reference" href="Logging.html">MochiKit.Logging</A> output that can be used as a pop-up or inline.</P>
+<P>It also allows for regex and level filtering! MochiKit.LoggingPane is used as the default <A class="mochiref reference" href="Logging.html#fn-debuggingbookmarklet">MochiKit.Logging.debuggingBookmarklet()</A> if it is loaded.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> 
+<LI><A class="mochiref reference" href="Logging.html">MochiKit.Logging</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="constructors" name="constructors">Constructors</A></H2>
+<P><A name="fn-loggingpane"></A><A class="mochidef reference" href="LoggingPane.html#fn-loggingpane">LoggingPane(inline=false, logger=MochiKit.Logging.logger)</A>:</P>
+<BLOCKQUOTE>
+<P>A listener for a <A class="mochiref reference" href="Logging.html">MochiKit.Logging</A> logger with an interactive DOM representation.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">inline</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, then the <TT class="docutils literal"><SPAN class="pre">LoggingPane</SPAN></TT> will be a <TT class="docutils literal"><SPAN class="pre">DIV</SPAN></TT> at the bottom of the document. Otherwise, it will be in a pop-up window with a name based on the calling page's URL. If there is an element in the document with an id of <TT class="docutils literal"><SPAN class="pre">_MochiKit_LoggingPane</SPAN></TT>, it will be used instead of appending a new <TT class="docutils literal"><SPAN class="pre">DIV</SPAN></TT> to the body.</P>
+<P><TT class="docutils literal"><SPAN class="pre">logger</SPAN></TT> is the reference to the <A class="mochiref reference" href="Logging.html#fn-logger">MochiKit.Logging.Logger</A> to listen to. If not specified, the global default logger is used.</P>
+<P>Properties:</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">win</SPAN></TT>: 
+<DD>Reference to the pop-up window (<TT class="docutils literal"><SPAN class="pre">undefined</SPAN></TT> if <TT class="docutils literal"><SPAN class="pre">inline</SPAN></TT>) 
+<DT><TT class="docutils literal"><SPAN class="pre">inline</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if the <TT class="docutils literal"><SPAN class="pre">LoggingPane</SPAN></TT> is inline 
+<DT><TT class="docutils literal"><SPAN class="pre">colorTable</SPAN></TT>: 
+<DD>
+<P class="first">An object with property-&gt;value mappings for each log level and its color. May also be mutated on <TT class="docutils literal"><SPAN class="pre">LoggingPane.prototype</SPAN></TT> to affect all instances. For example:</P><PRE class="last literal-block">MochiKit.LoggingPane.LoggingPane.prototype.colorTable = {
+    DEBUG: "green",
+    INFO: "black",
+    WARNING: "blue",
+    ERROR: "red",
+    FATAL: "darkred"
+};
+</PRE></DD></DL></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-loggingpane.prototype.closepane"></A><A class="mochidef reference" href="LoggingPane.html#fn-loggingpane.prototype.closepane">LoggingPane.prototype.closePane()</A>:</P>
+<BLOCKQUOTE>
+<P>Close the <A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">LoggingPane</A> (close the child window, or remove the <TT class="docutils literal"><SPAN class="pre">_MochiKit_LoggingPane</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">DIV</SPAN></TT> from the document).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-createloggingpane"></A><A class="mochidef reference" href="LoggingPane.html#fn-createloggingpane">createLoggingPane(inline=false)</A>:</P>
+<BLOCKQUOTE>
+<P>Create or return an existing <A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">LoggingPane</A> for this document with the given inline setting. This is preferred over using <A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">LoggingPane</A> directly, as only one <A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">LoggingPane</A> should be present in a given document.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

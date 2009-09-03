@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.yahoo.yui.2.3"
+      label="%featureName"
+      version="2.3.1.00002"
+      provider-name="%providerName"
+      plugin="com.yahoo.yui.2.3">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://update.aptana.com/update/frameworks/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="com.aptana.ide.snippets"/>
+      <import plugin="com.aptana.ide.samples"/>
+      <import plugin="com.aptana.ide.projects"/>
+   </requires>
+
+   <plugin
+         id="com.yahoo.yui.2.3"
+         download-size="1900"
+         install-size="1900"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

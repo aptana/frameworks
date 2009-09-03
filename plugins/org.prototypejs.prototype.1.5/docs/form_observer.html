@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Form.Observer</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Form.Observer </span><span class="f_TopicHeading" style="color: #ccffff;">:: TimedObserver</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">new Form.Observer(element, frequency, callback)</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">A timed observer that triggers when any value changes within the form.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Form observer implements the getValue() method using Form.serialize() on the element from the first argument. See Abstract.TimedObserver for general documentation on timed observers.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p>In this example an observer is used to change the appearance of the form if any of the values had been changed. It returns to its initial state when the data is submitted (saved).</p>
+<p>&nbsp;</p>
+<p><img src="timedobserver_example2.png" width="609" height="316" border="0" alt="timedobserver_example2"></p>
+<p>&nbsp;</p>
+<p>Here is the complete JavaScript code for the above example:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Form.Observer(</span><span class="f_CodeExample" style="color: #800000;">'example'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.3</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">form</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;value){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'msg'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'Your&nbsp;preferences&nbsp;have&nbsp;changed.&nbsp;Resubmit&nbsp;to&nbsp;save'</span><span class="f_CodeExample" style="color: #000000;">).style.color&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'red'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;form.down().setStyle({&nbsp;background:</span><span class="f_CodeExample" style="color: #800000;">'lemonchiffon'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;borderColor:</span><span class="f_CodeExample" style="color: #800000;">'red'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'example'</span><span class="f_CodeExample" style="color: #000000;">).onsubmit&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'msg'</span><span class="f_CodeExample" style="color: #000000;">).update(</span><span class="f_CodeExample" style="color: #800000;">'Preferences&nbsp;saved!'</span><span class="f_CodeExample" style="color: #000000;">).style.color&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'green'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;this.down().setStyle({&nbsp;background:</span><span class="f_CodeExample" style="color: #0000ff;">null</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;borderColor:</span><span class="f_CodeExample" style="color: #0000ff;">null</span><span class="f_CodeExample" style="color: #000000;">&nbsp;})</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">false</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">}</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

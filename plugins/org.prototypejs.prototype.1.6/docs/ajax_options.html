@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.Options</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Ajax.Options</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span style="font-size: 9pt; font-weight: bold; color: #666699;">This details all core options (shared by all AJAX requesters) and callbacks.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>All requester object in the Ajax namespace share a common set of options and callbacks. Callbacks are called at various points in the life-cycle of a request, and always feature the same list of arguments. They are passed to requesters right along with their other options.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Common options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="3" cellpadding="3" border="0" style="border: none; border-spacing:3px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" bgcolor="#cdf2fe" style="width:112px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Option</span></p>
+</td>
+<td valign="top" width="260" bgcolor="#cdf2fe" style="width:260px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Default</span></p>
+</td>
+<td valign="top" width="341" bgcolor="#cdf2fe" style="width:341px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">asynchronous</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p><span class="f_CourierFixed">true</span></p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>Determines whether XMLHttpRequest is used asynchronously or not. Since synchronous usage is rather unsettling, and usually bad taste, you should avoid changing this. Seriously.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">contentType</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p><span class="f_CourierFixed">'application/x-www-form-urlencoded' </span></p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>The Content-Type header for your request. You might want to send XML instead of the regular URL-encoded format, in which case you would have to change this.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">encoding</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p><span class="f_CourierFixed">'UTF-8'</span></p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>The encoding for your request contents. It is best left as is, but should weird encoding issues arise, you may have to tweak it in accordance with other encoding-related parts of your page code and server side.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">method</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p><span class="f_CourierFixed">'post'</span></p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>The HTTP method to use for the request. The other widespread possibility is 'get'. As a Ruby On Rails special, Prototype also reacts to other verbs (such as 'put' and 'delete' by actually using 'post' and putting an extra '_method' parameter with the originally requested method in there.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">parameters</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p><span class="f_CourierFixed">''</span></p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>The parameters for the request, which will be encoded into the URL for a 'get' method, or into the request body for the other methods. This can be provided either as a URL-encoded string or as any Hash-compatible object (basically anything), with properties representing parameters.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">postBody</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p>None</p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>Specific contents for the request body on a 'post' method (actual method, after possible conversion as described in the method opt ion above). If it is not provided, the contents of the parameters option will be used instead.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="112" style="width:112px;"><p><span class="f_CourierFixed">requestHeaders</span></p>
+</td>
+<td valign="top" width="260" style="width:260px;"><p>See text </p>
+</td>
+<td valign="top" width="341" style="width:341px;"><p>Request headers can be passed under two forms:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>As an object, with properties representing headers.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>As an array, with even-index (0, 2…) elements being header names, and odd-index (1, 3…) elements being values.</td></tr></table></div><p>&nbsp;</p>
+<p>Prototype automatically provides a set of default headers, that this option can override and augment:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>X-Requested-With is set to 'XMLHttpRequest'.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>X-Prototype-Version provides Prototype's current version (e.g. 1.5.0).</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Accept defaults to 'text/javascript, text/html, application/xml, text/xml, */*'</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Content-type is built based on the contentType and encoding options.</td></tr></table></div></td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Common callbacks</span></p>
+<p>&nbsp;</p>
+<p>When used on individual instances, all callbacks (except <span class="f_CourierFixed">onException</span>) are invoked with two parameters: the <span class="f_CourierFixed">XMLHttpRequest</span> object and the result of evaluating th e <span class="f_CourierFixed">X-JSON</span> response header, if any (can be null). They also execute in the context of the requester object (e.g. <span class="f_CourierFixed">Ajax.Request</span>), bound to the <span class="f_CourierFixed" style="font-weight: bold;">this</span> referen ce.</p>
+<p>&nbsp;</p>
+<p>For another way of describing their chronological order and which callbacks are mutually exclusive, see<span class="f_CourierFixed"> Ajax.Request</span>.</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="3" cellpadding="3" border="0" style="border: none; border-spacing:3px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" bgcolor="#cdf2fe" style="width:132px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Option</span></p>
+</td>
+<td valign="top" width="492" bgcolor="#cdf2fe" style="width:492px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onComplete</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>Triggered at the very end of a request's life-cycle, once the request completed, status-specific callbacks were called, and possible automatic behaviors were processed.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onException</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>Triggered whenever an XHR error arises. Has a custom signature: the first argument is the requester (e.g. an Ajax.Request instance), the second is the exception object.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onFailure</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>Invoked when a request completes and its status code exists but is not in the 2xy family. This is skipped if a code-specific callback is defined, and happens before onComplete.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onInteractive</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>(Not guaranteed) Triggered whenever the requester receives a part of the response (but not the final part), should it be sent in several packets.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onLoaded</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>(Not guaranteed) Triggered once the underlying XHR object is setup, the connection open, and ready to send its actual request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onLoading</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>(Not guaranteed) Triggered when the underlying XHR object is being setup, and its connection opened.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onSuccess</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>Invoked when a request completes and its status code is undefined or belongs in the 2xy family. This is skipped if a code-specific callback is defined, and happens before onComplete.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onUninitialized</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>(Not guaranteed) Invoked when the XHR object was just created.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onXYZ</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>With XYZ being an HTTP status code for the response. Invoked when the response just completed, and the status code is exactly the one we used in t he callback name. Prevents execution of onSuccess / onFailure. Happens before onComplete.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Responder callbacks</span></p>
+<p>&nbsp;</p>
+<p>One callback is available only to responders, not to individual AJAX requester objects.</p>
+<p>&nbsp;</p>
+<p>When used on responders, all callbacks (except <span class="f_CourierFixed">onException</span> and <span class="f_CourierFixed">onCreate</span>) are invoked with three parameters: the requester (e.g. <span class="f_CourierFixed">Ajax.Request</span>) object, the <span class="f_CourierFixed">XMLHttpRequest</span> object and the result of evaluating the <span class="f_CourierFixed">X-JSON</span> response header, if any (can be null). They also execute in the context of the responder, bound to the this reference.</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="3" cellpadding="3" border="0" style="border: none; border-spacing:3px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" bgcolor="#cdf2fe" style="width:132px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Option</span></p>
+</td>
+<td valign="top" width="492" bgcolor="#cdf2fe" style="width:492px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="132" style="width:132px;"><p><span class="f_CourierFixed">onCreate</span></p>
+</td>
+<td valign="top" width="492" style="width:492px;"><p>Triggered whenever a requester object from the Ajax namespace is created, after its parameters where adjusted and its before its XHR connection is opened. This takes two arguments: the requester object and the underlying XHR object.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

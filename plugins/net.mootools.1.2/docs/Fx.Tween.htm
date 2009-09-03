@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Fx.Tween</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Fx-Tween"><a href="#Fx-Tween">Class: Fx.Tween</a></h1>
+
+<p class="description">Contains <a href="#Fx-Tween">Fx.Tween</a> and the Element shortcut <a href="#Element-Properties:tween">Element.tween</a>.</p>
+
+<h3>Extends:</h3>
+
+<p><a href="Fx.htm">Fx</a></p>
+
+<h2 id="Fx-Tween:constructor"><a href="#Fx-Tween:constructor">Fx.Tween Method: constructor</a></h2>
+
+<p class="description">The Tween effect, used to transition any CSS property from one value to another.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFx = <span class="kw2">new</span> Fx.<span class="me1">Tween</span><span class="br0">(</span>element, <span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>element  - (<em>mixed</em>) An Element or the string id of an Element to apply the transition to.</li>
+<li>options  - (<em>object</em>, optional) The <a href="Fx.htm">Fx</a> options object, plus the options described below:</li>
+</ol>
+<h3>Options:</h3>
+
+<ul>
+<li>property - (<em>string</em>) The CSS property to transition to, for
+example 'width', 'color', 'font-size', 'border', etc. If this option is
+omitted, you are required to use the property as a first argument for
+the start and set methods. Defaults to null.</li>
+</ul>
+<h3>Notes:</h3>
+
+<ul>
+<li>Any CSS property that can be set with Element:setStyle can be transitioned with Fx.Tween.</li>
+<li>If a property is not mathematically calculable, like border-style
+or background-image, it will be set immediately upon start of the
+transition.</li>
+<li>If you use the property option, you must not use the property argument in the start and set methods.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="Fx.htm">Fx</a></li>
+</ul>
+<h2 id="Fx-Tween:set"><a href="#Fx-Tween:set">Fx.Tween Method: set</a></h2>
+
+<p class="description">Sets the Element's CSS property to the specified value immediately.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myFx.<span class="me1">set</span><span class="br0">(</span>property, value<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>) The css property to set the value to. Omit this if you use the property option.</li>
+<li>value - (<em>mixed</em>) The value to set the CSS property of this instance to.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Fx.Tween instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFx = <span class="kw2">new</span> Fx.<span class="me1">Tween</span><span class="br0">(</span>element<span class="br0">)</span>;
+<span class="co1">//Immediately sets the background color of the element to red:</span>
+myFx.<span class="me1">set</span><span class="br0">(</span><span class="st0">'background-color'</span>, <span class="st0">'#f00'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Note:</h3>
+
+<p>If you use the property option, you must not use the property argument in the start and set methods.</p>
+
+<h2 id="Fx-Tween:start"><a href="#Fx-Tween:start">Fx.Tween Method: start</a></h2>
+
+<p class="description">Transitions the Element's CSS property to the specified value.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myFx.<span class="me1">start</span><span class="br0">(</span><span class="br0">[</span>property,<span class="br0">]</span> <span class="br0">[</span>from,<span class="br0">]</span> to<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>, if not in options) The css property to tween. Omit this if you use the property option.</li>
+<li>from     - (<em>mixed</em>, optional) The starting CSS property value for the effect.</li>
+<li>to       - (<em>mixed</em>) The target CSS property value for the effect.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Fx.Tween instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myFx = <span class="kw2">new</span> Fx.<span class="me1">Tween</span><span class="br0">(</span>element<span class="br0">)</span>;
+<span class="co1">//Transitions the background color of the Element from black to red:</span>
+myFx.<span class="me1">start</span><span class="br0">(</span><span class="st0">'background-color'</span>, <span class="st0">'#000'</span>, <span class="st0">'#f00'</span><span class="br0">)</span>;
+<span class="co1">//Transitions the background color of the Element from its current color to blue:</span>
+myFx.<span class="me1">start</span><span class="br0">(</span><span class="st0">'background-color'</span>, <span class="st0">'#00f'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>If only one argument is provided, other than the property argument,
+the first argument to start will be used as the target value, and the
+initial value will be calculated from the current state of the element.</li>
+<li>When using colors, either RGB or Hex values may be used.</li>
+<li>If you use the property option, you must not use the property argument in the start and set methods.</li>
+</ul>
+<h1 id="Element-Properties"><a href="#Element-Properties">Hash: Element.Properties</a></h1>
+
+<p class="description">see <a href="Element.htm#Element-Properties">Element.Properties</a></p>
+
+<h2 id="Element-Properties:tween"><a href="#Element-Properties:tween">Element Property: tween</a></h2>
+
+<p class="description">Sets and gets default options for the Fx.Tween instance of an Element.</p>
+
+<h3>Setter:</h3>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">el.<span class="me1">set</span><span class="br0">(</span><span class="st0">'tween'</span><span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ul>
+<li>options - (<em>object</em>) the Fx.Tween options.</li>
+</ul>
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h4>Examples:</h4>
+
+<pre class="javascript">el.<span class="me1">set</span><span class="br0">(</span><span class="st0">'tween'</span>, <span class="br0">{</span>duration: <span class="st0">'long'</span><span class="br0">}</span><span class="br0">)</span>;
+el.<span class="me1">tween</span><span class="br0">(</span><span class="st0">'color'</span>, <span class="st0">'#f00'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Getter:</h3>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">el.<span class="me1">get</span><span class="br0">(</span><span class="st0">'tween'</span>, <span class="br0">[</span>options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>property - (<em>string</em>) the Fx.Tween property argument.</li>
+<li>options  - (<em>object</em>) the Fx.Tween options.</li>
+</ol>
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>object</em>) The Element's internal Fx.Tween instance.</li>
+</ul>
+<h4>Examples:</h4>
+
+<pre class="javascript">el.<span class="me1">get</span><span class="br0">(</span><span class="st0">'tween'</span>, <span class="br0">{</span>property: <span class="st0">'opacity'</span>, duration: <span class="st0">'long'</span><span class="br0">}</span><span class="br0">)</span>.<span class="me1">start</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>When initializing the Element's tween instance with Element:set, the property to tween SHOULD NOT be passed.</li>
+<li>The property must be specified when using Element:get to retrieve the actual Fx.Tween instance, and in calls to Element:tween.</li>
+<li>When options are passed to either the setter or the getter, the instance will be recreated.</li>
+<li>As with the other Element shortcuts, the difference between a
+setter and a getter is that the getter returns the instance, while the
+setter returns the element (for chaining and initialization).</li>
+</ul>
+<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<p class="description">Custom Native to allow all of its methods to be used with any DOM element via the dollar function <a href="Element.htm#dollar">$</a>.</p>
+
+<h2 id="Element:tween"><a href="#Element:tween">Element Method: tween</a></h2>
+
+<p class="description">Element shortcut method which immediately transitions any single CSS property of an Element from one value to another.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">tween</span><span class="br0">(</span>property, startvalue<span class="br0">[</span>, endvalue<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property   - (<em>string</em>) the css property you want to animate. Omit this if you previously set the property option.</li>
+<li>startvalue - (<em>mixed</em>) The start value for the transition.</li>
+<li>endvalue   - (<em>mixed</em>) The end value for the transition. If this is omitted, startvalue will be used as endvalue.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">//Transitions the width of &quot;myElement&quot; from its current width to 100px:</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">tween</span><span class="br0">(</span><span class="st0">'width'</span>, <span class="st0">'100'</span><span class="br0">)</span>;
+<span class="co1">//Transitions the height of &quot;myElement&quot; from 20px to 200px:</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">tween</span><span class="br0">(</span><span class="st0">'height'</span>, <span class="br0">[</span><span class="nu0">20</span>, <span class="nu0">200</span><span class="br0">]</span><span class="br0">)</span>;
+<span class="co1">//Transitions the border of &quot;myElement&quot; from its current to &quot;6px solid blue&quot;:</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">tween</span><span class="br0">(</span><span class="st0">'border'</span>, <span class="st0">'6px solid #36f'</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Fx-Tween">Fx.Tween</a></li>
+</ul>
+<h2 id="Element:fade"><a href="#Element:fade">Element Method: fade</a></h2>
+
+<p class="description">Element shortcut method for tween with opacity.  Useful for fading an Element in and out or to a certain opacity level.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">fade</span><span class="br0">(</span><span class="br0">[</span>how<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>how - (<em>mixed</em>, optional: defaults to 'toggle') The opacity level as a number or string representation.  Possible values include:
+
+<ul>
+<li>'in'     - Fade the element to 100% opacity.</li>
+<li>'out'    - Fade the element to 0% opacity.</li>
+<li>'show'   - Immediately set the element's opacity to 100%.</li>
+<li>'hide'   - Immediately set the element's opacity to 0%.</li>
+<li>'toggle' - If visible, fade the element out, otherwise, fade it in.</li>
+<li>(<em>number</em>)  - A float value between 0 and 1. Will fade the element to this opacity.</li>
+</ul>
+</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">fade</span><span class="br0">(</span><span class="st0">'out'</span><span class="br0">)</span>; <span class="co1">//Fades &quot;myElement&quot; out.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">fade</span><span class="br0">(</span><span class="nu0">0.7</span><span class="br0">)</span>; <span class="co1">//Fades &quot;myElement&quot; to 70% opacity.</span>
+</pre>
+
+<h2 id="Element:highlight"><a href="#Element:highlight">Element Method: highlight</a></h2>
+
+<p class="description">Element shortcut method for tweening the
+background color. Immediately transitions an Element's background color
+to a specified highlight color then back to its set background color.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">highlight</span><span class="br0">(</span><span class="br0">[</span>start, end<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>start - (<em>string</em>, optional: defaults to '#ff8') The color from which to start the transition.</li>
+<li>end - (<em>string</em>, optional: defaults to Element's set background-color) The background color to return to after the highlight effect.</li>
+</ol>
+<h3>Note:</h3>
+
+<p>If no background color is set on the Element, or its background
+color is set to 'transparent', the default end value will be white.</p>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">//Will immediately change the background to light blue, then back to its original color (or white):</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">highlight</span><span class="br0">(</span><span class="st0">'#ddf'</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Will immediately change the background to light blue, then fade to grey:</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">highlight</span><span class="br0">(</span><span class="st0">'#ddf'</span>, <span class="st0">'#ccc'</span><span class="br0">)</span>;
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Fx-Tween">Fx.Tween</a></h4>
+<div class="menu-item"><a href="#Fx-Tween:constructor">constructor</a></div>
+<div class="menu-item"><a href="#Fx-Tween:set">set</a></div>
+<div class="menu-item"><a href="#Fx-Tween:start">start</a></div>
+<h4 class="menu-item"><a href="#Element-Properties">Element.Properties</a></h4>
+<div class="menu-item"><a href="#Element-Properties:tween">tween</a></div>
+<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:tween">tween</a></div>
+<div class="menu-item"><a href="#Element:fade">fade</a></div>
+<div class="menu-item"><a href="#Element:highlight">highlight</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="demo.css" type="text/css" />
+	<script type="text/javascript" src="lib/mootools/mootools-1.2.1-core-yc.js"></script>
+	<script type="text/javascript" src="lib/mootools/mootools-1.2.1-more-yc.js"></script>
+	<script type="text/javascript" src="demo.js"></script>
+	<title>Dynamic Sortables Demo</title>
+</head>
+<body>
+	<h1>Dynamic Sortables</h1>
+	<h2>Introduction</h2>
+	<p>
+		This To Do list is a good example of using Sortables in lists which have items dynamically added.  Notice that on line 47 of the JavaScript file, we make a call to sort.addItems().  It is critical that we call this method on our Sortables object every time we add a new item to the list.
+	</p>
+	<h2>My To Do List</h2>
+	<form id="addTask">
+		<input type="text" id="newTask" />
+		<input type="submit" value="Add Task" />
+	</form>
+
+	<div id="listArea">
+		<ol id="todo"></ol>
+	</div>
+
+	<div id="data"/>
+</body>
+</html>

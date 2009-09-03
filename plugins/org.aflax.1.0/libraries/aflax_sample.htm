@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>AFLAX: The AJAX Library for the Adobe Flash&trade; Platform</title>
+
+
+
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+
+<script type="text/javascript" src="aflax_sample.js"></script>
+
+
+
+<script>
+
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf");
+
+	
+
+	function go()
+
+	{
+
+		draw(aflax);
+
+	}	
+
+</script>
+
+
+
+</head>
+
+
+
+<body style="background: #eeeeee;">
+
+
+
+	<div id="body">
+
+	
+
+	  <div id="menu">
+
+		<div id="toc">
+
+			<p>Drawing Demo  (View in External Browser)</p>
+
+		</div>
+
+	  </div>
+
+	  
+
+	</div>
+
+
+
+
+
+	<div id="content">
+
+	
+
+		<p>Example of using Flash drawing functions from JavaScript.</p>
+
+		
+
+		<script>
+
+			aflax.insertFlash(500, 200, "#666666", "go");
+
+		</script>
+
+		
+
+		<p></p>
+
+		
+
+		<p>Ported from code at <a href="http://flash-creations.com/notes/dynamic_drawingapi.php" 
+
+			target="_blank">http://flash-creations.com/notes/dynamic_drawingapi.php</a></p>
+
+		
+
+	</div>
+
+
+
+</body>

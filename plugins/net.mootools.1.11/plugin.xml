@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/index.xml"/>
+   </extension>
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/mootools_small.png"
+            name="Mootools 1.11"/>
+       </extension>
+          <extension
+                point="com.aptana.ide.samples.samplespath">
+             <samplesinfo
+                   directory="samples"
+                   iconFile="icons/mootools_small.png"
+                   name="Mootools Samples"
+				    previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler" >
+                          <include path="libraries/lib"/>
+                          <nature id="com.aptana.ide.project.nature.web"/>
+			</samplesinfo>
+          </extension>
+          <!--
+		   <extension
+		         point="org.eclipse.ui.views">
+		      <view
+		            category="com.aptana.ide.documentation"
+		            class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+		            icon="icons/mootools_small.png"
+		            id="com.aptana.ide.documentation.mootools.builder"
+		            name="mootools Custom Build">
+		         <description>bundleresource://net.mootools.1.1/views/builder/build.html</description>
+		      </view>
+		   </extension>-->            
+		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="net.mootools.1.11">
+             </feature>
+          </extension>  </plugin>

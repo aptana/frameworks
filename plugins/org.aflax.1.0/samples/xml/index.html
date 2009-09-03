@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>AFLAX: A JavaScript Library for Macromedia's Flash&trade; Platform</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+<script type="text/javascript" src="XML-for-Script/tinyxmlsax.js"></script>
+<script type="text/javascript" src="XML-for-Script/tinyxmldom.js"></script>
+<script type="text/javascript" src="xml.js"></script>
+<xmp id="xml" style="display:none;">
+	<Canvas>
+		<Line Color="0x000fff" Stroke="3" X1="100"  Y1="50" X2="300" Y2="100" />
+		<Line Color="0xff0000" Stroke="2" X1="200"  Y1="300" X2="50" Y2="100" />
+		<Line Color="0x00ff00" Stroke="1" X1="300"  Y1="200" X2="200" Y2="50" />
+		<Rectangle Color="0xff00ff" Stroke="5" X="10" Y="10" Width="100" Height="100" />
+		<Circle Color="0x00ffff" Stroke="3" X="300" Y="300" Radius="100" />
+	</Canvas>
+</xmp>
+<script>
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf", false);
+	
+	function go()
+	{
+		renderXML("xml");
+	}
+	
+</script>
+</head>
+<body>
+	<div id="body">
+
+	  <h1>XML Demo</h1>
+	</div>
+	<div id="content">
+	
+		<p>Example of using a custom XML syntax on the client to dynamically generate graphics.</p>
+		
+		<pre>
+&lt;Canvas&gt;
+  &lt;Line Color="0x000fff" Stroke="3" X1="100"  Y1="50" X2="300" Y2="100" /&gt;
+  &lt;Line Color="0xff0000" Stroke="2" X1="200"  Y1="300" X2="50" Y2="100" /&gt;
+  &lt;Line Color="0x00ff00" Stroke="1" X1="300"  Y1="200" X2="200" Y2="50" /&gt;
+  &lt;Rectangle Color="0xff00ff" Stroke="5" X="10" Y="10" Width="100" Height="100" /&gt;
+  &lt;Circle Color="0x00ffff" Stroke="3" X="300" Y="300" Radius="100" /&gt;
+&lt;/Canvas&gt;
+		</pre>
+		
+		<script>
+			aflax.insertFlash(500, 400, "#ffffff", "go");
+		</script>
+		
+		<p></p>
+				
+	</div>
+</body>

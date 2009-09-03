@@ -1,0 +1,104 @@
+/**
+ * ScriptDoc for Style.js
+ */
+
+/**
+ * Constructs an object with w and h properties. obj.toString() returns something like {w: 0, h: 42} for debugging.
+ * @id MochiKit.Style.Dimensions
+ * @alias Dimensions
+ * @alias MochiKit.Style.Dimensions
+ * @param {Object} w    Width of the object.
+ * @param {Object} h    Height of the object.
+ * @return {Object} Returns an object with the specified width and height.
+ * @type {Dimensions} Object with the specified width and height.
+ */
+
+/**
+ * Constructs an object with x and y properties. obj.toString() returns something like {x: 0, y: 42} for debugging.
+ * @id MochiKit.Style.Coordinates
+ * @alias Coordinates
+ * @alias MochiKit.Style.Coordinates
+ * @param {Object} x    X-coordinate of the object.
+ * @param {Object} y    Y-coordinate of the object.
+ * @return {Object} Returns an object with the specified x and y properties.
+ */
+
+/**
+ * Looks up a CSS property for the specified element.
+ * @id MochiKit.Style.computedStyle
+ * @alias computedStyle
+ * @alias MochiKit.Style.computedStyle
+ * @param {Element, String} elem    Element (or string id) to look up.
+ * @param {String} cssProperty    CSS property to look up.
+ * @return {String} Returns the value of the property.
+ */
+
+/**
+ * Sets opacity for an element.
+ * @id MochiKit.Style.setOpacity
+ * @alias setOpacity
+ * @alias MochiKit.Style.setOpacity
+ * @param {Element, String} elem    Element (or string id) to set the opacity for.
+ * @param {Number} o Opacity value for the element. Specify a number from 0 (invisible) to 1 (opaque).
+ */
+
+/**
+ * Returns the absolute pixel position of element in the document as an object with x and y properties.
+ * @id MochiKit.Style.getElementPosition 
+ * @alias getElementPosition
+ * @alias MochiKit.Style.getElementPosition
+ * @param {Element, String} elem    Element (or string id) to look up.
+ * @param {Element, String} [relativeTo] Element (or string id) that elem is positioned relative to.
+ * If relativeTo is specified, then its coordinates are subtracted from the absolute position of element.
+ * @return {Object} Returns the absolute pixel position of element in the document as an object with x and y properties.
+ * Returns undefined if the element is not found.
+ */
+
+/**
+ * Sets the absolute position of element in the document from an object with x and y properties.
+ * @id MochiKit.Style.setElementPosition
+ * @alias setElementPosition
+ * @alias MochiKit.Style.setElementPosition
+ * @param {Element, String} elem    Element (or string id) to set the position for.
+ * @param {Object} newPos    Object with x and y properties.
+ * @param {Object} [units]    Units for the position. Default is px.
+ */
+
+/**
+ * Returns the absolute pixel width and height of element as an object with w and h properties.
+ * @id MochiKit.Style.getElementDimensions 
+ * @alias getElementDimensions
+ * @alias MochiKit.Style.getElementDimensions
+ * @param {Element, String} elem    Element (or string id) to look up.
+ * @return {Object} Returns the absolute pixel width and height of element as an object with w and h properties.
+ * Returns undefined if the element is not found.
+ */
+
+/**
+ * Sets the dimensions of element in the document from an object with w and h properties.
+ * @id MochiKit.Style.setElementDimensions
+ * @deprecated
+ * @alias setElementDimensions
+ * @alias MochiKit.Style.setElementDimensions
+ * @param {Element, String} elem Element (or string id) to set the dimensions of.
+ * @param {Object} newSize    Object with w and h properties.
+ * @param {Object} [units] Units for the dimensions. Default is px.
+ */
+
+/**
+ * Changes the style.display for the given element(s). 
+ * Usually used as the partial forms "showElement(element, ...)" or "hideElement(element, ...)"
+ * @id MochiKit.Style.setDisplayForElement
+ * @alias setDisplayForElement
+ * @alias MochiKit.Style.setDisplayForElement
+ * @param {Object} display    Display property for the element.
+ * @param {Element, String, Array} ...    One or more Elements (or string id's) to set the display property for.
+ */
+
+/**
+ * Returns the pixel width and height of the viewport as an object with w and h properties.
+ * @id MochiKit.Style.getViewportDimensions
+ * @alias getViewportDimensions
+ * @alias MochiKit.Style.getViewportDimensions
+ * @return {Object} Returns the pixel width and height of the viewport as an object with w and h properties.
+ */

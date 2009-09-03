@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Rico 2.0</title>
+
+<script src="../src/rico.js" type="text/javascript"></script>
+<script type='text/javascript'>
+Rico.loadModule('Accordion');
+
+Rico.onLoad( function() {
+  new Rico.Accordion( '.accordionTabTitleBar', '.accordionTabContentBox', {panelHeight:240} );
+});
+</script>
+
+<style type="text/css">
+body {font-family: Arial, Tahoma, Verdana;}
+p.top { clear:both;margin:0px; }
+.top { font-size:smaller; }
+table#compat thead tr { background-color:#DDD; }
+table#compat td { text-align:center; }
+table#compat tr { vertical-align:bottom; }
+#accordion1 {
+    border : 1px solid #4f4f4f;
+    width: 600px;
+    margin-top:6px;
+}
+
+div.selected, div.hover {
+  background-color:#63699C;
+  color:#FFFFFF;
+  font-weight:bold;
+  height: 22px;
+  padding-left: 5px;
+}
+
+.accordionTabTitleBar
+{
+  background-color:#6B79A5;
+  color:#CED7EF;
+  height: 22px;
+	font-weight : 'normal';
+  padding-left: 5px;
+  padding-top: 5px;
+  
+  border-bottom:1px solid #182052;
+  border-style:solid none;
+  border-top:1px solid #BDC7E7;
+  border-width:1px 0px;
+  font-size:12px;
+}
+
+.accordionTabContentBox {
+  font-size: 11px;
+  padding-left: 5px;
+  overflow: auto;
+}
+</style>
+</style>
+
+</head>
+
+<body>
+
+<div style='float:left'>
+<h2 style='margin:0px'>Rico 2.0 Examples</h2>
+</div>
+
+<p class='top'><ul class='top'>
+<li><a href="http://dowdybrown.com/dbprod/wiki/pmwiki.php">LiveGrid Wiki</a>
+<li><a href="http://dowdybrown.com/dbprod/rico2/examples/php/ex1.php">Online LiveGrid Examples</a>
+</ul>
+</p>
+
+
+<div id="accordion1">
+
+  <div class="accordionTabTitleBar">Browser Compatibility</div>
+	<div id='overview' class="accordionTabContentBox">
+
+		<p>Rico 2.0 LiveGrid examples have been tested on the following browsers and operating systems.
+		Except where noted, all aspects of the grid were fully functional.
+		<table border="1" id="compat">
+  		<thead><tr>
+  		  <th></th>
+  		  <th colspan="3">Operating System</th>
+  		</tr>
+  		<tr>
+  		  <th>Browser</th>
+  		  <th>Windows XP</th>
+  		  <th>Macintosh 10.4</th>
+  		  <th>Linux (Knoppix 5)</th>
+  		</tr></thead>
+  		<tbody><tr>
+  		  <th>IE6</th>
+  		  <td>***</td>
+  		  <td>&nbsp;</td>
+  		  <td>&nbsp;</td>
+  		</tr>
+  		<tr>
+  		  <th>IE7</th>
+  		  <td>***</td>
+  		  <td>&nbsp;</td>
+  		  <td>&nbsp;</td>
+  		</tr>
+  		<tr>
+  		  <th>FF 1.5/2.0</th>
+  		  <td>***</td>
+  		  <td>***<sup>1</sup></td>
+  		  <td>***</td>
+  		</tr>
+  		<tr>
+  		  <th>Opera 9</th>
+  		  <td>***<sup>1,2,3</sup></td>
+  		  <td>&nbsp;</td>
+  		  <td>&nbsp;</td>
+  		</tr>
+  		<tr>
+  		  <th>Safari 2.0</th>
+  		  <td>&nbsp;</td>
+  		  <td>***</td>
+  		  <td>&nbsp;</td>
+  		</tr>
+  		<tr>
+  		  <th>Camino</th>
+  		  <td>&nbsp;</td>
+  		  <td>***<sup>1</sup></td>
+  		  <td>&nbsp;</td>
+  		</tr>
+  		<tr>
+  		  <th>Konqueror 3.5</th>
+  		  <td>&nbsp;</td>
+  		  <td>&nbsp;</td>
+  		  <td>***</td>
+  		</tr></tbody>
+		</table>
+		<p>Notes:
+		<ol>
+		<li>In these configurations scrollbars are hidden when the menu is displayed
+		(the scrollbars interfered with the menus).
+    <li>In Opera, when using double-clicking to invoke menus, you should
+		  turn off Opera's "Double click text to display context menu" setting by
+		  going to Tools -> Preferences -> Advanced tab -> Toolbars.
+		<li>LiveGridForms is not recommended with Opera due to a <a href="http://dowdybrown.com/dbprod/testselect.htm">bug</a> in the way it handles select boxes.
+	  </ol>
+	
+  </div>
+
+  <div class="accordionTabTitleBar">Accordion &amp; Panel</div>
+	<div id='Accordion' class="accordionTabContentBox">
+
+<ol style='margin-top:3px;'>
+<li><a href="client/accordion.html">Basic Accordion</a>
+<li><a href="client/accordion1.html">Accordion with 3D backgrounds</a>
+<li><a href="client/accordion2.html">Accordion used for site navigation</a>
+<li><a href="client/accordion3.html">Nested accordions</a>
+<li><a href="client/panel1.html">Tabbed panels</a>
+</ol>
+
+  </div>
+
+  <div class="accordionTabTitleBar">SimpleGrid</div>
+	<div id='SimpleGrid' class="accordionTabContentBox">
+
+		<p>SimpleGrid's are new to Rico 2.0 and share some of the same functionality as LiveGrids - resizable columns, frozen columns, and frozen headings. 
+		However, unlike a LiveGrid, the data is static (no buffering, no AJAX refreshes, no sorting, no filtering).
+		Why would you use a SimpleGrid? Because in some circumstances, it can perform better on the client than LiveGrid.
+		It is also more flexible in what each cell can contain - cells in a column do not all have to be of the same type.
+		If your web page is XHTML compliant, then they are also very easy to implement - just include an XSL stylesheet in your page
+		(which is included in Rico 2.0) and presto - your tables are turned into grids! The stylesheet just looks for tables
+		with a specific class and then does the transformation for you.
+
+<ol style='margin-top:3px;'>
+<li><a href="client/simpleGrid1.xml">4 SimpleGrids arranged in a 2x2 table</a>
+<li><a href="client/simpleGrid2.xml">4 SimpleGrids in a Rico Accordian</a>
+</ol>
+
+  </div>
+
+  <div class="accordionTabTitleBar">LiveGrid: PHP</div>
+	<div id='php' class="accordionTabContentBox">
+
+		<p>The PHP-based XML data provider (ricoXMLquery.php, dbClass2.php, ricoXmlResponse.php) has been tested with the following databases: MySQL 4.1, Oracle XE, SQL Server 2005, MS Access.
+		
+<ol style='margin-top:3px;'>
+<li><a href="php/ex1.php">Simple demo with pre-filled grid</a> - takes advantage of LiveGrid scrolling, but no AJAX
+<li><a href="php/ex2.php">Simple demo with 1 grid</a> - orders for all customers are retrieved via AJAX
+<li><a href="php/ex3.php">Filter as you type</a> - same as previous example, except filters are applied as you type
+<li><a href="php/ex4.php">3 grids on a page</a> - drill down from customer, to orders for a customer, to line items on a specific order
+<li><a href="php/ex5.php">Select a range of cells and fill them in from the pop-up menu</a>
+<li><a href="php/ex6.php">Check boxes generated by SQL query</a>
+<li><a href="php/ex7.php">Check boxes in pre-filled grid</a>
+<li><a href="php/ex8.php">Editable grid with pop-up forms</a>
+<li><a href="php/ex9.php">Yahoo Weather via AJAX</a>
+<li><a href="php/ex10.php">Rico Spreadsheet</a>
+</ol>
+
+  </div>
+
+  <div class="accordionTabTitleBar">LiveGrid: ASP</div>
+	<div id='asp' class="accordionTabContentBox">
+
+		<p>The ASP-based XML data provider (ricoXMLquery.asp, dbClass2.vbs, ricoXmlResponse.vbs) has been tested with the following databases: SQL Server 2000/2005, Oracle XE, MySQL 4.1, MS Access. The code is based on the ADO library, so it should work with most ADO compatible databases.
+		
+<ol style='margin-top:3px;'>
+<li><a href="asp/ex1.asp">Simple demo with pre-filled grid</a> - takes advantage of LiveGrid scrolling, but no AJAX
+<li><a href="asp/ex2.asp">Simple demo with 1 grid</a> - orders for all customers are retrieved via AJAX
+<li><a href="asp/ex3.asp">Filter as you type</a> - same as previous example, except filters are applied as you type
+<li><a href="asp/ex4.asp">3 grids on a page</a> - drill down from customer, to orders for a customer, to line items on a specific order
+<li><a href="asp/ex5.asp">Select a range of cells and fill them in from the pop-up menu</a>
+<li><a href="asp/ex6.asp">Check boxes generated by SQL query</a>
+<li><a href="asp/ex7.asp">Check boxes in pre-filled grid</a>
+<li><a href="asp/ex8.asp">Editable grid with pop-up forms</a>
+<li><a href="asp/ex9.asp">Yahoo Weather via AJAX</a>
+<li><a href="asp/ex10.asp">Rico Spreadsheet</a>
+</ol>
+
+  </div>
+
+  <div class="accordionTabTitleBar">LiveGrid: .net</div>
+	<div id='dotnet' class="accordionTabContentBox">
+
+		<p>The .net-based XML data provider (ricoXMLquery.aspx, dbClass2.ascx, ricoXmlResponse.ascx) has been tested with the following databases: SQL Server 2000/2005, Oracle XE, MySQL 4.1, MS Access. The code is based on the ADO.net library, so it should work with most ADO.net compatible databases.
+		
+<ol style='margin-top:3px;'>
+<li><a href="dotnet/ex1.aspx">Simple demo with pre-filled grid</a> - takes advantage of LiveGrid scrolling, but no AJAX
+<li><a href="dotnet/ex2.aspx">Simple demo with 1 grid</a> - orders for all customers are retrieved via AJAX
+<li><a href="dotnet/ex3.aspx">Filter as you type</a> - same as previous example, except filters are applied as you type
+<li><a href="dotnet/ex4.aspx">3 grids on a page</a> - drill down from customer, to orders for a customer, to line items on a specific order
+<li><a href="dotnet/ex5.aspx">Select a range of cells and fill them in from the pop-up menu</a>
+<li><a href="dotnet/ex6.aspx">Check boxes generated by SQL query</a>
+<li><a href="dotnet/ex7.aspx">Check boxes in pre-filled grid</a>
+<li><a href="dotnet/ex8.aspx">Editable grid with pop-up forms</a>
+<li><a href="dotnet/ex9.aspx">Yahoo Weather via AJAX</a>
+</ol>
+
+  </div>
+
+  <div class="accordionTabTitleBar">LiveGrid: Perl</div>
+	<div id='perl' class="accordionTabContentBox">
+
+		<p>The Perl-based XML data provider (ricoXMLquery.pl) has been tested with the following databases: SQL Server 2000/2005, Oracle XE, MySQL 4.1, MS Access. The code is based on the dbi library, so it should work with most dbi compatible databases.
+		
+<ol style='margin-top:3px;'>
+<li><a href="perl/ex1.pl">Simple demo with pre-filled grid</a> - takes advantage of LiveGrid scrolling, but no AJAX
+<li><a href="perl/ex2.pl">Simple demo with 1 grid</a> - orders for all customers are retrieved via AJAX
+<li><a href="perl/ex3.pl">Filter as you type</a> - same as previous example, except filters are applied as you type
+<li><a href="perl/ex4.pl">3 grids on a page</a> - drill down from customer, to orders for a customer, to line items on a specific order
+<li><a href="perl/ex5.pl">Select a range of cells and fill them in from the pop-up menu</a>
+<li><a href="perl/ex6.pl">Check boxes generated by SQL query</a>
+<li><a href="perl/ex7.pl">Check boxes in pre-filled grid</a>
+<li><a href="perl/ex8.pl">Editable grid with pop-up forms</a>
+<li><a href="perl/ex9.pl">Yahoo Weather via AJAX</a>
+</ol>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>
+

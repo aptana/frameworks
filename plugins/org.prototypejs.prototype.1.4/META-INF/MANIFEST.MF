@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.prototypejs.prototype.1.4;singleton:=true
+Bundle-Version: 1.4.0.00001
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.help,
+ com.aptana.ide.snippets,
+ com.aptana.ide.samples,
+ com.aptana.ide.projects

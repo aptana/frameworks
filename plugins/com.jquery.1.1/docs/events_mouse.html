@@ -1,0 +1,437 @@
+<html>
+<head>
+<title>Events / Mouse - jQuery</title>
+<!-- jQuery 1.0.4 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="events / mouse">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>Events / Mouse</h2><h3 class='func' id='dblclick'><b>dblclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the dblclick event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the dblclick event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).dblclick( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p ondblclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>dblclick</b>() : jQuery</h3>
+<p>Trigger the dblclick event of each matched element. This causes all of the functions that have been bound to thet dblclick event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p ondblclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).dblclick();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onedblclick'><b>onedblclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the dblclick event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the dblclick event of each matched element, which will only be executed once. Unlike a call to the normal .dblclick() method, calling .onedblclick() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p ondblclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onedblclick( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first dblclick</pre>
+</div>
+<h3 class='func' id='undblclick'><b>undblclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the dblclick event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound dblclick event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p ondblclick=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).undblclick( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>undblclick</b>() : jQuery</h3>
+<p>Removes all bound dblclick events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p ondblclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).undblclick();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='mouseup'><b>mouseup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseup event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>mouseup</b>() : jQuery</h3>
+<p>Trigger the mouseup event of each matched element. This causes all of the functions that have been bound to thet mouseup event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseup();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onemouseup'><b>onemouseup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseup event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseup event of each matched element, which will only be executed once. Unlike a call to the normal .mouseup() method, calling .onemouseup() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onemouseup( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first mouseup</pre>
+</div>
+<h3 class='func' id='unmouseup'><b>unmouseup</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the mouseup event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound mouseup event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseup=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseup( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unmouseup</b>() : jQuery</h3>
+<p>Removes all bound mouseup events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseup=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseup();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='mouseout'><b>mouseout</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseout event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseout event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseout( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseout=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>mouseout</b>() : jQuery</h3>
+<p>Trigger the mouseout event of each matched element. This causes all of the functions that have been bound to thet mouseout event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseout=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseout();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onemouseout'><b>onemouseout</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseout event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseout event of each matched element, which will only be executed once. Unlike a call to the normal .mouseout() method, calling .onemouseout() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseout=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onemouseout( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first mouseout</pre>
+</div>
+<h3 class='func' id='unmouseout'><b>unmouseout</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the mouseout event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound mouseout event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseout=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseout( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unmouseout</b>() : jQuery</h3>
+<p>Removes all bound mouseout events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseout=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseout();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='click'><b>click</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the click event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the click event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).click( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>click</b>() : jQuery</h3>
+<p>Trigger the click event of each matched element. This causes all of the functions that have been bound to thet click event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).click();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='oneclick'><b>oneclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the click event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the click event of each matched element, which will only be executed once. Unlike a call to the normal .click() method, calling .oneclick() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).oneclick( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first click</pre>
+</div>
+<h3 class='func' id='unclick'><b>unclick</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the click event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound click event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unclick( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unclick</b>() : jQuery</h3>
+<p>Removes all bound click events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onclick=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unclick();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='mousemove'><b>mousemove</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousemove event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousemove event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousemove( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmousemove=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>mousemove</b>() : jQuery</h3>
+<p>Trigger the mousemove event of each matched element. This causes all of the functions that have been bound to thet mousemove event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousemove=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousemove();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onemousemove'><b>onemousemove</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousemove event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousemove event of each matched element, which will only be executed once. Unlike a call to the normal .mousemove() method, calling .onemousemove() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousemove=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onemousemove( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first mousemove</pre>
+</div>
+<h3 class='func' id='unmousemove'><b>unmousemove</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the mousemove event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound mousemove event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousemove=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmousemove( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unmousemove</b>() : jQuery</h3>
+<p>Removes all bound mousemove events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousemove=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmousemove();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='mousedown'><b>mousedown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousedown event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousedown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmousedown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>mousedown</b>() : jQuery</h3>
+<p>Trigger the mousedown event of each matched element. This causes all of the functions that have been bound to thet mousedown event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousedown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mousedown();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onemousedown'><b>onemousedown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mousedown event of each matched element, which will only be executed once. Unlike a call to the normal .mousedown() method, calling .onemousedown() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousedown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onemousedown( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first mousedown</pre>
+</div>
+<h3 class='func' id='unmousedown'><b>unmousedown</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound mousedown event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousedown=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmousedown( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unmousedown</b>() : jQuery</h3>
+<p>Removes all bound mousedown events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmousedown=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmousedown();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func' id='mouseover'><b>mouseover</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mousedown event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseover event of each matched element.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseover( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>&lt;p onmouseover=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>mouseover</b>() : jQuery</h3>
+<p>Trigger the mouseover event of each matched element. This causes all of the functions that have been bound to thet mousedown event to be executed.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseover=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).mouseover();</pre>
+<h5>Result</h5>
+<pre>alert('Hello');</pre>
+</div>
+<h3 class='func' id='onemouseover'><b>onemouseover</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to bind to the mouseover event on each of the matched elements.</td></tr>
+</table>
+<p>Bind a function to the mouseover event of each matched element, which will only be executed once. Unlike a call to the normal .mouseover() method, calling .onemouseover() causes the bound function to be only executed the first time it is triggered, and never again (unless it is re-bound).</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseover=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).onemouseover( function() { alert(&quot;Hello&quot;); } );</pre>
+<h5>Result</h5>
+<pre>alert('Hello'); // Only executed for the first mouseover</pre>
+</div>
+<h3 class='func' id='unmouseover'><b>unmouseover</b>(Function <b>fn</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>fn</th><td width='15%'>Function</td><td>A function to unbind from the mouseover event on each of the matched elements.</td></tr>
+</table>
+<p>Removes a bound mouseover event from each of the matched elements. You must pass the identical function that was used in the original  bind method.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseover=&quot;myFunction&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseover( myFunction );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>
+<h3 class='func'><b>unmouseover</b>() : jQuery</h3>
+<p>Removes all bound mouseover events from each of the matched elements.</p><h4>Example</h4>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p onmouseover=&quot;alert('Hello');&quot;&gt;Hello&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).unmouseover();</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt;</pre>
+</div>

@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Accordion</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Accordion"><a href="#Accordion">Class: Accordion</a></h1>
+
+<p class="description">The Accordion class creates a group of Elements
+that are toggled when their handles are clicked. When one Element
+toggles into view, the others toggle out.</p>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Accordion requires the page to be in <a href="http://hsivonen.iki.fi/doctype/">Standards Mode</a>.</li>
+<li>Accordion elements will have their paddings and borders removed in
+order to make the transition display correctly. Best practice is to use
+the accordion elements as containers for elements that are styled
+exactly as you like.</li>
+</ul>
+<h3>Extends:</h3>
+
+<p><a href="Fx.Elements.htm">Fx.Elements</a></p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myAccordion = <span class="kw2">new</span> Accordion<span class="br0">(</span>togglers, elements<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>togglers - (<em>array</em>) The collection of Elements which will be clickable and trigger the opening of sections of the Accordion.</li>
+<li>elements - (<em>array</em>) The collection of Elements the transitions will be applied to.</li>
+<li>options  - (<em>object</em>, optional) All the <a href="Fx.htm">Fx</a> options in addition to options below.</li>
+</ol>
+<h4>Options:</h4>
+
+<ul>
+<li>display     - (<em>integer</em>: defaults to 0) The index of the element to show at start (with a transition).</li>
+<li>show        - (<em>integer</em>: defaults to 0) The index of the element to be shown initially.</li>
+<li>height      - (<em>boolean</em>: defaults to true) If set to true, a height transition effect will take place when switching between displayed elements.</li>
+<li>width       - (<em>boolean</em>: defaults to false) If set to true, a width transition will take place when switching between displayed elements.</li>
+<li>opacity     - (<em>boolean</em>: defaults to true) If set to true, an opacity transition effect will take place when switching between displayed elements.</li>
+<li>fixedHeight - (<em>boolean</em>: defaults to false) If set to false, displayed elements will have a fixed height.</li>
+<li>fixedWidth  - (<em>boolean</em>: defaults to false) If set to true, displayed elements will have a fixed width.</li>
+<li>alwaysHide  - (<em>boolean</em>: defaults to false) If set to true,
+it will be possible to close all displayable elements. Otherwise, one
+will remain open at all time.</li>
+<li>width       - (<em>boolean</em>: defaults to false) If set to true,
+it will add a width transition to the accordion. Warning: css mastery
+is required to make this work!</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) A new Accordion instance.</li>
+</ul>
+<h2><a href="#">Events:</a></h2>
+
+<h3 class="description">active</h3>
+
+<ul>
+<li>(<em>function</em>) Function to execute when an element starts to show.</li>
+</ul>
+<h4>Signature:</h4>
+
+<pre class="javascript">onActive<span class="br0">(</span>toggler, element<span class="br0">)</span>
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>toggler - (<em>element</em>) The toggler for the Element being displayed.</li>
+<li>element - (<em>element</em>) The Element being displayed.</li>
+</ol>
+<h3>background</h3>
+
+<ul>
+<li>(<em>function</em>) Function to execute when an element starts to hide.</li>
+</ul>
+<h4>Signature:</h4>
+
+<pre class="javascript">onBackground<span class="br0">(</span>toggler, element<span class="br0">)</span>
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>
+<em>toggler</em> - (element) The toggler for the Element being displayed.</li>
+<li>
+<em>element</em> - (element) The Element being displayed.</li>
+</ol>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myAccordion = <span class="kw2">new</span> Accordion<span class="br0">(</span>$$<span class="br0">(</span><span class="st0">'.togglers'</span><span class="br0">)</span>, $$<span class="br0">(</span><span class="st0">'.elements'</span><span class="br0">)</span>, <span class="br0">{</span>
+    display: <span class="nu0">2</span>,
+    alwaysHide: <span class="kw2">true</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Demos:</h3>
+
+<ul>
+<li>Accordion - <a href="http://demos.mootools.net/Accordion">http://demos.mootools.net/Accordion</a>
+</li>
+</ul>
+<h2 id="Accordion:addSection"><a href="#Accordion:addSection">Accordion Method: addSection</a></h2>
+
+<p class="description">Dynamically adds a new section into the Accordion at the specified position.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myAccordion.<span class="me1">addSection</span><span class="br0">(</span>toggler, element<span class="br0">[</span>, pos<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>toggler - (<em>element</em>) The Element that toggles the Accordion section open.</li>
+<li>element - (<em>element</em>) The Element that should stretch open when the toggler is clicked.</li>
+<li>pos     - (<em>integer</em>, optional) The index at which these objects are to be inserted within the Accordion (defaults to the end).</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Accordion instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myAccordion = <span class="kw2">new</span> Accordion<span class="br0">(</span>$$<span class="br0">(</span><span class="st0">'.togglers'</span><span class="br0">)</span>, $$<span class="br0">(</span><span class="st0">'.elements'</span><span class="br0">)</span><span class="br0">)</span>;
+myAccordion.<span class="me1">addSection</span><span class="br0">(</span><span class="st0">'myToggler1'</span>, <span class="st0">'myElement1'</span><span class="br0">)</span>; <span class="co1">// add the section at the end sections.</span>
+myAccordion.<span class="me1">addSection</span><span class="br0">(</span><span class="st0">'myToggler2'</span>, <span class="st0">'myElement2'</span>, <span class="nu0">0</span><span class="br0">)</span>; <span class="co1">//add the section at the beginning of the sections.</span>
+</pre>
+
+<h2 id="Accordion:display"><a href="#Accordion:display">Accordion Method: display</a></h2>
+
+<p class="description">Shows a specific section and hides all others. Useful when triggering an accordion from outside.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myAccordion.<span class="me1">display</span><span class="br0">(</span>index<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>index - (<em>mixed</em>) The index of the item to show, or the actual element to be displayed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Accordion instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">// Make a ticker-like accordion. Kids don't try this at home.</span>
+<span class="kw2">var</span> myAccordion = <span class="kw2">new</span> Accordion<span class="br0">(</span><span class="st0">'.togglers'</span>, <span class="st0">'.elements'</span>, <span class="br0">{</span>
+    onComplete: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">this</span>.<span class="me1">display</span>.<span class="me1">delay</span><span class="br0">(</span><span class="nu0">2500</span>, <span class="kw1">this</span>, <span class="br0">(</span><span class="kw1">this</span>.<span class="me1">previous</span> + <span class="nu0">1</span><span class="br0">)</span> % <span class="kw1">this</span>.<span class="me1">togglers</span>.<span class="me1">length</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Accordion">Accordion</a></h4>
+<div class="menu-item"><a href="#"></a></div>
+<div class="menu-item"><a href="#Accordion:addSection">addSection</a></div>
+<div class="menu-item"><a href="#Accordion:display">display</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.Responders</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Ajax.Responders</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">Ajax.Responders.register(responder)</span></p>
+<p><span class="f_CourierFixed" style="color: #0000ff;">Ajax.Responders.unregister(responder)</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">A repository of global listeners notified about every step of Prototype-based AJAX requests.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Sometimes, you need to provide generic behaviors over all AJAX operations happening in the page (through <span class="f_CourierFixed">Ajax.Request</span>, <span class="f_CourierFixed">Ajax.Updater</span> or <span class="f_CourierFixed">Ajax.PeriodicalUpdater</span>).</p>
+<p>&nbsp;</p>
+<p>For instance, you might want to automatically show an indicator when an AJAX request is ongoing, and hide it when none are. You may well want to factor out exception handling as well, logging those somewhere on the page in a custom fashion. The possibilities are plenty.</p>
+<p>&nbsp;</p>
+<p>To achieve this, Prototype provides <span class="f_CourierFixed">Ajax.Responders</span>, which lets you register (and if you wish to, unregister later) responders, which are objects with properly-named methods. These names are the regular callback names, and your responders can implement any set of interest.</p>
+<p>&nbsp;</p>
+<p>For instance, Prototype automatically registers a responder that maintains a nifty variable: <span class="f_CourierFixed">Ajax.activeRequestCount</span>. This contains, at any time, the amount of currently active AJAX requests (those created by Prototype, anyway), by monitoring their <span class="f_CourierFixed">onCreate</span> and <span class="f_CourierFixed">onComplete</span> events. The code for this is fairly simple:</p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Ajax.Responders.register({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onCreate:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;Ajax.activeRequestCount++;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;},</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onComplete:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;Ajax.activeRequestCount--;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>All callbacks in the life-cycle are available; actually, <span class="f_CodeExample">onCreate</span> is only available to responders, as it wouldn’t make a lot of sense to individual requests: you do know when your code creates them, don’t you? It is triggered even before the XHR connection is opened, which makes it happen right before <span class="f_CodeExample">onUninitialized</span>.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Unregister: remember the reference…</span></p>
+<p>&nbsp;</p>
+<p>As always, unregistering something requires you to use the very same object you used at registration. So if you plan on unregistering a responder, be sure to define it first, then pass the reference to <span class="f_CodeExample">register</span>, and finally, when the time comes, to <span class="f_CodeExample">unregister</span>.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

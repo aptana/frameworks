@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.prototypejs.prototype.1.4_1.4.0.00001.jar" id="org.prototypejs.prototype.1.4" version="1.4.0.00001">
+      <category name="Prototype"/>
+   </feature>
+   <feature url="features/org.prototypejs.prototype.1.5_1.5.0.00003.jar" id="org.prototypejs.prototype.1.5" version="1.5.0.00003">
+      <category name="Prototype"/>
+   </feature>
+   <feature url="features/org.prototypejs.prototype.1.6_1.6.0.00003.jar" id="org.prototypejs.prototype.1.6" version="1.6.0.00003">
+      <category name="Prototype"/>
+   </feature>
+   <category-def name="Prototype" label="Aptana Support for Prototype"/>
+</site>

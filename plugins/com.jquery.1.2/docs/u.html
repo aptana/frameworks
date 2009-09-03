@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-unbind-type data ">
+<span class="fn"><a class="name" href="#link-unbind-type%20data%20">unbind</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An event type to unbind.">type </span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to unbind from the event on each of the set of matched elements.">data </span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">This does the opposite of bind, it removes bound events from each of the matched elements.<br>&lt;p&gt;Without
+any arguments, all bound events are removed.&lt;/p&gt;&lt;p&gt;You can
+also unbind custom events registered with bind.&lt;/p&gt;&lt;p&gt;If
+the type is provided, all bound events of that type are
+removed.&lt;/p&gt;&lt;p&gt;If the function that was passed to bind is
+provided as the second argument, only that specific event handler is
+removed.&lt;/p&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Can bind and unbind events to the colored button.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;aClick()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).show().fadeOut(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#bind"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;could&nbsp;use&nbsp;.bind('click',&nbsp;aClick)&nbsp;instead&nbsp;but&nbsp;for&nbsp;variety...</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#theone"</span>).click(aClick)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.text(<span class="string">"Can&nbsp;Click!"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#unbind"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#theone"</span>).unbind(<span class="string">'click'</span>,&nbsp;aClick)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.text(<span class="string">"Does&nbsp;nothing..."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"theone"</span><span class="tag">&gt;</span>Does&nbsp;nothing...<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"bind"</span><span class="tag">&gt;</span>Bind&nbsp;Click<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"unbind"</span><span class="tag">&gt;</span>Unbind&nbsp;Click<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span>Click!<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To unbind all events from all paragraphs, write:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).unbind()</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To unbind all click events from all paragraphs, write:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).unbind(&nbsp;<span class="string">"click"</span>&nbsp;)</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To unbind just one previously bound handler, pass the function in as the second argument:</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;foo&nbsp;=&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;code&nbsp;to&nbsp;handle&nbsp;some&nbsp;kind&nbsp;of&nbsp;event</span>&nbsp;
+};&nbsp;
+&nbsp;
+$(<span class="string">"p"</span>).bind(<span class="string">"click"</span>,&nbsp;foo);&nbsp;<span class="com">//&nbsp;...&nbsp;now&nbsp;foo&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;paragraphs&nbsp;are&nbsp;clicked&nbsp;...</span>&nbsp;
+&nbsp;
+$(<span class="string">"p"</span>).unbind(<span class="string">"click"</span>,&nbsp;foo);&nbsp;<span class="com">//&nbsp;...&nbsp;foo&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;called.</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-unload-fn">
+<span class="fn"><a class="name" href="#link-unload-fn">unload</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="function to bind to the unload event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the unload event of each matched element.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To display an alert when a page is unloaded:</p>
+<pre><code class="javascript">$(<span class="global">window</span>).unload(&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;alert(<span class="string">"Bye&nbsp;now!"</span>);&nbsp;}&nbsp;);</code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

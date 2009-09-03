@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Event</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Event"><a href="#Event">Native: Event</a></h1>
+
+<p class="description">MooTools Event Methods.</p>
+
+<h2 id="Event:constructor"><a href="#Event:constructor">Event Method: constructor</a></h2>
+
+<h3 class="description">Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">new</span> Event<span class="br0">(</span><span class="br0">[</span>event<span class="br0">[</span>, win<span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>event - (<em>event</em>) An HTMLEvent Object.</li>
+<li>win   - (<em>window</em>, optional: defaults to window) The context of the event.</li>
+</ol>
+<h4>Properties:</h4>
+
+<ul>
+<li>shift         - (<em>boolean</em>) True if the user pressed the shift key.</li>
+<li>control       - (<em>boolean</em>) True if the user pressed the control key.</li>
+<li>alt           - (<em>boolean</em>) True if the user pressed the alt key.</li>
+<li>meta          - (<em>boolean</em>) True if the user pressed the meta key.</li>
+<li>wheel         - (<em>number</em>) The amount of third button scrolling.</li>
+<li>code          - (<em>number</em>) The keycode of the key pressed.</li>
+<li>page.x        - (<em>number</em>) The x position of the mouse, relative to the full window.</li>
+<li>page.y        - (<em>number</em>) The y position of the mouse, relative to the full window.</li>
+<li>client.x      - (<em>number</em>) The x position of the mouse, relative to the viewport.</li>
+<li>client.y      - (<em>number</em>) The y position of the mouse, relative to the viewport.</li>
+<li>key           - (<em>string</em>) The key pressed as a lowercase
+string. key can be 'enter', 'up', 'down', 'left', 'right', 'space',
+'backspace', 'delete', and 'esc'.</li>
+<li>target        - (<em>element</em>) The event target, not extended with <a href="http://mootools.net/docs/Element/#dollar">$</a> for performance reasons.</li>
+<li>relatedTarget - (<em>element</em>) The event related target, NOT <code>extended</code> with <a href="http://mootools.net/docs/Element/#dollar">$</a>.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myLink'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'keydown'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    <span class="co1">//The passed event parameter is already an instance of the Event class.</span>
+    <span class="kw3">alert</span><span class="br0">(</span>event.<span class="me1">key</span><span class="br0">)</span>;   <span class="co1">//Returns the lowercase letter pressed.</span>
+    <span class="kw3">alert</span><span class="br0">(</span>event.<span class="me1">shift</span><span class="br0">)</span>; <span class="co1">//Returns true if the key pressed is shift.</span>
+    <span class="kw1">if</span> <span class="br0">(</span>event.<span class="me1">key</span> == <span class="st0">'s'</span> &amp;&amp; event.<span class="me1">control</span><span class="br0">)</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Document saved.'</span><span class="br0">)</span>; <span class="co1">//Executes if the user hits Ctr+S.</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Accessing event.page / event.client requires the page to be in <a href="http://hsivonen.iki.fi/doctype/">Standards Mode</a>.</li>
+<li>Every event added with addEvent gets the mootools method automatically, without the need to manually instance it.</li>
+</ul>
+<h2 id="Event:stop"><a href="#Event:stop">Event Method: stop</a></h2>
+
+<p class="description">Stop an Event from propagating and also executes preventDefault.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myEvent.<span class="kw3">stop</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Event instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML:</h5>
+
+<pre class="javascript">&lt;a id=<span class="st0">&quot;myAnchor&quot;</span> href=<span class="st0">&quot;http://google.com/&quot;</span>&gt;Visit Google.<span class="me1">com</span>&lt;/a&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myAnchor'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    event.<span class="kw3">stop</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Prevents the browser from following the link.</span>
+    <span class="kw1">this</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'text'</span>, <span class="st0">&quot;Where do you think you're going?&quot;</span><span class="br0">)</span>; <span class="co1">//'this' is Element that fires the Event.</span>
+    <span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">this</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'text'</span>, <span class="st0">&quot;Instead visit the Blog.&quot;</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'href'</span>, <span class="st0">'http://blog.mootools.net'</span><span class="br0">)</span>;
+    <span class="br0">}</span><span class="br0">)</span>.<span class="me1">delay</span><span class="br0">(</span><span class="nu0">500</span>, <span class="kw1">this</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Returning false within the function can also stop the propagation of the Event.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#Element:addEvent">Element.addEvent</a>, <a href="#Event:stopPropagation">Element.stopPropagation</a>, <a href="#Event:preventDefault">Event.preventDefault</a>, <a href="Function.htm#Function:delay">Function:delay</a>
+</li>
+</ul>
+<h2 id="Event:stopPropagation"><a href="#Event:stopPropagation">Event Method: stopPropagation</a></h2>
+
+<p class="description">Cross browser method to stop the propagation of an event (this stops the event from bubbling up through the DOM).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myEvent.<span class="me1">stopPropagation</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Event object.</li>
+</ul>
+<h3>Examples:</h3>
+
+<p>&quot;#myChild&quot; does not cover the same area as myElement. Therefore, the
+'click' differs from parent and child depending on the click location:</p>
+
+<h5>HTML:</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myChild&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'click'</span><span class="br0">)</span>;
+    <span class="kw1">return</span> <span class="kw2">false</span>; <span class="co1">// equivalent to stopPropagation.</span>
+<span class="br0">}</span><span class="br0">)</span>;
+    $<span class="br0">(</span><span class="st0">'myChild'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    event.<span class="me1">stopPropagation</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">// this will prevent the event to bubble up, and fire the parent's click event.</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+<li><a href="http://developer.mozilla.org/en/docs/DOM:event.stopPropagation">MDC event.stopPropagation</a></li>
+</ul>
+<h2 id="Event:preventDefault"><a href="#Event:preventDefault">Event Method: preventDefault</a></h2>
+
+<p class="description">Cross browser method to prevent the default action of the event.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myEvent.<span class="me1">preventDefault</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) This Event object.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML:</h5>
+
+<pre class="javascript">&lt;form&gt;
+    &lt;input id=<span class="st0">&quot;myCheckbox&quot;</span> type=<span class="st0">&quot;checkbox&quot;</span> /&gt;
+&lt;/form&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myCheckbox'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    event.<span class="me1">preventDefault</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Will prevent the checkbox from being &quot;checked&quot;.</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+<li><a href="http://developer.mozilla.org/en/docs/DOM:event.preventDefault">MDC event.preventDefault</a></li>
+</ul>
+<h1 id="Event-Keys"><a href="#Event-Keys">Hash: Event.Keys</a></h1>
+
+<p class="description">Additional Event key codes can be added by adding properties to the Event.Keys Hash.</p>
+
+<h4>Example:</h4>
+
+<pre class="javascript">Event.<span class="me1">Keys</span>.<span class="me1">shift</span> = <span class="nu0">16</span>;
+$<span class="br0">(</span><span class="st0">'myInput'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'keydown'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>event.<span class="me1">key</span> == <span class="st0">&quot;shift&quot;</span><span class="br0">)</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">&quot;You pressed shift.&quot;</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Event">Event</a></h4>
+<div class="menu-item"><a href="#Event:constructor">constructor</a></div>
+<div class="menu-item"><a href="#Event:stop">stop</a></div>
+<div class="menu-item"><a href="#Event:stopPropagation">stopPropagation</a></div>
+<div class="menu-item"><a href="#Event:preventDefault">preventDefault</a></div>
+<h4 class="menu-item"><a href="#Event-Keys">Event.Keys</a></h4>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

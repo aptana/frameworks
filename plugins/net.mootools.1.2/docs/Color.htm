@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Color</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Color"><a href="#Color">Class: Color</a></h1>
+
+<p class="description">Creates a new Color Class, which is an array with some color specific methods.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = <span class="kw2">new</span> Color<span class="br0">(</span>color<span class="br0">[</span>, type<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>color - (<em>mixed</em>) A string or an array representation of a color.</li>
+<li>type  - (<em>string</em>, optional) A string representing the type of the color to create.</li>
+</ol>
+<h3>Color:</h3>
+
+<p>There are three typical representations of color: String, RGB, and HSB. For String representation see <a href="Element.Style.htm#Element:setStyles">Element:setStyle</a> for more information.</p>
+
+<h3>Examples:</h3>
+
+<h5>String Representation:</h5>
+
+<pre class="javascript"><span class="st0">'#fff'</span>
+</pre>
+
+<h5>RGB and HSB Representation:</h5>
+
+<pre class="javascript"><span class="br0">[</span><span class="nu0">255</span>, <span class="nu0">255</span>, <span class="nu0">255</span><span class="br0">]</span>
+<span class="co1">//Or:</span>
+<span class="br0">[</span><span class="nu0">255</span>, <span class="nu0">255</span>, <span class="nu0">255</span>, <span class="nu0">1</span><span class="br0">]</span> <span class="co1">//(For transparency.)</span>
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> black = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#000'</span><span class="br0">)</span>;
+<span class="kw2">var</span> purple = <span class="kw2">new</span> Color<span class="br0">(</span><span class="br0">[</span><span class="nu0">255</span>,<span class="nu0">0</span>,<span class="nu0">255</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>For HSB colors, you need to specify the second argument.</li>
+</ul>
+<h2 id="Color:mix"><a href="#Color:mix">Color Method: mix</a></h2>
+
+<p class="description">Mixes two or more colors with the Color.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myMix = myColor.<span class="me1">mix</span><span class="br0">(</span>color<span class="br0">[</span>, color2<span class="br0">[</span>, color3<span class="br0">[</span>, ...<span class="br0">]</span><span class="br0">[</span>, alpha<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>color - (<em>mixed</em>) A single or many colors, in hex or rgb representation, to mix with this Color.</li>
+<li>alpha - (<em>number</em>, optional) If the last argument is a number, it will be treated as the amount of the color to mix.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">// mix black with white and purple, each time at 10% of the new color</span>
+<span class="kw2">var</span> darkpurple = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#000'</span><span class="br0">)</span>.<span class="me1">mix</span><span class="br0">(</span><span class="st0">'#fff'</span>, <span class="br0">[</span><span class="nu0">255</span>, <span class="nu0">0</span>, <span class="nu0">255</span><span class="br0">]</span>, <span class="nu0">10</span><span class="br0">)</span>;
+&nbsp;
+$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'background-color'</span>, darkpurple<span class="br0">)</span>;
+</pre>
+
+<h2 id="Color:Invert"><a href="#Color:Invert">Color Method: invert</a></h2>
+
+<p class="description">Inverts the Color.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myInvert = myColor.<span class="me1">invert</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> white = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#fff'</span><span class="br0">)</span>;
+<span class="kw2">var</span> black = white.<span class="me1">invert</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Color:setHue"><a href="#Color:setHue">Color Method: setHue</a></h2>
+
+<p class="description">Modifies the hue of the Color, and returns a new one.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> hue = myColor.<span class="me1">setHue</span><span class="br0">(</span>value<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>value - (<em>number</em>) The hue to set.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(arrays) A new Color instance.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#f00'</span><span class="br0">)</span>;
+<span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+&nbsp;
+<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    myElement.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'color'</span>, myColor.<span class="me1">setHue</span><span class="br0">(</span>myColor.<span class="me1">hsb</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span>++<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>.<span class="me1">periodical</span><span class="br0">(</span><span class="nu0">250</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Color:setSaturation"><a href="#Color:setSaturation">Color Method: setSaturation</a></h2>
+
+<p class="description">Changes the saturation of the Color, and returns a new one.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> saturate = myColor.<span class="me1">setSaturation</span><span class="br0">(</span>percent<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>percent - (<em>number</em>) The percentage of the saturation to set.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#f00'</span><span class="br0">)</span>;
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'mouseenter'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">this</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'background-color'</span>, myColor.<span class="me1">setSaturation</span><span class="br0">(</span>myColor.<span class="me1">hsb</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span>++<span class="br0">)</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Color:setBrightness"><a href="#Color:setBrightness">Color Method: setBrightness</a></h2>
+
+<p class="description">Changes the brightness of the Color, and returns a new one.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> brighten = myColor.<span class="me1">setBrightness</span><span class="br0">(</span>percent<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>percent - (<em>number</em>) The percentage of the brightness to set.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = <span class="kw2">new</span> Color<span class="br0">(</span><span class="st0">'#000'</span><span class="br0">)</span>;
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'mouseenter'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw1">this</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'background-color'</span>, myColor.<span class="me1">setBrightness</span><span class="br0">(</span>myColor.<span class="me1">hsb</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span>++<span class="br0">)</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="RGB"><a href="#RGB">Function: $RGB</a></h2>
+
+<p class="description">Shortcut to create a new color, based on red, green, blue values.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = $RGB<span class="br0">(</span>r, g, b<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>r - (<em>number</em>) A red value from 0 to 255.</li>
+<li>g - (<em>number</em>) A green value from 0 to 255.</li>
+<li>b - (<em>number</em>) A blue value from 0 to 255.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = $RGB<span class="br0">(</span>$random<span class="br0">(</span><span class="nu0">0</span>,<span class="nu0">255</span><span class="br0">)</span>, $random<span class="br0">(</span><span class="nu0">0</span>,<span class="nu0">255</span><span class="br0">)</span>, $random<span class="br0">(</span><span class="nu0">0</span>,<span class="nu0">255</span><span class="br0">)</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="HSB"><a href="#HSB">Function: $HSB</a></h2>
+
+<p class="description">Shortcut to create a new color, based on: hue, saturation, brightness values.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = $HSB<span class="br0">(</span>h, s, b<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>h - (<em>number</em>) A hue value from 0 to 359.</li>
+<li>s - (<em>number</em>) A saturation value from 0 to 100.</li>
+<li>b - (<em>number</em>) A brightness value from 0 to 100.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A new Color instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myColor = $HSB<span class="br0">(</span><span class="nu0">50</span>, <span class="nu0">50</span>, <span class="nu0">100</span><span class="br0">)</span>;
+</pre>
+
+<h1 id="Array"><a href="#Array">Native: Array</a></h1>
+
+<p class="description">Contains Array prototypes.</p>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:Array">MDC Array</a></li>
+</ul>
+<h2 id="Array:rgbToHsb"><a href="#Array:rgbToHsb">Array Method: rgbToHsb</a></h2>
+
+<p class="description">Converts a RGB array to an HSB array.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myHSB = myRGBArray.<span class="me1">rgbToHsb</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An array with HSB values.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myHSB = <span class="br0">[</span><span class="nu0">255</span>, <span class="nu0">0</span>, <span class="nu0">0</span><span class="br0">]</span>.<span class="me1">rgbToHsb</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Returns [0, 100, 100].</span>
+</pre>
+
+<h2 id="Array:hsbToRgb"><a href="#Array:hsbToRgb">Array Method: hsbToRgb</a></h2>
+
+<p class="description">Converts an HSB array to a RGB array.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myHSB = myRGBArray.<span class="me1">hsbToRgb</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An array with RGB values.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myRGB = <span class="br0">[</span><span class="nu0">0</span>, <span class="nu0">100</span>, <span class="nu0">100</span><span class="br0">]</span>.<span class="me1">hsbToRgb</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//myRGB = [255, 0, 0]</span>
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Color">Color</a></h4>
+<div class="menu-item"><a href="#Color:mix">mix</a></div>
+<div class="menu-item"><a href="#Color:Invert">Invert</a></div>
+<div class="menu-item"><a href="#Color:setHue">setHue</a></div>
+<div class="menu-item"><a href="#Color:setSaturation">setSaturation</a></div>
+<div class="menu-item"><a href="#Color:setBrightness">setBrightness</a></div>
+<div class="menu-item"><a href="#RGB">RGB</a></div>
+<div class="menu-item"><a href="#HSB">HSB</a></div>
+<h4 class="menu-item"><a href="#Array">Array</a></h4>
+<div class="menu-item"><a href="#Array:rgbToHsb">rgbToHsb</a></div>
+<div class="menu-item"><a href="#Array:hsbToRgb">hsbToRgb</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

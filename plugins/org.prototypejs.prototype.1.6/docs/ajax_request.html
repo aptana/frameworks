@@ -1,0 +1,166 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.Request</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Ajax.Request</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">new Ajax.Request(url[, options])</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Initiates and processes an AJAX request.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This object is a general-purpose AJAX requester: it handles the life-cycle of the request, handles the boilerplate, and lets you plug in callback functions for your custom needs.</p>
+<p>&nbsp;</p>
+<p>In the optional options hash, you usually provide a <span class="f_CourierFixed">onComplete</span> and/or <span class="f_CourierFixed">onSuccess</span> callback, unless you're in the edge case where you're getting a Javascript-typed response, that will automatically be eval'd.</p>
+<p>&nbsp;</p>
+<p>For a full list of common options and callbacks, see Ajax Options.</p>
+<p>&nbsp;</p>
+<p>The only proper way to create a requester is through the new operator. As soon as the object is created, it initiates the request, then goes on processing it throughout its life-cycle.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">A basic example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">URL&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'http://www.google.com/search?q=Prototype'</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Request(</span><span class="f_CodeExample" style="color: #800000;">'/proxy?url='</span><span class="f_CodeExample" style="color: #000000;">&nbsp;+&nbsp;encodeURIComponent(URL),&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;method:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'get'</span><span class="f_CodeExample" style="color: #000000;">,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onSuccess:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(transport)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;notice&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'notice'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(transport.responseText.match(/</span><span class="f_CodeExample" style="color: #ff00ff;">&lt;a&nbsp;class=l&nbsp;href=&quot;http:\/\/prototypejs.org</span><span class="f_CodeExample" style="color: #800000;">/</span><span class="f_CodeExample" style="color: #000000;">))</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample">&nbsp;notice.update('Yeah!&nbsp;&nbsp;You&nbsp;are&nbsp;in&nbsp;the&nbsp;Top&nbsp;10!').setStyle({&nbsp;background:&nbsp;'</span><span class="f_CodeExample">#dfd'&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">else</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample">&nbsp;notice.update('Damn!&nbsp;&nbsp;You&nbsp;are&nbsp;beyond&nbsp;</span><span class="f_CodeExample">#10...').setStyle({&nbsp;background:&nbsp;'#fdd'&nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Request life-cycle</span></p>
+<p>&nbsp;</p>
+<p>Underneath our nice requester objects lies, of course, XMLHttpRequest. The defined life-cycle is as follows:</p>
+<p>&nbsp;</p>
+<p>  &nbsp;1. Created</p>
+<p>  &nbsp;2. Initialized</p>
+<p>  &nbsp;3. Request sent</p>
+<p>  &nbsp;4. Response being received (can occur many times, as packets come in)</p>
+<p>  &nbsp;5. Response received, request complete</p>
+<p>&nbsp;</p>
+<p>As you can see in Ajax options, Prototype's AJAX objects define a whole slew of callbacks, </p>
+<p>which are triggered in the following order:</p>
+<p>&nbsp;</p>
+<p>  &nbsp;1. onCreate (this is actually a callback reserved to AJAX global responders)</p>
+<p>  &nbsp;2. onUninitialized (maps on Created)</p>
+<p>  &nbsp;3. onLoading (maps on Initialized)</p>
+<p>  &nbsp;4. onLoaded (maps on Request sent)</p>
+<p>  &nbsp;5. onInteractive (maps on Response being received)</p>
+<p>  &nbsp;6. onXYZ (numerical response status code), onSuccess or onFailure (see below)</p>
+<p>  &nbsp;7. onComplete</p>
+<p>&nbsp;</p>
+<p>The two last steps both map on Response received, in that order. If a status-specific callback is defined, it gets invoked. Otherwise, if <span class="f_CourierFixed">onSuccess</span> is defined and the response is deemed a success (see below), it is invoked. Otherwise, if onFailure is defined and the response is not deemed a success, it is invoked. Only after that potential first callback is onComplete called.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">A note on portability</span></p>
+<p>&nbsp;</p>
+<p>Depending on how your browser implements <span class="f_CourierFixed">XMLHttpRequest</span>, one or more callbacks may never be invoked. In particular, onLoaded and onInteractive are not a 100% safe bet so far. However, the global <span class="f_CourierFixed">onCreate</span>, <span class="f_CourierFixed">onUninitialized</span> and the two final steps are very much guaranteed.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">onSuccess and onFailure, the under-used callbacks</span></p>
+<p>&nbsp;</p>
+<p>Way too many people use Ajax.Requester in a similar manner to raw XHR, defining only an onComplete callback even when they're only interested in "successful" responses, thereby testing it by hand:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;This&nbsp;is&nbsp;too&nbsp;bad,&nbsp;there's&nbsp;better!</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Requester(</span><span class="f_CodeExample" style="color: #800000;">'/your/url'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onComplete:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(transport)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(</span><span class="f_CodeExample" style="color: #ff0000;">200</span><span class="f_CodeExample" style="color: #000000;">&nbsp;==&nbsp;transport.status)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;yada&nbsp;yada&nbsp;yada</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>First, as described below, you could use better "success" detection: success is generally defined, HTTP-wise, as either no response status or a "2xy" response status (e.g., 201 is a success, too). See the example below.</p>
+<p>&nbsp;</p>
+<p>Second, you could dispense with status testing altogether! Prototype adds callbacks specific to success and failure, which we listed above. Here's what you could do if you're only interested in success, for instance:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Requester(</span><span class="f_CodeExample" style="color: #800000;">'/your/url'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onSuccess:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(transport)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;yada&nbsp;yada&nbsp;yada</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Automatic JavaScript response evaluation</span></p>
+<p>&nbsp;</p>
+<p>Any response whose MIME type is missing or JavaScript-related will automatically be passed to eval. Before yelling on what a security breach that is, remember that XHR is usually used on URLs from the same host that originated the current page (this is the famous Same Origin Policy, or SOP): these scripts are supposed to be under your control.</p>
+<p>&nbsp;</p>
+<p>What this means is, you don't even need to provide a callback to leverage pure-JavaScript AJAX responses. That's pretty cool, wouldn't you say? The list of JavaScript-related MIME types handled by Prototype is:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>application/ecmascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>application/javascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>application/x-ecmascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>application/x-javascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>text/ecmascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>text/javascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>text/x-ecmascript</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>text/x-javascript</td></tr></table></div><p>&nbsp;</p>
+<p>The MIME type string is examined in a case-insensitive manner.</p>
+<p>Methods you may find useful</p>
+<p>&nbsp;</p>
+<p>Requester objects provide several methods that can come in handy in your callback functions, especially once the request completed. Since alllocal callbacks execute in the requester's context, you're able to use these methods in your callback code.</p>
+<p>Is the response a successful one?</p>
+<p>&nbsp;</p>
+<p>The <span class="f_CodeExample">success()</span> method examines the XHR's status property, and follows general HTTP guidelines: unknown status is deemed successful, as is the whole 2xy status code family. It's a generally better way of testing your response than the usual 200 == transport.status.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Getting HTTP response headers</span></p>
+<p>&nbsp;</p>
+<p>While you can obtain response headers from the <span class="f_CourierFixed">XHR</span> object, using its <span class="f_CourierFixed">getResponseHeader</span> method, this makes for slightly verbose code, and several implementations may raise an exception when the header is not found. To make this easier, you can use the <span class="f_CourierFixed">getHeader</span> method, which just delegates to the longer version and returns null should an exception occur:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Requester(</span><span class="f_CodeExample" style="color: #800000;">'/your/url'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onSuccess:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Note&nbsp;how&nbsp;we&nbsp;brace&nbsp;against&nbsp;null&nbsp;values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;((this.getHeader(</span><span class="f_CodeExample" style="color: #800000;">'Server'</span><span class="f_CodeExample" style="color: #000000;">)&nbsp;||&nbsp;</span><span class="f_CodeExample" style="color: #800000;">''</span><span class="f_CodeExample" style="color: #000000;">).match(/Apache/))</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++gApacheCount;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Remainder&nbsp;of&nbsp;the&nbsp;code</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Evaluating JSON headers</span></p>
+<p>&nbsp;</p>
+<p>Some backends will return JSON not as response text, but in the X-JSON header. You can directly eval its content and get the result by calling the <span class="f_CourierFixed">evalJSON</span> method, which returns null if there is no such header, or the contents is invalid. For robustness, the header's content is wrapped in parentheses prior to evaluat ion.</p>
+<p>&nbsp;</p>
+<p>You actually don't even need to call this method yourself, as Prototype automatically calls it and passes the result as the final argument to any callback (except for <span class="f_CourierFixed">onCreate</span>). So the following code is suboptimal:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Request(</span><span class="f_CodeExample" style="color: #800000;">'/your/url'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onSuccess:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;json&nbsp;=&nbsp;this.evalJSON();&nbsp;//&nbsp;Uselessly&nbsp;evals&nbsp;a&nbsp;second&nbsp;time!</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Remainder&nbsp;of&nbsp;the&nbsp;code</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>Prefer the following approach:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Request(</span><span class="f_CodeExample" style="color: #800000;">'/your/url'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onSuccess:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(transport,&nbsp;json)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Remainder&nbsp;of&nbsp;the&nbsp;code</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

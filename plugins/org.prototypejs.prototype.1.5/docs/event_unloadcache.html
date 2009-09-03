@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>unloadCache</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">unloadCache </span><span class="f_TopicHeading" style="color: #ccffff;">:: Event</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">Event.unloadCache()</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Unregisters all event handlers registered through </span><span class="f_CourierFixed">observe</span><span style="font-size: 9pt; font-weight: bold; color: #666699;">. Automatically wired for you.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">The sad tale of MSIE, event handlers and memory leaks</span></p>
+<p>&nbsp;</p>
+<p>There is a significant issue with MSIE, which is that under a variety of conditions, it just will not release event handlers when the page unloads. These handlers will stay in RAM, filling it up slowly, clogging the browser’s arteries. This is known as a memory leak.</p>
+<p>&nbsp;</p>
+<p>Of course, manually keeping tabs on all the handlers you register (which you do through <span class="f_CourierFixed">observe</span>, being such a nice person) is pretty tedious. And boring. It would be, in short, the essence of un-cool.</p>
+<p>&nbsp;</p>
+<p>Which is why Prototype takes care of it for you. It keeps tabs, and when <span class="f_CourierFixed">unloadCache</span> is called, it unregisters everything and frees references, which is akin to sending a big pink lavender-perfumed invitation to the garbage collector.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">You don’t even need to know this</span></p>
+<p>&nbsp;</p>
+<p>What’s even better is, Prototype automatically hooks <span class="f_CourierFixed">unloadCache</span> to page unloading, exclusively for MSIE. So you don’t have anything to do. It’s all taken care of. We just though you’d like to know. Go do something productive, some value-added JavaScript code for instance. We’re not here to hinder you with automatable details.</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

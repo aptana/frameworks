@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site pack200="true"> 
+    <description url="http://update.aptana.com/update/frameworks/">AJAX Frameworks</description> 
+	<feature url="features/com.adobe.spry.1.6_{com.adobe.spry.1.6.version.full}.jar" id="com.adobe.spry.1.6" version="{com.adobe.spry.1.6.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/com.extjs.ext.2.2_{com.extjs.ext.2.2.version.full}.jar" id="com.extjs.ext.2.2" version="{com.extjs.ext.2.2.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/com.jquery.1.3_{com.jquery.1.3.version.full}.jar" id="com.jquery.1.3" version="{com.jquery.1.3.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/com.mochikit.1.4_{com.mochikit.1.4.version.full}.jar" id="com.mochikit.1.4" version="{com.mochikit.1.4.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/com.ms.ajax.3.5_{com.ms.ajax.3.5.version.full}.jar" id="com.ms.ajax.3.5" version="{com.ms.ajax.3.5.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/com.yahoo.yui.2.7_{com.yahoo.yui.2.7.version.full}.jar" id="com.yahoo.yui.2.7" version="{com.yahoo.yui.2.7.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/net.mootools.1.2_{net.mootools.1.2.version.full}.jar" id="net.mootools.1.2" version="{net.mootools.1.2.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/org.aflax.1.0_{org.aflax.1.0.version.full}.jar" id="org.aflax.1.0" version="{org.aflax.1.0.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/org.dojotoolkit.dojo.1.3_{org.dojotoolkit.dojo.1.3.version.full}.jar" id="org.dojotoolkit.dojo.1.3" version="{org.dojotoolkit.dojo.1.3.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/org.openrico.rico.2.0_{org.openrico.rico.2.0.version.full}.jar" id="org.openrico.rico.2.0" version="{org.openrico.rico.2.0.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/org.prototypejs.prototype.1.6_{org.prototypejs.prototype.1.6.version.full}.jar" id="org.prototypejs.prototype.1.6" version="{org.prototypejs.prototype.1.6.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <feature url="features/org.scriptaculous.1.8_{org.scriptaculous.1.8.version.full}.jar" id="org.scriptaculous.1.8" version="{org.scriptaculous.1.8.version.full}">
+		<category name="Ajax Frameworks"/>
+	</feature>
+    <category-def name="Ajax Frameworks" label="Ajax Frameworks">
+        <description>Adds support for multiple AJAX Frameworks to Aptana Studio</description>
+    </category-def>
+</site>

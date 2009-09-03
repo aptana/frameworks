@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="jQuery 1.2 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries">
+	<topic label="jQuery 1.2"  href="docs/index.html"> 
+		<topic label="Core">
+			<topic href="docs/j.html#link-jQuery-html" label="jQuery(html)"></topic>
+			<topic href="docs/j.html#link-jQuery-elements" label="jQuery(elements)"></topic>
+			<topic href="docs/j.html#link-jQuery-callback" label="jQuery(callback)"></topic>
+			<topic href="docs/j.html#link-jQuery-expressioncontext" label="jQuery(expression, context)"></topic>
+			<topic href="docs/e.html#link-each-callback" label="each(callback)"></topic>
+			<topic href="docs/e.html#link-eq-position" label="eq(position)"></topic>
+			<topic href="docs/g.html#link-get-" label="get()"></topic>
+			<topic href="docs/g.html#link-get-index" label="get(index)"></topic>
+			<topic href="docs/i.html#link-index-subject" label="index(subject)"></topic>
+			<topic href="docs/l.html#link-length-" label="length"></topic>
+			<topic href="docs/s.html#link-size-" label="size()"></topic>
+			<topic href="docs/j.html#link-jQueryextend-object" label="jQuery.extend(object)"></topic>
+			<topic href="docs/j.html#link-jQueryfnextend-object" label="jQuery.fn.extend(object)"></topic>
+			<topic href="docs/j.html#link-jQuerynoConflict-" label="jQuery.noConflict()"></topic>
+			<topic href="docs/j.html#link-jQuerynoConflict-extreme" label="jQuery.noConflict(extreme)"></topic>
+		</topic>
+		<topic label="Selectors">
+			<topic label="*" href="docs/a.html#link-all-"></topic>
+			<topic label=".class" href="docs/c.html#link-class-class"></topic>
+			<topic label="element" href="docs/e.html#link-element-element"></topic>
+			<topic label="#id" href="docs/i.html#link-id-id"></topic>
+			<topic label="selector1, selector2, selectorN" href="docs/m.html#link-multiple-selector1selector2selectorN"></topic>
+			<topic label="parent &gt; child" href="docs/c.html#link-child-parentchild"></topic>
+			<topic label="ancestor descendant" href="docs/d.html#link-descendant-ancestordescendant"></topic>
+			<topic label="prev + next" href="docs/n.html#link-next-prevnext"></topic>
+			<topic label="prev ~ siblings" href="docs/s.html#link-siblings-prevsiblings"></topic>
+			<topic label=":animated" href="docs/a.html#link-animated-"></topic>
+			<topic label=":eq(index)" href="docs/e.html#link-eq-index"></topic>
+			<topic label=":even" href="docs/e.html#link-even-"></topic>
+			<topic label=":first" href="docs/f.html#link-first-"></topic>
+			<topic label=":gt(index)" href="docs/g.html#link-gt-index"></topic>
+			<topic label=":header" href="docs/h.html#link-header-"></topic>
+			<topic label=":last" href="docs/l.html#link-last-"></topic>
+			<topic label=":lt(index)" href="docs/l.html#link-lt-index"></topic>
+			<topic label=":not(selector)" href="docs/n.html#link-not-selector"></topic>
+			<topic label=":odd" href="docs/o.html#link-odd-"></topic>
+			<topic label=":contains(text)" href="docs/c.html#link-contains-text"></topic>
+			<topic label=":empty" href="docs/e.html#link-empty-"></topic>
+			<topic label=":has(selector)" href="docs/h.html#link-has-selector"></topic>
+			<topic label=":parent" href="docs/p.html#link-parent-"></topic>
+			<topic label=":hidden" href="docs/h.html#link-hidden-"></topic>
+			<topic label=":visible" href="docs/v.html#link-visible-"></topic>
+			<topic label="[attribute*=value]" href="docs/a.html#link-attributeContains-attributevalue"></topic>
+			<topic label="[attribute$=value]" href="docs/a.html#link-attributeEndsWith-attributevalue"></topic>
+			<topic label="[attribute=value]" href="docs/a.html#link-attributeEquals-attributevalue"></topic>
+			<topic label="[attribute]" href="docs/a.html#link-attributeHas-attribute"></topic>
+			<topic label="[selector1][selector2][selectorN]" href="docs/a.html#link-attributeMultiple-selector1selector2selectorN"></topic>
+			<topic label="[attribute!=value]" href="docs/a.html#link-attributeNotEqual-attributevalue"></topic>
+			<topic label="[attribute^=value]" href="docs/a.html#link-attributeStartsWith-attributevalue"></topic>
+			<topic label=":first-child" href="docs/f.html#link-firstChild-"></topic>
+			<topic label=":last-child" href="docs/l.html#link-lastChild-"></topic>
+			<topic label=":nth-child(index/even/odd/equation)" href="docs/n.html#link-nthChild-index"></topic>
+			<topic label=":only-child" href="docs/o.html#link-onlyChild-"></topic>
+			<topic label=":button" href="docs/b.html#link-button-"></topic>
+			<topic label=":checkbox" href="docs/c.html#link-checkbox-"></topic>
+			<topic label=":file" href="docs/f.html#link-file-"></topic>
+			<topic label=":hidden" href="docs/h.html#link-hidden-"></topic>
+			<topic label=":image" href="docs/i.html#link-image-"></topic>
+			<topic label=":input" href="docs/i.html#link-input-"></topic>
+			<topic label=":password" href="docs/p.html#link-password-"></topic>
+			<topic label=":radio" href="docs/r.html#link-radio-"></topic>
+			<topic label=":reset" href="docs/r.html#link-reset-"></topic>
+			<topic label=":submit" href="docs/s.html#link-submit-"></topic>
+			<topic label=":text" href="docs/t.html#link-text-"></topic>
+			<topic label=":checked" href="docs/c.html#link-checked-"></topic>
+			<topic label=":disabled" href="docs/d.html#link-disabled-"></topic>
+			<topic label=":enabled" href="docs/e.html#link-enabled-"></topic>
+			<topic label=":selected" href="docs/s.html#link-selected-"></topic>
+		  </topic>
+		<topic label="Attributes">
+			<topic href="docs/a.html#link-attr-name" label="attr(name)"></topic>
+			<topic href="docs/a.html#link-attr-properties" label="attr(properties)"></topic>
+			<topic href="docs/a.html#link-attr-keyvalue" label="attr(key, value)"></topic>
+			<topic href="docs/a.html#link-attr-keyfn" label="attr(key, fn)"></topic>
+			<topic href="docs/r.html#link-removeAttr-name" label="removeAttr(name)"></topic>
+
+			<topic href="docs/a.html#link-addClass-class" label="addClass(class)"></topic>
+			<topic href="docs/r.html#link-removeClass-class" label="removeClass(class)"></topic>
+			<topic href="docs/t.html#link-toggleClass-class" label="toggleClass(class)"></topic>
+
+			<topic href="docs/h.html#link-html-" label="html()"></topic>
+			<topic href="docs/h.html#link-html-val" label="html(val)"></topic>
+
+			<topic href="docs/t.html#link-text-" label="text()"></topic>
+			<topic href="docs/t.html#link-text-val" label="text(val)"></topic>
+
+			<topic href="docs/v.html#link-val-" label="val()"></topic>
+			<topic href="docs/v.html#link-val-val" label="val(val)"></topic>
+			<topic href="docs/v.html#link-val-val" label="val(val)"></topic>
+		  </topic>
+		<topic label="Traversing"  href="docs/dom_traversing.html">
+			<topic href="docs/e.html#link-eq-index" label="eq(index)"></topic>
+			<topic href="docs/f.html#link-filter-expr" label="filter(expr)"></topic>
+			<topic href="docs/f.html#link-filter-fn" label="filter(fn)"></topic>
+			<topic href="docs/h.html#link-hasClass-class" label="hasClass(class)"></topic>
+			<topic href="docs/i.html#link-is-expr" label="is(expr)"></topic>
+			<topic href="docs/m.html#link-map-callback" label="map(callback)"></topic>
+			<topic href="docs/n.html#link-not-expr" label="not(expr)"></topic>
+			<topic href="docs/s.html#link-slice-startend" label="slice(start, end)"></topic>
+
+			<topic href="docs/a.html#link-add-expr" label="add(expr)"></topic>
+			<topic href="docs/c.html#link-children-expr" label="children(expr)"></topic>
+			<topic href="docs/c.html#link-contents-" label="contents()"></topic>
+			<topic href="docs/f.html#link-find-expr" label="find(expr)"></topic>
+			<topic href="docs/n.html#link-next-expr" label="next(expr)"></topic>
+			<topic href="docs/n.html#link-nextAll-expr" label="nextAll(expr)"></topic>
+			<topic href="docs/p.html#link-parent-expr" label="parent(expr)"></topic>
+			<topic href="docs/p.html#link-parents-expr" label="parents(expr)"></topic>
+			<topic href="docs/p.html#link-prev-expr" label="prev(expr)"></topic>
+			<topic href="docs/p.html#link-prevAll-expr" label="prevAll(expr)"></topic>
+			<topic href="docs/s.html#link-siblings-expr" label="siblings(expr)"></topic>
+
+			<topic href="docs/a.html#link-andSelf-" label="andSelf()"></topic>
+			<topic href="docs/e.html#link-end-" label="end()"></topic>
+		  </topic>
+			  <topic label="Manipulation"  href="docs/dom_manipulation.html">
+			<topic href="docs/h.html#link-html-" label="html()"></topic>
+			<topic href="docs/h.html#link-html-val" label="html(val)"></topic>
+			<topic href="docs/t.html#link-text-" label="text()"></topic>
+			<topic href="docs/t.html#link-text-val" label="text(val)"></topic>
+
+			<topic href="docs/a.html#link-append-content" label="append(content)"></topic>
+			<topic href="docs/a.html#link-appendTo-content" label="appendTo(content)"></topic>
+			<topic href="docs/p.html#link-prepend-content" label="prepend(content)"></topic>
+			<topic href="docs/p.html#link-prependTo-content" label="prependTo(content)"></topic>
+
+			<topic href="docs/a.html#link-after-content" label="after(content)"></topic>
+			<topic href="docs/b.html#link-before-content" label="before(content)"></topic>
+			<topic href="docs/i.html#link-insertAfter-content" label="insertAfter(content)"></topic>
+			<topic href="docs/i.html#link-insertBefore-content" label="insertBefore(content)"></topic>
+
+			<topic href="docs/w.html#link-wrap-html" label="wrap(html)"></topic>
+			<topic href="docs/w.html#link-wrap-elem" label="wrap(elem)"></topic>
+			<topic href="docs/w.html#link-wrapAll-html" label="wrapAll(html)"></topic>
+			<topic href="docs/w.html#link-wrapAll-elem" label="wrapAll(elem)"></topic>
+			<topic href="docs/w.html#link-wrapInner-html" label="wrapInner(html)"></topic>
+			<topic href="docs/w.html#link-wrapInner-elem" label="wrapInner(elem)"></topic>
+
+			<topic href="docs/r.html#link-replaceAll-selector" label="replaceAll(selector)"></topic>
+			<topic href="docs/r.html#link-replaceWith-content" label="replaceWith(content)"></topic>
+
+			<topic href="docs/e.html#link-empty-" label="empty()"></topic>
+			<topic href="docs/r.html#link-remove-expr" label="remove(expr)"></topic>
+
+			<topic href="docs/c.html#link-clone-" label="clone()"></topic>
+			<topic href="docs/c.html#link-clone-true" label="clone(true)"></topic>              
+		  </topic>
+
+</topic>
+</toc>

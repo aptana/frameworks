@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>serialize</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">serialize </span><span class="f_TopicHeading" style="color: #ccffff;">:: Form</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">serialize(formElement) -&gt; string</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Serialize form data to a string suitable for Ajax requests.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The result is a string in form "<span class="f_CourierFixed">name=johnny&amp;color=blue</span>", suitable for parameters in an Ajax request. This method mimics the way browsers serialize forms natively so that form data can be sent without refreshing the page.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;form&nbsp;id="</span><span class="f_CodeExample2" style="font-weight: bold;">person-example</span><span class="f_CodeExample2">"&nbsp;class="example"&nbsp;action="#"&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;input&nbsp;type="text"&nbsp;name="username"&nbsp;id="username"&nbsp;value="Sulien"&nbsp;/&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;input&nbsp;type="text"&nbsp;name="age"&nbsp;id="age"&nbsp;size="3"&nbsp;value="22"&nbsp;/&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;select&nbsp;name="hobbies"&nbsp;id="hobbies"&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;option&nbsp;value="coding"&gt;Coding&lt;/option&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;option&nbsp;value="swimming"&gt;Swimming&lt;/option&gt;&nbsp;&lt;!--&nbsp;selected&nbsp;--&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;option&nbsp;value="hiking"&gt;Hiking&lt;/option&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;option&nbsp;value="drawing"&gt;Drawing&lt;/option&gt;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;/select&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;</span></p>
+<p class="p_CodeExample2"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample2">&lt;button&nbsp;type="submit"&gt;Send&lt;/button&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/form&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'person-example'</span><span class="f_CodeExample" style="color: #000000;">).serialize()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'username=sulien&amp;age=22&amp;hobbies=swimming'</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Notes</span></p>
+<p>&nbsp;</p>
+<p>Disabled form elements are not serialized (as per W3C HTML recommendation). </p>
+<p>Also, file inputs are skipped as they cannot be serialized and sent using only JavaScript.</p>
+<p>&nbsp;</p>
+<p>Keep in mind that "hobbies" multiple select should really be named "hobbies[]" if we're posting to a PHP or Ruby on Rails backend because we want to send an array of values instead of a single one. This has nothing to do with JavaScript - Prototype doesn't do any magic with the names of your controls, leaving these decisions entirely up to you.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Untitled Document</title>
+    </head>
+    <body>
+        <!-- Text area to display tracing information to the Web page. If you use Firebug or Safari debug console, these tracings will go to the JavaScript console as well. -->
+        <textarea style="width: 1000px; height: 300px;" id="_traceTextBox">
+        </textarea>
+        <script src="http://static.ak.facebook.com/js/api_lib/v0.2/FeatureLoader.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            FB_RequireFeatures(["Api"], function(){
+                // Create an ApiClient object, passing app's API key and
+                // a site relative URL to xd_receiver.htm
+                var api = new FB.ApiClient('<insert_you_app_key>', 'xd_reciever.htm', null); // require user to login
+                api.requireLogin(function(exception){
+                    Debug.dump("Current user id is " + api.get_session().uid); // Get friends list
+                    api.friends_get(null, function(result, exception){
+                        Debug.dump(result, 'friendsResult from non-batch execution ');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

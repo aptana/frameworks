@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery3.png" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-val-">
+<span class="fn"><a class="name" href="#link-val-">val</a>(  ) returns <span class="type"><span class="tooltip" title="">String, Array</span></span></span>
+<div class="more">
+<div class="desc">Get the content of the value attribute of the first matched element.<br>In jQuery 1.2, a value is now returned for all elements, including selects. For multiple selects an array of values is returned.<br>
+<br>For older versions of jQuery use the [http://www.malsup.com/jquery/form/#fields fieldValue function of the Form Plugin].</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Get the single value from a single select and an array of values from a multiple select and display their values.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;displayVals()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;singleValues&nbsp;=&nbsp;$(<span class="string">"#single"</span>).val();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;multipleValues&nbsp;=&nbsp;$(<span class="string">"#multiple"</span>).val()&nbsp;||&nbsp;[];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).html(<span class="string">"&lt;b&gt;Single:&lt;/b&gt;&nbsp;"</span>&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;singleValues&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;&lt;b&gt;Multiple:&lt;/b&gt;&nbsp;"</span>&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multipleValues.join(<span class="string">",&nbsp;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select"</span>).change(displayVals);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;displayVals();&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;id</span>=<span class="avalue">"single"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;id</span>=<span class="avalue">"multiple"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Multiple2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple3<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the value of an input box.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).keyup(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;value&nbsp;=&nbsp;$(<span class="keywords">this</span>).val();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(value);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}).keyup();&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"some&nbsp;text"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-val-val">
+<span class="fn"><a class="name" href="#link-val-val">val</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The value to set on the matched element.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the value attribute of every matched element.<br>In jQuery 1.2, this is also able to set the value of select elements, but selecting the appropriate options.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Set the value of an input box.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;text&nbsp;=&nbsp;$(<span class="keywords">this</span>).text();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).val(text);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Feed<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>the<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Input<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"click&nbsp;a&nbsp;button"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-val-val">
+<span class="fn"><a class="name" href="#link-val-val">val</a>( <span class="arg-type tooltip" title="An Array of strings.">Array&lt;String&gt;</span> <span class="arg-name tooltip" title="The set of values to check/select.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Checks, or selects, all the radio buttons, checkboxes, and select options that match the set of values.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Get the single value from a single select and an array of values from a multiple select and display their values.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#single"</span>).val(<span class="string">"Single2"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#multiple"</span>).val([<span class="string">"Multiple2"</span>,&nbsp;<span class="string">"Multiple3"</span>]);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).val([<span class="string">"check2"</span>,&nbsp;<span class="string">"radio1"</span>]);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;select</span><span class="aname">&nbsp;id</span>=<span class="avalue">"single"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;id</span>=<span class="avalue">"multiple"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Multiple2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple3<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check1"</span><span class="tag">/&gt;</span>&nbsp;check1&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check2"</span><span class="tag">/&gt;</span>&nbsp;check2&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"r"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio1"</span><span class="tag">/&gt;</span>&nbsp;radio1&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"r"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio2"</span><span class="tag">/&gt;</span>&nbsp;radio2</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-visible-">
+<span class="fn"><a class="name" href="#link-visible-">visible</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are visible.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Make all visible divs turn yellow on click.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:visible"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:hidden"</span>).show(<span class="string">"fast"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Show&nbsp;hidden&nbsp;to&nbsp;see&nbsp;they&nbsp;don't&nbsp;change<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"starthidden"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

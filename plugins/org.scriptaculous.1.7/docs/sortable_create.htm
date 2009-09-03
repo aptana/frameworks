@@ -1,0 +1,248 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Sortable.create</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Sortable.create</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Use Sortable.create to initialize a sortable element.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Sortable.create('id_of_container',[options]);</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="100" bgcolor="#99cc00" style="width:100px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="41" bgcolor="#99cc00" style="width:41px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="108" bgcolor="#99cc00" style="width:108px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="428" bgcolor="#99cc00" style="width:428px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>tag</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>li </p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Sets the kind of tag (of the child elements of the container) that will be made sortable. For UL and OL containers, this is ‘LI’, you have to provide the tag kind for other sorts of child tags.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>only</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>(none)</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Further restricts the selection of child elements to only encompass elements with the given CSS class (or, if you provide an array of strings, on any of the classes).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>overlap</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>vertical</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>vertical  &nbsp; &nbsp; &nbsp; &nbsp;Either ‘vertical’ or ‘horizontal’. For floating sortables or horizontal lists, choose ‘horizontal’. Vertical lists should use ‘vertical’.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>constraint</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0 </p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>vertical</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Restricts the movement of Draggables, see the constraint option of Draggables.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>containment</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>(only within container</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Enables dragging and dropping between Sortables. Takes an array of elements or element-ids (of the containers).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>format</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>??</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>/^[^_\-](?:[A-Za-z0-9\-\_]*)[_](.*)$/</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>The RegEx to get the correct values from the IDs of all sortable child elements. This can be important for the output of <a href="sortable_serialize.htm">Sortable.serialize</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>handle</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.0</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>(none)</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Makes the created Draggables use handles, see the handle option on Draggables.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>hoverclass</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.1b1</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>(none)</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Gives the created Droppables a hoverclass (see there).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>ghosting</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>false</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>If set to true, dragged elements of the Sortable will be cloned and appear as “ghost”, i.e. a representation of their original element, instead of directly dragging the original element. See below for more details.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>dropOnEmpty</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>false</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>If set to true, the Sortable container will be made into a Droppable, that can receive a Draggable (as according to the containment rules) as a child element when there are no more elements inside.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>scroll</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.5.2</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>(none)</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>When the sortable is contained in an element with style overflow:scroll, this value can be set to the ID of that container (or the container’s DOM object). The scroll position of the container will now move along when the sortable is dragged out of the viewable area. The container must have overflow:scroll set to include scroll bars. Does not yet work for scrolling the entire document. To get this to work correctly, include this line in your code before creating the sortable: Position.includeScrollOffsets = true;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>scrollSensitivity</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>??</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>20</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>Will start scrolling when element is x pixels from the bottom, where x is the scrollSensitivity.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px; height:18px;"><p>scrollSpeed</p>
+</td>
+<td valign="top" width="41" style="width:41px; height:18px;"><p>??</p>
+</td>
+<td valign="top" width="108" style="width:108px; height:18px;"><p>15</p>
+</td>
+<td valign="top" width="428" style="width:428px; height:18px;"><p>Will scroll the element in increments of scrollSpeed pixels.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>tree</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.6.1</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>false</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>If true, sets sortable functionality to elements listed in treeTag</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>treeTag</p>
+</td>
+<td valign="top" width="41" style="width:41px;"><p>V1.6.1</p>
+</td>
+<td valign="top" width="108" style="width:108px;"><p>ul</p>
+</td>
+<td valign="top" width="428" style="width:428px;"><p>The element type tree nodes are contained in.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>You can provide the following callbacks in the options parameter:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="97" bgcolor="#99cc00" style="width:97px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="69" bgcolor="#99cc00" style="width:69px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="461" bgcolor="#99cc00" style="width:461px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="97" style="width:97px;"><p>onChange</p>
+</td>
+<td width="69" style="width:69px;"><p>V1.0</p>
+</td>
+<td width="461" style="width:461px;"><p>Called whenever the sort order changes while dragging. When dragging from one Sortable to another, the callback is called once on each Sortable. Gets the affected element as its parameter.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p>onUpdate</p>
+</td>
+<td valign="top" width="69" style="width:69px;"><p>V1.0</p>
+</td>
+<td valign="top" width="461" style="width:461px;"><p>Called when the drag ends and the Sortable’s order is changed in any way. When dragging from one Sortable to another, the callback is called once on each Sortable. Gets the container as its parameter. Note that the id attributes of the elements contained in the Sortable must be named as described in <a href="sortable_serialize.htm">Sortable.serialize</a></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Important</span>: You can use Sortable.create on any container element that contains <a href="block_elements.htm">Block Elements</a>, with the exception of TABLE, THEAD, TBODY and TR. This is a technical restriction with current browsers.</p>
+<p>&nbsp;</p>
+<p>A sortable nested somewhere inside a table won’t work well under IE unless the table has a “position:relative” style. If you use the css display: table property, sortable lists will work a little, but doesn’t allow true drag and drop of the elements.</p>
+<p>&nbsp;</p>
+<p>Got it working using tbody as container and TR as the sortables (IE6 (pc) and Firefox (mac/pc).</p>
+<p>&nbsp;</p>
+<p>A call to Sortable.create implicitly calls on <a href="sortable_destroy.htm">Sortable.destroy</a> if the referenced element was already a Sortable.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

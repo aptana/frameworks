@@ -1,0 +1,160 @@
+<html>
+    <head>
+    <title>Dojo ShrinkSafe -- the safe way to make your JS sprightly</title>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/modules/node/node.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/modules/system/defaults.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/modules/system/system.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/modules/user/user.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/sites/all/modules/cck/content.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/sites/all/modules/mailhandler/mailhandler.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/sites/all/modules/project/project.css";</style>
+	<style type="text/css" media="all">@import "http://dojotoolkit.org/sites/all/themes/dojotoolkit.org/style.css";</style>
+
+	<script type="text/javascript" src="http://o.aolcdn.com/dojo/0.4.2/dojo.js"></script>
+    <script type="text/javascript">
+        dojo.require("dojo.dnd.*");
+
+        var sfctr = 0;
+
+        function anotherFile(){
+            var sf = dojo.byId("shrinkfile").cloneNode(true);
+            new dojo.dnd.HtmlDragSource(sf, "sf");
+            sf.id = "";
+            sfctr++;
+            sf.name = "shrinkfile" + sfctr;
+            dojo.dom.insertAtPosition(sf, dojo.byId("ctr"), "last");
+        }
+
+        dojo.addOnLoad(function(){
+            var sf = dojo.byId("shrinkfile");
+            new dojo.dnd.HtmlDropTarget(sf.parentNode, "*");
+            new dojo.dnd.HtmlDragSource(sf, "sf");
+        });
+    </script>
+    <style>
+    	body {
+    		background-image:url(background.gif);
+    		background-repeat:repeat-x;
+    		background-color:#F4F6F8;
+    		font-family:Verdana, sans-serif;
+    		padding-top:30px;
+    		font-size:11px;
+    	}
+    	
+		h1, h2, h3, h4, h5, h6 {
+		font-family:Georgia,Times,"Times New Roman",serif;
+		font-weight:normal;
+		margin:0pt;
+		padding:0pt;
+		}
+		h1 {
+		font-size:185%;
+		}
+		h2 {
+		font-size:170%;
+		line-height:130%;
+		}
+		h3 {
+		font-size:155%;
+		}
+		h4 {
+		font-size:130%;
+		}
+		h5 {
+		font-size:120%;
+		}
+		h6 {
+		font-size:110%;
+		}
+    </style>
+</head>
+<body class="sidebar-left">
+<!-- Layout -->
+<div id="header-region" class="clear-block"></div>
+<div id="wrapper">
+<div id="container" class="clear-block">
+<div id="center">
+	<div id="squeeze">
+	<div class="right-corner">
+	<h1>Dojo ShrinkSafe</h1>
+	<p>
+	Select one (or more) JavaScript files to upload for shrinking. Click the "+"
+	button to add another file to the list. The files you upload will be
+	condensed into a single file and compressed. Dragging items to change their
+	order will change the order they appear in the download file.
+	</p>
+	<form action="http://alex.dojotoolkit.org/shrinksafe/shrinksafe.php" method="POST" enctype="multipart/form-data">
+	<ul id="ctr">
+		<li id="shrinkfile">
+			<input size="40" type="file" name="shrinkfile[]">
+		</li>
+	</ul>
+	<input type="button" onclick="anotherFile();" value="+">
+	<!--
+	<input type="button" onclick="sendForShrinkage(this.form);" value="shrink 'em!">
+	-->
+	<input type="submit" value="shrink em!">
+	<input type="checkbox" name="stripnewlines" id="stripnewlines" value="1">
+	<label for="stripnewlines">strip newline chars?</label>
+	</form>
+	<br />
+	<h2>What is ShrinkSafe? What makes it "safe"?</h2>
+	<p>
+	ShrinkSafe is a JavaScript "compression" system. It can typically reduce the
+	size of your scripts by a third or more, depending on your programming
+	style.
+	</p>
+	<p>
+	Many other tools also shrink JavaScript files, but ShrinkSafe is different.
+	Instead of relying on brittle regular expressions, ShrinkSafe is based on <a
+	href="http://mozilla.org/rhino">Rhino</a>, a JavaScript interpreter. This
+	allows ShrinkSafe to transform the source of a file with much more
+	confidence that the resulting script will function identically to the file
+	you uploaded.
+	</p>
+	<p>
+	Best of all, ShrinkSafe will never change a public variable or API. That
+	means that you can drop the compressed version of your JavaScript into your
+	pages without changing the code that uses it.
+	</p>
+	<h2>Why do I need it?</h2>
+	<p>
+	If you don't work with a lot of JavaScript, odds are you don't need
+	ShrinkSafe. If, on the other hand, you're pushing browsers or building an
+	amazing "Web 2.0" user experience, ShrinkSafe can make your pages respond
+	faster by reducing the number of HTTP requests needed and by decreasing the
+	size of the files served.
+	</p>
+	<p>
+	Perceived speed <em>is</em> real speed for web apps, and ShrinkSafe helps
+	make your apps feel even better.  Without the worry.
+	</p>
+	<h2>If I'm Using Dojo, Do I Need ShrinkSafe?</h2>
+	<p>
+	Nope. Dojo's build system trasparently uses ShrinkSafe to ensure that Dojo
+	packs as much punch for its size as possible. If you're using other scripts
+	in your Dojo app, they might benefit from ShrinkSafe, though.
+	</p>
+
+	<h2>Can I Download ShrinkSafe?</h2>
+	<p>
+	You bet! This is an Open Source project, after all. We've even <a
+	href="http://dojotoolkit.org/docs/shrinksafe">written up an
+	article</a> covering the system in enough gorey detail to get you
+	up-and-running with ShrinkSafe on your system.
+	</p>
+	<p>
+	The experienced or impatient can just grab the latest version of the Jar
+	file <a rel="nofollow" href="http://svn.dojotoolkit.org/dojo/trunk/buildscripts/lib/custom_rhino.jar">from dojo subversion</a>.
+	</p>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
+
+<!--
+vim:ts=4:noet:
+-->

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Effect.Appear</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Effect.Appear</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Make an element appear. If the element was previously set to display:none; inside the style attribute of the element, the effect will automatically show the element. This means that it must be places under the style attribute of an object, and not in the CSS in the head of the document or a linked file.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.0 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Effect.Appear('id_of_element');</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 15px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>duration: 1.0 (in seconds)</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 15px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>from: 0.0 - 1.0 (percent of opacity to start)</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 15px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>to: 0.0 - 1.0 (percent of opacity to end)</td></tr></table></div><p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">Effect.Appear('id_of_element',&nbsp;{&nbsp;duration:&nbsp;3.0&nbsp;});</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>Can take an options parameter, to control the underlying <a href="effect_opacity.htm">Effect.Opacity</a> effect.</p>
+<p>&nbsp;</p>
+<p>Works safely with most HTML elements, except table rows, table bodies and table heads. </p>
+<p>&nbsp;</p>
+<p>There is a problem with floating Elements in Safari. </p>
+<p>If you need the div to be floated you can do it like this:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;a&nbsp;href="#"&nbsp;onclick="new&nbsp;Effect.Appear('apear-div');"&gt;Click&nbsp;to&nbsp;apear&lt;/a&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;style="float:&nbsp;right"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;id="apear-div"&nbsp;style="display:&nbsp;none;"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;this&nbsp;div&nbsp;has&nbsp;to&nbsp;apear!</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;/div&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>Microsoft Internet Explorer can only set opacity on elements that have a ‘layout’. To let an element have a layout, you must set some CSS positional properties, like ‘width’ or ‘height’. See <a href="giving_elements_layout.htm">Giving Elements Layout</a>. (Note: fixed in 1.5_rc1.)</p>
+<p>&nbsp;</p>
+<p>On Microsoft Internet Explorer, this effect may display a bold/ghosting artifact on elements that don’t have a defined background. It’s unclear if this is a feature or a bug. See bug <a href="http://dev.rubyonrails.org/ticket/4806" target="_blank" class="weblink">#4806</a>.</p>
+
+</td></tr></table>
+
+</body>
+</html>

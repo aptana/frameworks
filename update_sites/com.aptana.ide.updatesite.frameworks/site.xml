@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.adobe.spry.1.6_1.6.0.200706261330.jar" id="com.adobe.spry.1.5" version="1.5.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/com.extjs.ext.2.0_2.0.0.200706261330.jar" id="com.extjs.ext.1.1" version="1.1.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/com.jquery.1.2_1.2.3.200706261330.jar" id="com.jquery.1.2" version="1.2.3.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/com.mochikit.1.4_1.4.0.200706261330.jar" id="com.mochikit.1.4" version="1.4.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/com.yahoo.yui.2.5_2.5.0.200706261330.jar" id="com.yahoo.yui.2.2" version="2.2.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/com.ms.ajax.3.5_3.5.2.200706261330.jar" id="net.mootools.1.1" version="1.1.1.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/net.mootools.1.1_1.1.1.200706261330.jar" id="net.mootools.1.1" version="1.1.1.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/org.aflax.1.0_1.0.0.200706261330.jar" id="org.aflax.1.0" version="1.0.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/org.dojotoolkit.dojo.1.0_1.0.1.200706261330.jar" id="org.dojotoolkit.dojo.0.4" version="0.4.3.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/org.openrico.rico.2.0_2.0.0.200706261330.jar" id="org.openrico.rico.2.0" version="2.0.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/org.prototypejs.prototype.1.6_1.6.0.200706261330.jar" id="org.prototypejs.prototype.1.4" version="1.4.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <feature url="features/org.scriptaculous.1.8_1.8.0.200706261330.jar" id="org.scriptaculous.1.7" version="1.7.0.200706261330">
+      <category name="Ajax Frameworks"/>
+   </feature>
+   <category-def name="Ajax Frameworks" label="Ajax Frameworks"/>
+</site>

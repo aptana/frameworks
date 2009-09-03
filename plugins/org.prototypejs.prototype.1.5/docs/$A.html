@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>$A</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">$A </span><span class="f_TopicHeading" style="color: #ccffff;">:: Utility Methods</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">$A(iterable) -&gt; actualArray</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Accepts an array-like collection (anything with numeric indices) and returns its equivalent as an actual Array object. This method is a convenience alias of Array.from, but is the preferred way of casting to an Array.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>The primary use of <span class="f_CourierFixed">$A()</span> is to obtain an actual Array object based on anything that could pass as an array (e.g. the NodeList or HTMLCollection objects returned by numerous DOM methods, or the predefined arguments reference within your functions).</p>
+<p>&nbsp;</p>
+<p>The reason you would want an actual Array is simple: Prototype extends Array to equip it with numerous extra methods, and also mixes in the Enumerable module, which brings in another boatload of nifty methods. Therefore, in Prototype, actual Arrays trump any other collection type you might otherwise get.</p>
+<p>&nbsp;</p>
+<p>The conversion performed is rather simple: null, undefined and false become an empty array; any object featuring an explicit <a href="array_toarray.html">toArray</a> method (as many Prototype objects do) has it invoked; otherwise, we assume the argument "looks like an array" (e.g. features a length property and the [] operator), and iterate over its components in the usual way.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p>The well-known DOM method <span class="f_CourierFixed">document.getElementsByTagName()</span> doesn't return an Array, but a NodeList object that implements the basic array "interface." Internet Explorer does not allow us to extend Enumerable onto NodeList.prototype, so instead we cast the returned NodeList to an Array:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;paras&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">$A</span><span class="f_CodeExample" style="color: #000000;">(document.getElementsByTagName(</span><span class="f_CodeExample" style="color: #800000;">'p'</span><span class="f_CodeExample" style="color: #000000;">));</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">paras.each(Element.hide);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(paras.last()).show();</span></p>
+<p>&nbsp;</p>
+<p>Notice we had to use each and Element.hide because <span class="f_CourierFixed">$A</span> doesn't perform DOM extensions, since the array could contain anything (not just DOM elements). To use the hide instance method we first must make sure all the target elements are extended:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">$A</span><span class="f_CodeExample" style="color: #000000;">(document.getElementsByTagName(</span><span class="f_CodeExample" style="color: #800000;">'p'</span><span class="f_CodeExample" style="color: #000000;">)).map(Element.extend).invoke(</span><span class="f_CodeExample" style="color: #800000;">'hide'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p>&nbsp;</p>
+<p>Want to display your arguments easily? Array features a join method, but the arguments value that exists in all functions does not inherit from Array. So, the tough way, or the easy way?</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;The&nbsp;hard&nbsp;way...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">&nbsp;showArgs()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;alert(Array.prototype.join.call(arguments,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">',&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">));</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">}</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;The&nbsp;easy&nbsp;way...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">&nbsp;showArgs()&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;alert(</span><span class="f_CodeExample" style="color: #0000ff;">$A</span><span class="f_CodeExample" style="color: #000000;">(arguments).join(</span><span class="f_CodeExample" style="color: #800000;">',&nbsp;'</span><span class="f_CodeExample" style="color: #000000;">));</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">}</span></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

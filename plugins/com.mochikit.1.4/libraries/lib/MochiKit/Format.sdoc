@@ -1,0 +1,104 @@
+/**
+ * ScriptDoc for Format.js
+ */
+
+/**
+ * Returns a function formatNumber(aNumber) that formats numbers as a string as specified by pattern, placeholder and locale.
+ * @id MochiKit.Format.numberFormatter
+ * @alias numberFormatter
+ * @param {String} pattern    Specifies how numbers should be formatted.
+ * @param {String} [placeholder] Placeholder for the format. Default is "".
+ * @param {String} [locale] Specifies a known locale (e.g. en_US, de_DE, fr_FR, default).
+ * locale has the following fields:
+ * <ul>
+ * <li>separator - The "thousands" separator for this locale (en_US is ",").</li>
+ * <li>decimal - Decimal separator for this locale (en_US is ".").</li>
+ * <li>percent - Percent symbol for this locale (en_US is "%").</li>
+ * </ul>
+ * @return {Function} Returns a function formatNumber(aNumber) that formats numbers as a string.
+ */
+
+/**
+ * Returns a formatted locale object for the specified locale. 
+ * @id MochiKit.Format.formatLocale
+ * @alias formatLocale
+ * If no locale is specified, LOCALE.default is used (equivalent to LOCALE.en_US).
+ * @param {locale, string} locale locale object or string to look up.
+ * @return {locale} Returns a locale object.
+ */
+
+/**
+ * Calculates an average from a numerator and a denominator and returns it as a string to two decimal places of precision.
+ * @id MochiKit.Format.twoDigitAverage
+ * @alias twoDigitAverage
+ * @param {Number} numerator    Number to divide the denominator into.
+ * @param {Number} denominator    Number to divide the numerator by.
+ * @return {String} Returns a string representing the average to two decimal places. 
+ * If the denominator is 0, returns "0" instead of NaN.
+ */
+
+/**
+ * Returns a string version of a float that is formatted to two decimal places.
+ * @id MochiKit.Format.twoDigitFloat
+ * @alias twoDigitFloat
+ * @param {Number} someFloat    Float to format.
+ * @return {String} Returns a string version of a float that is formatted to two decimal places.
+ * @see numberFormatter
+ */
+
+/**
+ * Removes the leading whitespace from a string.
+ * @id MochiKit.Format.lstrip
+ * @alias lstrip
+ * @param {String} str    String to remove the leading whitespace from.
+ * @param {String} [chars]    RegExp-compatible string specifying characters to remove rather than the standard whitespace characters.
+ * @return {String} Returns a string with the leading whitespace removed.
+ */
+
+/**
+ * Removes the trailing whitespace from a string.
+ * @id MochiKit.Format.rstrip
+ * @alias rstrip
+ * @param {String} str    String to remove the trailing whitespace from.
+ * @param {String} [chars]    RegExp-compatible string specifying characters to remove rather than the standard whitespace characters.
+ * @return {String} Returns a string with the trailing whitespace removed.
+ */
+
+/**
+ * Removes the leading and trailing whitespace from a string.
+ * @id MochiKit.Format.strip
+ * @alias strip
+ * @param {String} str    String to remove the leading and trailing whitespace from.
+ * @param {String} [chars]    RegExp-compatible string specifying characters to remove rather than the standard whitespace characters.
+ * @return {String} Returns a string with the leading and trailing whitespace removed.
+ */
+
+/**
+ * Return a string representation of aNumber, truncated to the specified precision digits with trailing zeros. 
+ * Similar to aNumber.toFixed(precision), but truncates rather than rounds and has implementation consistent behavior for numbers less than 1. 
+ * truncToFixed(aNumber, precision) will always have a preceding 0 for numbers less than 1.
+ * @id MochiKit.Format.truncToFixed
+ * @alias truncToFixed
+ * @param {Number} aNumber    Number to truncate.
+ * @param {Number} precision    Number of digits of precision to truncate to.
+ * @return {String} Return a string representation of aNumber, truncated to the specified precision digits with trailing zeros.
+ */
+
+/**
+ * Return a string representation of aNumber, rounded to the specified precision digits with trailing zeros.
+ * Cross-platform/browser safe, including Safari.
+ * @id MochiKit.Format.roundToFixed
+ * @alias roundToFixed 
+ * @param {Number} aNumber    Number to round.
+ * @param {Number} precision    Number of digits of precision to round to.
+ * @return {String} Return a string representation of aNumber, rounded to the specified precision digits with trailing zeros.
+ */
+
+/**
+ * Returns a string version of a float that is formatted as a percentage.
+ * @id MochiKit.Format.percentFormat
+ * @alias percentFormat
+ * @param {Number} someFloat    Float to format.
+ * @return {String} Returns a string version of a float that is formatted as a percentage.
+ * @see numberFormatter
+ */

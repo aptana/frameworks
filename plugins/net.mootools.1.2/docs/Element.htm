@@ -1,0 +1,2102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Element</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Window"><a href="#Window">Native: Window</a></h1>
+
+<p class="description">The following functions are treated as Window methods.</p>
+
+<h2 id="dollar"><a href="#dollar">Function: $</a></h2>
+
+<p class="description">The dollar function has a dual purpose: Getting
+the element by its id, and making an element in Internet Explorer
+&quot;grab&quot; all the <a href="#Element">Element</a> methods.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span>el<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - The Element to be extended. Can be one of the following types:
+
+<ul>
+<li>(<em>element</em>) The element will be extended if it is not already.</li>
+<li>(<em>string</em>) A string containing the id of the DOM element desired.</li>
+<li>(<em>object</em>) If the object has a toElement method, toElement will be called to get the Element.</li>
+</ul>
+</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) A DOM element.</li>
+<li>(<em>null</em>) Null if no matching id was found or if toElement did not return an element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Get a DOM Element by ID:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Get a DOM Element by reference:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> div = document.<span class="me1">getElementById</span><span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+div = $<span class="br0">(</span>div<span class="br0">)</span>; <span class="co1">//The element with all the Element methods applied.</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is useful when it's unclear if working with an actual
+element or an id. It also serves as a shorthand for
+document.getElementById().</li>
+<li>In Internet Explorer, the <a href="#Element">Element</a> is extended the first time $ is called on it, and all the <a href="#Element">Element</a> Methods become available.</li>
+<li>Browsers with native HTMLElement support, such as Safari, Firefox, and Opera, apply all the <a href="#Element">Element</a> Methods to every DOM element automatically.</li>
+<li>Because MooTools detects if an element needs to be extended or not,
+this function may be called on the same Element many times with no ill
+effects.</li>
+</ul>
+<h2 id="dollars"><a href="#dollars">Function: $$</a></h2>
+
+<p class="description">Selects and extends DOM elements. Elements arrays returned with $$ will also accept all the <a href="#Element">Element</a> methods.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElements = $$<span class="br0">(</span>aTag<span class="br0">[</span>, anElement<span class="br0">[</span>, Elements<span class="br0">[</span>, ...<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ul>
+<li>Any number of the following as arguments are accepted:
+
+<ul>
+<li>HTMLCollections,</li>
+<li>arrays of elements,</li>
+<li>elements, or</li>
+<li>strings as selectors.</li>
+</ul>
+</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) - An array of all the DOM elements matched, extended with <a href="#dollar">$</a>.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Get Elements by Their Tag Names:</h4>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'a'</span><span class="br0">)</span>; <span class="co1">//Returns all anchor elements in the page.</span>
+$$<span class="br0">(</span><span class="st0">'a'</span>, <span class="st0">'b'</span><span class="br0">)</span>; <span class="co1">//Returns all anchor and bold tags on the page.</span>
+</pre>
+
+<h4>Using CSS Selectors When <a href="Selectors.htm">Selectors</a> is Included:</h4>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'#myElement'</span><span class="br0">)</span>; <span class="co1">//Returns an array containing only the element with the id 'myElement'.</span>
+$$<span class="br0">(</span><span class="st0">'#myElement a.myClass'</span><span class="br0">)</span>; <span class="co1">//Returns an array of all anchor tags with the class 'myClass' within the DOM element with id 'myElement'.</span>
+</pre>
+
+<h4>More Complex $$ Usage:</h4>
+
+<pre class="javascript"><span class="co1">//Creates an array of all elements and selectors passed as arguments.</span>
+$$<span class="br0">(</span>myelement1, myelement2, <span class="st0">'a'</span>, <span class="st0">'#myid, #myid2, #myid3'</span>, document.<span class="me1">getElementsByTagName</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>When <a href="Selectors.htm">Selectors</a> is loaded, <a href="#dollars">$$</a> will also accept CSS Selectors.  Otherwise, the only selectors supported are tag names.</li>
+<li>If an expression doesn't find any elements, an empty array will be returned.</li>
+<li>The return type of element methods run through <a href="#dollars">$$</a> is always an array, regardless of the amount of results.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>See <a href="Selectors.htm">Selectors</a> for documentation on selectors for use anywhere they are accepted throughout the framework.</li>
+</ul>
+<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<p class="description">Custom Native to allow all of its methods to be used with any extended DOM Element.</p>
+
+<h2 id="Element:constructor"><a href="#Element:constructor">Element Method: constructor</a></h2>
+
+<p class="description">Creates a new Element of the type passed in.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myEl = <span class="kw2">new</span> Element<span class="br0">(</span>element<span class="br0">[</span>, properties<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>element - (<em>mixed</em>) The tag name for the Element to be created or an actual DOM element.</li>
+<li>properties - (<em>object</em>, optional) Calls the Single Argument version of <a href="#Element:set">Element:set</a> with the properties object passed in.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) A new MooTools extended HTML Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myAnchor = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'a'</span>, <span class="br0">{</span>
+    <span class="st0">'href'</span>: <span class="st0">'http://mootools.net'</span>,
+    <span class="st0">'class'</span>: <span class="st0">'myClass'</span>,
+    <span class="st0">'html'</span>: <span class="st0">'Click me!'</span>,
+    <span class="st0">'styles'</span>: <span class="br0">{</span>
+        <span class="st0">'display'</span>: <span class="st0">'block'</span>,
+        <span class="st0">'border'</span>: <span class="st0">'1px solid black'</span>
+    <span class="br0">}</span>,
+    <span class="st0">'events'</span>: <span class="br0">{</span>
+        <span class="st0">'click'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'clicked'</span><span class="br0">)</span>;
+        <span class="br0">}</span>,
+        <span class="st0">'mouseover'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'mouseovered'</span><span class="br0">)</span>;
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#dollar">$</a>, <a href="#Element:set">Element:set</a>
+</li>
+</ul>
+<h2 id="Element:getElement"><a href="#Element:getElement">Element Method: getElement</a></h2>
+
+<p class="description">Gets the first descendant element whose tag name matches the tag provided.  If <a href="Selectors.htm">Selectors</a> is included, CSS selectors may also be passed.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = myElement.<span class="me1">getElement</span><span class="br0">(</span>tag<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>tag - (<em>string</em>) Tag name of the element to find.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) If a match is found, the Element will be returned. Otherwise, returns null.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> firstDiv = $<span class="br0">(</span>document.<span class="me1">body</span><span class="br0">)</span>.<span class="me1">getElement</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is also available for Document instances.</li>
+<li>This method gets replaced when <a href="Selectors.htm">Selectors</a> is included.</li>
+<li>
+<a href="Selectors.htm">Selectors</a> enhances <a href="#Element:getElement">Element:getElement</a> so that it matches based on CSS selectors.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>See <a href="Selectors.htm">Selectors</a> for documentation on selectors for use anywhere they are accepted throughout the framework.</li>
+</ul>
+<h2 id="Element:getElements"><a href="#Element:getElements">Element Method: getElements</a></h2>
+
+<p class="description">Collects all decedent elements whose tag name matches the tag provided.  If <a href="Selectors.htm">Selectors</a> is included, CSS selectors may also be passed.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElements = myElement.<span class="me1">getElements</span><span class="br0">(</span>tag<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>tag - (<em>string</em>) String of the tag to match.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An <a href="#Elements">Elements</a> array of all matched Elements.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> allAnchors = $<span class="br0">(</span>document.<span class="me1">body</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'a'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is also available for Document instances.</li>
+<li>This method gets replaced when <a href="Selectors.htm">Selectors</a> is included.</li>
+<li>
+<a href="Selectors.htm">Selectors</a> enhances <a href="#Element:getElements">Element:getElements</a> so that it matches based on CSS selectors.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>See <a href="Selectors.htm">Selectors</a> for documentation on selectors for use anywhere they are accepted throughout the framework.</li>
+</ul>
+<h2 id="Element:getElementById"><a href="#Element:getElementById">Element Method: getElementById</a></h2>
+
+<p class="description">Gets the element with the specified id found inside the current Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = anElement.<span class="me1">getElementById</span><span class="br0">(</span>id<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>id - (<em>string</em>) The ID of the Element to find.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) If a match is found, returns that Element. Otherwise, returns null.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myChild = $<span class="br0">(</span><span class="st0">'myParent'</span><span class="br0">)</span>.<span class="me1">getElementById</span><span class="br0">(</span><span class="st0">'myChild'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is not provided for Document instances as document.getElementById is provided natively.</li>
+</ul>
+<h2 id="Element:set"><a href="#Element:set">Element Method: set</a></h2>
+
+<p class="description">This is a &quot;dynamic arguments&quot; method. Properties passed in can be any of the 'set' properties in the <a href="#Element-Properties">Element.Properties</a> Hash.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">set</span><span class="br0">(</span>arguments<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ul>
+<li>Two Arguments (property, value)
+
+<ol>
+<li>property - (<em>string</em>) The string key from the <a href="#Element-Properties">Element.Properties</a> Hash representing the property to set.</li>
+<li>value - (<em>mixed</em>) The value to set for the specified property.</li>
+</ol>
+</li>
+<li>One Argument (properties)
+
+<ol>
+<li>properties - (<em>object</em>) Object with its keys/value pairs representing the properties and values to set for the Element (as described below).</li>
+</ol>
+</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>With Property and Value:</h4>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'text'</span>, <span class="st0">'text goes here'</span><span class="br0">)</span>;
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'class'</span>, <span class="st0">'active'</span><span class="br0">)</span>;
+<span class="co1">//The 'styles' property passes the object to Element:setStyles.</span>
+<span class="kw2">var</span> body = $<span class="br0">(</span>document.<span class="me1">body</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'styles'</span>, <span class="br0">{</span>
+    <span class="st0">'font'</span>: <span class="st0">'12px Arial'</span>,
+    <span class="st0">'color'</span>: <span class="st0">'blue'</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h4>With an Object:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="co1">//The 'styles' property passes the object to Element:setStyles.</span>
+    <span class="st0">'styles'</span>: <span class="br0">{</span>
+        <span class="st0">'font'</span>: <span class="st0">'12px Arial'</span>,
+        <span class="st0">'color'</span>: <span class="st0">'blue'</span>,
+        <span class="st0">'border'</span>: <span class="st0">'1px solid #f00'</span>
+    <span class="br0">}</span>,
+    <span class="co1">//The 'events' property passes the object to Element:addEvents.</span>
+    <span class="st0">'events'</span>: <span class="br0">{</span>
+        <span class="st0">'click'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'click'</span><span class="br0">)</span>; <span class="br0">}</span>,
+        <span class="st0">'mouseover'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw1">this</span>.<span class="me1">addClass</span><span class="br0">(</span><span class="st0">'over'</span><span class="br0">)</span> <span class="br0">}</span>
+    <span class="br0">}</span>,
+    <span class="co1">//Any other property uses Element:setProperty.</span>
+    <span class="st0">'id'</span>: <span class="st0">'documentBody'</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>All the property arguments are passed to the corresponding method of the <a href="#Element-Properties">Element.Properties</a> Hash.</li>
+<li>If no matching property is found in <a href="#Element-Properties">Element.Properties</a>, it falls back to <a href="#Element:setProperty">Element:setProperty</a>.</li>
+<li>Whenever using <a href="#Element:setProperty">Element:setProperty</a> to set an attribute, pass in the lowercase, simplified form of the property. For example:
+
+<ul>
+<li>use 'for', not 'htmlFor',</li>
+<li>use 'class', not 'className'</li>
+<li>use 'frameborder', not 'frameBorder'</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#Element">Element</a>, <a href="#Element-Properties">Element.Properties</a>, <a href="#Element:setProperty">Element:setProperty</a>, <a href="Element.Event.htm#Element:addEvents">Element:addEvents</a>, <a href="Element.Style.htm#Element:setStyles">Element:setStyles</a>
+</li>
+</ul>
+<h2 id="Element:get"><a href="#Element:get">Element Method: get</a></h2>
+
+<p class="description">This is a &quot;dynamic arguments&quot; method. Properties passed in can be any of the 'get' properties in the <a href="#Element-Properties">Element.Properties</a> Hash.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">get</span><span class="br0">(</span>property<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>) The string key from the <a href="#Element-Properties">Element.Properties</a> Hash representing the property to get.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The result of calling the corresponding 'get' function in the <a href="#Element-Properties">Element.Properties</a> Hash.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Using Custom Getters:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> tag = $<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'tag'</span><span class="br0">)</span>; <span class="co1">//Returns &quot;div&quot;.</span>
+</pre>
+
+<h4>Fallback to Element Attributes:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> id = $<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span>; <span class="co1">//Returns &quot;myDiv&quot;.</span>
+<span class="kw2">var</span> value = $<span class="br0">(</span><span class="st0">'myInput'</span><span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'value'</span><span class="br0">)</span>; <span class="co1">//Returns the myInput element's value.</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>If the corresponding accessor doesn't exist in the <a href="#Element-Properties">Element.Properties</a> Hash, the result of <a href="#Element:getProperty">Element:getProperty</a> on the property passed in is returned.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#Element">Element</a>, <a href="#Element-Properties">Element.Properties</a>, <a href="#Element:getProperty">Element:getProperty</a>
+</li>
+</ul>
+<h2 id="Element:erase"><a href="#Element:erase">Element Method: erase</a></h2>
+
+<p class="description">This is a &quot;dynamic arguments&quot; method. Properties passed in can be any of the 'erase' properties in the <a href="#Element-Properties">Element.Properties</a> Hash.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">erase</span><span class="br0">(</span>property<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>) The string key from the <a href="#Element-Properties">Element.Properties</a> Hash representing the property to erase.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The result of calling the corresponding 'erase' function in the <a href="#Element-Properties">Element.Properties</a> Hash.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">erase</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span>; <span class="co1">//Removes the id from myDiv.</span>
+$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">erase</span><span class="br0">(</span><span class="st0">'class'</span><span class="br0">)</span>; <span class="co1">//myDiv element no longer has any class names set.</span>
+</pre>
+
+<h3>Note:</h3>
+
+<ul>
+<li>If the corresponding eraser doesn't exist in the  <a href="#Element-Properties">Element.Properties</a> Hash, <a href="#Element:removeProperty">Element:removeProperty</a> is called with the property passed in.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#Element">Element</a>, <a href="#Element-Properties">Element.Properties</a>, <a href="#Element:removeProperty">Element:removeProperty</a>
+</li>
+</ul>
+<h2 id="Element:match"><a href="#Element:match">Element Method: match</a></h2>
+
+<p class="description">Tests this Element to see if it matches the argument passed in.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">match</span><span class="br0">(</span>match<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - can be a string or element
+
+<ul>
+<li>(<em>string</em>) The tag name to test against this element. If <a href="Selectors.htm">Selectors</a> is included, any single CSS selectors may also be passed.</li>
+<li>(<em>element</em>) An element to match; returns true if this is the actual element passed in.</li>
+</ul>
+</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>boolean</em>) If the element matched, returns true. Otherwise, returns false.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Using a Tag Name:</h4>
+
+<pre class="javascript"><span class="co1">//Returns true if #myDiv is a div.</span>
+$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">match</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Using a CSS Selector:</h4>
+
+<pre class="javascript"><span class="co1">//Returns true if #myDiv has the class foo and is named &quot;bar&quot;</span>
+$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">match</span><span class="br0">(</span><span class="st0">'.foo[name=bar]'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Using an Element:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> el = $<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>;
+$<span class="br0">(</span><span class="st0">'myDiv'</span><span class="br0">)</span>.<span class="me1">match</span><span class="br0">(</span>el<span class="br0">)</span>; <span class="co1">//Returns true</span>
+$<span class="br0">(</span><span class="st0">'otherElement'</span><span class="br0">)</span>.<span class="me1">match</span><span class="br0">(</span>el<span class="br0">)</span>; <span class="co1">//Returns false</span>
+</pre>
+
+<h2 id="Element:inject"><a href="#Element:inject">Element Method: inject</a></h2>
+
+<p class="description">Injects, or inserts, the Element at a particular
+place relative to the Element's children (specified by the second the
+argument).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">inject</span><span class="br0">(</span>el<span class="br0">[</span>, where<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el   - (<em>mixed</em>) el can be the id of an element or an element.</li>
+<li>where - (<em>string</em>, optional: defaults to 'bottom') The place to inject this Element.  Can be 'top', 'bottom', 'after', or 'before'.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> myFirstElement  = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'myFirstElement'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> mySecondElement = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'mySecondElement'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> myThirdElement  = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'myThirdElement'</span><span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;myThirdElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h4>Inject to the bottom:</h4>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">myFirstElement.<span class="me1">inject</span><span class="br0">(</span>mySecondElement<span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h4>Inject to the top:</h4>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">myThirdElement.<span class="me1">inject</span><span class="br0">(</span>mySecondElement, <span class="st0">'top'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myThirdElement&quot;</span>&gt;&lt;/div&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h4>Inject before:</h4>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">myFirstElement.<span class="me1">inject</span><span class="br0">(</span>mySecondElement, <span class="st0">'before'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h4>Inject After:</h4>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">myFirstElement.<span class="me1">inject</span><span class="br0">(</span>mySecondElement, <span class="st0">'after'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h3>See Also:</h3>
+
+<p><a href="#Element:adopt">Element:adopt</a>, <a href="#Element:grab">Element:grab</a>, <a href="#Element:wraps">Element:wraps</a></p>
+
+<h2 id="Element:grab"><a href="#Element:grab">Element Method: grab</a></h2>
+
+<p class="description">Works as <a href="#Element:inject">Element:inject</a>, but in reverse.</p>
+
+<p>Appends the Element at a particular place relative to the Element's children (specified by the where parameter).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">grab</span><span class="br0">(</span>el<span class="br0">[</span>, where<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>) el can be the id of an element or an Element.</li>
+<li>where - (<em>string</em>, optional: default 'bottom') The place to append this Element. Can be 'top' or 'bottom'.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> myFirstElement = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'myFirstElement'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> mySecondElement = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'mySecondElement'</span><span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+myFirstElement.<span class="me1">grab</span><span class="br0">(</span>mySecondElement<span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>See Also:</h3>
+
+<p><a href="#Element:adopt">Element:adopt</a>, <a href="#Element:inject">Element:inject</a>, <a href="#Element:wraps">Element:wraps</a></p>
+
+<h2 id="Element:adopt"><a href="#Element:adopt">Element Method: adopt</a></h2>
+
+<p class="description">Works like <a href="#Element:grab">Element:grab</a>, but allows multiple elements to be adopted.</p>
+
+<p>Inserts the passed element(s) inside the Element (which will then become the parent element).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myParent.<span class="me1">adopt</span><span class="br0">(</span>el<span class="br0">[</span>, others<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>) The id of an element, an Element, or an array of elements.</li>
+<li>others - (<em>mixed</em>, optional) One or more additional Elements separated by a comma or as an array.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> myFirstElement  = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'myFirstElement'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> mySecondElement = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'a'</span>, <span class="br0">{</span>id: <span class="st0">'mySecondElement'</span><span class="br0">}</span><span class="br0">)</span>;
+<span class="kw2">var</span> myThirdElement  = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'ul'</span>, <span class="br0">{</span>id: <span class="st0">'myThirdElement'</span><span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+myParent.<span class="me1">adopt</span><span class="br0">(</span>myFirstElement<span class="br0">)</span>;
+myParent2.<span class="me1">adopt</span><span class="br0">(</span>myFirstElement, <span class="st0">'mySecondElement'</span><span class="br0">)</span>;
+myParent3.<span class="me1">adopt</span><span class="br0">(</span><span class="br0">[</span>myFirstElement, mySecondElement, myThirdElement<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myParent&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span> /&gt;
+&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;myParent2&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span> /&gt;
+    &lt;a /&gt;
+&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;myParent3&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span> /&gt;
+    &lt;a /&gt;
+    &lt;ul /&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>See Also:</h3>
+
+<p><a href="#Element:grab">Element:grab</a>, <a href="#Element:inject">Element:inject</a>, <a href="#Element:wraps">Element:wraps</a></p>
+
+<h2 id="Element:wraps"><a href="#Element:wraps">Element Method: wraps</a></h2>
+
+<p class="description">Works like <a href="#Element:grab">Element:grab</a>, but instead of moving the grabbed element from its place, this method moves this Element around its target.</p>
+
+<p>The Element is moved to the position of the passed element and becomes the parent.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myParent.<span class="me1">wraps</span><span class="br0">(</span>el<span class="br0">[</span>, where<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>) The id of an element or an Element.</li>
+<li>where - (<em>string</em>, optional: default 'bottom') The place to insert the passed in element. Can be 'top' or 'bottom'.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> mySecondElement = <span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'div'</span>, <span class="br0">{</span>id: <span class="st0">'mySecondElement'</span><span class="br0">}</span><span class="br0">)</span>;
+mySecondElement.<span class="me1">wraps</span><span class="br0">(</span>$<span class="br0">(</span><span class="st0">'myFirstElement'</span><span class="br0">)</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;myFirstElement&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h2 id="Element:appendText"><a href="#Element:appendText">Element Method: appendText</a></h2>
+
+<p class="description">Works like <a href="#Element:grab">Element:grab</a>, but instead of accepting an id or an element, it only accepts text.
+A text node will be created inside this Element, in either the top or bottom position.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">appendText</span><span class="br0">(</span>text<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>text  - (<em>string</em>) The text to append.</li>
+<li>where - (<em>string</em>, optional: default 'bottom') The position to inject the text to.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) The current Element instance.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;Hey.&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">appendText</span><span class="br0">(</span><span class="st0">' Howdy.'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;Hey. <span class="me1">Howdy</span>.&lt;/div&gt;
+</pre>
+
+<h2 id="Element:dispose"><a href="#Element:dispose">Element Method: dispose</a></h2>
+
+<p class="description">Removes the Element from the DOM.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> removedElement = myElement.<span class="me1">dispose</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element. Useful to always grab the return from this function, as the element could be <a href="#Element:inject">injected</a> back.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;&lt;/div&gt;
+&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">dispose</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;mySecondElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://developer.mozilla.org/en/docs/DOM:element.removeChild">MDC Element:removeChild</a></li>
+</ul>
+<h2 id="Element:clone"><a href="#Element:clone">Element Method: clone</a></h2>
+
+<p class="description">Clones the Element and returns the cloned one.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> copy = myElement.<span class="me1">clone</span><span class="br0">(</span><span class="br0">[</span>contents, keepid<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>contents - (<em>boolean</em>, optional: defaults to true) When set to false the Element's contents are not cloned.</li>
+<li>keepid - (<em>boolean</em>, optional: defaults to false) When true
+the cloned Element keeps the id attribute, if present. Same goes for
+any of the cloned childNodes.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) The cloned Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="co1">//Clones the Element and appends the clone after the Element.</span>
+<span class="kw2">var</span> clone = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">clone</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">injectAfter</span><span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;ciao&lt;/div&gt;
+&lt;div&gt;ciao&lt;/div&gt;
+</pre>
+
+<h3>Note:</h3>
+
+<ul>
+<li>The returned Element does not have attached events. To clone the events use <a href="Element.Event.htm#Element:cloneEvents">Element:cloneEvents</a>.</li>
+<li>Values stored in Element.Storage are not cloned.</li>
+<li>The clone element and its children are stripped of ids, unless otherwise specified by the keepid parameter.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="Element.Event.htm#Element:cloneEvents">Element:cloneEvents</a>.</li>
+</ul>
+<h2 id="Element:replaces"><a href="#Element:replaces">Element Method: replaces</a></h2>
+
+<p class="description">Replaces the Element with an Element passed.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> element = myElement.<span class="me1">replaces</span><span class="br0">(</span>el<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>) A string id representing the Element to be replaced with, or an Element reference.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myNewElement'</span><span class="br0">)</span>.<span class="me1">replaces</span><span class="br0">(</span>$<span class="br0">(</span><span class="st0">'myOldElement'</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="co1">//$('myOldElement') is gone, and $('myNewElement') is in its place.</span>
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://developer.mozilla.org/en/docs/DOM:element.replaceChild">MDC Element:replaceChild</a></li>
+</ul>
+<h2 id="Element:hasClass"><a href="#Element:hasClass">Element Method: hasClass</a></h2>
+
+<p class="description">Tests the Element to see if it has the passed in className.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> result = myElement.<span class="me1">hasClass</span><span class="br0">(</span>className<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>className - (<em>string</em>) The class name to test.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>boolean</em>) Returns true if the Element has the class, otherwise false.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;testClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">hasClass</span><span class="br0">(</span><span class="st0">'testClass'</span><span class="br0">)</span>; <span class="co1">//returns true</span>
+</pre>
+
+<h2 id="Element:addClass"><a href="#Element:addClass">Element Method: addClass</a></h2>
+
+<p class="description">Adds the passed in class to the Element, if the Element doesnt already have it.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">addClass</span><span class="br0">(</span>className<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>className - (<em>string</em>) The class name to add.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;testClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addClass</span><span class="br0">(</span><span class="st0">'newClass'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;testClass newClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h2 id="Element:removeClass"><a href="#Element:removeClass">Element Method: removeClass</a></h2>
+
+<p class="description">Works like <a href="#Element:addClass">Element:addClass</a>, but removes the class from the Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">removeClass</span><span class="br0">(</span>className<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>className - (<em>string</em>) The class name to remove.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;testClass newClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">removeClass</span><span class="br0">(</span><span class="st0">'newClass'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;testClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h2 id="Element:toggleClass"><a href="#Element:toggleClass">Element Method: toggleClass</a></h2>
+
+<p class="description">Adds or removes the passed in class name to the Element, depending on whether or not it's already present.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">toggleClass</span><span class="br0">(</span>className<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>className - (<em>string</em>) The class to add or remove.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;myClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">toggleClass</span><span class="br0">(</span><span class="st0">'myClass'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">toggleClass</span><span class="br0">(</span><span class="st0">'myClass'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span> <span class="kw2">class</span>=<span class="st0">&quot;myClass&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h2 id="Element:getPrevious"><a href="#Element:getPrevious">Element Method: getPrevious</a></h2>
+
+<p class="description">Returns the previousSibling of the Element (excluding text nodes).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> previousSibling = myElement.<span class="me1">getPrevious</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A tag name to match the the found element(s) with. If <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The previous sibling Element or null if none found.</li>
+</ul>
+<h2 id="Element:getAllPrevious"><a href="#Element:getAllPrevious">Element Method: getAllPrevious</a></h2>
+
+<p class="description">Like <a href="#Element:getPrevious">Element:getPrevious</a>, but returns a collection of all the matched previousSiblings.</p>
+
+<h2 id="Element:getNext"><a href="#Element:getNext">Element Method: getNext</a></h2>
+
+<p class="description">As <a href="#Element:getPrevious">Element:getPrevious</a>, but tries to find the nextSibling (excluding text nodes).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> nextSibling = myElement.<span class="me1">getNext</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A comma seperated list of tag names to match the found element(s) with. If <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The next sibling Element or null if none found.</li>
+</ul>
+<h2 id="Element:getAllNext"><a href="#Element:getAllNext">Element Method: getAllNext</a></h2>
+
+<p class="description">Like Element.getNext, but returns a collection of all the matched nextSiblings.</p>
+
+<h2 id="Element:getFirst"><a href="#Element:getFirst">Element Method: getFirst</a></h2>
+
+<p class="description">Works as <a href="#Element:getPrevious">Element:getPrevious</a>, but tries to find the firstChild (excluding text nodes).</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> firstElement = myElement.<span class="me1">getFirst</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A tag name to match the found element(s) with. if <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The first sibling Element or null if none found.</li>
+</ul>
+<h2 id="Element:getLast"><a href="#Element:getLast">Element Method: getLast</a></h2>
+
+<p class="description">Works as <a href="#Element:getPrevious">Element:getPrevious</a>, but tries to find the lastChild.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> lastElement = myElement.<span class="me1">getLast</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A tag name to match the found element(s) with. if <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The first sibling Element, or returns null if none found.</li>
+</ul>
+<h2 id="Element:getParent"><a href="#Element:getParent">Element Method: getParent</a></h2>
+
+<p class="description">Works as <a href="#Element:getPrevious">Element:getPrevious</a>, but tries to find the parentNode.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> parent = myElement.<span class="me1">getParent</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A tag name to match the found element(s) with. if <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The target Element's parent or null if no matching parent is found.</li>
+</ul>
+<h2 id="Element:getParents"><a href="#Element:getParents">Element Method: getParents</a></h2>
+
+<p class="description">Like <a href="#Element:getParent">Element:getParent</a>, but returns a collection of all the matched parentNodes up the tree.</p>
+
+<h2 id="Element:getChildren"><a href="#Element:getChildren">Element Method: getChildren</a></h2>
+
+<p class="description">Returns all the Element's children (excluding text nodes). Returns as <a href="#Elements">Elements</a>.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> children = myElement.<span class="me1">getChildren</span><span class="br0">(</span><span class="br0">[</span>match<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>match - (<em>string</em>, optional): A tag name to match the found element(s) with. if <a href="Selectors.htm">Selectors</a> is included, a full CSS selector can be passed.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A <a href="#Elements">Elements</a> array with all of the Element's children, except the text nodes.</li>
+</ul>
+<h2 id="Element:hasChild"><a href="#Element:hasChild">Element Method: hasChild</a></h2>
+
+<p class="description">Checks all descendants of this Element for a match.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> result = myElement.<span class="me1">hasChild</span><span class="br0">(</span>el<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>) Can be an Element reference or string id.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>boolean</em>) Returns true if the passed in Element is a child of the Element, otherwise false.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;Darth_Vader&quot;</span>&gt;
+    &lt;div id=<span class="st0">&quot;Luke&quot;</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw1">if</span> <span class="br0">(</span>$<span class="br0">(</span><span class="st0">'Darth_Vader'</span><span class="br0">)</span>.<span class="me1">hasChild</span><span class="br0">(</span><span class="st0">'Luke'</span><span class="br0">)</span><span class="br0">)</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Luke, I am your father.'</span><span class="br0">)</span>; <span class="co1">// tan tan tannn...</span>
+</pre>
+
+<h2 id="Element:empty"><a href="#Element:empty">Element Method: empty</a></h2>
+
+<p class="description">Empties an Element of all its children.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h2 id="Element:destroy"><a href="#Element:destroy">Element Method: destroy</a></h2>
+
+<p class="description">Empties an Element of all its children, removes and garbages the Element.
+Useful to clear memory before the pageUnload.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>null</em>)</li>
+</ul>
+<h2 id="Element:toQueryString"><a href="#Element:toQueryString">Element Method: toQueryString</a></h2>
+
+<p class="description">Reads the child inputs of the Element and generates a query string based on their values.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> query = myElement.<span class="me1">toQueryString</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>string</em>) A string representation of a all the input Elements' names and values.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;form id=<span class="st0">&quot;myForm&quot;</span> action=<span class="st0">&quot;submit.php&quot;</span>&gt;
+    &lt;input <span class="kw3">name</span>=<span class="st0">&quot;email&quot;</span> value=<span class="st0">&quot;bob@bob.com&quot;</span> /&gt;
+    &lt;input <span class="kw3">name</span>=<span class="st0">&quot;zipCode&quot;</span> value=<span class="st0">&quot;90210&quot;</span> /&gt;
+&lt;/form&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myForm'</span><span class="br0">)</span>.<span class="me1">toQueryString</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Returns &quot;email=bob@bob.com&amp;zipCode=90210&quot;.</span>
+</pre>
+
+<h2 id="Element:getSelected"><a href="#Element:getSelected">Element Method: getSelected</a></h2>
+
+<p class="description">Returns the selected options of a select element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> selected = mySelect.<span class="me1">getSelected</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An array of the selected elements.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;select id=<span class="st0">&quot;country-select&quot;</span> <span class="kw3">name</span>=<span class="st0">&quot;country&quot;</span>&gt;
+    &lt;option value=<span class="st0">&quot;US&quot;</span>&gt;United States&lt;/option
+    &lt;option value =<span class="st0">&quot;IT&quot;</span>&gt;Italy&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'country-select'</span><span class="br0">)</span>.<span class="me1">getSelected</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">//Returns whatever the user selected.</span>
+</pre>
+
+<h3>Note:</h3>
+
+<p>This method returns an array, regardless of the multiple attribute of the select element.
+If the select is single, it will return an array with only one item.</p>
+
+<h2 id="Element:getProperty"><a href="#Element:getProperty">Element Method: getProperty</a></h2>
+
+<p class="description">Returns a single element attribute.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myProp = myElement.<span class="me1">getProperty</span><span class="br0">(</span>property<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ul>
+<li>property - (<em>string</em>) The property to be retrieved.</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>string</em>) A string containing the Element's requested property.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> src=<span class="st0">&quot;mootools.png&quot;</span> title=<span class="st0">&quot;MooTools, the compact JavaScript framework&quot;</span> alt=<span class="st0">&quot;&quot;</span> /&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> imgProps = $<span class="br0">(</span><span class="st0">'myImage'</span><span class="br0">)</span>.<span class="me1">getProperty</span><span class="br0">(</span><span class="st0">'src'</span><span class="br0">)</span>; <span class="co1">//Returns: 'mootools.png'.</span>
+</pre>
+
+<h2 id="Element:getProperties"><a href="#Element:getProperties">Element Method: getProperties</a></h2>
+
+<p class="description">Gets multiple element attributes.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myProps = myElement.<span class="me1">getProperties</span><span class="br0">(</span>properties<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ul>
+<li>properties - (<em>strings</em>) Any number of properties to be retrieved.</li>
+</ul>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) An object containing all of the Element's requested properties.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> src=<span class="st0">&quot;mootools.png&quot;</span> title=<span class="st0">&quot;MooTools, the compact JavaScript framework&quot;</span> alt=<span class="st0">&quot;&quot;</span> /&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> imgProps = $<span class="br0">(</span><span class="st0">'myImage'</span><span class="br0">)</span>.<span class="me1">getProperties</span><span class="br0">(</span><span class="st0">'id'</span>, <span class="st0">'src'</span>, <span class="st0">'title'</span>, <span class="st0">'alt'</span><span class="br0">)</span>;
+<span class="co1">//Returns: { id: 'myImage', src: 'mootools.png', title: 'MooTools, the compact JavaScript framework', alt: '' }</span>
+</pre>
+
+<h2 id="Element:setProperty"><a href="#Element:setProperty">Element Method: setProperty</a></h2>
+
+<p class="description">Sets an attribute or special property for this Element.</p>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>) The property to assign the value passed in.</li>
+<li>value - (<em>mixed</em>) The value to assign to the property passed in.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) - This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> /&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myImage'</span><span class="br0">)</span>.<span class="me1">setProperty</span><span class="br0">(</span><span class="st0">'src'</span>, <span class="st0">'mootools.png'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> src=<span class="st0">&quot;mootools.png&quot;</span> /&gt;
+</pre>
+
+<h3>Note</h3>
+
+<ul>
+<li>Whenever using <a href="#Element:setProperty">Element:setProperty</a> to set an attribute, pass in the lowercase, simplified form of the property. For example:
+
+<ul>
+<li>use 'for', not 'htmlFor',</li>
+<li>use 'class', not 'className'</li>
+<li>use 'frameborder', not 'frameBorder'</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Element:setProperties"><a href="#Element:setProperties">Element Method: setProperties</a></h2>
+
+<p class="description">Sets numerous attributes for the Element.</p>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>properties - (<em>object</em>) An object with key/value pairs.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> /&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myImage'</span><span class="br0">)</span>.<span class="me1">setProperties</span><span class="br0">(</span><span class="br0">{</span>
+    src: <span class="st0">'whatever.gif'</span>,
+    alt: <span class="st0">'whatever dude'</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> src=<span class="st0">&quot;whatever.gif&quot;</span> alt=<span class="st0">&quot;whatever dude&quot;</span> /&gt;
+</pre>
+
+<h2 id="Element:removeProperty"><a href="#Element:removeProperty">Element Method: removeProperty</a></h2>
+
+<p class="description">Removes an attribute from the Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">removeProperty</span><span class="br0">(</span>property<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>property - (<em>string</em>) The attribute to remove.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;a id=<span class="st0">&quot;myAnchor&quot;</span> href=<span class="st0">&quot;#&quot;</span> onmousedown=<span class="st0">&quot;alert('click');&quot;</span>&gt;&lt;/a&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="co1">//Eww... inline JavaScript is bad! Let's get rid of it.</span>
+$<span class="br0">(</span><span class="st0">'myAnchor'</span><span class="br0">)</span>.<span class="me1">removeProperty</span><span class="br0">(</span><span class="st0">'onmousedown'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;a id=<span class="st0">&quot;myAnchor&quot;</span> href=<span class="st0">&quot;#&quot;</span>&gt;&lt;/a&gt;
+</pre>
+
+<h2 id="Element:removeProperties"><a href="#Element:removeProperties">Element Method: removeProperties</a></h2>
+
+<p class="description">Removes numerous attributes from the Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">removeProperties</span><span class="br0">(</span>properties<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>properties - (<em>strings</em>) The attributes to remove, separated by comma.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;a id=<span class="st0">&quot;myAnchor&quot;</span> href=<span class="st0">&quot;#&quot;</span> title=<span class="st0">&quot;hello world&quot;</span>&gt;&lt;/a&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myAnchor'</span><span class="br0">)</span>.<span class="me1">removeProperties</span><span class="br0">(</span><span class="st0">'id'</span>, <span class="st0">'href'</span>, <span class="st0">'title'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;a&gt;&lt;/a&gt;
+</pre>
+
+<h2 id="Element:store"><a href="#Element:store">Element Method: store</a></h2>
+
+<p class="description">Stores an item in the Elements Storage, linked to this Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">store</span><span class="br0">(</span>key, value<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>key - (<em>string</em>) The key you want to assign to the stored value.</li>
+<li>value - (<em>mixed</em>) Any value you want to store.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'element'</span><span class="br0">)</span>.<span class="me1">store</span><span class="br0">(</span><span class="st0">'someProperty'</span>, someValue<span class="br0">)</span>;
+</pre>
+
+<h2 id="Element:retrieve"><a href="#Element:retrieve">Element Method: retrieve</a></h2>
+
+<p class="description">Retrieves a value from the Elements storage.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">retrieve</span><span class="br0">(</span>key<span class="br0">[</span>, <span class="kw2">default</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>key - (<em>string</em>) The key you want to retrieve from the storage.</li>
+<li>default - (<em>mixed</em>, optional) Default value to store and return if no value is stored.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) The value linked to the key.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'element'</span><span class="br0">)</span>.<span class="me1">retrieve</span><span class="br0">(</span><span class="st0">'someProperty'</span><span class="br0">)</span>; <span class="co1">// returns someValue (see example above)</span>
+</pre>
+
+<h1 id="Element-Properties"><a href="#Element-Properties">Hash: Element.Properties</a></h1>
+
+<p class="description">This Hash contains the functions that respond to the first argument passed in <a href="#Element:get">Element:get</a>, <a href="#Element:set">Element:set</a> and <a href="#Element:erase">Element:erase</a>.</p>
+
+<h3>Adding a Custom Element Property</h3>
+
+<pre class="javascript">Element.<span class="me1">Properties</span>.<span class="me1">disabled</span> = <span class="br0">{</span>
+&nbsp;
+    get: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">return</span> <span class="kw1">this</span>.<span class="me1">disabled</span>;
+    <span class="br0">}</span>
+&nbsp;
+    set: <span class="kw2">function</span><span class="br0">(</span>value<span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">this</span>.<span class="me1">disabled</span> = !!value;
+        <span class="kw1">this</span>.<span class="me1">setAttribute</span><span class="br0">(</span><span class="st0">'disabled'</span>, !!value<span class="br0">)</span>;
+    <span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span>;
+</pre>
+
+<h3>Using a Custom Element Property</h3>
+
+<pre class="javascript"><span class="co1">//Gets the &quot;disabled&quot; property.</span>
+$<span class="br0">(</span>element<span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'disabled'</span><span class="br0">)</span>;
+<span class="co1">//Sets the &quot;disabled&quot; property to true, along with the attribute.</span>
+$<span class="br0">(</span>element<span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'disabled'</span>, <span class="kw2">true</span><span class="br0">)</span>;
+</pre>
+
+<h3>Note:</h3>
+
+<p>Automatically returns the element for setters.</p>
+
+<h3>Using an Object:</h3>
+
+<p>Additionally, you can access these custom getters and setters using an object as the parameter for the <a href="#Element:set">set</a> method.</p>
+
+<h4>Example:</h4>
+
+<pre class="javascript"><span class="co1">//Using set:</span>
+$<span class="br0">(</span>divElement<span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="br0">{</span>html: <span class="st0">'&lt;p&gt;Hello &lt;em&gt;People&lt;/em&gt;!&lt;/p&gt;'</span>, style: <span class="st0">'background:red'</span><span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//For new Elements (works the same as set):</span>
+<span class="kw2">new</span> Element<span class="br0">(</span><span class="st0">'input'</span>, <span class="br0">{</span>type: <span class="st0">'checkbox'</span>, checked: <span class="kw2">true</span>, disabled: <span class="kw2">true</span><span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Element-Properties:html"><a href="#Element-Properties:html">Element Property: html</a></h2>
+
+<h3 class="description">Setter:</h3>
+
+<p>Sets the innerHTML of the Element.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">myElement.<span class="me1">set</span><span class="br0">(</span><span class="st0">'html'</span>, <span class="br0">[</span>htmlString<span class="br0">[</span>, htmlString2<span class="br0">[</span>, htmlString3<span class="br0">[</span>, ..<span class="br0">]</span><span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>Any number of string parameters with HTML.</li>
+</ol>
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h4>Examples:</h4>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'html'</span>, <span class="st0">'&lt;div&gt;&lt;/div&gt;'</span>, <span class="st0">'&lt;p&gt;&lt;/p&gt;'</span><span class="br0">)</span>;
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>Getter:</h3>
+
+<p>Returns the inner HTML of the Element.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">myElement.<span class="me1">get</span><span class="br0">(</span><span class="st0">'html'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>text</em>) This Element's innerHTML.</li>
+</ul>
+<h2 id="Element-Properties:text"><a href="#Element-Properties:text">Element Property: text</a></h2>
+
+<h3 class="description">Setter:</h3>
+
+<p>Sets the inner text of the Element.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript">myElement.<span class="me1">set</span><span class="br0">(</span><span class="st0">'text'</span>, text<span class="br0">)</span>;
+</pre>
+
+<h4>Arguments:</h4>
+
+<ol>
+<li>text - (<em>string</em>) The new text content for the Element.</li>
+</ol>
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h4>Examples:</h4>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">set</span><span class="br0">(</span><span class="st0">'text'</span>, <span class="st0">'some text'</span><span class="br0">)</span>;
+<span class="co1">//The text of myElement is now 'some text'.</span>
+</pre>
+
+<h5>Resulting HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;some text&lt;/div&gt;
+</pre>
+
+<h3>Getter:</h3>
+
+<p>Gets the inner text of the Element.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myText = myElement.<span class="me1">get</span><span class="br0">(</span><span class="st0">'text'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>string</em>) The text of the Element.</li>
+</ul>
+<h4>Examples:</h4>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;my text&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> myText = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'text'</span><span class="br0">)</span>; <span class="co1">//myText = 'my text'.</span>
+</pre>
+
+<h2 id="Element-Properties:tag"><a href="#Element-Properties:tag">Element Property: tag</a></h2>
+
+<h3 class="description">Getter:</h3>
+
+<p>Returns the tag name of the Element in lower case.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myTag = myElement.<span class="me1">get</span><span class="br0">(</span><span class="st0">'tag'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Returns:</h4>
+
+<ul>
+<li>(<em>string</em>) The tag name in lower case.</li>
+</ul>
+<h4>Examples:</h4>
+
+<h5>HTML</h5>
+
+<pre class="javascript">&lt;img id=<span class="st0">&quot;myImage&quot;</span> /&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript"><span class="kw2">var</span> myTag = $<span class="br0">(</span><span class="st0">'myImage'</span><span class="br0">)</span>.<span class="me1">get</span><span class="br0">(</span><span class="st0">'tag'</span><span class="br0">)</span>; <span class="co1">// myTag = 'img'.</span>
+</pre>
+
+<h1 id="IFrame"><a href="#IFrame">Native: IFrame</a></h1>
+
+<p class="description">Custom Native to create and easily work with IFrames.</p>
+
+<h2 id="IFrame:constructor"><a href="#IFrame:constructor">IFrame Method: constructor</a></h2>
+
+<p class="description">Creates an IFrame HTML Element and extends its window and document with MooTools.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myIFrame = <span class="kw2">new</span> IFrame<span class="br0">(</span><span class="br0">[</span>el<span class="br0">]</span><span class="br0">[</span>, props<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el - (<em>mixed</em>, optional) The id of the IFrame to be
+converted, or the actual IFrame element. If its not passed, a new
+IFrame will be created (default).</li>
+<li>props - (<em>object</em>, optional) The properties to be applied to the new IFrame. Same as <a href="#Element:constructor">Element:constructor</a> props argument.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) A new IFrame HTML Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myIFrame = <span class="kw2">new</span> IFrame<span class="br0">(</span><span class="br0">{</span>
+&nbsp;
+    src: <span class="st0">'http://mootools.net/'</span>,
+&nbsp;
+    styles: <span class="br0">{</span>
+        width: <span class="nu0">800</span>,
+        height: <span class="nu0">600</span>,
+        border: <span class="st0">'1px solid #ccc'</span>
+    <span class="br0">}</span>,
+&nbsp;
+    events: <span class="br0">{</span>
+&nbsp;
+        mouseenter: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Welcome aboard.'</span><span class="br0">)</span>;
+        <span class="br0">}</span>,
+&nbsp;
+        mouseleave: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Goodbye!'</span><span class="br0">)</span>;
+        <span class="br0">}</span>,
+&nbsp;
+        load: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'The iframe has finished loading.'</span><span class="br0">)</span>;
+        <span class="br0">}</span>
+&nbsp;
+    <span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>If the IFrame is from the same domain as the &quot;host&quot;, its document
+and window will be extended with MooTools functionalities, allowing you
+to fully use MooTools within it.</li>
+<li>If the IFrame already exists and has a different name than id, the name will be made the same as the id.</li>
+<li>If the IFrame is from a different domain, its window and document will not be extended with MooTools methods.</li>
+</ul>
+<h1 id="Elements"><a href="#Elements">Native: Elements</a></h1>
+
+<p class="description">The Elements class allows <a href="#Element">Element</a> methods to work on an <a href="#Elements">Elements</a> array, as well as <a href="Array.htm">Array</a> Methods.</p>
+
+<h2 id="Elements:constructor"><a href="#Elements:constructor">Elements Method: constructor</a></h2>
+
+<h3 class="description">Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElements = <span class="kw2">new</span> Elements<span class="br0">(</span>elements<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>elements - (<em>mixed</em>) An array of elements or an HTMLCollection Object.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An extended array with the <a href="#Element">Element</a>, <a href="#Elements">Elements</a> and <a href="Array.htm">Array</a> methods.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Set Every Paragraph's Color to Red:</h4>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'p'</span><span class="br0">)</span>.<span class="me1">each</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>el<span class="br0">)</span><span class="br0">{</span>
+    el.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'color'</span>, <span class="st0">'red'</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Because $$('myselector') also accepts Element methods, the below</span>
+<span class="co1">//example has the same effect as the one above.</span>
+$$<span class="br0">(</span><span class="st0">'p'</span><span class="br0">)</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'color'</span>, <span class="st0">'red'</span><span class="br0">)</span>;
+</pre>
+
+<h4>Create Elements From an Array:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> myElements = <span class="kw2">new</span> Elements<span class="br0">(</span><span class="br0">[</span><span class="st0">'myElementID'</span>, $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>, <span class="st0">'myElementID2'</span>, document.<span class="me1">getElementById</span><span class="br0">(</span><span class="st0">'myElementID3'</span><span class="br0">)</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>In MooTools, every DOM function which returns a collection of nodes (such as <a href="#dollars">$$</a>) returns the nodes as instances of Elements.</li>
+<li>Because Elements is an Array, it accepts all the <a href="Array.htm">Array</a> methods, while giving precedence to <a href="#Element">Element</a> and <a href="#Elements">Elements</a> methods.</li>
+<li>Every node of the Elements instance has all the <a href="#Element">Element</a> methods.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="#dollars">$$</a>, <a href="#dollar">$</a>, <a href="#Element">Element</a>, <a href="#Elements">Elements</a>, <a href="Array.htm">Array</a>
+</li>
+</ul>
+<h2 id="Elements:filter"><a href="#Elements:filter">Elements Method: filter</a></h2>
+
+<p class="description">Filters a collection of elements by a given tag name.  If <a href="Selectors.htm">Selectors</a> is included, this method will be able to filter by any selector.
+It also works like <a href="Array.htm#Array:filter">Array:filter</a>, by filtering collection of elements with a function.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> filteredElements = elements.<span class="me1">filter</span><span class="br0">(</span>selector<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>selector - (<em>mixed</em>) A single CSS selector.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) A subset of this <a href="#Elements">Elements</a> instance.</li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Window">Window</a></h4>
+<div class="menu-item"><a href="#dollar">dollar</a></div>
+<div class="menu-item"><a href="#dollars">dollars</a></div>
+<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:constructor">constructor</a></div>
+<div class="menu-item"><a href="#Element:getElement">getElement</a></div>
+<div class="menu-item"><a href="#Element:getElements">getElements</a></div>
+<div class="menu-item"><a href="#Element:getElementById">getElementById</a></div>
+<div class="menu-item"><a href="#Element:set">set</a></div>
+<div class="menu-item"><a href="#Element:get">get</a></div>
+<div class="menu-item"><a href="#Element:erase">erase</a></div>
+<div class="menu-item"><a href="#Element:match">match</a></div>
+<div class="menu-item"><a href="#Element:inject">inject</a></div>
+<div class="menu-item"><a href="#Element:grab">grab</a></div>
+<div class="menu-item"><a href="#Element:adopt">adopt</a></div>
+<div class="menu-item"><a href="#Element:wraps">wraps</a></div>
+<div class="menu-item"><a href="#Element:appendText">appendText</a></div>
+<div class="menu-item"><a href="#Element:dispose">dispose</a></div>
+<div class="menu-item"><a href="#Element:clone">clone</a></div>
+<div class="menu-item"><a href="#Element:replaces">replaces</a></div>
+<div class="menu-item"><a href="#Element:hasClass">hasClass</a></div>
+<div class="menu-item"><a href="#Element:addClass">addClass</a></div>
+<div class="menu-item"><a href="#Element:removeClass">removeClass</a></div>
+<div class="menu-item"><a href="#Element:toggleClass">toggleClass</a></div>
+<div class="menu-item"><a href="#Element:getPrevious">getPrevious</a></div>
+<div class="menu-item"><a href="#Element:getAllPrevious">getAllPrevious</a></div>
+<div class="menu-item"><a href="#Element:getNext">getNext</a></div>
+<div class="menu-item"><a href="#Element:getAllNext">getAllNext</a></div>
+<div class="menu-item"><a href="#Element:getFirst">getFirst</a></div>
+<div class="menu-item"><a href="#Element:getLast">getLast</a></div>
+<div class="menu-item"><a href="#Element:getParent">getParent</a></div>
+<div class="menu-item"><a href="#Element:getParents">getParents</a></div>
+<div class="menu-item"><a href="#Element:getChildren">getChildren</a></div>
+<div class="menu-item"><a href="#Element:hasChild">hasChild</a></div>
+<div class="menu-item"><a href="#Element:empty">empty</a></div>
+<div class="menu-item"><a href="#Element:destroy">destroy</a></div>
+<div class="menu-item"><a href="#Element:toQueryString">toQueryString</a></div>
+<div class="menu-item"><a href="#Element:getSelected">getSelected</a></div>
+<div class="menu-item"><a href="#Element:getProperty">getProperty</a></div>
+<div class="menu-item"><a href="#Element:getProperties">getProperties</a></div>
+<div class="menu-item"><a href="#Element:setProperty">setProperty</a></div>
+<div class="menu-item"><a href="#Element:setProperties">setProperties</a></div>
+<div class="menu-item"><a href="#Element:removeProperty">removeProperty</a></div>
+<div class="menu-item"><a href="#Element:removeProperties">removeProperties</a></div>
+<div class="menu-item"><a href="#Element:store">store</a></div>
+<div class="menu-item"><a href="#Element:retrieve">retrieve</a></div>
+<h4 class="menu-item"><a href="#Element-Properties">Element.Properties</a></h4>
+<div class="menu-item"><a href="#Element-Properties:html">html</a></div>
+<div class="menu-item"><a href="#Element-Properties:text">text</a></div>
+<div class="menu-item"><a href="#Element-Properties:tag">tag</a></div>
+<h4 class="menu-item"><a href="#IFrame">IFrame</a></h4>
+<div class="menu-item"><a href="#IFrame:constructor">constructor</a></div>
+<h4 class="menu-item"><a href="#Elements">Elements</a></h4>
+<div class="menu-item"><a href="#Elements:constructor">constructor</a></div>
+<div class="menu-item"><a href="#Elements:filter">filter</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

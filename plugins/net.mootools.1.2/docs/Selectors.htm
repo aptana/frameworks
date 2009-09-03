@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Selectors</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<p class="description">Custom class to allow all of its methods to be used with any Selectors element via the dollar function <a href="Element.htm#dollar">$</a>.</p>
+
+<h2 id="Element:getElements"><a href="#Element:getElements">Element Property: getElements</a></h2>
+
+<p class="description">Gets all the elements within an element that match the given selector.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElements = myElement.<span class="me1">getElements</span><span class="br0">(</span>selector<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>selector - (<em>string</em>) The CSS Selector to match.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>array</em>) An <a href="Element.htm">Element</a> collection.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">//Returns all anchors within myElement.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'a'</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Returns all input tags with name &quot;dialog&quot;.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'input[name=dialog]'</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Returns all input tags with names ending with 'log'.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'input[name$=log]'</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Returns all email links (starting with &quot;mailto:&quot;).</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'a[href^=mailto:]'</span><span class="br0">)</span>;
+&nbsp;
+<span class="co1">//Adds events to all Elements with the class name 'email'.</span>
+$<span class="br0">(</span>document.<span class="me1">body</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">'a.email'</span><span class="br0">)</span>.<span class="me1">addEvents</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="st0">'mouseenter'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">this</span>.<span class="me1">href</span> = <span class="st0">'real@email.com'</span>;
+    <span class="br0">}</span>,
+    <span class="st0">'mouseleave'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">this</span>.<span class="me1">href</span> = <span class="st0">'#'</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>
+<p>Supports these operators in attribute selectors:</p>
+
+<ul>
+<li>'=' : is equal to</li>
+<li>'^=' : starts-with</li>
+<li>'$=' : ends-with</li>
+<li>'!=' : is not equal to</li>
+</ul>
+</li>
+</ul>
+<h2 id="Element:getElement"><a href="#Element:getElement">Element Property: getElement</a></h2>
+
+<p class="description">Same as <a href="#Element:getElements">Element:getElements</a>, but returns only the first.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> anElement = myElement.<span class="me1">getElement</span><span class="br0">(</span>selector<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>selector - (<em>string</em>) The CSS Selector to match.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>mixed</em>) An extended <a href="Element.htm">Element</a>, or null if not found.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> found = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElement</span><span class="br0">(</span><span class="st0">'.findMe'</span><span class="br0">)</span>.<span class="me1">setStyle</span><span class="br0">(</span><span class="st0">'color'</span>, <span class="st0">'#f00'</span><span class="br0">)</span>;
+</pre>
+
+<h1 id="Selectors"><a href="#Selectors">Selectors.Pseudo</a></h1>
+
+<p class="description">Some default Pseudo Selectors for <a href="Selectors.htm">Selectors</a>.</p>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://www.w3.org/TR/2005/WD-css3-selectors-20051215/#pseudo-classes">W3C Pseudo Classes</a></li>
+</ul>
+<h2 id="Selector:enabled"><a href="#Selector:enabled">Selector: enabled</a></h2>
+
+<p class="description">Matches all Elements that are enabled.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':enabled'</span>
+</pre>
+
+<h3>Examples:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'*:enabled'</span><span class="br0">)</span>
+&nbsp;
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">getElements</span><span class="br0">(</span><span class="st0">':enabled'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Selector:empty"><a href="#Selector:empty">Selector: empty</a></h2>
+
+<p class="description">Matches all elements which are empty.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':empty'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'div:empty'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Selector:contains"><a href="#Selector:contains">Selector: contains</a></h2>
+
+<p class="description">Matches all the Elements which contains the text.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':contains(text)'</span>
+</pre>
+
+<h3>Variables:</h3>
+
+<ul>
+<li>text - (string) The text that the Element should contain.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'p:contains(&quot;find me&quot;)'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Selector:nth-child"><a href="#Selector:nth-child">Selector: nth-child</a></h2>
+
+<p class="description">Matches every nth child.</p>
+
+<h3>Usage:</h3>
+
+<p>Nth Expression:</p>
+
+<pre class="javascript"><span class="st0">':nth-child(nExpression)'</span>
+</pre>
+
+<h3>Variables:</h3>
+
+<ul>
+<li>nExpression - (string) A nth expression for the &quot;every&quot; nth-child.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'#myDiv:nth-child(2n)'</span><span class="br0">)</span>; <span class="co1">//Returns every even child.</span>
+&nbsp;
+$$<span class="br0">(</span><span class="st0">'#myDiv:nth-child(n)'</span><span class="br0">)</span>; <span class="co1">//Returns all children.</span>
+&nbsp;
+$$<span class="br0">(</span><span class="st0">'#myDiv:nth-child(2n+1)'</span><span class="br0">)</span> <span class="co1">//Returns every odd child.</span>
+&nbsp;
+$$<span class="br0">(</span><span class="st0">'#myDiv:nth-child(4n+3)'</span><span class="br0">)</span> <span class="co1">//Returns Elements 3, 7, 11, 15, etc.</span>
+</pre>
+
+<p>Every Odd Child:</p>
+
+<pre class="javascript"><span class="st0">':nth-child(odd)'</span>
+</pre>
+
+<p>Every Even Child:</p>
+
+<pre class="javascript"><span class="st0">':nth-child(even)'</span>
+</pre>
+
+<p>Only Child:</p>
+
+<pre class="javascript"><span class="st0">':nth-child(only)'</span>
+</pre>
+
+<p>First Child:</p>
+
+<pre class="javascript"><span class="st0">'nth-child(first)'</span>
+</pre>
+
+<p>Last Child:</p>
+
+<pre class="javascript"><span class="st0">'nth-child(last)'</span>
+</pre>
+
+<h3>Note:</h3>
+
+<p>This selector respects the w3c specifications, so it has 1 as its
+first child, not 0. Therefore nth-child(odd) will actually select the
+even children, if you think in zero-based indexes.</p>
+
+<h2 id="Selector:even"><a href="#Selector:even">Selector: even</a></h2>
+
+<p class="description">Matches every even child.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':even'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'td:even'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Note:</h3>
+
+<p>This selector is not part of the w3c specification, therefore its
+index starts at 0. This selector is highly recommended over
+nth-child(even), as this will return the real even children.</p>
+
+<h2 id="Selector:odd"><a href="#Selector:odd">Selector: odd</a></h2>
+
+<p class="description">Matches every odd child.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':odd'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'td:odd'</span><span class="br0">)</span>;
+</pre>
+
+<h3>Note:</h3>
+
+<p>This selector is not part of the w3c specification, therefore its
+index starts at 0. This selector is highly recommended over
+nth-child(odd), as this will return the real odd children.</p>
+
+<h2 id="Selector:first-child"><a href="#Selector:first-child">Selector: first</a></h2>
+
+<p class="description">Matches the first child.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':first-child'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'td:first-child'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Selector:last-child"><a href="#Selector:last-child">Selector: last</a></h2>
+
+<pre class="javascript">Matches the last child.
+</pre>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':last-child'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'td:last-child'</span><span class="br0">)</span>;
+</pre>
+
+<h2 id="Selector:only-child"><a href="#Selector:only-child">Selector: only</a></h2>
+
+<p class="description">Matches an only child of its parent Element.</p>
+
+<h3>Usage:</h3>
+
+<pre class="javascript"><span class="st0">':only-child'</span>
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript">$$<span class="br0">(</span><span class="st0">'td:only-child'</span><span class="br0">)</span>;
+</pre>
+
+			
+			</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:getElements">getElements</a></div>
+<div class="menu-item"><a href="#Element:getElement">getElement</a></div>
+<h4 class="menu-item"><a href="#Selectors">Selectors</a></h4>
+<div class="menu-item"><a href="#Selector:enabled">enabled</a></div>
+<div class="menu-item"><a href="#Selector:empty">empty</a></div>
+<div class="menu-item"><a href="#Selector:contains">contains</a></div>
+<div class="menu-item"><a href="#Selector:nth-child">nth.child</a></div>
+<div class="menu-item"><a href="#Selector:even">even</a></div>
+<div class="menu-item"><a href="#Selector:odd">odd</a></div>
+<div class="menu-item"><a href="#Selector:first-child">first.child</a></div>
+<div class="menu-item"><a href="#Selector:last-child">last.child</a></div>
+<div class="menu-item"><a href="#Selector:only-child">only.child</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

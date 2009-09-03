@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<!-- 	This adds documentation to the help index. We point to the XML file
+			which acts as a table of contents for the rest of the HTML documentation -->
+	<extension
+		point="org.eclipse.help.toc">
+		<toc file="docs/docs/index.xml"/>
+	</extension>
+
+	<!-- 	This is the root folder of any Aptana Scripting scripts the library wishes to provide. 
+			Comment this out if you have no scripts you wish to add -->
+	<extension
+		point="org.eclipse.eclipsemonkey.scriptpath">
+		<scriptpath directory="scripts"/>
+	</extension>
+
+	<!-- 	This is the root folder of any snippets the library wishes to contribute to the snippets
+			pane. Comment this out if no snippets are available -->
+	<extension
+		point="com.aptana.ide.snippets.snippetspath">
+		<snippetsinfo directory="snippets"/>
+	</extension>
+
+	<!-- 	This places an entry in the "New Ajax Library Project" Wizard. The PNG image (16x16) is the icon to display in
+			the wizard, and the "libraries" folder is the root folder under which all contents will be copied into
+			the user's project -->
+	<extension
+		point="com.aptana.ide.projects.library">
+		<libraryinfo
+		directory="libraries"
+		iconFile="icons/ext_small.gif"
+		name="Ext 1.1"/>
+		</extension>
+
+	<!--	This extension point allows the user to contribute samples to the "samples" pane.
+			 * The PNG image (16x16) is the image to display next to the library name.
+			 * The "samples" directory is the root directory under which all samples live (note, no nesting of samples).
+			 * The "infoFile" is an HTML index file which can be used to provide additional information about the samples.
+			 * The preview handler can be left alone...that indicates we've created a special class that
+				allows the user to preview a HTML sample without needing to import it as a project.
+
+			The "includePath" sub element allows us to copy common code into a project when creating or previewing the sample,
+			thus preventing use from needing to include the library in every sample.
+	-->
+	<extension
+		point="com.aptana.ide.samples.samplespath">
+		<samplesinfo
+			directory="samples"
+			iconFile="icons/ext_small.gif"
+			infoFile="samples/index.html"
+			name="Ext 1.1 Samples"
+			previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+			<include path="libraries/lib"/>                   
+		</samplesinfo>
+	</extension>
+
+	<!-- 	The views extension point allows the library to contribute an HTML view to the IDE. Examples of this
+		 	can be found in the EXT or jQuery projects where they provide documentation or external functionality.
+		 
+		 	Note the special URL starting with bundleresource:// which allows us to specify a resource local to
+		 	this plugin -->
+	<extension
+		point="org.eclipse.ui.views">
+		<view
+			category="com.aptana.ide.documentation"
+			class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+			icon="icons/ext_small.gif"
+			id="com.aptana.ide.documentation.libraryname.sampleview"
+			name="Ext 1.1 Sample View">
+			<description>bundleresource://com.extjs.ext.1.1/views/sampleview/sampleview.html</description>
+		</view>
+	</extension>
+         
+	<!--	You can provide automatic code assist for your library by creating a scriptdoc library in XML and importing it
+	-->
+	<extension
+    	point="com.aptana.ide.editor.js.scriptdoc">
+     	<xml-file path="support/ext_aptana.xml" user-agent="Ext 1.1" icon="icons/ext_small.gif" />
+	</extension>
+			   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.extjs.ext.1.1">
+             </feature>
+          </extension>    
+</plugin>

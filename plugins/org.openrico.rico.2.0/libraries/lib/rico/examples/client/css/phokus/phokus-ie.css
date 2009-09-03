@@ -1,0 +1,96 @@
+/* IE FIXES
+*******************************************************************************/
+
+body {
+	text-align: center;
+}
+#page {
+	text-align: left;
+}
+#main,
+#sidebar,
+#footer {
+	display: inline;
+	overflow: hidden;
+}
+.post,
+.toggle,
+.sidebar-node {
+	overflow: hidden;
+}
+#commentList {
+	margin-left: -32px;
+}
+.sidebar-node,
+li {
+	height: 1%;
+}
+.alt {
+	background: #c2e5ff url(../../images/theme/meta-top.gif) no-repeat;
+	margin: 0 0 15px -25px;
+	padding: 10px 25px 10px 25px;
+}
+#sidebar .sidebar-node ul {
+	margin-left: -31px;	
+}
+#sidebar li a {
+	margin: 0;
+	height: 1%;
+}
+#sidebar li em {
+	right: 15px;
+}
+.frm-tbl th {
+	width: 10em;
+}
+#badges {
+	margin: 0;
+}
+#footer li {
+	display: inline;
+}
+#footer li a,
+#footer li img {
+	display: inline-block;
+}
+#search.toggle-content-off form {
+	display: block;
+}
+#search.toggle-content-off form label {
+	padding-bottom: 5px;
+}
+.link-ico,
+.link-ico span {
+	display: inline-block;
+	top: 3px;
+}
+
+/* IE 5 FIXES
+*******************************************************************************/
+
+pre {
+	width /**/: 499px;
+}
+.post,
+h2,
+.auth,
+.meta,
+.meta.alt {
+	width /**/: 551px;
+}
+#commentList li,
+#commentList .author-details {
+	width /**/: 533px;
+}
+#sidebar h3,
+#sform label,
+#sidebar li a {
+	width /**/: 199px;
+}
+#search-results h4 {
+	width /**/: 191px;
+}
+#commentList li,
+#sidebar .sidebar-node,
+
+

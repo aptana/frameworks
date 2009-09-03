@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Element.Event</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<ul class="description">
+<li>Custom Native to allow all of its methods to be used with any DOM element via the dollar function .</li>
+<li>These methods are also available on window and document.</li>
+</ul>
+<h3>Notes:</h3>
+
+<ul>
+<li>Internet Explorer fires element events in random order if they are not fired by <a href="#Element:fireEvent">Element:fireEvent</a>.</li>
+</ul>
+<h2 id="Element:addEvent"><a href="#Element:addEvent">Element Method: addEvent</a></h2>
+
+<p class="description">Attaches an event listener to a DOM element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">addEvent</span><span class="br0">(</span>type, fn<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>type - (<em>string</em>) The event name to monitor ('click', 'load', etc) without the prefix 'on'.</li>
+<li>fn   - (<em>function</em>) The function to execute.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h5>HTML:</h5>
+
+<pre class="javascript">&lt;div id=<span class="st0">&quot;myElement&quot;</span>&gt;Click me.&lt;/div&gt;
+</pre>
+
+<h5>JavaScript</h5>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'clicked!'</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>You can stop the Event by returning false in the listener or calling <a href="#Event:stop">Event:stop</a>.</li>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="http://www.w3schools.com/html/html_eventattributes.asp">w3schools Event Attributes</a></li>
+</ul>
+<h2 id="Element:removeEvent"><a href="#Element:removeEvent">Element Method: removeEvent</a></h2>
+
+<p class="description">Works as Element.addEvent, but instead removes the specified event listener.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">removeEvent</span><span class="br0">(</span>type, fn<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>type - (<em>string</em>) The event name.</li>
+<li>fn   - (<em>function</em>) The function to remove.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<h4>Standard usage:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> destroy = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Boom: '</span> + <span class="kw1">this</span>.<span class="me1">id</span><span class="br0">)</span>; <span class="br0">}</span> <span class="co1">// this refers to the Element.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, destroy<span class="br0">)</span>;
+&nbsp;
+<span class="co1">// later</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">removeEvent</span><span class="br0">(</span><span class="st0">'click'</span>, destroy<span class="br0">)</span>;
+</pre>
+
+<h4>Examples with bind:</h4>
+
+<pre class="javascript"><span class="kw2">var</span> destroy = <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'Boom: '</span> + <span class="kw1">this</span>.<span class="me1">id</span><span class="br0">)</span>; <span class="br0">}</span>
+<span class="kw2">var</span> boundDestroy = destroy.<span class="me1">bind</span><span class="br0">(</span>$<span class="br0">(</span><span class="st0">'anotherElement'</span><span class="br0">)</span><span class="br0">)</span>;
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, boundDestroy<span class="br0">)</span>;
+&nbsp;
+<span class="co1">// later</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">removeEvent</span><span class="br0">(</span><span class="st0">'click'</span>, destroy<span class="br0">)</span>; <span class="co1">// this won't remove the event.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">removeEvent</span><span class="br0">(</span><span class="st0">'click'</span>, destroy.<span class="me1">bind</span><span class="br0">(</span>$<span class="br0">(</span><span class="st0">'anotherElement'</span><span class="br0">)</span><span class="br0">)</span>; <span class="co1">// this won't remove the event either.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">removeEvent</span><span class="br0">(</span><span class="st0">'click'</span>, boundDestroy<span class="br0">)</span>; <span class="co1">// this is the correct way to remove the event.</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>When the function is added using <a href="Function.htm#Function:bind">Function:bind</a> or <a href="Function.htm#Function:pass">Function:pass</a>, etc, a new reference is created.  For removeEvent to work, you must pass a reference to the exact function to be removed.</li>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h2 id="Element:addEvents"><a href="#Element:addEvents">Element Method: addEvents</a></h2>
+
+<p class="description">The same as <a href="#Element:addEvent">Element:addEvent</a>, but accepts an object to add multiple events at once.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">addEvents</span><span class="br0">(</span>events<span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>events - (<em>object</em>) An object with key/value representing: key the event name, and value the function that is called when the Event occurs.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvents</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="st0">'mouseover'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'mouseover'</span><span class="br0">)</span>;
+    <span class="br0">}</span>,
+    <span class="st0">'click'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'click'</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+</ul>
+<h2 id="Element:removeEvents"><a href="#Element:removeEvents">Element Method: removeEvents</a></h2>
+
+<p class="description">Removes all events of a certain type from an Element. If no argument is passed, removes all events of all types.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElements.<span class="me1">removeEvents</span><span class="br0">(</span><span class="br0">[</span>events<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>events - (optional) if not passed removes all events from the element.
+
+<ul>
+<li>(<em>string</em>) The event name (e.g. 'click'). Removes all events of that type.</li>
+<li>(<em>object</em>) An object of type function pairs. Like the one passed to <a href="#Element:addEvent">Element:addEvent</a>.</li>
+</ul>
+</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+myElement.<span class="me1">addEvents</span><span class="br0">(</span><span class="br0">{</span>
+    <span class="st0">'mouseover'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'mouseover'</span><span class="br0">)</span>;
+    <span class="br0">}</span>,
+    <span class="st0">'click'</span>: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'click'</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+myElement.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'clicked again'</span><span class="br0">)</span>; <span class="br0">}</span><span class="br0">)</span>;
+myElement.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'click'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'clicked and again :('</span><span class="br0">)</span>; <span class="br0">}</span><span class="br0">)</span>;
+<span class="co1">//addEvent will keep appending each function.</span>
+<span class="co1">//Unfortunately for the visitor, that'll be three alerts they'll have to click on.</span>
+myElement.<span class="me1">removeEvents</span><span class="br0">(</span><span class="st0">'click'</span><span class="br0">)</span>; <span class="co1">// This saves the visitor's finger by removing every click event.</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="#Element:removeEvent">Element:removeEvent</a></li>
+</ul>
+<h2 id="Element:fireEvent"><a href="#Element:fireEvent">Element Method: fireEvent</a></h2>
+
+<p class="description">Executes all events of the specified type present in the Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">fireEvent</span><span class="br0">(</span>type<span class="br0">[</span>, args<span class="br0">[</span>, delay<span class="br0">]</span><span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>type  - (<em>string</em>) The event name (e.g. 'click')</li>
+<li>args  - (<em>mixed</em>, optional) Array or single object, arguments to pass to the function. If more than one argument, must be an array.</li>
+<li>delay - (<em>number</em>, optional) Delay (in ms) to wait to execute the event.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="co1">// Fires all the added 'click' events and passes the Element 'anElement' after one second.</span>
+$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">fireEvent</span><span class="br0">(</span><span class="st0">'click'</span>, $<span class="br0">(</span><span class="st0">'anElement'</span><span class="br0">)</span>, <span class="nu0">1000</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This will not fire the DOM Event (this concerns all inline events ie. onmousedown=&quot;..&quot;).</li>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h2 id="Element:cloneEvents"><a href="#Element:cloneEvents">Element Method: cloneEvents</a></h2>
+
+<p class="description">Clones all events from an Element to this Element.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myElement.<span class="me1">cloneEvents</span><span class="br0">(</span>from<span class="br0">[</span>, type<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>from - (<em>element</em>) Copy all events from this Element.</li>
+<li>type - (<em>string</em>, optional) Copies only events of this type. If null, copies all events.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>element</em>) This Element.</li>
+</ul>
+<h3>Examples:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>;
+<span class="kw2">var</span> myClone = myElement.<span class="me1">clone</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">cloneEvents</span><span class="br0">(</span>myElement<span class="br0">)</span>; <span class="co1">//clones the element and its events</span>
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>This method is also attached to Document and Window.</li>
+</ul>
+<h3>Hash: Element.Events</h3>
+
+<p>You can add additional custom events by adding properties (objects) to the Element.Events Hash</p>
+
+<h4>Arguments:</h4>
+
+<p>The Element.Events.yourproperty (object) can have:</p>
+
+<ol>
+<li>base - (<em>string</em>, optional) the base event the custom event will listen to. Its not optional if condition is set.</li>
+<li>condition - (<em>function</em>, optional) the condition from which
+we determine if the custom event can be fired. Is bound to the element
+you add the event to. The Event is passed in.</li>
+<li>onAdd - (<em>function</em>, optional) the function that will get fired when the custom event is added. Is bound to the element you add the event to.</li>
+<li>onRemove - (<em>function</em>, optional) the function that will get fired when the custom event is removed. Is bound to the element you add the event to.</li>
+</ol>
+<h4>Examples:</h4>
+
+<pre class="javascript">Element.<span class="me1">Events</span>.<span class="me1">shiftclick</span> = <span class="br0">{</span>
+    base: <span class="st0">'click'</span>, <span class="co1">//we set a base type</span>
+    condition: <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span> <span class="co1">//and a function to perform additional checks.</span>
+        <span class="kw1">return</span> <span class="br0">(</span>event.<span class="me1">shift</span> == <span class="kw2">true</span><span class="br0">)</span>; <span class="co1">//this means the event is free to fire</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>;
+&nbsp;
+$<span class="br0">(</span><span class="st0">'myInput'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'shiftclick'</span>, <span class="kw2">function</span><span class="br0">(</span>event<span class="br0">)</span><span class="br0">{</span>
+    log<span class="br0">(</span><span class="st0">'the user clicked the left mouse button while holding the shift key'</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h4>Notes:</h4>
+
+<ul>
+<li>
+<p>There are different types of custom Events you can create:</p>
+
+<ol>
+<li>Custom Events with only base: they will just be a redirect to the base event.</li>
+<li>Custom Events with base and condition: they will be redirect to the base event, but only fired if the condition is met.</li>
+<li>Custom Events with onAdd and/or onRemove and any other of the
+above: they will also perform additional functions when the event is
+added/removed.</li>
+</ol>
+</li>
+</ul>
+<h4>Warning:</h4>
+
+<p>If you use the condition option you NEED to specify a base type, unless you plan to overwrite a native event.
+(highly unrecommended: use only when you know exactly what you're doing).</p>
+
+<h2><a href="#">Custom Events</a></h2>
+
+<h3 class="description">Event: mouseenter</h3>
+
+<p>This event fires when the mouse enters the area of the DOM Element
+and will not be fired again if the mouse crosses over children of the
+Element (unlike mouseover).</p>
+
+<h4>Examples:</h4>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'mouseenter'</span>, myFunction<span class="br0">)</span>;
+</pre>
+
+<h4>See Also:</h4>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+</ul>
+<h3>Event: mouseleave</h3>
+
+<p>This event fires when the mouse leaves the area of the DOM Element
+and will not be fired if the mouse crosses over children of the Element
+(unlike mouseout).</p>
+
+<h4>Examples:</h4>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'mouseleave'</span>, myFunction<span class="br0">)</span>;
+</pre>
+
+<h4>See Also:</h4>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+</ul>
+<h3>Event: mousewheel</h3>
+
+<p>This event fires when the mouse wheel is rotated;</p>
+
+<h4>Examples:</h4>
+
+<pre class="javascript">$<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'mousewheel'</span>, myFunction<span class="br0">)</span>;
+</pre>
+
+<h4>Notes:</h4>
+
+<ul>
+<li>This custom event just redirects DOMMouseScroll (Mozilla) to
+mousewheel (Opera, Internet Explorer), making it work across browsers.</li>
+</ul>
+<h4>See Also:</h4>
+
+<ul>
+<li><a href="#Element:addEvent">Element:addEvent</a></li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:addEvent">addEvent</a></div>
+<div class="menu-item"><a href="#Element:removeEvent">removeEvent</a></div>
+<div class="menu-item"><a href="#Element:addEvents">addEvents</a></div>
+<div class="menu-item"><a href="#Element:removeEvents">removeEvents</a></div>
+<div class="menu-item"><a href="#Element:fireEvent">fireEvent</a></div>
+<div class="menu-item"><a href="#Element:cloneEvents">cloneEvents</a></div>
+<div class="menu-item"><a href="#"></a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

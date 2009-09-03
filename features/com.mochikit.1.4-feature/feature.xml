@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.mochikit.1.4"
+      label="%featureName"
+      version="1.4.0.00008"
+      provider-name="%providerName"
+      plugin="com.mochikit.1.4">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://update.aptana.com/update/frameworks/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="com.aptana.ide.projects"/>
+      <import plugin="com.aptana.ide.snippets"/>
+      <import plugin="com.aptana.ide.samples"/>
+   </requires>
+
+   <plugin
+         id="com.mochikit.1.4"
+         download-size="500"
+         install-size="500"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

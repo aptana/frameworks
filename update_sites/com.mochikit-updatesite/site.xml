@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.mochikit.1.4_1.4.0.00005.jar" id="com.mochikit.1.4" version="1.4.0.00005">
+      <category name="MochiKit"/>
+   </feature>
+   <category-def name="MochiKit" label="Aptana Support for MochiKit"/>
+</site>

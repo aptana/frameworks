@@ -1,0 +1,71 @@
+=========================
+README FOR DBIx::LiveGrid
+=========================
+
+This module provides a link between an AJAX LiveGrid (a dynamically scrollable database table within a web page) and DBI (Perl's database interface).  With a half dozen lines of perl script and a short HTML section, you can create web windows into any DBI accessible database.
+
+==============
+PRE-REQUISITES
+==============
+
+You will need these Perl modules.  They are available from any
+CPAN mirror:
+
+ * DBI
+ * SQL::Abstract
+ * SQL::Abstract::Limit
+
+Note: It's possible to run without the SQL::* modules, but you'll need to construct your own request validator and SQL generator.
+
+You will need a web-server such as Apache (or any other web server
+capable of serving CGI scripts and/or mod_perl scripts).
+
+===================
+=head1 INSTALLATION
+===================
+
+1. Install the pre-requisites (see above)
+
+2. Install DBIx-LiveGrid
+
+a. Download the latest version of DBIX-LiveGrid from a CPAN mirror,
+   for example:
+
+ http://cpan.org/authors/id/J/JZ/JZUCKER/DBIx-LiveGrid-0.01.tar.gz
+
+b. Unpack and untar the tarball, and change into the LiveGrid directory.
+
+c. Install the module using these commands:
+
+ perl Makefile.PL
+ make
+ make test
+ make install
+
+You can also use nmake, dmake, etc., instead of make.
+
+3. Copy the Examples directory and its sudirectories into someplace in your
+web documents tree.  You should end up with a structure something 
+like this:
+
+  /your_http_root/your_path/Examples/livegrid.html
+  /your_http_root/your_path/Examples/cgi-bin/livegrid.cgi
+  /your_http_root/your_path/Examples/css/dbix-livegrid.css
+  /your_http_root/your_path/Examples/images/sort_asc.gif
+  /your_http_root/your_path/Examples/images/sort_desc.gif
+  /your_http_root/your_path/Examples/scripts/dbix-livegrid.js
+
+If you wish, you can rename the Examples directory after moving it.  The dbix-livegrid.js is required and must be available to your web server.  The others are optional add-ons or examples.
+
+4. Download these two files into the scripts directory created in the step above.
+
+  http://openrico.org/rico/dist/rico.js
+  http://openrico.org/rico/dist/prototype.js
+
+======================================================
+See the included POD documents for further information
+======================================================
+
+-- 
+Jeff Zucker (jZed on Perlmonks, jzucker on CPAN)
+2005-09-12

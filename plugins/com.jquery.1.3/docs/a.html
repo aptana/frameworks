@@ -1,0 +1,900 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+  <li id="link-add-expr">
+<span class="fn"><a class="name" href="#link-add-expr">add</a>( <span class="arg-type tooltip" title="">String, DOMElement, Array&lt;DOMElement&gt;</span> <span class="arg-name tooltip" title="An expression whose matched elements are added for String, a string of HTML to create on the fly for DOMElement or one or more Elements to add if an Array.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Adds more elements, matched by the given expression, to the set of matched elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all divs and makes a border.  Then adds all paragraphs to the jQuery object to set their backgrounds yellow.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"2px&nbsp;solid&nbsp;red"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.add(<span class="string">"p"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Added&nbsp;this...&nbsp;(notice&nbsp;no&nbsp;border)<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds more elements, matched by the given expression, to the set of matched elements.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).add(<span class="string">"span"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds more elements, created on the fly, to the set of matched elements.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).clone().add(<span class="string">"&amp;lt;span&gt;Again&amp;lt;/span&gt;"</span>).appendTo(<span class="global">document</span>.body);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds one or more Elements to the set of matched elements.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).add(<span class="global">document</span>.getElementById(<span class="string">"a"</span>)).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"a"</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-addClass-class">
+<span class="fn"><a class="name" href="#link-addClass-class">addClass</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="One or more CSS classes to add to the elements, these are separated by spaces.">class</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Adds the specified class(es) to each of the set of matched elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds the class 'selected' to the matched elements.</p>
+<pre><code class="javascript">$(<span class="string">"p:last"</span>).addClass(<span class="string">"selected"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>and<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Goodbye<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds the classes 'selected' and 'highlight' to the matched elements.</p>
+<pre><code class="javascript">$(<span class="string">"p:last"</span>).addClass(<span class="string">"selected&nbsp;highlight"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>and<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Goodbye<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-after-content">
+<span class="fn"><a class="name" href="#link-after-content">after</a>( <span class="arg-type tooltip" title="">String, Element, jQuery</span> <span class="arg-name tooltip" title="Content to insert after each target.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Insert content after each of the matched elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Inserts some HTML after all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).after(<span class="string">"&lt;b&gt;Hello&lt;/b&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Inserts a DOM element after all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).after(&nbsp;<span class="global">document</span>.createTextNode(<span class="string">"Hello"</span>)&nbsp;);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Inserts a jQuery object (similar to an Array of DOM Elements) after all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).after(&nbsp;$(<span class="string">"b"</span>)&nbsp;);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxComplete-callback">
+<span class="fn"><a class="name" href="#link-ajaxComplete-callback">ajaxComplete</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+
+&lt;pre&gt;function (event, XMLHttpRequest, ajaxOptions) {
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed whenever an AJAX
+request completes. This is an &lt;a href='Ajax_Events'&gt;Ajax
+Event&lt;/a&gt;.<br>The XMLHttpRequest and settings used for that request are passed as arguments to the callback.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show a message when an AJAX request completes.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#msg"</span>).ajaxComplete(<span class="keywords">function</span>(request,&nbsp;settings){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).append(<span class="string">"&lt;li&gt;Request&nbsp;Complete.&lt;/li&gt;"</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxError-callback">
+<span class="fn"><a class="name" href="#link-ajaxError-callback">ajaxError</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+
+&lt;pre&gt;function (event, XMLHttpRequest, ajaxOptions, thrownError) {
+  // thrownError only passed if an error was caught
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed whenever an AJAX request fails. This is an &lt;a href='Ajax_Events'&gt;Ajax Event&lt;/a&gt;.<br>The
+XMLHttpRequest and settings used for that request are passed as
+arguments to the callback. A third argument, an exception object, is
+passed if an exception occured while processing the request.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show a message when an AJAX request fails.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#msg"</span>).ajaxError(<span class="keywords">function</span>(request,&nbsp;settings){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).append(<span class="string">"&lt;li&gt;Error&nbsp;requesting&nbsp;page&nbsp;"</span>&nbsp;+&nbsp;settings.url&nbsp;+&nbsp;<span class="string">"&lt;/li&gt;"</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxSend-callback">
+<span class="fn"><a class="name" href="#link-ajaxSend-callback">ajaxSend</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+
+&lt;pre&gt;function (event, XMLHttpRequest, ajaxOptions) {
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed before an AJAX request is sent. This is an &lt;a href='Ajax_Events'&gt;Ajax Event&lt;/a&gt;.<br>The XMLHttpRequest and settings used for that request are passed as arguments to the callback.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show a message before an AJAX request is sent.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#msg"</span>).ajaxSend(<span class="keywords">function</span>(evt,&nbsp;request,&nbsp;settings){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).append(<span class="string">"&lt;li&gt;Starting&nbsp;request&nbsp;at&nbsp;"</span>&nbsp;+&nbsp;settings.url&nbsp;+&nbsp;<span class="string">"&lt;/li&gt;"</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxStart-callback">
+<span class="fn"><a class="name" href="#link-ajaxStart-callback">ajaxStart</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+
+&lt;pre&gt;function () {
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed whenever an AJAX
+request begins and there is none already active. This is an &lt;a
+href='Ajax_Events'&gt;Ajax Event&lt;/a&gt;.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show a loading message whenever an AJAX request starts (and none is already active).</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#loading"</span>).ajaxStart(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).show();&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxStop-callback">
+<span class="fn"><a class="name" href="#link-ajaxStop-callback">ajaxStop</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+&lt;pre&gt;function () {
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed whenever all AJAX
+requests have ended. This is an &lt;a href='Ajax_Events'&gt;Ajax
+Event&lt;/a&gt;.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Hide a loading message after all the AJAX requests have stopped.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#loading"</span>).ajaxStop(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).hide();&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-ajaxSuccess-callback">
+<span class="fn"><a class="name" href="#link-ajaxSuccess-callback">ajaxSuccess</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute.
+
+&lt;pre&gt;function (event, XMLHttpRequest, ajaxOptions) {
+  this; // dom element listening
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Attach a function to be executed whenever an AJAX
+request completes successfully. This is an &lt;a
+href='Ajax_Events'&gt;Ajax Event&lt;/a&gt;.<br>The event object, XMLHttpRequest, and settings used for that request are passed as arguments to the callback.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show a message when an AJAX request completes successfully.</p>
+<pre><code class="javascript">&nbsp;$(<span class="string">"#msg"</span>).ajaxSuccess(<span class="keywords">function</span>(evt,&nbsp;request,&nbsp;settings){&nbsp;
+&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).append(<span class="string">"&lt;li&gt;Successful&nbsp;Request!&lt;/li&gt;"</span>);&nbsp;
+&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-all-">
+<span class="fn"><a class="name" href="#link-all-">all</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements.<br>Most useful when combined with a context to search in.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds every element (including head, body, etc).</p>
+<pre><code class="javascript">$(<span class="string">"*"</span>).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>DIV<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>SPAN<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>P&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>A common way to find all elements is to set the 'context' to document.body so elements like head, script, etc are left out.</p>
+<pre><code class="javascript">$(<span class="string">"*"</span>,&nbsp;<span class="global">document</span>.body).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-andSelf-">
+<span class="fn"><a class="name" href="#link-andSelf-">andSelf</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Add the previous selection to the current selection.<br>Useful for traversing elements, and then adding something that was matched before the last traversion.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all divs, and all the paragraphs inside of them, and give them
+both classnames. Notice the div doesn't have the yellow background
+color since it didn't use andSelf().</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).find(<span class="string">"p"</span>).andSelf().addClass(<span class="string">"border"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).find(<span class="string">"p"</span>).addClass(<span class="string">"background"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>First&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Second&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-animate-paramsoptions">
+<span class="fn"><a class="name" href="#link-animate-paramsoptions">animate</a>( <span class="arg-type tooltip" title="">Options</span> <span class="arg-name tooltip" title="A set of style attributes that you wish to animate, and to what end.">params</span>, <span class="arg-type tooltip" title="">Options </span> <span class="arg-name tooltip" title="A set of options with which to configure the animation.">options</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">A function for making your own, custom animations.<br>The
+key aspect of this function is the object of style properties that will
+be animated, and to what end. Each key within the object represents a
+style property that will also be animated (for example: "height",
+"top", or "opacity").<br>
+<br>Note that properties should be specified using camel case eg. marginLeft instead of margin-left.<br>
+<br>The value associated with the key represents to what end the
+property will be animated. If a number is provided as the value, then
+the style property will be transitioned from its current state to that
+new number. Otherwise if the string "hide", "show", or "toggle" is
+provided, a default animation will be constructed for that property. </div>
+<h3>Options</h3>
+<ul class="options">
+<li>
+<span>duration (<span class="arg-type tooltip" title="">String, Number</span>), default: "normal"</span>
+<div>A string representing one of the three predefined speeds ("slow",
+"normal", or "fast") or the number of milliseconds to run the animation
+(e.g. 1000).</div>
+</li>
+<li>
+<span>easing (<span class="arg-type tooltip" title="A string of characters.">String</span>), default: "swing"</span>
+<div>The name of the easing effect that you want to use (Plugin Required). There are two built-in values, "linear" and "swing".</div>
+</li>
+<li>
+<span>complete (<span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span>), default: </span>
+<div>A function to be executed whenever the animation completes, executes once for each element animated against.</div>
+</li>
+<li>
+<span>step (<span class="arg-type tooltip" title="">Callback</span>), default: </span>
+<div></div>
+</li>
+<li>
+<span>queue (<span class="arg-type tooltip" title="true or false.">Boolean</span>), default: true</span>
+<div>Setting this to false will make the animation skip the queue and will begin running immediately. (Added in jQuery 1.2)</div>
+</li>
+</ul>
+<div class="example">
+<h3>Example:</h3>
+<p>The first button shows how an unqueued animation works. It expands
+the div out to 90% width '''while''' the font-size is increasing. Once
+the font-size change is complete, the border animation will begin.
+The second button starts a traditional chained animation, where each
+animation will start once the previous animation on the element has
+completed.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go1"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#block1"</span>).animate(&nbsp;{&nbsp;width:<span class="string">"90%"</span>&nbsp;},&nbsp;{&nbsp;queue:<span class="keywords">false</span>,&nbsp;duration:<span class="numbers">3000</span>&nbsp;}&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate(&nbsp;{&nbsp;fontSize:<span class="string">"24px"</span>&nbsp;},&nbsp;<span class="numbers">1500</span>&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate(&nbsp;{&nbsp;borderRightWidth:<span class="string">"15px"</span>&nbsp;},&nbsp;<span class="numbers">1500</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go2"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#block2"</span>).animate(&nbsp;{&nbsp;width:<span class="string">"90%"</span>},&nbsp;<span class="numbers">1000</span>&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate(&nbsp;{&nbsp;fontSize:<span class="string">"24px"</span>&nbsp;}&nbsp;,&nbsp;<span class="numbers">1000</span>&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate(&nbsp;{&nbsp;borderLeftWidth:<span class="string">"15px"</span>&nbsp;},&nbsp;<span class="numbers">1000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go3"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go1"</span>).add(<span class="string">"#go2"</span>).click();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go4"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).css({width:<span class="string">""</span>,&nbsp;fontSize:<span class="string">""</span>,&nbsp;borderWidth:<span class="string">""</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go1"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Animate&nbsp;Block1<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go2"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Animate&nbsp;Block2<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go3"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Animate&nbsp;Both<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go4"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Reset<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"block1"</span><span class="tag">&gt;</span>Block1<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"block2"</span><span class="tag">&gt;</span>Block2<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraphs to toggle both height and opacity, completing the animation within 600 milliseconds.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"height"</span>:&nbsp;<span class="string">"toggle"</span>,&nbsp;<span class="string">"opacity"</span>:&nbsp;<span class="string">"toggle"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{&nbsp;duration:&nbsp;<span class="string">"slow"</span>&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraph to a left style of 50 and opacity of 1
+(opaque, visible), completing the animation within 500 milliseconds. It
+also will do it ''outside'' the queue, meaning it will automatically
+start without waiting for its turn.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;<span class="string">"50px"</span>,&nbsp;opacity:&nbsp;<span class="numbers">1</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{&nbsp;duration:&nbsp;<span class="numbers">500</span>,&nbsp;queue:&nbsp;<span class="keywords">false</span>&nbsp;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>An example of using an 'easing' function to provide a different
+style of animation. This will only work if you have a plugin that
+provides this easing function.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"opacity"</span>:&nbsp;<span class="string">"show"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{&nbsp;<span class="string">"duration"</span>:&nbsp;<span class="string">"slow"</span>,&nbsp;<span class="string">"easing"</span>:&nbsp;<span class="string">"easein"</span>&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-animate-paramsdurationeasingcallback">
+<span class="fn"><a class="name" href="#link-animate-paramsdurationeasingcallback">animate</a>( <span class="arg-type tooltip" title="">Options</span> <span class="arg-name tooltip" title="A set of style attributes that you wish to animate, and to what end.">params</span>, <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">duration</span>, <span class="arg-type tooltip" title="">String </span> <span class="arg-name tooltip" title="The name of the easing effect that you want to use (Plugin Required). There are two built-in values, &quot;linear&quot; and &quot;swing&quot;.">easing</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">A function for making your own, custom animations.<br>The
+key aspect of this function is the object of style properties that will
+be animated, and to what end. Each key within the object represents a
+style property that will also be animated (for example: "height",
+"top", or "opacity").<br>
+<br>Note that properties should be specified using camel case eg. marginLeft instead of margin-left.<br>
+<br>The value associated with the key represents to what end the
+property will be animated. If a number is provided as the value, then
+the style property will be transitioned from its current state to that
+new number. Otherwise if the string "hide", "show", or "toggle" is
+provided, a default animation will be constructed for that property.
+Only properties that take numeric values are supported (e.g.
+backgroundColor is not supported by animate()).<br>
+<br>As of jQuery 1.2 you can now animate properties by em and % (where
+applicable). Additionally, in jQuery 1.2, you can now do relative
+animations - specifying a "''+=''" or "''-=''" in front of the property
+value to move the element positively, or negatively, relative to the
+current position.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click the button to animate the div with a number of different properties.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;Using&nbsp;multiple&nbsp;unit&nbsp;types&nbsp;within&nbsp;one&nbsp;animation.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#block"</span>).animate({&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="string">"70%"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity:&nbsp;<span class="numbers">0.4</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marginLeft:&nbsp;<span class="string">"0.6in"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontSize:&nbsp;<span class="string">"3em"</span>,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borderWidth:&nbsp;<span class="string">"10px"</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="numbers">1500</span>&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span>&nbsp;Run<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"block"</span><span class="tag">&gt;</span>Hello!<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows a div animate with a relative move.  Click several times on the buttons to see the relative animations queued up.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#right"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).animate({<span class="string">"left"</span>:&nbsp;<span class="string">"+=50px"</span>},&nbsp;<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#left"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).animate({<span class="string">"left"</span>:&nbsp;<span class="string">"-=50px"</span>},&nbsp;<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"left"</span><span class="tag">&gt;</span><span class="entity">&amp;laquo;</span><span class="tag">&lt;/button&gt;</span>&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"right"</span><span class="tag">&gt;</span><span class="entity">&amp;raquo;</span><span class="tag">&lt;/button&gt;</span>&nbsp;
+<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"block"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraphs to toggle both height and opacity, completing the animation within 600 milliseconds.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"height"</span>:&nbsp;<span class="string">"toggle"</span>,&nbsp;<span class="string">"opacity"</span>:&nbsp;<span class="string">"toggle"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="string">"slow"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraph to a left style of 50 and opacity of 1
+(opaque, visible), completing the animation within 500 milliseconds.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"left"</span>:&nbsp;<span class="string">"50"</span>,&nbsp;<span class="string">"opacity"</span>:&nbsp;<span class="numbers">1</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="numbers">500</span>);&nbsp;
+</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>An example of using an 'easing' function to provide a different
+style of animation. This will only work if you have a plugin that
+provides this easing function. Note, this code will do nothing unless
+the paragraph element is hidden.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).animate({&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"opacity"</span>:&nbsp;<span class="string">"show"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="string">"slow"</span>,&nbsp;<span class="string">"easein"</span>);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-animated-">
+<span class="fn"><a class="name" href="#link-animated-">animated</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are currently being animated.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Change the color of any div that is animated.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#run"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:animated"</span>).toggleClass(<span class="string">"colored"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;animateIt()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#mover"</span>).slideToggle(<span class="string">"slow"</span>,&nbsp;animateIt);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;animateIt();&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"run"</span><span class="tag">&gt;</span>Run<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"mover"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-append-content">
+<span class="fn"><a class="name" href="#link-append-content">append</a>( <span class="arg-type tooltip" title="">String, Element, jQuery</span> <span class="arg-name tooltip" title="Content to append to the target.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Append content to the inside of every matched element.<br>This operation is similar to doing an appendChild to all the specified elements, adding them into the document.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Appends some HTML to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).append(<span class="string">"&lt;b&gt;Hello&lt;/b&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Appends an Element to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).append(<span class="global">document</span>.createTextNode(<span class="string">"Hello"</span>));</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Appends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).append(&nbsp;$(<span class="string">"b"</span>)&nbsp;);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-appendTo-content">
+<span class="fn"><a class="name" href="#link-appendTo-content">appendTo</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="target to which the content will be appended.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Append all of the matched elements to another, specified, set of elements.<br>This
+operation is, essentially, the reverse of doing a regular
+$(A).append(B), in that instead of appending B to A, you're appending A
+to B.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Appends all spans to the element with the ID "foo"</p>
+<pre><code class="javascript">$(<span class="string">"span"</span>).appendTo(<span class="string">"#foo"</span>);&nbsp;<span class="com">//&nbsp;check&nbsp;append()&nbsp;examples</span></code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>I&nbsp;have&nbsp;nothing&nbsp;more&nbsp;to&nbsp;say...&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span>FOO!&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attr-name">
+<span class="fn"><a class="name" href="#link-attr-name">attr</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the property to access.">name</span> ) returns <span class="type"><span class="tooltip" title="A simple Javascript object..">Object</span></span></span>
+<div class="more">
+<div class="desc">Access a property on the first matched element. This
+method makes it easy to retrieve a property value from the first
+matched element. If the element does not have an attribute with such a
+name, undefined is returned.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the title attribute of the first &lt;em&gt; in the page.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;title&nbsp;=&nbsp;$(<span class="string">"em"</span>).attr(<span class="string">"title"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(title);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Once&nbsp;there&nbsp;was&nbsp;a&nbsp;<span class="tag">&lt;em</span><span class="aname">&nbsp;title</span>=<span class="avalue">"huge,&nbsp;gigantic"</span><span class="tag">&gt;</span>large<span class="tag">&lt;/em&gt;</span>&nbsp;dinosaur...&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;The&nbsp;title&nbsp;of&nbsp;the&nbsp;emphasis&nbsp;is:<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attr-properties">
+<span class="fn"><a class="name" href="#link-attr-properties">attr</a>( <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs to set as object properties.">properties</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set a key/value object as properties to all matched elements.<br>This
+serves as the best way to set a large number of properties on all
+matched elements. Note that you must use 'className' as key if you want
+to set the class-Attribute. Or use .addClass( class ) or .removeClass(
+class ).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Set some attributes for all &lt;img&gt;s in the page.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"img"</span>).attr({&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;src:&nbsp;<span class="string">"/images/hat.gif"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">"jQuery"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:&nbsp;<span class="string">"jQuery&nbsp;Logo"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text($(<span class="string">"img"</span>).attr(<span class="string">"alt"</span>));&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;img</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;img</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;img</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attr-keyvalue">
+<span class="fn"><a class="name" href="#link-attr-keyvalue">attr</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the property to set.">key</span>, <span class="arg-type tooltip" title="A simple Javascript object..">Object</span> <span class="arg-name tooltip" title="The value to set the property to.">value</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set a single property to a value, on all matched elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Disables buttons greater than the 0th button.</p>
+<pre><code class="javascript">$(<span class="string">"button:gt(0)"</span>).attr(<span class="string">"disabled"</span>,<span class="string">"disabled"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>0th&nbsp;Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>1st&nbsp;Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>2nd&nbsp;Button<span class="tag">&lt;/button&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attr-keyfn">
+<span class="fn"><a class="name" href="#link-attr-keyfn">attr</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the property to set.">key</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function returning the value to set. Scope: Current element, argument: Index of current element
+&lt;pre&gt;function callback(indexArray) {
+  // indexArray[0] == position in the jQuery object
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set a single property to a computed value, on all matched elements.<br>Instead
+of supplying a string value as described &lt;a
+href='#keyvalue'&gt;above&lt;/a&gt;, a function is provided that
+computes the value.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Sets id for divs based on the position in the page.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).attr(<span class="string">"id"</span>,&nbsp;<span class="keywords">function</span>&nbsp;(arr)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="string">"div-id"</span>&nbsp;+&nbsp;arr[<span class="numbers">0</span>];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.each(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>,&nbsp;<span class="keywords">this</span>).html(<span class="string">"(ID&nbsp;=&nbsp;'&lt;b&gt;"</span>&nbsp;+&nbsp;<span class="keywords">this</span>.id&nbsp;+&nbsp;<span class="string">"&lt;/b&gt;')"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>Zero-th&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>First&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Second&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Sets src attribute from title attribute on the image.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,&nbsp;<span class="keywords">function</span>()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="string">"/images/"</span>&nbsp;+&nbsp;<span class="keywords">this</span>.title;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;img</span><span class="aname">&nbsp;title</span>=<span class="avalue">"hat.gif"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;img</span><span class="aname">&nbsp;title</span>=<span class="avalue">"hat-old.gif"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;img</span><span class="aname">&nbsp;title</span>=<span class="avalue">"hat2-old.gif"</span><span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeContains-attributevalue">
+<span class="fn"><a class="name" href="#link-attributeContains-attributevalue">attributeContains</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute value. Quotes are optional in most cases, but should be used to avoid conflicts when the value contains characters like &quot;]&quot;.">value</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute and it contains a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs that with a name attribute that contains 'man' and sets the value with some text.</p>
+<pre><code class="javascript">$(<span class="string">"input[name*='man']"</span>).val(<span class="string">"has&nbsp;man&nbsp;in&nbsp;it!"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"man-news"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"milkman"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"letterman2"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newmilk"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeEndsWith-attributevalue">
+<span class="fn"><a class="name" href="#link-attributeEndsWith-attributevalue">attributeEndsWith</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute value. Quotes are optional in most cases, but should be used to avoid conflicts when the value contains characters like &quot;]&quot;.">value</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute and it ends with a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs with an attribute name that ends with 'letter' and puts text in them.</p>
+<pre><code class="javascript">$(<span class="string">"input[name$='letter']"</span>).val(<span class="string">"a&nbsp;letter"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"milkman"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"jobletter"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeEquals-attributevalue">
+<span class="fn"><a class="name" href="#link-attributeEquals-attributevalue">attributeEquals</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute value. Quotes are optional in most cases, but should be used to avoid conflicts when the value contains characters like &quot;]&quot;.">value</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute with a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs with name 'newsletter' and changes the text of the span next to it.</p>
+<pre><code class="javascript">$(<span class="string">"input[name='newsletter']"</span>).next().text(<span class="string">"&nbsp;is&nbsp;newsletter"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Hot&nbsp;Fuzz"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Cold&nbsp;Fusion"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"accept"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Evil&nbsp;Plans"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeHas-attribute">
+<span class="fn"><a class="name" href="#link-attributeHas-attribute">attributeHas</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Bind a single click that adds the div id to its text.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div[id]"</span>).one(<span class="string">"click"</span>,&nbsp;<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;idString&nbsp;=&nbsp;$(<span class="keywords">this</span>).text()&nbsp;+&nbsp;<span class="string">"&nbsp;=&nbsp;"</span>&nbsp;+&nbsp;$(<span class="keywords">this</span>).attr(<span class="string">"id"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).text(idString);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>no&nbsp;id<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"hey"</span><span class="tag">&gt;</span>with&nbsp;id<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"there"</span><span class="tag">&gt;</span>has&nbsp;an&nbsp;id<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>nope<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeMultiple-selector1selector2selectorN">
+<span class="fn"><a class="name" href="#link-attributeMultiple-selector1selector2selectorN">attributeMultiple</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="An attribute selector.">selector1</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Another attribute selector, reducing the selection even more">selector2</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="As many more attribute selectors as necessary">selectorN</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute and it contains a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs that have an id attribute and whose name attribute ends with man and sets the value.</p>
+<pre><code class="javascript">$(<span class="string">"input[id][name$='man']"</span>).val(<span class="string">"only&nbsp;this&nbsp;one"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;id</span>=<span class="avalue">"man-news"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"man-news"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"milkman"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;id</span>=<span class="avalue">"letterman"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"new-letterman"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newmilk"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeNotEqual-attributevalue">
+<span class="fn"><a class="name" href="#link-attributeNotEqual-attributevalue">attributeNotEqual</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute value. Quotes are optional in most cases, but should be used to avoid conflicts when the value contains characters like &quot;]&quot;.">value</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that don't have the specified attribute with a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs that don't have the name 'newsletter' and changes the text of the span next to it.</p>
+<pre><code class="javascript">$(<span class="string">"input[name!='newsletter']"</span>).next().text(<span class="string">"&nbsp;is&nbsp;not&nbsp;newsletter"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Hot&nbsp;Fuzz"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Cold&nbsp;Fusion"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"accept"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Evil&nbsp;Plans"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>name?<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-attributeStartsWith-attributevalue">
+<span class="fn"><a class="name" href="#link-attributeStartsWith-attributevalue">attributeStartsWith</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute name.">attribute</span>, <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An attribute value. Quotes are optional in most cases, but should be used to avoid conflicts when the value contains characters like &quot;]&quot;.">value</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements that have the specified attribute and it starts with a certain value.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs with an attribute name that starts with 'news' and puts text in them.</p>
+<pre><code class="javascript">$(<span class="string">"input[name^='news']"</span>).val(<span class="string">"news&nbsp;here!"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"milkman"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsboy"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

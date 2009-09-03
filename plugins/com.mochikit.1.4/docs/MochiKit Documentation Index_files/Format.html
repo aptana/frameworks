@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Format - string formatting goes here</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Format - string formatting goes here</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Format.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Format.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Format.html#fn-formatlocale">formatLocale(locale="default")<BR></A><A class="mochiref reference" href="Format.html#fn-lstrip">lstrip(str, chars="\s")<BR></A><A class="mochiref reference" href="Format.html#fn-numberformatter">numberFormatter(pattern, placeholder="", locale="default")<BR></A><A class="mochiref reference" href="Format.html#fn-percentformat">percentFormat(someFloat)<BR></A><A class="mochiref reference" href="Format.html#fn-roundtofixed">roundToFixed(aNumber, precision)<BR></A><A class="mochiref reference" href="Format.html#fn-rstrip">rstrip(str, chars="\s")<BR></A><A class="mochiref reference" href="Format.html#fn-strip">strip(str, chars="\s")<BR></A><A class="mochiref reference" href="Format.html#fn-trunctofixed">truncToFixed(aNumber, precision)<BR></A><A class="mochiref reference" href="Format.html#fn-twodigitaverage">twoDigitAverage(numerator, denominator)<BR></A><A class="mochiref reference" href="Format.html#fn-twodigitfloat">twoDigitFloat(someFloat)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">assert( truncToFixed(0.12345, 4) == "0.1234" );
+assert( roundToFixed(0.12345, 4) == "0.1235" );
+assert( twoDigitAverage(1, 0) == "0" );
+assert( twoDigitFloat(1.2345) == "1.23" );
+assert( twoDigitFloat(1) == "1" );
+assert( percentFormat(1.234567) == "123.46%" );
+assert( numberFormatter("###,###%")(125) == "12,500%" );
+assert( numberFormatter("##.000")(1.25) == "1.250" );
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>Formatting strings and stringifying numbers is boring, so a couple useful functions in that domain live here.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<P>None.</P></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="formatting-numbers" name="formatting-numbers">Formatting Numbers</A></H2>
+<P>MochiKit provides an extensible number formatting facility, modeled loosely after the Number Format Pattern Syntax <A class="footnote-reference" id="id1" href="Format.html#id2" name="id1">[1]</A> from Java. <A class="mochiref reference" href="Format.html#fn-numberformatter">numberFormatter(pattern[, placeholder=""[, locale="default"])</A> returns a function that converts Number to string using the given information. <TT class="docutils literal"><SPAN class="pre">pattern</SPAN></TT> is a string consisting of the following symbols:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="15%">
+<COL width="85%"></COLGROUP>
+<THEAD vAlign="bottom">
+<TR>
+<TH class="head">Symbol</TH>
+<TH class="head">Meaning</TH></TR></THEAD>
+<TBODY vAlign="top">
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">-</SPAN></TT></TD>
+<TD>If given, used as the position of the minus sign for negative numbers. If not given, the position to the left of the first number placeholder is used.</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">#</SPAN></TT></TD>
+<TD>The placeholder for a number that does not imply zero padding.</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">0</SPAN></TT></TD>
+<TD>The placeholder for a number that implies zero padding. If it is used to the right of a decimal separator, it implies trailing zeros, otherwise leading zeros.</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">,</SPAN></TT></TD>
+<TD>The placeholder for a "thousands separator". May be used at most once, and it must be to the left of a decimal separator. Will be replaced by <TT class="docutils literal"><SPAN class="pre">locale.separator</SPAN></TT> in the result (the default is also <TT class="docutils literal"><SPAN class="pre">,</SPAN></TT>).</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">.</SPAN></TT></TD>
+<TD>The decimal separator. The quantity of <TT class="docutils literal"><SPAN class="pre">#</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT> after the decimal separator will determine the precision of the result. If no decimal separator is present, the fractional precision is <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT> -- meaning that it will be rounded to the nearest integer.</TD></TR>
+<TR>
+<TD><TT class="docutils literal"><SPAN class="pre">%</SPAN></TT></TD>
+<TD>If present, the number will be multiplied by <TT class="docutils literal"><SPAN class="pre">100</SPAN></TT> and the <TT class="docutils literal"><SPAN class="pre">%</SPAN></TT> will be replaced by <TT class="docutils literal"><SPAN class="pre">locale.percent</SPAN></TT>.</TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-formatlocale"></A><A class="mochidef reference" href="Format.html#fn-formatlocale">formatLocale(locale="default")</A>:</P>
+<BLOCKQUOTE>
+<P>Return a locale object for the given locale. <TT class="docutils literal"><SPAN class="pre">locale</SPAN></TT> may be either a string, which is looked up in the <TT class="docutils literal"><SPAN class="pre">MochiKit.Format.LOCALE</SPAN></TT> object, or a locale object. If no locale is given, <TT class="docutils literal"><SPAN class="pre">LOCALE.default</SPAN></TT> is used (equivalent to <TT class="docutils literal"><SPAN class="pre">LOCALE.en_US</SPAN></TT>).</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-lstrip"></A><A class="mochidef reference" href="Format.html#fn-lstrip">lstrip(str, chars="\s")</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a string based on <TT class="docutils literal"><SPAN class="pre">str</SPAN></TT> with leading whitespace stripped.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> is given, then that expression will be used instead of whitespace. <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> should be a string suitable for use in a <TT class="docutils literal"><SPAN class="pre">RegExp</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">[character</SPAN> <SPAN class="pre">set]</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-numberformatter"></A><A class="mochidef reference" href="Format.html#fn-numberformatter">numberFormatter(pattern, placeholder="", locale="default")</A>:</P>
+<BLOCKQUOTE>
+<P>Return a function <TT class="docutils literal"><SPAN class="pre">formatNumber(aNumber)</SPAN></TT> that formats numbers as a string according to the given pattern, placeholder and locale.</P>
+<P><TT class="docutils literal"><SPAN class="pre">pattern</SPAN></TT> is a string that describes how the numbers should be formatted, for more information see <A class="reference" href="Format.html#formatting-numbers">Formatting Numbers</A>.</P>
+<P><TT class="docutils literal"><SPAN class="pre">locale</SPAN></TT> is a string of a known locale (en_US, de_DE, fr_FR, default) or an object with the following fields:</P>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="16%">
+<COL width="84%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>separator</TD>
+<TD>The "thousands" separator for this locale (en_US is ",")</TD></TR>
+<TR>
+<TD>decimal</TD>
+<TD>The decimal separator for this locale (en_US is ".")</TD></TR>
+<TR>
+<TD>percent</TD>
+<TD>The percent symbol for this locale (en_US is "%")</TD></TR></TBODY></TABLE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-percentformat"></A><A class="mochidef reference" href="Format.html#fn-percentformat">percentFormat(someFloat)</A>:</P>
+<BLOCKQUOTE>
+<P>Roughly equivalent to: <TT class="docutils literal"><SPAN class="pre">sprintf("%.2f%%",</SPAN> <SPAN class="pre">someFloat</SPAN> <SPAN class="pre">*</SPAN> <SPAN class="pre">100)</SPAN></TT></P>
+<P>In new code, you probably want to use: <A class="mochiref reference" href="Format.html#fn-numberformatter">numberFormatter("#.##%")(someFloat)</A> instead.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-roundtofixed"></A><A class="mochidef reference" href="Format.html#fn-roundtofixed">roundToFixed(aNumber, precision)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a string representation of <TT class="docutils literal"><SPAN class="pre">aNumber</SPAN></TT>, rounded to <TT class="docutils literal"><SPAN class="pre">precision</SPAN></TT> digits with trailing zeros. This is similar to <TT class="docutils literal"><SPAN class="pre">Number.toFixed(aNumber,</SPAN> <SPAN class="pre">precision)</SPAN></TT>, but this has implementation consistent rounding behavior (some versions of Safari round 0.5 down!) and also includes preceding <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT> for numbers less than <TT class="docutils literal"><SPAN class="pre">1</SPAN></TT> (Safari, again).</P>
+<P>For example, <A class="mochiref reference" href="Format.html#fn-roundtofixed">roundToFixed(0.1357, 2)</A> returns <TT class="docutils literal"><SPAN class="pre">0.14</SPAN></TT> on every supported platform, where some return <TT class="docutils literal"><SPAN class="pre">.13</SPAN></TT> for <TT class="docutils literal"><SPAN class="pre">(0.1357).toFixed(2)</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-rstrip"></A><A class="mochidef reference" href="Format.html#fn-rstrip">rstrip(str, chars="\s")</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a string based on <TT class="docutils literal"><SPAN class="pre">str</SPAN></TT> with trailing whitespace stripped.</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> is given, then that expression will be used instead of whitespace. <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> should be a string suitable for use in a <TT class="docutils literal"><SPAN class="pre">RegExp</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">[character</SPAN> <SPAN class="pre">set]</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-strip"></A><A class="mochidef reference" href="Format.html#fn-strip">strip(str, chars="\s")</A>:</P>
+<BLOCKQUOTE>
+<P>Returns a string based on <TT class="docutils literal"><SPAN class="pre">str</SPAN></TT> with leading and trailing whitespace stripped (equivalent to <A class="mochiref reference" href="Format.html#fn-lstrip">lstrip(rstrip(str, chars), chars)</A>).</P>
+<P>If <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> is given, then that expression will be used instead of whitespace. <TT class="docutils literal"><SPAN class="pre">chars</SPAN></TT> should be a string suitable for use in a <TT class="docutils literal"><SPAN class="pre">RegExp</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">[character</SPAN> <SPAN class="pre">set]</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-trunctofixed"></A><A class="mochidef reference" href="Format.html#fn-trunctofixed">truncToFixed(aNumber, precision)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a string representation of <TT class="docutils literal"><SPAN class="pre">aNumber</SPAN></TT>, truncated to <TT class="docutils literal"><SPAN class="pre">precision</SPAN></TT> digits with trailing zeros. This is similar to <TT class="docutils literal"><SPAN class="pre">aNumber.toFixed(precision)</SPAN></TT>, but this truncates rather than rounds and has implementation consistent behavior for numbers less than 1. Specifically, <A class="mochiref reference" href="Format.html#fn-trunctofixed">truncToFixed(aNumber, precision)</A> will always have a preceding <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT> for numbers less than <TT class="docutils literal"><SPAN class="pre">1</SPAN></TT>.</P>
+<P>For example, <A class="mochiref reference" href="Format.html#fn-trunctofixed">truncToFixed(0.1357, 2)</A> returns <TT class="docutils literal"><SPAN class="pre">0.13</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-twodigitaverage"></A><A class="mochidef reference" href="Format.html#fn-twodigitaverage">twoDigitAverage(numerator, denominator)</A>:</P>
+<BLOCKQUOTE>
+<P>Calculate an average from a numerator and a denominator and return it as a string with two digits of precision (e.g. "1.23").</P>
+<P>If the denominator is 0, "0" will be returned instead of <TT class="docutils literal"><SPAN class="pre">NaN</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-twodigitfloat"></A><A class="mochidef reference" href="Format.html#fn-twodigitfloat">twoDigitFloat(someFloat)</A>:</P>
+<BLOCKQUOTE>
+<P>Roughly equivalent to: <TT class="docutils literal"><SPAN class="pre">sprintf("%.2f",</SPAN> <SPAN class="pre">someFloat)</SPAN></TT></P>
+<P>In new code, you probably want to use <A class="mochiref reference" href="Format.html#fn-numberformatter">numberFormatter("#.##")(someFloat)</A> instead.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id2" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Format.html#id1" name="id2">[1]</A></TD>
+<TD>Java Number Format Pattern Syntax: <A class="reference" href="http://java.sun.com/docs/books/tutorial/i18n/format/numberpattern.html">http://java.sun.com/docs/books/tutorial/i18n/format/numberpattern.html</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

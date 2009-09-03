@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-map-callback">
+<span class="fn"><a class="name" href="#link-map-callback">map</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to execute on each element in the set.
+&lt;pre&gt;function callback(index, domElement) {
+  var replacement;
+
+  this; // also dom element
+
+  // replacement == null : delete spot
+  // replacement == array : insert the elements of the array
+  // else replace the spot with replacement
+  return replacement;
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Translate a set of elements in the jQuery object into another set of values in an array (which may, or may not, be elements).<br>You could use this to build lists of values, attributes, css values - or even perform special, custom, selector transformations.<br>
+<br>This is provided as a convenience method for using &lt;a href='Utilities/jQuery.map'&gt;$.map()&lt;/a&gt;.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Build a list of all the values within a form.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).append(&nbsp;$(<span class="string">"input"</span>).map(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;$(<span class="keywords">this</span>).val();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}).get().join(<span class="string">",&nbsp;"</span>)&nbsp;);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Values:&nbsp;<span class="tag">&lt;/b&gt;</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"name"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"John"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"password"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"password"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"url"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"http://ejohn.org/"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>A contrived example to show some functionality.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;mappedItems&nbsp;=&nbsp;$(<span class="string">"li"</span>).map(<span class="keywords">function</span>&nbsp;(index)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;replacement&nbsp;=&nbsp;$(<span class="string">"&lt;li&gt;"</span>).text($(<span class="keywords">this</span>).text()).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(index&nbsp;==&nbsp;<span class="numbers">0</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;make&nbsp;the&nbsp;first&nbsp;item&nbsp;all&nbsp;caps</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(replacement).text($(replacement).text().toUpperCase());&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;<span class="keywords">if</span>&nbsp;(index&nbsp;==&nbsp;<span class="numbers">1</span>&nbsp;||&nbsp;index&nbsp;==&nbsp;<span class="numbers">3</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;delete&nbsp;the&nbsp;second&nbsp;and&nbsp;fourth&nbsp;items</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replacement&nbsp;=&nbsp;<span class="keywords">null</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;<span class="keywords">if</span>&nbsp;(index&nbsp;==&nbsp;<span class="numbers">2</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;make&nbsp;two&nbsp;of&nbsp;the&nbsp;third&nbsp;item&nbsp;and&nbsp;add&nbsp;some&nbsp;text</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replacement&nbsp;=&nbsp;[replacement,$(<span class="string">"&lt;li&gt;"</span>).get(<span class="numbers">0</span>)];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(replacement[<span class="numbers">0</span>]).append(<span class="string">"&lt;b&gt;&nbsp;-&nbsp;A&lt;/b&gt;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(replacement[<span class="numbers">1</span>]).append(<span class="string">"Extra&nbsp;&lt;b&gt;&nbsp;-&nbsp;B&lt;/b&gt;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;replacment&nbsp;will&nbsp;be&nbsp;an&nbsp;dom&nbsp;element,&nbsp;null,&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;dom&nbsp;elements</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;replacement;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).append(mappedItems);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>First<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Second<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Third<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Fourth<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Fifth<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;ul</span><span class="aname">&nbsp;id</span>=<span class="avalue">"results"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-mousedown -fn">
+<span class="fn"><a class="name" href="#link-mousedown%20-fn">mousedown </a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the mousedown event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the mousedown event of each matched element.<br>The mousedown event fires when the pointing device button is pressed over an element.</div>
+</div>
+</li>
+<li id="link-mousemove-fn">
+<span class="fn"><a class="name" href="#link-mousemove-fn">mousemove</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the mousmove event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the mousemove event of each matched element.<br>The
+mousemove event fires when the pointing device is moved while it is
+over an element. The event handler is passed one variable - the event
+object. Its .clientX and .clientY properties represent the coordinates
+of the mouse.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show the mouse coordinates when the mouse is moved over the yellow
+div. Coordinates are relative to the window which in this case is the
+iframe.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).mousemove(<span class="keywords">function</span>(e){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;pageCoords&nbsp;=&nbsp;<span class="string">"(&nbsp;"</span>&nbsp;+&nbsp;e.pageX&nbsp;+&nbsp;<span class="string">",&nbsp;"</span>&nbsp;+&nbsp;e.pageY&nbsp;+&nbsp;<span class="string">"&nbsp;)"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;clientCoords&nbsp;=&nbsp;<span class="string">"(&nbsp;"</span>&nbsp;+&nbsp;e.clientX&nbsp;+&nbsp;<span class="string">",&nbsp;"</span>&nbsp;+&nbsp;e.clientY&nbsp;+&nbsp;<span class="string">"&nbsp;)"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:first"</span>).text(<span class="string">"(&nbsp;e.pageX,&nbsp;e.pageY&nbsp;)&nbsp;-&nbsp;"</span>&nbsp;+&nbsp;pageCoords);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:last"</span>).text(<span class="string">"(&nbsp;e.clientX,&nbsp;e.clientY&nbsp;)&nbsp;-&nbsp;"</span>&nbsp;+&nbsp;clientCoords);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Try&nbsp;scrolling&nbsp;too.&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Move&nbsp;the&nbsp;mouse&nbsp;over&nbsp;the&nbsp;div.<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-mouseout-fn">
+<span class="fn"><a class="name" href="#link-mouseout-fn">mouseout</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the mouseout event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the mouseout event of each matched element.<br>The mouseout event fires when the pointing device is moved away from an element.</div>
+</div>
+</li>
+<li id="link-mouseover-fn">
+<span class="fn"><a class="name" href="#link-mouseover-fn">mouseover</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the mouseover event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the mouseover event of each matched element.<br>The mouseout event fires when the pointing device is moved onto an element.</div>
+</div>
+</li>
+<li id="link-mouseup-fn">
+<span class="fn"><a class="name" href="#link-mouseup-fn">mouseup</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the mouseup event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the mouseup event of each matched element.<br>The mouseup event fires when the pointing device button is released over an element.</div>
+</div>
+</li>
+<li id="link-multiple-selector1selector2selectorN">
+<span class="fn"><a class="name" href="#link-multiple-selector1selector2selectorN">multiple</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Any valid selector">selector1</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Another valid selector">selector2</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="As many more valid selectors as you like">selectorN</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches the combined results of all the specified selectors.<br>You
+can specify any number of selectors to combine into a single result.
+Note order of the dom elements in the jQuery object aren't necessarily
+identical.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the elements that match any of these three selectors.</p>
+<pre><code class="javascript">$(<span class="string">"div,span,p.myClass"</span>).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&gt;</span>p<span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"notMyClass"</span><span class="tag">&gt;</span>p<span class="aname">&nbsp;class</span>=<span class="avalue">"notMyClass"</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show the order in the jQuery object.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;list&nbsp;=&nbsp;$(<span class="string">"div,p,span"</span>).map(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">this</span>.tagName;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}).get().join(<span class="string">",&nbsp;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"b"</span>).append(<span class="global">document</span>.createTextNode(list));&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>span<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span><span class="tag">&lt;/b&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

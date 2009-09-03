@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>setStyle</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">setStyle </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">setStyle(element, styles) -&gt; HTMLElement</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Modifies element’s CSS style properties. Styles are passed as a hash of property-value pairs in which the properties are specified in their camelized form.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).setStyle({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;backgroundColor:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'</span><span class="f_CodeExample" style="color: #000000;">#900'</span><span class="f_CodeExample" style="color: #800000;">,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;fontSize:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'12px'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Notes</span></p>
+<p>&nbsp;</p>
+<p>The method transparently deals with browser inconsistencies for <span class="f_CourierFixed">float</span>—however, as float is a reserved keyword, you must either escape it or use <span class="f_CourierFixed">cssFloat</span> instead—and <span class="f_CourierFixed">opacity</span>—which accepts values between 0 (fully transparent) and 1 (fully opaque). You can safely use either of the following across all browsers:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).setStyle({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;cssFloat:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'left'</span><span class="f_CodeExample" style="color: #000000;">,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;opacity:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.5</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).setStyle({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'float'</span><span class="f_CodeExample" style="color: #000000;">:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'left'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;//&nbsp;notice&nbsp;how&nbsp;float&nbsp;is&nbsp;surrounded&nbsp;by&nbsp;single&nbsp;quotes</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;opacity:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">0.5</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>Not all CSS shorthand properties are supported. You may only use the CSS properties described in the Document Object Model (DOM) Level 2 Style Specification.</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

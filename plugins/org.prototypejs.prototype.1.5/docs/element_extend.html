@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>extend</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">extend </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">extend(element)</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Extends element with all of the methods contained in Element.Methods and Element.Methods.Simulated. If element is an input, textarea or select tag, it will also be extended with the methods from Form.Element.Methods. If it is a form tag, it will also be extended with Form.Methods.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This is where the magic happens!</p>
+<p>&nbsp;</p>
+<p>By extending an element with Prototype’s custom methods, we can achieve that syntactic sugar and ease of use we all crave for. For example, you can do the following with an extended element:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">element.update('hello&nbsp;world');</span></p>
+<p>&nbsp;</p>
+<p>And since most methods of <span class="f_CourierFixed">Element</span> return the element they are applied to, you can chain methods like so:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">element.update('hello&nbsp;world').addClassName('greeting');</span></p>
+<p>&nbsp;</p>
+<p>Note that all of the elements returned by <span class="f_CourierFixed">Element</span> methods are extended (yes even for methods like <span class="f_CourierFixed">Element.siblings</span> which return arrays of elements) and Prototype’s flagship utility methods <span class="f_CourierFixed">$()</span> and <span class="f_CourierFixed">$$()</span> obviously also return extended elements.</p>
+<p>&nbsp;</p>
+<p>If you want to know more about how Prototype extends the DOM, jump to this article.</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

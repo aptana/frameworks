@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.extjs.ext.2.2;singleton:=true
+Bundle-Version: 2.2.0.0004
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.help,
+ com.aptana.ide.snippets,
+ com.aptana.ide.samples,
+ com.aptana.ide.core,
+ com.aptana.ide.core.ui,
+ com.aptana.ide.projects,
+ com.aptana.ide.editor.js

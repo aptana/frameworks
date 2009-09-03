@@ -1,0 +1,134 @@
+<html xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 13), see www.w3.org" />
+<title>Notifications_get Method (sequencer)</title>
+<link rel="stylesheet" type="text/css" href=
+"../styles/presentation.css" />
+<link rel="stylesheet" type="text/css" href=
+"ms-help://Hx/HxRuntime/HxLink.css" />
+<meta name="guid" content=
+"M_FB_ApiClient_Notifications_get_1_dbc8219a" />
+</head>
+<body>
+<form><input type="hidden" id="userDataCache" class="userDataStyle"
+xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" /><input type="hidden" id=
+"hiddenScrollOffset" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" /><img id="collapseImage" style=
+"display:none; height:0; width:0;" alt="Collapse image" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/collapse_all.gif" /><img id="expandImage" style=
+"display:none; height:0; width:0;" alt="Expand image" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/expand_all.gif" /><img id="collapseAllImage" style=
+"display:none; height:0; width:0;" alt="CollapseAll image"
+xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/collall.gif" /><img id="expandAllImage" style=
+"display:none; height:0; width:0;" alt="ExpandAll image"
+xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/expall.gif" /><img id="dropDownImage" style=
+"display:none; height:0; width:0;" alt="DropDown image" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/drpdown.gif" /><img id="dropDownHoverImage" style=
+"display:none; height:0; width:0;" alt="DropDownHover image"
+xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/drpdown_orange.gif" /><img id="copyImage" style=
+"display:none; height:0; width:0;" alt="Copy image" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/copycode.gif" /><img id="copyHoverImage" style=
+"display:none; height:0; width:0;" alt="CopyHover image"
+xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt" src=
+"../icons/copycodeHighlight.gif" /></form>
+<div id="header" xmlns:ddue=
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink=
+"http://www.w3.org/1999/xlink" xmlns:msxsl=
+"urn:schemas-microsoft-com:xslt">
+<table width="100%" id="topTable">
+<tr id="headerTableRow1">
+<td align="left"><span id="runningHeaderText">Reference
+Library</span></td>
+</tr>
+<tr id="headerTableRow2">
+<td align="left"><span id="nsrTitle">Notifications_get Method
+(sequencer)</span></td>
+</tr>
+<tr id="headerTableRow3">
+<td></td>
+</tr>
+</table>
+<div id="mainSection">
+<div id="mainBody">
+<div id="allHistory" class="saveHistory" onsave="saveAll()" onload=
+"loadAll()"></div>
+<font color="DarkGray">[This topic is pre-release documentation and
+is subject to change in future releases. Blank topics are included
+as placeholders.]</font>
+<div class="summary"></div>
+<h1 class="heading"><span onclick="ExpandCollapse(syntaxToggle)"
+style="cursor:default;" onkeypress=
+"ExpandCollapse_CheckKey(syntaxToggle, event)" tabindex=
+"0"><img id="syntaxToggle" onload="OnLoadImage(event)" class=
+"toggle" name="toggleSwitch" src=
+"../icons/collapse_all.gif" />Syntax</span></h1>
+<div id="syntaxSection" class="section" name="collapseableSection"
+style="">
+<div id="syntaxCodeBlocks" class="code">
+<table>
+<tr>
+<th>JavaScript</th>
+</tr>
+<tr>
+<td>
+<pre xml:space="preserve">
+<span class="keyword">public</span> <a href=
+"T_FB_PendingResult.htm">PendingResult</a> <span class=
+"identifier">Notifications_get</span> (
+        <a href=
+"T_FB_SequencerBase.htm">SequencerBase</a> <span class=
+"parameter">sequencer</span>
+)
+</pre></td>
+</tr>
+</table>
+</div>
+<h4 class="subHeading">Parameters</h4>
+<dl paramname="sequencer">
+<dt><span class="parameter">sequencer</span> (<a href=
+"T_FB_SequencerBase.htm">SequencerBase</a>)</dt>
+<dd>A sequencer used to decide when to dispatch the request to
+Facebook server, see <span class="code">BatchSequencer</span> for
+more information</dd>
+</dl>
+<h4 class="subHeading">Return Value</h4>
+</div>
+<div id="footer">
+<div class="footerLine"><img alt="Footer image" width="100%"
+height="3px" src="../icons/footer.gif" /></div>
+<span>Send <span>comments</span> about this topic to
+Facebook.</span></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="mootools 1.1 Reference" link_to="../com.aptana.ide.documentation/tocreference.xml#libraries"> 
+	<topic label="mootools 1.1"  href="docs/Moo-js.html"> 
+		<topic label="Moo.js"  href="docs/Moo-js.html" /> 
+		<topic label="Array.js"  href="docs/Array-js.html" /> 
+		<topic label="Element.js"  href="docs/Element-js.html" /> 
+		<topic label="Function.js"  href="docs/Function-js.html" /> 
+		<topic label="String.js"  href="docs/String-js.html" /> 
+		<topic label="Ajax.js"  href="docs/Ajax-js.html" /> 
+		<topic label="Dom.js"  href="docs/Dom-js.html" /> 
+		<topic label="Drag.js"  href="docs/Drag-js.html" /> 
+		<topic label="Fx.js"  href="docs/Fx-js.html" /> 
+		<topic label="Accordion.js"  href="docs/Accordion-js.html" /> 
+		<topic label="Cookie.js"  href="docs/Cookie-js.html" /> 
+		<topic label="Fxpack.js"  href="docs/Fxpack-js.html" /> 
+		<topic label="Fxutils.js"  href="docs/Fxutils-js.html" /> 
+		<topic label="Json.js"  href="docs/Json-js.html" />
+		<topic label="Sortables.js"  href="docs/Sortables-js.html" />
+		<topic label="Tips.js"  href="docs/Tips-js.html" />
+		<topic label="Window.js"  href="docs/Window-js.html" /> 
+	</topic>
+</toc>

@@ -1,0 +1,212 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.PeriodicalUpdater</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">Ajax.PeriodicalUpdater</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">new Ajax.PeriodicalUpdater(container, url[, options])</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Periodically performs an AJAX request and updates a container’s contents based on the response text. Offers a mechanism for “decay,” which lets it trigger at widening intervals while the response is unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This object addresses the common need of periodical update, which is used by all sorts of “polling” mechanisms (e.g. in an online chatroom or an online mail client).</p>
+<p>&nbsp;</p>
+<p>The basic idea is to run a regular <a href="ajax_updater.html">Ajax.Updater</a> at regular intervals, monitoring changes in the response text if the decay option (see below) is active.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Additional options</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">Ajax.PeriodicalUpdater</span> features all the common options and callbacks, plus those added by Ajax.Updater. It also provides two new options that deal with the original period, and its decay rate (how Rocket Scientist does that make us sound, uh?!).</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="3" cellpadding="3" border="0" style="border: none; border-spacing:3px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="79" bgcolor="#cdf2fe" style="width:79px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Option</span></p>
+</td>
+<td valign="top" width="59" bgcolor="#cdf2fe" style="width:59px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Default</span></p>
+</td>
+<td valign="top" width="575" bgcolor="#cdf2fe" style="width:575px; background-color:#cdf2fe;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="79" style="width:79px;"><p><span class="f_CourierFixed">frequency</span></p>
+</td>
+<td valign="top" width="59" style="width:59px;"><p><span class="f_CourierFixed">2</span></p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>Okay, this is not a frequency (e.g 0.5Hz), but a period (i.e. a number of seconds). Don’t kill me, I didn’t write this one! This is the minimum interval at which AJAX requests are made. You don’t want to make it too short (otherwise you may very well end up with multiple requests in parallel, if they take longer to process and return), but you technically can provide a number below one, e.g. 0.75 second.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="79" style="width:79px;"><p><span class="f_CourierFixed">decay</span></p>
+</td>
+<td valign="top" width="59" style="width:59px;"><p><span class="f_CourierFixed">1</span></p>
+</td>
+<td valign="top" width="575" style="width:575px;"><p>This controls the rate at which the request interval grows when the response is unchanged. It is used as a multiplier on the current period (which starts at the original value of the frequency parameter). Every time a request returns an unchanged response text, the current period is multiplied by the decay. Therefore, the default value means regular requests (no change of interval). Values higher than one will yield growing intervals. Values below one are dangerous: the longer the response text stays the same, the more often you’ll check, until the interval is so short your browser is left with no other choice than suicide. Note that, as soon as the response text does change, the current period resets to the original one.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>To better understand decay, here is a small sequence of calls from the following example:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.PeriodicalUpdater(</span><span class="f_CodeExample" style="color: #800000;">'items'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'/items'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;method:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'get'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;frequency:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">3</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;decay:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">2</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="3" cellpadding="2" border="0" style="border: none; border-spacing:3px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">Call#</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>When?</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>Decay before</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>Response changed?</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>Decay after</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>Next period</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Comments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">1</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>00:00</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>2</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>n/a</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>1</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>3</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Response is deemed changed, since there is no prior response to compare to!</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">2</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>00:03</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>1</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>yes</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>1</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>3</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Response did change again: we “reset” to 1, which was already the decay.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px; height:15px;"><p style="text-align: center;">3</p>
+</td>
+<td valign="top" width="56" style="width:56px; height:15px;"><p>00:06</p>
+</td>
+<td valign="top" width="55" style="width:55px; height:15px;"><p>1</p>
+</td>
+<td valign="top" width="71" style="width:71px; height:15px;"><p>no</p>
+</td>
+<td valign="top" width="52" style="width:52px; height:15px;"><p>3</p>
+</td>
+<td valign="top" width="79" style="width:79px; height:15px;"><p>6</p>
+</td>
+<td valign="top" width="344" style="width:344px; height:15px;"><p>Response didn’t change: decay augments by the decay option factor: we’re waiting longer now…</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">4</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>00:12</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>2</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>no</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>4</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>12</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Still no change, doubling again.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">5</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>00:24</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>4</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>no</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>8</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>24</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Jesus, is this thing going to change or what?</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="37" style="width:37px;"><p style="text-align: center;">6</p>
+</td>
+<td valign="top" width="56" style="width:56px;"><p>00:48</p>
+</td>
+<td valign="top" width="55" style="width:55px;"><p>8</p>
+</td>
+<td valign="top" width="71" style="width:71px;"><p>yes</p>
+</td>
+<td valign="top" width="52" style="width:52px;"><p>1</p>
+</td>
+<td valign="top" width="79" style="width:79px;"><p>3</p>
+</td>
+<td valign="top" width="344" style="width:344px;"><p>Ah, finally! Resetting decay to 1, and therefore using the original period.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Disabling and re-enabling a PeriodicalUpdater</span></p>
+<p>&nbsp;</p>
+<p>You can pull the brake on a running PeriodicalUpdater by simply calling its stop method. If you wish to re-enable it later, just call its start method. Both take no argument.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Beware! Not a specialization!</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">Ajax.PeriodicalUpdater</span> is not a specialization of <span class="f_CourierFixed">Ajax.Updater</span>, despite its name. When using it, do not expect to be able to use methods normally provided by <span class="f_CourierFixed">Ajax.Request</span> and “inherited” by <span class="f_CourierFixed">Ajax.Updater</span>, such as <span class="f_CourierFixed">evalJSON</span> or <span class="f_CourierFixed">getHeader</span>. Also the <span class="f_CourierFixed">onComplete</span> callback is highjacked to be used for update management, so if you wish to be notified of every successful request, use <span class="f_CourierFixed">onSuccess</span> instead (beware: it will get called before the update is performed).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

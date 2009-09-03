@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>MS-Ajax Sample</title>
+<!-- 		<script src="lib/ms-ajax/MicrosoftAjax.js"></script> -->
+ 		<script src="lib/ms-ajax/MicrosoftAjax.debug.js"></script> 
+
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		var continents = ["North America",
+		                  "South America",
+		                  "Australia",
+		                  "Europe",
+		                  "Africa",
+		                  "Asia",
+		                  "Antarctica"];
+		                  
+		var continentsList,
+		    answerResult,
+		    answerList;
+		
+		function pageLoad()
+		{
+		    continentsList = $get("continents-list");
+		    answerResult = $get("answer-result");
+		                         
+		    answerList = new Sys.StringBuilder();
+		    answerList.appendLine("Your answer list includes:");
+		    
+		    Array.forEach(continents, function(element, index, array)
+		                              {
+		                                var listItem = document.createElement("option");		                                
+		                                listItem.innerHTML = element;		                                
+		                                continentsList.appendChild(listItem);
+		                              });
+		                           
+		    $addHandler(continentsList, "change", function()
+		                                          {
+		                                            if (continentsList.selectedIndex == 0)
+		                                            {
+		                                                clearAnswerResult();
+		                                                return;
+		                                            }
+		                                            
+		                                            var selectedContinent = continentsList.options[continentsList.selectedIndex].innerHTML;
+		                                            answerList.appendLine(selectedContinent);
+		                                            
+		                                            if (selectedContinent == "Africa")
+		                                            {
+		                                                setAnswerResult(true);
+		                                            }
+		                                            else
+		                                            {
+		                                                setAnswerResult(false);
+		                                            }
+		                                          });
+		}
+		
+		function clearAnswerResult()
+		{
+		    answerResult.innerHTML = "";
+		}
+		
+		function setAnswerResult(isCorrect)
+		{
+		    answerResult.innerHTML = (isCorrect ? "Correct!" : "Wrong!");
+		    
+		    if (isCorrect)
+		    {
+		        alert(answerList.toString());
+		    }
+		}
+		
+		</script>
+		<p>This sample will automatically be copied into the initial project when a user imports this library. It's meant
+		to give them a simple example of how to use the library.</p>
+		
+		<p>Note, the name of the file includes the library name to 
+		make sure the file name does not conflict with those
+		from other libraries.</p>
+		
+		<h1>Which contintent has the most countries in it?</h1>
+		<select id="continents-list">
+		    <option>Please select a contintent...</option>
+		</select>
+		<span id="answer-result"></span>
+	</body>
+</html>

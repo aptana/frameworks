@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>getStyle</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">getStyle </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">getStyle(element, property) -&gt; String | null</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Returns the given CSS property value of element. property can be specified in either of its CSS or camelized form.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>This method looks up the CSS property of an element whether it was applied inline or in a stylesheet. It works around browser inconsistencies regarding <span class="f_CourierFixed">float</span>, <span class="f_CourierFixed">opacity</span>, which returns a value between 0 (fully transparent) and 1 (fully opaque), position properties (<span class="f_CourierFixed">left</span>, <span class="f_CourierFixed">top</span>, <span class="f_CourierFixed">right</span> and <span class="f_CourierFixed">bottom</span>) and when getting the dimensions (<span class="f_CourierFixed">width</span> or <span class="f_CourierFixed">height</span>) of hidden elements.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).getStyle(</span><span class="f_CodeExample" style="color: #800000;">'font-size'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;equivalent:</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).getStyle(</span><span class="f_CodeExample" style="color: #800000;">'fontSize'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'12px'</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Notes</span></p>
+<p>&nbsp;</p>
+<p>Internet Explorer returns literal values while other browsers return computed values. </p>
+<p>&nbsp;</p>
+<p>Consider the following HTML snippet:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;style&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;#test&nbsp;{</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;font-size:&nbsp;12px;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;&nbsp;&nbsp;margin-left:&nbsp;1em;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;/style&gt;</span></p>
+<p class="p_CodeExample2"><span class="f_CodeExample2">&lt;div&nbsp;id="test"&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$('test').getStyle('margin-left');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'1em'&nbsp;in&nbsp;Internet&nbsp;Explorer,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;-&gt;&nbsp;'12px'&nbsp;elsewhere.</span></p>
+<p>&nbsp;</p>
+<p>Safari returns null for any non-inline property if the element is hidden (has display set to 'none').</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Not all CSS shorthand properties are supported</span>.</p>
+<p>You may only use the CSS properties described in the Document Object Model (DOM) Level 2 Style Specification.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

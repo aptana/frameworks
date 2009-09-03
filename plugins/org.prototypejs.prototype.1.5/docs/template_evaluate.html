@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>evaluate</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">evaluate </span><span class="f_TopicHeading" style="color: #ccffff;">:: Template</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">evaluate(object) -&gt; String</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Applies the template to the given </span><span class="f_CourierFixed">object</span><span style="font-size: 9pt; font-weight: bold; color: #666699;">’s data, producing a formatted string with symbols replaced by corresponding </span><span class="f_CourierFixed">object</span><span style="font-size: 9pt; font-weight: bold; color: #666699;">’s properties.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;hrefTemplate&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Template(</span><span class="f_CodeExample" style="color: #800000;">'/dir/showAll?lang=</span><span class="f_CodeExample" style="color: #000000;">#{language}&amp;categ=#{category}&amp;lv=#{levels}');</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;selection&nbsp;=&nbsp;{category:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'books'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;,&nbsp;language:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'en-US'</span><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">hrefTemplate.</span><span class="f_CodeExample" style="color: #0000ff;">evaluate</span><span class="f_CodeExample" style="color: #000000;">(selection);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'/dir/showAll?lang=en-US&amp;categ=books&amp;lv='</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">hrefTemplate.</span><span class="f_CodeExample" style="color: #0000ff;">evaluate</span><span class="f_CodeExample" style="color: #000000;">({language:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'jp'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;levels:&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">3</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;created:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'10/12/2005'</span><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'/dir/showAll?lang=jp&amp;categ=&amp;lv=3'</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">hrefTemplate.</span><span class="f_CodeExample" style="color: #0000ff;">evaluate</span><span class="f_CodeExample" style="color: #000000;">({});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;'/dir/showAll?lang=&amp;categ=&amp;lv='</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">hrefTemplate.</span><span class="f_CodeExample" style="color: #0000ff;">evaluate</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #000080;">null</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;error&nbsp;!</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

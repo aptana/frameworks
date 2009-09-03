@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Logging - we're all tired of alert()</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Logging - we're all tired of alert()</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Logging.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Logging.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Logging.html#fn-logmessage">LogMessage(num, level, info)<BR></A><A class="mochiref reference" href="Logging.html#fn-logger">Logger([maxSize])<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.addlistener">Logger.prototype.addListener(ident, filter, listener)<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.baselog">Logger.prototype.baseLog(level, message[, ...])<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.clear">Logger.prototype.clear()<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.debuggingbookmarklet">Logger.prototype.debuggingBookmarklet()<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.dispatchlisteners">Logger.prototype.dispatchListeners(msg)<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.getmessages">Logger.prototype.getMessages(howMany)<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.getmessagetext">Logger.prototype.getMessageText(howMany)<BR></A><A class="mochiref reference" href="Logging.html#fn-logger.prototype.removelistener">Logger.prototype.removeListener(ident)<BR></A><A class="mochiref reference" href="Logging.html#fn-alertlistener">alertListener(msg)<BR></A><A class="mochiref reference" href="Logging.html#fn-log">log(message[, info[, ...]])<BR></A><A class="mochiref reference" href="Logging.html#fn-logdebug">logDebug(message[, info[, ...]])<BR></A><A class="mochiref reference" href="Logging.html#fn-logerror">logError(message[, info[, ...]])<BR></A><A class="mochiref reference" href="Logging.html#fn-logfatal">logFatal(message[, info[, ...]])<BR></A><A class="mochiref reference" href="Logging.html#fn-loglevelatleast">logLevelAtLeast(minLevel)<BR></A><A class="mochiref reference" href="Logging.html#fn-logwarning">logWarning(message[, info[, ...]])<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1><PRE class="literal-block">log("INFO messages are so boring");
+logDebug("DEBUG messages are even worse");
+log("good thing I can pass", objects, "conveniently");
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>MochiKit.Logging steals some ideas from Python's logging module <A class="footnote-reference" id="id1" href="Logging.html#id6" name="id1">[1]</A>, but completely forgot about the Java <A class="footnote-reference" id="id2" href="Logging.html#id7" name="id2">[2]</A> inspiration. This is a KISS module for logging that provides enough flexibility to do just about anything via listeners, but without all the cruft.</P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="native-console-logging" name="native-console-logging">Native Console Logging</A></H2>
+<P>As of MochiKit 1.3, the default logger will log all messages to your browser's native console. This is currently supported in Safari, Opera 9, and Firefox when the <A class="reference" href="http://www.joehewitt.com/software/firebug/">FireBug</A> extension is installed. MochiKit 1.4 adds support for the relevant APIs for Internet Explorer (the Debugger and the Atlas framework, see <A class="reference" href="http://www.nikhilk.net/Entry.aspx?id=93">here</A>).</P>
+<P>To disable this behavior:</P><PRE class="literal-block">MochiKit.Logging.logger.useNativeConsole = false;
+</PRE></DIV>
+<DIV class="section">
+<H2><A id="bookmarklet-based-debugging" name="bookmarklet-based-debugging">Bookmarklet Based Debugging</A></H2>
+<P>JavaScript is at a serious disadvantage without a standard console for "print" statements. Everything else has one. The closest thing that you get in a browser environment is the <TT class="docutils literal"><SPAN class="pre">alert</SPAN></TT> function, which is absolutely evil.</P>
+<P>This leaves you with one reasonable solution: do your logging in the page somehow. The problem here is that you don't want to clutter the page with debugging tools. The solution to that problem is what we call BBD, or Bookmarklet Based Debugging <A class="footnote-reference" id="id4" href="Logging.html#id8" name="id4">[3]</A>.</P>
+<P>Simply create a bookmarklet for <A class="reference">javascript:MochiKit.Logging.logger.debuggingBookmarklet()</A>, and whack it whenever you want to see what's in the logger. Of course, this means you must drink the MochiKit.Logging kool-aid. It's tangy and sweet, don't worry.</P>
+<P>Currently this is an ugly <TT class="docutils literal"><SPAN class="pre">alert</SPAN></TT>, but we'll have something spiffy Real Soon Now, and when we do, you only have to upgrade MochiKit.Logging, not your bookmarklet!</P></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="constructors" name="constructors">Constructors</A></H2>
+<P><A name="fn-logmessage"></A><A class="mochidef reference" href="Logging.html#fn-logmessage">LogMessage(num, level, info)</A>:</P>
+<BLOCKQUOTE>
+<P>Properties:</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">num</SPAN></TT>: 
+<DD>Identifier for the log message 
+<DT><TT class="docutils literal"><SPAN class="pre">level</SPAN></TT>: 
+<DD>Level of the log message (<TT class="docutils literal"><SPAN class="pre">"INFO"</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">"WARN"</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">"DEBUG"</SPAN></TT>, etc.) 
+<DT><TT class="docutils literal"><SPAN class="pre">info</SPAN></TT>: 
+<DD>All other arguments passed to log function as an <TT class="docutils literal"><SPAN class="pre">Array</SPAN></TT> 
+<DT><TT class="docutils literal"><SPAN class="pre">timestamp</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">Date</SPAN></TT> object timestamping the log message </DD></DL></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger"></A><A class="mochidef reference" href="Logging.html#fn-logger">Logger([maxSize])</A>:</P>
+<BLOCKQUOTE>
+<P>A basic logger object that has a buffer of recent messages plus a listener dispatch mechanism for "real-time" logging of important messages.</P>
+<P><TT class="docutils literal"><SPAN class="pre">maxSize</SPAN></TT> is the maximum number of entries in the log. If <TT class="docutils literal"><SPAN class="pre">maxSize</SPAN> <SPAN class="pre">&gt;=</SPAN> <SPAN class="pre">0</SPAN></TT>, then the log will not buffer more than that many messages. So if you don't like logging at all, be sure to pass <TT class="docutils literal"><SPAN class="pre">0</SPAN></TT>.</P>
+<P>There is a default logger available named "logger", and several of its methods are also global functions:</P>
+<BLOCKQUOTE><TT class="docutils literal"><SPAN class="pre">logger.log</SPAN></TT> -&gt; <TT class="docutils literal"><SPAN class="pre">log</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">logger.debug</SPAN></TT> -&gt; <TT class="docutils literal"><SPAN class="pre">logDebug</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">logger.warning</SPAN></TT> -&gt; <TT class="docutils literal"><SPAN class="pre">logWarning</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">logger.error</SPAN></TT> -&gt; <TT class="docutils literal"><SPAN class="pre">logError</SPAN></TT> <TT class="docutils literal"><SPAN class="pre">logger.fatal</SPAN></TT> -&gt; <TT class="docutils literal"><SPAN class="pre">logFatal</SPAN></TT></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.addlistener"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.addlistener">Logger.prototype.addListener(ident, filter, listener)</A>:</P>
+<BLOCKQUOTE>
+<P>Add a listener for log messages.</P>
+<P><TT class="docutils literal"><SPAN class="pre">ident</SPAN></TT> is a unique identifier that may be used to remove the listener later on.</P>
+<P><TT class="docutils literal"><SPAN class="pre">filter</SPAN></TT> can be one of the following:</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">null</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">listener(msg)</SPAN></TT> will be called for every log message received. 
+<DT><TT class="docutils literal"><SPAN class="pre">string</SPAN></TT>: 
+<DD><A class="mochiref reference" href="Logging.html#fn-loglevelatleast">logLevelAtLeast(filter)</A> will be used as the function (see below). 
+<DT><TT class="docutils literal"><SPAN class="pre">function</SPAN></TT>: 
+<DD><TT class="docutils literal"><SPAN class="pre">filter(msg)</SPAN></TT> will be called for every msg, if it returns true then <TT class="docutils literal"><SPAN class="pre">listener(msg)</SPAN></TT> will be called. </DD></DL></BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">listener</SPAN></TT> is a function that takes one argument, a log message. A log message is an object (<A class="mochiref reference" href="Logging.html#fn-logmessage">LogMessage</A> instance) that has at least these properties:</P>
+<BLOCKQUOTE>
+<DL class="docutils">
+<DT><TT class="docutils literal"><SPAN class="pre">num</SPAN></TT>: 
+<DD>A counter that uniquely identifies a log message (per-logger) 
+<DT><TT class="docutils literal"><SPAN class="pre">level</SPAN></TT>: 
+<DD>A string or number representing the log level. If string, you may want to use <TT class="docutils literal"><SPAN class="pre">LogLevel[level]</SPAN></TT> for comparison. 
+<DT><TT class="docutils literal"><SPAN class="pre">info</SPAN></TT>: 
+<DD>An Array of objects passed as additional arguments to the <TT class="docutils literal"><SPAN class="pre">log</SPAN></TT> function. </DD></DL></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.baselog"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.baselog">Logger.prototype.baseLog(level, message[, ...])</A>:</P>
+<BLOCKQUOTE>
+<P>The base functionality behind all of the log functions. The first argument is the log level as a string or number, and all other arguments are used as the info list.</P>
+<P>This function is available partially applied as:</P>
+<BLOCKQUOTE>
+<TABLE class="docutils" border="1">
+<COLGROUP>
+<COL width="61%">
+<COL width="39%"></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD>Logger.debug</TD>
+<TD>'DEBUG'</TD></TR>
+<TR>
+<TD>Logger.log</TD>
+<TD>'INFO'</TD></TR>
+<TR>
+<TD>Logger.error</TD>
+<TD>'ERROR'</TD></TR>
+<TR>
+<TD>Logger.fatal</TD>
+<TD>'FATAL'</TD></TR>
+<TR>
+<TD>Logger.warning</TD>
+<TD>'WARNING'</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>For the default logger, these are also available as global functions, see the <A class="mochiref reference" href="Logging.html#fn-logger">Logger</A> constructor documentation for more info.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.clear"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.clear">Logger.prototype.clear()</A>:</P>
+<BLOCKQUOTE>
+<P>Clear all messages from the message buffer.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.debuggingbookmarklet"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.debuggingbookmarklet">Logger.prototype.debuggingBookmarklet()</A>:</P>
+<BLOCKQUOTE>
+<P>Display the contents of the logger in a useful way for browsers.</P>
+<P>Currently, if <A class="mochiref reference" href="LoggingPane.html">MochiKit.LoggingPane</A> is loaded, then a pop-up <A class="mochiref reference" href="LoggingPane.html#fn-loggingpane">MochiKit.LoggingPane.LoggingPane</A> will be used. Otherwise, it will be an alert with <A class="mochiref reference" href="Logging.html#fn-logger.prototype.getmessagetext">Logger.prototype.getMessageText()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.dispatchlisteners"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.dispatchlisteners">Logger.prototype.dispatchListeners(msg)</A>:</P>
+<BLOCKQUOTE>
+<P>Dispatch a log message to all listeners.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.getmessages"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.getmessages">Logger.prototype.getMessages(howMany)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a list of up to <TT class="docutils literal"><SPAN class="pre">howMany</SPAN></TT> messages from the message buffer.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.getmessagetext"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.getmessagetext">Logger.prototype.getMessageText(howMany)</A>:</P>
+<BLOCKQUOTE>
+<P>Get a string representing up to the last <TT class="docutils literal"><SPAN class="pre">howMany</SPAN></TT> messages in the message buffer. The default is <TT class="docutils literal"><SPAN class="pre">30</SPAN></TT>.</P>
+<P>The message looks like this:</P><PRE class="literal-block">LAST {messages.length} MESSAGES:
+  [{msg.num}] {msg.level}: {m.info.join(' ')}
+  [{msg.num}] {msg.level}: {m.info.join(' ')}
+  ...
+</PRE>
+<P>If you want some other format, use <A class="mochiref reference" href="Logging.html#fn-logger.prototype.getmessages">Logger.prototype.getMessages</A> and do it yourself.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logger.prototype.removelistener"></A><A class="mochidef reference" href="Logging.html#fn-logger.prototype.removelistener">Logger.prototype.removeListener(ident)</A>:</P>
+<BLOCKQUOTE>
+<P>Remove a listener using the ident given to <A class="mochiref reference" href="Logging.html#fn-logger.prototype.addlistener">Logger.prototype.addListener</A></P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="functions" name="functions">Functions</A></H2>
+<P><A name="fn-alertlistener"></A><A class="mochidef reference" href="Logging.html#fn-alertlistener">alertListener(msg)</A>:</P>
+<BLOCKQUOTE>
+<P>Ultra-obnoxious <TT class="docutils literal"><SPAN class="pre">alert(...)</SPAN></TT> listener</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-log"></A><A class="mochidef reference" href="Logging.html#fn-log">log(message[, info[, ...]])</A>:</P>
+<BLOCKQUOTE>
+<P>Log an INFO message to the default logger</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logdebug"></A><A class="mochidef reference" href="Logging.html#fn-logdebug">logDebug(message[, info[, ...]])</A>:</P>
+<BLOCKQUOTE>
+<P>Log a DEBUG message to the default logger</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logerror"></A><A class="mochidef reference" href="Logging.html#fn-logerror">logError(message[, info[, ...]])</A>:</P>
+<BLOCKQUOTE>
+<P>Log an ERROR message to the default logger</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logfatal"></A><A class="mochidef reference" href="Logging.html#fn-logfatal">logFatal(message[, info[, ...]])</A>:</P>
+<BLOCKQUOTE>
+<P>Log a FATAL message to the default logger</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-loglevelatleast"></A><A class="mochidef reference" href="Logging.html#fn-loglevelatleast">logLevelAtLeast(minLevel)</A>:</P>
+<BLOCKQUOTE>
+<P>Return a function that will match log messages whose level is at least minLevel</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-logwarning"></A><A class="mochidef reference" href="Logging.html#fn-logwarning">logWarning(message[, info[, ...]])</A>:</P>
+<BLOCKQUOTE>
+<P>Log a WARNING message to the default logger</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="see-also" name="see-also">See Also</A></H1>
+<TABLE class="docutils footnote" id="id6" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Logging.html#id1" name="id6">[1]</A></TD>
+<TD>Python's logging module: <A class="reference" href="http://docs.python.org/lib/module-logging.html">http://docs.python.org/lib/module-logging.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id7" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Logging.html#id2" name="id7">[2]</A></TD>
+<TD>PEP 282, where they admit all of the Java influence: <A class="reference" href="http://www.python.org/peps/pep-0282.html">http://www.python.org/peps/pep-0282.html</A></TD></TR></TBODY></TABLE>
+<TABLE class="docutils footnote" id="id8" rules="none" frame="void">
+<COLGROUP>
+<COL class="label">
+<COL></COLGROUP>
+<TBODY vAlign="top">
+<TR>
+<TD class="label"><A class="fn-backref" href="Logging.html#id4" name="id8">[3]</A></TD>
+<TD>Original Bookmarklet Based Debugging blather: <A class="reference" href="http://bob.pythonmac.org/archives/2005/07/03/bookmarklet-based-debugging/">http://bob.pythonmac.org/archives/2005/07/03/bookmarklet-based-debugging/</A></TD></TR></TBODY></TABLE></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2005 Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

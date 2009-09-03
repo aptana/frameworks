@@ -1,0 +1,167 @@
+<html><head>
+<script src="../../src/rico.js" type="text/javascript"></script>
+<script src="../../src/ricoEffects.js" type="text/javascript"></script>
+<script src="../../src/ricoBehaviors.js" type="text/javascript"></script>
+<script src="../../src/ricoComponents.js" type="text/javascript"></script>
+<script type='text/javascript'>
+// Rico.loadModule('Accordion');
+Rico.onLoad( function() {
+	new Rico.Accordion( $$('div.panelHeader'), $$('div.panelContent'),
+			{panelHeight:200,
+			 hoverClass: 'panelHover',
+			 selectedClass: 'panelSelected',
+			 clickedClass: 'panelClicked'
+      });
+
+  new Rico.Accordion( $$('div.nestedPanelHeader'), $$('div.nestedPanelContent'),
+  		{panelHeight:100,
+  		 hoverClass: 'panelHover',
+  		 selectedClass: 'panelSelected',
+       clickedClass: 'panelClicked'
+      }); 
+});
+</script>
+<style>
+body {font-family: Arial, Tahoma, Verdana;}
+#accordionExample {
+    border : 1px solid #4f4f4f;
+    width: 650px;
+}
+
+.panelheader, .nestedPanelHeader{
+	background-image: url('images/example1_panelBG.png');
+    height: 22px;
+	color : #ECECEC;
+	font-weight : 'normal';
+    padding-left: 5px;
+}
+
+.panelHover {
+    background-image: url('images/example1_panelBGHover.png');
+    height: 22px;
+	color : #ffffff;
+    padding-left: 5px;
+}
+
+.panelClicked {
+   background-image: url('images/example1_panelBGClick.png');
+   height: 22px;
+   color : #ffffff;
+   padding-left: 5px;
+}
+
+.panelSelected {
+	background-image: url('images/example1_panelBGSelected.png');
+    height: 22px;
+	color : #494949;
+	font-weight : 'bold';
+    padding-left: 5px;
+}
+.panelContent, .nestedPanelContent {
+    background-image: url('images/example1_contentBG');
+    background: #f8f8f8;
+	overflow: auto;
+}
+
+#nestedaccordionExample {
+  margin-top: 20px;
+  margin-left:75px;
+  width: 350px;
+  border : 1px solid #4f4f4f;
+}
+</style>
+</head><body>
+<div>
+     <div id="accordionExample">
+		<div >
+		  <div class="panelHeader">
+		  	Overview
+		  </div>
+		  <div  class="panelContent">
+			 <br>This example illustrates how to use the Rico.Accordion behavior to transform a set of
+			 divs into a first class accordion component.<br><br>
+			The Rico.Accordion behavior makes use of the Effect.AccordionSize which is an effect that simultaneously
+			grows the height of one element while shrinking the height of another.  The Rico.Accordion behavior adds
+			the necessary event handlers on the respective divs to handle the visual aspects of expanding, collapsing
+			and hovering.
+		  </div>
+		</div>
+
+		<div>
+		  <div class="panelHeader">
+		  	More Info (nested accordion)
+		  </div>
+		  <div  class="panelContent">
+            <div id="nestedaccordionExample">
+                <div >
+                  <div class="nestedPanelHeader">
+                         Overview of ContentTransition base component 
+                  </div>
+                  <div class="nestedPanelContent">
+                      The Accordion now derives from a base component that applies and manages
+                      behaviors and effects.  The effects can be defined at the extended class.  
+                      This approach results in a very flexible way of managing 
+                  </div>
+                </div>
+                <div >
+                  <div  class="nestedPanelHeader">
+                            Alternative HTML
+                  </div>
+                    <div class="nestedPanelContent">
+                        Since the accordion does not parse the html, it can be constructed much looser
+                        than in previous versions.  The base ContentTransition can be used to quicly build 
+                        components such as tabs, master details, and many application specific behaviors.
+                        We will be providing examples of building your own soon.
+                  </div>
+                </div>
+                <div>
+                  <div  class="nestedPanelHeader">
+                            Alternative effects
+                  </div>
+                    <div class="nestedPanelContent">
+                    We will be discussing alternative transition effects here.  
+                    Should be interesting.
+                  </div>
+                </div>
+            </div>
+        		
+        </div>
+		</div>
+            
+	 		<div>
+   		  <div class="panelHeader">
+   		  	Rico Code
+   		  </div>
+   			<div class="panelContent">
+   			<br>To attach the accordion behavior to the accordion container div, construct a Rico.Accordion
+   			object and pass the panel titles and contents to it.  This is a bit different than the previous version, 
+   			but allows  a lot more flexibilitiy.  With the new Prototype Selector class it is still very easy.
+   			<pre>new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent') );
+   	 -or-
+   	new Rico.Accordion( $$('div.panelheader'), $$('div.panelContent'), 
+   	                {panelHeight:200, 
+   	                 hoverClass: 'mdHover',
+   		               selectedClass: 'mdSelected'}} );</pre>
+   			The second example specifies the height of the accordion panels and the css classes that can be associated 
+   			with the accordion behaviors.  
+        There are many other configuration parameters that can be specified to modify various visual aspects of the
+   			accordion. The panelHeight is the attribute that is most commonly overridden.
+   		  </div>
+   		</div>
+
+
+  		<div>
+  		  <div class="panelHeader">
+  		  	Important Note
+  		  </div>
+  			<div class="panelContent">
+  			<br>The accordion is very flexible now and can handle scrollbars on firefox through the use of some new features in Rico.  
+  			However, you do have to make sure the header and content elements passed in to the Accordion constructor have the same 
+  			elements and match up in the order they are passed.  The new Accordion requires far less html attributes than Rico's 
+  			previous versions.
+        <br>
+        </div>
+  		</div>
+      </div>
+</div>
+</body></html>

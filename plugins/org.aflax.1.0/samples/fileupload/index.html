@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>AFLAX: A JavaScript Library for Macromedia's Flash&trade; Platform</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+<script>
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf");
+	var fileRef;
+	var allTypes;
+	
+	function go()
+	{
+		allTypes = new AFLAX.FlashObject(aflax, "Array")
+		
+		var imageTypes = new AFLAX.FlashObject(aflax, "Object")
+		imageTypes.exposeProperty("description", imageTypes);
+		imageTypes.exposeProperty("extension", imageTypes);
+		imageTypes.setDescription("Images (*.jpg, *.jpeg, *.gif, *.png)");
+		imageTypes.setExtension("*.jpg; *.jpeg; *.gif; *.png");
+		allTypes.callFunction("push", imageTypes);
+		var txtTypes = new AFLAX.FlashObject(aflax, "Object")
+		txtTypes.exposeProperty("description", txtTypes);
+		txtTypes.exposeProperty("extension", txtTypes);
+		txtTypes.setDescription("Text Files (*.txt, *.rtf)");
+		txtTypes.setExtension("*.txt;*.rtf");
+		allTypes.callFunction("push", txtTypes);
+		
+		fileRef = new AFLAX.FlashObject(aflax, "flash.net.FileReference");
+		aflax.attachEventListener(fileRef, "onSelect", "onSelected");
+		aflax.attachEventListener(fileRef, "onCancel", "onCancel");
+		aflax.attachEventListener(fileRef, "onProgress", "onProgress");
+		aflax.attachEventListener(fileRef, "onComplete", "onComplete");
+		aflax.attachEventListener(fileRef, "onHTTPError", "onHTTPError");
+		aflax.attachEventListener(fileRef, "onSecurityError", "onSecurityError");
+		aflax.attachEventListener(fileRef, "onIOError", "onIOError");
+	}
+	
+	function selectFile()
+	{
+		fileRef.callFunction("browse", allTypes);
+	}
+	
+	function onCancel(data)
+	{
+		alert("Cancel: " + data)
+	}
+	
+	function onSelected(data)
+	{
+		//alert("Selected: " + data);
+		fileRef.callFunction("upload", "http://www.aflax.org/examples/fileupload/upload.php");
+	}
+	
+	function onProgress(data)
+	{
+		var parts = data.split("!!");
+		var loaded = parseInt((parts[1].split(":"))[1]);
+		var total = parseInt((parts[2].split(":"))[1]);
+		
+		document.getElementById("progress").innerHTML  = 
+			"Upload Progress: " +
+			Math.round((loaded/total * 100 )) + "% completed";
+	}
+	
+	function onComplete(data)
+	{
+		alert("onComplete!"); // + data);
+	}
+	
+	function onHTTPError(data)
+	{
+		alert("onHTTPError " + data);
+	}
+	
+	function onSecurityError(data)
+	{
+		alert("onSecurityError: " + data);
+	}
+	
+	function onIOError(data)
+	{
+		alert("onIOError: " + data);
+	}
+	
+	
+	
+</script>
+</head>
+<body>
+	<div id="body">
+	  <h1>File Upload Example</h1>
+	</div>
+	<div id="content">
+	
+		This demo shows asynchronous file uploading using AFLAX.<p></p>
+		
+		<div style="width:320;border:1px solid #ddd">
+			<script>
+				aflax.insertFlash(0,0, '#FFFFFF', 'go');
+			</script>
+			<div id="progress">Upload Progress: Please Select File</div><p>
+		</div>
+		
+		<p></p>
+		
+		<input type="button" onclick="selectFile();" value="Select File to Upload">
+		<p></p>
+		
+		<br>
+		
+	</div>
+		
+</body>

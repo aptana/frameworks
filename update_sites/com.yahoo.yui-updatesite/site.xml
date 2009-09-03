@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.yahoo.yui.2.3_2.3.1.00001.jar" id="com.yahoo.yui.2.3" version="2.3.1.00001">
+      <category name="Yahoo YUI"/>
+   </feature>
+   <feature url="features/com.yahoo.yui.2.4_2.4.1.00001.jar" id="com.yahoo.yui.2.4" version="2.4.1.00001">
+      <category name="Yahoo YUI"/>
+   </feature>
+   <feature url="features/com.yahoo.yui.2.5_2.5.0.00003.jar" id="com.yahoo.yui.2.5" version="2.5.0.00003">
+      <category name="Yahoo YUI"/>
+   </feature>
+   <category-def name="Yahoo YUI" label="Aptana Support for Yahoo! YUI"/>
+</site>

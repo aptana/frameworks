@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>MochiKit.Signal - Simple universal event handling</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="Docutils 0.4: http://docutils.sourceforge.net/" name="generator"><LINK href="documentation.css" type="text/css" rel="stylesheet">
+
+
+
+</HEAD>
+<BODY>
+<DIV class="document">
+<DIV class="section">
+<H1><A id="name" name="name">Name</A></H1>
+<P>MochiKit.Signal - Simple universal event handling</P></DIV>
+<DIV class="section">
+<H1>Function Index</H1><A id="show_index" href="Signal.html#"><!--[show]--></A>
+<DIV class="invisible" id="function_index"><A href="Signal.html#"><!--[hide]--></A>
+<P><A class="mochiref reference" href="Signal.html#fn-connect">connect(src, signal, dest[, func])<BR></A><A class="mochiref reference" href="Signal.html#fn-disconnect">disconnect(ident)<BR></A><A class="mochiref reference" href="Signal.html#fn-disconnectall">disconnectAll(src[, signal, ...])<BR></A><A class="mochiref reference" href="Signal.html#fn-disconnectallto">disconnectAllTo(dest[, func])<BR></A><A class="mochiref reference" href="Signal.html#fn-signal">signal(src, signal, ...)<BR></A><A class="mochiref reference" href="Signal.html#fn-event">event()<BR></A><A class="mochiref reference" href="Signal.html#fn-src">src()<BR></A><A class="mochiref reference" href="Signal.html#fn-type">type()<BR></A><A class="mochiref reference" href="Signal.html#fn-target">target()<BR></A><A class="mochiref reference" href="Signal.html#fn-modifier">modifier()<BR></A><A class="mochiref reference" href="Signal.html#fn-stoppropagation">stopPropagation()<BR></A><A class="mochiref reference" href="Signal.html#fn-preventdefault">preventDefault()<BR></A><A class="mochiref reference" href="Signal.html#fn-stop">stop()<BR></A><A class="mochiref reference" href="Signal.html#fn-key">key()<BR></A><A class="mochiref reference" href="Signal.html#fn-mouse">mouse()<BR></A><A class="mochiref reference" href="Signal.html#fn-relatedtarget">relatedTarget()<BR></A><A class="mochiref reference" href="Signal.html#fn-confirmunload">confirmUnload(msg)<BR></A></P></DIV></DIV>
+<DIV class="section">
+<H1><A id="synopsis" name="synopsis">Synopsis</A></H1>
+<P>Signal for DOM events:</P><PRE class="literal-block">// DOM events are also signals. Connect freely! The functions will be
+// called with the custom event as a parameter.
+
+// calls myClicked.apply(getElement('myID'), [event])
+connect('myID', 'onclick', myClicked);
+
+// calls wasClicked.apply(myObject, [event])
+connect('myID', 'onclick', myObject, wasClicked);
+
+// calls myObject.wasClicked(event)
+connect('myID', 'onclick', myObject, 'wasClicked');
+
+// the event is normalized, no more e = e || window.event!
+myObject.wasClicked = function(e) {
+    var crossBrowserCoordinates = e.mouse().page;
+    // e.mouse().page is a MochiKit.Style.Coordinates object
+}
+</PRE>
+<P>Signal for non-DOM events:</P><PRE class="literal-block">// otherObject.gotFlash() will be called when 'flash' signalled.
+connect(myObject, 'flash', otherObject, 'gotFlash');
+
+// gotBang.apply(otherObject, [...]) will be called when 'bang' signalled.
+// You can access otherObject from within gotBang as 'this'.
+connect(myObject, 'bang', otherObject, gotBang);
+
+// myFunc.apply(myObject, [...]) will be called when 'flash' signalled.
+// You can access myObject from within myFunc as 'this'.
+var ident = connect(myObject, 'flash', myFunc);
+
+// You may disconnect with the return value from connect
+disconnect(ident);
+
+// Signal can take parameters. These will be passed along to the
+// connected functions.
+signal(myObject, 'flash');
+signal(myObject, 'bang', 'BANG!');
+</PRE></DIV>
+<DIV class="section">
+<H1><A id="description" name="description">Description</A></H1>
+<P>Event handling was never so easy!</P>
+<P>This module takes care of all the hard work—figuring out which event model to use, trying to retrieve the event object, and handling your own internal events, as well as cleanup when the page is unloaded to clean up IE's nasty memory leakage.</P>
+<P>This event system is largely based on Qt's signal/slot system. Read more on how that is handled and also how it is used in model/view programming at: <A class="reference" href="http://doc.trolltech.com/">http://doc.trolltech.com/</A></P></DIV>
+<DIV class="section">
+<H1><A id="dependencies" name="dependencies">Dependencies</A></H1>
+<UL class="simple">
+<LI><A class="mochiref reference" href="Base.html">MochiKit.Base</A> 
+<LI><A class="mochiref reference" href="DOM.html">MochiKit.DOM</A> </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="overview" name="overview">Overview</A></H1>
+<DIV class="section">
+<H2><A id="using-signal-for-dom-events" name="using-signal-for-dom-events">Using Signal for DOM Events</A></H2>
+<P>When using MochiKit.Signal, do not use the browser's native event API. That means, no <TT class="docutils literal"><SPAN class="pre">onclick="blah"</SPAN></TT>, no <TT class="docutils literal"><SPAN class="pre">elem.addEventListener(...)</SPAN></TT>, and certainly no <TT class="docutils literal"><SPAN class="pre">elem.attachEvent(...)</SPAN></TT>. This also means that <A class="mochiref reference" href="DOM.html#fn-addtocallstack">MochiKit.DOM.addToCallStack</A> and <A class="mochiref reference" href="DOM.html#fn-addloadevent">MochiKit.DOM.addLoadEvent</A> should not be used in combination with this module.</P>
+<P>Signals for DOM objects are named with the <TT class="docutils literal"><SPAN class="pre">'on'</SPAN></TT> prefix, e.g.: <TT class="docutils literal"><SPAN class="pre">'onclick'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'onkeyup'</SPAN></TT>, etc.</P>
+<P>When the signal fires, your slot will be called with one parameter, the custom event object.</P></DIV>
+<DIV class="section">
+<H2><A id="custom-event-objects-for-dom-events" name="custom-event-objects-for-dom-events">Custom Event Objects for DOM events</A></H2>
+<P>Signals triggered by DOM events are called with a custom event object as a parameter. The custom event object presents a consistent view of the event across all supported platforms and browsers, and provides many conveniences not available even in a correct W3C implementation.</P>
+<P>See the <A class="reference" href="Signal.html#dom-custom-event-object-reference">DOM Custom Event Object Reference</A> for a detailed API description of this object.</P>
+<P>If you find that you're accessing the native event for any reason, create a <A class="reference" href="http://trac.mochikit.com/newticket">new ticket</A> and we'll look into normalizing the behavior you're looking for.</P></DIV>
+<DIV class="section">
+<H2><A id="memory-usage" name="memory-usage">Memory Usage</A></H2>
+<P>Any object that has connected slots (via <A class="mochiref reference" href="Signal.html#fn-connect">connect()</A>) is referenced by the Signal mechanism until it is disconnected via <A class="mochiref reference" href="Signal.html#fn-disconnect">disconnect()</A> or <A class="mochiref reference" href="Signal.html#fn-disconnectall">disconnectAll()</A>.</P>
+<P>Signal does not leak. It registers an <TT class="docutils literal"><SPAN class="pre">'onunload'</SPAN></TT> event that disconnects all objects on the page when the browser leaves the page. However, memory usage will grow during the page view for every connection made until it is disconnected. Even if the DOM object is removed from the document, it will still be referenced by Signal until it is explicitly disconnected.</P>
+<P>In order to conserve memory during the page view, <A class="mochiref reference" href="Signal.html#fn-disconnectall">disconnectAll()</A> any DOM elements that are about to be removed from the document.</P></DIV>
+<DIV class="section">
+<H2><A id="synthesized-events" name="synthesized-events">Synthesized Events</A></H2>
+<P>Certain events supported by MochiKit are not generated natively by all browsers. MochiKit can synthesize these events even for non-supporting browsers, however, by watching for related events and triggering the appropriate signals at the right times.</P>
+<P>These events include:</P>
+<P><TT class="docutils literal"><SPAN class="pre">onmouseenter</SPAN></TT></P>
+<BLOCKQUOTE>
+<P>Similar to <TT class="docutils literal"><SPAN class="pre">'onmouseover'</SPAN></TT>, but does not "bubble" up to parent nodes. Such bubbling is often a cause of confusion. On an <TT class="docutils literal"><SPAN class="pre">'onmouseenter'</SPAN></TT> event, you can be certain that the mouse has left the node attached to the event.</P>
+<DL class="docutils">
+<DT><EM>Availability:</EM> 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">onmouseleave</SPAN></TT></P>
+<BLOCKQUOTE>
+<P>Similar to <TT class="docutils literal"><SPAN class="pre">'onmouseout'</SPAN></TT>, but does not "bubble" up to parent nodes. This is the analog to <TT class="docutils literal"><SPAN class="pre">'onmouseenter'</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability:</EM> 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="using-signal-for-non-dom-objects" name="using-signal-for-non-dom-objects">Using Signal for non-DOM objects</A></H2>
+<P>Signals are triggered with the <A class="mochiref reference" href="Signal.html#fn-signal">signal(src, 'signal', ...)</A> function. Additional parameters passed to this are passed onto the connected slots. Explicit signals are not required for DOM events.</P>
+<P>Slots that are connected to a signal are called in the following manner when that signal is signalled:</P>
+<UL class="simple">
+<LI>If the slot was a single function, then it is called with <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> set to the object originating the signal with whatever parameters it was signalled with. 
+<LI>If the slot was an object and a function, then it is called with <TT class="docutils literal"><SPAN class="pre">this</SPAN></TT> set to the object, and with whatever parameters it was signalled with. 
+<LI>If the slot was an object and a string, then <TT class="docutils literal"><SPAN class="pre">object[string]</SPAN></TT> is called with the parameters to the signal. </LI></UL></DIV></DIV>
+<DIV class="section">
+<H1><A id="api-reference" name="api-reference">API Reference</A></H1>
+<DIV class="section">
+<H2><A id="signal-api-reference" name="signal-api-reference">Signal API Reference</A></H2>
+<P><A name="fn-connect"></A><A class="mochidef reference" href="Signal.html#fn-connect">connect(src, signal, dest[, func])</A>:</P>
+<BLOCKQUOTE>
+<P>Connects a signal to a slot, and return a unique identifier that can be used to disconnect that signal.</P>
+<P><TT class="docutils literal"><SPAN class="pre">src</SPAN></TT> is the object that has the signal. You may pass in a string, in which case, it is interpreted as an id for an HTML element.</P>
+<P><TT class="docutils literal"><SPAN class="pre">signal</SPAN></TT> is a string that represents a signal name. If 'src' is an HTML Element, <TT class="docutils literal"><SPAN class="pre">window</SPAN></TT>, or the <TT class="docutils literal"><SPAN class="pre">document</SPAN></TT>, then it can be one of the 'on-XYZ' events. You must include the 'on' prefix, and it must be all lower-case.</P>
+<P><TT class="docutils literal"><SPAN class="pre">dest</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> describe the slot, or the action to take when the signal is triggered.</P>
+<BLOCKQUOTE>
+<UL class="simple">
+<LI>If <TT class="docutils literal"><SPAN class="pre">dest</SPAN></TT> is an object and <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> is a string, then <TT class="docutils literal"><SPAN class="pre">dest[func].apply(dest,</SPAN> <SPAN class="pre">[...])</SPAN></TT> will be called when the signal is signalled. 
+<LI>If <TT class="docutils literal"><SPAN class="pre">dest</SPAN></TT> is an object and <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> is a function, then <TT class="docutils literal"><SPAN class="pre">func.apply(dest,</SPAN> <SPAN class="pre">[...])</SPAN></TT> will be called when the signal is signalled. 
+<LI>If <TT class="docutils literal"><SPAN class="pre">func</SPAN></TT> is undefined and <TT class="docutils literal"><SPAN class="pre">dest</SPAN></TT> is a function, then <TT class="docutils literal"><SPAN class="pre">dest.apply(src,</SPAN> <SPAN class="pre">[...])</SPAN></TT> will be called when the signal is signalled. </LI></UL></BLOCKQUOTE>
+<P>No other combinations are allowed and will raise an exception.</P>
+<P>The return value can be passed to <A class="mochiref reference" href="Signal.html#fn-disconnect">disconnect</A> to disconnect the signal.</P>
+<P>In MochiKit 1.4+, if <TT class="docutils literal"><SPAN class="pre">src</SPAN></TT> is an object that has a <TT class="docutils literal"><SPAN class="pre">__connect__</SPAN></TT> method, then <TT class="docutils literal"><SPAN class="pre">src.__connect__(ident,</SPAN> <SPAN class="pre">signal,</SPAN> <SPAN class="pre">objOrFunc,</SPAN> <SPAN class="pre">funcOrStr)</SPAN></TT> will be called. This method may be used to disconnect the signal. DOM objects can not implement this feature.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-disconnect"></A><A class="mochidef reference" href="Signal.html#fn-disconnect">disconnect(ident)</A>:</P>
+<BLOCKQUOTE>
+<P>To disconnect a signal, pass its ident returned by <A class="mochiref reference" href="Signal.html#fn-connect">connect()</A>. This is similar to how the browser's <TT class="docutils literal"><SPAN class="pre">setTimeout</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">clearTimeout</SPAN></TT> works.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-disconnectall"></A><A class="mochidef reference" href="Signal.html#fn-disconnectall">disconnectAll(src[, signal, ...])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">disconnectAll(src)</SPAN></TT> removes all signals from src.</P>
+<P><TT class="docutils literal"><SPAN class="pre">disconnectAll(src,</SPAN> <SPAN class="pre">'onmousedown',</SPAN> <SPAN class="pre">'mySignal')</SPAN></TT> will remove all <TT class="docutils literal"><SPAN class="pre">'onmousedown'</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">'mySignal'</SPAN></TT> signals from src.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-disconnectallto"></A><A class="mochidef reference" href="Signal.html#fn-disconnectallto">disconnectAllTo(dest[, func])</A>:</P>
+<BLOCKQUOTE>
+<P><TT class="docutils literal"><SPAN class="pre">disconnectAllTo(dest)</SPAN></TT> removes all signals connected to dest.</P>
+<P><TT class="docutils literal"><SPAN class="pre">disconnectAllTo(dest,</SPAN> <SPAN class="pre">func)</SPAN></TT> will remove all signals connected to dest using func.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-signal"></A><A class="mochidef reference" href="Signal.html#fn-signal">signal(src, signal, ...)</A>:</P>
+<BLOCKQUOTE>
+<P>This will signal a signal, passing whatever additional parameters on to the connected slots. <TT class="docutils literal"><SPAN class="pre">src</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">signal</SPAN></TT> are the same as for <A class="mochiref reference" href="Signal.html#fn-connect">connect()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE></DIV>
+<DIV class="section">
+<H2><A id="dom-custom-event-object-reference" name="dom-custom-event-object-reference">DOM Custom Event Object Reference</A></H2>
+<P><A name="fn-event"></A><A class="mochidef reference" href="Signal.html#fn-event">event()</A>:</P>
+<BLOCKQUOTE>
+<P>The native event produced by the browser. You should not need to use this.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-src"></A><A class="mochidef reference" href="Signal.html#fn-src">src()</A>:</P>
+<BLOCKQUOTE>
+<P>The element that this signal is connected to.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-type"></A><A class="mochidef reference" href="Signal.html#fn-type">type()</A>:</P>
+<BLOCKQUOTE>
+<P>The event type (<TT class="docutils literal"><SPAN class="pre">'click'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'mouseover'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'keypress'</SPAN></TT>, etc.) as a string. Does not include the <TT class="docutils literal"><SPAN class="pre">'on'</SPAN></TT> prefix.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-target"></A><A class="mochidef reference" href="Signal.html#fn-target">target()</A>:</P>
+<BLOCKQUOTE>
+<P>The element that triggered the event. This may be a child of <A class="mochiref reference" href="Signal.html#fn-src">src()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-modifier"></A><A class="mochidef reference" href="Signal.html#fn-modifier">modifier()</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">{shift,</SPAN> <SPAN class="pre">ctrl,</SPAN> <SPAN class="pre">meta,</SPAN> <SPAN class="pre">alt,</SPAN> <SPAN class="pre">any}</SPAN></TT>, where each property is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if its respective modifier key was pressed, <TT class="docutils literal"><SPAN class="pre">false</SPAN></TT> otherwise. <TT class="docutils literal"><SPAN class="pre">any</SPAN></TT> is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if any modifier is pressed, <TT class="docutils literal"><SPAN class="pre">false</SPAN></TT> otherwise.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-stoppropagation"></A><A class="mochidef reference" href="Signal.html#fn-stoppropagation">stopPropagation()</A>:</P>
+<BLOCKQUOTE>
+<P>Works like W3C's <A class="reference" href="http://developer.mozilla.org/en/docs/DOM:event.stopPropagation">stopPropagation()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-preventdefault"></A><A class="mochidef reference" href="Signal.html#fn-preventdefault">preventDefault()</A>:</P>
+<BLOCKQUOTE>
+<P>Works like W3C's <A class="reference" href="http://developer.mozilla.org/en/docs/DOM:event.preventDefault">preventDefault()</A>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-stop"></A><A class="mochidef reference" href="Signal.html#fn-stop">stop()</A>:</P>
+<BLOCKQUOTE>
+<P>Shortcut that calls <TT class="docutils literal"><SPAN class="pre">stopPropagation()</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">preventDefault()</SPAN></TT>.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-key"></A><A class="mochidef reference" href="Signal.html#fn-key">key()</A>:</P>
+<BLOCKQUOTE>
+<P>Returns <TT class="docutils literal"><SPAN class="pre">{code,</SPAN> <SPAN class="pre">string}</SPAN></TT>.</P>
+<P>Use <TT class="docutils literal"><SPAN class="pre">'onkeydown'</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">'onkeyup'</SPAN></TT> handlers to detect control characters such as <TT class="docutils literal"><SPAN class="pre">'KEY_F1'</SPAN></TT>. Use the <TT class="docutils literal"><SPAN class="pre">'onkeypress'</SPAN></TT> handler to detect "printable" characters, such as <TT class="docutils literal"><SPAN class="pre">'é'</SPAN></TT>.</P>
+<P>When a user presses F1, in <TT class="docutils literal"><SPAN class="pre">'onkeydown'</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">'onkeyup'</SPAN></TT> this method returns <TT class="docutils literal"><SPAN class="pre">{code:</SPAN> <SPAN class="pre">122,</SPAN> <SPAN class="pre">string:</SPAN> <SPAN class="pre">'KEY_F1'}</SPAN></TT>. In <TT class="docutils literal"><SPAN class="pre">'onkeypress'</SPAN></TT>, it returns <TT class="docutils literal"><SPAN class="pre">{code:</SPAN> <SPAN class="pre">0,</SPAN> <SPAN class="pre">string:</SPAN> <SPAN class="pre">''}</SPAN></TT>.</P>
+<P>If a user presses Shift+2 on a US keyboard, this method returns <TT class="docutils literal"><SPAN class="pre">{code:</SPAN> <SPAN class="pre">50,</SPAN> <SPAN class="pre">string:</SPAN> <SPAN class="pre">'KEY_2'}</SPAN></TT> in <TT class="docutils literal"><SPAN class="pre">'onkeydown'</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">'onkeyup'</SPAN></TT>. In <TT class="docutils literal"><SPAN class="pre">'onkeypress'</SPAN></TT>, it returns <TT class="docutils literal"><SPAN class="pre">{code:</SPAN> <SPAN class="pre">64,</SPAN> <SPAN class="pre">string:</SPAN> <SPAN class="pre">'@'}</SPAN></TT>.</P>
+<P>See <TT class="docutils literal"><SPAN class="pre">_specialKeys</SPAN></TT> in the source code for a comprehensive list of control characters.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-mouse"></A><A class="mochidef reference" href="Signal.html#fn-mouse">mouse()</A>:</P>
+<BLOCKQUOTE>
+<P>Properties for <TT class="docutils literal"><SPAN class="pre">'onmouse*'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'onclick'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'ondblclick'</SPAN></TT>, and <TT class="docutils literal"><SPAN class="pre">'oncontextmenu'</SPAN></TT>:</P>
+<BLOCKQUOTE>
+<UL class="simple">
+<LI><TT class="docutils literal"><SPAN class="pre">page</SPAN></TT> is a <A class="mochiref reference" href="Style.html#fn-coordinates">MochiKit.Style.Coordinates</A> object that represents the cursor position relative to the HTML document. Equivalent to <TT class="docutils literal"><SPAN class="pre">pageX</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">pageY</SPAN></TT> in Safari, Mozilla, and Opera. 
+<LI><TT class="docutils literal"><SPAN class="pre">client</SPAN></TT> is a <A class="mochiref reference" href="Style.html#fn-coordinates">MochiKit.Style.Coordinates</A> object that represents the cursor position relative to the visible portion of the HTML document. Equivalent to <TT class="docutils literal"><SPAN class="pre">clientX</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">clientY</SPAN></TT> on all browsers. Current versions of Safari incorrectly return clientX as relative to the canvas instead of relative to the viewport (<A class="reference" href="http://bugs.webkit.org/show_bug.cgi?id=8707">Safari Bug 8707</A>). </LI></UL></BLOCKQUOTE>
+<P>Properties for <TT class="docutils literal"><SPAN class="pre">'onmouseup'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'onmousedown'</SPAN></TT>, <TT class="docutils literal"><SPAN class="pre">'onclick'</SPAN></TT>, and <TT class="docutils literal"><SPAN class="pre">'ondblclick'</SPAN></TT>:</P>
+<BLOCKQUOTE>
+<UL class="simple">
+<LI><TT class="docutils literal"><SPAN class="pre">mouse().button</SPAN></TT> returns <TT class="docutils literal"><SPAN class="pre">{left,</SPAN> <SPAN class="pre">right,</SPAN> <SPAN class="pre">middle}</SPAN></TT> where each property is <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT> if the mouse button was pressed, <TT class="docutils literal"><SPAN class="pre">false</SPAN></TT> otherwise. </LI></UL></BLOCKQUOTE>
+<P>Known browser bugs:</P>
+<BLOCKQUOTE>
+<UL>
+<LI>
+<P class="first">Current versions of Safari won't signal <TT class="docutils literal"><SPAN class="pre">'ondblclick'</SPAN></TT> when attached via <TT class="docutils literal"><SPAN class="pre">connect()</SPAN></TT> (<A class="reference" href="http://bugs.webkit.org/show_bug.cgi?id=7790">Safari Bug 7790</A>).</P>
+<LI>
+<P class="first">In Safari &lt; 2.0.4, calling <TT class="docutils literal"><SPAN class="pre">preventDefault()</SPAN></TT> or <TT class="docutils literal"><SPAN class="pre">stop()</SPAN></TT> in <TT class="docutils literal"><SPAN class="pre">'onclick'</SPAN></TT> events signalled from <TT class="docutils literal"><SPAN class="pre">&lt;a&gt;</SPAN></TT> tags does not prevent the browser from following those links.</P>
+<LI>
+<P class="first">Mac browsers don't report right-click consistently. Firefox signals the slot and sets <TT class="docutils literal"><SPAN class="pre">modifier().ctrl</SPAN></TT> to true, Opera signals the slot and sets <TT class="docutils literal"><SPAN class="pre">modifier().meta</SPAN></TT> to <TT class="docutils literal"><SPAN class="pre">true</SPAN></TT>, and Safari doesn't signal the slot at all (<A class="reference" href="http://bugs.webkit.org/show_bug.cgi?id=6595">Safari Bug 6595</A>).</P>
+<P>To find a right-click in Safari, Firefox, and IE, you can connect an element to <TT class="docutils literal"><SPAN class="pre">'oncontextmenu'</SPAN></TT>. This doesn't work in Opera.</P></LI></UL></BLOCKQUOTE>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-relatedtarget"></A><A class="mochidef reference" href="Signal.html#fn-relatedtarget">relatedTarget()</A>:</P>
+<BLOCKQUOTE>
+<P>Returns the document element that the mouse has moved to. This is generated for <TT class="docutils literal"><SPAN class="pre">'onmouseover'</SPAN></TT> and <TT class="docutils literal"><SPAN class="pre">'onmouseout'</SPAN></TT> events.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.3.1+ </DD></DL></BLOCKQUOTE>
+<P><A name="fn-confirmunload"></A><A class="mochidef reference" href="Signal.html#fn-confirmunload">confirmUnload(msg)</A>:</P>
+<BLOCKQUOTE>
+<P>In browsers that support the <TT class="docutils literal"><SPAN class="pre">'onbeforeunload'</SPAN></TT> event (IE and Firefox), calling this in the event handler will show a dialog box that allows the user to confirm or cancel the navigation away from the page.</P>
+<DL class="docutils">
+<DT><EM>Availability</EM>: 
+<DD>Available in MochiKit 1.4+ </DD></DL></BLOCKQUOTE></DIV></DIV>
+<DIV class="section">
+<H1><A id="authors" name="authors">Authors</A></H1>
+<UL class="simple">
+<LI>Jonathan Gardner &lt;<A class="reference" href="mailto:jgardner@jonathangardner.net">jgardner@jonathangardner.net</A>&gt; 
+<LI>Beau Hartshorne &lt;<A class="reference" href="mailto:beau@hartshornesoftware.com">beau@hartshornesoftware.com</A>&gt; 
+<LI>Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt; </LI></UL></DIV>
+<DIV class="section">
+<H1><A id="copyright" name="copyright">Copyright</A></H1>
+<P>Copyright 2006 Jonathan Gardner &lt;<A class="reference" href="mailto:jgardner@jonathangardner.net">jgardner@jonathangardner.net</A>&gt;, Beau Hartshorne &lt;<A class="reference" href="mailto:beau@hartshornesoftware.com">beau@hartshornesoftware.com</A>&gt;, and Bob Ippolito &lt;<A class="reference" href="mailto:bob@redivi.com">bob@redivi.com</A>&gt;. This program is dual-licensed free software; you can redistribute it and/or modify it under the terms of the <A class="reference" href="http://www.opensource.org/licenses/mit-license.php">MIT License</A> or the <A class="reference" href="http://www.opensource.org/licenses/afl-2.1.php">Academic Free License v2.1</A>.</P></DIV></DIV></BODY></HTML>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="docs/index.xml"/>
+   </extension>
+<!--
+       <extension
+         point="org.eclipse.eclipsemonkey.scriptpath">
+      <scriptpath directory="scripts"/>
+   </extension>
+-->
+       <extension
+             point="com.aptana.ide.snippets.snippetspath">
+          <snippetsinfo directory="snippets"/>
+       </extension>
+          <extension
+         point="com.aptana.ide.projects.library">
+      <libraryinfo
+            directory="libraries"
+            iconFile="icons/jquery_small.png"
+            name="jQuery 1.3"/>
+       </extension>
+         
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.aptana.ide.documentation"
+            class="com.aptana.ide.core.ui.views.browser.DefaultBrowserView"
+            icon="views/visual_jquery/images/favicon.png"
+            id="com.aptana.ide.documentation.jquery.visualjquery"
+            name="Visual jQuery">
+         <description>bundleresource://com.jquery.1.3/views/visual_jquery/1.3.2.htm</description>
+      </view>
+   </extension>
+
+	   <extension
+         point="com.aptana.ide.editor.js.scriptdoc">
+	      <xml-file
+            icon="icons/jquery_small.png"
+            path="support/jquery.xml"
+            user-agent="jQuery 1.3"/>
+   </extension>
+   	<extension
+		point="com.aptana.ide.samples.samplespath">
+		<samplesinfo
+			directory="samples"
+			iconFile="icons/jquery_small.png"
+			infoFile="samples/index.html"
+			name="jQuery 1.3 Samples"
+			previewHandler="com.aptana.ide.documentation.samples.AjaxSamplesPreviewHandler">
+			<include path="libraries/lib"/>   
+			<nature id="com.aptana.ide.project.nature.web"/>                
+		</samplesinfo>
+	</extension> 
+          		   <extension
+                point="com.aptana.ide.update.feature">
+             <feature
+                   id="com.jquery.1.3">
+             </feature>
+          </extension>   
+</plugin>

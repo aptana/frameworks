@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>addMethods</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">addMethods </span><span class="f_TopicHeading" style="color: #ccffff;">:: Element</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">addMethods([methods])</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Takes a hash of methods and makes them available as methods of extended elements and of the Element object.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">Element.addMethods</span> makes it possible to mix in <span style="font-style: italic;">your own</span> methods to the <span class="f_CourierFixed">Element</span> object, which you can later use as methods of <span class="f_CourierFixed">extended</span> elements - those returned by the <span class="f_CourierFixed">$()</span> utility, for example - or as methods of <span class="f_CourierFixed">Element</span>.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$(element).myOwnMethod([args...]);</span></p>
+<p>&nbsp;</p>
+<p>Note that this will also works:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">Element.myOwnMethod(element|id[,&nbsp;args...]);</span></p>
+<p>&nbsp;</p>
+<p>To add new methods, simply feed <span class="f_CourierFixed">Element.addMethods</span> with a hash of methods. Note that each method's first argument has to be <span class="f_CourierFixed">element</span>. Inside each method, remember to pass <span class="f_CourierFixed">element</span> to <span class="f_CourierFixed">$()</span> and to return it to allow for method chaining if appropriate.</p>
+<p>&nbsp;</p>
+<p>Here's what your hash should look like:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;myVeryOwnElementMethods&nbsp;=&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;myFirstMethod:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">[,&nbsp;args...]){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;do&nbsp;something</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;},</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;mySecondMethod:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">[,&nbsp;args...]){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;do&nbsp;something&nbsp;else</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p>&nbsp;</p>
+<p>One last warning before you pursue: <span class="f_CourierFixed">Element.addMethods</span> has a built in security which prevents you from overriding native element methods or properties (like getAttribute or innerHTML for instance), but nothing prevents you from overriding one of Prototype's method, so watch where you step!</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Examples</span></p>
+<p>&nbsp;</p>
+<p>Want clean, semantic markup, but need that extra <span class="f_CourierFixed">&lt;div&gt;</span> around your element, why not create a <span class="f_CourierFixed">wrap('tagName')</span> Element method which encloses element in the provided <span class="f_CourierFixed">tagName</span> and returns the wrapper?</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Element.addMethods({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;wrap:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;tagName)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">var</span><span class="f_CodeExample" style="color: #000000;">&nbsp;wrapper&nbsp;=&nbsp;document.createElement(</span><span class="f_CodeExample" style="color: #800000;">'tagName'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;element.parentNode.replaceChild(wrapper,&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;wrapper.appendChild(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Element.extend(wrapper);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>which you'll be able to use like this:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;Before:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;p&nbsp;id="first"&gt;Some&nbsp;content...&lt;/p&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).wrap(</span><span class="f_CodeExample" style="color: #800000;">'div'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement&nbsp;(div)</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">//&nbsp;After:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;div&gt;&lt;p&nbsp;id="first"&gt;Some&nbsp;content...&lt;/p&gt;&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p>As you have thoughtfully decided that your <span class="f_CourierFixed">wrap()</span> method would return the newly created <span class="f_CourierFixed">&lt;div&gt;</span>, ready for prime time thanks to <span class="f_CourierFixed">Element.extend</span>, you can immediately chain a new method to it:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample">$(element).wrap('div').setStyle({backgroundImage:&nbsp;'url(images/rounded-corner-top-left.png)&nbsp;top&nbsp;left'});</span></p>
+<p>&nbsp;</p>
+<p>Are you using <span class="f_CourierFixed">Ajax.Updater</span> quite a bit around your web application to update DOM elements? Would you want a quick and nifty solution to cut down on the amount of code you are writing ? Try this:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Element.addMethods({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;ajaxUpdate:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;url,&nbsp;options){</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;element.update(</span><span class="f_CodeExample" style="color: #800000;">'&lt;img&nbsp;src=&quot;/images/spinner.gif&quot;&nbsp;alt=&quot;loading...&quot;&nbsp;/&gt;'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">new</span><span class="f_CodeExample" style="color: #000000;">&nbsp;Ajax.Updater(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;url,&nbsp;options);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">});</span></p>
+<p>&nbsp;</p>
+<p>Now, whenever you wish to update the content of an element just do:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">).ajaxUpdate(</span><span class="f_CodeExample" style="color: #800000;">'/new/content'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;HTMLElement</span></p>
+<p>&nbsp;</p>
+<p>This method will first replace the content of element with one of those nifty Ajax activity indicator. It will then create a new <span class="f_CourierFixed">Ajax.Updater</span>, which in turn will update the content of element with its request result, removing the spinner as it does.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Using Element.addMethods with no argument</span></p>
+<p>&nbsp;</p>
+<p>There's a last dirty little secret to <span class="f_CourierFixed">Element.addMethods</span>. You can can call it without passing it an argument. What happens then? Well, it simply iterates over all of <span class="f_CourierFixed">Element.Methods</span>, <span class="f_CourierFixed">Element.Methods.Simulated</span>, <span class="f_CourierFixed">Form.Methods</span> and <span class="f_CourierFixed">Form.Element.Methods</span> and adds them to the relevant DOM elements (<span class="f_CourierFixed">Form.Methods</span> only gets added to, well the form element while input, select and textarea elements get extended with <span class="f_CourierFixed">Form.Element.Methods</span>).</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">When could that be usefull?</span></p>
+<p>&nbsp;</p>
+<p>Imagine that you wish to add a method that deactivates a submit button and replaces its text with something like "Please wait...". You wouldn't want such a method to be applied to any element, would you? So here is how you would go about doing that:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Form.Element.Methods.processing&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;text)&nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #0000ff;">element</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">if</span><span class="f_CodeExample" style="color: #000000;">&nbsp;(element.tagName.toLowerCase()&nbsp;==&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'input'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;&amp;&amp;&nbsp;[</span><span class="f_CodeExample" style="color: #800000;">'button'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'submit'</span><span class="f_CodeExample" style="color: #000000;">].include(element.type))</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;element.value&nbsp;=&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">typeof</span><span class="f_CodeExample" style="color: #000000;">&nbsp;text&nbsp;==&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'undefined'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;?&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'Please&nbsp;wait...'</span><span class="f_CodeExample" style="color: #000000;">&nbsp;:&nbsp;text;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">return</span><span class="f_CodeExample" style="color: #000000;">&nbsp;element.disable();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Element.addMethods();</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

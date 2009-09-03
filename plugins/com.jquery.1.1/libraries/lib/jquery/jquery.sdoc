@@ -1,0 +1,1134 @@
+/**
+ * @namespace jQuery-1.1.3.1
+ * Scriptdoc-file for jQuery 1.1.3.1
+ *
+ * Created: Jan 25, 2007 19:31:20 GMT
+ * Courtesy of Edwin Martin 
+ * 
+ * Updated: July 12, 2007
+ * Updated by Michelle Petersen
+ */
+
+/**
+ * This function accepts a string containing a CSS or basic XPath selector which is then used to match a set of elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>$</b>(<b>html</b>: String) : jQuery<br>
+ * <br>
+ * Create DOM elements on-the-fly from the provided String of raw HTML.<br>
+ * <br>
+ * <b>$</b>(<b>elems</b>: Element|Array) : jQuery<br>
+ * <br>
+ * Wrap jQuery functionality around a single or multiple DOM Element(s).<br>
+ * <br>
+ * <b>$</b>(<b>fn</b>: Function) : jQuery<br>
+ * <br>
+ * A shorthand for $(document).<br>
+ * <br>
+ * @id jQuery.$
+ * @alias jQuery.prototype.$
+ * @param {String} expr
+ * @param {Element|jQuery} context
+ * @return {jQuery}
+ */
+
+/**
+ * The current version of jQuery.
+ * @id jQuery.jquery
+ * @alias jQuery.prototype.jquery
+ * @return {String}
+ */
+
+/**
+ * The number of elements currently matched.
+ * @id jQuery.length
+ * @alias jQuery.prototype.length
+ * @return {Number}
+ */
+
+/**
+ * The number of elements currently matched.
+ * @method
+ * @id jQuery.size
+ * @alias jQuery.prototype.size
+ * @return {Number}
+ */
+
+/**
+ * Access all matched elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>get</b>(<b>num</b>: Number) : Element<br>
+ * <br>
+ * Access a single matched element.<br>
+ * <br>
+ * @id jQuery.get
+ * @alias jQuery.prototype.get
+ * @return {Array}
+ */
+
+/**
+ * Set the jQuery object to an array of elements, while maintaining the stack.
+ * @id jQuery.pushStack
+ * @alias jQuery.prototype.pushStack
+ * @param {Elements} elems
+ * @return {jQuery}
+ */
+
+/**
+ * Set the jQuery object to an array of elements.
+ * @id jQuery.setArray
+ * @alias jQuery.prototype.setArray
+ * @param {Elements} elems
+ * @return {jQuery}
+ */
+
+/**
+ * Execute a function within the context of every matched element.
+ * @id jQuery.each
+ * @alias jQuery.prototype.each
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Searches every matched element for the object and returns the index of the element, if found, starting with zero.
+ * @id jQuery.index
+ * @alias jQuery.prototype.index
+ * @param {Element} subject
+ * @return {Number}
+ */
+
+/**
+ * Access a property on the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>attr</b>(<b>properties</b>: Map) : jQuery<br>
+ * <br>
+ * Set a key/value object as properties to all matched elements.<br>
+ * <br>
+ * <b>attr</b>(<b>key</b>: String, <b>value</b>: Object) : jQuery<br>
+ * <br>
+ * Set a single property to a value, on all matched elements.<br>
+ * <br>
+ * <b>attr</b>(<b>key</b>: String, <b>value</b>: Function) : jQuery<br>
+ * <br>
+ * Set a single property to a computed value, on all matched elements.<br>
+ * <br>
+ * @id jQuery.attr
+ * @alias jQuery.prototype.attr
+ * @param {String} name
+ * @return {Object}
+ */
+
+/**
+ * Access a style property on the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>css</b>(<b>properties</b>: Map) : jQuery<br>
+ * <br>
+ * Set a key/value object as style properties to all matched elements.<br>
+ * <br>
+ * <b>css</b>(<b>key</b>: String, <b>value</b>: String|Number) : jQuery<br>
+ * <br>
+ * Set a single style property to a value, on all matched elements.<br>
+ * <br>
+ * @id jQuery.css
+ * @alias jQuery.prototype.css
+ * @param {String} name
+ * @return {String}
+ */
+
+/**
+ * Get the text contents of all matched elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>text</b>(<b>val</b>: String) : String<br>
+ * <br>
+ * Set the text contents of all matched elements.<br>
+ * <br>
+ * @id jQuery.text
+ * @alias jQuery.prototype.text
+ * @return {String}
+ */
+
+/**
+ * Wrap all matched elements with a structure of other elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>wrap</b>(<b>elem</b>: Element) : jQuery<br>
+ * <br>
+ * Wrap all matched elements with a structure of other elements.<br>
+ * <br>
+ * @id jQuery.wrap
+ * @alias jQuery.prototype.wrap
+ * @param {String} html
+ * @return {jQuery}
+ */
+
+/**
+ * Append content to the inside of every matched element.
+ * @id jQuery.append
+ * @alias jQuery.prototype.append
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Prepend content to the inside of every matched element.
+ * @id jQuery.prepend
+ * @alias jQuery.prototype.prepend
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Insert content before each of the matched elements.
+ * @id jQuery.before
+ * @alias jQuery.prototype.before
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Insert content after each of the matched elements.
+ * @id jQuery.after
+ * @alias jQuery.prototype.after
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * End the most recent 'destructive' operation, reverting the list of matched elements back to its previous state.
+ * @id jQuery.end
+ * @alias jQuery.prototype.end
+ * @return {jQuery}
+ */
+
+/**
+ * Searches for all elements that match the specified expression.
+ * @id jQuery.find
+ * @alias jQuery.prototype.find
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Clone matched DOM Elements and select the clones.
+ * @id jQuery.clone
+ * @alias jQuery.prototype.clone
+ * @param {Boolean} deep
+ * @return {jQuery}
+ */
+
+/**
+ * Removes all elements from the set of matched elements that do not match the specified expression(s).
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>filter</b>(<b>filter</b>: Function) : jQuery<br>
+ * <br>
+ * Removes all elements from the set of matched elements that do not pass the specified filter.<br>
+ * <br>
+ * @id jQuery.filter
+ * @alias jQuery.prototype.filter
+ * @param {String} expression
+ * @return {jQuery}
+ */
+
+/**
+ * Removes the specified Element from the set of matched elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>not</b>(<b>expr</b>: String) : jQuery<br>
+ * <br>
+ * Removes elements matching the specified expression from the set of matched elements.<br>
+ * <br>
+ * <b>not</b>(<b>elems</b>: jQuery) : jQuery<br>
+ * <br>
+ * Removes any elements inside the array of elements from the set of matched elements.<br>
+ * <br>
+ * @id jQuery.not
+ * @alias jQuery.prototype.not
+ * @param {Element} el
+ * @return {jQuery}
+ */
+
+/**
+ * Adds more elements, matched by the given expression, to the set of matched elements.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>add</b>(<b>html</b>: String) : jQuery<br>
+ * <br>
+ * Adds more elements, created on the fly, to the set of matched elements.<br>
+ * <br>
+ * <b>add</b>(<b>elements</b>: Element|Array) : jQuery<br>
+ * <br>
+ * Adds one or more Elements to the set of matched elements.<br>
+ * <br>
+ * @id jQuery.add
+ * @alias jQuery.prototype.add
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Checks the current selection against an expression and returns true, if at least one element of the selection fits the given expression.
+ * @id jQuery.is
+ * @alias jQuery.prototype.is
+ * @param {String} expr
+ * @return {Boolean}
+ */
+
+/**
+ * Get the current value of the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>val</b>(<b>val</b>: String) : jQuery<br>
+ * <br>
+ * Set the value of every matched element.<br>
+ * <br>
+ * @id jQuery.val
+ * @alias jQuery.prototype.val
+ * @return {String}
+ */
+
+/**
+ * Get the html contents of the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>html</b>(<b>val</b>: String) : jQuery<br>
+ * <br>
+ * Set the html contents of every matched element.<br>
+ * <br>
+ * @id jQuery.html
+ * @alias jQuery.prototype.html
+ * @return {String}
+ */
+
+/**
+ * @id jQuery.domManip
+ * @alias jQuery.prototype.domManip
+ * @param {Array} args
+ * @param {Boolean} table
+ * @param {Number} dir
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Extends the jQuery object itself.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>$.extend</b>(<b>target</b>: Object, <b>prop1</b>: Object, <b>propN</b>: Object) : Object<br>
+ * <br>
+ * Extend one object with one or more others, returning the original, modified, object.<br>
+ * <br>
+ * @id jQuery.$.extend
+ * @alias $.extend
+ * @param {Object} prop
+ * @return {Object}
+ */
+
+/**
+ * Run this function to give control of the $ variable back to whichever library first implemented it.
+ * @id jQuery.$.noConflict
+ * @alias $.noConflict
+ * @return {undefined}
+ */
+
+/**
+ * A generic iterator function, which can be used to seemlessly iterate over both objects and arrays.
+ * @id jQuery.$.each
+ * @alias $.each
+ * @param {Object} obj
+ * @param {Function} fn
+ * @return {Object}
+ */
+
+/**
+ * Remove the whitespace from the beginning and end of a string.
+ * @id jQuery.$.trim
+ * @alias $.trim
+ * @param {String} str
+ * @return {String}
+ */
+
+/**
+ * Merge two arrays together, removing all duplicates.
+ * @id jQuery.$.merge
+ * @alias $.merge
+ * @param {Array} first
+ * @param {Array} second
+ * @return {Array}
+ */
+
+/**
+ * Filter items out of an array, by using a filter function.
+ * @id jQuery.$.grep
+ * @alias $.grep
+ * @param {Array} array
+ * @param {Function} fn
+ * @param {Boolean} inv
+ * @return {Array}
+ */
+
+/**
+ * Translate all items in an array to another array of items.
+ * @id jQuery.$.map
+ * @alias $.map
+ * @param {Array} array
+ * @param {Function} fn
+ * @return {Array}
+ */
+
+/**
+ * Contains flags for the useragent, read from navigator.
+ * @id jQuery.$.browser
+ * @alias $.browser
+ * @return {Boolean}
+ */
+
+/**
+ * Get a set of elements containing the unique parents of the matched set of elements.
+ * @id jQuery.parent
+ * @alias jQuery.prototype.parent
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Get a set of elements containing the unique ancestors of the matched set of elements (except for the root element).
+ * @id jQuery.parents
+ * @alias jQuery.prototype.parents
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Get a set of elements containing the unique next siblings of each of the matched set of elements.
+ * @id jQuery.next
+ * @alias jQuery.prototype.next
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Get a set of elements containing the unique previous siblings of each of the matched set of elements.
+ * @id jQuery.prev
+ * @alias jQuery.prototype.prev
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Get a set of elements containing all of the unique siblings of each of the matched set of elements.
+ * @id jQuery.siblings
+ * @alias jQuery.prototype.siblings
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Get a set of elements containing all of the unique children of each of the matched set of elements.
+ * @id jQuery.children
+ * @alias jQuery.prototype.children
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Append all of the matched elements to another, specified, set of elements.
+ * @id jQuery.appendTo
+ * @alias jQuery.prototype.appendTo
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Prepend all of the matched elements to another, specified, set of elements.
+ * @id jQuery.prependTo
+ * @alias jQuery.prototype.prependTo
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Insert all of the matched elements before another, specified, set of elements.
+ * @id jQuery.insertBefore
+ * @alias jQuery.prototype.insertBefore
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Insert all of the matched elements after another, specified, set of elements.
+ * @id jQuery.insertAfter
+ * @alias jQuery.prototype.insertAfter
+ * @param {} content
+ * @return {jQuery}
+ */
+
+/**
+ * Remove an attribute from each of the matched elements.
+ * @id jQuery.removeAttr
+ * @alias jQuery.prototype.removeAttr
+ * @param {String} name
+ * @return {jQuery}
+ */
+
+/**
+ * Adds the specified class(es) to each of the set of matched elements.
+ * @id jQuery.addClass
+ * @alias jQuery.prototype.addClass
+ * @param {String} class
+ * @return {jQuery}
+ */
+
+/**
+ * Removes all or the specified class(es) from the set of matched elements.
+ * @id jQuery.removeClass
+ * @alias jQuery.prototype.removeClass
+ * @param {String} class
+ * @return {jQuery}
+ */
+
+/**
+ * Adds the specified class if it is not present, removes it if it is present.
+ * @id jQuery.toggleClass
+ * @alias jQuery.prototype.toggleClass
+ * @param {String} class
+ * @return {jQuery}
+ */
+
+/**
+ * Removes all matched elements from the DOM.
+ * @id jQuery.remove
+ * @alias jQuery.prototype.remove
+ * @param {String} expr
+ * @return {jQuery}
+ */
+
+/**
+ * Removes all child nodes from the set of matched elements.
+ * @id jQuery.empty
+ * @alias jQuery.prototype.empty
+ * @return {jQuery}
+ */
+
+/**
+ * Reduce the set of matched elements to a single element.
+ * @id jQuery.eq
+ * @alias jQuery.prototype.eq
+ * @param {Number} pos
+ * @return {jQuery}
+ */
+
+/**
+ * Reduce the set of matched elements to all elements before a given position.
+ * @id jQuery.lt
+ * @alias jQuery.prototype.lt
+ * @param {Number} pos
+ * @return {jQuery}
+ */
+
+/**
+ * Reduce the set of matched elements to all elements after a given position.
+ * @id jQuery.gt
+ * @alias jQuery.prototype.gt
+ * @param {Number} pos
+ * @return {jQuery}
+ */
+
+/**
+ * Filter the set of elements to those that contain the specified text.
+ * @id jQuery.contains
+ * @alias jQuery.prototype.contains
+ * @param {String} str
+ * @return {jQuery}
+ */
+
+/**
+ * Get the current computed, pixel, width of the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>width</b>(<b>val</b>: String|Number) : jQuery<br>
+ * <br>
+ * Set the CSS width of every matched element.<br>
+ * <br>
+ * @id jQuery.width
+ * @alias jQuery.prototype.width
+ * @return {String}
+ */
+
+/**
+ * Get the current computed, pixel, height of the first matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>height</b>(<b>val</b>: String|Number) : jQuery<br>
+ * <br>
+ * Set the CSS width of every matched element.<br>
+ * <br>
+ * @id jQuery.height
+ * @alias jQuery.prototype.height
+ * @return {String}
+ */
+
+/**
+ * @id jQuery.$.find
+ * @alias $.find
+ * @return {Array}
+ */
+
+/**
+ * All ancestors of a given element.
+ * @id jQuery.$.parents
+ * @alias $.parents
+ * @param {Element} elem
+ * @return {Array}
+ */
+
+/**
+ * A handy, and fast, way to traverse in a particular direction and find a specific element.
+ * @id jQuery.$.nth
+ * @alias $.nth
+ * @param {DOMElement} cur
+ * @param {String|Number} num
+ * @param {String} dir
+ * @return {DOMElement}
+ */
+
+/**
+ * All elements on a specified axis.
+ * @id jQuery.$.sibling
+ * @alias $.sibling
+ * @param {Element} elem
+ * @return {Array}
+ */
+
+/**
+ * Binds a handler to a particular event (like click) for each matched element.
+ * @id jQuery.bind
+ * @alias jQuery.prototype.bind
+ * @param {String} type
+ * @param {Object} data
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Binds a handler to a particular event (like click) for each matched element.
+ * @id jQuery.one
+ * @alias jQuery.prototype.one
+ * @param {String} type
+ * @param {Object} data
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * The opposite of bind, removes a bound event from each of the matched elements.
+ * @id jQuery.unbind
+ * @alias jQuery.prototype.unbind
+ * @param {String} type
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Trigger a type of event on every matched element.
+ * @id jQuery.trigger
+ * @alias jQuery.prototype.trigger
+ * @param {String} type
+ * @return {jQuery}
+ */
+
+/**
+ * Toggle between two function calls every other click.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>toggle</b>() : jQuery<br>
+ * <br>
+ * Toggles each of the set of matched elements.<br>
+ * <br>
+ * @id jQuery.toggle
+ * @alias jQuery.prototype.toggle
+ * @param {Function} even
+ * @param {Function} odd
+ * @return {jQuery}
+ */
+
+/**
+ * A method for simulating hovering (moving the mouse on, and off, an object).
+ * @id jQuery.hover
+ * @alias jQuery.prototype.hover
+ * @param {Function} over
+ * @param {Function} out
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to be executed whenever the DOM is ready to be traversed and manipulated.
+ * @id jQuery.ready
+ * @alias jQuery.prototype.ready
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the scroll event of each matched element.
+ * @id jQuery.scroll
+ * @alias jQuery.prototype.scroll
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the submit event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>submit</b>() : jQuery<br>
+ * <br>
+ * Trigger the submit event of each matched element.<br>
+ * <br>
+ * @id jQuery.submit
+ * @alias jQuery.prototype.submit
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the focus event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>focus</b>() : jQuery<br>
+ * <br>
+ * Trigger the focus event of each matched element.<br>
+ * <br>
+ * @id jQuery.focus
+ * @alias jQuery.prototype.focus
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the keydown event of each matched element.
+ * @id jQuery.keydown
+ * @alias jQuery.prototype.keydown
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the dblclick event of each matched element.
+ * @id jQuery.dblclick
+ * @alias jQuery.prototype.dblclick
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the keypress event of each matched element.
+ * @id jQuery.keypress
+ * @alias jQuery.prototype.keypress
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the error event of each matched element.
+ * @id jQuery.error
+ * @alias jQuery.prototype.error
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the blur event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>blur</b>() : jQuery<br>
+ * <br>
+ * Trigger the blur event of each matched element.<br>
+ * <br>
+ * @id jQuery.blur
+ * @alias jQuery.prototype.blur
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the load event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>load</b>(<b>url</b>: String, <b>params</b>: Object, <b>callback</b>: Function) : jQuery<br>
+ * <br>
+ * Load HTML from a remote file and inject it into the DOM.<br>
+ * <br>
+ * @id jQuery.load
+ * @alias jQuery.prototype.load
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the select event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>select</b>() : jQuery<br>
+ * <br>
+ * Trigger the select event of each matched element.<br>
+ * <br>
+ * @id jQuery.select
+ * @alias jQuery.prototype.select
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the mouseup event of each matched element.
+ * @id jQuery.mouseup
+ * @alias jQuery.prototype.mouseup
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the unload event of each matched element.
+ * @id jQuery.unload
+ * @alias jQuery.prototype.unload
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the change event of each matched element.
+ * @id jQuery.change
+ * @alias jQuery.prototype.change
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the mouseout event of each matched element.
+ * @id jQuery.mouseout
+ * @alias jQuery.prototype.mouseout
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the keyup event of each matched element.
+ * @id jQuery.keyup
+ * @alias jQuery.prototype.keyup
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the click event of each matched element.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>click</b>() : jQuery<br>
+ * <br>
+ * Trigger the click event of each matched element.<br>
+ * <br>
+ * @id jQuery.click
+ * @alias jQuery.prototype.click
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the resize event of each matched element.
+ * @id jQuery.resize
+ * @alias jQuery.prototype.resize
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the mousemove event of each matched element.
+ * @id jQuery.mousemove
+ * @alias jQuery.prototype.mousemove
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the mousedown event of each matched element.
+ * @id jQuery.mousedown
+ * @alias jQuery.prototype.mousedown
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Bind a function to the mouseover event of each matched element.
+ * @id jQuery.mouseover
+ * @alias jQuery.prototype.mouseover
+ * @param {Function} fn
+ * @return {jQuery}
+ */
+
+/**
+ * Displays each of the set of matched elements if they are hidden.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>show</b>(<b>speed</b>: String|Number, <b>callback</b>: Function) : jQuery<br>
+ * <br>
+ * Show all matched elements using a graceful animation and firing an optional callback after completion.<br>
+ * <br>
+ * @id jQuery.show
+ * @alias jQuery.prototype.show
+ * @return {jQuery}
+ */
+
+/**
+ * Hides each of the set of matched elements if they are shown.
+ * <br>
+ * <br><b>Alternatives</b><br>
+ * <br>
+ * <b>hide</b>(<b>speed</b>: String|Number, <b>callback</b>: Function) : jQuery<br>
+ * <br>
+ * Hide all matched elements using a graceful animation and firing an optional callback after completion.<br>
+ * <br>
+ * @id jQuery.hide
+ * @alias jQuery.prototype.hide
+ * @return {jQuery}
+ */
+
+/**
+ * Reveal all matched elements by adjusting their height and firing an optional callback after completion.
+ * @id jQuery.slideDown
+ * @alias jQuery.prototype.slideDown
+ * @param {String|Number} speed
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Hide all matched elements by adjusting their height and firing an optional callback after completion.
+ * @id jQuery.slideUp
+ * @alias jQuery.prototype.slideUp
+ * @param {String|Number} speed
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Toggle the visibility of all matched elements by adjusting their height and firing an optional callback after completion.
+ * @id jQuery.slideToggle
+ * @alias jQuery.prototype.slideToggle
+ * @param {String|Number} speed
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Fade in all matched elements by adjusting their opacity and firing an optional callback after completion.
+ * @id jQuery.fadeIn
+ * @alias jQuery.prototype.fadeIn
+ * @param {String|Number} speed
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Fade out all matched elements by adjusting their opacity and firing an optional callback after completion.
+ * @id jQuery.fadeOut
+ * @alias jQuery.prototype.fadeOut
+ * @param {String|Number} speed
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Fade the opacity of all matched elements to a specified opacity and firing an optional callback after completion.
+ * @id jQuery.fadeTo
+ * @alias jQuery.prototype.fadeTo
+ * @param {String|Number} speed
+ * @param {Number} opacity
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * A function for making your own, custom, animations.
+ * @id jQuery.animate
+ * @alias jQuery.prototype.animate
+ * @param {Hash} params
+ * @param {String|Number} speed
+ * @param {String} easing
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Load HTML from a remote file and inject it into the DOM, only if it's been modified by the server.
+ * @id jQuery.loadIfModified
+ * @alias jQuery.prototype.loadIfModified
+ * @param {String} url
+ * @param {Map} params
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Serializes a set of input elements into a string of data.
+ * @id jQuery.serialize
+ * @alias jQuery.prototype.serialize
+ * @return {String}
+ */
+
+/**
+ * Evaluate all script tags inside this jQuery.
+ * @id jQuery.evalScripts
+ * @alias jQuery.prototype.evalScripts
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed whenever an AJAX request begins and there is none already active.
+ * @id jQuery.ajaxStart
+ * @alias jQuery.prototype.ajaxStart
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed whenever all AJAX requests have ended.
+ * @id jQuery.ajaxStop
+ * @alias jQuery.prototype.ajaxStop
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed whenever an AJAX request completes.
+ * @id jQuery.ajaxComplete
+ * @alias jQuery.prototype.ajaxComplete
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed whenever an AJAX request completes successfully.
+ * @id jQuery.ajaxSuccess
+ * @alias jQuery.prototype.ajaxSuccess
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed whenever an AJAX request fails.
+ * @id jQuery.ajaxError
+ * @alias jQuery.prototype.ajaxError
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Attach a function to be executed before an AJAX request is sent.
+ * @id jQuery.ajaxSend
+ * @alias jQuery.prototype.ajaxSend
+ * @param {Function} callback
+ * @return {jQuery}
+ */
+
+/**
+ * Load a remote page using an HTTP GET request.
+ * @id jQuery.$.get
+ * @alias $.get
+ * @param {String} url
+ * @param {Map} params
+ * @param {Function} callback
+ * @return {XMLHttpRequest}
+ */
+
+/**
+ * Load a remote page using an HTTP GET request, only if it hasn't been modified since it was last retrieved.
+ * @id jQuery.$.getIfModified
+ * @alias $.getIfModified
+ * @param {String} url
+ * @param {Map} params
+ * @param {Function} callback
+ * @return {XMLHttpRequest}
+ */
+
+/**
+ * Loads, and executes, a remote JavaScript file using an HTTP GET request.
+ * @id jQuery.$.getScript
+ * @alias $.getScript
+ * @param {String} url
+ * @param {Function} callback
+ * @return {XMLHttpRequest}
+ */
+
+/**
+ * Load JSON data using an HTTP GET request.
+ * @id jQuery.$.getJSON
+ * @alias $.getJSON
+ * @param {String} url
+ * @param {Map} params
+ * @param {Function} callback
+ * @return {XMLHttpRequest}
+ */
+
+/**
+ * Load a remote page using an HTTP POST request.
+ * @id jQuery.$.post
+ * @alias $.post
+ * @param {String} url
+ * @param {Map} params
+ * @param {Function} callback
+ * @return {XMLHttpRequest}
+ */
+
+/**
+ * Set the timeout of all AJAX requests to a specific amount of time.
+ * @id jQuery.$.ajaxTimeout
+ * @alias $.ajaxTimeout
+ * @param {Number} time
+ * @return {undefined}
+ */
+
+/**
+ * Setup global settings for AJAX requests.
+ * @id jQuery.$.ajaxSetup
+ * @alias $.ajaxSetup
+ * @param {Map} settings
+ * @return {undefined}
+ */
+
+/**
+ * Load a remote page using an HTTP request.
+ * @id jQuery.$.ajax
+ * @alias $.ajax
+ * @param {Map} properties
+ * @return {XMLHttpRequest}
+ */
+
+
+

@@ -1,0 +1,252 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	background: #212121;
+	font-family: Arial;
+	font-size: 14px;
+	width:100%;
+	height:100%;
+	background:transparent url(images/side_top.jpg) repeat-x scroll 0 0;
+	color:#444444;
+}
+* html, * body {
+	height: 99%;
+}
+h1 {
+	margin: 0 0 0 1.5em;
+}
+h1 a img { border: none; }
+#header {
+	color: #FFF;
+	font-size: 1.15em;
+	left: 200px;
+	margin-top: 8px;
+}
+#header a { color:silver; text-decoration: none }
+#header a:hover { color:white; }
+h2 { margin: .5em; font-size: 1.6em; }
+h3 { margin: .4em 0; font-size: 1.2em;  }
+h4 { margin: .35em 0; font-size: 1em;  }
+
+#content { background:#666 !important; top:35px !important; 	margin-bottom: 500px; }
+
+#nav, #docs {
+	background: #FFF;
+	list-style: none;
+	padding: 5px;
+}
+* html #nav, * html #docs {
+	height: 90%;
+}
+
+ul#docs li {
+	margin: 2em 1em;
+	padding-bottom: 1em;
+	border-bottom: 2px solid;
+}
+
+ul.alpha#docs li {
+	border-bottom: none;
+	font-weight: bold;
+	padding-bottom: .5em;
+}
+
+ul#docs li span.tooltip {
+	border-bottom: 1px dashed #666;
+}
+
+ul#docs li a.name {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+ul#docs li span.arg-type {
+	color: #666;
+}
+
+ul#docs span.fn {
+	font-family: Courier;
+}
+
+#tooltip {
+	background: #fff;
+	border: 1px solid black;
+	padding: 4px;
+	max-width: 25em;
+	text-align: left;
+}
+
+#tooltip h3 {
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+	margin: 0;
+}
+
+#docs li div.more {
+	margin-left: 2em;
+	margin-top: 5px;
+}
+
+#docs li div.example {
+	border-top: 1px solid #DDD;
+	margin-top: 15px;
+}
+
+#docs li div.example h5 {
+	font-size: 16px;
+	margin: 10px 0 0 0;
+}
+
+#docs li div.example pre {
+	color: #000;
+	background: #EEE;
+	padding: 5px;
+	font-size: 0.8em;
+}
+
+p.raw {
+	font-size: 11px;
+	color: #FFF;
+	margin: 5px auto;
+	width: 600px;
+	text-align: right;
+}
+
+p.raw a {
+	color: #FFF;
+}
+
+/* NAVIGATION */
+
+.tabs-hide {
+      display: none;
+}
+.tabs-nav {
+	border-bottom: 1px solid black;
+}
+.tabs-nav li {
+	display: inline;
+	border: 1px solid black;
+	line-height: 110%;
+	margin-left: 1em;
+}
+.tabs-nav li a {
+	padding: 0 10px;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+.tabs-nav li.tabs-selected {
+	border-bottom: 1px solid white;
+}
+
+#navQS {
+	margin: .5em;
+}
+#mainQS {
+	float: right;
+	margin-right: 2em;
+	margin-top: 4em;
+	padding-left: 2em;
+}
+
+#mainQS label {
+	color: white;
+}
+
+#nav .navsub h3 { display: block; }
+.js #nav .navsub h3 { display: none; }
+#nav .navsub .treecontrol { display: none; }
+.js #nav #navCat.navsub .treecontrol { display: block; margin-top: 1em; }
+
+#nav div li a {
+	color: blue;
+	font-family: monospace;
+	text-decoration: none;
+}
+#nav li.indent2 { padding-left: 1em; }
+
+.treeview ul {
+	background-color: white;
+}
+
+.treeview, .treeview ul { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.treeview .hitarea {
+	background: url(images/treeview-default.gif) -64px -25px no-repeat;
+	height: 16px;
+	width: 16px;
+	margin-left: -16px;
+	float: left;
+	cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+
+.treeview li { 
+	margin: 0;
+	padding: 3px 0pt 3px 16px;
+}
+
+.treeview a.selected {
+	background-color: #eee;
+}
+
+#nav .treecontrol { margin-bottom: 5px; }
+#nav .treecontrol a {
+	padding: 0 5px;
+	margin: 5px;
+	text-decoration: none;
+	border: 1px dotted black;
+}
+
+.treeview .hover { color: red; cursor: pointer; }
+
+.treeview li { background: url(images/treeview-default-line.gif) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -26px; }
+
+.treeview .expandable-hitarea { background-position: -80px -3px; }
+
+.treeview li.last { background-position: 0 -1616px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(images/treeview-default.gif); }  
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-image: none; }
+
+#nav ul.treeview li {
+	line-height: 95%;
+	margin-left: 0;
+	padding-bottom: .2em;
+}
+
+.javascript .mlcom    { color: #4040c2; }
+.javascript .com      { color: green; }
+.javascript .regexp   { color: maroon; }
+.javascript .string   { color: teal; }
+.javascript .keywords { color: navy; font-weight: bold; }
+.javascript .global   { color: blue; }
+.javascript .numbers  { color: red; }
+
+.html .php    { color: red; font-weight: bold; }
+.html .tag    { color: navy; font-weight: bold; }
+.html .aname  { color: purple; }
+.html .avalue { color: fuchsia; }
+.html .mlcom  { color: green; }
+.html .entity { color: teal; }
+
+code {
+	font-size: 108%;
+	padding: 0pt;
+}

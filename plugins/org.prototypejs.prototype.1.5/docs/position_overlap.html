@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>overlap</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">overlap </span><span class="f_TopicHeading" style="color: #ccffff;">:: Position</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">overlap(mode, element) -&gt; Number</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">Returns a Number between 0 and 1 corresponding to the proportion to which element overlaps the point previously defined by </span><span class="f_CourierFixed">Position.within</span><span style="font-size: 9pt; font-weight: bold; color: #666699;">. mode can be set to either </span><span class="f_CourierFixed">vertical</span><span style="font-size: 9pt; font-weight: bold; color: #666699;"> or </span><span class="f_CourierFixed">horizontal</span><span style="font-size: 9pt; font-weight: bold; color: #666699;">.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Imagine a block-level <span class="f_CourierFixed">element</span> (i.e., with dimensions) and a point <span class="f_CourierFixed">x</span>, <span class="f_CourierFixed">y</span> measured in pixels from the top left corner of the page. Calling <span class="f_CourierFixed">Position.within</span> will indicate whether that point is within the area occupied by <span class="f_CourierFixed">element</span>.</p>
+<p>&nbsp;</p>
+<p>Now imagine an element of equal dimensions to element with its top left corner at <span class="f_CourierFixed">x</span>, <span class="f_CourierFixed">y</span>. <span class="f_CourierFixed">Position.overlap</span> indicates the amount these two boxes overlap in either the horizontal or vertical direction.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Note</span> that <span class="f_CourierFixed">Position.within</span> <span style="font-weight: bold;">must</span> be called right before calling this method.</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">var&nbsp;element&nbsp;=&nbsp;$(</span><span class="f_CodeExample" style="color: #800000;">'some_positioned_element'</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Position.cumulativeOffset(element);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;[100,&nbsp;100]&nbsp;(element&nbsp;is&nbsp;100px&nbsp;from&nbsp;the&nbsp;top&nbsp;and&nbsp;left&nbsp;edges&nbsp;of&nbsp;the&nbsp;page)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">element.getDimensions();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;{&nbsp;width:&nbsp;150,&nbsp;height:&nbsp;150&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Position.within(element,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">175</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #ff0000;">145</span><span class="f_CodeExample" style="color: #000000;">);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;true</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Position.overlap(</span><span class="f_CodeExample" style="color: #800000;">'horizontal'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;element);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;0.5&nbsp;(point&nbsp;is&nbsp;halfway&nbsp;across&nbsp;the&nbsp;element's&nbsp;length)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">Position.overlap(</span><span class="f_CodeExample" style="color: #800000;">'vertical'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;element);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;-&gt;&nbsp;0.3&nbsp;(point&nbsp;is&nbsp;3/10ths&nbsp;of&nbsp;the&nbsp;way&nbsp;across&nbsp;the&nbsp;element's&nbsp;height)</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>

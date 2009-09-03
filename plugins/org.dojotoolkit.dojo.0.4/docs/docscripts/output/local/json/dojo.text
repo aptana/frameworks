@@ -1,0 +1,1 @@
+{"dojo.text._":{"meta":{"requires":{"common":["dojo.text.String","dojo.text.Builder"]}}},"dojo.text.textDirectory":{"meta":{"requires":{"common":["dojo.cal.textDirectory"]}}}}

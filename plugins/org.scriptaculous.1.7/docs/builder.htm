@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Builder</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Builder</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Use Builder to easily create DOM elements dynamically.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.5 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Synopsis</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Builder.node(&nbsp;elementName&nbsp;)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Builder.node(&nbsp;elementName,&nbsp;attributes&nbsp;)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Builder.node(&nbsp;elementName,&nbsp;children&nbsp;)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 11px;"><span class="f_CodeExample">Builder.node(&nbsp;elementName,&nbsp;attributes,&nbsp;children&nbsp;)</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">elementName</span> <span style="font-style: italic;">string</span>  &nbsp; &nbsp; &nbsp; &nbsp;The tag name for the element.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">attributes</span> <span style="font-style: italic;">object</span>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Typical attributes are id, className, style, onclick, etc.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">children</span> <span style="font-style: italic;">array</span>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;List of other nodes to be appended as children.</td></tr></table></div><p>&nbsp;</p>
+<p>If an element of the children array is plain text or numeric, it will be automatically appended as a text node.</p>
+<p>Instead of an array, children can also be a Java Script String or numeric, to ease usage.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Special cases</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">class</span>: When specifying the class attribute for the node, use className to circumvent a Firefox bug.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 12px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">for</span>: To set a for attribute (in labels) use htmlFor, since ‘for’ is a reserved word in javascript.</td></tr></table></div><p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Creating TR and TD elements</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">table&nbsp;=&nbsp;Builder.node('table',&nbsp;{width:'100%',cellpadding:'2',cellspacing:'0',border:'0'});</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">tbody&nbsp;=&nbsp;Builder.node('tbody');</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">tr&nbsp;=&nbsp;Builder.node('tr',{className:'header'});</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">td&nbsp;=&nbsp;Builder.node('td',[&nbsp;Builder.node('strong','Category')]);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">tr.appendChild(td);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">tbody.appendChild(tr);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">table.appendChild(tbody);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">$('divCat').appendChild(table);</span></p>
+<p>&nbsp;</p>
+<p>You can also combine them but you need to make sure you create the tbody tag or it will not work in IE. I have tested this in FF 1.5 and IE 6. I dont have access to other browsers. The one problem that I have found is that with TR and TD elements you can not put a style tag on them as it just makes IE stop doing the Builder Function.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Simple Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">var&nbsp;element&nbsp;=&nbsp;Builder.node('p',{className:'error'},'An&nbsp;error&nbsp;has&nbsp;occurred');</span></p>
+<p>&nbsp;</p>
+<p>creates following element:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 14px;"><span class="f_CodeExample">&lt;p&nbsp;class="error"&gt;An&nbsp;error&nbsp;has&nbsp;occured&lt;/p&gt;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Complex Example</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">element&nbsp;=&nbsp;Builder.node('div',{id:'ghosttrain'},[</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;Builder.node('div',{className:'controls',style:'font-size:11px'},[</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder.node('h1','Ghost&nbsp;Train'),</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"testtext",&nbsp;2,&nbsp;3,&nbsp;4,</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder.node('ul',[</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builder.node('li',{className:'active',&nbsp;onclick:'test()'},'Record')</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]),</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;]),</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">]);</span></p>
+<p>&nbsp;</p>
+<p>creates (without newlines):</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;div&nbsp;id="ghosttrain"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&lt;div&nbsp;class="controls"&nbsp;style="font-size:11px"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Ghost&nbsp;Train&lt;/h1&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;testtext234</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;class="active"&nbsp;onclick="test()"&gt;Record&lt;/li&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;&nbsp;&lt;/div&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;/div&gt;</span></p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Usage</span></p>
+<p>&nbsp;</p>
+<p>In javascript code, if you want to use your new element, you can add it to an existing dom element by calling</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">$('myExistingDomElement').appendChild(element);</span></p>
+<p>&nbsp;</p>
+<p>If you want to be able to call any of prototype’s extension-methods on the created node, then you need to pass it through the $() function:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">var&nbsp;new_el&nbsp;=&nbsp;Builder.node('div',{id:'some_id'});</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new_el&nbsp;=&nbsp;$(new_el);</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">new_el.hide();</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

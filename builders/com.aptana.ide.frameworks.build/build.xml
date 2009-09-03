@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Sep 3, 2009                                                        
+
+     AJAX Frameworks 
+     Builds the AJAX Frameworks feature
+                   
+     cwilliams                                                                
+     schitale
+     ====================================================================== -->
+<project name="AJAX Frameworks" default="build">
+	<description>
+            Builds the AJAX Frameworks feature
+    </description>
+
+	<property file="build_local.properties" />
+	<!-- Set is.windows property IF the OS is from the Windows family -->
+	<condition property="is.windows" value="true">
+		<os family="windows" />
+	</condition>
+
+	<!-- ================================= 
+          target: build              
+         ================================= -->
+	<target name="build" description="Builds the AJAX Frameworks feature" depends="generate.build.properties,get.revision,generate.base">
+		<java jar="${baseLocation}/plugins/${launcher.plugin}.jar" fork="true" failonerror="yes">
+			<arg line="-application org.eclipse.ant.core.antRunner -buildfile ${baseLocation}/plugins/${builder.plugin}/scripts/build.xml -Dbuilder=${basedir} -Dbuild.revision=${build.revision} -nosplash" />
+		</java>
+		<antcall target="categorize" />
+		<antcall target="buildZip" />
+		<antcall target="clean.after" />
+	</target>
+
+	<!-- ================================= 
+          target: generate.build.properties              
+         ================================= -->
+	<target name="generate.build.properties" description="Takes in properties from build_local.properties and the command line overrides and generates a combined build.properties to use for the build">
+		<echoproperties destfile="build.properties">
+			<propertyset negate="true">
+				<propertyref prefix="java." />
+				<propertyref prefix="ant." />
+				<propertyref prefix="awt." />
+				<propertyref prefix="user." />
+				<propertyref prefix="sun." />
+			</propertyset>
+		</echoproperties>
+	</target>
+	
+	<!-- ================================= 
+          target: categorize              
+         ================================= -->
+    <target name="categorize" description="categorize the update site">
+    	<java jar="${baseLocation}/plugins/${launcher.plugin}.jar" fork="true" failonerror="yes">
+    		<arg line="-application org.eclipse.equinox.p2.publisher.CategoryPublisher -nosplash -console -consolelog -metadataRepository file:${deploy.dir} -categoryDefinition file:${deploy.dir}/site.xml" />
+    	</java>
+    	<!-- Re-JAR the content.xml file! -->
+    	<jar destfile="${deploy.dir}/content.jar">
+    		<fileset file="${deploy.dir}/content.xml" />
+    	</jar>
+    	<delete file="${deploy.dir}/content.xml" />
+    </target>
+
+	<!-- ================================= 
+          target: buildZip           
+         ================================= -->
+	<target name="buildZip" depends="generate.build.properties" description="Build the update site zip">
+		<pathconvert property="site.version.full">
+			<fileset dir="${p2.repo.dir}/features">
+				<include name="${topLevelElementId}_*.jar" />
+			</fileset>
+			<mapper>
+				<chainedmapper>
+					<flattenmapper />
+					<globmapper from="${topLevelElementId}_*.jar" to="*" casesensitive="yes" />
+				</chainedmapper>
+			</mapper>
+		</pathconvert>
+		<zip destfile="${buildDirectory}/${topLevelElementId}-${site.version.full}.zip">
+			<fileset dir="${deploy.dir}" defaultexcludes="false" />
+		</zip>
+		<move file="${buildDirectory}/${topLevelElementId}-${site.version.full}.zip" todir="${deploy.dir}" />
+		<replace token="ZIP_FILE" value="${topLevelElementId}-${site.version.full}.zip" file="${deploy.dir}/index.html" />
+	</target>
+
+	<!-- ================================= 
+	      target: clean              
+	     ================================= -->
+	<target name="clean" depends="generate.build.properties" description="Clean up temp and build files">
+		<delete failonerror="false">
+			<fileset dir="${buildDirectory}" defaultexcludes="true">
+				<include name="assemble.*" />
+				<include name="finalFeaturesVersions.*" />
+				<include name="finalPluginsVersions.*" />
+				<include name="package.*" />
+			</fileset>
+		</delete>
+		<delete dir="${buildDirectory}/${buildLabel}" failonerror="false" />
+		<java jar="${baseLocation}/plugins/${launcher.plugin}.jar" fork="true" failonerror="false">
+			<arg line="-application org.eclipse.ant.core.antRunner -buildfile ${baseLocation}/plugins/${builder.plugin}/scripts/build.xml -Dbuilder=${basedir} -nosplash clean" />
+		</java>
+		<delete dir="${baseLocation}" />
+		<delete dir="${buildDirectory}/features/org.eclipse.pde.build.container.feature" failonerror="false" />
+		<delete dir="${p2.repo.dir}" failonerror="false" />
+		<!-- Do an git checkout of the build directory -->
+		<exec executable="/bin/bash" dir="${buildDirectory}">
+			<arg value="-c" />
+			<arg value="${git.executable} checkout -f" />
+		</exec>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: clean.after                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="clean.after" if="cleanAfter">
+		<antcall target="clean" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: get.revision                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="get.revision">
+		<echo message="Retrieving Git timestamp for latest revision" level="info" />
+		<exec executable="/bin/bash" dir="${basedir}" outputproperty="git.revision.max">
+			<arg value="-c" />
+			<arg value="${git.executable} log --max-count=1 --pretty=format:'%ct'" />
+		</exec>
+		<property name="build.revision" value="${git.revision.max}" />
+		<echo message="Revision timestamp: ${build.revision}" level="info" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: generate.base                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="generate.base" depends="copy.base.windows,copy.base">
+		<!-- Workaround for https://bugs.eclipse.org/241430 shouldn't be necessary when we move to 3.5 -->
+		<delete failonerror="false">
+			<fileset dir="${baseLocation}/configuration/.settings">
+				<include name="org.eclipse.equinox.p2.*.repository.prefs" />
+			</fileset>
+		</delete>
+		<antcall target="run.director">
+			<param name="p2.installIU" value="com.aptana.ide.feature.feature.group" />
+			<param name="p2.repo" value="${ide-core.p2.repo}" />
+		</antcall>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: copy.base                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="copy.base" unless="is.windows">
+		<!-- Copy over the original base eclipse to a new location.
+					Have to use exec cp to retain permissions on *nix, Mac -->
+		<exec executable="cp">
+			<arg line="-R ${vanilla.eclipse} ${baseLocation}" />
+		</exec>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: copy.base.windows                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="copy.base.windows" if="is.windows">
+		<copy todir="${baseLocation}">
+			<fileset dir="${vanilla.eclipse}" includes="**/*" defaultexcludes="false" />
+		</copy>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: run.director                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="run.director" description="Runs the p2 director installs">
+		<java jar="${baseLocation}/plugins/${launcher.plugin}.jar" fork="true" failonerror="true" dir="${baseLocation}" timeout="900000">
+			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
+			<arg line="-nosplash" />
+			<arg line="-consoleLog" />
+			<arg line="-metadataRepository ${p2.repo}" />
+			<arg line="-artifactRepository ${p2.repo}" />
+			<arg line="-installIU ${p2.installIU}" />
+		</java>
+	</target>
+
+</project>

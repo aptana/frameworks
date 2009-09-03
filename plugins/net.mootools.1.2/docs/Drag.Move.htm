@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Valerio Proietti, mad4milk" />
+	<meta name="copyright" content="copyright 2006 www.mad4milk.net" />
+	<meta name="Description" content="mootools, a super lightweight web2.0 javascript framework" />
+	<meta name="Keywords" content="mootools,moo.fx,javascript effects,javascript framework,ajax framework,moo.ajax" />
+	<meta name="robots" content="all" />
+
+	<!--
+
+               ____        _                      __  __      __   __
+   ___   __   / __'\     _\'\      __   ___   __ /\_\/\ \    /\ \ / /  web 2.0 beta
+  /\  \_/ '\ /\ \Z\ \   / __ \    /__\ /\  \_/ '\\/_/\ \ \   \ \ \ /__
+  \ \  __/\ \\ \  __ \ /\ \Z\ \  / \Z\\\ \  __/\ \  __\ \ \___\ \  _ '\
+   \ \_\ \ \_\\ \_\ \ \\ \_____\/\____ \\ \_\ \ \_\/\ \\ \____\\ \_\ \_\
+    \/_/  \/_/ \/_/\/_/ \/_____/\/___/\_\\/_/  \/_/\ \_\\/____/ \/_/\/_/
+                                     \/_/           \/_/       be happy.
+
+	-->
+
+	<title>MooTools Docs - Plugins/Drag.Move</title>
+	
+	<!-- Shortcut Icons -->
+	
+	<link href="http://mootools.net/assets/icons/icon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="http://mootools.net/assets/icons/ipod-icon.png" rel="apple-touch-icon" />
+	
+	<!-- BluePrint -->
+	
+	<link href="assets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/print.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- StyleSheets -->
+	
+	<link href="assets/layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="assets/main.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Scripts -->
+	
+	<script src="assets/mootools.js" type="text/javascript"></script>
+	<script src="assets/mootools_002.js" type="text/javascript"></script>
+	
+	<!-- Section Specific -->
+	
+	<link href="assets/docs.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="assets/jsapi"></script>	
+<script type="text/javascript" src="assets/docs.js"></script><script src="assets/a" type="text/javascript"></script><script src="assets/defaulten.js" type="text/javascript"></script>
+	
+</head><body>
+
+<div id="header">
+	
+	<div class="container">
+		<a href="http://mediatemple.net/" id="mediatemple"><span>in partnership with mediatemple</span></a>
+
+		<div id="logo">
+			<h1><a href="http://mootools.net/"><span>MooTools</span></a></h1>
+			<h2><span>a compact javascript framework</span></h2>
+		</div>
+
+	</div>
+	
+</div>
+
+<div id="wrapper">
+
+		<div class="container">
+		
+			<div id="main-menu" class="span-4">
+			
+			<h4>Core</h4>
+<div><a href="Core.htm">Core</a></div>
+<div><a href="Browser.htm">Browser</a></div>
+<h4>Native</h4>
+<div><a href="Array.htm">Array</a></div>
+<div><a href="Function.htm">Function</a></div>
+<div><a href="Number.htm">Number</a></div>
+<div><a href="String.htm">String</a></div>
+<div><a href="Hash.htm">Hash</a></div>
+<div><a href="Event.htm">Event</a></div>
+<h4>Class</h4>
+<div><a href="Class.htm">Class</a></div>
+<div><a href="Class.Extras.htm">Class.Extras</a></div>
+<h4>Element</h4>
+<div><a href="Element.htm">Element</a></div>
+<div><a href="Element.Event.htm">Element.Event</a></div>
+<div><a href="Element.Style.htm">Element.Style</a></div>
+<div><a href="Element.Dimensions.htm">Element.Dimensions</a></div>
+<h4>Utilities</h4>
+<div><a href="Selectors.htm">Selectors</a></div>
+<div><a href="DomReady.htm">DomReady</a></div>
+<div><a href="JSON.htm">JSON</a></div>
+<div><a href="Cookie.htm">Cookie</a></div>
+<div><a href="Swiff.htm">Swiff</a></div>
+<h4>Fx</h4>
+<div><a href="Fx.htm">Fx</a></div>
+<div><a href="Fx.CSS.htm">Fx.CSS</a></div>
+<div><a href="Fx.Tween.htm">Fx.Tween</a></div>
+<div><a href="Fx.Morph.htm">Fx.Morph</a></div>
+<div><a href="Fx.Transitions.htm">Fx.Transitions</a></div>
+<h4>Request</h4>
+<div><a href="Request.htm">Request</a></div>
+<div><a href="Request.HTML.htm">Request.HTML</a></div>
+<div><a href="Request.JSON.htm">Request.JSON</a></div>
+<h4>Plugins</h4>
+<div><a href="Fx.Slide.htm">Fx.Slide</a></div>
+<div><a href="Fx.Scroll.htm">Fx.Scroll</a></div>
+<div><a href="Fx.Elements.htm">Fx.Elements</a></div>
+<div><a href="Drag.htm">Drag</a></div>
+<div><a href="Drag.Move.htm">Drag.Move</a></div>
+<div><a href="Color.htm">Color</a></div>
+<div><a href="Group.htm">Group</a></div>
+<div><a href="Hash.Cookie.htm">Hash.Cookie</a></div>
+<div><a href="Sortables.htm">Sortables</a></div>
+<div><a href="Tips.htm">Tips</a></div>
+<div><a href="SmoothScroll.htm">SmoothScroll</a></div>
+<div><a href="Slider.htm">Slider</a></div>
+<div><a href="Scroller.htm">Scroller</a></div>
+<div><a href="Assets.htm">Assets</a></div>
+<div><a href="Accordion.htm">Accordion</a></div>
+</div>
+		
+			<div id="main" class="l-border r-border span-15">
+			
+				<h1 id="Drag-Move"><a href="#Drag-Move">Class: Drag.Move</a></h1>
+
+<p class="description">An extension to the base Drag class with additional functionality for dragging an Element.  Supports snapping and droppables.
+Inherits methods, properties, options and events from <a href="Drag.htm#Drag">Drag</a>.</p>
+
+<h3>Note:</h3>
+
+<p>Drag.Move requires the page to be in <a href="http://hsivonen.iki.fi/doctype/">Standards Mode</a>.</p>
+
+<h2 id="Drag-Move:constructor"><a href="#Drag-Move:constructor">Drag.Move Method: constructor</a></h2>
+
+<h3 class="description">Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myMove = <span class="kw2">new</span> Drag.<span class="me1">Move</span><span class="br0">(</span>myElement<span class="br0">[</span>, options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>el      - (<em>element</em>) The Element to apply the drag to.</li>
+<li>options - (<em>object</em>, optional) The options object. See below.</li>
+</ol>
+<h3>Options:</h3>
+
+<p>All the base Drag options, plus:</p>
+
+<ul>
+<li>container  - (<em>element</em>) If an Element is passed, drag will be limited to the passed Element's size and position.</li>
+<li>droppables - (<em>array</em>) The Elements that the draggable can
+drop into. The class's drop, enter, and leave events will be fired in
+conjunction with interaction with one of these elements.</li>
+</ul>
+<h3>Events:</h3>
+
+<ul>
+<li>drop - Executed when the element drops. Passes as argument the
+element and the element dropped on. If dropped on nothing, the second
+argument is null.</li>
+<li>leave - Executed when the element leaves one of the droppables.</li>
+<li>enter - Executed when the element enters one of the droppables.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myDrag = <span class="kw2">new</span> Drag.<span class="me1">Move</span><span class="br0">(</span><span class="st0">'draggable'</span>, <span class="br0">{</span>
+&nbsp;
+    droppables: <span class="st0">'.droppable'</span>,
+&nbsp;
+    onDrop: <span class="kw2">function</span><span class="br0">(</span>element, droppable<span class="br0">)</span><span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>!droppable<span class="br0">)</span> console.<span class="me1">log</span><span class="br0">(</span>element, <span class="st0">' dropped on nothing'</span><span class="br0">)</span>;
+        <span class="kw1">else</span> console.<span class="me1">log</span><span class="br0">(</span>element, <span class="st0">'dropped on'</span>, droppable<span class="br0">)</span>;
+    <span class="br0">}</span>,
+&nbsp;
+    onEnter: <span class="kw2">function</span><span class="br0">(</span>element, droppable<span class="br0">)</span><span class="br0">{</span>
+        console.<span class="me1">log</span><span class="br0">(</span>element, <span class="st0">'entered'</span>, droppable<span class="br0">)</span>;
+    <span class="br0">}</span>,
+&nbsp;
+    onLeave: <span class="kw2">function</span><span class="br0">(</span>element, droppable<span class="br0">)</span><span class="br0">{</span>
+        console.<span class="me1">log</span><span class="br0">(</span>element, <span class="st0">'left'</span>, droppable<span class="br0">)</span>;
+    <span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Drag.Move requires the page to be in <a href="http://hsivonen.iki.fi/doctype/">Standards Mode</a>.</li>
+<li>Drag.Move supports either position absolute or relative. If no position is found, absolute will be set.</li>
+</ul>
+<h3>Demos:</h3>
+
+<ul>
+<li>Drag.Cart - <a href="http://demos.mootools.net/Drag.Cart">http://demos.mootools.net/Drag.Cart</a>
+</li>
+<li>Drag.Absolutely - <a href="http://demos.mootools.net/Drag.Absolutely">http://demos.mootools.net/Drag.Absolutely</a>
+</li>
+<li>DragDrop - <a href="http://demos.mootools.net/DragDrop">http://demos.mootools.net/DragDrop</a>
+</li>
+</ul>
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="Drag.htm#Drag">Drag</a></li>
+</ul>
+<h2 id="Drag-Move:stop"><a href="#Drag-Move:stop">Drag.Move Method: stop</a></h2>
+
+<p class="description">Checks if the Element is above a droppable and
+fires the drop event. Else, fires the 'emptydrop' event that is
+attached to this Element. Lastly, calls the Drag Class stop method.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript">myMove.<span class="kw3">stop</span><span class="br0">(</span><span class="br0">)</span>;
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myElement = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">addEvent</span><span class="br0">(</span><span class="st0">'emptydrop'</span>, <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+    <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'no drop occurred'</span><span class="br0">)</span>;
+<span class="br0">}</span><span class="br0">)</span>;
+&nbsp;
+<span class="kw2">var</span> myMove = <span class="kw2">new</span> Drag.<span class="me1">Move</span><span class="br0">(</span>myElement, <span class="br0">{</span>
+    onSnap: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span> <span class="co1">// due to MooTool's inheritance, all [Drag][]'s Events are also available.</span>
+        <span class="kw1">this</span>.<span class="me1">moved</span> = <span class="kw1">this</span>.<span class="me1">moved</span> || <span class="nu0">0</span>;
+        <span class="kw1">this</span>.<span class="me1">moved</span>++;
+        <span class="kw1">if</span><span class="br0">(</span><span class="kw1">this</span>.<span class="me1">moved</span> &gt; <span class="nu0">1000</span><span class="br0">)</span><span class="br0">{</span>
+            <span class="kw3">alert</span><span class="br0">(</span><span class="st0">&quot;You've gone far enough.&quot;</span><span class="br0">)</span>;
+            <span class="kw1">this</span>.<span class="kw3">stop</span><span class="br0">(</span><span class="br0">)</span>;
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li><a href="Drag.htm#Drag:stop">Drag:stop</a></li>
+</ul>
+<h1 id="Element"><a href="#Element">Native: Element</a></h1>
+
+<p class="description">Custom Native to allow all of its methods to be used with any DOM element via the dollar function <a href="Element.htm#dollar">$</a>.</p>
+
+<h2 id="Element:makeDraggable"><a href="#Element:makeDraggable">Element Method: makeDraggable</a></h2>
+
+<p class="description">Adds drag-to-move behavior to an Element using supplied options.</p>
+
+<h3>Syntax:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myDrag = myElement.<span class="me1">makeDraggable</span><span class="br0">(</span><span class="br0">[</span>options<span class="br0">]</span><span class="br0">)</span>;
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li>options - (<em>object</em>, optional) See <a href="Drag.htm#Drag">Drag</a> and <a href="#Drag-Move">Drag.Move</a> for acceptable options.</li>
+</ol>
+<h3>Returns:</h3>
+
+<ul>
+<li>(<em>object</em>) The Drag.Move instance that was created.</li>
+</ul>
+<h3>Example:</h3>
+
+<pre class="javascript"><span class="kw2">var</span> myDrag = $<span class="br0">(</span><span class="st0">'myElement'</span><span class="br0">)</span>.<span class="me1">makeDraggable</span><span class="br0">(</span><span class="br0">{</span>
+    onComplete: <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">'done dragging'</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="br0">)</span>;
+</pre>
+
+<h3>See Also:</h3>
+
+<ul>
+<li>
+<a href="Drag.htm#Drag">Drag</a>, <a href="#Drag-Move">Drag.Move</a>
+</li>
+</ul>
+</div>
+		
+			<div id="menu" class="span-2 last">
+			
+			<h4 class="menu-item"><a href="#Drag-Move">Drag.Move</a></h4>
+<div class="menu-item"><a href="#Drag-Move:constructor">constructor</a></div>
+<div class="menu-item"><a href="#Drag-Move:stop">stop</a></div>
+<h4 class="menu-item"><a href="#Element">Element</a></h4>
+<div class="menu-item"><a href="#Element:makeDraggable">makeDraggable</a></div>
+</div>
+			
+			<div id="footy" class="clear span-24">
+				<p class="quiet">This documentation is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike 3.0</a> License.</p>
+			</div>
+		
+		</div>
+	
+	</div>
+<div id="footer">
+	<div class="container">
+		<p class="copy"><a href="http://mad4milk.net/" id="mucca"></a></p>
+		<p>copyright ©2006-2008 <a href="http://mad4milk.net/">Valerio Proietti</a></p>
+	</div>
+</div>
+
+</body></html>

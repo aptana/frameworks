@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>AFLAX: A JavaScript Library for Macromedia's Flash&trade; Platform</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<LINK href='../../include/style.css' type='text/css' rel='stylesheet'>
+<script type="text/javascript" src="lib/AFLAX/aflax.js"></script>
+<script type="text/javascript" src="text_burning.js"></script>
+<script>
+	var aflax = new AFLAX("lib/AFLAX/aflax.swf");
+	
+	function go()
+	{
+		var demo = new text_burning();
+		demo.start(aflax);
+	}
+</script>
+</head>
+<body>
+	<div id="body">
+	  <h1>Text Burning Demo</h1>
+	</div>
+	<div id="content">
+		<div style="text-align:center;padding-top:10px">
+		<script>
+		aflax.insertFlash(640, 125, "#000000", "go");
+		</script>
+		<p>
+		Based on <a href="http://antonvolkov.com/flash/textburning/">text_burning</a> sample by Anton Volkov</p>
+		</div>
+		<p></p>
+	</div>
+</body>

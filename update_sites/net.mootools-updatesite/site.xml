@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/net.mootools.1.11_1.11.1.00004.jar" id="net.mootools.1.11" version="1.11.1.00004">
+      <category name="Mootools"/>
+   </feature>
+   <category-def name="Mootools" label="Aptana Support for Mootools"/>
+</site>

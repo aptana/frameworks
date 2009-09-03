@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>CSS - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="css">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>CSS</h2><h3 class='func' id='css'><b>css</b>(String <b>name</b>) : String</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>name</th><td width='15%'>String</td><td>The name of the property to access.</td></tr>
+</table>
+<p>Access a style property on the first matched element. This method makes it easy to retrieve a style property value from the first matched element.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Retrieves the color style of the first paragraph</p>
+<h5>Before</h5>
+<pre>&lt;p style=&quot;color:red;&quot;&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).css(&quot;color&quot;);</pre>
+<h5>Result</h5>
+<pre>&quot;red&quot;</pre>
+</div>
+<div class='example'>
+<p>Retrieves the font-weight style of the first paragraph.</p>
+<h5>Before</h5>
+<pre>&lt;p style=&quot;font-weight: bold;&quot;&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).css(&quot;font-weight&quot;);</pre>
+<h5>Result</h5>
+<pre>&quot;bold&quot;</pre>
+</div>
+</div>
+<h3 class='func'><b>css</b>(Map <b>properties</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>properties</th><td width='15%'>Map</td><td>Key/value pairs to set as style properties.</td></tr>
+</table>
+<p>Set a key/value object as style properties to all matched elements.</p><p>This serves as the best way to set a large number of style properties on all matched elements.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Sets color and background styles to all p elements.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).css({ color: &quot;red&quot;, background: &quot;blue&quot; });</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;color:red; background:blue;&quot;&gt;Test Paragraph.&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>css</b>(String <b>key</b>, String|Number <b>value</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>key</th><td width='15%'>String</td><td>The name of the property to set.</td></tr>
+<tr><th width='15%'>value</th><td width='15%'>String|Number</td><td>The value to set the property to.</td></tr>
+</table>
+<p>Set a single style property to a value, on all matched elements. If a number is provided, it is automatically converted into a pixel value.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Changes the color of all paragraphs to red</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).css(&quot;color&quot;,&quot;red&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;color:red;&quot;&gt;Test Paragraph.&lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Changes the left of all paragraphs to "30px"</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).css(&quot;left&quot;,30);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;left:30px;&quot;&gt;Test Paragraph.&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='width'><b>width</b>() : String</h3>
+<p>Get the current computed, pixel, width of the first matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).width();</pre>
+<h5>Result</h5>
+<pre>300</pre>
+</div>
+</div>
+<h3 class='func'><b>width</b>(String|Number <b>val</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>val</th><td width='15%'>String|Number</td><td>Set the CSS property to the specified value.</td></tr>
+</table>
+<p>Set the CSS width of every matched element. If no explicit unit was specified (like 'em' or '%') then "px" is added to the width.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).width(20);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;width:20px;&quot;&gt;This is just a test.&lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).width(&quot;20em&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;width:20em;&quot;&gt;This is just a test.&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='height'><b>height</b>() : String</h3>
+<p>Get the current computed, pixel, height of the first matched element.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).height();</pre>
+<h5>Result</h5>
+<pre>300</pre>
+</div>
+</div>
+<h3 class='func'><b>height</b>(String|Number <b>val</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>val</th><td width='15%'>String|Number</td><td>Set the CSS property to the specified value.</td></tr>
+</table>
+<p>Set the CSS width of every matched element. If no explicit unit was specified (like 'em' or '%') then "px" is added to the width.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).height(20);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;height:20px;&quot;&gt;This is just a test.&lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).height(&quot;20em&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p style=&quot;height:20em;&quot;&gt;This is just a test.&lt;/p&gt;</pre>
+</div>
+</div>

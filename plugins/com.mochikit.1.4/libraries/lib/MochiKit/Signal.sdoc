@@ -1,0 +1,169 @@
+/**
+ * ScriptDoc for Signal.js
+ */
+
+/** @id MochiKit.Signal.Event */
+
+/** @id MochiKit.Signal.Event.prototype.toString */
+
+/**
+ * Gets the Element that the signal is connected to.
+ * @id MochiKit.Signal.Event.prototype.src
+ * @alias src
+ * @alias MochiKit.Signal.Event.prototype.src
+ * @return {Element} Returns an HTML Element.
+ */
+
+/**
+ * Gets the native event produced by the browser.
+ * @id MochiKit.Signal.Event.prototype.event 
+ * @alias event
+ * @alias MochiKit.Signal.Event.prototype.event
+ * @return {Event} Returns an Event.
+ */
+
+/**
+ * Returns the event type ('click', 'mouseover', 'keypress', etc.) as a string. Does not include the 'on' prefix.
+ * @id MochiKit.Signal.Event.prototype.type
+ * @alias type
+ * @alias MochiKit.Signal.Event.prototype.type
+ * @return {String} Returns the event type as a string.
+ */
+
+/**
+ * Returns the element that triggered the event. This may be a child of src().
+ * @id MochiKit.Signal.Event.prototype.target
+ * @alias target
+ * @alias MochiKit.Signal.Event.prototype.target
+ * @return {Element} Returns the element that triggered the event.
+ */
+
+/**
+ * Returns the document element that the mouse has moved to. 
+ * Generated for 'onmouseover' and 'onmouseout' events.
+ * @id MochiKit.Signal.Event.prototype.relatedTarget
+ * @alias relatedTarget
+ * @alias MochiKit.Signal.Event.prototype.relatedTarget
+ * @return {Element} Returns the document element that the mouse has moved to.
+ */
+
+/**
+ * Returns the key name (either shift, ctrl, meta, alt, or "any" key), where each property is true if its respective modifier key was pressed, false otherwise. 
+ * "any" is true if any modifier is pressed, false otherwise.
+ * @id MochiKit.Signal.Event.prototype.modifier
+ * @alias modifier
+ * @alias MochiKit.Signal.Event.prototype.modifier
+ * @return {String} Returns a key name (either shift, ctrl, meta, alt or any).
+ */
+
+/**
+ * Returns the code and string pair for an onkeydown, onkeyup, or onkeypressed event.
+ * <ul>
+ * <li>Use 'onkeydown' and 'onkeyup' handlers to detect control characters such as 'KEY_F1'.</li> 
+ * <li>Use the 'onkeypressed' handler to detect "printable" characters, such as 'é'.</li>
+ * <li>When a user presses F1, in 'onkeydown' and 'onkeyup' this method returns {code: 122, string: 'KEY_F1'}.</li> 
+ * <li>In 'onkeypress', it returns {code: 0, string: ''}.</li>
+ * <li>If a user presses Shift+2 on a US keyboard, this method returns {code: 50, string: 'KEY_2'} in 'onkeydown' and 'onkeyup'.</li> 
+ * <li>In 'onkeypress', it returns {code: 64, string: '@'}.</li>
+ * </ul>
+ * See _specialKeys in the source code for a comprehensive list of control characters.
+ * @id MochiKit.Signal.Event.prototype.key
+ * @alias key
+ * @alias MochiKit.Signal.Event.prototype.key
+ * @return {String} Returns the key/string pair for the key in "{code: number, string: key}" format.
+ */
+
+/**
+ * Returns the properties for 'onmouse*' (e.g. onmouseup, onmousedown, etc.), 'onclick', 'ondblclick', and 'oncontextmenu'.
+ * These properties include the "page" object (x, y-coordinates of the cursor relative to the HTML page), 
+ * "client" object (x, y-coordinates of the cursor relative to the visible portion of the page),
+ * and for mouse click events, the "button" property (whether the left, right, or middle button was clicked by designating that property as "true").
+ * @id MochiKit.Signal.Event.prototype.mouse
+ * @alias mouse
+ * @alias MochiKit.Signal.Event.prototype.mouse
+ */
+
+/**
+ * Calls both the stopPropagation() and preventDefault() methods on an event.
+ * @id MochiKit.Signal.Event.prototype.stop
+ * @alias stop
+ * @alias MochiKit.Signal.Event.prototype.stop
+ * @see stopPropagation
+ * @see preventDefault
+ */
+
+/**
+ * Stops the propagation of an event or cancels bubbling on the event.
+ * Similar to the W3C stopPropagation() function.
+ * @id MochiKit.Signal.Event.prototype.stopPropagation
+ * @alias stopPropagation
+ * @alias MochiKit.Signal.Event.prototype.stopPropagation
+ */
+
+/**
+ * Cancels an event.
+ * Similar to the W3C preventDefault() function.
+ * @id MochiKit.Signal.Event.prototype.preventDefault
+ * @alias preventDefault
+ * @alias MochiKit.Signal.Event.prototype.preventDefault
+ */
+
+
+/**
+ * In browsers that support the 'onbeforeunload' event (IE and Firefox), 
+ * displays a dialog box that allows the user to confirm or cancel the navigation away from the page.
+ * @id MochiKit.Signal.Event.prototype.confirmUnload
+ * @alias confirmUnload
+ * @alias MochiKit.Signal.Event.prototype.confirmUnload
+ * @param {String} msg Message to display.
+ */
+
+/**
+ * Connects a signal to a slot, and return a unique identifier that can be used to disconnect that signal.
+ * @id MochiKit.Signal.connect
+ * @alias connect
+ * @alias MochiKit.Signal.connect
+ * @param {Object, String} src    Object (or string id for an HTML Element) that has the signal.
+ * @param {String} sig    Name of the signal. If src is an HTML Element, document, or window, src can be an "on-eventname" event. Use the format "on-eventname" all in lowercase.
+ * @param {Object} objOrFunc    In combination with funcOrStr, describes the action to take when the signal is triggered.
+ * If objOrFunc is an object and funcOrStr is a string, then dest[func].apply(dest, ...) will be called when the signal is signalled.
+ * If objOrFunc is an object and funcOrStr is a function, then func.apply(dest, ...) will be called when the signal is signalled.
+ * If objOrFunc is a function and funcOrStr is undefined, then func.apply(src, ...) will be called when the signal is signalled.
+ * No other combinations are allowed and will raise an exception.
+ * @param {Object} [funcOrStr]    In combination with objOrFunc, describes the action to take when the signal is triggered.
+ * If objOrFunc is an object and funcOrStr is a string, then dest[func].apply(dest, ...) will be called when the signal is signalled.
+ * If objOrFunc is an object and funcOrStr is a function, then func.apply(dest, ...) will be called when the signal is signalled.
+ * If objOrFunc is a function and funcOrStr is undefined, then func.apply(src, ...) will be called when the signal is signalled.
+ * No other combinations are allowed and will raise an exception.
+ * @return {String} Returns a unique identifier for the signal.
+ */
+
+/**
+ * Disconnects a signal.
+ * @id MochiKit.Signal.disconnect
+ * @alias disconnect
+ * @alias MochiKit.Signal.disconnect
+ * @param {String} ident    Unique identifier for the signal. Returned from connect().
+ * @return {Boolean} Returns true if the signal is successfully disconnected.
+ */
+
+/**
+ * Removes the all signals or the specified signals from src.
+ * @id MochiKit.Signal.disconnectAll
+ * @alias disconnectAll
+ * @alias MochiKit.Signal.disconnectAll
+ * @param {Element} src    Source element to disconnect the signals from.
+ * @param {Object} [...]    One or more signals to disconnect. If none are specified, disconnects all signals.
+ */
+
+/**
+ * Signals a signal.
+ * src and signal are the same as for connect().
+ * @id MochiKit.Signal.signal
+ * @alias signal
+ * @alias MochiKit.Signal.signal
+ * @param {Object, String} src    Object (or string id for an HTML Element) that has the signal.
+ * @param {Object} sig    Name of the signal. If src is an HTML Element, document, or window, src can be an "on-eventname" event. 
+ * Use the format "on-eventname" all in lowercase.
+ * @param {Object} ... One or more parameters to pass on to the connected slots.
+ */

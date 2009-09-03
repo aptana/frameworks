@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.aptana.ide.feature.frameworks"
+      label="%featureName"
+      version="1.5.0.qualifier"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="com.adobe.spry.1.6"
+         version="0.0.0"/>
+
+   <includes
+         id="com.jquery.1.3"
+         version="0.0.0"/>
+
+   <includes
+         id="com.mochikit.1.4"
+         version="0.0.0"/>
+
+   <includes
+         id="com.yahoo.yui.2.7"
+         version="0.0.0"/>
+
+   <includes
+         id="net.mootools.1.2"
+         version="0.0.0"/>
+
+   <includes
+         id="org.aflax.1.0"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openrico.rico.2.0"
+         version="0.0.0"/>
+
+   <includes
+         id="org.scriptaculous.1.8"
+         version="0.0.0"/>
+
+   <includes
+         id="org.prototypejs.prototype.1.6"
+         version="0.0.0"/>
+
+   <includes
+         id="com.extjs.ext.2.2"
+         version="0.0.0"/>
+
+   <includes
+         id="com.ms.ajax.3.5"
+         version="0.0.0"/>
+
+   <includes
+         id="org.dojotoolkit.dojo.1.3"
+         version="0.0.0"/>
+
+</feature>

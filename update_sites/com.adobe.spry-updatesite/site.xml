@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.adobe.spry.1.5_1.5.0.00002.jar" id="com.adobe.spry.1.5" version="1.5.0.00002">
+      <category name="Adobe Spry"/>
+   </feature>
+   <feature url="features/com.adobe.spry.1.6_1.6.0.00001.jar" id="com.adobe.spry.1.6" version="1.6.0.00001">
+      <category name="Adobe Spry"/>
+   </feature>
+   <category-def name="Adobe Spry" label="Aptana Support for Adobe Spry"/>
+</site>

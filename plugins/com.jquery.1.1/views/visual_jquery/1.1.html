@@ -1,0 +1,3132 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+      <title>Visual jQuery 1.1</title>
+      <link rel="stylesheet" href="new_vjq.css" type="text/css"></link>
+   </head>
+   <body>
+      <div id="footer"><a id="left-button"><img src="images/arrow-back_16.gif"></img></a><a id="right-button"><img src="images/arrow-forward_16.gif"></img></a><p id="header">Visual jQuery 1.1 (<a href="http://www.visualjquery.com/about_me">More...</a>) for jQuery 1.1
+         </p>
+         <p id="current-path"></p>
+      </div>
+      <div id="wrapper">
+         <dl>
+            
+            <dt xmlns="">Core</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">$(html)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$(html)</h1>
+                     <p>Create DOM elements on-the-fly from the provided String of raw HTML.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>html</strong> (String):
+                           A string of HTML to create on the fly.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Creates a div element (and all of its contents) dynamically, 
+                        and appends it to the element with the ID of body. Internally, an
+                        element is created and it's innerHTML property set to the given markup.
+                        It is therefore both quite flexible and limited.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$("&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;").appendTo("#body")</pre></dd>
+                  <dt class="direct">$(elems)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$(elems)</h1>
+                     <p>Wrap jQuery functionality around a single or multiple DOM Element(s).</p>
+                     <p>This function also accepts XML Documents and Window objects
+                        as valid arguments (even though they are not DOM Elements).
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>elems</strong> (Element|Array&lt;Element&gt;):
+                           DOM element(s) to be encapsulated by a jQuery object.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Sets the background color of the page to black.</p>
+                     <h3>jQuery Code</h3><pre>$(document.body).background( "black" );</pre><h2>Example</h2>
+                     <p>Hides all the input elements within a form</p>
+                     <h3>jQuery Code</h3><pre>$( myForm.elements ).hide()</pre></dd>
+                  <dt class="direct">$(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$(fn)</h1>
+                     <p>A shorthand for $(document).ready(), allowing you to bind a function
+                        to be executed when the DOM document has finished loading. This function
+                        behaves just like $(document).ready(), in that it should be used to wrap
+                        all of the other $() operations on your page. While this function is,
+                        technically, chainable - there really isn't much use for chaining against it.
+                        You can have as many $(document).ready events on your page as you like.
+                     </p>
+                     <p>See ready(Function) for details about the ready event.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           The function to execute when the DOM is ready.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Executes the function when the DOM is ready to be used.</p>
+                     <h3>jQuery Code</h3><pre>$(function(){
+  // Document is ready
+});</pre><h2>Example</h2>
+                     <p>Uses both the shortcut for $(document).ready() and the argument
+                        to write failsafe jQuery code using the $ alias, without relying on the
+                        global alias.
+                     </p>
+                     <h3>jQuery Code</h3><pre>jQuery(function($) {
+  // Your code using failsafe $ alias here...
+});</pre></dd>
+                  <dt class="direct">$(expr, context)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$(expr, context)</h1>
+                     <p>This function accepts a string containing a CSS or
+                        basic XPath selector which is then used to match a set of elements.
+                     </p>
+                     <p>The core functionality of jQuery centers around this function.
+                        Everything in jQuery is based upon this, or uses this in some way.
+                        The most basic use of this function is to pass in an expression
+                        (usually consisting of CSS or XPath), which then finds all matching
+                        elements.
+                     </p>
+                     <p>By default, $() looks for DOM elements within the context of the
+                        current HTML document.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>expr</strong> (String):
+                           An expression to search with
+                        </li>
+                        <li><strong>context</strong> (Element|jQuery):
+                           (optional) A DOM Element, Document or jQuery to use as context
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Finds all p elements that are children of a div element.</p>
+                     <h3>jQuery Code</h3><pre>$("div &gt; p")</pre><h3>Before</h3><pre>&lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;two&lt;/p&gt; ]</pre><h2>Example</h2>
+                     <p>Searches for all inputs of type radio within the first form in the document</p>
+                     <h3>jQuery Code</h3><pre>$("input:radio", document.forms[0])</pre><h2>Example</h2>
+                     <p>This finds all div elements within the specified XML document.</p>
+                     <h3>jQuery Code</h3><pre>$("div", xml.responseXML)</pre></dd>
+                  <dt class="direct">$.extend(prop)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.extend(prop)</h1>
+                     <p>Extends the jQuery object itself. Can be used to add functions into
+                        the jQuery namespace and to add plugin methods (plugins).
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Object</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>prop</strong> (Object):
+                           The object that will be merged into the jQuery object
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Adds two plugin methods.</p>
+                     <h3>jQuery Code</h3><pre>jQuery.fn.extend({
+  check: function() {
+    return this.each(function() { this.checked = true; });
+  },
+  uncheck: function() {
+    return this.each(function() { this.checked = false; });
+  }
+});
+$("input[@type=checkbox]").check();
+$("input[@type=radio]").uncheck();</pre><h2>Example</h2>
+                     <p>Adds two functions into the jQuery namespace</p>
+                     <h3>jQuery Code</h3><pre>jQuery.extend({
+  min: function(a, b) { return a &lt; b ? a : b; },
+  max: function(a, b) { return a &gt; b ? a : b; }
+});</pre></dd>
+                  <dt class="direct">$.noConflict()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.noConflict()</h1>
+                     <p>Run this function to give control of the $ variable back
+                        to whichever library first implemented it. This helps to make 
+                        sure that jQuery doesn't conflict with the $ object
+                        of other libraries.
+                     </p>
+                     <p>By using this function, you will only be able to access jQuery
+                        using the 'jQuery' variable. For example, where you used to do
+                        $("div p"), you now must do jQuery("div p").
+                     </p>
+                     <h2>Returns</h2>
+                     <p>undefined</p>
+                     <h2>Example</h2>
+                     <p>Maps the original object that was referenced by $ back to $</p>
+                     <h3>jQuery Code</h3><pre>jQuery.noConflict();
+// Do something with jQuery
+jQuery("div p").hide();
+// Do something with another library's $()
+$("content").style.display = 'none';</pre><h2>Example</h2>
+                     <p>Reverts the $ alias and then creates and executes a
+                        function to provide the $ as a jQuery alias inside the functions
+                        scope. Inside the function the original $ object is not available.
+                        This works well for most plugins that don't rely on any other library.
+                     </p>
+                     <h3>jQuery Code</h3><pre>jQuery.noConflict();
+(function($) { 
+  $(function() {
+    // more code using $ as alias to jQuery
+  });
+})(jQuery);
+// other code using $ as an alias to the other library</pre></dd>
+                  <dt class="direct">each(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>each(fn)</h1>
+                     <p>Execute a function within the context of every matched element.
+                        This means that every time the passed-in function is executed
+                        (which is once for every element matched) the 'this' keyword
+                        points to the specific element.
+                     </p>
+                     <p>Additionally, the function, when executed, is passed a single
+                        argument representing the position of the element in the matched
+                        set.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to execute
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Iterates over two images and sets their src property</p>
+                     <h3>jQuery Code</h3><pre>$("img").each(function(i){
+  this.src = "test" + i + ".jpg";
+});</pre><h3>Before</h3><pre>&lt;img/&gt;&lt;img/&gt;</pre><h3>Result:</h3><pre>&lt;img src="test0.jpg"/&gt;&lt;img src="test1.jpg"/&gt;</pre></dd>
+                  <dt class="direct">eq(pos)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>eq(pos)</h1>
+                     <p>Reduce the set of matched elements to a single element.
+                        The position of the element in the set of matched elements
+                        starts at 0 and goes to length - 1.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>pos</strong> (Number):
+                           The index of the element that you wish to limit to.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").eq(1)</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;So is this&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">get()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>get()</h1>
+                     <p>Access all matched elements. This serves as a backwards-compatible
+                        way of accessing all matched elements (other than the jQuery object
+                        itself, which is, in fact, an array of elements).
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Array&lt;Element&gt;</p>
+                     <h2>Example</h2>
+                     <p>Selects all images in the document and returns the DOM Elements as an Array</p>
+                     <h3>jQuery Code</h3><pre>$("img").get();</pre><h3>Before</h3><pre>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</pre><h3>Result:</h3><pre>[ &lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt; ]</pre></dd>
+                  <dt class="direct">get(num)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>get(num)</h1>
+                     <p>Access a single matched element. num is used to access the
+                        Nth element matched.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Element</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>num</strong> (Number):
+                           Access the element in the Nth position.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Selects all images in the document and returns the first one</p>
+                     <h3>jQuery Code</h3><pre>$("img").get(0);</pre><h3>Before</h3><pre>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</pre><h3>Result:</h3><pre>[ &lt;img src="test1.jpg"/&gt; ]</pre></dd>
+                  <dt class="direct">gt(pos)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>gt(pos)</h1>
+                     <p>Reduce the set of matched elements to all elements after a given position.
+                        The position of the element in the set of matched elements
+                        starts at 0 and goes to length - 1.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>pos</strong> (Number):
+                           Reduce the set to all elements after this position.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").gt(0)</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;So is this&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">index(subject)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>index(subject)</h1>
+                     <p>Searches every matched element for the object and returns
+                        the index of the element, if found, starting with zero. 
+                        Returns -1 if the object wasn't found.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Number</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>subject</strong> (Element):
+                           Object to search for
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Returns the index for the element with ID foobar</p>
+                     <h3>jQuery Code</h3><pre>$("*").index( $('#foobar')[0] )</pre><h3>Before</h3><pre>&lt;div id="foobar"&gt;&lt;b&gt;&lt;/b&gt;&lt;span id="foo"&gt;&lt;/span&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>0</pre><h2>Example</h2>
+                     <p>Returns the index for the element with ID foo within another element</p>
+                     <h3>jQuery Code</h3><pre>$("*").index( $('#foo')[0] )</pre><h3>Before</h3><pre>&lt;div id="foobar"&gt;&lt;b&gt;&lt;/b&gt;&lt;span id="foo"&gt;&lt;/span&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>2</pre><h2>Example</h2>
+                     <p>Returns -1, as there is no element with ID bar</p>
+                     <h3>jQuery Code</h3><pre>$("*").index( $('#bar')[0] )</pre><h3>Before</h3><pre>&lt;div id="foobar"&gt;&lt;b&gt;&lt;/b&gt;&lt;span id="foo"&gt;&lt;/span&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>-1</pre></dd>
+                  <dt class="direct">length</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>length</h1>
+                     <p>The number of elements currently matched.</p>
+                     <h2>Returns</h2>
+                     <p>Number</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("img").length;</pre><h3>Before</h3><pre>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</pre><h3>Result:</h3><pre>2</pre></dd>
+                  <dt class="direct">lt(pos)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>lt(pos)</h1>
+                     <p>Reduce the set of matched elements to all elements before a given position.
+                        The position of the element in the set of matched elements
+                        starts at 0 and goes to length - 1.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>pos</strong> (Number):
+                           Reduce the set to all elements below this position.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").lt(1)</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;This is just a test.&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">size()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>size()</h1>
+                     <p>The number of elements currently matched.</p>
+                     <h2>Returns</h2>
+                     <p>Number</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("img").size();</pre><h3>Before</h3><pre>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</pre><h3>Result:</h3><pre>2</pre></dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">DOM</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  <dt>Attributes</dt>
+                  <dd>
+                     <dl>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dt class="direct">addClass(class)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>addClass(class)</h1>
+                           <p>Adds the specified class(es) to each of the set of matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>class</strong> (String):
+                                 One or more CSS classes to add to the elements
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").addClass("selected")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").addClass("selected highlight")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected highlight"&gt;Hello&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">attr(name)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>attr(name)</h1>
+                           <p>Access a property on the first matched element.
+                              This method makes it easy to retrieve a property value
+                              from the first matched element.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>Object</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>name</strong> (String):
+                                 The name of the property to access.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Returns the src attribute from the first image in the document.</p>
+                           <h3>jQuery Code</h3><pre>$("img").attr("src");</pre><h3>Before</h3><pre>&lt;img src="test.jpg"/&gt;</pre><h3>Result:</h3><pre>test.jpg</pre></dd>
+                        <dt class="direct">attr(properties)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>attr(properties)</h1>
+                           <p>Set a key/value object as properties to all matched elements.</p>
+                           <p>This serves as the best way to set a large number of properties
+                              on all matched elements.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>properties</strong> (Map):
+                                 Key/value pairs to set as object properties.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Sets src and alt attributes to all images.</p>
+                           <h3>jQuery Code</h3><pre>$("img").attr({ src: "test.jpg", alt: "Test Image" });</pre><h3>Before</h3><pre>&lt;img/&gt;</pre><h3>Result:</h3><pre>&lt;img src="test.jpg" alt="Test Image"/&gt;</pre></dd>
+                        <dt class="direct">attr(key, value)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>attr(key, value)</h1>
+                           <p>Set a single property to a value, on all matched elements.</p>
+                           <p>Can compute values provided as ${formula}, see second example.</p>
+                           <p>Note that you can't set the name property of input elements in IE.
+                              Use $(html) or .append(html) or .html(html) to create elements
+                              on the fly including the name property.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>key</strong> (String):
+                                 The name of the property to set.
+                              </li>
+                              <li><strong>value</strong> (Object):
+                                 The value to set the property to.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Sets src attribute to all images.</p>
+                           <h3>jQuery Code</h3><pre>$("img").attr("src","test.jpg");</pre><h3>Before</h3><pre>&lt;img/&gt;</pre><h3>Result:</h3><pre>&lt;img src="test.jpg"/&gt;</pre><h2>Example</h2>
+                           <p>Sets title attribute from src attribute, a shortcut for attr(String,Function)</p>
+                           <h3>jQuery Code</h3><pre>$("img").attr("title", "${this.src}");</pre><h3>Before</h3><pre>&lt;img src="test.jpg" /&gt;</pre><h3>Result:</h3><pre>&lt;img src="test.jpg" title="test.jpg" /&gt;</pre></dd>
+                        <dt class="direct">attr(key, value)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>attr(key, value)</h1>
+                           <p>Set a single property to a computed value, on all matched elements.</p>
+                           <p>Instead of a value, a function is provided, that computes the value.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>key</strong> (String):
+                                 The name of the property to set.
+                              </li>
+                              <li><strong>value</strong> (Function):
+                                 A function returning the value to set.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Sets title attribute from src attribute.</p>
+                           <h3>jQuery Code</h3><pre>$("img").attr("title", function() { return this.src });</pre><h3>Before</h3><pre>&lt;img src="test.jpg" /&gt;</pre><h3>Result:</h3><pre>&lt;img src="test.jpg" title="test.jpg" /&gt;</pre></dd>
+                        <dt class="direct">html()</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>html()</h1>
+                           <p>Get the html contents of the first matched element.
+                              This property is not available on XML documents.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>String</p>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("div").html();</pre><h3>Before</h3><pre>&lt;div&gt;&lt;input/&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;input/&gt;</pre></dd>
+                        <dt class="direct">html(val)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>html(val)</h1>
+                           <p>Set the html contents of every matched element.
+                              This property is not available on XML documents.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>val</strong> (String):
+                                 Set the html contents to the specified value.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("div").html("&lt;b&gt;new stuff&lt;/b&gt;");</pre><h3>Before</h3><pre>&lt;div&gt;&lt;input/&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div&gt;&lt;b&gt;new stuff&lt;/b&gt;&lt;/div&gt;</pre></dd>
+                        <dt class="direct">removeAttr(name)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>removeAttr(name)</h1>
+                           <p>Remove an attribute from each of the matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>name</strong> (String):
+                                 The name of the attribute to remove.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("input").removeAttr("disabled")</pre><h3>Before</h3><pre>&lt;input disabled="disabled"/&gt;</pre><h3>Result:</h3><pre>&lt;input/&gt;</pre></dd>
+                        <dt class="direct">removeClass(class)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>removeClass(class)</h1>
+                           <p>Removes all or the specified class(es) from the set of matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>class</strong> (String):
+                                 (optional) One or more CSS classes to remove from the elements
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").removeClass()</pre><h3>Before</h3><pre>&lt;p class="selected"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").removeClass("selected")</pre><h3>Before</h3><pre>&lt;p class="selected first"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="first"&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").removeClass("selected highlight")</pre><h3>Before</h3><pre>&lt;p class="highlight selected first"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="first"&gt;Hello&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">text()</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>text()</h1>
+                           <p>Get the text contents of all matched elements. The result is
+                              a string that contains the combined text contents of all matched
+                              elements. This method works on both HTML and XML documents.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>String</p>
+                           <h2>Example</h2>
+                           <p>Gets the concatenated text of all paragraphs</p>
+                           <h3>jQuery Code</h3><pre>$("p").text();</pre><h3>Before</h3><pre>&lt;p&gt;&lt;b&gt;Test&lt;/b&gt; Paragraph.&lt;/p&gt;&lt;p&gt;Paraparagraph&lt;/p&gt;</pre><h3>Result:</h3><pre>Test Paragraph.Paraparagraph</pre></dd>
+                        <dt class="direct">text(val)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>text(val)</h1>
+                           <p>Set the text contents of all matched elements.</p>
+                           <p>Similar to html(), but escapes HTML (replace "&lt;" and "&gt;" with their
+                              HTML entities).
+                           </p>
+                           <h2>Returns</h2>
+                           <p>String</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>val</strong> (String):
+                                 The text value to set the contents of the element to.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Sets the text of all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").text("&lt;b&gt;Some&lt;/b&gt; new text.");</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;&amp;lt;b&amp;gt;Some&amp;lt;/b&amp;gt; new text.&lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Sets the text of all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").text("&lt;b&gt;Some&lt;/b&gt; new text.", true);</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;Some new text.&lt;/p&gt;</pre></dd>
+                        <dt class="direct">toggleClass(class)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>toggleClass(class)</h1>
+                           <p>Adds the specified class if it is not present, removes it if it is
+                              present.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>class</strong> (String):
+                                 A CSS class with which to toggle the elements
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").toggleClass("selected")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello&lt;/p&gt;, &lt;p&gt;Hello Again&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">val()</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>val()</h1>
+                           <p>Get the current value of the first matched element.</p>
+                           <h2>Returns</h2>
+                           <p>String</p>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("input").val();</pre><h3>Before</h3><pre>&lt;input type="text" value="some text"/&gt;</pre><h3>Result:</h3><pre>"some text"</pre></dd>
+                        <dt class="direct">val(val)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>val(val)</h1>
+                           <p>Set the value of every matched element.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>val</strong> (String):
+                                 Set the property to the specified value.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("input").val("test");</pre><h3>Before</h3><pre>&lt;input type="text" value="some text"/&gt;</pre><h3>Result:</h3><pre>&lt;input type="text" value="test"/&gt;</pre></dd>
+                     </dl>
+                  </dd>
+                  <dt>Manipulation</dt>
+                  <dd>
+                     <dl>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dt class="direct">after(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>after(content)</h1>
+                           <p>Insert content after each of the matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to insert after each target.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Inserts some HTML after all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").after("&lt;b&gt;Hello&lt;/b&gt;");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre><h2>Example</h2>
+                           <p>Inserts an Element after all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").after( $("#foo")[0] );</pre><h3>Before</h3><pre>&lt;b id="foo"&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id="foo"&gt;Hello&lt;/b&gt;</pre><h2>Example</h2>
+                           <p>Inserts a jQuery object (similar to an Array of DOM Elements) after all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").after( $("b") );</pre><h3>Before</h3><pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre></dd>
+                        <dt class="direct">append(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>append(content)</h1>
+                           <p>Append content to the inside of every matched element.</p>
+                           <p>This operation is similar to doing an appendChild to all the
+                              specified elements, adding them into the document.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to append to the target
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Appends some HTML to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").append("&lt;b&gt;Hello&lt;/b&gt;");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Appends an Element to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").append( $("#foo")[0] );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id="foo"&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;b id="foo"&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Appends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").append( $("b") );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre></dd>
+                        <dt class="direct">appendTo(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>appendTo(content)</h1>
+                           <p>Append all of the matched elements to another, specified, set of elements.
+                              This operation is, essentially, the reverse of doing a regular
+                              $(A).append(B), in that instead of appending B to A, you're appending
+                              A to B.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to append to the selected element to.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Appends all paragraphs to the element with the ID "foo"</p>
+                           <h3>jQuery Code</h3><pre>$("p").appendTo("#foo");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id="foo"&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="foo"&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;</pre></dd>
+                        <dt class="direct">before(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>before(content)</h1>
+                           <p>Insert content before each of the matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to insert before each target.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Inserts some HTML before all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").before("&lt;b&gt;Hello&lt;/b&gt;");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Inserts an Element before all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").before( $("#foo")[0] );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id="foo"&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;b id="foo"&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Inserts a jQuery object (similar to an Array of DOM Elements) before all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").before( $("b") );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre></dd>
+                        <dt class="direct">clone(deep)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>clone(deep)</h1>
+                           <p>Clone matched DOM Elements and select the clones. </p>
+                           <p>This is useful for moving copies of the elements to another
+                              location in the DOM.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>deep</strong> (Boolean):
+                                 (Optional) Set to false if you don't want to clone all descendant nodes, in addition to the element itself.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Clones all b elements (and selects the clones) and prepends them to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("b").clone().prependTo("p");</pre><h3>Before</h3><pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;, how are you?&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;, how are you?&lt;/p&gt;</pre></dd>
+                        <dt class="direct">empty()</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>empty()</h1>
+                           <p>Removes all child nodes from the set of matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").empty()</pre><h3>Before</h3><pre>&lt;p&gt;Hello, &lt;span&gt;Person&lt;/span&gt; &lt;a href="#"&gt;and person&lt;/a&gt;&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">insertAfter(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>insertAfter(content)</h1>
+                           <p>Insert all of the matched elements after another, specified, set of elements.
+                              This operation is, essentially, the reverse of doing a regular
+                              $(A).after(B), in that instead of inserting B after A, you're inserting
+                              A after B.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to insert the selected element after.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Same as $("#foo").after("p")</p>
+                           <h3>jQuery Code</h3><pre>$("p").insertAfter("#foo");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id="foo"&gt;Hello&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="foo"&gt;Hello&lt;/div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre></dd>
+                        <dt class="direct">insertBefore(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>insertBefore(content)</h1>
+                           <p>Insert all of the matched elements before another, specified, set of elements.
+                              This operation is, essentially, the reverse of doing a regular
+                              $(A).before(B), in that instead of inserting B before A, you're inserting
+                              A before B.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to insert the selected element before.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Same as $("#foo").before("p")</p>
+                           <h3>jQuery Code</h3><pre>$("p").insertBefore("#foo");</pre><h3>Before</h3><pre>&lt;div id="foo"&gt;Hello&lt;/div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id="foo"&gt;Hello&lt;/div&gt;</pre></dd>
+                        <dt class="direct">prepend(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>prepend(content)</h1>
+                           <p>Prepend content to the inside of every matched element.</p>
+                           <p>This operation is the best way to insert elements
+                              inside, at the beginning, of all matched elements.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to prepend to the target.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Prepends some HTML to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").prepend("&lt;b&gt;Hello&lt;/b&gt;");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Prepends an Element to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").prepend( $("#foo")[0] );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id="foo"&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;&lt;b id="foo"&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre><h2>Example</h2>
+                           <p>Prepends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").prepend( $("b") );</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre><h3>Result:</h3><pre>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre></dd>
+                        <dt class="direct">prependTo(content)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>prependTo(content)</h1>
+                           <p>Prepend all of the matched elements to another, specified, set of elements.
+                              This operation is, essentially, the reverse of doing a regular
+                              $(A).prepend(B), in that instead of prepending B to A, you're prepending
+                              A to B.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>content</strong> (&lt;Content&gt;):
+                                 Content to prepend to the selected element to.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Prepends all paragraphs to the element with the ID "foo"</p>
+                           <h3>jQuery Code</h3><pre>$("p").prependTo("#foo");</pre><h3>Before</h3><pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id="foo"&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="foo"&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/div&gt;</pre></dd>
+                        <dt class="direct">remove(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>remove(expr)</h1>
+                           <p>Removes all matched elements from the DOM. This does NOT remove them from the
+                              jQuery object, allowing you to use the matched elements further.
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) A jQuery expression to filter elements by.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").remove();</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</pre><h3>Result:</h3><pre>how are</pre><h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").remove(".hello");</pre><h3>Before</h3><pre>&lt;p class="hello"&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</pre><h3>Result:</h3><pre>how are &lt;p&gt;you?&lt;/p&gt;</pre></dd>
+                        <dt class="direct">wrap(html)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>wrap(html)</h1>
+                           <p>Wrap all matched elements with a structure of other elements.
+                              This wrapping process is most useful for injecting additional
+                              stucture into a document, without ruining the original semantic
+                              qualities of a document.
+                           </p>
+                           <p>This works by going through the first element
+                              provided (which is generated, on the fly, from the provided HTML)
+                              and finds the deepest ancestor element within its
+                              structure - it is that element that will en-wrap everything else.
+                           </p>
+                           <p>This does not work with elements that contain text. Any necessary text
+                              must be added after the wrapping is done.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>html</strong> (String):
+                                 A string of HTML, that will be created on the fly and wrapped around the target.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").wrap("&lt;div class='wrap'&gt;&lt;/div&gt;");</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;div class='wrap'&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;</pre></dd>
+                        <dt class="direct">wrap(elem)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>wrap(elem)</h1>
+                           <p>Wrap all matched elements with a structure of other elements.
+                              This wrapping process is most useful for injecting additional
+                              stucture into a document, without ruining the original semantic
+                              qualities of a document.
+                           </p>
+                           <p>This works by going through the first element
+                              provided and finding the deepest ancestor element within its
+                              structure - it is that element that will en-wrap everything else.
+                           </p>
+                           <p>This does not work with elements that contain text. Any necessary text
+                              must be added after the wrapping is done.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>elem</strong> (Element):
+                                 A DOM element that will be wrapped around the target.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").wrap( document.getElementById('content') );</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;div id="content"&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="content"&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;</pre></dd>
+                     </dl>
+                  </dd>
+                  <dt>Traversing</dt>
+                  <dd>
+                     <dl>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dt class="direct">add(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>add(expr)</h1>
+                           <p>Adds more elements, matched by the given expression,
+                              to the set of matched elements.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 An expression whose matched elements are added
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").add("span")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</pre></dd>
+                        <dt class="direct">add(html)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>add(html)</h1>
+                           <p>Adds more elements, created on the fly, to the set of
+                              matched elements.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>html</strong> (String):
+                                 A string of HTML to create on the fly.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").add("&lt;span&gt;Again&lt;/span&gt;")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Again&lt;/span&gt; ]</pre></dd>
+                        <dt class="direct">add(elements)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>add(elements)</h1>
+                           <p>Adds one or more Elements to the set of matched elements.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>elements</strong> (Element|Array&lt;Element&gt;):
+                                 One or more Elements to add
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").add( document.getElementById("a") )</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span id="a"&gt;Hello Again&lt;/span&gt; ]</pre><h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").add( document.forms[0].elements )</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;form&gt;&lt;input/&gt;&lt;button/&gt;&lt;/form&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;input/&gt;, &lt;button/&gt; ]</pre></dd>
+                        <dt class="direct">children(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>children(expr)</h1>
+                           <p>Get a set of elements containing all of the unique children of each of the
+                              matched set of elements.
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the child Elements with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find all children of each div.</p>
+                           <h3>jQuery Code</h3><pre>$("div").children()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;span&gt;Hello Again&lt;/span&gt; ]</pre><h2>Example</h2>
+                           <p>Find all children with a class "selected" of each div.</p>
+                           <h3>jQuery Code</h3><pre>$("div").children(".selected")</pre><h3>Before</h3><pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">contains(str)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>contains(str)</h1>
+                           <p>Filter the set of elements to those that contain the specified text.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>str</strong> (String):
+                                 The string that will be contained within the text of an element.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <h3>jQuery Code</h3><pre>$("p").contains("test")</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;&lt;p&gt;So is this&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;This is just a test.&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">end()</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>end()</h1>
+                           <p>End the most recent 'destructive' operation, reverting the list of matched elements
+                              back to its previous state. After an end operation, the list of matched elements will
+                              revert to the last state of matched elements.
+                           </p>
+                           <p>If there was no destructive operation before, an empty set is returned.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Example</h2>
+                           <p>Selects all paragraphs, finds span elements inside these, and reverts the
+                              selection back to the paragraphs.
+                           </p>
+                           <h3>jQuery Code</h3><pre>$("p").find("span").end();</pre><h3>Before</h3><pre>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;...&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">filter(expression)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>filter(expression)</h1>
+                           <p>Removes all elements from the set of matched elements that do not
+                              match the specified expression(s). This method is used to narrow down
+                              the results of a search.
+                           </p>
+                           <p>Provide a comma-separated list of expressions to apply multiple filters at once.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expression</strong> (String):
+                                 Expression(s) to search with.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Selects all paragraphs and removes those without a class "selected".</p>
+                           <h3>jQuery Code</h3><pre>$("p").filter(".selected")</pre><h3>Before</h3><pre>&lt;p class="selected"&gt;Hello&lt;/p&gt;&lt;p&gt;How are you?&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <p>Selects all paragraphs and removes those without class "selected" and being the first one.</p>
+                           <h3>jQuery Code</h3><pre>$("p").filter(".selected, :first")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;p class="selected"&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p class="selected"&gt;And Again&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">filter(filter)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>filter(filter)</h1>
+                           <p>Removes all elements from the set of matched elements that do not
+                              pass the specified filter. This method is used to narrow down
+                              the results of a search.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>filter</strong> (Function):
+                                 A function to use for filtering
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Remove all elements that have a child ol element</p>
+                           <h3>jQuery Code</h3><pre>$("p").filter(function(index) {
+  return $("ol", this).length == 0;
+})</pre><h3>Before</h3><pre>&lt;p&gt;&lt;ol&gt;&lt;li&gt;Hello&lt;/li&gt;&lt;/ol&gt;&lt;/p&gt;&lt;p&gt;How are you?&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;How are you?&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">find(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>find(expr)</h1>
+                           <p>Searches for all elements that match the specified expression.
+                              This method is a good way to find additional descendant
+                              elements with which to process.
+                           </p>
+                           <p>All searching is done using a jQuery expression. The expression can be
+                              written using CSS 1-3 Selector syntax, or basic XPath.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 An expression to search with.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Starts with all paragraphs and searches for descendant span
+                              elements, same as $("p span")
+                           </p>
+                           <h3>jQuery Code</h3><pre>$("p").find("span");</pre><h3>Before</h3><pre>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;span&gt;Hello&lt;/span&gt; ]</pre></dd>
+                        <dt class="direct">is(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>is(expr)</h1>
+                           <p>Checks the current selection against an expression and returns true,
+                              if at least one element of the selection fits the given expression.
+                           </p>
+                           <p>Does return false, if no element fits or the expression is not valid.</p>
+                           <p>filter(String) is used internally, therefore all rules that apply there
+                              apply here, too.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>Boolean</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 The expression with which to filter
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Returns true, because the parent of the input is a form element</p>
+                           <h3>jQuery Code</h3><pre>$("input[@type='checkbox']").parent().is("form")</pre><h3>Before</h3><pre>&lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;</pre><h3>Result:</h3><pre>true</pre><h2>Example</h2>
+                           <p>Returns false, because the parent of the input is a p element</p>
+                           <h3>jQuery Code</h3><pre>$("input[@type='checkbox']").parent().is("form")</pre><h3>Before</h3><pre>&lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;</pre><h3>Result:</h3><pre>false</pre></dd>
+                        <dt class="direct">next(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>next(expr)</h1>
+                           <p>Get a set of elements containing the unique next siblings of each of the
+                              matched set of elements.
+                           </p>
+                           <p>It only returns the very next sibling, not all next siblings.</p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the next Elements with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find the very next sibling of each paragraph.</p>
+                           <h3>jQuery Code</h3><pre>$("p").next()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello Again&lt;/p&gt;, &lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt; ]</pre><h2>Example</h2>
+                           <p>Find the very next sibling of each paragraph that has a class "selected".</p>
+                           <h3>jQuery Code</h3><pre>$("p").next(".selected")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;&lt;div&gt;&lt;span&gt;And Again&lt;/span&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">not(el)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>not(el)</h1>
+                           <p>Removes the specified Element from the set of matched elements. This
+                              method is used to remove a single Element from a jQuery object.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>el</strong> (Element):
+                                 An element to remove from the set
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").not( $("#selected")[0] )</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p id="selected"&gt;Hello Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">not(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>not(expr)</h1>
+                           <p>Removes elements matching the specified expression from the set
+                              of matched elements. This method is used to remove one or more
+                              elements from a jQuery object.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 An expression with which to remove matching elements
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").not("#selected")</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p id="selected"&gt;Hello Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">not(elems)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>not(elems)</h1>
+                           <p>Removes any elements inside the array of elements from the set
+                              of matched elements. This method is used to remove one or more
+                              elements from a jQuery object.
+                           </p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>elems</strong> (jQuery):
+                                 A set of elements to remove from the jQuery set of matched elements.
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Removes all elements that match "div p.selected" from the total set of all paragraphs.</p>
+                           <h3>jQuery Code</h3><pre>$("p").not( $("div p.selected") )</pre><h3>Before</h3><pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">parent(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>parent(expr)</h1>
+                           <p>Get a set of elements containing the unique parents of the matched
+                              set of elements.
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the parents with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find the parent element of each paragraph.</p>
+                           <h3>jQuery Code</h3><pre>$("p").parent()</pre><h3>Before</h3><pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt; ]</pre><h2>Example</h2>
+                           <p>Find the parent element of each paragraph with a class "selected".</p>
+                           <h3>jQuery Code</h3><pre>$("p").parent(".selected")</pre><h3>Before</h3><pre>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;&lt;div class="selected"&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>[ &lt;div class="selected"&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt; ]</pre></dd>
+                        <dt class="direct">parents(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>parents(expr)</h1>
+                           <p>Get a set of elements containing the unique ancestors of the matched
+                              set of elements (except for the root element).
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the ancestors with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find all parent elements of each span.</p>
+                           <h3>jQuery Code</h3><pre>$("span").parents()</pre><h3>Before</h3><pre>&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</pre><h3>Result:</h3><pre>[ &lt;body&gt;...&lt;/body&gt;, &lt;div&gt;...&lt;/div&gt;, &lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <p>Find all parent elements of each span that is a paragraph.</p>
+                           <h3>jQuery Code</h3><pre>$("span").parents("p")</pre><h3>Before</h3><pre>&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/p&gt; ]</pre></dd>
+                        <dt class="direct">prev(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>prev(expr)</h1>
+                           <p>Get a set of elements containing the unique previous siblings of each of the
+                              matched set of elements.
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <p>It only returns the immediately previous sibling, not all previous siblings.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the previous Elements with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find the very previous sibling of each paragraph.</p>
+                           <h3>jQuery Code</h3><pre>$("p").prev()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt; ]</pre><h2>Example</h2>
+                           <p>Find the very previous sibling of each paragraph that has a class "selected".</p>
+                           <h3>jQuery Code</h3><pre>$("p").prev(".selected")</pre><h3>Before</h3><pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt; ]</pre></dd>
+                        <dt class="direct">siblings(expr)</dt>
+                        <dd class="text">
+                           <p class="cheat"></p>
+                           <h1>siblings(expr)</h1>
+                           <p>Get a set of elements containing all of the unique siblings of each of the
+                              matched set of elements.
+                           </p>
+                           <p>Can be filtered with an optional expressions.</p>
+                           <h2>Returns</h2>
+                           <p>jQuery</p>
+                           <h2>Parameters</h2>
+                           <ul>
+                              <li><strong>expr</strong> (String):
+                                 (optional) An expression to filter the sibling Elements with
+                              </li>
+                           </ul>
+                           <h2>Example</h2>
+                           <p>Find all siblings of each div.</p>
+                           <h3>jQuery Code</h3><pre>$("div").siblings()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;div&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/div&gt;&lt;p&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;And Again&lt;/p&gt; ]</pre><h2>Example</h2>
+                           <p>Find all siblings with a class "selected" of each div.</p>
+                           <h3>jQuery Code</h3><pre>$("div").siblings(".selected")</pre><h3>Before</h3><pre>&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt;&lt;p&gt;And Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</pre></dd>
+                     </dl>
+                  </dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">CSS</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">css(name)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>css(name)</h1>
+                     <p>Access a style property on the first matched element.
+                        This method makes it easy to retrieve a style property value
+                        from the first matched element.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>String</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>name</strong> (String):
+                           The name of the property to access.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Retrieves the color style of the first paragraph</p>
+                     <h3>jQuery Code</h3><pre>$("p").css("color");</pre><h3>Before</h3><pre>&lt;p style="color:red;"&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>"red"</pre><h2>Example</h2>
+                     <p>Retrieves the font-weight style of the first paragraph.</p>
+                     <h3>jQuery Code</h3><pre>$("p").css("font-weight");</pre><h3>Before</h3><pre>&lt;p style="font-weight: bold;"&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>"bold"</pre></dd>
+                  <dt class="direct">css(properties)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>css(properties)</h1>
+                     <p>Set a key/value object as style properties to all matched elements.</p>
+                     <p>This serves as the best way to set a large number of style properties
+                        on all matched elements.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>properties</strong> (Map):
+                           Key/value pairs to set as style properties.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Sets color and background styles to all p elements.</p>
+                     <h3>jQuery Code</h3><pre>$("p").css({ color: "red", background: "blue" });</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="color:red; background:blue;"&gt;Test Paragraph.&lt;/p&gt;</pre></dd>
+                  <dt class="direct">css(key, value)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>css(key, value)</h1>
+                     <p>Set a single style property to a value, on all matched elements.
+                        If a number is provided, it is automatically converted into a pixel value.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>key</strong> (String):
+                           The name of the property to set.
+                        </li>
+                        <li><strong>value</strong> (String|Number):
+                           The value to set the property to.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Changes the color of all paragraphs to red</p>
+                     <h3>jQuery Code</h3><pre>$("p").css("color","red");</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="color:red;"&gt;Test Paragraph.&lt;/p&gt;</pre><h2>Example</h2>
+                     <p>Changes the left of all paragraphs to "30px"</p>
+                     <h3>jQuery Code</h3><pre>$("p").css("left",30);</pre><h3>Before</h3><pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="left:30px;"&gt;Test Paragraph.&lt;/p&gt;</pre></dd>
+                  <dt class="direct">height()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>height()</h1>
+                     <p>Get the current computed, pixel, height of the first matched element.</p>
+                     <h2>Returns</h2>
+                     <p>String</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").height();</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>300</pre></dd>
+                  <dt class="direct">height(val)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>height(val)</h1>
+                     <p>Set the CSS width of every matched element. If no explicit unit
+                        was specified (like 'em' or '%') then "px" is added to the width.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>val</strong> (String|Number):
+                           Set the CSS property to the specified value.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").height(20);</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="height:20px;"&gt;This is just a test.&lt;/p&gt;</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").height("20em");</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="height:20em;"&gt;This is just a test.&lt;/p&gt;</pre></dd>
+                  <dt class="direct">width()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>width()</h1>
+                     <p>Get the current computed, pixel, width of the first matched element.</p>
+                     <h2>Returns</h2>
+                     <p>String</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").width();</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>300</pre></dd>
+                  <dt class="direct">width(val)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>width(val)</h1>
+                     <p>Set the CSS width of every matched element. If no explicit unit
+                        was specified (like 'em' or '%') then "px" is added to the width.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>val</strong> (String|Number):
+                           Set the CSS property to the specified value.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").width(20);</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="width:20px;"&gt;This is just a test.&lt;/p&gt;</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").width("20em");</pre><h3>Before</h3><pre>&lt;p&gt;This is just a test.&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p style="width:20em;"&gt;This is just a test.&lt;/p&gt;</pre></dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">JavaScript</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">$.browser</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.browser</h1>
+                     <p>Contains flags for the useragent, read from navigator.userAgent.
+                        Available flags are: safari, opera, msie, mozilla
+                     </p>
+                     <p>This property is available before the DOM is ready, therefore you can
+                        use it to add ready events only for certain browsers.
+                     </p>
+                     <p>There are situations where object detections is not reliable enough, in that
+                        cases it makes sense to use browser detection. Simply try to avoid both!
+                     </p>
+                     <p>A combination of browser and object detection yields quite reliable results.</p>
+                     <h2>Returns</h2>
+                     <p>Boolean</p>
+                     <h2>Example</h2>
+                     <p>Returns true if the current useragent is some version of microsoft's internet explorer</p>
+                     <h3>jQuery Code</h3><pre>$.browser.msie</pre><h2>Example</h2>
+                     <p>Alerts "this is safari!" only for safari browsers</p>
+                     <h3>jQuery Code</h3><pre>if($.browser.safari) { $( function() { alert("this is safari!"); } ); }</pre></dd>
+                  <dt class="direct">$.each(obj, fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.each(obj, fn)</h1>
+                     <p>A generic iterator function, which can be used to seemlessly
+                        iterate over both objects and arrays. This function is not the same
+                        as $().each() - which is used to iterate, exclusively, over a jQuery
+                        object. This function can be used to iterate over anything.
+                     </p>
+                     <p>The callback has two arguments:the key (objects) or index (arrays) as first
+                        the first, and the value as the second.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Object</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>obj</strong> (Object):
+                           The object, or array, to iterate over.
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           The function that will be executed on every object.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>This is an example of iterating over the items in an array,
+                        accessing both the current item and its index.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$.each( [0,1,2], function(i, n){
+  alert( "Item #" + i + ": " + n );
+});</pre><h2>Example</h2>
+                     <p>This is an example of iterating over the properties in an
+                        Object, accessing both the current item and its key.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$.each( { name: "John", lang: "JS" }, function(i, n){
+  alert( "Name: " + i + ", Value: " + n );
+});</pre></dd>
+                  <dt class="direct">$.extend(target, prop1, propN)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.extend(target, prop1, propN)</h1>
+                     <p>Extend one object with one or more others, returning the original,
+                        modified, object. This is a great utility for simple inheritance.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Object</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>target</strong> (Object):
+                           The object to extend
+                        </li>
+                        <li><strong>prop1</strong> (Object):
+                           The object that will be merged into the first.
+                        </li>
+                        <li><strong>propN</strong> (Object):
+                           (optional) More objects to merge into the first
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Merge settings and options, modifying settings</p>
+                     <h3>jQuery Code</h3><pre>var settings = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+jQuery.extend(settings, options);</pre><h3>Result:</h3><pre>settings == { validate: true, limit: 5, name: "bar" }</pre><h2>Example</h2>
+                     <p>Merge defaults and options, without modifying the defaults</p>
+                     <h3>jQuery Code</h3><pre>var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = jQuery.extend({}, defaults, options);</pre><h3>Result:</h3><pre>settings == { validate: true, limit: 5, name: "bar" }</pre></dd>
+                  <dt class="direct">$.grep(array, fn, inv)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.grep(array, fn, inv)</h1>
+                     <p>Filter items out of an array, by using a filter function.</p>
+                     <p>The specified function will be passed two arguments: The
+                        current array item and the index of the item in the array. The
+                        function must return 'true' to keep the item in the array, 
+                        false to remove it.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Array</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>array</strong> (Array):
+                           The Array to find items in.
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           The function to process each item against.
+                        </li>
+                        <li><strong>inv</strong> (Boolean):
+                           Invert the selection - select the opposite of the function.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.grep( [0,1,2], function(i){
+  return i &gt; 0;
+});</pre><h3>Result:</h3><pre>[1, 2]</pre></dd>
+                  <dt class="direct">$.map(array, fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.map(array, fn)</h1>
+                     <p>Translate all items in an array to another array of items.</p>
+                     <p>The translation function that is provided to this method is 
+                        called for each item in the array and is passed one argument: 
+                        The item to be translated.
+                     </p>
+                     <p>The function can then return the translated value, 'null'
+                        (to remove the item), or  an array of values - which will
+                        be flattened into the full array.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Array</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>array</strong> (Array):
+                           The Array to translate.
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           The function to process each item against.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Maps the original array to a new one and adds 4 to each value.</p>
+                     <h3>jQuery Code</h3><pre>$.map( [0,1,2], function(i){
+  return i + 4;
+});</pre><h3>Result:</h3><pre>[4, 5, 6]</pre><h2>Example</h2>
+                     <p>Maps the original array to a new one and adds 1 to each
+                        value if it is bigger then zero, otherwise it's removed-
+                     </p>
+                     <h3>jQuery Code</h3><pre>$.map( [0,1,2], function(i){
+  return i &gt; 0 ? i + 1 : null;
+});</pre><h3>Result:</h3><pre>[2, 3]</pre><h2>Example</h2>
+                     <p>Maps the original array to a new one, each element is added
+                        with it's original value and the value plus one.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$.map( [0,1,2], function(i){
+  return [ i, i + 1 ];
+});</pre><h3>Result:</h3><pre>[0, 1, 1, 2, 2, 3]</pre></dd>
+                  <dt class="direct">$.merge(first, second)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.merge(first, second)</h1>
+                     <p>Merge two arrays together, removing all duplicates.</p>
+                     <p>The new array is: All the results from the first array, followed
+                        by the unique results from the second array.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>Array</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>first</strong> (Array):
+                           The first array to merge.
+                        </li>
+                        <li><strong>second</strong> (Array):
+                           The second array to merge.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Merges two arrays, removing the duplicate 2</p>
+                     <h3>jQuery Code</h3><pre>$.merge( [0,1,2], [2,3,4] )</pre><h3>Result:</h3><pre>[0,1,2,3,4]</pre><h2>Example</h2>
+                     <p>Merges two arrays, removing the duplicates 3 and 2</p>
+                     <h3>jQuery Code</h3><pre>$.merge( [3,2,1], [4,3,2] )</pre><h3>Result:</h3><pre>[3,2,1,4]</pre></dd>
+                  <dt class="direct">$.trim(str)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.trim(str)</h1>
+                     <p>Remove the whitespace from the beginning and end of a string.</p>
+                     <h2>Returns</h2>
+                     <p>String</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>str</strong> (String):
+                           The string to trim.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.trim("  hello, how are you?  ");</pre><h3>Result:</h3><pre>"hello, how are you?"</pre></dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">Events</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">bind(type, data, fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>bind(type, data, fn)</h1>
+                     <p>Binds a handler to a particular event (like click) for each matched element.
+                        The event handler is passed an event object that you can use to prevent
+                        default behaviour. To stop both default action and event bubbling, your handler
+                        has to return false.
+                     </p>
+                     <p>In most cases, you can define your event handlers as anonymous functions
+                        (see first example). In cases where that is not possible, you can pass additional
+                        data as the second paramter (and the handler function as the third), see 
+                        second example.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>type</strong> (String):
+                           An event type
+                        </li>
+                        <li><strong>data</strong> (Object):
+                           (optional) Additional data passed to the event handler as event.data
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the event on each of the set of matched elements
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").bind("click", function(){
+  alert( $(this).text() );
+});</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert("Hello")</pre><h2>Example</h2>
+                     <p>Pass some additional data to the event handler.</p>
+                     <h3>jQuery Code</h3><pre>function handler(event) {
+  alert(event.data.foo);
+}
+$("p").bind("click", {foo: "bar"}, handler)</pre><h3>Result:</h3><pre>alert("bar")</pre><h2>Example</h2>
+                     <p>Cancel a default action and prevent it from bubbling by returning false
+                        from your function.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$("form").bind("submit", function() { return false; })</pre><h2>Example</h2>
+                     <p>Cancel only the default action by using the preventDefault method.</p>
+                     <h3>jQuery Code</h3><pre>$("form").bind("submit", function(event){
+  event.preventDefault();
+});</pre><h2>Example</h2>
+                     <p>Stop only an event from bubbling by using the stopPropagation method.</p>
+                     <h3>jQuery Code</h3><pre>$("form").bind("submit", function(event){
+  event.stopPropagation();
+});</pre></dd>
+                  <dt class="direct">blur()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>blur()</h1>
+                     <p>Trigger the blur event of each matched element. This causes all of the functions
+                        that have been bound to thet blur event to be executed.
+                     </p>
+                     <p>Note: This does not execute the blur method of the underlying elements! If you need to
+                        blur an element via code, you have to use the DOM method, eg. $("#myinput")[0].blur();
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").blur();</pre><h3>Before</h3><pre>&lt;p onblur="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert('Hello');</pre></dd>
+                  <dt class="direct">blur(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>blur(fn)</h1>
+                     <p>Bind a function to the blur event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the blur event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").blur( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onblur="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">change(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>change(fn)</h1>
+                     <p>Bind a function to the change event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the change event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").change( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onchange="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">click()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>click()</h1>
+                     <p>Trigger the click event of each matched element. This causes all of the functions
+                        that have been bound to thet click event to be executed.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").click();</pre><h3>Before</h3><pre>&lt;p onclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert('Hello');</pre></dd>
+                  <dt class="direct">click(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>click(fn)</h1>
+                     <p>Bind a function to the click event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the click event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").click( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">dblclick(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>dblclick(fn)</h1>
+                     <p>Bind a function to the dblclick event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the dblclick event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").dblclick( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p ondblclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">error(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>error(fn)</h1>
+                     <p>Bind a function to the error event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the error event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").error( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onerror="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">focus()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>focus()</h1>
+                     <p>Trigger the focus event of each matched element. This causes all of the functions
+                        that have been bound to thet focus event to be executed.
+                     </p>
+                     <p>Note: This does not execute the focus method of the underlying elements! If you need to
+                        focus an element via code, you have to use the DOM method, eg. $("#myinput")[0].focus();
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").focus();</pre><h3>Before</h3><pre>&lt;p onfocus="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert('Hello');</pre></dd>
+                  <dt class="direct">focus(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>focus(fn)</h1>
+                     <p>Bind a function to the focus event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the focus event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").focus( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onfocus="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">hover(over, out)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>hover(over, out)</h1>
+                     <p>A method for simulating hovering (moving the mouse on, and off,
+                        an object). This is a custom method which provides an 'in' to a 
+                        frequent task.
+                     </p>
+                     <p>Whenever the mouse cursor is moved over a matched 
+                        element, the first specified function is fired. Whenever the mouse 
+                        moves off of the element, the second specified function fires. 
+                        Additionally, checks are in place to see if the mouse is still within 
+                        the specified element itself (for example, an image inside of a div), 
+                        and if it is, it will continue to 'hover', and not move out 
+                        (a common error in using a mouseout event handler).
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>over</strong> (Function):
+                           The function to fire whenever the mouse is moved over a matched element.
+                        </li>
+                        <li><strong>out</strong> (Function):
+                           The function to fire whenever the mouse is moved off of a matched element.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").hover(function(){
+  $(this).addClass("over");
+},function(){
+  $(this).addClass("out");
+});</pre></dd>
+                  <dt class="direct">keydown(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>keydown(fn)</h1>
+                     <p>Bind a function to the keydown event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the keydown event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").keydown( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onkeydown="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">keypress(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>keypress(fn)</h1>
+                     <p>Bind a function to the keypress event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the keypress event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").keypress( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onkeypress="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">keyup(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>keyup(fn)</h1>
+                     <p>Bind a function to the keyup event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the keyup event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").keyup( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onkeyup="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">load(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>load(fn)</h1>
+                     <p>Bind a function to the load event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the load event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").load( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onload="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">mousedown(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>mousedown(fn)</h1>
+                     <p>Bind a function to the mousedown event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the mousedown event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").mousedown( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onmousedown="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">mousemove(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>mousemove(fn)</h1>
+                     <p>Bind a function to the mousemove event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the mousemove event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").mousemove( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onmousemove="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">mouseout(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>mouseout(fn)</h1>
+                     <p>Bind a function to the mouseout event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the mouseout event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").mouseout( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onmouseout="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">mouseover(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>mouseover(fn)</h1>
+                     <p>Bind a function to the mouseover event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the mousedown event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").mouseover( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onmouseover="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">mouseup(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>mouseup(fn)</h1>
+                     <p>Bind a function to the mouseup event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the mouseup event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").mouseup( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onmouseup="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">one(type, data, fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>one(type, data, fn)</h1>
+                     <p>Binds a handler to a particular event (like click) for each matched element.
+                        The handler is executed only once for each element. Otherwise, the same rules
+                        as described in bind() apply.
+                        	 The event handler is passed an event object that you can use to prevent
+                        default behaviour. To stop both default action and event bubbling, your handler
+                        has to return false.
+                     </p>
+                     <p>In most cases, you can define your event handlers as anonymous functions
+                        (see first example). In cases where that is not possible, you can pass additional
+                        data as the second paramter (and the handler function as the third), see 
+                        second example.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>type</strong> (String):
+                           An event type
+                        </li>
+                        <li><strong>data</strong> (Object):
+                           (optional) Additional data passed to the event handler as event.data
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the event on each of the set of matched elements
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").one("click", function(){
+  alert( $(this).text() );
+});</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert("Hello")</pre></dd>
+                  <dt class="direct">ready(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ready(fn)</h1>
+                     <p>Bind a function to be executed whenever the DOM is ready to be
+                        traversed and manipulated. This is probably the most important 
+                        function included in the event module, as it can greatly improve
+                        the response times of your web applications.
+                     </p>
+                     <p>In a nutshell, this is a solid replacement for using window.onload, 
+                        and attaching a function to that. By using this method, your bound Function 
+                        will be called the instant the DOM is ready to be read and manipulated, 
+                        which is exactly what 99.99% of all Javascript code needs to run.
+                     </p>
+                     <p>There is one argument passed to the ready event handler: A reference to
+                        the jQuery function. You can name that argument whatever you like, and
+                        can therefore stick with the $ alias without risc of naming collisions.
+                     </p>
+                     <p>Please ensure you have no code in your &lt;body&gt; onload event handler, 
+                        otherwise $(document).ready() may not fire.
+                     </p>
+                     <p>You can have as many $(document).ready events on your page as you like.
+                        The functions are then executed in the order they were added.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           The function to be executed when the DOM is ready.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$(document).ready(function(){ Your code here... });</pre><h2>Example</h2>
+                     <p>Uses both the shortcut for $(document).ready() and the argument
+                        to write failsafe jQuery code using the $ alias, without relying on the
+                        global alias.
+                     </p>
+                     <h3>jQuery Code</h3><pre>jQuery(function($) {
+  // Your code using failsafe $ alias here...
+});</pre></dd>
+                  <dt class="direct">resize(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>resize(fn)</h1>
+                     <p>Bind a function to the resize event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the resize event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").resize( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onresize="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">scroll(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>scroll(fn)</h1>
+                     <p>Bind a function to the scroll event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the scroll event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").scroll( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onscroll="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">select()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>select()</h1>
+                     <p>Trigger the select event of each matched element. This causes all of the functions
+                        that have been bound to thet select event to be executed.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").select();</pre><h3>Before</h3><pre>&lt;p onselect="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert('Hello');</pre></dd>
+                  <dt class="direct">select(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>select(fn)</h1>
+                     <p>Bind a function to the select event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the select event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").select( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onselect="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+                  <dt class="direct">submit()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>submit()</h1>
+                     <p>Trigger the submit event of each matched element. This causes all of the functions
+                        that have been bound to thet submit event to be executed.
+                     </p>
+                     <p>Note: This does not execute the submit method of the form element! If you need to
+                        submit the form via code, you have to use the DOM method, eg. $("form")[0].submit();
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <p>Triggers all submit events registered for forms, but does not submit the form</p>
+                     <h3>jQuery Code</h3><pre>$("form").submit();</pre></dd>
+                  <dt class="direct">submit(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>submit(fn)</h1>
+                     <p>Bind a function to the submit event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the submit event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Prevents the form submission when the input has no value entered.</p>
+                     <h3>jQuery Code</h3><pre>$("#myform").submit( function() {
+  return $("input", this).val().length &gt; 0;
+} );</pre><h3>Before</h3><pre>&lt;form id="myform"&gt;&lt;input /&gt;&lt;/form&gt;</pre></dd>
+                  <dt class="direct">toggle(even, odd)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>toggle(even, odd)</h1>
+                     <p>Toggle between two function calls every other click.
+                        Whenever a matched element is clicked, the first specified function 
+                        is fired, when clicked again, the second is fired. All subsequent 
+                        clicks continue to rotate through the two functions.
+                     </p>
+                     <p>Use unbind("click") to remove.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>even</strong> (Function):
+                           The function to execute on every even click.
+                        </li>
+                        <li><strong>odd</strong> (Function):
+                           The function to execute on every odd click.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").toggle(function(){
+  $(this).addClass("selected");
+},function(){
+  $(this).removeClass("selected");
+});</pre></dd>
+                  <dt class="direct">trigger(type)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>trigger(type)</h1>
+                     <p>Trigger a type of event on every matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>type</strong> (String):
+                           An event type to trigger.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").trigger("click")</pre><h3>Before</h3><pre>&lt;p click="alert('hello')"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>alert('hello')</pre></dd>
+                  <dt class="direct">unbind(type, fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>unbind(type, fn)</h1>
+                     <p>The opposite of bind, removes a bound event from each of the matched
+                        elements.
+                     </p>
+                     <p>Without any arguments, all bound events are removed.</p>
+                     <p>If the type is provided, all bound events of that type are removed.</p>
+                     <p>If the function that was passed to bind is provided as the second argument,
+                        only that specific event handler is removed.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>type</strong> (String):
+                           (optional) An event type
+                        </li>
+                        <li><strong>fn</strong> (Function):
+                           (optional) A function to unbind from the event on each of the set of matched elements
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").unbind()</pre><h3>Before</h3><pre>&lt;p onclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").unbind( "click" )</pre><h3>Before</h3><pre>&lt;p onclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").unbind( "click", function() { alert("Hello"); } )</pre><h3>Before</h3><pre>&lt;p onclick="alert('Hello');"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p&gt;Hello&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">unload(fn)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>unload(fn)</h1>
+                     <p>Bind a function to the unload event of each matched element.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>fn</strong> (Function):
+                           A function to bind to the unload event on each of the matched elements.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").unload( function() { alert("Hello"); } );</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>&lt;p onunload="alert('Hello');"&gt;Hello&lt;/p&gt;</pre></dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">Effects</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">animate(params, speed, easing, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>animate(params, speed, easing, callback)</h1>
+                     <p>A function for making your own, custom, animations. The key aspect of
+                        this function is the object of style properties that will be animated,
+                        and to what end. Each key within the object represents a style property
+                        that will also be animated (for example: "height", "top", or "opacity").
+                     </p>
+                     <p>The value associated with the key represents to what end the property
+                        will be animated. If a number is provided as the value, then the style
+                        property will be transitioned from its current state to that new number.
+                        Oterwise if the string "hide", "show", or "toggle" is provided, a default
+                        animation will be constructed for that property.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>params</strong> (Hash):
+                           A set of style attributes that you wish to animate, and to what end.
+                        </li>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>easing</strong> (String):
+                           (optional) The name of the easing effect that you want to use (Plugin Required).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").animate({
+  height: 'toggle', opacity: 'toggle'
+}, "slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").animate({
+  left: 50, opacity: 'show'
+}, 500);</pre><h2>Example</h2>
+                     <p>An example of using an 'easing' function to provide a different style of animation. This will only work if you have a plugin
+                        that provides this easing function (Only 'linear' is provided by default, with jQuery).
+                     </p>
+                     <h3>jQuery Code</h3><pre>$("p").animate({
+  opacity: 'show'
+}, "slow", "easein");</pre></dd>
+                  <dt class="direct">fadeIn(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>fadeIn(speed, callback)</h1>
+                     <p>Fade in all matched elements by adjusting their opacity and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the opacity is adjusted for this animation, meaning that
+                        all of the matched elements should already have some form of height
+                        and width associated with them.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeIn("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeIn("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">fadeOut(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>fadeOut(speed, callback)</h1>
+                     <p>Fade out all matched elements by adjusting their opacity and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the opacity is adjusted for this animation, meaning that
+                        all of the matched elements should already have some form of height
+                        and width associated with them.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeOut("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeOut("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">fadeTo(speed, opacity, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>fadeTo(speed, opacity, callback)</h1>
+                     <p>Fade the opacity of all matched elements to a specified opacity and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the opacity is adjusted for this animation, meaning that
+                        all of the matched elements should already have some form of height
+                        and width associated with them.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run
+                           the animation (e.g. 1000).
+                        </li>
+                        <li><strong>opacity</strong> (Number):
+                           The opacity to fade to (a number from 0 to 1).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeTo("slow", 0.5);</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").fadeTo("slow", 0.5, function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">hide()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>hide()</h1>
+                     <p>Hides each of the set of matched elements if they are shown.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").hide()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p style="display: none"&gt;Hello&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">hide(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>hide(speed, callback)</h1>
+                     <p>Hide all matched elements using a graceful animation and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>The height, width, and opacity of each of the matched elements 
+                        are changed dynamically according to the specified speed.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run
+                           the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").hide("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").hide("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">show()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>show()</h1>
+                     <p>Displays each of the set of matched elements if they are hidden.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").show()</pre><h3>Before</h3><pre>&lt;p style="display: none"&gt;Hello&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p style="display: block"&gt;Hello&lt;/p&gt; ]</pre></dd>
+                  <dt class="direct">show(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>show(speed, callback)</h1>
+                     <p>Show all matched elements using a graceful animation and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>The height, width, and opacity of each of the matched elements 
+                        are changed dynamically according to the specified speed.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run
+                           the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").show("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").show("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">slideDown(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>slideDown(speed, callback)</h1>
+                     <p>Reveal all matched elements by adjusting their height and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the height is adjusted for this animation, causing all matched
+                        elements to be revealed in a "sliding" manner.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideDown("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideDown("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">slideToggle(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>slideToggle(speed, callback)</h1>
+                     <p>Toggle the visibility of all matched elements by adjusting their height and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the height is adjusted for this animation, causing all matched
+                        elements to be hidden in a "sliding" manner.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideToggle("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideToggle("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">slideUp(speed, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>slideUp(speed, callback)</h1>
+                     <p>Hide all matched elements by adjusting their height and firing an
+                        optional callback after completion.
+                     </p>
+                     <p>Only the height is adjusted for this animation, causing all matched
+                        elements to be hidden in a "sliding" manner.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>speed</strong> (String|Number):
+                           (optional) A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds
+                           to run the animation (e.g. 1000).
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the animation completes.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideUp("slow");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").slideUp("slow",function(){
+  alert("Animation Done.");
+});</pre></dd>
+                  <dt class="direct">toggle()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>toggle()</h1>
+                     <p>Toggles each of the set of matched elements. If they are shown,
+                        toggle makes them hidden. If they are hidden, toggle
+                        makes them shown.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("p").toggle()</pre><h3>Before</h3><pre>&lt;p&gt;Hello&lt;/p&gt;&lt;p style="display: none"&gt;Hello Again&lt;/p&gt;</pre><h3>Result:</h3><pre>[ &lt;p style="display: none"&gt;Hello&lt;/p&gt;, &lt;p style="display: block"&gt;Hello Again&lt;/p&gt; ]</pre></dd>
+               </dl>
+            </dd>
+            
+            <dt xmlns="">Ajax</dt>
+            <dd xmlns="">
+               <dl>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <dt class="direct">$.ajax(properties)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.ajax(properties)</h1>
+                     <p>Load a remote page using an HTTP request.</p>
+                     <p>This is jQuery's low-level AJAX implementation. See $.get, $.post etc. for
+                        higher-level abstractions.
+                     </p>
+                     <p>$.ajax() returns the XMLHttpRequest that it creates. In most cases you won't
+                        need that object to manipulate directly, but it is available if you need to
+                        abort the request manually.
+                     </p>
+                     <p>Note: Make sure the server sends the right mimetype (eg. xml as
+                        "text/xml"). Sending the wrong mimetype will get you into serious
+                        trouble that jQuery can't solve.
+                     </p>
+                     <p>Supported datatypes are (see dataType option):</p>
+                     <p>"xml": Returns a XML document that can be processed via jQuery.</p>
+                     <p>"html": Returns HTML as plain text, included script tags are evaluated.</p>
+                     <p>"script": Evaluates the response as Javascript and returns it as plain text.</p>
+                     <p>"json": Evaluates the response as JSON and returns a Javascript Object</p>
+                     <p>$.ajax() takes one argument, an object of key/value pairs, that are
+                        used to initalize and handle the request. These are all the key/values that can
+                        be used:
+                     </p>
+                     <p>(String) url - The URL to request.</p>
+                     <p>(String) type - The type of request to make ("POST" or "GET"), default is "GET".</p>
+                     <p>(String) dataType - The type of data that you're expecting back from
+                        the server. No default: If the server sends xml, the responseXML, otherwise
+                        the responseText is passed to the success callback.
+                     </p>
+                     <p>(Boolean) ifModified - Allow the request to be successful only if the
+                        response has changed since the last request. This is done by checking the
+                        Last-Modified header. Default value is false, ignoring the header.
+                     </p>
+                     <p>(Number) timeout - Local timeout to override global timeout, eg. to give a
+                        single request a longer timeout while all others timeout after 1 second.
+                        See $.ajaxTimeout() for global timeouts.
+                     </p>
+                     <p>(Boolean) global - Whether to trigger global AJAX event handlers for
+                        this request, default is true. Set to false to prevent that global handlers
+                        like ajaxStart or ajaxStop are triggered.
+                     </p>
+                     <p>(Function) error - A function to be called if the request fails. The
+                        function gets passed tree arguments: The XMLHttpRequest object, a
+                        string describing the type of error that occurred and an optional
+                        exception object, if one occured.
+                     </p>
+                     <p>(Function) success - A function to be called if the request succeeds. The
+                        function gets passed one argument: The data returned from the server,
+                        formatted according to the 'dataType' parameter.
+                     </p>
+                     <p>(Function) complete - A function to be called when the request finishes. The
+                        function gets passed two arguments: The XMLHttpRequest object and a
+                        string describing the type of success of the request.
+                     </p>
+                     <p>(Object|String) data - Data to be sent to the server. Converted to a query
+                        string, if not already a string. Is appended to the url for GET-requests.
+                        See processData option to prevent this automatic processing.
+                     </p>
+                     <p>(String) contentType - When sending data to the server, use this content-type.
+                        Default is "application/x-www-form-urlencoded", which is fine for most cases.
+                     </p>
+                     <p>(Boolean) processData - By default, data passed in to the data option as an object
+                        other as string will be processed and transformed into a query string, fitting to
+                        the default content-type "application/x-www-form-urlencoded". If you want to send
+                        DOMDocuments, set this option to false.
+                     </p>
+                     <p>(Boolean) async - By default, all requests are sent asynchronous (set to true).
+                        If you need synchronous requests, set this option to false.
+                     </p>
+                     <p>(Function) beforeSend - A pre-callback to set custom headers etc., the
+                        XMLHttpRequest is passed as the only argument.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>properties</strong> (Map):
+                           Key/value pairs to initialize the request with.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Load and execute a JavaScript file.</p>
+                     <h3>jQuery Code</h3><pre>$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+})</pre><h2>Example</h2>
+                     <p>Save some data to the server and notify the user once its complete.</p>
+                     <h3>jQuery Code</h3><pre>$.ajax({
+  type: "POST",
+  url: "some.php",
+  data: "name=John&amp;location=Boston",
+  success: function(msg){
+    alert( "Data Saved: " + msg );
+  }
+});</pre><h2>Example</h2>
+                     <p>Loads data synchronously. Blocks the browser while the requests is active.
+                        It is better to block user interaction with others means when synchronization is
+                        necessary, instead to block the complete browser.
+                     </p>
+                     <h3>jQuery Code</h3><pre>var html = $.ajax({
+ url: "some.php",
+ async: false
+}).responseText;</pre><h2>Example</h2>
+                     <p>Sends an xml document as data to the server. By setting the processData
+                        option to false, the automatic conversion of data to strings is prevented.
+                     </p>
+                     <h3>jQuery Code</h3><pre>var xmlDocument = [create xml document];
+$.ajax({
+  url: "page.php",
+  processData: false,
+  data: xmlDocument,
+  success: handleResponse
+});</pre></dd>
+                  <dt class="direct">$.ajaxSetup(settings)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.ajaxSetup(settings)</h1>
+                     <p>Setup global settings for AJAX requests.</p>
+                     <p>See $.ajax for a description of all available options.</p>
+                     <h2>Returns</h2>
+                     <p>undefined</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>settings</strong> (Map):
+                           Key/value pairs to use for all AJAX requests
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Sets the defaults for AJAX requests to the url "/xmlhttp/",
+                        disables global handlers and uses POST instead of GET. The following
+                        AJAX requests then sends some data without having to set anything else.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$.ajaxSetup( {
+  url: "/xmlhttp/",
+  global: false,
+  type: "POST"
+} );
+$.ajax({ data: myData });</pre></dd>
+                  <dt class="direct">$.ajaxTimeout(time)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.ajaxTimeout(time)</h1>
+                     <p>Set the timeout of all AJAX requests to a specific amount of time.
+                        This will make all future AJAX requests timeout after a specified amount
+                        of time.
+                     </p>
+                     <p>Set to null or 0 to disable timeouts (default).</p>
+                     <p>You can manually abort requests with the XMLHttpRequest's (returned by
+                        all ajax functions) abort() method.
+                     </p>
+                     <p>Deprecated. Use $.ajaxSetup instead.</p>
+                     <h2>Returns</h2>
+                     <p>undefined</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>time</strong> (Number):
+                           How long before an AJAX request times out.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Make all AJAX requests timeout after 5 seconds.</p>
+                     <h3>jQuery Code</h3><pre>$.ajaxTimeout( 5000 );</pre></dd>
+                  <dt class="direct">$.get(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.get(url, params, callback)</h1>
+                     <p>Load a remote page using an HTTP GET request.</p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the page to load.
+                        </li>
+                        <li><strong>params</strong> (Map):
+                           (optional) Key/value pairs that will be sent to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.get("test.cgi");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.get("test.cgi", { name: "John", time: "2pm" } );</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.get("test.cgi", function(data){
+  alert("Data Loaded: " + data);
+});</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.get("test.cgi",
+  { name: "John", time: "2pm" },
+  function(data){
+    alert("Data Loaded: " + data);
+  }
+);</pre></dd>
+                  <dt class="direct">$.getIfModified(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.getIfModified(url, params, callback)</h1>
+                     <p>Load a remote page using an HTTP GET request, only if it hasn't
+                        been modified since it was last retrieved.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the page to load.
+                        </li>
+                        <li><strong>params</strong> (Map):
+                           (optional) Key/value pairs that will be sent to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getIfModified("test.html");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getIfModified("test.html", { name: "John", time: "2pm" } );</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getIfModified("test.cgi", function(data){
+  alert("Data Loaded: " + data);
+});</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getifModified("test.cgi",
+  { name: "John", time: "2pm" },
+  function(data){
+    alert("Data Loaded: " + data);
+  }
+);</pre></dd>
+                  <dt class="direct">$.getJSON(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.getJSON(url, params, callback)</h1>
+                     <p>Load JSON data using an HTTP GET request.</p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the page to load.
+                        </li>
+                        <li><strong>params</strong> (Map):
+                           (optional) Key/value pairs that will be sent to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           A function to be executed whenever the data is loaded.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getJSON("test.js", function(json){
+  alert("JSON Data: " + json.users[3].name);
+});</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getJSON("test.js",
+  { name: "John", time: "2pm" },
+  function(json){
+    alert("JSON Data: " + json.users[3].name);
+  }
+);</pre></dd>
+                  <dt class="direct">$.getScript(url, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.getScript(url, callback)</h1>
+                     <p>Loads, and executes, a remote JavaScript file using an HTTP GET request.</p>
+                     <p>Warning: Safari &lt;= 2.0.x is unable to evalulate scripts in a global
+                        context synchronously. If you load functions via getScript, make sure
+                        to call them after a delay.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the page to load.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getScript("test.js");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.getScript("test.js", function(){
+  alert("Script loaded and executed.");
+});</pre></dd>
+                  <dt class="direct">$.post(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>$.post(url, params, callback)</h1>
+                     <p>Load a remote page using an HTTP POST request.</p>
+                     <h2>Returns</h2>
+                     <p>XMLHttpRequest</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the page to load.
+                        </li>
+                        <li><strong>params</strong> (Map):
+                           (optional) Key/value pairs that will be sent to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.post("test.cgi");</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.post("test.cgi", { name: "John", time: "2pm" } );</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.post("test.cgi", function(data){
+  alert("Data Loaded: " + data);
+});</pre><h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$.post("test.cgi",
+  { name: "John", time: "2pm" },
+  function(data){
+    alert("Data Loaded: " + data);
+  }
+);</pre></dd>
+                  <dt class="direct">ajaxComplete(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxComplete(callback)</h1>
+                     <p>Attach a function to be executed whenever an AJAX request completes.</p>
+                     <p>The XMLHttpRequest and settings used for that request are passed
+                        as arguments to the callback.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Show a message when an AJAX request completes.</p>
+                     <h3>jQuery Code</h3><pre>$("#msg").ajaxComplete(function(request, settings){
+  $(this).append("&lt;li&gt;Request Complete.&lt;/li&gt;");
+});</pre></dd>
+                  <dt class="direct">ajaxError(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxError(callback)</h1>
+                     <p>Attach a function to be executed whenever an AJAX request fails.</p>
+                     <p>The XMLHttpRequest and settings used for that request are passed
+                        as arguments to the callback. A third argument, an exception object,
+                        is passed if an exception occured while processing the request.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Show a message when an AJAX request fails.</p>
+                     <h3>jQuery Code</h3><pre>$("#msg").ajaxError(function(request, settings){
+  $(this).append("&lt;li&gt;Error requesting page " + settings.url + "&lt;/li&gt;");
+});</pre></dd>
+                  <dt class="direct">ajaxSend(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxSend(callback)</h1>
+                     <p>Attach a function to be executed before an AJAX request is sent.</p>
+                     <p>The XMLHttpRequest and settings used for that request are passed
+                        as arguments to the callback.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Show a message before an AJAX request is sent.</p>
+                     <h3>jQuery Code</h3><pre>$("#msg").ajaxSend(function(request, settings){
+  $(this).append("&lt;li&gt;Starting request at " + settings.url + "&lt;/li&gt;");
+});</pre></dd>
+                  <dt class="direct">ajaxStart(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxStart(callback)</h1>
+                     <p>Attach a function to be executed whenever an AJAX request begins
+                        and there is none already active.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Show a loading message whenever an AJAX request starts
+                        (and none is already active).
+                     </p>
+                     <h3>jQuery Code</h3><pre>$("#loading").ajaxStart(function(){
+  $(this).show();
+});</pre></dd>
+                  <dt class="direct">ajaxStop(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxStop(callback)</h1>
+                     <p>Attach a function to be executed whenever all AJAX requests have ended.</p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Hide a loading message after all the AJAX requests have stopped.</p>
+                     <h3>jQuery Code</h3><pre>$("#loading").ajaxStop(function(){
+  $(this).hide();
+});</pre></dd>
+                  <dt class="direct">ajaxSuccess(callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>ajaxSuccess(callback)</h1>
+                     <p>Attach a function to be executed whenever an AJAX request completes
+                        successfully.
+                     </p>
+                     <p>The XMLHttpRequest and settings used for that request are passed
+                        as arguments to the callback.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>callback</strong> (Function):
+                           The function to execute.
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <p>Show a message when an AJAX request completes successfully.</p>
+                     <h3>jQuery Code</h3><pre>$("#msg").ajaxSuccess(function(request, settings){
+  $(this).append("&lt;li&gt;Successful Request!&lt;/li&gt;");
+});</pre></dd>
+                  <dt class="direct">load(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>load(url, params, callback)</h1>
+                     <p>Load HTML from a remote file and inject it into the DOM.</p>
+                     <p>Note: Avoid to use this to load scripts, instead use $.getScript.
+                        IE strips script tags when there aren't any other characters in front of it.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the HTML file to load.
+                        </li>
+                        <li><strong>params</strong> (Object):
+                           (optional) A set of key/value pairs that will be sent as data to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded (parameters: responseText, status and response itself).
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("#feeds").load("feeds.html");</pre><h3>Before</h3><pre>&lt;div id="feeds"&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="feeds"&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</pre><h2>Example</h2>
+                     <p>Same as above, but with an additional parameter
+                        and a callback that is executed when the data was loaded.
+                     </p>
+                     <h3>jQuery Code</h3><pre>$("#feeds").load("feeds.html",
+  {limit: 25},
+  function() { alert("The last 25 entries in the feed have been loaded"); }
+);</pre></dd>
+                  <dt class="direct">loadIfModified(url, params, callback)</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>loadIfModified(url, params, callback)</h1>
+                     <p>Load HTML from a remote file and inject it into the DOM, only if it's
+                        been modified by the server.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>jQuery</p>
+                     <h2>Parameters</h2>
+                     <ul>
+                        <li><strong>url</strong> (String):
+                           The URL of the HTML file to load.
+                        </li>
+                        <li><strong>params</strong> (Map):
+                           (optional) Key/value pairs that will be sent to the server.
+                        </li>
+                        <li><strong>callback</strong> (Function):
+                           (optional) A function to be executed whenever the data is loaded (parameters: responseText, status and response itself).
+                        </li>
+                     </ul>
+                     <h2>Example</h2>
+                     <h3>jQuery Code</h3><pre>$("#feeds").loadIfModified("feeds.html");</pre><h3>Before</h3><pre>&lt;div id="feeds"&gt;&lt;/div&gt;</pre><h3>Result:</h3><pre>&lt;div id="feeds"&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</pre></dd>
+                  <dt class="direct">serialize()</dt>
+                  <dd class="text">
+                     <p class="cheat"></p>
+                     <h1>serialize()</h1>
+                     <p>Serializes a set of input elements into a string of data.
+                        This will serialize all given elements.
+                     </p>
+                     <p>A serialization similar to the form submit of a browser is
+                        provided by the form plugin. It also takes multiple-selects 
+                        into account, while this method recognizes only a single option.
+                     </p>
+                     <h2>Returns</h2>
+                     <p>String</p>
+                     <h2>Example</h2>
+                     <p>Serialize a selection of input elements to a string</p>
+                     <h3>jQuery Code</h3><pre>$("input[@type=text]").serialize();</pre><h3>Before</h3><pre>&lt;input type='text' name='name' value='John'/&gt;
+&lt;input type='text' name='location' value='Boston'/&gt;</pre></dd>
+               </dl>
+            </dd>
+            
+         </dl>
+      </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-557621-2";
+					urchinTracker();
+				</script><script type="text/javascript" src="jquery.pack.js"></script><script type="text/javascript" src="dimensions.js"></script><script type="text/javascript" src="new_vjq.js"></script></body>
+</html>

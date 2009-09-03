@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Effect.Morph</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Effect.Morph</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This effect changes the CSS properties of an element.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Aviability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.7 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">$('morph_example').morph('background:#080;color:#fff');</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Morph('error_message',{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;style:'background:#f00;&nbsp;color:#fff;&nbsp;border:&nbsp;20px&nbsp;solid&nbsp;#f88;&nbsp;font-size:2em',</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;duration:0.8</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">});</span></p>
+<p>&nbsp;</p>
+<p>Style as a hash (keys should be javascript names, rather than CSS ones i.e. ‘backgroundColor’ rather than ‘background-color’):</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Effect.Morph('example',{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;style:{</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;&nbsp;&nbsp;width:'200px'</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;&nbsp;}</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">});</span></p>
+<p>&nbsp;</p>
+<p>You can also use $(‘element_id’).morph({width:’200px’}), which is a bit shorter.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Effect-specific paramters</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="657" bgcolor="#99cc00" style="width:657px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="124" style="width:124px;"><p>style</p>
+</td>
+<td valign="top" width="657" style="width:657px;"><p>the target style of your element, writing with the standard CSS syntax, or as a hash</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Details</span></p>
+<p>&nbsp;</p>
+<p>Effect.Morph takes orginal styles given by CSS style rules or inline style attributes into consideration when calculating the transforms. It works with all length and color based CSS properties, including margins, paddings, borders, opacity and text/background colors.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p>The original style for an element <span style="font-weight: bold;">must</span> be in its style attribute, not in an external stylesheet, for Scriptactulous to morph it.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

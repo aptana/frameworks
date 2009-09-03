@@ -1,0 +1,340 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>Ajax.InPlaceEditor</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Ajax.InPlaceEditor</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The in-place “text edit” testing allows for Flickr-style AJAX-backed “on-the-fly” textfields.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Availability</span></p>
+<p>&nbsp;</p>
+<p>script.aculo.us V1.5 and later.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Syntax</span></p>
+<p>&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">new&nbsp;Ajax.InPlaceEditor(&nbsp;element,&nbsp;url,&nbsp;[options]);</span></p>
+<p>&nbsp;</p>
+<p>The constructor takes three parameters. The first is the element that should support in-place editing. The second is the url to submit the changed value to. The server should respond with the updated value (the server might have post-processed it or validation might have prevented it from changing). The third is a hash of options.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Options</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="110" bgcolor="#99cc00" style="width:110px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Option</span></p>
+</td>
+<td valign="middle" width="39" bgcolor="#99cc00" style="width:39px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Since</span></p>
+</td>
+<td valign="middle" width="124" bgcolor="#99cc00" style="width:124px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="404" bgcolor="#99cc00" style="width:404px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>okButton</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.6</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>true</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>If a submit button is shown in edit mode (true,false)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>okText</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“ok”</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The text of the submit button that submits the changed value to the server</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>cancelLink</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.6 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>true</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>If a cancel link is shown in edit mode (true,false)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>cancelText</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“cancel”</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The text of the link that cancels editing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>savingText</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“Saving…” </p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The text shown while the text is sent to the server</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>clickToEditText</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.6</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“Click to edit” </p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The text shown during mouseover the editable text</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>formId</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>id of the element to edit +‘InPlaceForm'</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The id given to the element</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>externalControl</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>null</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>ID of an element that acts as an external control used to enter edit mode. The external control will be hidden when entering edit mode and shown again when leaving edit mode.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>rows</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>1</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The row height of the input field (anything greater than 1 uses a multiline textarea for input)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>cols</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>none</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The number of columns the text area should span (works for both single line or multi line)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>size</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>none</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>Synonym for ‘cols’ when using single-line (rows=1) input</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>highlightcolor</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>??</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>Ajax.InPlaceEditor.defaultHighlightColor</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The highlight color</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>highlightendcolor</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>??</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>”#FFFFFF”</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>The color which the highlight fades to</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>savingClassName</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“inplaceeditor-saving”</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>CSS class added to the element while displaying “Saving…” (removed when server responds)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>formClassName</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“inplaceeditor-form” </p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>CSS class used for the in place edit form</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px; height:15px;"><p>hoverClassName</p>
+</td>
+<td valign="top" width="39" style="width:39px; height:15px;"><p>??</p>
+</td>
+<td valign="top" width="124" style="width:124px; height:15px;"><p>??</p>
+</td>
+<td valign="top" width="404" style="width:404px; height:15px;"><p>??</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px; height:30px;"><p>loadTextURL</p>
+</td>
+<td valign="top" width="39" style="width:39px; height:30px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px; height:30px;"><p>null</p>
+</td>
+<td valign="top" width="404" style="width:404px; height:30px;"><p>Will cause the text to be loaded from the server (useful if your text is actually textile and formatted on the server)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>loadingText</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>“Loading…”</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>If the loadText URL option is specified then this text is displayed while the text is being loaded from the server</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px; height:47px;"><p>callback</p>
+</td>
+<td valign="top" width="39" style="width:39px; height:47px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px; height:47px;"><p>function(form) {Form.serialize(form)}</p>
+</td>
+<td valign="top" width="404" style="width:404px; height:47px;"><p>A function that will get executed just before the request is sent to the server, should return the parameters to be sent in the URL. Will get two parameters, the entire form and the value of the text control.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>submitOnBlur</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.6</p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>false</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>This option if true will submit the in_place_edit form when the input tag loses focus.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="110" style="width:110px;"><p>ajaxOptions</p>
+</td>
+<td valign="top" width="39" style="width:39px;"><p>V1.5 </p>
+</td>
+<td valign="top" width="124" style="width:124px;"><p>(empty hash) {}</p>
+</td>
+<td valign="top" width="404" style="width:404px;"><p>Options specified to all AJAX calls (loading and saving text), these options are passed through to the prototype AJAX classes.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Since version 1.6 you can provide the following callbacks in the options parameter:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="2" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:middle;">
+<td valign="middle" width="85" bgcolor="#99cc00" style="width:85px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Callback</span></p>
+</td>
+<td valign="middle" width="350" bgcolor="#99cc00" style="width:350px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Default</span></p>
+</td>
+<td valign="middle" width="246" bgcolor="#99cc00" style="width:246px; height:22px; background-color:#99cc00;"><p><span style="font-weight: bold; color: #ffffff;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td width="85" style="width:85px;"><p>onComplete</p>
+</td>
+<td width="350" style="width:350px;"><p>“function(transport, element) {new Effect.Highlight(element, {startcolor: this.options.highlightcolor});}”</p>
+</td>
+<td valign="middle" width="246" style="width:246px;"><p>Code run if update successful with server</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="middle" width="85" style="width:85px;"><p>onFailure</p>
+</td>
+<td valign="top" width="350" style="width:350px;"><p>“function(transport) {alert(“Error communicating with the server: ” + transport.responseText.stripTags());}”</p>
+</td>
+<td valign="middle" width="246" style="width:246px;"><p>Code run if update failed with server</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Examples</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Single Line Edit Mode</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;p&nbsp;id="editme"&gt;Click&nbsp;me,&nbsp;click&nbsp;me!&lt;/p&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;script&nbsp;type="text/javascript"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&nbsp;new&nbsp;Ajax.InPlaceEditor('editme',&nbsp;'/demoajaxreturn.html');</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">&lt;/script&gt;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Multi Line Edit Mode</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;p&nbsp;id="editme2"&gt;Click&nbsp;me&nbsp;to&nbsp;edit&nbsp;this&nbsp;nice&nbsp;long&nbsp;text.&lt;/p&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;script&nbsp;type="text/javascript"&gt;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;new&nbsp;Ajax.InPlaceEditor('editme2',&nbsp;'/demoajaxreturn.html',&nbsp;{rows:15,cols:40});</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&lt;/script&gt;</span></p>
+<p>&nbsp;</p>
+<p>The server side component gets the new value as the parameter ‘value’ (POST method), and should send the new value as the body of the response.</p>
+<p>&nbsp;</p>
+<p class="p_Heading2"><span class="f_Heading2">Notes</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Character encoding</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;">The form data is sent encoded in UTF-8 regardless of the page encoding. </p>
+<p style="margin: 0px 0px 0px 10px;">This is as of the prototype function Form.serialize. <a href="http://dev.rubyonrails.org/ticket/2151" target="_blank" class="weblink">More info here</a> (web).</p>
+<p style="margin: 0px 0px 0px 10px;">If this doesn’t work, you can use iconv <a href="http://wiki.rubyonrails.com/rails/pages/HowToUseUnicodeStrings" target="_blank" class="weblink">as outlined here</a> (web).</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Remove and force InPlaceEditor</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">To disable the InPlaceEditor behavior later on, store it in a variable like:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">var&nbsp;editor&nbsp;=&nbsp;new&nbsp;Ajax.InPlaceEditor('product_1',...);</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">Later you can then remove the behaviour by calling:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">editor.dispose();</span></p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 12px;">This way, you can enable and disable In Place Editing at will.</p>
+<p style="margin: 0px 0px 0px 12px;">You can also arbitrarily force it into edit mode like so:</p>
+<p style="margin: 0px 0px 0px 12px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 12px;"><span class="f_CodeExample">editor.enterEditMode('click');</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

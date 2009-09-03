@@ -1,0 +1,305 @@
+<html>
+<head>
+<title>DOM / Manipulation - jQuery</title>
+<!-- jQuery 1.1 -->
+<meta name="generator" content="Code by Edwin Martin edwin@bitstorm.org">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("h4").click(function() {
+		$(this).next().slideToggle();
+		$(this).toggleClass("selected");
+	});
+});
+</script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1><a href="http://jquery.com/" target="_blank">jQuery website</a><img src="hat.png" width="24" height="16"> jQuery documentation</h1>
+<div id="menu" class="dom / manipulation">
+<a href="contents.html" class="contents">contents</a>
+<a href="index.html" class="index">index</a>
+</div>
+
+<div class="body">
+<h2>DOM / Manipulation</h2><h3 class='func' id='wrap'><b>wrap</b>(String <b>html</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>html</th><td width='15%'>String</td><td>A string of HTML, that will be created on the fly and wrapped around the target.</td></tr>
+</table>
+<p>Wrap all matched elements with a structure of other elements. This wrapping process is most useful for injecting additional stucture into a document, without ruining the original semantic qualities of a document.</p><p>This works by going through the first element provided (which is generated, on the fly, from the provided HTML) and finds the deepest ancestor element within its structure - it is that element that will en-wrap everything else.</p><p>This does not work with elements that contain text. Any necessary text must be added after the wrapping is done.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).wrap(&quot;&lt;div class='wrap'&gt;&lt;/div&gt;&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div class='wrap'&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func'><b>wrap</b>(Element <b>elem</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>elem</th><td width='15%'>Element</td><td>A DOM element that will be wrapped around the target.</td></tr>
+</table>
+<p>Wrap all matched elements with a structure of other elements. This wrapping process is most useful for injecting additional stucture into a document, without ruining the original semantic qualities of a document.</p><p>This works by going through the first element provided and finding the deepest ancestor element within its structure - it is that element that will en-wrap everything else.</p><p>This does not work with elements that contain text. Any necessary text must be added after the wrapping is done.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).wrap( document.getElementById('content') );</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;content&quot;&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='append'><b>append</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to append to the target</td></tr>
+</table>
+<p>Append content to the inside of every matched element.</p><p>This operation is similar to doing an appendChild to all the specified elements, adding them into the document.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Appends some HTML to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).append(&quot;&lt;b&gt;Hello&lt;/b&gt;&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Appends an Element to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).append( $(&quot;#foo&quot;)[0] );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Appends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).append( $(&quot;b&quot;) );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='prepend'><b>prepend</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to prepend to the target.</td></tr>
+</table>
+<p>Prepend content to the inside of every matched element.</p><p>This operation is the best way to insert elements inside, at the beginning, of all matched elements.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Prepends some HTML to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prepend(&quot;&lt;b&gt;Hello&lt;/b&gt;&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Prepends an Element to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prepend( $(&quot;#foo&quot;)[0] );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Prepends a jQuery object (similar to an Array of DOM Elements) to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prepend( $(&quot;b&quot;) );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='before'><b>before</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to insert before each target.</td></tr>
+</table>
+<p>Insert content before each of the matched elements.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Inserts some HTML before all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).before(&quot;&lt;b&gt;Hello&lt;/b&gt;&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Inserts an Element before all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).before( $(&quot;#foo&quot;)[0] );</pre>
+<h5>Result</h5>
+<pre>&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+<div class='example'>
+<p>Inserts a jQuery object (similar to an Array of DOM Elements) before all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).before( $(&quot;b&quot;) );</pre>
+<h5>Result</h5>
+<pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='after'><b>after</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to insert after each target.</td></tr>
+</table>
+<p>Insert content after each of the matched elements.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<p>Inserts some HTML after all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).after(&quot;&lt;b&gt;Hello&lt;/b&gt;&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre>
+</div>
+<div class='example'>
+<p>Inserts an Element after all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).after( $(&quot;#foo&quot;)[0] );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b id=&quot;foo&quot;&gt;Hello&lt;/b&gt;</pre>
+</div>
+<div class='example'>
+<p>Inserts a jQuery object (similar to an Array of DOM Elements) after all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).after( $(&quot;b&quot;) );</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='clone'><b>clone</b>(Boolean <b>deep</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>deep</th><td width='15%'>Boolean</td><td>(Optional) Set to false if you don't want to clone all descendant nodes, in addition to the element itself.</td></tr>
+</table>
+<p>Clone matched DOM Elements and select the clones. </p><p>This is useful for moving copies of the elements to another location in the DOM.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Clones all b elements (and selects the clones) and prepends them to all paragraphs.</p>
+<h5>Before</h5>
+<pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;, how are you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;b&quot;).clone().prependTo(&quot;p&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;, how are you?&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='appendTo'><b>appendTo</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to append to the selected element to.</td></tr>
+</table>
+<p>Append all of the matched elements to another, specified, set of elements. This operation is, essentially, the reverse of doing a regular $(A).append(B), in that instead of appending B to A, you're appending A to B.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Appends all paragraphs to the element with the ID "foo"</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id=&quot;foo&quot;&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).appendTo(&quot;#foo&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;foo&quot;&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='prependTo'><b>prependTo</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to prepend to the selected element to.</td></tr>
+</table>
+<p>Prepend all of the matched elements to another, specified, set of elements. This operation is, essentially, the reverse of doing a regular $(A).prepend(B), in that instead of prepending B to A, you're prepending A to B.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Prepends all paragraphs to the element with the ID "foo"</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id=&quot;foo&quot;&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).prependTo(&quot;#foo&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;foo&quot;&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='insertBefore'><b>insertBefore</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to insert the selected element before.</td></tr>
+</table>
+<p>Insert all of the matched elements before another, specified, set of elements. This operation is, essentially, the reverse of doing a regular $(A).before(B), in that instead of inserting B before A, you're inserting A before B.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Same as $("#foo").before("p")</p>
+<h5>Before</h5>
+<pre>&lt;div id=&quot;foo&quot;&gt;Hello&lt;/div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).insertBefore(&quot;#foo&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id=&quot;foo&quot;&gt;Hello&lt;/div&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='insertAfter'><b>insertAfter</b>(<Content> <b>content</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>content</th><td width='15%'><Content></td><td>Content to insert the selected element after.</td></tr>
+</table>
+<p>Insert all of the matched elements after another, specified, set of elements. This operation is, essentially, the reverse of doing a regular $(A).after(B), in that instead of inserting B after A, you're inserting A after B.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<p>Same as $("#foo").after("p")</p>
+<h5>Before</h5>
+<pre>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id=&quot;foo&quot;&gt;Hello&lt;/div&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).insertAfter(&quot;#foo&quot;);</pre>
+<h5>Result</h5>
+<pre>&lt;div id=&quot;foo&quot;&gt;Hello&lt;/div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='remove'><b>remove</b>(String <b>expr</b>) : jQuery</h3>
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr><th width='15%'>expr</th><td width='15%'>String</td><td>(optional) A jQuery expression to filter elements by.</td></tr>
+</table>
+<p>Removes all matched elements from the DOM. This does NOT remove them from the jQuery object, allowing you to use the matched elements further.</p><p>Can be filtered with an optional expressions.</p><h4>Examples</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).remove();</pre>
+<h5>Result</h5>
+<pre>how are</pre>
+</div>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p class=&quot;hello&quot;&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).remove(&quot;.hello&quot;);</pre>
+<h5>Result</h5>
+<pre>how are &lt;p&gt;you?&lt;/p&gt;</pre>
+</div>
+</div>
+<h3 class='func' id='empty'><b>empty</b>() : jQuery</h3>
+<p>Removes all child nodes from the set of matched elements.</p><h4>Example</h4>
+<div class='examples'>
+<div class='example'>
+<h5>Before</h5>
+<pre>&lt;p&gt;Hello, &lt;span&gt;Person&lt;/span&gt; &lt;a href=&quot;#&quot;&gt;and person&lt;/a&gt;&lt;/p&gt;</pre>
+<h5>Code</h5>
+<pre>$(&quot;p&quot;).empty()</pre>
+<h5>Result</h5>
+<pre>[ &lt;p&gt;&lt;/p&gt; ]</pre>
+</div>
+</div>

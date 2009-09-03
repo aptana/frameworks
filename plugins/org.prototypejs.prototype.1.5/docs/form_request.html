@@ -1,0 +1,88 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <title>request (1.5.1)</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_TopicHeading"><span class="f_TopicHeading">request </span><span class="f_TopicHeading" style="color: #ccffff;">:: Form</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table cellspacing="0" cellpadding="5" bgcolor="#e1f4ff" border="1" style="background-color: #e1f4ff; border: solid 1px #99ccff; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" style="border: none"><p><span class="f_CourierFixed" style="color: #0000ff;">request([options]) -&gt; new Ajax.Request</span></p>
+<p><span class="f_CourierFixed">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #666699;">A convenience method for serializing and submitting the form via an Ajax.Request to the URL of the form’s </span><span style="font-size: 9pt; font-family: 'Courier New'; font-weight: bold; color: #666699;">action</span><span style="font-size: 9pt; font-weight: bold; color: #666699;"> attribute. The </span><span style="font-size: 9pt; font-family: 'Courier New'; font-weight: bold; color: #666699;">options</span><span style="font-size: 9pt; font-weight: bold; color: #666699;"> parameter is passed to the Ajax.Request instance, allowing to override the HTTP method and to specify additional parameters.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Options passed to<span style="font-weight: bold;"> request()</span> are intelligently merged with the underlying <a href="ajax_request.html">Ajax.Request</a> options:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>If the form has a method attribute, its value is used for the Ajax.Request method option. If a method option is passed to request(), it takes precedence over the form’s method attribute. If neither is specified, method defaults to “POST”.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 5px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td>Key-value pairs specified in the parameters option (either as a hash or a query string) will be merged with (and take precedence over) the serialized form parameters.</td></tr></table></div><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_Heading1" style="border-top: none; border-right: none; border-left: none;"><span class="f_Heading1">Example</span></p>
+<p>&nbsp;</p>
+<p>Suppose you have this HTML form:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&lt;</span><span class="f_CodeExample" style="color: #0000ff;">form</span><span class="f_CodeExample" style="color: #000000;">&nbsp;id=</span><span class="f_CodeExample" style="color: #800000;">&quot;person-example&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;method=</span><span class="f_CodeExample" style="color: #800000;">&quot;POST&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;action=</span><span class="f_CodeExample" style="color: #800000;">&quot;/user/info&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;fieldset&gt;&lt;legend&gt;</span><span class="f_CodeExample" style="color: #0000ff;">User</span><span class="f_CodeExample" style="color: #000000;">&nbsp;info&lt;/legend&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;div&gt;&lt;label&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">for</span><span class="f_CodeExample" style="color: #000000;">=</span><span class="f_CodeExample" style="color: #800000;">&quot;username&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;Username:&lt;/label&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=</span><span class="f_CodeExample" style="color: #800000;">&quot;text&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;name=</span><span class="f_CodeExample" style="color: #800000;">&quot;username&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;id=</span><span class="f_CodeExample" style="color: #800000;">&quot;username&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;value=</span><span class="f_CodeExample" style="color: #800000;">&quot;&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;/&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;div&gt;&lt;label&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">for</span><span class="f_CodeExample" style="color: #000000;">=</span><span class="f_CodeExample" style="color: #800000;">&quot;age&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;Age:&lt;/label&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=</span><span class="f_CodeExample" style="color: #800000;">&quot;text&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;name=</span><span class="f_CodeExample" style="color: #800000;">&quot;age&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;id=</span><span class="f_CodeExample" style="color: #800000;">&quot;age&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;value=</span><span class="f_CodeExample" style="color: #800000;">&quot;&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;size=</span><span class="f_CodeExample" style="color: #800000;">&quot;3&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;/&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;div&gt;&lt;label&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">for</span><span class="f_CodeExample" style="color: #000000;">=</span><span class="f_CodeExample" style="color: #800000;">&quot;hobbies&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;Your&nbsp;hobbies&nbsp;are:&lt;/label&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;</span><span class="f_CodeExample" style="color: #0000ff;">select</span><span class="f_CodeExample" style="color: #000000;">&nbsp;name=</span><span class="f_CodeExample" style="color: #800000;">&quot;hobbies[]&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;id=</span><span class="f_CodeExample" style="color: #800000;">&quot;hobbies&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;multiple=</span><span class="f_CodeExample" style="color: #800000;">&quot;multiple&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;coding&lt;/option&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;swimming&lt;/option&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;hiking&lt;/option&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;drawing&lt;/option&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;/</span><span class="f_CodeExample" style="color: #0000ff;">select</span><span class="f_CodeExample" style="color: #000000;">&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&lt;/div&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;div&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">class</span><span class="f_CodeExample" style="color: #000000;">=</span><span class="f_CodeExample" style="color: #800000;">&quot;buttonrow&quot;</span><span class="f_CodeExample" style="color: #000000;">&gt;&lt;input&nbsp;type=</span><span class="f_CodeExample" style="color: #800000;">&quot;submit&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;value=</span><span class="f_CodeExample" style="color: #800000;">&quot;serialize!&quot;</span><span class="f_CodeExample" style="color: #000000;">&nbsp;/&gt;&lt;/div&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;&lt;/fieldset&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&lt;/</span><span class="f_CodeExample" style="color: #0000ff;">form</span><span class="f_CodeExample" style="color: #000000;">&gt;</span></p>
+<p>&nbsp;</p>
+<p>You can easily post it with Ajax like this:</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'person-example'</span><span class="f_CodeExample" style="color: #000000;">).request();&nbsp;//done&nbsp;-&nbsp;it's&nbsp;posted</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">//&nbsp;do&nbsp;the&nbsp;same&nbsp;with&nbsp;a&nbsp;callback:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'person-example'</span><span class="f_CodeExample" style="color: #000000;">).request({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onComplete:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(){&nbsp;alert(</span><span class="f_CodeExample" style="color: #800000;">'Form&nbsp;data&nbsp;saved!'</span><span class="f_CodeExample" style="color: #000000;">)&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">})</span></p>
+<p>&nbsp;</p>
+<p>To override the HTTP method and add some <span style="font-family: 'Courier New';">parameters</span>, simply use method and parameters in the options. In this example we set the method to GET and set two fixed parameters: <span style="font-family: 'Courier New';">interests</span> and <span style="font-family: 'Courier New';">hobbies</span>. The latter already exists in the form but this value will take precedence.</p>
+<p>&nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">$(</span><span class="f_CodeExample" style="color: #800000;">'person-example'</span><span class="f_CodeExample" style="color: #000000;">).request({</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;method:&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'get'</span><span class="f_CodeExample" style="color: #000000;">,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;parameters:&nbsp;{&nbsp;interests:</span><span class="f_CodeExample" style="color: #800000;">'JavaScript'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'hobbies[]'</span><span class="f_CodeExample" style="color: #000000;">:[</span><span class="f_CodeExample" style="color: #800000;">'programming'</span><span class="f_CodeExample" style="color: #000000;">,&nbsp;</span><span class="f_CodeExample" style="color: #800000;">'music'</span><span class="f_CodeExample" style="color: #000000;">]&nbsp;},</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">&nbsp;&nbsp;onComplete:&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">function</span><span class="f_CodeExample" style="color: #000000;">(){&nbsp;alert(</span><span class="f_CodeExample" style="color: #800000;">'Form&nbsp;data&nbsp;saved!'</span><span class="f_CodeExample" style="color: #000000;">)&nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample" style="color: #000000;">})</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+<br>
+<p style="text-align:right;padding-right:5px"><font size="1" color="#AAAAAA">Prototype API 1.5.0 - prototypejs.org</font></p>
+<br>
+</body>
+</html>
