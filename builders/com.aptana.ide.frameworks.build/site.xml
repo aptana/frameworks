@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site pack200="true"> 
-    <description url="http://update.aptana.com/update/frameworks/">AJAX Frameworks</description> 
+    <description url="http://download.aptana.org/tools/studio/plugin/update/frameworks/">AJAX Frameworks</description> 
 	<feature url="features/com.adobe.spry.1.6_{com.adobe.spry.1.6.version.full}.jar" id="com.adobe.spry.1.6" version="{com.adobe.spry.1.6.version.full}">
 		<category name="Ajax Frameworks"/>
 	</feature>
