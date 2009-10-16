@@ -168,7 +168,7 @@
             <param name="feature.id" value="com.ms.ajax.3.5" />
         </antcall>
         <antcall target="insert.version">
-            <param name="feature.id" value="com.yahoo.yui.2.7" />
+            <param name="feature.id" value="com.yahoo.yui.2.8" />
         </antcall>
         <antcall target="insert.version">
             <param name="feature.id" value="net.mootools.1.2" />

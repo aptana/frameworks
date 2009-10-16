@@ -16,7 +16,7 @@
     <feature url="features/com.ms.ajax.3.5_{com.ms.ajax.3.5.version.full}.jar" id="com.ms.ajax.3.5" version="{com.ms.ajax.3.5.version.full}">
 		<category name="Ajax Frameworks"/>
 	</feature>
-    <feature url="features/com.yahoo.yui.2.7_{com.yahoo.yui.2.7.version.full}.jar" id="com.yahoo.yui.2.7" version="{com.yahoo.yui.2.7.version.full}">
+    <feature url="features/com.yahoo.yui.2.8_{com.yahoo.yui.2.8.version.full}.jar" id="com.yahoo.yui.2.8" version="{com.yahoo.yui.2.8.version.full}">
 		<category name="Ajax Frameworks"/>
 	</feature>
     <feature url="features/net.mootools.1.2_{net.mootools.1.2.version.full}.jar" id="net.mootools.1.2" version="{net.mootools.1.2.version.full}">
