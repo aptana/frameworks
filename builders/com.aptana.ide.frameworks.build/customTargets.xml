@@ -170,6 +170,9 @@
         <antcall target="insert.version">
             <param name="feature.id" value="com.yahoo.yui.2.8" />
         </antcall>
+		<antcall target="insert.version">
+		     <param name="feature.id" value="com.yahoo.yui.3.0" />
+		</antcall>
         <antcall target="insert.version">
             <param name="feature.id" value="net.mootools.1.2" />
         </antcall>
