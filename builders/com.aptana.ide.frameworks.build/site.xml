@@ -12,6 +12,9 @@
    <feature url="features/com.jquery.1.3_{com.jquery.1.3.version.full}.jar" id="com.jquery.1.3" version="{com.jquery.1.3.version.full}">
       <category name="Ajax Frameworks"/>
    </feature>
+   <feature url="features/com.jquery.1.4_{com.jquery.1.4.version.full}.jar" id="com.jquery.1.4" version="{com.jquery.1.4.version.full}">
+      <category name="Ajax Frameworks"/>
+   </feature>
    <feature url="features/com.mochikit.1.4_{com.mochikit.1.4.version.full}.jar" id="com.mochikit.1.4" version="{com.mochikit.1.4.version.full}">
       <category name="Ajax Frameworks"/>
    </feature>
@@ -21,7 +24,7 @@
    <feature url="features/com.yahoo.yui.2.8_{com.yahoo.yui.2.8.version.full}.jar" id="com.yahoo.yui.2.8" version="{com.yahoo.yui.2.8.version.full}">
       <category name="Ajax Frameworks"/>
    </feature>
-      <feature url="features/com.yahoo.yui.3.0_{com.yahoo.yui.3.0.version.full}.jar" id="com.yahoo.yui.3.0" version="{com.yahoo.yui.3.0.version.full}">
+   <feature url="features/com.yahoo.yui.3.0_{com.yahoo.yui.3.0.version.full}.jar" id="com.yahoo.yui.3.0" version="{com.yahoo.yui.3.0.version.full}">
       <category name="Ajax Frameworks"/>
    </feature>
    <feature url="features/net.mootools.1.2_{net.mootools.1.2.version.full}.jar" id="net.mootools.1.2" version="{net.mootools.1.2.version.full}">

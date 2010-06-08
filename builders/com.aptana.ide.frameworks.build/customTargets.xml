@@ -147,10 +147,10 @@
 		<antcall target="gatherLogs" />
 		<antcall target="updateSite" />
 		<antcall target="publish" />
-	</target>
+    </target>
 
-	<target name="updateSite">
-		<copy file="${builder}/site.xml" tofile="${p2.repo.dir}/site.xml" />
+    <target name="updateSite">
+        <copy file="${builder}/site.xml" tofile="${p2.repo.dir}/site.xml" />
         <!-- TODO Make this more dynamic so it picks up the feature id's on it's own -->
         <antcall target="insert.version">
             <param name="feature.id" value="com.adobe.spry.1.6" />
@@ -162,6 +162,9 @@
             <param name="feature.id" value="com.jquery.1.3" />
         </antcall>
         <antcall target="insert.version">
+            <param name="feature.id" value="com.jquery.1.4" />
+        </antcall>
+        <antcall target="insert.version">
             <param name="feature.id" value="com.mochikit.1.4" />
         </antcall>
         <antcall target="insert.version">
@@ -170,9 +173,9 @@
         <antcall target="insert.version">
             <param name="feature.id" value="com.yahoo.yui.2.8" />
         </antcall>
-		<antcall target="insert.version">
-		     <param name="feature.id" value="com.yahoo.yui.3.0" />
-		</antcall>
+        <antcall target="insert.version">
+            <param name="feature.id" value="com.yahoo.yui.3.0" />
+        </antcall>
         <antcall target="insert.version">
             <param name="feature.id" value="net.mootools.1.2" />
         </antcall>
@@ -191,9 +194,9 @@
         <antcall target="insert.version">
             <param name="feature.id" value="org.scriptaculous.1.8" />
         </antcall>
-		<copy file="${builder}/index.html" tofile="${p2.repo.dir}/index.html" />
-	</target>
-    
+        <copy file="${builder}/index.html" tofile="${p2.repo.dir}/index.html" />
+    </target>
+
     <target name="insert.version">
         <pathconvert property="${feature.id}.version.full">
             <fileset dir="${p2.repo.dir}/features">
