@@ -18,7 +18,7 @@
       <libraryinfo
             directory="libraries"
             iconFile="icons/prototype_small.png"
-            name="Prototype 1.6.0.1"/>
+            name="Prototype 1.6.1"/>
        </extension>
           <extension
                 point="com.aptana.ide.samples.samplespath">

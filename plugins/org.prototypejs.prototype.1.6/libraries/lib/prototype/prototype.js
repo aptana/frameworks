@@ -1,45 +1,55 @@
-/*  Prototype JavaScript framework, version 1.6.0.2
- *  (c) 2005-2008 Sam Stephenson
+/*  Prototype JavaScript framework, version 1.6.1
+ *  (c) 2005-2009 Sam Stephenson
  *
  *  Prototype is freely distributable under the terms of an MIT-style license.
  *  For details, see the Prototype web site: http://www.prototypejs.org/
  *
  *--------------------------------------------------------------------------*/
 
-/**
-* @classDescription Declares the version of the prototype library.
-*/
-
 var Prototype = {
-  Version: '1.6.0.2',
+  Version: '1.6.1',
 
-  Browser: {
-    IE:     !!(window.attachEvent && !window.opera),
-    Opera:  !!window.opera,
-    WebKit: navigator.userAgent.indexOf('AppleWebKit/') > -1,
-    Gecko:  navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') == -1,
-    MobileSafari: !!navigator.userAgent.match(/Apple.*Mobile.*Safari/)
-  },
+  Browser: (function(){
+    var ua = navigator.userAgent;
+    var isOpera = Object.prototype.toString.call(window.opera) == '[object Opera]';
+    return {
+      IE:             !!window.attachEvent && !isOpera,
+      Opera:          isOpera,
+      WebKit:         ua.indexOf('AppleWebKit/') > -1,
+      Gecko:          ua.indexOf('Gecko') > -1 && ua.indexOf('KHTML') === -1,
+      MobileSafari:   /Apple.*Mobile.*Safari/.test(ua)
+    }
+  })(),
 
   BrowserFeatures: {
     XPath: !!document.evaluate,
-    ElementExtensions: !!window.HTMLElement,
-    SpecificElementExtensions:
-      document.createElement('div').__proto__ &&
-      document.createElement('div').__proto__ !==
-        document.createElement('form').__proto__
+    SelectorsAPI: !!document.querySelector,
+    ElementExtensions: (function() {
+      var constructor = window.Element || window.HTMLElement;
+      return !!(constructor && constructor.prototype);
+    })(),
+    SpecificElementExtensions: (function() {
+      if (typeof window.HTMLDivElement !== 'undefined')
+        return true;
+
+      var div = document.createElement('div');
+      var form = document.createElement('form');
+      var isSupported = false;
+
+      if (div['__proto__'] && (div['__proto__'] !== form['__proto__'])) {
+        isSupported = true;
+      }
+
+      div = form = null;
+
+      return isSupported;
+    })()
   },
 
   ScriptFragment: '<script[^>]*>([\\S\\s]*?)<\/script>',
   JSONFilter: /^\/\*-secure-([\s\S]*)\*\/\s*$/,
 
   emptyFunction: function() { },
-  
-   /**
-    * Function to echo back the specified parameter.
-     * @param {Object} x	Parameter to echo.
-     * @return {Object} Returns the specified parameter.
-     */
   K: function(x) { return x }
 };
 
@@ -47,262 +57,9 @@ if (Prototype.Browser.MobileSafari)
   Prototype.BrowserFeatures.SpecificElementExtensions = false;
 
 
-/* Based on Alex Arnell's inheritance implementation. */
-
-/**
- * @classDescription Declares a class.
- * @constructor
- */
-var Class = {
-  create: function() {
-    var parent = null, properties = $A(arguments);
-    if (Object.isFunction(properties[0]))
-      parent = properties.shift();
-
-    function klass() {
-      this.initialize.apply(this, arguments);
-    }
-
-    Object.extend(klass, Class.Methods);
-    klass.superclass = parent;
-    klass.subclasses = [];
-
-    if (parent) {
-      var subclass = function() { };
-      subclass.prototype = parent.prototype;
-      klass.prototype = new subclass;
-      parent.subclasses.push(klass);
-    }
-
-    for (var i = 0; i < properties.length; i++)
-      klass.addMethods(properties[i]);
-
-    if (!klass.prototype.initialize)
-      klass.prototype.initialize = Prototype.emptyFunction;
-
-    klass.prototype.constructor = klass;
-
-    return klass;
-  }
-};
-
-Class.Methods = {
-  addMethods: function(source) {
-    var ancestor   = this.superclass && this.superclass.prototype;
-    var properties = Object.keys(source);
-
-    if (!Object.keys({ toString: true }).length)
-      properties.push("toString", "valueOf");
-
-    for (var i = 0, length = properties.length; i < length; i++) {
-      var property = properties[i], value = source[property];
-      if (ancestor && Object.isFunction(value) &&
-          value.argumentNames().first() == "$super") {
-        var method = value, value = Object.extend((function(m) {
-          return function() { return ancestor[m].apply(this, arguments) };
-        })(property).wrap(method), {
-          valueOf:  function() { return method },
-          toString: function() { return method.toString() }
-        });
-      }
-      this.prototype[property] = value;
-    }
-
-    return this;
-  }
-};
-
 var Abstract = { };
 
-/**
- * Implements inheritance by copying the properties and methods from one element to another.
- * @alias Object.extend
- * @param {Object} destination	Destination object to inherit the properties and methods.
- * @param {Object} source	Source object to inherit properties and methods from.
- * @return {Object} Returns the destination object with the properties and methods from the source object.
- * @extends {Object}
- */
-Object.extend = function(destination, source) {
-  for (var property in source)
-    destination[property] = source[property];
-  return destination;
-};
 
-Object.extend(Object, {
-  inspect: function(object) {
-    try {
-      if (Object.isUndefined(object)) return 'undefined';
-      if (object === null) return 'null';
-      return object.inspect ? object.inspect() : String(object);
-    } catch (e) {
-      if (e instanceof RangeError) return '...';
-      throw e;
-    }
-  },
-
-  toJSON: function(object) {
-    var type = typeof object;
-    switch (type) {
-      case 'undefined':
-      case 'function':
-      case 'unknown': return;
-      case 'boolean': return object.toString();
-    }
-
-    if (object === null) return 'null';
-    if (object.toJSON) return object.toJSON();
-    if (Object.isElement(object)) return;
-
-    var results = [];
-    for (var property in object) {
-      var value = Object.toJSON(object[property]);
-      if (!Object.isUndefined(value))
-        results.push(property.toJSON() + ': ' + value);
-    }
-
-    return '{' + results.join(', ') + '}';
-  },
-
-  toQueryString: function(object) {
-    return $H(object).toQueryString();
-  },
-
-  toHTML: function(object) {
-    return object && object.toHTML ? object.toHTML() : String.interpret(object);
-  },
-
-  keys: function(object) {
-    var keys = [];
-    for (var property in object)
-      keys.push(property);
-    return keys;
-  },
-
-  values: function(object) {
-    var values = [];
-    for (var property in object)
-      values.push(object[property]);
-    return values;
-  },
-
-  clone: function(object) {
-    return Object.extend({ }, object);
-  },
-
-  isElement: function(object) {
-    return object && object.nodeType == 1;
-  },
-
-  isArray: function(object) {
-    return object != null && typeof object == "object" &&
-      'splice' in object && 'join' in object;
-  },
-
-  isHash: function(object) {
-    return object instanceof Hash;
-  },
-
-  isFunction: function(object) {
-    return typeof object == "function";
-  },
-
-  isString: function(object) {
-    return typeof object == "string";
-  },
-
-  isNumber: function(object) {
-    return typeof object == "number";
-  },
-
-  isUndefined: function(object) {
-    return typeof object == "undefined";
-  }
-});
-
-Object.extend(Function.prototype, {
-  argumentNames: function() {
-    var names = this.toString().match(/^[\s\(]*function[^(]*\((.*?)\)/)[1].split(",").invoke("strip");
-    return names.length == 1 && !names[0] ? [] : names;
-  },
-
-  /**
-   * Binds an instance of the function to the object that owns the function.
-   * @alias Function.prototype.bind
-   * @param {Function} function	Function to bind to its owner object.
-   * @param {Object, Array} ... Arguments to use when calling the function.
-   * @return {Object} Returns the function pre-bound to its owner object with the specified arguments.
-   * @extends {Function}
-   */
-  bind: function() {
-    if (arguments.length < 2 && Object.isUndefined(arguments[0])) return this;
-    var __method = this, args = $A(arguments), object = args.shift();
-    return function() {
-      return __method.apply(object, args.concat($A(arguments)));
-    }
-  },
-
- /**
- * Binds an instance of a function to the object that owns the function as an event listener.
- * @alias Function.prototype.bindAsEventListener
- * @param {Object} object	Function to bind to its owner object.
- * @return {Object} Returns the function pre-bound to its owner object with the current event object as its argument.
- * @extends {Function}
- */
-  bindAsEventListener: function() {
-    var __method = this, args = $A(arguments), object = args.shift();
-    return function(event) {
-      return __method.apply(object, [event || window.event].concat(args));
-    }
-  },
-
-  curry: function() {
-    if (!arguments.length) return this;
-    var __method = this, args = $A(arguments);
-    return function() {
-      return __method.apply(this, args.concat($A(arguments)));
-    }
-  },
-
-  delay: function() {
-    var __method = this, args = $A(arguments), timeout = args.shift() * 1000;
-    return window.setTimeout(function() {
-      return __method.apply(__method, args);
-    }, timeout);
-  },
-
-  wrap: function(wrapper) {
-    var __method = this;
-    return function() {
-      return wrapper.apply(this, [__method.bind(this)].concat($A(arguments)));
-    }
-  },
-
-  methodize: function() {
-    if (this._methodized) return this._methodized;
-    var __method = this;
-    return this._methodized = function() {
-      return __method.apply(null, [this].concat($A(arguments)));
-    };
-  }
-});
-
-Function.prototype.defer = Function.prototype.delay.curry(0.01);
-
-Date.prototype.toJSON = function() {
-  return '"' + this.getUTCFullYear() + '-' +
-    (this.getUTCMonth() + 1).toPaddedString(2) + '-' +
-    this.getUTCDate().toPaddedString(2) + 'T' +
-    this.getUTCHours().toPaddedString(2) + ':' +
-    this.getUTCMinutes().toPaddedString(2) + ':' +
-    this.getUTCSeconds().toPaddedString(2) + 'Z"';
-};
-
-/**
- * Tries the specified function calls until one of them is successful.
- * @alias Try.these
- * @param {Function, Array}	Function call(s) to try.
- * @return {String, Number}	Returns the value of the first successful function call.
- */
 var Try = {
   these: function() {
     var returnValue;
@@ -319,25 +76,298 @@ var Try = {
   }
 };
 
+/* Based on Alex Arnell's inheritance implementation. */
+
+var Class = (function() {
+  function subclass() {};
+  function create() {
+    var parent = null, properties = $A(arguments);
+    if (Object.isFunction(properties[0]))
+      parent = properties.shift();
+
+    function klass() {
+      this.initialize.apply(this, arguments);
+    }
+
+    Object.extend(klass, Class.Methods);
+    klass.superclass = parent;
+    klass.subclasses = [];
+
+    if (parent) {
+      subclass.prototype = parent.prototype;
+      klass.prototype = new subclass;
+      parent.subclasses.push(klass);
+    }
+
+    for (var i = 0; i < properties.length; i++)
+      klass.addMethods(properties[i]);
+
+    if (!klass.prototype.initialize)
+      klass.prototype.initialize = Prototype.emptyFunction;
+
+    klass.prototype.constructor = klass;
+    return klass;
+  }
+
+  function addMethods(source) {
+    var ancestor   = this.superclass && this.superclass.prototype;
+    var properties = Object.keys(source);
+
+    if (!Object.keys({ toString: true }).length) {
+      if (source.toString != Object.prototype.toString)
+        properties.push("toString");
+      if (source.valueOf != Object.prototype.valueOf)
+        properties.push("valueOf");
+    }
+
+    for (var i = 0, length = properties.length; i < length; i++) {
+      var property = properties[i], value = source[property];
+      if (ancestor && Object.isFunction(value) &&
+          value.argumentNames().first() == "$super") {
+        var method = value;
+        value = (function(m) {
+          return function() { return ancestor[m].apply(this, arguments); };
+        })(property).wrap(method);
+
+        value.valueOf = method.valueOf.bind(method);
+        value.toString = method.toString.bind(method);
+      }
+      this.prototype[property] = value;
+    }
+
+    return this;
+  }
+
+  return {
+    create: create,
+    Methods: {
+      addMethods: addMethods
+    }
+  };
+})();
+(function() {
+
+  var _toString = Object.prototype.toString;
+
+  function extend(destination, source) {
+    for (var property in source)
+      destination[property] = source[property];
+    return destination;
+  }
+
+  function inspect(object) {
+    try {
+      if (isUndefined(object)) return 'undefined';
+      if (object === null) return 'null';
+      return object.inspect ? object.inspect() : String(object);
+    } catch (e) {
+      if (e instanceof RangeError) return '...';
+      throw e;
+    }
+  }
+
+  function toJSON(object) {
+    var type = typeof object;
+    switch (type) {
+      case 'undefined':
+      case 'function':
+      case 'unknown': return;
+      case 'boolean': return object.toString();
+    }
+
+    if (object === null) return 'null';
+    if (object.toJSON) return object.toJSON();
+    if (isElement(object)) return;
+
+    var results = [];
+    for (var property in object) {
+      var value = toJSON(object[property]);
+      if (!isUndefined(value))
+        results.push(property.toJSON() + ': ' + value);
+    }
+
+    return '{' + results.join(', ') + '}';
+  }
+
+  function toQueryString(object) {
+    return $H(object).toQueryString();
+  }
+
+  function toHTML(object) {
+    return object && object.toHTML ? object.toHTML() : String.interpret(object);
+  }
+
+  function keys(object) {
+    var results = [];
+    for (var property in object)
+      results.push(property);
+    return results;
+  }
+
+  function values(object) {
+    var results = [];
+    for (var property in object)
+      results.push(object[property]);
+    return results;
+  }
+
+  function clone(object) {
+    return extend({ }, object);
+  }
+
+  function isElement(object) {
+    return !!(object && object.nodeType == 1);
+  }
+
+  function isArray(object) {
+    return _toString.call(object) == "[object Array]";
+  }
+
+
+  function isHash(object) {
+    return object instanceof Hash;
+  }
+
+  function isFunction(object) {
+    return typeof object === "function";
+  }
+
+  function isString(object) {
+    return _toString.call(object) == "[object String]";
+  }
+
+  function isNumber(object) {
+    return _toString.call(object) == "[object Number]";
+  }
+
+  function isUndefined(object) {
+    return typeof object === "undefined";
+  }
+
+  extend(Object, {
+    extend:        extend,
+    inspect:       inspect,
+    toJSON:        toJSON,
+    toQueryString: toQueryString,
+    toHTML:        toHTML,
+    keys:          keys,
+    values:        values,
+    clone:         clone,
+    isElement:     isElement,
+    isArray:       isArray,
+    isHash:        isHash,
+    isFunction:    isFunction,
+    isString:      isString,
+    isNumber:      isNumber,
+    isUndefined:   isUndefined
+  });
+})();
+Object.extend(Function.prototype, (function() {
+  var slice = Array.prototype.slice;
+
+  function update(array, args) {
+    var arrayLength = array.length, length = args.length;
+    while (length--) array[arrayLength + length] = args[length];
+    return array;
+  }
+
+  function merge(array, args) {
+    array = slice.call(array, 0);
+    return update(array, args);
+  }
+
+  function argumentNames() {
+    var names = this.toString().match(/^[\s\(]*function[^(]*\(([^)]*)\)/)[1]
+      .replace(/\/\/.*?[\r\n]|\/\*(?:.|[\r\n])*?\*\//g, '')
+      .replace(/\s+/g, '').split(',');
+    return names.length == 1 && !names[0] ? [] : names;
+  }
+
+  function bind(context) {
+    if (arguments.length < 2 && Object.isUndefined(arguments[0])) return this;
+    var __method = this, args = slice.call(arguments, 1);
+    return function() {
+      var a = merge(args, arguments);
+      return __method.apply(context, a);
+    }
+  }
+
+  function bindAsEventListener(context) {
+    var __method = this, args = slice.call(arguments, 1);
+    return function(event) {
+      var a = update([event || window.event], args);
+      return __method.apply(context, a);
+    }
+  }
+
+  function curry() {
+    if (!arguments.length) return this;
+    var __method = this, args = slice.call(arguments, 0);
+    return function() {
+      var a = merge(args, arguments);
+      return __method.apply(this, a);
+    }
+  }
+
+  function delay(timeout) {
+    var __method = this, args = slice.call(arguments, 1);
+    timeout = timeout * 1000
+    return window.setTimeout(function() {
+      return __method.apply(__method, args);
+    }, timeout);
+  }
+
+  function defer() {
+    var args = update([0.01], arguments);
+    return this.delay.apply(this, args);
+  }
+
+  function wrap(wrapper) {
+    var __method = this;
+    return function() {
+      var a = update([__method.bind(this)], arguments);
+      return wrapper.apply(this, a);
+    }
+  }
+
+  function methodize() {
+    if (this._methodized) return this._methodized;
+    var __method = this;
+    return this._methodized = function() {
+      var a = update([this], arguments);
+      return __method.apply(null, a);
+    };
+  }
+
+  return {
+    argumentNames:       argumentNames,
+    bind:                bind,
+    bindAsEventListener: bindAsEventListener,
+    curry:               curry,
+    delay:               delay,
+    defer:               defer,
+    wrap:                wrap,
+    methodize:           methodize
+  }
+})());
+
+
+Date.prototype.toJSON = function() {
+  return '"' + this.getUTCFullYear() + '-' +
+    (this.getUTCMonth() + 1).toPaddedString(2) + '-' +
+    this.getUTCDate().toPaddedString(2) + 'T' +
+    this.getUTCHours().toPaddedString(2) + ':' +
+    this.getUTCMinutes().toPaddedString(2) + ':' +
+    this.getUTCSeconds().toPaddedString(2) + 'Z"';
+};
+
+
 RegExp.prototype.match = RegExp.prototype.test;
 
 RegExp.escape = function(str) {
   return String(str).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
 };
-
-/*--------------------------------------------------------------------------*/
-
-/**
- * @classDescription Creates a PeriodicalExecuter object to call a function repeatedly at the specified interval.
- */
 var PeriodicalExecuter = Class.create({
-  
- /**
-  * Initializes the PeriodicalExecutor object.
-  * @alias PeriodicalExecutor.initialize
-  * @param {Function} callback	Function to be called.
-  * @param {Object} frequency	Interval (in seconds) to call the function at.
-  */
   initialize: function(callback, frequency) {
     this.callback = callback;
     this.frequency = frequency;
@@ -346,10 +376,6 @@ var PeriodicalExecuter = Class.create({
     this.registerCallback();
   },
 
-/**
- * Registers a callback function.
- * @alias PeriodicalExecutor.registerCallback
- */
   registerCallback: function() {
     this.timer = setInterval(this.onTimerEvent.bind(this), this.frequency * 1000);
   },
@@ -358,27 +384,21 @@ var PeriodicalExecuter = Class.create({
     this.callback(this);
   },
 
-/**
- * Stops execution of the timer event.
- * @alias PeriodicalExecutor.stop
- */
   stop: function() {
     if (!this.timer) return;
     clearInterval(this.timer);
     this.timer = null;
   },
 
-/**
- * Calls the function at on the timer event.
- * @alias PeriodicalExecutor.onTimerEvent
- */
   onTimerEvent: function() {
     if (!this.currentlyExecuting) {
       try {
         this.currentlyExecuting = true;
         this.execute();
-      } finally {
         this.currentlyExecuting = false;
+      } catch(e) {
+        this.currentlyExecuting = false;
+        throw e;
       }
     }
   }
@@ -397,19 +417,25 @@ Object.extend(String, {
   }
 });
 
-Object.extend(String.prototype, {
-  
-  /**
-   * Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string. The pattern can be a string or a regular expression.
-   * @alias String.gsub
-   * @param {String} pattern	Pattern to replace.
-   * @param {String} replacement	String to replace the pattern with.
-   * @return {String}	Returns the string with every occurence of a given pattern replaced.
-   * @extends {String}
-   */
-  gsub: function(pattern, replacement) {
+Object.extend(String.prototype, (function() {
+
+  function prepareReplacement(replacement) {
+    if (Object.isFunction(replacement)) return replacement;
+    var template = new Template(replacement);
+    return function(match) { return template.evaluate(match) };
+  }
+
+  function gsub(pattern, replacement) {
     var result = '', source = this, match;
-    replacement = arguments.callee.prepareReplacement(replacement);
+    replacement = prepareReplacement(replacement);
+
+    if (Object.isString(pattern))
+      pattern = RegExp.escape(pattern);
+
+    if (!(pattern.length || pattern.source)) {
+      replacement = replacement('');
+      return replacement + source.split('').join(replacement) + replacement;
+    }
 
     while (source.length > 0) {
       if (match = source.match(pattern)) {
@@ -421,142 +447,64 @@ Object.extend(String.prototype, {
       }
     }
     return result;
-  },
+  }
 
-  /**
-   * Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string. pattern can be a string or a regular expression.
-   * @alias String.sub
-   * @param {String} pattern	Pattern to search for.
-   * @param {String} replacement	Replacement string.
-   * @param {Number} count	Number of occurrences to replace.
-   * @return {String} Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string.
-   * @extends {String}
-   */
-  sub: function(pattern, replacement, count) {
-    replacement = this.gsub.prepareReplacement(replacement);
+  function sub(pattern, replacement, count) {
+    replacement = prepareReplacement(replacement);
     count = Object.isUndefined(count) ? 1 : count;
 
     return this.gsub(pattern, function(match) {
       if (--count < 0) return match[0];
       return replacement(match);
     });
-  },
+  }
 
-  /**
-   * Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression).
-   * @alias String.scan
-   * @param {String} pattern	Pattern to search for.
-   * @param {Iterator} iterator	Iterator to use.
-   * @return {String} Returns the original string.
-   * @extends {String}
-   */
-  scan: function(pattern, iterator) {
+  function scan(pattern, iterator) {
     this.gsub(pattern, iterator);
     return String(this);
-  },
+  }
 
-  /**
-   * Truncates a string to the given length and appends a suffix to it (indicating that it is only an excerpt).
-   * @alias String.truncate
-   * @param {Object} length Length to truncate the string.
-   * @param {Object} truncation Text to append to the string.
-   * @return {String} Returns the truncated string.
-   * @extends {String}
-   */
-  truncate: function(length, truncation) {
+  function truncate(length, truncation) {
     length = length || 30;
     truncation = Object.isUndefined(truncation) ? '...' : truncation;
     return this.length > length ?
       this.slice(0, length - truncation.length) + truncation : String(this);
-  },
+  }
 
-  /**
-   * Strips all leading and trailing whitespace from a string.
-   * @alias String.strip
-   * @return {String} Returns the string with the whitespace stripped.
-   * @extends {String}
-   */
-  strip: function() {
+  function strip() {
     return this.replace(/^\s+/, '').replace(/\s+$/, '');
-  },
+  }
 
-/**
- * Removes the HTML or XML tags from a string.
- * @alias String.stripTags
- * @return {String} Returns the string with any HTML or XML tags removed.
- * @extends {String}
- */
-  stripTags: function() {
-    return this.replace(/<\/?[^>]+>/gi, '');
-  },
+  function stripTags() {
+    return this.replace(/<\w+(\s+("[^"]*"|'[^']*'|[^>])+)?>|<\/\w+>/gi, '');
+  }
 
-/**
- * Removes any <script></script> blocks from a string.
- * @alias String.stripScripts()
- * @return {String} Returns the string with any <script></script> blocks removed.
- * @extends {String}
- */
-  stripScripts: function() {
+  function stripScripts() {
     return this.replace(new RegExp(Prototype.ScriptFragment, 'img'), '');
-  },
+  }
 
-  /**
-  * Extracts any <script></script> blocks from a string and returns them as an array.
-  * @alias String.extractScripts
-  * @return	{Array} Returns an array of any <script></script> that the string contains.
-  * @extends {String}
-  */
-  extractScripts: function() {
+  function extractScripts() {
     var matchAll = new RegExp(Prototype.ScriptFragment, 'img');
     var matchOne = new RegExp(Prototype.ScriptFragment, 'im');
     return (this.match(matchAll) || []).map(function(scriptTag) {
       return (scriptTag.match(matchOne) || ['', ''])[1];
     });
-  },
+  }
 
-  /**
- * Evaluates the <script></script> blocks found in a string.
- * @alias String.evalScripts
- * @return {String, Number, Object, Boolean, Array} Returns the result of the script.
- * @extends {String}
- */
-  evalScripts: function() {
+  function evalScripts() {
     return this.extractScripts().map(function(script) { return eval(script) });
-  },
+  }
 
-  /**
- * Escapes any HTML characters in a string.
- * @alias String.escapeHTML()
- * @return {String} Returns the string with the HTML characters escaped.
- * @extends {String}
- */
-  escapeHTML: function() {
-    var self = arguments.callee;
-    self.text.data = this;
-    return self.div.innerHTML;
-  },
+  function escapeHTML() {
+    return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
 
-  /**
- * Converts any escaped HTML characters in a string to real HTML characters.
- * @alias String.unescapeHTML()
- * @return {String} Returns the string with HTML characters unescaped.
- * @extends {String}
- */
-  unescapeHTML: function() {
-    var div = new Element('div');
-    div.innerHTML = this.stripTags();
-    return div.childNodes[0] ? (div.childNodes.length > 1 ?
-      $A(div.childNodes).inject('', function(memo, node) { return memo+node.nodeValue }) :
-      div.childNodes[0].nodeValue) : '';
-  },
+  function unescapeHTML() {
+    return this.stripTags().replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+  }
 
-  /**
- * Creates an associative array (similar to a hash) from a string using parameter names as an index.
- * @alias String.toQueryParams()
- * @return {Array} Returns an associative array from the string.
- * @extends {String}
- */
-  toQueryParams: function(separator) {
+
+  function toQueryParams(separator) {
     var match = this.strip().match(/([^?#]*)(#.*)?$/);
     if (!match) return { };
 
@@ -574,47 +522,22 @@ Object.extend(String.prototype, {
       }
       return hash;
     });
-  },
+  }
 
-  /**
- * Creates an array from the characters of a string.
- * @alias String.toArray()
- * @return {Array} Returns an array of all of the characters in a string.
- * @extends {String}
- */
-  toArray: function() {
+  function toArray() {
     return this.split('');
-  },
+  }
 
-  /**
-   * Used internally by ObjectRange. Converts the last character of the string to the following character in the Unicode alphabet.
-   * @alias String.succ
-   * @return {String}	Returns the converted string.
-   * @extends {String}
-   */
-  succ: function() {
+  function succ() {
     return this.slice(0, this.length - 1) +
       String.fromCharCode(this.charCodeAt(this.length - 1) + 1);
-  },
+  }
 
-   /**
-   * Concatenates the string count times.
-   * @alias String.times
-   * @param {Number} count	Number of times to concatenate the string.
-   * @return {String} Returns the concatenated string.
-   * @extends {String}
-   */
-  times: function(count) {
+  function times(count) {
     return count < 1 ? '' : new Array(count + 1).join(this);
-  },
+  }
 
-  /**
- * Converts  a hyphen-delimited string to camel case. (e.g. thisIsCamelCase)
- * @alias String.camelize()
- * @return {String} Returns the string as camel case.
- * @extends {String}
- */
-  camelize: function() {
+  function camelize() {
     var parts = this.split('-'), len = parts.length;
     if (len == 1) return parts[0];
 
@@ -626,188 +549,117 @@ Object.extend(String.prototype, {
       camelized += parts[i].charAt(0).toUpperCase() + parts[i].substring(1);
 
     return camelized;
-  },
+  }
 
-  /**
-   * Capitalizes the first letter of a string and downcases all the others.
-   * @alias	String.capitalize
-   * @return {String} Returns the capitalized string.
-   * @extends {String}
-   */
-  capitalize: function() {
+  function capitalize() {
     return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
-  },
+  }
 
-  /**
-   * Converts a camelized string into a series of words separated by an underscore ("_").
-   * @alias String.underscore
-   * @return {String} Converts a camelized string into a series of words separated by an underscore ("_").
-   * @extends {String}
-   */
-  underscore: function() {
-    return this.gsub(/::/, '/').gsub(/([A-Z]+)([A-Z][a-z])/,'#{1}_#{2}').gsub(/([a-z\d])([A-Z])/,'#{1}_#{2}').gsub(/-/,'_').toLowerCase();
-  },
+  function underscore() {
+    return this.replace(/::/g, '/')
+               .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+               .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+               .replace(/-/g, '_')
+               .toLowerCase();
+  }
 
-  /**
-   * Replaces every instance of the underscore character ("_") by a dash ("-").
-   * @alias String.dasherize
-   * @return {String}	Replaces every instance of the underscore character ("_") by a dash ("-").
-   * @extends {String}
-   */
-  dasherize: function() {
-    return this.gsub(/_/,'-');
-  },
+  function dasherize() {
+    return this.replace(/_/g, '-');
+  }
 
-  /**
-  * Converts the string to human-readable characters.
-  * @alias String.inspect()
-  * @return {String} Returns a version of the string that can easily be read by humans.
-  * @extends {String}
-  */
-  inspect: function(useDoubleQuotes) {
-    var escapedString = this.gsub(/[\x00-\x1f\\]/, function(match) {
-      var character = String.specialChar[match[0]];
-      return character ? character : '\\u00' + match[0].charCodeAt().toPaddedString(2, 16);
+  function inspect(useDoubleQuotes) {
+    var escapedString = this.replace(/[\x00-\x1f\\]/g, function(character) {
+      if (character in String.specialChar) {
+        return String.specialChar[character];
+      }
+      return '\\u00' + character.charCodeAt().toPaddedString(2, 16);
     });
     if (useDoubleQuotes) return '"' + escapedString.replace(/"/g, '\\"') + '"';
     return "'" + escapedString.replace(/'/g, '\\\'') + "'";
-  },
+  }
 
-  /**
-   * Returns a JSON string.
-   * @alias String.toJSON
-   * @return {String}	Returns a JSON string.
-   * @extends {String}
-   */
-  toJSON: function() {
+  function toJSON() {
     return this.inspect(true);
-  },
+  }
 
-  /**
-   * Strips comment delimiters around Ajax JSON or JavaScript responses. This security method is called internally.
-   * @alias String.unfilterJSON
-   * @param {String} filter	Filter to use.
-   * @return {String} Returns the unfiltered string.
-   * @extends {String}
-   */
-  unfilterJSON: function(filter) {
-    return this.sub(filter || Prototype.JSONFilter, '#{1}');
-  },
+  function unfilterJSON(filter) {
+    return this.replace(filter || Prototype.JSONFilter, '$1');
+  }
 
-  /**
-   * Check if the string is valid JSON by the use of regular expressions. This security method is called internally.
-   * @alias String.isJSON
-   * @return {Boolean} Returns true if the string is a JSON string.
-   * @extends {String}
-   */
-  isJSON: function() {
+  function isJSON() {
     var str = this;
     if (str.blank()) return false;
     str = this.replace(/\\./g, '@').replace(/"[^"\\\n\r]*"/g, '');
     return (/^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/).test(str);
-  },
+  }
 
-  /**
-   * Evaluates the JSON in the string and returns the resulting object. If the optional sanitize parameter is set to true, the string is checked for possible malicious attempts and eval is not called if one is detected.
-   * @alias String.evalJSON
-   * @param {Object} sanitize	If true, checks for malicious syntax.	
-   * @return {Object}	Returns the result of the evaluation.
-   * @extends {String}
-   */
-  evalJSON: function(sanitize) {
+  function evalJSON(sanitize) {
     var json = this.unfilterJSON();
     try {
       if (!sanitize || json.isJSON()) return eval('(' + json + ')');
     } catch (e) { }
     throw new SyntaxError('Badly formed JSON string: ' + this.inspect());
-  },
+  }
 
-  /**
-   * Check if the string contains a pattern.
-   * @alias String.include
-   * @param {String} pattern	Pattern to search for.
-   * @return {Boolean}	Returns true if the string contains a pattern.
-   * @extends {String}
-   */
-  include: function(pattern) {
+  function include(pattern) {
     return this.indexOf(pattern) > -1;
-  },
+  }
 
-  /**
-   * Checks if the string starts with pattern.
-   * @alias String.startsWith
-   * @param {String} pattern	Pattern to search for.
-   * @return {Boolean}	Returns true if the string starts with a pattern.
-   * @extends {String}
-   */
-  startsWith: function(pattern) {
+  function startsWith(pattern) {
     return this.indexOf(pattern) === 0;
-  },
+  }
 
-  /**
-   * Checks if the string ends with pattern.
-   * @alias String.startsWith
-   * @param {String} pattern	Pattern to search for.
-   * @return {Boolean}	Returns true if the string starts with a pattern.
-   * @extends {String}
-   */
-  endsWith: function(pattern) {
+  function endsWith(pattern) {
     var d = this.length - pattern.length;
     return d >= 0 && this.lastIndexOf(pattern) === d;
-  },
+  }
 
-  /**
-   * Checks if the string is empty.
-   * @alias String.empty
-   * @return {Boolean} Returns true if the string is empty.
-   * @extends {String}
-   */
-  empty: function() {
+  function empty() {
     return this == '';
-  },
+  }
 
- /**
-   * Check if the string is 'blank', meaning either empty or containing only whitespace.
-   * @alias String.blank
-   * @return {Boolean} Returns true if the string is blank.
-   * @extends {String}
-   */
-  blank: function() {
+  function blank() {
     return /^\s*$/.test(this);
-  },
+  }
 
-  interpolate: function(object, pattern) {
+  function interpolate(object, pattern) {
     return new Template(this, pattern).evaluate(object);
   }
-});
 
-if (Prototype.Browser.WebKit || Prototype.Browser.IE) Object.extend(String.prototype, {
-  escapeHTML: function() {
-    return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  },
-  unescapeHTML: function() {
-    return this.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
-  }
-});
-
-String.prototype.gsub.prepareReplacement = function(replacement) {
-  if (Object.isFunction(replacement)) return replacement;
-  var template = new Template(replacement);
-  return function(match) { return template.evaluate(match) };
-};
-
-String.prototype.parseQuery = String.prototype.toQueryParams;
-
-Object.extend(String.prototype.escapeHTML, {
-  div:  document.createElement('div'),
-  text: document.createTextNode('')
-});
-
-with (String.prototype.escapeHTML) div.appendChild(text);
-
-/**
- * @classDescription Any time you have a group of similar objects and you need to produce formatted output for these objects, maybe inside a loop, you typically resort to concatenating string literals with the object's fields. There's nothing wrong with the above approach, except that it is hard to visualize the output immediately just by glancing at the concatenation expression. The Template class provides a much nicer and clearer way of achieving this formatting.
- */
+  return {
+    gsub:           gsub,
+    sub:            sub,
+    scan:           scan,
+    truncate:       truncate,
+    strip:          String.prototype.trim ? String.prototype.trim : strip,
+    stripTags:      stripTags,
+    stripScripts:   stripScripts,
+    extractScripts: extractScripts,
+    evalScripts:    evalScripts,
+    escapeHTML:     escapeHTML,
+    unescapeHTML:   unescapeHTML,
+    toQueryParams:  toQueryParams,
+    parseQuery:     toQueryParams,
+    toArray:        toArray,
+    succ:           succ,
+    times:          times,
+    camelize:       camelize,
+    capitalize:     capitalize,
+    underscore:     underscore,
+    dasherize:      dasherize,
+    inspect:        inspect,
+    toJSON:         toJSON,
+    unfilterJSON:   unfilterJSON,
+    isJSON:         isJSON,
+    evalJSON:       evalJSON,
+    include:        include,
+    startsWith:     startsWith,
+    endsWith:       endsWith,
+    empty:          empty,
+    blank:          blank,
+    interpolate:    interpolate
+  };
+})());
 
 var Template = Class.create({
   initialize: function(template, pattern) {
@@ -815,19 +667,12 @@ var Template = Class.create({
     this.pattern = pattern || Template.Pattern;
   },
 
-  /**
-   * Applies the template to the given object's data, producing a formatted string with symbols replaced by corresponding object's properties.
-   * @alias Template.evaluate
-   * @param {Object} object	Object containing data.
-   * @return {Object} Returns the formatted data.
-   * @extends {Template}
-   */
   evaluate: function(object) {
-    if (Object.isFunction(object.toTemplateReplacements))
+    if (object && Object.isFunction(object.toTemplateReplacements))
       object = object.toTemplateReplacements();
 
     return this.template.gsub(this.pattern, function(match) {
-      if (object == null) return '';
+      if (object == null) return (match[1] + '');
 
       var before = match[1] || '';
       if (before == '\\') return match[2];
@@ -838,7 +683,7 @@ var Template = Class.create({
       if (match == null) return before;
 
       while (match != null) {
-        var comp = match[1].startsWith('[') ? match[2].gsub('\\\\]', ']') : match[1];
+        var comp = match[1].startsWith('[') ? match[2].replace(/\\\\]/g, ']') : match[1];
         ctx = ctx[comp];
         if (null == ctx || '' == match[3]) break;
         expr = expr.substring('[' == match[3] ? match[1].length : match[0].length);
@@ -853,154 +698,91 @@ Template.Pattern = /(^|.|\r|\n)(#\{(.*?)\})/;
 
 var $break = { };
 
-/**
- * @classDescription Allows you to easily iterate items in a list.
- */
-
-var Enumerable = {
-  
-  /**
- * Calls the specified iterator function.
- * @alias Enumerable.each
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- */
-  each: function(iterator, context) {
+var Enumerable = (function() {
+  function each(iterator, context) {
     var index = 0;
-    iterator = iterator.bind(context);
     try {
       this._each(function(value) {
-        iterator(value, index++);
+        iterator.call(context, value, index++);
       });
     } catch (e) {
       if (e != $break) throw e;
     }
     return this;
-  },
+  }
 
-  /**
-   * Groups items in chunks based on a given size, with last chunk being possibly smaller.
-   * @alias Enumerable.eachSlice
-   * @param {Number} number	Number in each slice
-   * @param {Object} iterator	Iterator to use
-   * @return {Object} Returns formatted items.
-   */
-  eachSlice: function(number, iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function eachSlice(number, iterator, context) {
     var index = -number, slices = [], array = this.toArray();
+    if (number < 1) return array;
     while ((index += number) < array.length)
       slices.push(array.slice(index, index+number));
     return slices.collect(iterator, context);
-  },
+  }
 
-   /**
- * Calls an iterator function to test the values in a list to see if they are all true.
- * @alias Enumerable.all
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Boolean} Returns true if the iterator returns true for all elements.
- */
-  all: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function all(iterator, context) {
+    iterator = iterator || Prototype.K;
     var result = true;
     this.each(function(value, index) {
-      result = result && !!iterator(value, index);
+      result = result && !!iterator.call(context, value, index);
       if (!result) throw $break;
     });
     return result;
-  },
+  }
 
-  /**
- * Calls an iterator function to test the values in a list to see if any are true.
- * @alias Enumerable.any
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Boolean} Returns true if any of the iterator returns true for any of the elements.
- */
-  any: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function any(iterator, context) {
+    iterator = iterator || Prototype.K;
     var result = false;
     this.each(function(value, index) {
-      if (result = !!iterator(value, index))
+      if (result = !!iterator.call(context, value, index))
         throw $break;
     });
     return result;
-  },
+  }
 
-  /**
- * Calls an iterator function and returns the results in an Array.
- * @alias Enumerable.collect
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Array of the results of calling the iterator on each element.
- */
-  collect: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function collect(iterator, context) {
+    iterator = iterator || Prototype.K;
     var results = [];
     this.each(function(value, index) {
-      results.push(iterator(value, index));
+      results.push(iterator.call(context, value, index));
     });
     return results;
-  },
+  }
 
-  /**
- * Calls an iterator function on the elements in a list and returns the first element that causes the iterator to return true.
- * @alias Enumerable.detect
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Object} Returns the first element that causes the iterator function to return true.
- */
-  detect: function(iterator, context) {
-    iterator = iterator.bind(context);
+  function detect(iterator, context) {
     var result;
     this.each(function(value, index) {
-      if (iterator(value, index)) {
+      if (iterator.call(context, value, index)) {
         result = value;
         throw $break;
       }
     });
     return result;
-  },
+  }
 
-  /**
- * Calls an iterator function on the elements in a list and returns all of the elements that cause the iterator to return true.
- * @alias Enumerable.findAll
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Returns the elements that the cause the iterator to return true.
- */
-  findAll: function(iterator, context) {
-    iterator = iterator.bind(context);
+  function findAll(iterator, context) {
     var results = [];
     this.each(function(value, index) {
-      if (iterator(value, index))
+      if (iterator.call(context, value, index))
         results.push(value);
     });
     return results;
-  },
+  }
 
-  /**
- * Tests each element in a list to see if it contains the specified regular expression.
- * @alias Enumerable.grep
- * @param {RegExp} pattern	RegExp to match.
- * @param {Function} [iterator]	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Returns an array of the elements with a match to the RegExp. If you specify an iterator, returns the result of calling the iterator on the match.
- */
-  grep: function(filter, iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function grep(filter, iterator, context) {
+    iterator = iterator || Prototype.K;
     var results = [];
 
     if (Object.isString(filter))
-      filter = new RegExp(filter);
+      filter = new RegExp(RegExp.escape(filter));
 
     this.each(function(value, index) {
       if (filter.match(value))
-        results.push(iterator(value, index));
+        results.push(iterator.call(context, value, index));
     });
     return results;
-  },
+  }
 
-  /**
- * Searches the list of elements for the specified object.
- * @alias Enumerable.include
- * @param {Object} object	Object to search for.
- * @return {Boolean} Returns true if the list of elements contains the object.
- */
-  include: function(object) {
+  function include(object) {
     if (Object.isFunction(this.indexOf))
       if (this.indexOf(object) != -1) return true;
 
@@ -1012,163 +794,96 @@ var Enumerable = {
       }
     });
     return found;
-  },
+  }
 
-  /**
-   * Groups items in fixed-size chunks, using a specific value to fill up the last chunk if necessary.
-   * @alias Enumerable.inGroupsOf
-   * @param {Number} number	Number in each group
-   * @param {Object} fillWith	Value to fill with
-   * @return {Object} Returns formatted data.
-   */
-  inGroupsOf: function(number, fillWith) {
+  function inGroupsOf(number, fillWith) {
     fillWith = Object.isUndefined(fillWith) ? null : fillWith;
     return this.eachSlice(number, function(slice) {
       while(slice.length < number) slice.push(fillWith);
       return slice;
     });
-  },
+  }
 
-  /**
- * Calls an iterator function on the elements in a list and accumulates their values into a single value.
- * @alias Enumerable.inject
- * @param {Object} memo	Initial value for the iterator.
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Object} Returns the final accumulated result.
- */
-  inject: function(memo, iterator, context) {
-    iterator = iterator.bind(context);
+  function inject(memo, iterator, context) {
     this.each(function(value, index) {
-      memo = iterator(memo, value, index);
+      memo = iterator.call(context, memo, value, index);
     });
     return memo;
-  },
+  }
 
-  /**
- * Calls the specified method on each element in a list and returns an array of the results.
- * @alias Enumerable.invoke
- * @param {Function} method	Method to call.
- * @return {Array} Returns an array of the results.
- */
-  invoke: function(method) {
+  function invoke(method) {
     var args = $A(arguments).slice(1);
     return this.map(function(value) {
       return value[method].apply(value, args);
     });
-  },
+  }
 
-  /**
- * Returns the element in the list with the greatest value. If you specify an iterator, calls the iterator function and returns the result with the greatest value.
- * @alias Enumerable.max
- * @param {Function} [iterator]	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Object} Returns the element in the list with the greatest value. If you specify an iterator, calls the iterator function and returns the result with the greatest value.
- */
-  max: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function max(iterator, context) {
+    iterator = iterator || Prototype.K;
     var result;
     this.each(function(value, index) {
-      value = iterator(value, index);
+      value = iterator.call(context, value, index);
       if (result == null || value >= result)
         result = value;
     });
     return result;
-  },
+  }
 
-  /**
- * Returns the element in the list with the smallest value. If you specify an iterator, calls the iterator function and returns the result with the smallest value.
- * @alias Enumerable.min
- * @param {Function} [iterator]	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Object} Returns the element in the list with the smallest value. If you specify an iterator, calls the iterator function and returns the result with the smallest value.
- */
-  min: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function min(iterator, context) {
+    iterator = iterator || Prototype.K;
     var result;
     this.each(function(value, index) {
-      value = iterator(value, index);
+      value = iterator.call(context, value, index);
       if (result == null || value < result)
         result = value;
     });
     return result;
-  },
+  }
 
-  /**
- * Partitions a list of elements into true elements or values and not-true elements or values.
- * @alias Enumerable.partition
- * @param {Object} [iterator]	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Returns an array of two elements--both of which are arrays. The first array contains all true elements or values (if you specify an iterator) and the second array contains not-true elements or values.
- */
-  partition: function(iterator, context) {
-    iterator = iterator ? iterator.bind(context) : Prototype.K;
+  function partition(iterator, context) {
+    iterator = iterator || Prototype.K;
     var trues = [], falses = [];
     this.each(function(value, index) {
-      (iterator(value, index) ?
+      (iterator.call(context, value, index) ?
         trues : falses).push(value);
     });
     return [trues, falses];
-  },
+  }
 
-  /**
- * Retrieves the value for the specified property for each element in an array.
- * @alias Enumerable.pluck
- * @param {String} property	Name of the property to get.
- * @return {Array} Returns an array of the property values.
- */
-  pluck: function(property) {
+  function pluck(property) {
     var results = [];
     this.each(function(value) {
       results.push(value[property]);
     });
     return results;
-  },
+  }
 
-  /**
- * Calls an iterator function on the elements in a list and returns all of the elements that cause the iterator to return false.
- * @alias Enumerable.reject
- * @param {Function} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Returns the elements that the cause the iterator to return false.
- */
-  reject: function(iterator, context) {
-    iterator = iterator.bind(context);
+  function reject(iterator, context) {
     var results = [];
     this.each(function(value, index) {
-      if (!iterator(value, index))
+      if (!iterator.call(context, value, index))
         results.push(value);
     });
     return results;
-  },
+  }
 
-  /**
- * Sorts the elements in a list by their iterator results.
- * @alias Enumerable.sortBy
- * @param {Object} iterator	Iterator function to call. Takes the arguments elementValue, and elementIndex, respectively.
- * @return {Array} Returns an array of elements sorted by their iterator results.
- */
-  sortBy: function(iterator, context) {
-    iterator = iterator.bind(context);
+  function sortBy(iterator, context) {
     return this.map(function(value, index) {
-      return {value: value, criteria: iterator(value, index)};
+      return {
+        value: value,
+        criteria: iterator.call(context, value, index)
+      };
     }).sort(function(left, right) {
       var a = left.criteria, b = right.criteria;
       return a < b ? -1 : a > b ? 1 : 0;
     }).pluck('value');
-  },
+  }
 
-  /**
- * Creates an array of the elements in a list.
- * @alias Enumerable.toArray
- * @return {Array} Returns an Array of elements in the list.
- */
-  toArray: function() {
+  function toArray() {
     return this.map();
-  },
+  }
 
-  /**
- * Merges elements from one or more lists into a single list.
- * @alias Enumerable.zip()
- * @param {Array} ... One or more lists of elements to merge.
- * @return {Array} Returns a single array.
- */
-  zip: function() {
+  function zip() {
     var iterator = Prototype.K, args = $A(arguments);
     if (Object.isFunction(args.last()))
       iterator = args.pop();
@@ -1177,224 +892,152 @@ var Enumerable = {
     return this.map(function(value, index) {
       return iterator(collections.pluck(index));
     });
-  },
+  }
 
-  /**
-   * Returns the size of the enumeration.
-   * @alias Enumerable.size
-   * @return {Number} Returns the size of the enumeration.
-   */
-  size: function() {
+  function size() {
     return this.toArray().length;
-  },
+  }
 
-  /**
- * Returns a human-readable string version of the list of elements.
- * @alias Enumerable.inspect
- * @return {String} Returns a human-readable string version of the list of elements.
- */
-  inspect: function() {
+  function inspect() {
     return '#<Enumerable:' + this.toArray().inspect() + '>';
   }
-};
 
-Object.extend(Enumerable, {
-  map:     Enumerable.collect,
-  find:    Enumerable.detect,
-  select:  Enumerable.findAll,
-  filter:  Enumerable.findAll,
-  member:  Enumerable.include,
-  entries: Enumerable.toArray,
-  every:   Enumerable.all,
-  some:    Enumerable.any
-});
 
-/**
- * Converts the argument "iterable" into an Array object.
- * @alias $A
- * @param {Object} iterable	Object to be converted to an Array.
- * @return {Array} Returns an Array.
- */
+
+
+
+
+
+
+
+  return {
+    each:       each,
+    eachSlice:  eachSlice,
+    all:        all,
+    every:      all,
+    any:        any,
+    some:       any,
+    collect:    collect,
+    map:        collect,
+    detect:     detect,
+    findAll:    findAll,
+    select:     findAll,
+    filter:     findAll,
+    grep:       grep,
+    include:    include,
+    member:     include,
+    inGroupsOf: inGroupsOf,
+    inject:     inject,
+    invoke:     invoke,
+    max:        max,
+    min:        min,
+    partition:  partition,
+    pluck:      pluck,
+    reject:     reject,
+    sortBy:     sortBy,
+    toArray:    toArray,
+    entries:    toArray,
+    zip:        zip,
+    size:       size,
+    inspect:    inspect,
+    find:       detect
+  };
+})();
 function $A(iterable) {
   if (!iterable) return [];
-  if (iterable.toArray) return iterable.toArray();
+  if ('toArray' in Object(iterable)) return iterable.toArray();
   var length = iterable.length || 0, results = new Array(length);
   while (length--) results[length] = iterable[length];
   return results;
 }
 
-if (Prototype.Browser.WebKit) {
-  $A = function(iterable) {
-    if (!iterable) return [];
-    if (!(Object.isFunction(iterable) && iterable == '[object NodeList]') &&
-        iterable.toArray) return iterable.toArray();
-    var length = iterable.length || 0, results = new Array(length);
-    while (length--) results[length] = iterable[length];
-    return results;
-  };
+function $w(string) {
+  if (!Object.isString(string)) return [];
+  string = string.strip();
+  return string ? string.split(/\s+/) : [];
 }
 
 Array.from = $A;
 
-Object.extend(Array.prototype, Enumerable);
 
-if (!Array.prototype._reverse) Array.prototype._reverse = Array.prototype.reverse;
+(function() {
+  var arrayProto = Array.prototype,
+      slice = arrayProto.slice,
+      _each = arrayProto.forEach; // use native browser JS 1.6 implementation if available
 
-Object.extend(Array.prototype, {
-  _each: function(iterator) {
+  function each(iterator) {
     for (var i = 0, length = this.length; i < length; i++)
       iterator(this[i]);
-  },
+  }
+  if (!_each) _each = each;
 
-  /**
- * Clears an array of all content.
- * @alias Array.clear
- * @return {Array} Returns an empty array.
- * @extends {Array}
- */
-  clear: function() {
+  function clear() {
     this.length = 0;
     return this;
-  },
+  }
 
-  /**
- * Returns the first element of an array.
- * @alias Array.first
- * @return {Object, String, Number} Returns the first element of an array.
- * @extends {Array}
- */
-  first: function() {
+  function first() {
     return this[0];
-  },
+  }
 
-  /**
- * Returns the last element of an array.
- * @alias Array.last
- * @return {Object, String, Number} Returns the last element of an array.
- * @extends {Array}
- */
-  last: function() {
+  function last() {
     return this[this.length - 1];
-  },
+  }
 
-  /**
-   * Returns a new version of the array, without any null/undefined values.
-   * @alias Array.compact
-   * @return {Array}	Returns a new version of the array, without any null/undefined values.
-   * @extends {Array}
-   */
-  compact: function() {
+  function compact() {
     return this.select(function(value) {
       return value != null;
     });
-  },
+  }
 
-  /**
- * Flattens an array containing elements that are arrays into a single array.
- * @alias Array.flatten
- * @return {Array} Returns a one-dimensional array.
- * @extends {Array}
- */
-  flatten: function() {
+  function flatten() {
     return this.inject([], function(array, value) {
-      return array.concat(Object.isArray(value) ?
-        value.flatten() : [value]);
+      if (Object.isArray(value))
+        return array.concat(value.flatten());
+      array.push(value);
+      return array;
     });
-  },
+  }
 
-  /**
-  * Returns an array without the specified elements.
-  * @alias Array.without
-  * @param {Array, String, Number} ... One or more elements to exclude from the array.
-  * @return {Array} Returns an array without the specified elements.
-  * @extends {Array}
-  */
-  without: function() {
-    var values = $A(arguments);
+  function without() {
+    var values = slice.call(arguments, 0);
     return this.select(function(value) {
       return !values.include(value);
     });
-  },
+  }
 
-  /**
-  * Reverses the order of elements in an array.
-  * @alias Array.reverse
-  * @param {Boolean} inline	If true, indicates that the array itself should be reversed, instead of just creating a copy. Default is true.
-  * @return {Array} Returns an array with the order of its elements reversed.
-  * @extends {Array}
-  */
-  reverse: function(inline) {
+  function reverse(inline) {
     return (inline !== false ? this : this.toArray())._reverse();
-  },
+  }
 
-  /**
-   * Reduces arrays: one-element arrays are turned into their unique element, while multiple-element arrays are returned untouched.
-   * @alias Array.reduce
-   * @return {Array} Returns the reduced array.
-   * @extends {Array}
-   */
-  reduce: function() {
-    return this.length > 1 ? this : this[0];
-  },
-
-  /**
-   * Produces a duplicate-free version of an array. If no duplicates are found, the original array is returned.
-   * @alias Array.uniq
-   * @param {Object} sorted
-   * @return {Array} Produces a duplicate-free version of an array. If no duplicates are found, the original array is returned.
-   * @extends {Array}
-   */
-  uniq: function(sorted) {
+  function uniq(sorted) {
     return this.inject([], function(array, value, index) {
       if (0 == index || (sorted ? array.last() != value : !array.include(value)))
         array.push(value);
       return array;
     });
-  },
+  }
 
-  intersect: function(array) {
+  function intersect(array) {
     return this.uniq().findAll(function(item) {
       return array.detect(function(value) { return item === value });
     });
-  },
+  }
 
-  /**
-   * Returns a duplicate of the array, leaving the original array intact.
-   * @alias Array.clone
-   * @return {Array} Returns a duplicate of the array, leaving the original array intact.
-   * @extends {Array}
-   */
-  clone: function() {
-    return [].concat(this);
-  },
 
-  /**
-   * Returns the size of the array.
-   * @alias Array.size
-   * @return {Array} Returns the size of the array.
-   * @extends {Array}
-   */
-  size: function() {
+  function clone() {
+    return slice.call(this, 0);
+  }
+
+  function size() {
     return this.length;
-  },
+  }
 
-  /**
-  * Formats an array into a human-readable string.
-  * @alias Array.inspect
-  * @return {String} Returns a string version of the array.
-  * @extends {Array}
-  */
-  inspect: function() {
+  function inspect() {
     return '[' + this.map(Object.inspect).join(', ') + ']';
-  },
+  }
 
-  /**
-   * Returns a JSON string.
-   * @alias Array.toJSON
-   * @return {Array}	Returns a JSON string.
-   * @extends {Array}
-   */
-  toJSON: function() {
+  function toJSON() {
     var results = [];
     this.each(function(object) {
       var value = Object.toJSON(object);
@@ -1402,276 +1045,272 @@ Object.extend(Array.prototype, {
     });
     return '[' + results.join(', ') + ']';
   }
-});
 
-// use native browser JS 1.6 implementation if available
-if (Object.isFunction(Array.prototype.forEach))
-  Array.prototype._each = Array.prototype.forEach;
+  function indexOf(item, i) {
+    i || (i = 0);
+    var length = this.length;
+    if (i < 0) i = length + i;
+    for (; i < length; i++)
+      if (this[i] === item) return i;
+    return -1;
+  }
 
-if (!Array.prototype.indexOf) Array.prototype.indexOf = function(item, i) {
-  i || (i = 0);
-  var length = this.length;
-  if (i < 0) i = length + i;
-  for (; i < length; i++)
-    if (this[i] === item) return i;
-  return -1;
-};
+  function lastIndexOf(item, i) {
+    i = isNaN(i) ? this.length : (i < 0 ? this.length + i : i) + 1;
+    var n = this.slice(0, i).reverse().indexOf(item);
+    return (n < 0) ? n : i - n - 1;
+  }
 
-if (!Array.prototype.lastIndexOf) Array.prototype.lastIndexOf = function(item, i) {
-  i = isNaN(i) ? this.length : (i < 0 ? this.length + i : i) + 1;
-  var n = this.slice(0, i).reverse().indexOf(item);
-  return (n < 0) ? n : i - n - 1;
-};
-
-Array.prototype.toArray = Array.prototype.clone;
-
-/**
- * Splits a string into an Array, treating all whitespace as delimiters. Equivalent to Ruby's %w{foo bar} or Perl's qw(foo bar).
- * @alias $w
- * @param {String} string	String to split into an array
- * @return {Array} Returns an array.
- */
-function $w(string) {
-  if (!Object.isString(string)) return [];
-  string = string.strip();
-  return string ? string.split(/\s+/) : [];
-}
-
-if (Prototype.Browser.Opera){
-  Array.prototype.concat = function() {
-    var array = [];
-    for (var i = 0, length = this.length; i < length; i++) array.push(this[i]);
+  function concat() {
+    var array = slice.call(this, 0), item;
     for (var i = 0, length = arguments.length; i < length; i++) {
-      if (Object.isArray(arguments[i])) {
-        for (var j = 0, arrayLength = arguments[i].length; j < arrayLength; j++)
-          array.push(arguments[i][j]);
+      item = arguments[i];
+      if (Object.isArray(item) && !('callee' in item)) {
+        for (var j = 0, arrayLength = item.length; j < arrayLength; j++)
+          array.push(item[j]);
       } else {
-        array.push(arguments[i]);
+        array.push(item);
       }
     }
     return array;
-  };
-}
-Object.extend(Number.prototype, {
-  toColorPart: function() {
-    return this.toPaddedString(2, 16);
-  },
-
-  succ: function() {
-    return this + 1;
-  },
-
-  times: function(iterator) {
-    $R(0, this, true).each(iterator);
-    return this;
-  },
-
-  toPaddedString: function(length, radix) {
-    var string = this.toString(radix || 10);
-    return '0'.times(length - string.length) + string;
-  },
-
-  toJSON: function() {
-    return isFinite(this) ? this.toString() : 'null';
   }
-});
 
-$w('abs round ceil floor').each(function(method){
-  Number.prototype[method] = Math[method].methodize();
-});
+  Object.extend(arrayProto, Enumerable);
 
-/**
- * Converts the argument "object" into a hash.
- * @alias $H
- * @param {Object} object	Object to be converted to a hash.
- * @return {Object} Returns a hash object.
- */
+  if (!arrayProto._reverse)
+    arrayProto._reverse = arrayProto.reverse;
+
+  Object.extend(arrayProto, {
+    _each:     _each,
+    clear:     clear,
+    first:     first,
+    last:      last,
+    compact:   compact,
+    flatten:   flatten,
+    without:   without,
+    reverse:   reverse,
+    uniq:      uniq,
+    intersect: intersect,
+    clone:     clone,
+    toArray:   clone,
+    size:      size,
+    inspect:   inspect,
+    toJSON:    toJSON
+  });
+
+  var CONCAT_ARGUMENTS_BUGGY = (function() {
+    return [].concat(arguments)[0][0] !== 1;
+  })(1,2)
+
+  if (CONCAT_ARGUMENTS_BUGGY) arrayProto.concat = concat;
+
+  if (!arrayProto.indexOf) arrayProto.indexOf = indexOf;
+  if (!arrayProto.lastIndexOf) arrayProto.lastIndexOf = lastIndexOf;
+})();
 function $H(object) {
   return new Hash(object);
 };
 
-/**
- * @classDescription Hash can be thought of as an associative array, binding unique keys to values (which are not necessarily unique), though it can not guarantee consistent order its elements when iterating. Because of the nature of JavaScript programming language, every object is in fact a hash; but Hash adds a number of methods that let you enumerate keys and values, iterate over key/value pairs, merge two hashes together, encode the hash into a query string representation, etc.
- */
 var Hash = Class.create(Enumerable, (function() {
+  function initialize(object) {
+    this._object = Object.isHash(object) ? object.toObject() : Object.clone(object);
+  }
+
+  function _each(iterator) {
+    for (var key in this._object) {
+      var value = this._object[key], pair = [key, value];
+      pair.key = key;
+      pair.value = value;
+      iterator(pair);
+    }
+  }
+
+  function set(key, value) {
+    return this._object[key] = value;
+  }
+
+  function get(key) {
+    if (this._object[key] !== Object.prototype[key])
+      return this._object[key];
+  }
+
+  function unset(key) {
+    var value = this._object[key];
+    delete this._object[key];
+    return value;
+  }
+
+  function toObject() {
+    return Object.clone(this._object);
+  }
+
+  function keys() {
+    return this.pluck('key');
+  }
+
+  function values() {
+    return this.pluck('value');
+  }
+
+  function index(value) {
+    var match = this.detect(function(pair) {
+      return pair.value === value;
+    });
+    return match && match.key;
+  }
+
+  function merge(object) {
+    return this.clone().update(object);
+  }
+
+  function update(object) {
+    return new Hash(object).inject(this, function(result, pair) {
+      result.set(pair.key, pair.value);
+      return result;
+    });
+  }
 
   function toQueryPair(key, value) {
     if (Object.isUndefined(value)) return key;
     return key + '=' + encodeURIComponent(String.interpret(value));
   }
 
-  return {
-    initialize: function(object) {
-      this._object = Object.isHash(object) ? object.toObject() : Object.clone(object);
-    },
+  function toQueryString() {
+    return this.inject([], function(results, pair) {
+      var key = encodeURIComponent(pair.key), values = pair.value;
 
-    _each: function(iterator) {
-      for (var key in this._object) {
-        var value = this._object[key], pair = [key, value];
-        pair.key = key;
-        pair.value = value;
-        iterator(pair);
-      }
-    },
-
-    set: function(key, value) {
-      return this._object[key] = value;
-    },
-
-    get: function(key) {
-      return this._object[key];
-    },
-
-    unset: function(key) {
-      var value = this._object[key];
-      delete this._object[key];
-      return value;
-    },
-
-    toObject: function() {
-      return Object.clone(this._object);
-    },
-
-   /**
-    * Creates an array of the keys in a hash.
-  	* @alias Hash.keys
-    * @return {Array} Returns an array of keys.
- 	*/
-	keys: function() {
-      return this.pluck('key');
-    },
-
-  /**
-  * Creates an array of the values in a hash.
-  * @alias Hash.values
-  * @return {Array} Returns an array of values.
-  */
-	values: function() {
-      return this.pluck('value');
-    },
-
-    index: function(value) {
-      var match = this.detect(function(pair) {
-        return pair.value === value;
-      });
-      return match && match.key;
-    },
-
-  /**
-  * Merges this hash with the specified hash.
-  * @alias Hash.merge()
-  * @param {Object} hash	Hash to merge with.
-  * @return {Object} Returns the merged hash.
-  */
-	merge: function(object) {
-      return this.clone().update(object);
-    },
-
-    update: function(object) {
-      return new Hash(object).inject(this, function(result, pair) {
-        result.set(pair.key, pair.value);
-        return result;
-      });
-    },
-
-      /**
-  * Returns the keys and values of a hash formatted into a query string. (e.g. 'key1=value1&key2=value2')
-  * @alias Hash.toQueryString
-  * @return {String} Returns a query string version of the hash.
-  */
-	toQueryString: function() {
-      return this.map(function(pair) {
-        var key = encodeURIComponent(pair.key), values = pair.value;
-
-        if (values && typeof values == 'object') {
-          if (Object.isArray(values))
-            return values.map(toQueryPair.curry(key)).join('&');
-        }
-        return toQueryPair(key, values);
-      }).join('&');
-    },
-
-      /**
-  * Formats the hash into a human-readable string of key:value pairs.
-  * @alias Hash.inspect
-  * @return {String} Returns a string version of the key:value pairs of the hash.
-  */
-	inspect: function() {
-      return '#<Hash:{' + this.map(function(pair) {
-        return pair.map(Object.inspect).join(': ');
-      }).join(', ') + '}>';
-    },
-
-  /**
-   * Returns a JSON string.
-   * @alias Hash.toJSON
-   * @return {String} Returns a JSON string.
-   */
-    toJSON: function() {
-      return Object.toJSON(this.toObject());
-    },
-
-    clone: function() {
-      return new Hash(this);
-    }
+      if (values && typeof values == 'object') {
+        if (Object.isArray(values))
+          return results.concat(values.map(toQueryPair.curry(key)));
+      } else results.push(toQueryPair(key, values));
+      return results;
+    }).join('&');
   }
+
+  function inspect() {
+    return '#<Hash:{' + this.map(function(pair) {
+      return pair.map(Object.inspect).join(': ');
+    }).join(', ') + '}>';
+  }
+
+  function toJSON() {
+    return Object.toJSON(this.toObject());
+  }
+
+  function clone() {
+    return new Hash(this);
+  }
+
+  return {
+    initialize:             initialize,
+    _each:                  _each,
+    set:                    set,
+    get:                    get,
+    unset:                  unset,
+    toObject:               toObject,
+    toTemplateReplacements: toObject,
+    keys:                   keys,
+    values:                 values,
+    index:                  index,
+    merge:                  merge,
+    update:                 update,
+    toQueryString:          toQueryString,
+    inspect:                inspect,
+    toJSON:                 toJSON,
+    clone:                  clone
+  };
 })());
 
-Hash.prototype.toTemplateReplacements = Hash.prototype.toObject;
 Hash.from = $H;
-var ObjectRange = Class.create(Enumerable, {
-  initialize: function(start, end, exclusive) {
+Object.extend(Number.prototype, (function() {
+  function toColorPart() {
+    return this.toPaddedString(2, 16);
+  }
+
+  function succ() {
+    return this + 1;
+  }
+
+  function times(iterator, context) {
+    $R(0, this, true).each(iterator, context);
+    return this;
+  }
+
+  function toPaddedString(length, radix) {
+    var string = this.toString(radix || 10);
+    return '0'.times(length - string.length) + string;
+  }
+
+  function toJSON() {
+    return isFinite(this) ? this.toString() : 'null';
+  }
+
+  function abs() {
+    return Math.abs(this);
+  }
+
+  function round() {
+    return Math.round(this);
+  }
+
+  function ceil() {
+    return Math.ceil(this);
+  }
+
+  function floor() {
+    return Math.floor(this);
+  }
+
+  return {
+    toColorPart:    toColorPart,
+    succ:           succ,
+    times:          times,
+    toPaddedString: toPaddedString,
+    toJSON:         toJSON,
+    abs:            abs,
+    round:          round,
+    ceil:           ceil,
+    floor:          floor
+  };
+})());
+
+function $R(start, end, exclusive) {
+  return new ObjectRange(start, end, exclusive);
+}
+
+var ObjectRange = Class.create(Enumerable, (function() {
+  function initialize(start, end, exclusive) {
     this.start = start;
     this.end = end;
     this.exclusive = exclusive;
-  },
+  }
 
-  _each: function(iterator) {
+  function _each(iterator) {
     var value = this.start;
     while (this.include(value)) {
       iterator(value);
       value = value.succ();
     }
-  },
+  }
 
-  /**
-  * Checks if the specified value is included in the range.
-  * @alias ObjectRange.include
-  * @param {Object} value	Value to search for.
-  * @return {Boolean} Returns true if the value is included in the range.
-  */
-  include: function(value) {
+  function include(value) {
     if (value < this.start)
       return false;
     if (this.exclusive)
       return value < this.end;
     return value <= this.end;
   }
-});
 
-/**
- * Creates a new ObjectRange using the specified bounds.
- * @alias $R
- * @param {Object} start	Start point of the range.
- * @param {Object} end	End point of the range.
- * @param {Boolean} exclusive	If true, indicates that the start and end points should be excluded from the ObjectRange.
- * @constructor
- * @return {ObjectRange} Returns a new ObjectRange.
- */
-var $R = function(start, end, exclusive) {
-  return new ObjectRange(start, end, exclusive);
-};
+  return {
+    initialize: initialize,
+    _each:      _each,
+    include:    include
+  };
+})());
 
-/**
- * @classDescription Prototype offers several objects to deal with AJAX communication. With Prototype, going Ajaxy is downright simple! All objects share a common set of options, which are discussed separately.
- */
+
+
 var Ajax = {
-  
-   /**
- * Creates a new XMLHttpRequest object.
- * @alias Ajax.getTransport
- * @return {XMLHttpRequest} Returns a new XMLHttpRequest object.
- */
   getTransport: function() {
     return Try.these(
       function() {return new XMLHttpRequest()},
@@ -1684,46 +1323,21 @@ var Ajax = {
 };
 
 Ajax.Responders = {
-    /**
-  * Array of objects that are registered for AJAX event notifications.
-  * @alias Ajax.responders
-  */
   responders: [],
 
   _each: function(iterator) {
     this.responders._each(iterator);
   },
 
-  /**
-  * Calls the methods associated with the responderToAdd object when the corresponding event occurs.
-  * @alias Ajax.Responders.register
-  * @param {Object} responderToAdd	Object containing the methods to call. Should be named the same as the appropriate AJAX event.
-  * @extends {Enumerable}
-  */
   register: function(responder) {
     if (!this.include(responder))
       this.responders.push(responder);
   },
 
-  /**
-  * Removes the responderToRemove object from the list of registered objects.
-  * @alias Ajax.Responders.unregister
-  * @param {Object} responderToRemove
-  * @extends {Enumerable}
-  */
   unregister: function(responder) {
     this.responders = this.responders.without(responder);
   },
 
-  /**
-  * For each object in the list, calls the method specified in callback using request, transport, and json as arguments.
-  * @alias Ajax.Responders.dispatch
-  * @param {Object} callback	Name of the AJAX event.
-  * @param {Object} request	Ajax.Request object responsible for the event.
-  * @param {Object} transport	XMLHttpRequest object that carries the AJAX call.
-  * @param {Object} json	X-JSON header of the response.
-  * @extends {Enumerable}
-  */
   dispatch: function(callback, request, transport, json) {
     this.each(function(responder) {
       if (Object.isFunction(responder[callback])) {
@@ -1741,11 +1355,6 @@ Ajax.Responders.register({
   onCreate:   function() { Ajax.activeRequestCount++ },
   onComplete: function() { Ajax.activeRequestCount-- }
 });
-
-/**
- * @classDescription Base class for most other classes defined by the Ajax object.
- * @constructor
- */
 Ajax.Base = Class.create({
   initialize: function(options) {
     this.options = {
@@ -1767,12 +1376,6 @@ Ajax.Base = Class.create({
       this.options.parameters = this.options.parameters.toObject();
   }
 });
-
-/**
- * @classDescription Contains properties and methods to compose an AJAX request to send to the server.
- * @constructor
- * @alias Ajax.Request
- */
 Ajax.Request = Class.create(Ajax.Base, {
   _complete: false,
 
@@ -1788,7 +1391,6 @@ Ajax.Request = Class.create(Ajax.Base, {
     var params = Object.clone(this.options.parameters);
 
     if (!['get', 'post'].include(this.method)) {
-      // simulate other verbs over post
       params['_method'] = this.method;
       this.method = 'post';
     }
@@ -1796,7 +1398,6 @@ Ajax.Request = Class.create(Ajax.Base, {
     this.parameters = params;
 
     if (params = Object.toQueryString(params)) {
-      // when GET, append parameters to URL
       if (this.method == 'get')
         this.url += (this.url.include('?') ? '&' : '?') + params;
       else if (/Konqueror|Safari|KHTML/.test(navigator.userAgent))
@@ -1855,7 +1456,6 @@ Ajax.Request = Class.create(Ajax.Base, {
             headers['Connection'] = 'close';
     }
 
-    // user-defined headers
     if (typeof this.options.requestHeaders == 'object') {
       var extras = this.options.requestHeaders;
 
@@ -1909,7 +1509,6 @@ Ajax.Request = Class.create(Ajax.Base, {
     }
 
     if (state == 'Complete') {
-      // avoid memory leak in MSIE: clean up
       this.transport.onreadystatechange = Prototype.emptyFunction;
     }
   },
@@ -1926,7 +1525,7 @@ Ajax.Request = Class.create(Ajax.Base, {
   getHeader: function(name) {
     try {
       return this.transport.getResponseHeader(name) || null;
-    } catch (e) { return null }
+    } catch (e) { return null; }
   },
 
   evalResponse: function() {
@@ -1943,22 +1542,17 @@ Ajax.Request = Class.create(Ajax.Base, {
   }
 });
 
-/**
- * List of possible events and statuses associated with an AJAX operation.
- * @extends {Ajax.Base}
- */
 Ajax.Request.Events =
   ['Uninitialized', 'Loading', 'Loaded', 'Interactive', 'Complete'];
 
+
+
+
+
+
+
+
 Ajax.Response = Class.create({
-  
-    /**
-  * Inititializes a new Ajax request.
-  * @alias Ajax.Request.initialize
-  * @param {Object} url	URL target for the request.
-  * @param {Object} options	Options to set.
-  * @extends {Ajax.Base}
-  */
   initialize: function(request){
     this.request = request;
     var transport  = this.transport  = request.transport,
@@ -1979,6 +1573,7 @@ Ajax.Response = Class.create({
   },
 
   status:      0,
+
   statusText: '',
 
   getStatus: Ajax.Request.prototype.getStatus,
@@ -2032,11 +1627,6 @@ Ajax.Response = Class.create({
   }
 });
 
-/**
- * @classDescription	Contains properties and methods to update an HTML element with content from the server.
- * @constructor
- * @alias Ajax.Updater
- */
 Ajax.Updater = Class.create(Ajax.Request, {
   initialize: function($super, container, url, options) {
     this.container = {
@@ -2073,10 +1663,6 @@ Ajax.Updater = Class.create(Ajax.Request, {
   }
 });
 
-/**
- * @classDescription Periodically performs an AJAX request and updates a container�s contents based on the response text. Offers a mechanism for �decay,� which lets it trigger at widening intervals while the response is unchanged.
- * @alias Ajax.PeriodicalUpdater
- */
 Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
   initialize: function($super, container, url, options) {
     $super(options);
@@ -2118,12 +1704,8 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
   }
 });
 
-/**
- * If provided with a string, returns the element in the document with matching ID; otherwise returns the passed element. Takes in an arbitrary number of arguments. All elements returned by the function are extended with Prototype DOM extensions.
- * @alias $
- * @param {String} element	ID of the element to return
- * @return {HTMLElement} Returns the matching element.
- */
+
+
 function $(element) {
   if (arguments.length > 1) {
     for (var i = 0, elements = [], length = arguments.length; i < length; i++)
@@ -2151,7 +1733,6 @@ if (Prototype.BrowserFeatures.XPath) {
 if (!window.Node) var Node = { };
 
 if (!Node.ELEMENT_NODE) {
-  // DOM level 2 ECMAScript Language Binding
   Object.extend(Node, {
     ELEMENT_NODE: 1,
     ATTRIBUTE_NODE: 2,
@@ -2168,13 +1749,30 @@ if (!Node.ELEMENT_NODE) {
   });
 }
 
-(function() {
-  var element = this.Element;
-  this.Element = function(tagName, attributes) {
+
+(function(global) {
+
+  var SETATTRIBUTE_IGNORES_NAME = (function(){
+    var elForm = document.createElement("form");
+    var elInput = document.createElement("input");
+    var root = document.documentElement;
+    elInput.setAttribute("name", "test");
+    elForm.appendChild(elInput);
+    root.appendChild(elForm);
+    var isBuggy = elForm.elements
+      ? (typeof elForm.elements.test == "undefined")
+      : null;
+    root.removeChild(elForm);
+    elForm = elInput = null;
+    return isBuggy;
+  })();
+
+  var element = global.Element;
+  global.Element = function(tagName, attributes) {
     attributes = attributes || { };
     tagName = tagName.toLowerCase();
     var cache = Element.cache;
-    if (Prototype.Browser.IE && attributes.name) {
+    if (SETATTRIBUTE_IGNORES_NAME && attributes.name) {
       tagName = '<' + tagName + ' name="' + attributes.name + '">';
       delete attributes.name;
       return Element.writeAttribute(document.createElement(tagName), attributes);
@@ -2182,88 +1780,127 @@ if (!Node.ELEMENT_NODE) {
     if (!cache[tagName]) cache[tagName] = Element.extend(document.createElement(tagName));
     return Element.writeAttribute(cache[tagName].cloneNode(false), attributes);
   };
-  Object.extend(this.Element, element || { });
-}).call(window);
+  Object.extend(global.Element, element || { });
+  if (element) global.Element.prototype = element.prototype;
+})(this);
 
 Element.cache = { };
+Element.idCounter = 1;
 
 Element.Methods = {
-  
-  /**
-  * Returns true if the element is visible.
-  * @alias Element.Methods.visible
-  * @param {Object} element Element to check.
-  * @return {Boolean}	Returns true if the element is visible.
-  */
   visible: function(element) {
     return $(element).style.display != 'none';
   },
 
-  /**
-  * Toggles the visibility of the specified element(s).
-  * @alias Element.Methods.toggle
-  * @param {Object, String} One or more elements (or ids) to toggle the visibility of.
-  */
   toggle: function(element) {
     element = $(element);
     Element[Element.visible(element) ? 'hide' : 'show'](element);
     return element;
   },
 
-  /**
-  * Hides the specified element(s) by setting the style.display attribute to "none".
-  * @alias Element.hide
-  * @param {Object} ... One or more elements to hide.
-  */
+
   hide: function(element) {
-    $(element).style.display = 'none';
+    element = $(element);
+    element.style.display = 'none';
     return element;
   },
 
-  /**
-  * Displays the specified element(s) by setting the style.display attribute to "".
-  * @alias Element.show
-  * @param {Object} ... One or more elements to display.
-  */
   show: function(element) {
-    $(element).style.display = '';
+    element = $(element);
+    element.style.display = '';
     return element;
   },
 
-  /**
-  * Removes the element from the document.
-  * @alias Element.remove
-  * @param {Object} element	Element to remove.
-  */
   remove: function(element) {
     element = $(element);
     element.parentNode.removeChild(element);
     return element;
   },
 
-  /**
-  * Updates the inner HTML of the element with the specified HTML.
-  * @alias Element.update
-  * @param {Element} element	Element to update.
-  * @param {String} html	HTML to replace the current inner HTMl with.
-  */
-  update: function(element, content) {
-    element = $(element);
-    if (content && content.toElement) content = content.toElement();
-    if (Object.isElement(content)) return element.update().insert(content);
-    content = Object.toHTML(content);
-    element.innerHTML = content.stripScripts();
-    content.evalScripts.bind(content).defer();
-    return element;
-  },
+  update: (function(){
 
-  /**
-   * Replaces element by the content of the html argument and returns the removed element.
-   * @alias Element.replace
-   * @param {Element} element	Element to replace
-   * @param {String} html	HTML to replace the content with.
-   * @return {Element} Returns the replaced element.
-   */
+    var SELECT_ELEMENT_INNERHTML_BUGGY = (function(){
+      var el = document.createElement("select"),
+          isBuggy = true;
+      el.innerHTML = "<option value=\"test\">test</option>";
+      if (el.options && el.options[0]) {
+        isBuggy = el.options[0].nodeName.toUpperCase() !== "OPTION";
+      }
+      el = null;
+      return isBuggy;
+    })();
+
+    var TABLE_ELEMENT_INNERHTML_BUGGY = (function(){
+      try {
+        var el = document.createElement("table");
+        if (el && el.tBodies) {
+          el.innerHTML = "<tbody><tr><td>test</td></tr></tbody>";
+          var isBuggy = typeof el.tBodies[0] == "undefined";
+          el = null;
+          return isBuggy;
+        }
+      } catch (e) {
+        return true;
+      }
+    })();
+
+    var SCRIPT_ELEMENT_REJECTS_TEXTNODE_APPENDING = (function () {
+      var s = document.createElement("script"),
+          isBuggy = false;
+      try {
+        s.appendChild(document.createTextNode(""));
+        isBuggy = !s.firstChild ||
+          s.firstChild && s.firstChild.nodeType !== 3;
+      } catch (e) {
+        isBuggy = true;
+      }
+      s = null;
+      return isBuggy;
+    })();
+
+    function update(element, content) {
+      element = $(element);
+
+      if (content && content.toElement)
+        content = content.toElement();
+
+      if (Object.isElement(content))
+        return element.update().insert(content);
+
+      content = Object.toHTML(content);
+
+      var tagName = element.tagName.toUpperCase();
+
+      if (tagName === 'SCRIPT' && SCRIPT_ELEMENT_REJECTS_TEXTNODE_APPENDING) {
+        element.text = content;
+        return element;
+      }
+
+      if (SELECT_ELEMENT_INNERHTML_BUGGY || TABLE_ELEMENT_INNERHTML_BUGGY) {
+        if (tagName in Element._insertionTranslations.tags) {
+          while (element.firstChild) {
+            element.removeChild(element.firstChild);
+          }
+          Element._getContentFromAnonymousElement(tagName, content.stripScripts())
+            .each(function(node) {
+              element.appendChild(node)
+            });
+        }
+        else {
+          element.innerHTML = content.stripScripts();
+        }
+      }
+      else {
+        element.innerHTML = content.stripScripts();
+      }
+
+      content.evalScripts.bind(content).defer();
+      return element;
+    }
+
+    return update;
+  })(),
+
   replace: function(element, content) {
     element = $(element);
     if (content && content.toElement) content = content.toElement();
@@ -2326,12 +1963,6 @@ Element.Methods = {
     return wrapper;
   },
 
-  /**
-   * Returns the debug-oriented string representation of element.
-   * @alias Element.inspect
-   * @param {Element} element Element to inspect.
-   * @return {String} Returns the debug-oriented string representation of element.
-   */
   inspect: function(element) {
     element = $(element);
     var result = '<' + element.tagName.toLowerCase();
@@ -2343,13 +1974,6 @@ Element.Methods = {
     return result + '>';
   },
 
-  /**
-   * Recursively collects elements whose relationship is specified by property. property has to be a property (a method won't do!) of element that points to a single DOM node.
-   * @alias Element.recursivelyCollect
-   * @param {Element} element	Element containing the property
-   * @param {String} property	Property to match
-   * @return {Array}  Returns an array of extended elements.
-   */
   recursivelyCollect: function(element, property) {
     element = $(element);
     var elements = [];
@@ -2359,44 +1983,20 @@ Element.Methods = {
     return elements;
   },
 
-  /**
-   * Collects all of element's ancestors and returns them as an array of extended elements.
-   * @alias Element.ancestors
-   * @param {Element} element Element to collect the ancestors of
-   * @return {Array} Returns an array of ancestors
-   */
   ancestors: function(element) {
-    return $(element).recursivelyCollect('parentNode');
+    return Element.recursivelyCollect(element, 'parentNode');
   },
 
-  /**
-   * Collects all of element's descendants and returns them as an array of extended elements.
-   * @alias Element.descendants
-   * @param {Element} element	Element to collect descendants of
-   * @return {Array} Returns an array of descendants
-   */
   descendants: function(element) {
-    return $(element).select("*");
+    return Element.select(element, "*");
   },
 
-  /**
-   * Returns the first child that is an element. This is opposed to firstChild DOM property which will return any node (whitespace in most usual cases).
-   * @alias Element.firstDescendant
-   * @param {Element} element	Element to collect the first descendent of
-   * @return {Element} Returns the first child that is an element.
-   */
   firstDescendant: function(element) {
     element = $(element).firstChild;
     while (element && element.nodeType != 1) element = element.nextSibling;
     return $(element);
   },
 
-  /**
-   * Collects all of the element�s immediate descendants (i.e. children) and returns them as an array of extended elements.
-   * @alias Element.immediateDescendants
-   * @param {Element} element	Element to return the immediate descendants of
-   * @return {Array} Returns an array of immediate descendants
-   */
   immediateDescendants: function(element) {
     if (!(element = $(element).firstChild)) return [];
     while (element && element.nodeType != 1) element = element.nextSibling;
@@ -2404,139 +2004,77 @@ Element.Methods = {
     return [];
   },
 
-  /**
-   * Collects all of element's previous siblings and returns them as an array of extended elements.
-   * @alias Element.previousSiblings
-   * @param {Element} element Element to return the previous siblings of
-   * @return {Array} Returns an array of previous siblings.
-   */
   previousSiblings: function(element) {
-    return $(element).recursivelyCollect('previousSibling');
+    return Element.recursivelyCollect(element, 'previousSibling');
   },
 
-  /**
-   * Collects all of element's next siblings and returns them as an array of extended elements.
-   * @alias Element.nextSiblings
-   * @param {Element} element Element to collect the next siblings of
-   * @return {Array} Returns an array of next siblings.
-   */
   nextSiblings: function(element) {
-    return $(element).recursivelyCollect('nextSibling');
+    return Element.recursivelyCollect(element, 'nextSibling');
   },
 
-  /**
-   * Collects all of element's siblings and returns them as an array of extended elements.
-   * @alias Element.siblings
-   * @param {Element} element	Element to returns the siblings of
-   * @return {Array} Returns an array of siblings
-   */
   siblings: function(element) {
     element = $(element);
-    return element.previousSiblings().reverse().concat(element.nextSiblings());
+    return Element.previousSiblings(element).reverse()
+      .concat(Element.nextSiblings(element));
   },
 
-  /**
-   * Checks if the element matches the given CSS selector.
-   * @alias Element.match
-   * @param {Element} element	Element to match
-   * @param {String} selector	CSS selector to match
-   * @return {Boolean} Returns true if the element matches the given CSS selector.
-   */
   match: function(element, selector) {
     if (Object.isString(selector))
       selector = new Selector(selector);
     return selector.match($(element));
   },
 
-  /**
-   * Returns element's first ancestor (or the index'th ancestor, if index is specified) that matches cssRule. If no cssRule is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.
-   * @alias Element.up
-   * @param {Element} element	Element to match
-   * @param {String} [expression]	cssRule to match
-   * @param {Number} [index]	Index of the ancestor, instead of using the first ancestor.
-   * @return {Element} Returns the first (or index'th) ancestor of the element.
-   */
   up: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return $(element.parentNode);
-    var ancestors = element.ancestors();
+    var ancestors = Element.ancestors(element);
     return Object.isNumber(expression) ? ancestors[expression] :
       Selector.findElement(ancestors, expression, index);
   },
 
-  /**
-   * Returns element�s first descendant (or the n-th descendant if index is specified) that matches cssRule. If no cssRule is provided, all descendants are considered. If no descendant matches these criteria, undefined is returned.
-   * @alias Element.down
-   * @param {Element} element	Element to match
-   * @param {String} [expression]	cssRule to match
-   * @param {Number} [index]	Index of the descendant, instead of using the first ancestor.
-   * @return {Element} Returns the first (or index'th) descendant of the element.
-   */
   down: function(element, expression, index) {
     element = $(element);
-    if (arguments.length == 1) return element.firstDescendant();
-    return Object.isNumber(expression) ? element.descendants()[expression] :
-      element.select(expression)[index || 0];
+    if (arguments.length == 1) return Element.firstDescendant(element);
+    return Object.isNumber(expression) ? Element.descendants(element)[expression] :
+      Element.select(element, expression)[index || 0];
   },
 
-  /**
-   * Returns element's previous sibling (or the index'th one, if index is specified) that matches cssRule. If no cssRule is provided, all previous siblings are considered. If no previous sibling matches these criteria, undefined is returned.
-   * @alias Element.previous
-   * @param {Element} element	Element to return the previous sibling of
-   * @param {String} [expression]	cssRule to match
-   * @param {Number} [index]	If used, specifies the index of the previous sibling to use instead of the immediate one.
-   * @return {Element} Returns the previous (or specified) sibling.
-   */
   previous: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return $(Selector.handlers.previousElementSibling(element));
-    var previousSiblings = element.previousSiblings();
+    var previousSiblings = Element.previousSiblings(element);
     return Object.isNumber(expression) ? previousSiblings[expression] :
       Selector.findElement(previousSiblings, expression, index);
   },
 
-  /**
-   * Returns element's next sibling (or the index'th one, if index is specified) that matches cssRule. If no cssRule is provided, all next siblings are considered. If no next sibling matches these criteria, undefined is returned.
-   * @alias Element.next
-   * @param {Element} element	Element to return the next sibling of
-   * @param {String} [expression]	cssRule to match
-   * @param {Number} [index]	If used, specifies the index of the next sibling to use instead of the immediate one.
-   * @return {Element} Returns the next (or specified) sibling.
-   */  
   next: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return $(Selector.handlers.nextElementSibling(element));
-    var nextSiblings = element.nextSiblings();
+    var nextSiblings = Element.nextSiblings(element);
     return Object.isNumber(expression) ? nextSiblings[expression] :
       Selector.findElement(nextSiblings, expression, index);
   },
 
-  select: function() {
-    var args = $A(arguments), element = $(args.shift());
+
+  select: function(element) {
+    var args = Array.prototype.slice.call(arguments, 1);
     return Selector.findChildElements(element, args);
   },
 
-  adjacent: function() {
-    var args = $A(arguments), element = $(args.shift());
+  adjacent: function(element) {
+    var args = Array.prototype.slice.call(arguments, 1);
     return Selector.findChildElements(element.parentNode, args).without(element);
   },
 
   identify: function(element) {
     element = $(element);
-    var id = element.readAttribute('id'), self = arguments.callee;
+    var id = Element.readAttribute(element, 'id');
     if (id) return id;
-    do { id = 'anonymous_element_' + self.counter++ } while ($(id));
-    element.writeAttribute('id', id);
+    do { id = 'anonymous_element_' + Element.idCounter++ } while ($(id));
+    Element.writeAttribute(element, 'id', id);
     return id;
   },
 
-  /**
-   * Returns the value of element's attribute or null if attribute has not been specified.
-   * @alias Element.readAttribute
-   * @param {Element} element	Element to read the attribute for
-   * @param {String} name		Attribute of the element
-   * @return {String} Returns the value of the attribute
-   */
   readAttribute: function(element, name) {
     element = $(element);
     if (Prototype.Browser.IE) {
@@ -2571,43 +2109,18 @@ Element.Methods = {
     return element;
   },
 
-  /**
-  * Gets the offsetHeight of an element.
-  * @alias Element.getHeight
-  * @param {Object} element	Element to get the offsetHeight for.
-  * @return {Number} Returns the offsetHeight of the element (in pixels).
-  */
   getHeight: function(element) {
-    return $(element).getDimensions().height;
+    return Element.getDimensions(element).height;
   },
 
-  /**
-   * Finds and returns the computed width of element.
-   * @alias Element.getWidth
-   * @param {Element} element Element to get the width of
-   * @return {Number} Returns the width of the element.
-   */
   getWidth: function(element) {
-    return $(element).getDimensions().width;
+    return Element.getDimensions(element).width;
   },
 
-  /**
-  * Gets the CSS class names associated with an element.
-  * @alias Element.classNames
-  * @param {Object} element	Element to get the associated class names for.
-  * @return {Object} Returns an Element.ClassNames object representing the class names.
-  */
   classNames: function(element) {
     return new Element.ClassNames(element);
   },
 
-  /**
-  * Returns true if the element has the specified CSS class name.
-  * @alias Element.hasClassName()
-  * @param {Object} element	Element to get the class name for.
-  * @param {Object} className	Class name to check for.
-  * @return {Boolean} Returns true if the element has the specified CSS class name.
-  */
   hasClassName: function(element, className) {
     if (!(element = $(element))) return;
     var elementClassName = element.className;
@@ -2615,25 +2128,13 @@ Element.Methods = {
       new RegExp("(^|\\s)" + className + "(\\s|$)").test(elementClassName)));
   },
 
-  /**
-  * Adds the specified class to the list of class names for the element.
-  * @alias Element.addClassName
-  * @param {Object, String} element	Element or id to add the class name to.
-  * @param {String} className	CSS class name to add.
-  */
   addClassName: function(element, className) {
     if (!(element = $(element))) return;
-    if (!element.hasClassName(className))
+    if (!Element.hasClassName(element, className))
       element.className += (element.className ? ' ' : '') + className;
     return element;
   },
 
-  /**
-  * Removes the specified CSS class name from the element.
-  * @alias Element.removeClassName
-  * @param {Object} element	Element to remove the class name from.
-  * @param {Object} className	Class name to remove.
-  */
   removeClassName: function(element, className) {
     if (!(element = $(element))) return;
     element.className = element.className.replace(
@@ -2641,27 +2142,12 @@ Element.Methods = {
     return element;
   },
 
-  /**
-   * Toggles element's CSS className and returns element.
-   * @alias Element.toggleClassName
-   * @param {Element} element	Element to toggle
-   * @param {String} className	CSS class name
-   * @return {Element} Returns the element.
-   */
   toggleClassName: function(element, className) {
     if (!(element = $(element))) return;
-    return element[element.hasClassName(className) ?
-      'removeClassName' : 'addClassName'](className);
+    return Element[Element.hasClassName(element, className) ?
+      'removeClassName' : 'addClassName'](element, className);
   },
 
-  // removes whitespace-only text node children
-
-  /**
-  * Removes any whitespace from the text of the child nodes of the element.
-  * @alias Element.cleanWhitespace
-  * @param {Object} element Element to clean the whitespace for.
-  * @return {Element} Returns the element.
-  */
   cleanWhitespace: function(element) {
     element = $(element);
     var node = element.firstChild;
@@ -2674,70 +2160,37 @@ Element.Methods = {
     return element;
   },
 
- /**
- * Returns true if the element is empty or contains only whitespace.
- * @alias Element.empty
- * @param {Object} element	Element to check.
- * @return {Boolean} Returns true if the element is empty or contains only whitespace.
- */
   empty: function(element) {
     return $(element).innerHTML.blank();
   },
 
-  /**
-   * Checks if element is a descendant of ancestor.
-   * @alias Element.descendantOf
-   * @param {Element} element	Element to check
-   * @param {Element} ancestor	Ancestor element to check
-   * @return {Boolean} Returns true if element is a descendant of ancestor.
-   */
   descendantOf: function(element, ancestor) {
     element = $(element), ancestor = $(ancestor);
-    var originalAncestor = ancestor;
 
     if (element.compareDocumentPosition)
       return (element.compareDocumentPosition(ancestor) & 8) === 8;
 
-    if (element.sourceIndex && !Prototype.Browser.Opera) {
-      var e = element.sourceIndex, a = ancestor.sourceIndex,
-       nextAncestor = ancestor.nextSibling;
-      if (!nextAncestor) {
-        do { ancestor = ancestor.parentNode; }
-        while (!(nextAncestor = ancestor.nextSibling) && ancestor.parentNode);
-      }
-      if (nextAncestor && nextAncestor.sourceIndex)
-       return (e > a && e < nextAncestor.sourceIndex);
-    }
+    if (ancestor.contains)
+      return ancestor.contains(element) && ancestor !== element;
 
     while (element = element.parentNode)
-      if (element == originalAncestor) return true;
+      if (element == ancestor) return true;
+
     return false;
   },
 
-  /**
-  * Scrolls the window to the position of the specified element.
-  * @alias Element.scrollTo
-  * @param {Object} element	Element to scroll to.
-  */
   scrollTo: function(element) {
     element = $(element);
-    var pos = element.cumulativeOffset();
+    var pos = Element.cumulativeOffset(element);
     window.scrollTo(pos[0], pos[1]);
     return element;
   },
 
-  /**
-  * Gets the value of the specified CSS style attribute for the element.
-  * @alias Element.getStyle
-  * @param {Object} element	Element to get the style for.
-  * @param {String} style	Name of the CSS style.
-  * @return {String, Number, Boolean, Array, Object} Returns the value of the CSS style attribute.
-  */
   getStyle: function(element, style) {
     element = $(element);
     style = style == 'float' ? 'cssFloat' : style.camelize();
     var value = element.style[style];
-    if (!value) {
+    if (!value || value == 'auto') {
       var css = document.defaultView.getComputedStyle(element, null);
       value = css ? css[style] : null;
     }
@@ -2745,22 +2198,10 @@ Element.Methods = {
     return value == 'auto' ? null : value;
   },
 
-  /**
-   * Returns the value for the opacity of the element.
-   * @alias Element.getOpacity
-   * @param {Element} element	Element to find the opacity of
-   * @return {Number} Returns the opacity value.
-   */
   getOpacity: function(element) {
     return $(element).getStyle('opacity');
   },
 
-  /**
-  * Sets the value of the specified CSS element.
-  * @alias Element.setStyle
-  * @param {Object} element	Element to apply the style to.
-  * @param {Object} style	Style to apply.
-  */
   setStyle: function(element, styles) {
     element = $(element);
     var elementStyle = element.style, match;
@@ -2779,13 +2220,6 @@ Element.Methods = {
     return element;
   },
 
-  /**
-   * Sets the opacity value for the element.
-   * @alias Element.setOpacity
-   * @param {Element} element	Element to set
-   * @param {Number} value	Opacity value
-   * @return {Element} Returns the element with the new opacity value set.
-   */
   setOpacity: function(element, value) {
     element = $(element);
     element.style.opacity = (value == 1 || value === '') ? '' :
@@ -2793,26 +2227,19 @@ Element.Methods = {
     return element;
   },
 
-  /**
-  * Gets the width and height of an element.
-  * @alias Element.getDimensions
-  * @param {Object} element	Element to get the dimensions for.
-  * @return {String} Returns the width and height of the element.
-  */
   getDimensions: function(element) {
     element = $(element);
-    var display = $(element).getStyle('display');
+    var display = Element.getStyle(element, 'display');
     if (display != 'none' && display != null) // Safari bug
       return {width: element.offsetWidth, height: element.offsetHeight};
 
-    // All *Width and *Height properties give 0 on elements with display none,
-    // so enable the element temporarily
     var els = element.style;
     var originalVisibility = els.visibility;
     var originalPosition = els.position;
     var originalDisplay = els.display;
     els.visibility = 'hidden';
-    els.position = 'absolute';
+    if (originalPosition != 'fixed') // Switching fixed to absolute causes issues in Safari
+      els.position = 'absolute';
     els.display = 'block';
     var originalWidth = element.clientWidth;
     var originalHeight = element.clientHeight;
@@ -2822,20 +2249,13 @@ Element.Methods = {
     return {width: originalWidth, height: originalHeight};
   },
 
-  /**
-  * Sets the style.position attribute for the element to "relative".
-  * @alias Element.makePositioned
-  * @param {Object} element	Element to set the position attribute for.
-  */
   makePositioned: function(element) {
     element = $(element);
     var pos = Element.getStyle(element, 'position');
     if (pos == 'static' || !pos) {
       element._madePositioned = true;
       element.style.position = 'relative';
-      // Opera returns the offset relative to the positioning context, when an
-      // element is position relative but top and left have not been defined
-      if (window.opera) {
+      if (Prototype.Browser.Opera) {
         element.style.top = 0;
         element.style.left = 0;
       }
@@ -2843,11 +2263,6 @@ Element.Methods = {
     return element;
   },
 
-  /**
-  * Clears the style.position attribute for the element to "".
-  * @alias Element.undoPositioned
-  * @param {Object} element	Element to set the position attribute for.
-  */
   undoPositioned: function(element) {
     element = $(element);
     if (element._madePositioned) {
@@ -2861,11 +2276,6 @@ Element.Methods = {
     return element;
   },
 
-  /**
-  * Clips the overflow of the specified element so that it is not visible.
-  * @alias Element.makeClipping
-  * @param {Object} element	Element to clip the overflow for.
-  */
   makeClipping: function(element) {
     element = $(element);
     if (element._overflow) return element;
@@ -2875,11 +2285,6 @@ Element.Methods = {
     return element;
   },
 
-  /**
-  * Undoes the overflow clipping of the specified element so that it is visible.
-  * @alias Element.undoClipping
-  * @param {Object} element	Element to display the overflow for.
-  */
   undoClipping: function(element) {
     element = $(element);
     if (!element._overflow) return element;
@@ -2905,7 +2310,7 @@ Element.Methods = {
       valueL += element.offsetLeft || 0;
       element = element.offsetParent;
       if (element) {
-        if (element.tagName == 'BODY') break;
+        if (element.tagName.toUpperCase() == 'BODY') break;
         var p = Element.getStyle(element, 'position');
         if (p !== 'static') break;
       }
@@ -2915,10 +2320,9 @@ Element.Methods = {
 
   absolutize: function(element) {
     element = $(element);
-    if (element.getStyle('position') == 'absolute') return;
-    // Position.prepare(); // To be done manually by Scripty when it needs it.
+    if (Element.getStyle(element, 'position') == 'absolute') return element;
 
-    var offsets = element.positionedOffset();
+    var offsets = Element.positionedOffset(element);
     var top     = offsets[1];
     var left    = offsets[0];
     var width   = element.clientWidth;
@@ -2939,8 +2343,7 @@ Element.Methods = {
 
   relativize: function(element) {
     element = $(element);
-    if (element.getStyle('position') == 'relative') return;
-    // Position.prepare(); // To be done manually by Scripty when it needs it.
+    if (Element.getStyle(element, 'position') == 'relative') return element;
 
     element.style.position = 'relative';
     var top  = parseFloat(element.style.top  || 0) - (element._originalTop || 0);
@@ -2982,7 +2385,6 @@ Element.Methods = {
       valueT += element.offsetTop  || 0;
       valueL += element.offsetLeft || 0;
 
-      // Safari fix
       if (element.offsetParent == document.body &&
         Element.getStyle(element, 'position') == 'absolute') break;
 
@@ -2990,7 +2392,7 @@ Element.Methods = {
 
     element = forElement;
     do {
-      if (!Prototype.Browser.Opera || element.tagName == 'BODY') {
+      if (!Prototype.Browser.Opera || (element.tagName && (element.tagName.toUpperCase() == 'BODY'))) {
         valueT -= element.scrollTop  || 0;
         valueL -= element.scrollLeft || 0;
       }
@@ -3009,28 +2411,22 @@ Element.Methods = {
       offsetLeft: 0
     }, arguments[2] || { });
 
-    // find page position of source
     source = $(source);
-    var p = source.viewportOffset();
+    var p = Element.viewportOffset(source);
 
-    // find coordinate system to use
     element = $(element);
     var delta = [0, 0];
     var parent = null;
-    // delta [0,0] will do fine with position: fixed elements,
-    // position:absolute needs offsetParent deltas
     if (Element.getStyle(element, 'position') == 'absolute') {
-      parent = element.getOffsetParent();
-      delta = parent.viewportOffset();
+      parent = Element.getOffsetParent(element);
+      delta = Element.viewportOffset(parent);
     }
 
-    // correct by body offsets (fixes Safari)
     if (parent == document.body) {
       delta[0] -= document.body.offsetLeft;
       delta[1] -= document.body.offsetTop;
     }
 
-    // set position
     if (options.setLeft)   element.style.left  = (p[0] - delta[0] + options.offsetLeft) + 'px';
     if (options.setTop)    element.style.top   = (p[1] - delta[1] + options.offsetTop) + 'px';
     if (options.setWidth)  element.style.width = source.offsetWidth + 'px';
@@ -3039,10 +2435,9 @@ Element.Methods = {
   }
 };
 
-Element.Methods.identify.counter = 1;
-
 Object.extend(Element.Methods, {
   getElementsBySelector: Element.Methods.select,
+
   childElements: Element.Methods.immediateDescendants
 });
 
@@ -3063,11 +2458,8 @@ if (Prototype.Browser.Opera) {
         case 'left': case 'top': case 'right': case 'bottom':
           if (proceed(element, 'position') === 'static') return null;
         case 'height': case 'width':
-          // returns '0px' for hidden elements; we want it to return null
           if (!Element.visible(element)) return null;
 
-          // returns the border-box dimensions rather than the content-box
-          // dimensions, so we subtract padding and borders from the value
           var dim = parseInt(proceed(element, style), 10);
 
           if (dim !== element['offset' + style.capitalize()])
@@ -3100,11 +2492,11 @@ if (Prototype.Browser.Opera) {
 }
 
 else if (Prototype.Browser.IE) {
-  // IE doesn't report offsets correctly for static elements, so we change them
-  // to "relative" to get the values, then change them back.
   Element.Methods.getOffsetParent = Element.Methods.getOffsetParent.wrap(
     function(proceed, element) {
       element = $(element);
+      try { element.offsetParent }
+      catch(e) { return $(document.body) }
       var position = element.getStyle('position');
       if (position !== 'static') return proceed(element);
       element.setStyle({ position: 'relative' });
@@ -3118,10 +2510,10 @@ else if (Prototype.Browser.IE) {
     Element.Methods[method] = Element.Methods[method].wrap(
       function(proceed, element) {
         element = $(element);
+        try { element.offsetParent }
+        catch(e) { return Element._returnOffset(0,0) }
         var position = element.getStyle('position');
         if (position !== 'static') return proceed(element);
-        // Trigger hasLayout on the offset parent so that IE6 reports
-        // accurate offsetTop and offsetLeft values for position: fixed.
         var offsetParent = element.getOffsetParent();
         if (offsetParent && offsetParent.getStyle('position') === 'fixed')
           offsetParent.setStyle({ zoom: 1 });
@@ -3132,6 +2524,14 @@ else if (Prototype.Browser.IE) {
       }
     );
   });
+
+  Element.Methods.cumulativeOffset = Element.Methods.cumulativeOffset.wrap(
+    function(proceed, element) {
+      try { element.offsetParent }
+      catch(e) { return Element._returnOffset(0,0) }
+      return proceed(element);
+    }
+  );
 
   Element.Methods.getStyle = function(element, style) {
     element = $(element);
@@ -3174,36 +2574,92 @@ else if (Prototype.Browser.IE) {
     return element;
   };
 
-  Element._attributeTranslations = {
-    read: {
-      names: {
-        'class': 'className',
-        'for':   'htmlFor'
-      },
-      values: {
-        _getAttr: function(element, attribute) {
-          return element.getAttribute(attribute, 2);
+  Element._attributeTranslations = (function(){
+
+    var classProp = 'className';
+    var forProp = 'for';
+
+    var el = document.createElement('div');
+
+    el.setAttribute(classProp, 'x');
+
+    if (el.className !== 'x') {
+      el.setAttribute('class', 'x');
+      if (el.className === 'x') {
+        classProp = 'class';
+      }
+    }
+    el = null;
+
+    el = document.createElement('label');
+    el.setAttribute(forProp, 'x');
+    if (el.htmlFor !== 'x') {
+      el.setAttribute('htmlFor', 'x');
+      if (el.htmlFor === 'x') {
+        forProp = 'htmlFor';
+      }
+    }
+    el = null;
+
+    return {
+      read: {
+        names: {
+          'class':      classProp,
+          'className':  classProp,
+          'for':        forProp,
+          'htmlFor':    forProp
         },
-        _getAttrNode: function(element, attribute) {
-          var node = element.getAttributeNode(attribute);
-          return node ? node.value : "";
-        },
-        _getEv: function(element, attribute) {
-          attribute = element.getAttribute(attribute);
-          return attribute ? attribute.toString().slice(23, -2) : null;
-        },
-        _flag: function(element, attribute) {
-          return $(element).hasAttribute(attribute) ? attribute : null;
-        },
-        style: function(element) {
-          return element.style.cssText.toLowerCase();
-        },
-        title: function(element) {
-          return element.title;
+        values: {
+          _getAttr: function(element, attribute) {
+            return element.getAttribute(attribute);
+          },
+          _getAttr2: function(element, attribute) {
+            return element.getAttribute(attribute, 2);
+          },
+          _getAttrNode: function(element, attribute) {
+            var node = element.getAttributeNode(attribute);
+            return node ? node.value : "";
+          },
+          _getEv: (function(){
+
+            var el = document.createElement('div');
+            el.onclick = Prototype.emptyFunction;
+            var value = el.getAttribute('onclick');
+            var f;
+
+            if (String(value).indexOf('{') > -1) {
+              f = function(element, attribute) {
+                attribute = element.getAttribute(attribute);
+                if (!attribute) return null;
+                attribute = attribute.toString();
+                attribute = attribute.split('{')[1];
+                attribute = attribute.split('}')[0];
+                return attribute.strip();
+              };
+            }
+            else if (value === '') {
+              f = function(element, attribute) {
+                attribute = element.getAttribute(attribute);
+                if (!attribute) return null;
+                return attribute.strip();
+              };
+            }
+            el = null;
+            return f;
+          })(),
+          _flag: function(element, attribute) {
+            return $(element).hasAttribute(attribute) ? attribute : null;
+          },
+          style: function(element) {
+            return element.style.cssText.toLowerCase();
+          },
+          title: function(element) {
+            return element.title;
+          }
         }
       }
     }
-  };
+  })();
 
   Element._attributeTranslations.write = {
     names: Object.extend({
@@ -3224,15 +2680,15 @@ else if (Prototype.Browser.IE) {
   Element._attributeTranslations.has = {};
 
   $w('colSpan rowSpan vAlign dateTime accessKey tabIndex ' +
-      'encType maxLength readOnly longDesc').each(function(attr) {
+      'encType maxLength readOnly longDesc frameBorder').each(function(attr) {
     Element._attributeTranslations.write.names[attr.toLowerCase()] = attr;
     Element._attributeTranslations.has[attr.toLowerCase()] = attr;
   });
 
   (function(v) {
     Object.extend(v, {
-      href:        v._getAttr,
-      src:         v._getAttr,
+      href:        v._getAttr2,
+      src:         v._getAttr2,
       type:        v._getAttr,
       action:      v._getAttrNode,
       disabled:    v._flag,
@@ -3259,6 +2715,26 @@ else if (Prototype.Browser.IE) {
       onchange:    v._getEv
     });
   })(Element._attributeTranslations.read.values);
+
+  if (Prototype.BrowserFeatures.ElementExtensions) {
+    (function() {
+      function _descendants(element) {
+        var nodes = element.getElementsByTagName('*'), results = [];
+        for (var i = 0, node; node = nodes[i]; i++)
+          if (node.tagName !== "!") // Filter out comment nodes.
+            results.push(node);
+        return results;
+      }
+
+      Element.Methods.down = function(element, expression, index) {
+        element = $(element);
+        if (arguments.length == 1) return element.firstDescendant();
+        return Object.isNumber(expression) ? _descendants(element)[expression] :
+          Element.select(element, expression)[index || 0];
+      }
+    })();
+  }
+
 }
 
 else if (Prototype.Browser.Gecko && /rv:1\.8\.0/.test(navigator.userAgent)) {
@@ -3277,7 +2753,7 @@ else if (Prototype.Browser.WebKit) {
       (value < 0.00001) ? 0 : value;
 
     if (value == 1)
-      if(element.tagName == 'IMG' && element.width) {
+      if(element.tagName.toUpperCase() == 'IMG' && element.width) {
         element.width++; element.width--;
       } else try {
         var n = document.createTextNode(' ');
@@ -3288,9 +2764,6 @@ else if (Prototype.Browser.WebKit) {
     return element;
   };
 
-  // Safari returns margins on body which is incorrect if the child is absolutely
-  // positioned.  For performance reasons, redefine Element#cumulativeOffset for
-  // KHTML/WebKit only.
   Element.Methods.cumulativeOffset = function(element) {
     var valueT = 0, valueL = 0;
     do {
@@ -3306,38 +2779,7 @@ else if (Prototype.Browser.WebKit) {
   };
 }
 
-if (Prototype.Browser.IE || Prototype.Browser.Opera) {
-  // IE and Opera are missing .innerHTML support for TABLE-related and SELECT elements
-  
-  /**
-   * Replaces the content of element with the provided newContent argument and returns element.
-   * @alias Element.Methods.update
-   * @param {Element} element	Element to update
-   * @param {String} html	New HTML content
-   * @return {Element} Returns the updated element.
-   */
-  Element.Methods.update = function(element, content) {
-    element = $(element);
-
-    if (content && content.toElement) content = content.toElement();
-    if (Object.isElement(content)) return element.update().insert(content);
-
-    content = Object.toHTML(content);
-    var tagName = element.tagName.toUpperCase();
-
-    if (tagName in Element._insertionTranslations.tags) {
-      $A(element.childNodes).each(function(node) { element.removeChild(node) });
-      Element._getContentFromAnonymousElement(tagName, content.stripScripts())
-        .each(function(node) { element.appendChild(node) });
-    }
-    else element.innerHTML = content.stripScripts();
-
-    content.evalScripts.bind(content).defer();
-    return element;
-  };
-}
-
-if ('outerHTML' in document.createElement('div')) {
+if ('outerHTML' in document.documentElement) {
   Element.Methods.replace = function(element, content) {
     element = $(element);
 
@@ -3405,18 +2847,19 @@ Element._insertionTranslations = {
 };
 
 (function() {
-  Object.extend(this.tags, {
-    THEAD: this.tags.TBODY,
-    TFOOT: this.tags.TBODY,
-    TH:    this.tags.TD
+  var tags = Element._insertionTranslations.tags;
+  Object.extend(tags, {
+    THEAD: tags.TBODY,
+    TFOOT: tags.TBODY,
+    TH:    tags.TD
   });
-}).call(Element._insertionTranslations);
+})();
 
 Element.Methods.Simulated = {
   hasAttribute: function(element, attribute) {
     attribute = Element._attributeTranslations.has[attribute] || attribute;
     var node = $(element).getAttributeNode(attribute);
-    return node && node.specified;
+    return !!(node && node.specified);
   }
 };
 
@@ -3424,41 +2867,81 @@ Element.Methods.ByTag = { };
 
 Object.extend(Element, Element.Methods);
 
-if (!Prototype.BrowserFeatures.ElementExtensions &&
-    document.createElement('div').__proto__) {
-  window.HTMLElement = { };
-  window.HTMLElement.prototype = document.createElement('div').__proto__;
-  Prototype.BrowserFeatures.ElementExtensions = true;
-}
+(function(div) {
+
+  if (!Prototype.BrowserFeatures.ElementExtensions && div['__proto__']) {
+    window.HTMLElement = { };
+    window.HTMLElement.prototype = div['__proto__'];
+    Prototype.BrowserFeatures.ElementExtensions = true;
+  }
+
+  div = null;
+
+})(document.createElement('div'))
 
 Element.extend = (function() {
-  if (Prototype.BrowserFeatures.SpecificElementExtensions)
+
+  function checkDeficiency(tagName) {
+    if (typeof window.Element != 'undefined') {
+      var proto = window.Element.prototype;
+      if (proto) {
+        var id = '_' + (Math.random()+'').slice(2);
+        var el = document.createElement(tagName);
+        proto[id] = 'x';
+        var isBuggy = (el[id] !== 'x');
+        delete proto[id];
+        el = null;
+        return isBuggy;
+      }
+    }
+    return false;
+  }
+
+  function extendElementWith(element, methods) {
+    for (var property in methods) {
+      var value = methods[property];
+      if (Object.isFunction(value) && !(property in element))
+        element[property] = value.methodize();
+    }
+  }
+
+  var HTMLOBJECTELEMENT_PROTOTYPE_BUGGY = checkDeficiency('object');
+
+  if (Prototype.BrowserFeatures.SpecificElementExtensions) {
+    if (HTMLOBJECTELEMENT_PROTOTYPE_BUGGY) {
+      return function(element) {
+        if (element && typeof element._extendedByPrototype == 'undefined') {
+          var t = element.tagName;
+          if (t && (/^(?:object|applet|embed)$/i.test(t))) {
+            extendElementWith(element, Element.Methods);
+            extendElementWith(element, Element.Methods.Simulated);
+            extendElementWith(element, Element.Methods.ByTag[t.toUpperCase()]);
+          }
+        }
+        return element;
+      }
+    }
     return Prototype.K;
+  }
 
   var Methods = { }, ByTag = Element.Methods.ByTag;
 
   var extend = Object.extend(function(element) {
-    if (!element || element._extendedByPrototype ||
+    if (!element || typeof element._extendedByPrototype != 'undefined' ||
         element.nodeType != 1 || element == window) return element;
 
     var methods = Object.clone(Methods),
-      tagName = element.tagName, property, value;
+        tagName = element.tagName.toUpperCase();
 
-    // extend methods for specific tags
     if (ByTag[tagName]) Object.extend(methods, ByTag[tagName]);
 
-    for (property in methods) {
-      value = methods[property];
-      if (Object.isFunction(value) && !(property in element))
-        element[property] = value.methodize();
-    }
+    extendElementWith(element, methods);
 
     element._extendedByPrototype = Prototype.emptyFunction;
     return element;
 
   }, {
     refresh: function() {
-      // extend methods for all tags (Safari doesn't need this)
       if (!Prototype.BrowserFeatures.ElementExtensions) {
         Object.extend(Methods, Element.Methods);
         Object.extend(Methods, Element.Methods.Simulated);
@@ -3470,13 +2953,6 @@ Element.extend = (function() {
   return extend;
 })();
 
-/**
- * Simulates the standard compliant DOM method hasAttribute for browsers missing it (Internet Explorer 6 and 7).
- * @alias Element.Methods.Simulated.hasAttribute
- * @param {Element} element	Element to check
- * @param {Attribute} attribute Attribute to check for
- * @return {Boolean} Returns true if the element has the specified attribute.
- */
 Element.hasAttribute = function(element, attribute) {
   if (element.hasAttribute) return element.hasAttribute(attribute);
   return Element.Methods.Simulated.hasAttribute(element, attribute);
@@ -3544,14 +3020,18 @@ Element.addMethods = function(methods) {
     klass = 'HTML' + tagName.capitalize() + 'Element';
     if (window[klass]) return window[klass];
 
-    window[klass] = { };
-    window[klass].prototype = document.createElement(tagName).__proto__;
-    return window[klass];
+    var element = document.createElement(tagName);
+    var proto = element['__proto__'] || element.constructor.prototype;
+    element = null;
+    return proto;
   }
 
+  var elementPrototype = window.HTMLElement ? HTMLElement.prototype :
+   Element.prototype;
+
   if (F.ElementExtensions) {
-    copy(Element.Methods, HTMLElement.prototype);
-    copy(Element.Methods.Simulated, HTMLElement.prototype, true);
+    copy(Element.Methods, elementPrototype);
+    copy(Element.Methods.Simulated, elementPrototype, true);
   }
 
   if (F.SpecificElementExtensions) {
@@ -3569,66 +3049,187 @@ Element.addMethods = function(methods) {
   Element.cache = { };
 };
 
+
 document.viewport = {
+
   getDimensions: function() {
-    var dimensions = { };
-    var B = Prototype.Browser;
-    $w('width height').each(function(d) {
-      var D = d.capitalize();
-      dimensions[d] = (B.WebKit && !document.evaluate) ? self['inner' + D] :
-        (B.Opera) ? document.body['client' + D] : document.documentElement['client' + D];
-    });
-    return dimensions;
-  },
-
-  getWidth: function() {
-    return this.getDimensions().width;
-  },
-
-  getHeight: function() {
-    return this.getDimensions().height;
+    return { width: this.getWidth(), height: this.getHeight() };
   },
 
   getScrollOffsets: function() {
     return Element._returnOffset(
       window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
+      window.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop);
   }
 };
-/* Portions of the Selector class are derived from Jack Slocumâ€™s DomQuery,
+
+(function(viewport) {
+  var B = Prototype.Browser, doc = document, element, property = {};
+
+  function getRootElement() {
+    if (B.WebKit && !doc.evaluate)
+      return document;
+
+    if (B.Opera && window.parseFloat(window.opera.version()) < 9.5)
+      return document.body;
+
+    return document.documentElement;
+  }
+
+  function define(D) {
+    if (!element) element = getRootElement();
+
+    property[D] = 'client' + D;
+
+    viewport['get' + D] = function() { return element[property[D]] };
+    return viewport['get' + D]();
+  }
+
+  viewport.getWidth  = define.curry('Width');
+
+  viewport.getHeight = define.curry('Height');
+})(document.viewport);
+
+
+Element.Storage = {
+  UID: 1
+};
+
+Element.addMethods({
+  getStorage: function(element) {
+    if (!(element = $(element))) return;
+
+    var uid;
+    if (element === window) {
+      uid = 0;
+    } else {
+      if (typeof element._prototypeUID === "undefined")
+        element._prototypeUID = [Element.Storage.UID++];
+      uid = element._prototypeUID[0];
+    }
+
+    if (!Element.Storage[uid])
+      Element.Storage[uid] = $H();
+
+    return Element.Storage[uid];
+  },
+
+  store: function(element, key, value) {
+    if (!(element = $(element))) return;
+
+    if (arguments.length === 2) {
+      Element.getStorage(element).update(key);
+    } else {
+      Element.getStorage(element).set(key, value);
+    }
+
+    return element;
+  },
+
+  retrieve: function(element, key, defaultValue) {
+    if (!(element = $(element))) return;
+    var hash = Element.getStorage(element), value = hash.get(key);
+
+    if (Object.isUndefined(value)) {
+      hash.set(key, defaultValue);
+      value = defaultValue;
+    }
+
+    return value;
+  },
+
+  clone: function(element, deep) {
+    if (!(element = $(element))) return;
+    var clone = element.cloneNode(deep);
+    clone._prototypeUID = void 0;
+    if (deep) {
+      var descendants = Element.select(clone, '*'),
+          i = descendants.length;
+      while (i--) {
+        descendants[i]._prototypeUID = void 0;
+      }
+    }
+    return Element.extend(clone);
+  }
+});
+/* Portions of the Selector class are derived from Jack Slocum's DomQuery,
  * part of YUI-Ext version 0.40, distributed under the terms of an MIT-style
  * license.  Please see http://www.yui-ext.com/ for more information. */
 
 var Selector = Class.create({
   initialize: function(expression) {
     this.expression = expression.strip();
-    this.compileMatcher();
+
+    if (this.shouldUseSelectorsAPI()) {
+      this.mode = 'selectorsAPI';
+    } else if (this.shouldUseXPath()) {
+      this.mode = 'xpath';
+      this.compileXPathMatcher();
+    } else {
+      this.mode = "normal";
+      this.compileMatcher();
+    }
+
   },
 
-  shouldUseXPath: function() {
-    if (!Prototype.BrowserFeatures.XPath) return false;
+  shouldUseXPath: (function() {
 
-    var e = this.expression;
+    var IS_DESCENDANT_SELECTOR_BUGGY = (function(){
+      var isBuggy = false;
+      if (document.evaluate && window.XPathResult) {
+        var el = document.createElement('div');
+        el.innerHTML = '<ul><li></li></ul><div><ul><li></li></ul></div>';
 
-    // Safari 3 chokes on :*-of-type and :empty
-    if (Prototype.Browser.WebKit &&
-     (e.include("-of-type") || e.include(":empty")))
+        var xpath = ".//*[local-name()='ul' or local-name()='UL']" +
+          "//*[local-name()='li' or local-name()='LI']";
+
+        var result = document.evaluate(xpath, el, null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        isBuggy = (result.snapshotLength !== 2);
+        el = null;
+      }
+      return isBuggy;
+    })();
+
+    return function() {
+      if (!Prototype.BrowserFeatures.XPath) return false;
+
+      var e = this.expression;
+
+      if (Prototype.Browser.WebKit &&
+       (e.include("-of-type") || e.include(":empty")))
+        return false;
+
+      if ((/(\[[\w-]*?:|:checked)/).test(e))
+        return false;
+
+      if (IS_DESCENDANT_SELECTOR_BUGGY) return false;
+
+      return true;
+    }
+
+  })(),
+
+  shouldUseSelectorsAPI: function() {
+    if (!Prototype.BrowserFeatures.SelectorsAPI) return false;
+
+    if (Selector.CASE_INSENSITIVE_CLASS_NAMES) return false;
+
+    if (!Selector._div) Selector._div = new Element('div');
+
+    try {
+      Selector._div.querySelector(this.expression);
+    } catch(e) {
       return false;
-
-    // XPath can't do namespaced attributes, nor can it read
-    // the "checked" property from DOM nodes
-    if ((/(\[[\w-]*?:|:checked)/).test(this.expression))
-      return false;
+    }
 
     return true;
   },
 
   compileMatcher: function() {
-    if (this.shouldUseXPath())
-      return this.compileXPathMatcher();
-
     var e = this.expression, ps = Selector.patterns, h = Selector.handlers,
-        c = Selector.criteria, le, p, m;
+        c = Selector.criteria, le, p, m, len = ps.length, name;
 
     if (Selector._cache[e]) {
       this.matcher = Selector._cache[e];
@@ -3640,11 +3241,12 @@ var Selector = Class.create({
 
     while (e && le != e && (/\S/).test(e)) {
       le = e;
-      for (var i in ps) {
-        p = ps[i];
+      for (var i = 0; i<len; i++) {
+        p = ps[i].re;
+        name = ps[i].name;
         if (m = e.match(p)) {
-          this.matcher.push(Object.isFunction(c[i]) ? c[i](m) :
-    	      new Template(c[i]).evaluate(m));
+          this.matcher.push(Object.isFunction(c[name]) ? c[name](m) :
+            new Template(c[name]).evaluate(m));
           e = e.replace(m[0], '');
           break;
         }
@@ -3658,7 +3260,7 @@ var Selector = Class.create({
 
   compileXPathMatcher: function() {
     var e = this.expression, ps = Selector.patterns,
-        x = Selector.xpath, le, m;
+        x = Selector.xpath, le, m, len = ps.length, name;
 
     if (Selector._cache[e]) {
       this.xpath = Selector._cache[e]; return;
@@ -3667,10 +3269,11 @@ var Selector = Class.create({
     this.matcher = ['.//*'];
     while (e && le != e && (/\S/).test(e)) {
       le = e;
-      for (var i in ps) {
-        if (m = e.match(ps[i])) {
-          this.matcher.push(Object.isFunction(x[i]) ? x[i](m) :
-            new Template(x[i]).evaluate(m));
+      for (var i = 0; i<len; i++) {
+        name = ps[i].name;
+        if (m = e.match(ps[i].re)) {
+          this.matcher.push(Object.isFunction(x[name]) ? x[name](m) :
+            new Template(x[name]).evaluate(m));
           e = e.replace(m[0], '');
           break;
         }
@@ -3683,29 +3286,43 @@ var Selector = Class.create({
 
   findElements: function(root) {
     root = root || document;
-    if (this.xpath) return document._getElementsByXPath(this.xpath, root);
-    return this.matcher(root);
+    var e = this.expression, results;
+
+    switch (this.mode) {
+      case 'selectorsAPI':
+        if (root !== document) {
+          var oldId = root.id, id = $(root).identify();
+          id = id.replace(/([\.:])/g, "\\$1");
+          e = "#" + id + " " + e;
+        }
+
+        results = $A(root.querySelectorAll(e)).map(Element.extend);
+        root.id = oldId;
+
+        return results;
+      case 'xpath':
+        return document._getElementsByXPath(this.xpath, root);
+      default:
+       return this.matcher(root);
+    }
   },
 
   match: function(element) {
     this.tokens = [];
 
     var e = this.expression, ps = Selector.patterns, as = Selector.assertions;
-    var le, p, m;
+    var le, p, m, len = ps.length, name;
 
     while (e && le !== e && (/\S/).test(e)) {
       le = e;
-      for (var i in ps) {
-        p = ps[i];
+      for (var i = 0; i<len; i++) {
+        p = ps[i].re;
+        name = ps[i].name;
         if (m = e.match(p)) {
-          // use the Selector.assertions methods unless the selector
-          // is too complex.
-          if (as[i]) {
-            this.tokens.push([i, Object.clone(m)]);
+          if (as[name]) {
+            this.tokens.push([name, Object.clone(m)]);
             e = e.replace(m[0], '');
           } else {
-            // reluctantly do a document-wide search
-            // and look for a match in the array
             return this.findElements(document).include(element);
           }
         }
@@ -3731,6 +3348,21 @@ var Selector = Class.create({
     return "#<Selector:" + this.expression.inspect() + ">";
   }
 });
+
+if (Prototype.BrowserFeatures.SelectorsAPI &&
+ document.compatMode === 'BackCompat') {
+  Selector.CASE_INSENSITIVE_CLASS_NAMES = (function(){
+    var div = document.createElement('div'),
+     span = document.createElement('span');
+
+    div.id = "prototype_test_id";
+    span.className = 'Test';
+    div.appendChild(span);
+    var isIgnored = (div.querySelector('#prototype_test_id .test') !== null);
+    div = span = null;
+    return isIgnored;
+  })();
+}
 
 Object.extend(Selector, {
   _cache: { },
@@ -3775,20 +3407,21 @@ Object.extend(Selector, {
       'first-child': '[not(preceding-sibling::*)]',
       'last-child':  '[not(following-sibling::*)]',
       'only-child':  '[not(preceding-sibling::* or following-sibling::*)]',
-      'empty':       "[count(*) = 0 and (count(text()) = 0 or translate(text(), ' \t\r\n', '') = '')]",
+      'empty':       "[count(*) = 0 and (count(text()) = 0)]",
       'checked':     "[@checked]",
-      'disabled':    "[@disabled]",
-      'enabled':     "[not(@disabled)]",
+      'disabled':    "[(@disabled) and (@type!='hidden')]",
+      'enabled':     "[not(@disabled) and (@type!='hidden')]",
       'not': function(m) {
         var e = m[6], p = Selector.patterns,
-            x = Selector.xpath, le, v;
+            x = Selector.xpath, le, v, len = p.length, name;
 
         var exclusion = [];
         while (e && le != e && (/\S/).test(e)) {
           le = e;
-          for (var i in p) {
-            if (m = e.match(p[i])) {
-              v = Object.isFunction(x[i]) ? x[i](m) : new Template(x[i]).evaluate(m);
+          for (var i = 0; i<len; i++) {
+            name = p[i].name
+            if (m = e.match(p[i].re)) {
+              v = Object.isFunction(x[name]) ? x[name](m) : new Template(x[name]).evaluate(m);
               exclusion.push("(" + v.substring(1, v.length - 1) + ")");
               e = e.replace(m[0], '');
               break;
@@ -3856,25 +3489,20 @@ Object.extend(Selector, {
     laterSibling: 'c = "laterSibling";'
   },
 
-  patterns: {
-    // combinators must be listed first
-    // (and descendant needs to be last combinator)
-    laterSibling: /^\s*~\s*/,
-    child:        /^\s*>\s*/,
-    adjacent:     /^\s*\+\s*/,
-    descendant:   /^\s/,
+  patterns: [
+    { name: 'laterSibling', re: /^\s*~\s*/ },
+    { name: 'child',        re: /^\s*>\s*/ },
+    { name: 'adjacent',     re: /^\s*\+\s*/ },
+    { name: 'descendant',   re: /^\s/ },
 
-    // selectors follow
-    tagName:      /^\s*(\*|[\w\-]+)(\b|$)?/,
-    id:           /^#([\w\-\*]+)(\b|$)/,
-    className:    /^\.([\w\-\*]+)(\b|$)/,
-    pseudo:
-/^:((first|last|nth|nth-last|only)(-child|-of-type)|empty|checked|(en|dis)abled|not)(\((.*?)\))?(\b|$|(?=\s|[:+~>]))/,
-    attrPresence: /^\[([\w]+)\]/,
-    attr:         /\[((?:[\w-]*:)?[\w-]+)\s*(?:([!^$*~|]?=)\s*((['"])([^\4]*?)\4|([^'"][^\]]*?)))?\]/
-  },
+    { name: 'tagName',      re: /^\s*(\*|[\w\-]+)(\b|$)?/ },
+    { name: 'id',           re: /^#([\w\-\*]+)(\b|$)/ },
+    { name: 'className',    re: /^\.([\w\-\*]+)(\b|$)/ },
+    { name: 'pseudo',       re: /^:((first|last|nth|nth-last|only)(-child|-of-type)|empty|checked|(en|dis)abled|not)(\((.*?)\))?(\b|$|(?=\s|[:+~>]))/ },
+    { name: 'attrPresence', re: /^\[((?:[\w-]+:)?[\w-]+)\]/ },
+    { name: 'attr',         re: /\[((?:[\w-]*:)?[\w-]+)\s*(?:([!^$*~|]?=)\s*((['"])([^\4]*?)\4|([^'"][^\]]*?)))?\]/ }
+  ],
 
-  // for Selector.match and Element#match
   assertions: {
     tagName: function(element, matches) {
       return matches[1].toUpperCase() == element.tagName.toUpperCase();
@@ -3899,15 +3527,12 @@ Object.extend(Selector, {
   },
 
   handlers: {
-    // UTILITY FUNCTIONS
-    // joins two collections
     concat: function(a, b) {
       for (var i = 0, node; node = b[i]; i++)
         a.push(node);
       return a;
     },
 
-    // marks an array of nodes for counting
     mark: function(nodes) {
       var _true = Prototype.emptyFunction;
       for (var i = 0, node; node = nodes[i]; i++)
@@ -3915,15 +3540,32 @@ Object.extend(Selector, {
       return nodes;
     },
 
-    unmark: function(nodes) {
-      for (var i = 0, node; node = nodes[i]; i++)
-        node._countedByPrototype = undefined;
-      return nodes;
-    },
+    unmark: (function(){
 
-    // mark each child node with its position (for nth calls)
-    // "ofType" flag indicates whether we're indexing for nth-of-type
-    // rather than nth-child
+      var PROPERTIES_ATTRIBUTES_MAP = (function(){
+        var el = document.createElement('div'),
+            isBuggy = false,
+            propName = '_countedByPrototype',
+            value = 'x'
+        el[propName] = value;
+        isBuggy = (el.getAttribute(propName) === value);
+        el = null;
+        return isBuggy;
+      })();
+
+      return PROPERTIES_ATTRIBUTES_MAP ?
+        function(nodes) {
+          for (var i = 0, node; node = nodes[i]; i++)
+            node.removeAttribute('_countedByPrototype');
+          return nodes;
+        } :
+        function(nodes) {
+          for (var i = 0, node; node = nodes[i]; i++)
+            node._countedByPrototype = void 0;
+          return nodes;
+        }
+    })(),
+
     index: function(parentNode, reverse, ofType) {
       parentNode._countedByPrototype = Prototype.emptyFunction;
       if (reverse) {
@@ -3937,19 +3579,17 @@ Object.extend(Selector, {
       }
     },
 
-    // filters out duplicates and extends all nodes
     unique: function(nodes) {
       if (nodes.length == 0) return nodes;
       var results = [], n;
       for (var i = 0, l = nodes.length; i < l; i++)
-        if (!(n = nodes[i])._countedByPrototype) {
+        if (typeof (n = nodes[i])._countedByPrototype == 'undefined') {
           n._countedByPrototype = Prototype.emptyFunction;
           results.push(Element.extend(n));
         }
       return Selector.handlers.unmark(results);
     },
 
-    // COMBINATOR FUNCTIONS
     descendant: function(nodes) {
       var h = Selector.handlers;
       for (var i = 0, results = [], node; node = nodes[i]; i++)
@@ -3983,7 +3623,7 @@ Object.extend(Selector, {
 
     nextElementSibling: function(node) {
       while (node = node.nextSibling)
-	      if (node.nodeType == 1) return node;
+        if (node.nodeType == 1) return node;
       return null;
     },
 
@@ -3993,13 +3633,11 @@ Object.extend(Selector, {
       return null;
     },
 
-    // TOKEN FUNCTIONS
     tagName: function(nodes, root, tagName, combinator) {
       var uTagName = tagName.toUpperCase();
       var results = [], h = Selector.handlers;
       if (nodes) {
         if (combinator) {
-          // fastlane for ordinary descendant combinators
           if (combinator == "descendant") {
             for (var i = 0, node; node = nodes[i]; i++)
               h.concat(results, node.getElementsByTagName(tagName));
@@ -4015,8 +3653,19 @@ Object.extend(Selector, {
 
     id: function(nodes, root, id, combinator) {
       var targetNode = $(id), h = Selector.handlers;
-      if (!targetNode) return [];
-      if (!nodes && root == document) return [targetNode];
+
+      if (root == document) {
+        if (!targetNode) return [];
+        if (!nodes) return [targetNode];
+      } else {
+        if (!root.sourceIndex || root.sourceIndex < 1) {
+          var nodes = root.getElementsByTagName('*');
+          for (var j = 0, node; node = nodes[j]; j++) {
+            if (node.id === id) return [node];
+          }
+        }
+      }
+
       if (nodes) {
         if (combinator) {
           if (combinator == 'child') {
@@ -4128,7 +3777,6 @@ Object.extend(Selector, {
       return p['last-of-type'](p['first-of-type'](nodes, formula, root), formula, root);
     },
 
-    // handles the an+b logic
     getIndices: function(a, b, total) {
       if (a == 0) return b > 0 ? [b] : [];
       return $R(1, total).inject([], function(memo, i) {
@@ -4137,7 +3785,6 @@ Object.extend(Selector, {
       });
     },
 
-    // handles nth(-last)-child, nth(-last)-of-type, and (first|last)-of-type
     nth: function(nodes, formula, root, reverse, ofType) {
       if (nodes.length == 0) return [];
       if (formula == 'even') formula = '2n+0';
@@ -4171,8 +3818,7 @@ Object.extend(Selector, {
 
     'empty': function(nodes, value, root) {
       for (var i = 0, results = [], node; node = nodes[i]; i++) {
-        // IE treats comments as element nodes
-        if (node.tagName == '!' || (node.firstChild && !node.innerHTML.match(/^\s*$/))) continue;
+        if (node.tagName == '!' || node.firstChild) continue;
         results.push(node);
       }
       return results;
@@ -4190,7 +3836,8 @@ Object.extend(Selector, {
 
     'enabled': function(nodes, value, root) {
       for (var i = 0, results = [], node; node = nodes[i]; i++)
-        if (!node.disabled) results.push(node);
+        if (!node.disabled && (!node.type || node.type !== 'hidden'))
+          results.push(node);
       return results;
     },
 
@@ -4210,11 +3857,12 @@ Object.extend(Selector, {
   operators: {
     '=':  function(nv, v) { return nv == v; },
     '!=': function(nv, v) { return nv != v; },
-    '^=': function(nv, v) { return nv.startsWith(v); },
-    '$=': function(nv, v) { return nv.endsWith(v); },
-    '*=': function(nv, v) { return nv.include(v); },
+    '^=': function(nv, v) { return nv == v || nv && nv.startsWith(v); },
+    '$=': function(nv, v) { return nv == v || nv && nv.endsWith(v); },
+    '*=': function(nv, v) { return nv == v || nv && nv.include(v); },
     '~=': function(nv, v) { return (' ' + nv + ' ').include(' ' + v + ' '); },
-    '|=': function(nv, v) { return ('-' + nv.toUpperCase() + '-').include('-' + v.toUpperCase() + '-'); }
+    '|=': function(nv, v) { return ('-' + (nv || "").toUpperCase() +
+     '-').include('-' + (v || "").toUpperCase() + '-'); }
   },
 
   split: function(expression) {
@@ -4254,19 +3902,10 @@ Object.extend(Selector, {
 
 if (Prototype.Browser.IE) {
   Object.extend(Selector.handlers, {
-    // IE returns comment nodes on getElementsByTagName("*").
-    // Filter them out.
     concat: function(a, b) {
       for (var i = 0, node; node = b[i]; i++)
         if (node.tagName !== "!") a.push(node);
       return a;
-    },
-
-    // IE improperly serializes _countedByPrototype in (inner|outer)HTML.
-    unmark: function(nodes) {
-      for (var i = 0, node; node = nodes[i]; i++)
-        node.removeAttribute('_countedByPrototype');
-      return nodes;
     }
   });
 }
@@ -4274,9 +3913,11 @@ if (Prototype.Browser.IE) {
 function $$() {
   return Selector.findChildElements(document, $A(arguments));
 }
+
 var Form = {
   reset: function(form) {
-    $(form).reset();
+    form = $(form);
+    form.reset();
     return form;
   },
 
@@ -4288,10 +3929,9 @@ var Form = {
     var data = elements.inject({ }, function(result, element) {
       if (!element.disabled && element.name) {
         key = element.name; value = $(element).getValue();
-        if (value != null && (element.type != 'submit' || (!submitted &&
+        if (value != null && element.type != 'file' && (element.type != 'submit' || (!submitted &&
             submit !== false && (!submit || key == submit) && (submitted = true)))) {
           if (key in result) {
-            // a key is already present; construct an array of values
             if (!Object.isArray(result[key])) result[key] = [result[key]];
             result[key].push(value);
           }
@@ -4311,13 +3951,18 @@ Form.Methods = {
   },
 
   getElements: function(form) {
-    return $A($(form).getElementsByTagName('*')).inject([],
-      function(elements, child) {
-        if (Form.Element.Serializers[child.tagName.toLowerCase()])
-          elements.push(Element.extend(child));
-        return elements;
-      }
-    );
+    var elements = $(form).getElementsByTagName('*'),
+        element,
+        arr = [ ],
+        serializers = Form.Element.Serializers;
+    for (var i = 0; element = elements[i]; i++) {
+      arr.push(element);
+    }
+    return arr.inject([], function(elements, child) {
+      if (serializers[child.tagName.toLowerCase()])
+        elements.push(Element.extend(child));
+      return elements;
+    })
   },
 
   getInputs: function(form, typeName, name) {
@@ -4357,7 +4002,7 @@ Form.Methods = {
     }).sortBy(function(element) { return element.tabIndex }).first();
 
     return firstByIndex ? firstByIndex : elements.find(function(element) {
-      return ['input', 'select', 'textarea'].include(element.tagName.toLowerCase());
+      return /^(?:input|select|textarea)$/i.test(element.tagName);
     });
   },
 
@@ -4388,6 +4033,7 @@ Form.Methods = {
 
 /*--------------------------------------------------------------------------*/
 
+
 Form.Element = {
   focus: function(element) {
     $(element).focus();
@@ -4401,6 +4047,7 @@ Form.Element = {
 };
 
 Form.Element.Methods = {
+
   serialize: function(element) {
     element = $(element);
     if (!element.disabled && element.name) {
@@ -4441,7 +4088,7 @@ Form.Element.Methods = {
     try {
       element.focus();
       if (element.select && (element.tagName.toLowerCase() != 'input' ||
-          !['button', 'reset', 'submit'].include(element.type)))
+          !(/^(?:button|reset|submit)$/i.test(element.type))))
         element.select();
     } catch (e) { }
     return element;
@@ -4449,7 +4096,6 @@ Form.Element.Methods = {
 
   disable: function(element) {
     element = $(element);
-    element.blur();
     element.disabled = true;
     return element;
   },
@@ -4464,6 +4110,7 @@ Form.Element.Methods = {
 /*--------------------------------------------------------------------------*/
 
 var Field = Form.Element;
+
 var $F = Form.Element.Methods.getValue;
 
 /*--------------------------------------------------------------------------*/
@@ -4489,22 +4136,22 @@ Form.Element.Serializers = {
     else element.value = value;
   },
 
-  select: function(element, index) {
-    if (Object.isUndefined(index))
+  select: function(element, value) {
+    if (Object.isUndefined(value))
       return this[element.type == 'select-one' ?
         'selectOne' : 'selectMany'](element);
     else {
-      var opt, value, single = !Object.isArray(index);
+      var opt, currentValue, single = !Object.isArray(value);
       for (var i = 0, length = element.length; i < length; i++) {
         opt = element.options[i];
-        value = this.optionValue(opt);
+        currentValue = this.optionValue(opt);
         if (single) {
-          if (value == index) {
+          if (currentValue == value) {
             opt.selected = true;
             return;
           }
         }
-        else opt.selected = index.include(value);
+        else opt.selected = value.include(currentValue);
       }
     }
   },
@@ -4526,12 +4173,12 @@ Form.Element.Serializers = {
   },
 
   optionValue: function(opt) {
-    // extend element because hasAttribute may not be native
     return Element.extend(opt).hasAttribute('value') ? opt.value : opt.text;
   }
 };
 
 /*--------------------------------------------------------------------------*/
+
 
 Abstract.TimedObserver = Class.create(PeriodicalExecuter, {
   initialize: function($super, element, frequency, callback) {
@@ -4614,395 +4261,441 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
     return Form.serialize(this.element);
   }
 });
-if (!window.Event) var Event = { };
+(function() {
 
-Object.extend(Event, {
-  
-  /**
-  * Code for the Backspace key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_BACKSPACE: 8,
-  
-  /**
-  * Code for the Tab key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_TAB:       9,
-  
-  /**
-  * Code for the Return key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_RETURN:   13,
-  
-  /**
-  * Code for the Esc key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_ESC:      27,
-  
-  /**
-  * Code for the Left arrow key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_LEFT:     37,
-  
-  /**
-  * Code for the Up arrow key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_UP:       38,
-  
-  /**
-  * Code for the Right arrow key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_RIGHT:    39,
-  
-  /**
-  * Code for the Down arrow key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_DOWN:     40,
-  
-  /**
-  * Code for the Delete key. Constant.
-  * @memberOf {Event}
-  */
-  KEY_DELETE:   46,
-  
-  /**
-   * Code for the Home key. Constant.
-   * @memberOf {Event}
-   */
-  KEY_HOME:     36,
-  
-   /**
-   * Code for the End key. Constant.
-   * @memberOf {Event}
-   */
-  KEY_END:      35,
-  
-  /**
-   * Code for the Page Up key. Constant.
-   * @memberOf {Event}
-   */
-  KEY_PAGEUP:   33,
-  
-   /**
-   * Code for the Page Down key. Constant.
-   * @memberOf {Event}
-   */
-  KEY_PAGEDOWN: 34,
-  
-  /**
-   * Code for the Insert key. Constant.
-   * @memberOf {Event}
-   */
-  KEY_INSERT:   45,
+  var Event = {
+    KEY_BACKSPACE: 8,
+    KEY_TAB:       9,
+    KEY_RETURN:   13,
+    KEY_ESC:      27,
+    KEY_LEFT:     37,
+    KEY_UP:       38,
+    KEY_RIGHT:    39,
+    KEY_DOWN:     40,
+    KEY_DELETE:   46,
+    KEY_HOME:     36,
+    KEY_END:      35,
+    KEY_PAGEUP:   33,
+    KEY_PAGEDOWN: 34,
+    KEY_INSERT:   45,
 
-  cache: { },
+    cache: {}
+  };
 
-  relatedTarget: function(event) {
-    var element;
-    switch(event.type) {
-      case 'mouseover': element = event.fromElement; break;
-      case 'mouseout':  element = event.toElement;   break;
-      default: return null;
-    }
-    return Element.extend(element);
-  }
-});
+  var docEl = document.documentElement;
+  var MOUSEENTER_MOUSELEAVE_EVENTS_SUPPORTED = 'onmouseenter' in docEl
+    && 'onmouseleave' in docEl;
 
-Event.Methods = (function() {
-  var isButton;
-
+  var _isButton;
   if (Prototype.Browser.IE) {
     var buttonMap = { 0: 1, 1: 4, 2: 2 };
-    isButton = function(event, code) {
-      return event.button == buttonMap[code];
+    _isButton = function(event, code) {
+      return event.button === buttonMap[code];
     };
-
   } else if (Prototype.Browser.WebKit) {
-    isButton = function(event, code) {
+    _isButton = function(event, code) {
       switch (code) {
         case 0: return event.which == 1 && !event.metaKey;
         case 1: return event.which == 1 && event.metaKey;
         default: return false;
       }
     };
-
   } else {
-    isButton = function(event, code) {
+    _isButton = function(event, code) {
       return event.which ? (event.which === code + 1) : (event.button === code);
     };
   }
 
-  return {
-    isLeftClick:   function(event) { return isButton(event, 0) },
-    isMiddleClick: function(event) { return isButton(event, 1) },
-    isRightClick:  function(event) { return isButton(event, 2) },
+  function isLeftClick(event)   { return _isButton(event, 0) }
 
-    element: function(event) {
-      var node = Event.extend(event).target;
-      return Element.extend(node.nodeType == Node.TEXT_NODE ? node.parentNode : node);
-    },
+  function isMiddleClick(event) { return _isButton(event, 1) }
 
-    findElement: function(event, expression) {
-      var element = Event.element(event);
-      if (!expression) return element;
-      var elements = [element].concat(element.ancestors());
-      return Selector.findElement(elements, expression, 0);
-    },
+  function isRightClick(event)  { return _isButton(event, 2) }
 
-    pointer: function(event) {
-      return {
-        x: event.pageX || (event.clientX +
-          (document.documentElement.scrollLeft || document.body.scrollLeft)),
-        y: event.pageY || (event.clientY +
-          (document.documentElement.scrollTop || document.body.scrollTop))
-      };
-    },
+  function element(event) {
+    event = Event.extend(event);
 
-    pointerX: function(event) { return Event.pointer(event).x },
-    pointerY: function(event) { return Event.pointer(event).y },
+    var node = event.target, type = event.type,
+     currentTarget = event.currentTarget;
 
-    stop: function(event) {
-      Event.extend(event);
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopped = true;
+    if (currentTarget && currentTarget.tagName) {
+      if (type === 'load' || type === 'error' ||
+        (type === 'click' && currentTarget.tagName.toLowerCase() === 'input'
+          && currentTarget.type === 'radio'))
+            node = currentTarget;
     }
-  };
-})();
 
-Event.extend = (function() {
+    if (node.nodeType == Node.TEXT_NODE)
+      node = node.parentNode;
+
+    return Element.extend(node);
+  }
+
+  function findElement(event, expression) {
+    var element = Event.element(event);
+    if (!expression) return element;
+    var elements = [element].concat(element.ancestors());
+    return Selector.findElement(elements, expression, 0);
+  }
+
+  function pointer(event) {
+    return { x: pointerX(event), y: pointerY(event) };
+  }
+
+  function pointerX(event) {
+    var docElement = document.documentElement,
+     body = document.body || { scrollLeft: 0 };
+
+    return event.pageX || (event.clientX +
+      (docElement.scrollLeft || body.scrollLeft) -
+      (docElement.clientLeft || 0));
+  }
+
+  function pointerY(event) {
+    var docElement = document.documentElement,
+     body = document.body || { scrollTop: 0 };
+
+    return  event.pageY || (event.clientY +
+       (docElement.scrollTop || body.scrollTop) -
+       (docElement.clientTop || 0));
+  }
+
+
+  function stop(event) {
+    Event.extend(event);
+    event.preventDefault();
+    event.stopPropagation();
+
+    event.stopped = true;
+  }
+
+  Event.Methods = {
+    isLeftClick: isLeftClick,
+    isMiddleClick: isMiddleClick,
+    isRightClick: isRightClick,
+
+    element: element,
+    findElement: findElement,
+
+    pointer: pointer,
+    pointerX: pointerX,
+    pointerY: pointerY,
+
+    stop: stop
+  };
+
+
   var methods = Object.keys(Event.Methods).inject({ }, function(m, name) {
     m[name] = Event.Methods[name].methodize();
     return m;
   });
 
   if (Prototype.Browser.IE) {
+    function _relatedTarget(event) {
+      var element;
+      switch (event.type) {
+        case 'mouseover': element = event.fromElement; break;
+        case 'mouseout':  element = event.toElement;   break;
+        default: return null;
+      }
+      return Element.extend(element);
+    }
+
     Object.extend(methods, {
       stopPropagation: function() { this.cancelBubble = true },
       preventDefault:  function() { this.returnValue = false },
-      inspect: function() { return "[object Event]" }
+      inspect: function() { return '[object Event]' }
     });
 
-    return function(event) {
+    Event.extend = function(event, element) {
       if (!event) return false;
       if (event._extendedByPrototype) return event;
 
       event._extendedByPrototype = Prototype.emptyFunction;
       var pointer = Event.pointer(event);
+
       Object.extend(event, {
-        target: event.srcElement,
-        relatedTarget: Event.relatedTarget(event),
+        target: event.srcElement || element,
+        relatedTarget: _relatedTarget(event),
         pageX:  pointer.x,
         pageY:  pointer.y
       });
+
       return Object.extend(event, methods);
     };
-
   } else {
-    Event.prototype = Event.prototype || document.createEvent("HTMLEvents").__proto__;
+    Event.prototype = window.Event.prototype || document.createEvent('HTMLEvents').__proto__;
     Object.extend(Event.prototype, methods);
-    return Prototype.K;
-  }
-})();
-
-Object.extend(Event, (function() {
-  var cache = Event.cache;
-
-  function getEventID(element) {
-    if (element._prototypeEventID) return element._prototypeEventID[0];
-    arguments.callee.id = arguments.callee.id || 1;
-    return element._prototypeEventID = [++arguments.callee.id];
+    Event.extend = Prototype.K;
   }
 
-  function getDOMEventName(eventName) {
-    if (eventName && eventName.include(':')) return "dataavailable";
-    return eventName;
-  }
+  function _createResponder(element, eventName, handler) {
+    var registry = Element.retrieve(element, 'prototype_event_registry');
 
-  function getCacheForID(id) {
-    return cache[id] = cache[id] || { };
-  }
+    if (Object.isUndefined(registry)) {
+      CACHE.push(element);
+      registry = Element.retrieve(element, 'prototype_event_registry', $H());
+    }
 
-  function getWrappersForEventName(id, eventName) {
-    var c = getCacheForID(id);
-    return c[eventName] = c[eventName] || [];
-  }
+    var respondersForEvent = registry.get(eventName);
+    if (Object.isUndefined(respondersForEvent)) {
+      respondersForEvent = [];
+      registry.set(eventName, respondersForEvent);
+    }
 
-  function createWrapper(element, eventName, handler) {
-    var id = getEventID(element);
-    var c = getWrappersForEventName(id, eventName);
-    if (c.pluck("handler").include(handler)) return false;
+    if (respondersForEvent.pluck('handler').include(handler)) return false;
 
-    var wrapper = function(event) {
-      if (!Event || !Event.extend ||
-        (event.eventName && event.eventName != eventName))
+    var responder;
+    if (eventName.include(":")) {
+      responder = function(event) {
+        if (Object.isUndefined(event.eventName))
           return false;
 
-      Event.extend(event);
-      handler.call(element, event);
-    };
+        if (event.eventName !== eventName)
+          return false;
 
-    wrapper.handler = handler;
-    c.push(wrapper);
-    return wrapper;
-  }
+        Event.extend(event, element);
+        handler.call(element, event);
+      };
+    } else {
+      if (!MOUSEENTER_MOUSELEAVE_EVENTS_SUPPORTED &&
+       (eventName === "mouseenter" || eventName === "mouseleave")) {
+        if (eventName === "mouseenter" || eventName === "mouseleave") {
+          responder = function(event) {
+            Event.extend(event, element);
 
-  function findWrapper(id, eventName, handler) {
-    var c = getWrappersForEventName(id, eventName);
-    return c.find(function(wrapper) { return wrapper.handler == handler });
-  }
+            var parent = event.relatedTarget;
+            while (parent && parent !== element) {
+              try { parent = parent.parentNode; }
+              catch(e) { parent = element; }
+            }
 
-  function destroyWrapper(id, eventName, handler) {
-    var c = getCacheForID(id);
-    if (!c[eventName]) return false;
-    c[eventName] = c[eventName].without(findWrapper(id, eventName, handler));
-  }
+            if (parent === element) return;
 
-  function destroyCache() {
-    for (var id in cache)
-      for (var eventName in cache[id])
-        cache[id][eventName] = null;
-  }
-
-  if (window.attachEvent) {
-    window.attachEvent("onunload", destroyCache);
-  }
-
-  return {
-    observe: function(element, eventName, handler) {
-      element = $(element);
-      var name = getDOMEventName(eventName);
-
-      var wrapper = createWrapper(element, eventName, handler);
-      if (!wrapper) return element;
-
-      if (element.addEventListener) {
-        element.addEventListener(name, wrapper, false);
+            handler.call(element, event);
+          };
+        }
       } else {
-        element.attachEvent("on" + name, wrapper);
+        responder = function(event) {
+          Event.extend(event, element);
+          handler.call(element, event);
+        };
       }
-
-      return element;
-    },
-
-    stopObserving: function(element, eventName, handler) {
-      element = $(element);
-      var id = getEventID(element), name = getDOMEventName(eventName);
-
-      if (!handler && eventName) {
-        getWrappersForEventName(id, eventName).each(function(wrapper) {
-          element.stopObserving(eventName, wrapper.handler);
-        });
-        return element;
-
-      } else if (!eventName) {
-        Object.keys(getCacheForID(id)).each(function(eventName) {
-          element.stopObserving(eventName);
-        });
-        return element;
-      }
-
-      var wrapper = findWrapper(id, eventName, handler);
-      if (!wrapper) return element;
-
-      if (element.removeEventListener) {
-        element.removeEventListener(name, wrapper, false);
-      } else {
-        element.detachEvent("on" + name, wrapper);
-      }
-
-      destroyWrapper(id, eventName, handler);
-
-      return element;
-    },
-
-    fire: function(element, eventName, memo) {
-      element = $(element);
-      if (element == document && document.createEvent && !element.dispatchEvent)
-        element = document.documentElement;
-
-      var event;
-      if (document.createEvent) {
-        event = document.createEvent("HTMLEvents");
-        event.initEvent("dataavailable", true, true);
-      } else {
-        event = document.createEventObject();
-        event.eventType = "ondataavailable";
-      }
-
-      event.eventName = eventName;
-      event.memo = memo || { };
-
-      if (document.createEvent) {
-        element.dispatchEvent(event);
-      } else {
-        element.fireEvent(event.eventType, event);
-      }
-
-      return Event.extend(event);
     }
-  };
-})());
 
-Object.extend(Event, Event.Methods);
+    responder.handler = handler;
+    respondersForEvent.push(responder);
+    return responder;
+  }
 
-Element.addMethods({
-  fire:          Event.fire,
-  observe:       Event.observe,
-  stopObserving: Event.stopObserving
-});
+  function _destroyCache() {
+    for (var i = 0, length = CACHE.length; i < length; i++) {
+      Event.stopObserving(CACHE[i]);
+      CACHE[i] = null;
+    }
+  }
 
-Object.extend(document, {
-  fire:          Element.Methods.fire.methodize(),
-  observe:       Element.Methods.observe.methodize(),
-  stopObserving: Element.Methods.stopObserving.methodize(),
-  loaded:        false
-});
+  var CACHE = [];
+
+  if (Prototype.Browser.IE)
+    window.attachEvent('onunload', _destroyCache);
+
+  if (Prototype.Browser.WebKit)
+    window.addEventListener('unload', Prototype.emptyFunction, false);
+
+
+  var _getDOMEventName = Prototype.K;
+
+  if (!MOUSEENTER_MOUSELEAVE_EVENTS_SUPPORTED) {
+    _getDOMEventName = function(eventName) {
+      var translations = { mouseenter: "mouseover", mouseleave: "mouseout" };
+      return eventName in translations ? translations[eventName] : eventName;
+    };
+  }
+
+  function observe(element, eventName, handler) {
+    element = $(element);
+
+    var responder = _createResponder(element, eventName, handler);
+
+    if (!responder) return element;
+
+    if (eventName.include(':')) {
+      if (element.addEventListener)
+        element.addEventListener("dataavailable", responder, false);
+      else {
+        element.attachEvent("ondataavailable", responder);
+        element.attachEvent("onfilterchange", responder);
+      }
+    } else {
+      var actualEventName = _getDOMEventName(eventName);
+
+      if (element.addEventListener)
+        element.addEventListener(actualEventName, responder, false);
+      else
+        element.attachEvent("on" + actualEventName, responder);
+    }
+
+    return element;
+  }
+
+  function stopObserving(element, eventName, handler) {
+    element = $(element);
+
+    var registry = Element.retrieve(element, 'prototype_event_registry');
+
+    if (Object.isUndefined(registry)) return element;
+
+    if (eventName && !handler) {
+      var responders = registry.get(eventName);
+
+      if (Object.isUndefined(responders)) return element;
+
+      responders.each( function(r) {
+        Element.stopObserving(element, eventName, r.handler);
+      });
+      return element;
+    } else if (!eventName) {
+      registry.each( function(pair) {
+        var eventName = pair.key, responders = pair.value;
+
+        responders.each( function(r) {
+          Element.stopObserving(element, eventName, r.handler);
+        });
+      });
+      return element;
+    }
+
+    var responders = registry.get(eventName);
+
+    if (!responders) return;
+
+    var responder = responders.find( function(r) { return r.handler === handler; });
+    if (!responder) return element;
+
+    var actualEventName = _getDOMEventName(eventName);
+
+    if (eventName.include(':')) {
+      if (element.removeEventListener)
+        element.removeEventListener("dataavailable", responder, false);
+      else {
+        element.detachEvent("ondataavailable", responder);
+        element.detachEvent("onfilterchange",  responder);
+      }
+    } else {
+      if (element.removeEventListener)
+        element.removeEventListener(actualEventName, responder, false);
+      else
+        element.detachEvent('on' + actualEventName, responder);
+    }
+
+    registry.set(eventName, responders.without(responder));
+
+    return element;
+  }
+
+  function fire(element, eventName, memo, bubble) {
+    element = $(element);
+
+    if (Object.isUndefined(bubble))
+      bubble = true;
+
+    if (element == document && document.createEvent && !element.dispatchEvent)
+      element = document.documentElement;
+
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent('dataavailable', true, true);
+    } else {
+      event = document.createEventObject();
+      event.eventType = bubble ? 'ondataavailable' : 'onfilterchange';
+    }
+
+    event.eventName = eventName;
+    event.memo = memo || { };
+
+    if (document.createEvent)
+      element.dispatchEvent(event);
+    else
+      element.fireEvent(event.eventType, event);
+
+    return Event.extend(event);
+  }
+
+
+  Object.extend(Event, Event.Methods);
+
+  Object.extend(Event, {
+    fire:          fire,
+    observe:       observe,
+    stopObserving: stopObserving
+  });
+
+  Element.addMethods({
+    fire:          fire,
+
+    observe:       observe,
+
+    stopObserving: stopObserving
+  });
+
+  Object.extend(document, {
+    fire:          fire.methodize(),
+
+    observe:       observe.methodize(),
+
+    stopObserving: stopObserving.methodize(),
+
+    loaded:        false
+  });
+
+  if (window.Event) Object.extend(window.Event, Event);
+  else window.Event = Event;
+})();
 
 (function() {
   /* Support for the DOMContentLoaded event is based on work by Dan Webb,
-     Matthias Miller, Dean Edwards and John Resig. */
+     Matthias Miller, Dean Edwards, John Resig, and Diego Perini. */
 
   var timer;
 
   function fireContentLoadedEvent() {
     if (document.loaded) return;
-    if (timer) window.clearInterval(timer);
-    document.fire("dom:loaded");
+    if (timer) window.clearTimeout(timer);
     document.loaded = true;
+    document.fire('dom:loaded');
+  }
+
+  function checkReadyState() {
+    if (document.readyState === 'complete') {
+      document.stopObserving('readystatechange', checkReadyState);
+      fireContentLoadedEvent();
+    }
+  }
+
+  function pollDoScroll() {
+    try { document.documentElement.doScroll('left'); }
+    catch(e) {
+      timer = pollDoScroll.defer();
+      return;
+    }
+    fireContentLoadedEvent();
   }
 
   if (document.addEventListener) {
-    if (Prototype.Browser.WebKit) {
-      timer = window.setInterval(function() {
-        if (/loaded|complete/.test(document.readyState))
-          fireContentLoadedEvent();
-      }, 0);
-
-      Event.observe(window, "load", fireContentLoadedEvent);
-
-    } else {
-      document.addEventListener("DOMContentLoaded",
-        fireContentLoadedEvent, false);
-    }
-
+    document.addEventListener('DOMContentLoaded', fireContentLoadedEvent, false);
   } else {
-    document.write("<script id=__onDOMContentLoaded defer src=//:><\/script>");
-    $("__onDOMContentLoaded").onreadystatechange = function() {
-      if (this.readyState == "complete") {
-        this.onreadystatechange = null;
-        fireContentLoadedEvent();
-      }
-    };
+    document.observe('readystatechange', checkReadyState);
+    if (window == top)
+      timer = pollDoScroll.defer();
   }
+
+  Event.observe(window, 'load', fireContentLoadedEvent);
 })();
+
+Element.addMethods();
+
 /*------------------------------- DEPRECATED -------------------------------*/
 
 Hash.toQueryString = Object.toQueryString;
@@ -5011,42 +4704,19 @@ var Toggle = { display: Element.toggle };
 
 Element.Methods.childOf = Element.Methods.descendantOf;
 
-/**
- * @classDescription Inserts HTML before an element.
- * @constructor
- */
-
 var Insertion = {
   Before: function(element, content) {
     return Element.insert(element, {before:content});
   },
-  
-  /**
-   * Inserts HTML as the first child under an element.
-   * @alias Insertion.Top
-   * @param {Object} element
-   * @param {Object} content
-   */
+
   Top: function(element, content) {
     return Element.insert(element, {top:content});
   },
 
-  /**
-   * Inserts HTML as the last child under an element.
-   * @alias Insertion.Bottom
-   * @param {Object} element
-   * @param {Object} content
-   */
   Bottom: function(element, content) {
     return Element.insert(element, {bottom:content});
   },
 
-  /**
-   * Inserts HTML right after the closing tag of an element.
-   * @alias Insertion.After
-   * @param {Object} element
-   * @param {Object} content
-   */
   After: function(element, content) {
     return Element.insert(element, {after:content});
   }
@@ -5054,16 +4724,9 @@ var Insertion = {
 
 var $continue = new Error('"throw $continue" is deprecated, use "return" instead');
 
-// This should be moved to script.aculo.us; notice the deprecated methods
-// further below, that map to the newer Element methods.
 var Position = {
-  // set to true if needed, warning: firefox performance problems
-  // NOT neeeded for page scrolling, only if draggable contained in
-  // scrollable elements
   includeScrollOffsets: false,
 
-  // must be called before calling withinIncludingScrolloffset, every time the
-  // page is scrolled
   prepare: function() {
     this.deltaX =  window.pageXOffset
                 || document.documentElement.scrollLeft
@@ -5075,7 +4738,6 @@ var Position = {
                 || 0;
   },
 
-  // caches x/y coordinate pair to use with overlap
   within: function(element, x, y) {
     if (this.includeScrollOffsets)
       return this.withinIncludingScrolloffsets(element, x, y);
@@ -5102,7 +4764,6 @@ var Position = {
             this.xcomp <  this.offset[0] + element.offsetWidth);
   },
 
-  // within must be called directly before
   overlap: function(mode, element) {
     if (!mode) return 0;
     if (mode == 'vertical')
@@ -5113,7 +4774,6 @@ var Position = {
         element.offsetWidth;
   },
 
-  // Deprecation layer -- use newer Element methods now (1.5.2).
 
   cumulativeOffset: Element.Methods.cumulativeOffset,
 
@@ -5212,5 +4872,3 @@ Element.ClassNames.prototype = {
 Object.extend(Element.ClassNames.prototype, Enumerable);
 
 /*--------------------------------------------------------------------------*/
-
-Element.addMethods();

@@ -9,5 +9,8 @@
    <feature url="features/com.jquery.1.2_1.2.6.00001.jar" id="com.jquery.1.2" version="1.2.6.00001">
       <category name="jQuery"/>
    </feature>
+   <feature url="features/com.jquery.1.4_1.4.2.00001.jar" id="com.jquery.1.4" version="1.4.2.00001">
+      <category name="jQuery"/>
+   </feature>
    <category-def name="jQuery" label="Aptana Support for jQuery"/>
 </site>

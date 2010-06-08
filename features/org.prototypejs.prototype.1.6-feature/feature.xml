@@ -2,7 +2,7 @@
 <feature
       id="org.prototypejs.prototype.1.6"
       label="%featureName"
-      version="1.6.0.00004"
+      version="1.6.1.00001"
       provider-name="%providerName"
       plugin="org.prototypejs.prototype.1.6">
 
@@ -41,7 +41,7 @@
          id="org.prototypejs.prototype.1.6"
          download-size="450"
          install-size="450"
-         version="1.6.0.00001"
+         version="1.6.1.00001"
          unpack="false"/>
 
 </feature>
