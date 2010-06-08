@@ -1,0 +1,23 @@
+* { margin: 0; padding: 0 }
+
+span.fn { font-size: 1.2em; margin: 1.5em 0 .6em 0; display: block; }
+
+#nav, .quicksearch {
+	display: none;
+}
+#docs {
+	margin-left: 0;
+}
+#docs li {
+	padding-bottom: 1em;
+}
+a {	color: black; text-decoration: none; }
+ul#docs li {
+	margin-bottom: 1em;
+	border-bottom: 2px solid;
+}
+h2 { margin: 0.4em 0; }
+h3 { margin: .5em 0 .3em 0; }
+h4 { margin: .4em 0 .2em 0; }
+
+p { margin-bottom: 1em; }

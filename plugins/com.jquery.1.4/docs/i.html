@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-id-id">
+<span class="fn"><a class="name" href="#link-id-id">id</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An ID to search for, specified via the id attribute of an element.">id</span> ) returns <span class="type"><span class="tooltip" title="The Javascript object representation of a DOM Element.">Element</span></span></span>
+<div class="more">
+<div class="desc">Matches a single element with the given id attribute. <br>If
+the id contains characters like periods or colons you have to escape
+those characters with backslashes
+[http://docs.jquery.com/Frequently_Asked_Questions#How_do_I_select_an_element_that_has_weird_characters_in_its_ID.3F].</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the element with the id "myDiv".</p>
+<pre><code class="javascript">$(<span class="string">"#myDiv"</span>).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"notMe"</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>id=<span class="avalue">"notMe"</span><span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"myDiv"</span><span class="tag">&gt;</span>id=<span class="avalue">"myDiv"</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the element with the id "myID.entry[1]".  See how certain characters must be escaped with backslashes.</p>
+<pre><code class="javascript">$(<span class="string">"#myID\\.entry\\[1\\]"</span>).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"myID.entry[0]"</span><span class="tag">&gt;</span>id=<span class="avalue">"myID.entry[0]"</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"myID.entry[1]"</span><span class="tag">&gt;</span>id=<span class="avalue">"myID.entry[1]"</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"myID.entry[2]"</span><span class="tag">&gt;</span>id=<span class="avalue">"myID.entry[2]"</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-image-">
+<span class="fn"><a class="name" href="#link-image-">image</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input elements of type image.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all image inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;input&nbsp;=&nbsp;$(<span class="string">":image"</span>).css({background:<span class="string">"yellow"</span>,&nbsp;border:<span class="string">"3px&nbsp;red&nbsp;solid"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"For&nbsp;this&nbsp;type&nbsp;jQuery&nbsp;found&nbsp;"</span>&nbsp;+&nbsp;input.length&nbsp;+&nbsp;<span class="string">"."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;option</span><span class="tag">/&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-index-subject">
+<span class="fn"><a class="name" href="#link-index-subject">index</a>( <span class="arg-type tooltip" title="">Element </span> <span class="arg-name tooltip" title="Object to search for.">subject</span> ) returns <span class="type"><span class="tooltip" title="A valid numeric.">Number</span></span></span>
+<div class="more">
+<div class="desc">Searches every matched element for the object and returns the index of the element, if found, starting with zero.<br>Returns -1 if the object wasn't found.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>On click, returns the index (based zero) of that div in the page.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;this&nbsp;is&nbsp;the&nbsp;dom&nbsp;element&nbsp;clicked</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;index&nbsp;=&nbsp;$(<span class="string">"div"</span>).index(<span class="keywords">this</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">"That&nbsp;was&nbsp;div&nbsp;index&nbsp;#"</span>&nbsp;+&nbsp;index);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>Click&nbsp;a&nbsp;div!<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>First&nbsp;div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Second&nbsp;div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Third&nbsp;div<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns the index for the element with ID foobar.</p>
+<pre><code class="javascript">$(<span class="string">"*"</span>).index(&nbsp;$(<span class="string">'#foobar'</span>)[<span class="numbers">0</span>]&nbsp;)</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foobar"</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span><span class="tag">&lt;/b&gt;</span><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns the index for the element with ID foo within another element.</p>
+<pre><code class="javascript">$(<span class="string">"*"</span>).index(&nbsp;$(<span class="string">'#foo'</span>)[<span class="numbers">0</span>]&nbsp;)</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foobar"</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span><span class="tag">&lt;/b&gt;</span><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns the index for the element clicked within a collection.</p>
+<pre><code class="javascript"><span class="keywords">var</span>&nbsp;mainNavLinks&nbsp;=&nbsp;$(<span class="string">'ul#mainNav&nbsp;li&nbsp;a'</span>);&nbsp;
+mainNavLinks.click(<span class="keywords">function</span>(){alert(mainNavLinks.index(<span class="keywords">this</span>)<span class="numbers">0</span>;});</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns -1, as there is no element with ID bar.</p>
+<pre><code class="javascript">$(<span class="string">"*"</span>).index(&nbsp;$(<span class="string">'#bar'</span>)[<span class="numbers">0</span>]&nbsp;)</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foobar"</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span><span class="tag">&lt;/b&gt;</span><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-input-">
+<span class="fn"><a class="name" href="#link-input-">input</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input, textarea, select and button elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all input elements.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;allInputs&nbsp;=&nbsp;$(<span class="string">":input"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;formChildren&nbsp;=&nbsp;$(<span class="string">"form&nbsp;&gt;&nbsp;*"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"Found&nbsp;"</span>&nbsp;+&nbsp;allInputs.length&nbsp;+&nbsp;<span class="string">"&nbsp;inputs&nbsp;and&nbsp;the&nbsp;form&nbsp;has&nbsp;"</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formChildren.length&nbsp;+&nbsp;<span class="string">"&nbsp;children."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;/option&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-insertAfter-content">
+<span class="fn"><a class="name" href="#link-insertAfter-content">insertAfter</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="Content after which the selected element(s) is inserted.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Insert all of the matched elements after another, specified, set of elements.<br>This
+operation is, essentially, the reverse of doing a regular
+$(A).after(B), in that instead of inserting B after A, you're inserting
+A after B.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Inserts all paragraphs after an element with id of "foo". Same as $("#foo").after("p")</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).insertAfter(<span class="string">"#foo"</span>);&nbsp;<span class="com">//&nbsp;check&nbsp;after()&nbsp;examples</span></code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;is&nbsp;what&nbsp;I&nbsp;said...&nbsp;<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span>FOO!<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-insertBefore-content">
+<span class="fn"><a class="name" href="#link-insertBefore-content">insertBefore</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="Content after which the selected element(s) is inserted.">content</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Insert all of the matched elements before another, specified, set of elements.<br>This
+operation is, essentially, the reverse of doing a regular
+$(A).before(B), in that instead of inserting B before A, you're
+inserting A before B.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Inserts all paragraphs before an element with id of "foo". Same as $("#foo").before("p")</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).insertBefore(<span class="string">"#foo"</span>);&nbsp;<span class="com">//&nbsp;check&nbsp;before()&nbsp;examples</span></code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"foo"</span><span class="tag">&gt;</span>FOO!<span class="tag">&lt;/div&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>I&nbsp;would&nbsp;like&nbsp;to&nbsp;say:&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-is-expr">
+<span class="fn"><a class="name" href="#link-is-expr">is</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The expression with which to filter">expr</span> ) returns <span class="type"><span class="tooltip" title="true or false.">Boolean</span></span></span>
+<div class="more">
+<div class="desc">Checks the current selection against an expression
+and returns true, if at least one element of the selection fits the
+given expression.<br>If no element fits, or the expression is not valid, then the response will be 'false'.<br>
+<br>
+&lt;a href='Traversing/filter'&gt;filter&lt;/a&gt; is used internally,
+therefore all rules that apply there apply here, as well. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows a few ways is() can be used inside an event handler.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).one(<span class="string">'click'</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="keywords">this</span>).is(<span class="string">":first-child"</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(<span class="string">"It's&nbsp;the&nbsp;first&nbsp;div."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="keywords">this</span>).is(<span class="string">".blue,.red"</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(<span class="string">"It's&nbsp;a&nbsp;blue&nbsp;or&nbsp;red&nbsp;div."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="keywords">this</span>).is(<span class="string">":contains('Peter')"</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).text(<span class="string">"It's&nbsp;Peter!"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).html(<span class="string">"It's&nbsp;nothing&nbsp;&lt;em&gt;special&lt;/em&gt;."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hide().slideDown(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({<span class="string">"border-style"</span>:&nbsp;<span class="string">"inset"</span>,&nbsp;cursor:<span class="string">"default"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"red"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Peter<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"blue"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns true, because the parent of the input is a form element</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;isFormParent&nbsp;=&nbsp;$(<span class="string">"input[@type='checkbox']"</span>).parent().is(<span class="string">"form"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"isFormParent&nbsp;=&nbsp;"</span>&nbsp;+&nbsp;isFormParent);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span><span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span><span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Returns false, because the parent of the input is a p element</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;isFormParent&nbsp;=&nbsp;$(<span class="string">"input[@type='checkbox']"</span>).parent().is(<span class="string">"form"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"isFormParent&nbsp;=&nbsp;"</span>&nbsp;+&nbsp;isFormParent);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span><span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

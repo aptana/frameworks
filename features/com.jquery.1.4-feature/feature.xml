@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.jquery.1.4"
+      label="%featureName"
+      version="1.4.2.00001"
+      provider-name="%providerName"
+      plugin="com.jquery.1.4">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://update.aptana.com/update/frameworks/"/>
+   </url>
+
+   <requires>
+      <import plugin="com.aptana.ide.core.ui"/>
+      <import plugin="com.aptana.ide.core"/>
+      <import plugin="com.aptana.ide.editor.js"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="com.aptana.ide.snippets"/>
+      <import plugin="com.aptana.ide.samples"/>
+      <import plugin="com.aptana.ide.projects"/>
+   </requires>
+
+   <plugin
+         id="com.jquery.1.4"
+         download-size="256"
+         install-size="256"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

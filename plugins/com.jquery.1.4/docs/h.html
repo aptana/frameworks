@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-has-selector">
+<span class="fn"><a class="name" href="#link-has-selector">has</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A selector with which to filter by.">selector</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements which contain at least one element that matches the specified selector.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds the class "test" to all divs that have a paragraph inside of them.</p>
+<pre><code class="javascript">$(<span class="string">"div:has(p)"</span>).addClass(<span class="string">"test"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello&nbsp;in&nbsp;a&nbsp;paragraph<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Hello&nbsp;again!&nbsp;(with&nbsp;no&nbsp;paragraph)<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hasClass-class">
+<span class="fn"><a class="name" href="#link-hasClass-class">hasClass</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The class to match.">class</span> ) returns <span class="type"><span class="tooltip" title="true or false.">Boolean</span></span></span>
+<div class="more">
+<div class="desc">Checks the current selection against a class and returns true, if at least one element of the selection has the given class.<br>This is an alternative to is("." + class).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Check to see if an element has a specific class, and if so, perform an action.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(&nbsp;$(<span class="keywords">this</span>).hasClass(<span class="string">"protected"</span>)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).animate({&nbsp;left:&nbsp;-<span class="numbers">10</span>&nbsp;},&nbsp;<span class="numbers">75</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate({&nbsp;left:&nbsp;<span class="numbers">10</span>&nbsp;},&nbsp;<span class="numbers">75</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate({&nbsp;left:&nbsp;-<span class="numbers">10</span>&nbsp;},&nbsp;<span class="numbers">75</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate({&nbsp;left:&nbsp;<span class="numbers">10</span>&nbsp;},&nbsp;<span class="numbers">75</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.animate({&nbsp;left:&nbsp;<span class="numbers">0</span>&nbsp;},&nbsp;<span class="numbers">75</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"protected"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"protected"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-header-">
+<span class="fn"><a class="name" href="#link-header-">header</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are headers, like h1, h2, h3 and so on.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds a background and text color to all the headers on the page.</p>
+<pre><code class="javascript">$(<span class="string">":header"</span>).css({&nbsp;background:<span class="string">'#CCC'</span>,&nbsp;color:<span class="string">'blue'</span>&nbsp;});</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;h1</span><span class="tag">&gt;</span>Header&nbsp;1<span class="tag">&lt;/h1&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Contents&nbsp;1<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;h2</span><span class="tag">&gt;</span>Header&nbsp;2<span class="tag">&lt;/h2&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Contents&nbsp;2<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-height-">
+<span class="fn"><a class="name" href="#link-height-">height</a>(  ) returns <span class="type"><span class="tooltip" title="">Integer</span></span></span>
+<div class="more">
+<div class="desc">Get the current computed, pixel, height of the first matched element.<br>In jQuery 1.2, this method is able to find the height of the window and document.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show various heights. Note the values are from the iframe so might
+be smaller than you expected. The yellow highlight shows the iframe
+body.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;showHeight(ele,&nbsp;h)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"The&nbsp;height&nbsp;for&nbsp;the&nbsp;"</span>&nbsp;+&nbsp;ele&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;is&nbsp;"</span>&nbsp;+&nbsp;h&nbsp;+&nbsp;<span class="string">"px."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getp"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showHeight(<span class="string">"paragraph"</span>,&nbsp;$(<span class="string">"p"</span>).height());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getd"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showHeight(<span class="string">"document"</span>,&nbsp;$(<span class="global">document</span>).height());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#getw"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showHeight(<span class="string">"window"</span>,&nbsp;$(<span class="global">window</span>).height());&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getp"</span><span class="tag">&gt;</span>Get&nbsp;Paragraph&nbsp;Height<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getd"</span><span class="tag">&gt;</span>Get&nbsp;Document&nbsp;Height<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"getw"</span><span class="tag">&gt;</span>Get&nbsp;Window&nbsp;Height<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Sample&nbsp;paragraph&nbsp;to&nbsp;test&nbsp;height&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-height-val">
+<span class="fn"><a class="name" href="#link-height-val">height</a>( <span class="arg-type tooltip" title="">String or Number</span> <span class="arg-name tooltip" title="Set the CSS 'height' property to the specified value.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the CSS height of every matched element.<br>If no explicit unit was specified (like 'em' or '%') then "px" is concatenated to the value.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To set the height of each div on click to 30px plus a color change.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).one(<span class="string">'click'</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).height(<span class="numbers">30</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css({cursor:<span class="string">"auto"</span>,&nbsp;backgroundColor:<span class="string">"green"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hidden-">
+<span class="fn"><a class="name" href="#link-hidden-">hidden</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are hidden, or input elements of type "hidden".<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows all hidden divs and counts hidden inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;in&nbsp;some&nbsp;browsers&nbsp;:hidden&nbsp;includes&nbsp;head,&nbsp;title,&nbsp;script,&nbsp;etc...&nbsp;so&nbsp;limit&nbsp;to&nbsp;body</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:first"</span>).text(<span class="string">"Found&nbsp;"</span>&nbsp;+&nbsp;$(<span class="string">":hidden"</span>,&nbsp;<span class="global">document</span>.body).length&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;hidden&nbsp;elements&nbsp;total."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:hidden"</span>).show(<span class="numbers">3000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:last"</span>).text(<span class="string">"Found&nbsp;"</span>&nbsp;+&nbsp;$(<span class="string">"input:hidden"</span>).length&nbsp;+&nbsp;<span class="string">"&nbsp;hidden&nbsp;inputs."</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span>Hider!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"starthidden"</span><span class="tag">&gt;</span>Hider!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hidden-">
+<span class="fn"><a class="name" href="#link-hidden-">hidden</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are hidden, or input elements of type "hidden".<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows all hidden divs and counts hidden inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;in&nbsp;some&nbsp;browsers&nbsp;:hidden&nbsp;includes&nbsp;head,&nbsp;title,&nbsp;script,&nbsp;etc...&nbsp;so&nbsp;limit&nbsp;to&nbsp;body</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:first"</span>).text(<span class="string">"Found&nbsp;"</span>&nbsp;+&nbsp;$(<span class="string">":hidden"</span>,&nbsp;<span class="global">document</span>.body).length&nbsp;+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"&nbsp;hidden&nbsp;elements&nbsp;total."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:hidden"</span>).show(<span class="numbers">3000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:last"</span>).text(<span class="string">"Found&nbsp;"</span>&nbsp;+&nbsp;$(<span class="string">"input:hidden"</span>).length&nbsp;+&nbsp;<span class="string">"&nbsp;hidden&nbsp;inputs."</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span>Hider!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"starthidden"</span><span class="tag">&gt;</span>Hider!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hide-">
+<span class="fn"><a class="name" href="#link-hide-">hide</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Hides each of the set of matched elements if they are shown.<br>Same
+as &lt;a href='Effects/hide#speedcallback'&gt;hide( speed, [callback]
+)&lt;/a&gt; without animations. Doesn't change anything if the selected
+elements are all hidden.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Hides all paragraphs then the link on click.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hide();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"a"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).hide();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;a</span><span class="aname">&nbsp;href</span>=<span class="avalue">"#"</span><span class="tag">&gt;</span>Click&nbsp;to&nbsp;hide&nbsp;me&nbsp;too<span class="tag">&lt;/a&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Here&nbsp;is&nbsp;another&nbsp;paragraph<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hide-speedcallback">
+<span class="fn"><a class="name" href="#link-hide-speedcallback">hide</a>( <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">speed</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.
+
+&lt;pre&gt;function callback() {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Hide all matched elements using a graceful animation and firing an optional callback after completion.<br>The height, width, and opacity of each of the matched elements are changed dynamically according to the specified speed.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all shown paragraphs to hide slowly, completing the animation within 600 milliseconds.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hide(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Hide&nbsp;'em<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Hiya<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Such&nbsp;interesting&nbsp;text,&nbsp;eh?<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all spans (words in this case) to hide fastly, completing
+each animation within 200 milliseconds. Once each animation is done, it
+starts the next one.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#hidr"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:last-child"</span>).hide(<span class="string">"fast"</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;use&nbsp;callee&nbsp;so&nbsp;don't&nbsp;have&nbsp;to&nbsp;name&nbsp;the&nbsp;function</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).prev().hide(<span class="string">"fast"</span>,&nbsp;<span class="keywords">arguments</span>.callee);&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#showr"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).show(<span class="numbers">2000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"hidr"</span><span class="tag">&gt;</span>Hide<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"showr"</span><span class="tag">&gt;</span>Show<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Once<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>upon<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>a<span class="tag">&lt;/span&gt;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>time<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>there<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>were<span class="tag">&lt;/span&gt;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>three<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>programmers...<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Hides the divs when clicked over 2 seconds, then removes the div
+element when its hidden. Try clicking on more than one box at a time.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">for</span>&nbsp;(<span class="keywords">var</span>&nbsp;i&nbsp;=&nbsp;<span class="numbers">0</span>;&nbsp;i&nbsp;&lt;&nbsp;<span class="numbers">5</span>;&nbsp;i++)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"&lt;div&gt;"</span>).appendTo(<span class="global">document</span>.body);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).hide(<span class="numbers">2000</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).remove();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-hover-overout">
+<span class="fn"><a class="name" href="#link-hover-overout">hover</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to fire when the mouse is moved over a matched element.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">over</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to fire when the mouse is moved off of a matched element.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">out</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Simulates hovering (moving the mouse on, and off, an object). This is a custom method which provides an 'in' to a frequent task.<br>Whenever
+the mouse cursor is moved over a matched element, the first specified
+function is fired. Whenever the mouse moves off of the element, the
+second specified function fires. Additionally, checks are in place to
+see if the mouse is still within the specified element itself (for
+example, an image inside of a div), and if it is, it will continue to
+'hover', and not move out (a common error in using a mouseout event
+handler).</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To add a special style to table cells that are being hovered over, try:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"li"</span>).hover(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).append($(<span class="string">"&lt;span&gt;&nbsp;***&lt;/span&gt;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).find(<span class="string">"span:last"</span>).remove();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Milk<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Bread<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Chips<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Socks<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To add a special style to table cells that are being hovered over, try:</p>
+<pre><code class="javascript">$(<span class="string">"td"</span>).hover(&nbsp;
+&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).addClass(<span class="string">"hover"</span>);&nbsp;
+&nbsp;&nbsp;},&nbsp;
+&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).removeClass(<span class="string">"hover"</span>);&nbsp;
+&nbsp;&nbsp;}&nbsp;
+);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-html-">
+<span class="fn"><a class="name" href="#link-html-">html</a>(  ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Get the html contents (innerHTML) of the first
+matched element. This property is not available on XML documents
+(although it will work for XHTML documents).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click a paragraph to convert it from html to text.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;htmlStr&nbsp;=&nbsp;$(<span class="keywords">this</span>).html();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).text(htmlStr);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>Click<span class="tag">&lt;/b&gt;</span>&nbsp;to&nbsp;change&nbsp;the&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"tag"</span><span class="tag">&gt;</span>html<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"text"</span><span class="tag">&gt;</span>text<span class="tag">&lt;/span&gt;</span>&nbsp;node.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;name</span>=<span class="avalue">"nada"</span><span class="tag">&gt;</span>button<span class="tag">&lt;/button&gt;</span>&nbsp;does&nbsp;nothing.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-html-">
+<span class="fn"><a class="name" href="#link-html-">html</a>(  ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Get the html contents (innerHTML) of the first
+matched element. This property is not available on XML documents
+(although it will work for XHTML documents).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click a paragraph to convert it from html to text.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;htmlStr&nbsp;=&nbsp;$(<span class="keywords">this</span>).html();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).text(htmlStr);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span>Click<span class="tag">&lt;/b&gt;</span>&nbsp;to&nbsp;change&nbsp;the&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"tag"</span><span class="tag">&gt;</span>html<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"text"</span><span class="tag">&gt;</span>text<span class="tag">&lt;/span&gt;</span>&nbsp;node.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;name</span>=<span class="avalue">"nada"</span><span class="tag">&gt;</span>button<span class="tag">&lt;/button&gt;</span>&nbsp;does&nbsp;nothing.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-html-val">
+<span class="fn"><a class="name" href="#link-html-val">html</a>( <span class="arg-type tooltip" title="">string</span> <span class="arg-name tooltip" title="Set the html contents to the specified value.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the html contents of every matched element. This
+property is not available on XML documents (although it will work for
+XHTML documents).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add some html to each div.</p>
+<pre><code class="javascript">$(<span class="string">"div"</span>).html(<span class="string">"&lt;span&nbsp;class='red'&gt;Hello&nbsp;&lt;b&gt;Again&lt;/b&gt;&lt;/span&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add some html to each div then immediately do further manipulations to the inserted html.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).html(<span class="string">"&lt;b&gt;Wow!&lt;/b&gt;&nbsp;Such&nbsp;excitement..."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div&nbsp;b"</span>).append(<span class="global">document</span>.createTextNode(<span class="string">"!!!"</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-html-val">
+<span class="fn"><a class="name" href="#link-html-val">html</a>( <span class="arg-type tooltip" title="">string</span> <span class="arg-name tooltip" title="Set the html contents to the specified value.">val</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set the html contents of every matched element. This
+property is not available on XML documents (although it will work for
+XHTML documents).<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add some html to each div.</p>
+<pre><code class="javascript">$(<span class="string">"div"</span>).html(<span class="string">"&lt;span&nbsp;class='red'&gt;Hello&nbsp;&lt;b&gt;Again&lt;/b&gt;&lt;/span&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Add some html to each div then immediately do further manipulations to the inserted html.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).html(<span class="string">"&lt;b&gt;Wow!&lt;/b&gt;&nbsp;Such&nbsp;excitement..."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div&nbsp;b"</span>).append(<span class="global">document</span>.createTextNode(<span class="string">"!!!"</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

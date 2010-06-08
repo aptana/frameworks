@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-dblclick-">
+<span class="fn"><a class="name" href="#link-dblclick-">dblclick</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the dblclick event of each matched element.<br>This
+causes all of the functions that have been bound to that dblclick event
+to be executed, and calls the browser's default dblclick action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the dblclick event. The
+dblclick event usually fires when the pointing device button is double
+clicked over an element.</div>
+</div>
+</li>
+<li id="link-dblclick-fn">
+<span class="fn"><a class="name" href="#link-dblclick-fn">dblclick</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="The function to bind to the dblclick event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the dblclick event of each matched element.<br>The dblclick event fires when the pointing device button is double clicked over an element</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To bind a "Hello World!" alert box the dblclick event on every paragraph on the page:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).dblclick(&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;alert(<span class="string">"Hello&nbsp;World!"</span>);&nbsp;});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-dequeue-">
+<span class="fn"><a class="name" href="#link-dequeue-">dequeue</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Removes a queued function from the front of the queue and executes it.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Use dequeue to end a custom queue function which allows the queue to keep going.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).animate({left:<span class="string">'+=200px'</span>},&nbsp;<span class="numbers">2000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).animate({top:<span class="string">'0px'</span>},&nbsp;<span class="numbers">600</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).queue(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).toggleClass(<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).dequeue();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).animate({left:<span class="string">'10px'</span>,&nbsp;top:<span class="string">'30px'</span>},&nbsp;<span class="numbers">700</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Start<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-descendant-ancestordescendant">
+<span class="fn"><a class="name" href="#link-descendant-ancestordescendant">descendant</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Any valid selector.">ancestor</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A selector to match elements that are descendants of the first selector.">descendant</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all descendant elements specified by "descendant" of elements specified by "ancestor".<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all input descendants of forms.</p>
+<pre><code class="javascript">$(<span class="string">"form&nbsp;input"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"2px&nbsp;dotted&nbsp;blue"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Form&nbsp;is&nbsp;surrounded&nbsp;by&nbsp;the&nbsp;green&nbsp;outline<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label</span><span class="tag">&gt;</span>Child:<span class="tag">&lt;/label&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"name"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;fieldset</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label</span><span class="tag">&gt;</span>Grandchild:<span class="tag">&lt;/label&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/fieldset&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;Sibling&nbsp;to&nbsp;form:&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"none"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-die-">
+<span class="fn"><a class="name" href="#link-die-">die</a>(<span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A live event type to unbind.">type</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to unbind from the event on each of the set of matched elements.">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">
+  <p>Without any arguments, all bound live events are removed.</p>
+  <p>You can also unbind custom events registered with live.</p>
+  <p>If the type is provided, all bound live events of that type are removed.</p>
+  <p>If the function that was passed to live is provided as the second argument, only that specific event handler is removed.</p>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Can bind and unbind events to the colored button.</p>
+<pre><code class="javascript"><span class="keywords">function</span> aClick() {
+      $(<span class="string">"div"</span>).show().fadeOut(<span class="string">"slow"</span>);
+    }
+    $(<span class="string">"#bind"</span>).click(<span class="keywords">function</span> () {
+      $(<span class="string">"#theone"</span>).live(<span class="string">"click"</span>, aClick)
+                  .text(<span class="string">"Can Click!"</span>);
+    });
+    $(<span class="string">"#unbind"</span>).click(<span class="keywords">function</span> () {
+      $(<span class="string">"#theone"</span>).die(<span class="string">"click"</span>, aClick)
+                  .text(<span class="string">"Does nothing..."</span>);
+    });</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span> <span class="aname">id</span>=<span class="avalue">&quot;theone&quot;</span>&gt;Does nothing...<span class="tag">&lt;/button&gt;<br>&lt;button</span> <span class="aname">id</span>=<span class="avalue">&quot;bind&quot;</span>&gt;Bind Click<span class="tag">&lt;/button&gt;<br>&lt;button</span> <span class="aname">id</span>=<span class="avalue">&quot;unbind&quot;</span>&gt;Unbind Click<span class="tag">&lt;/button&gt;<br>&lt;div</span> <span class="aname">style</span>=<span class="avalue">&quot;display: none;&quot;</span>&gt;Click!<span class="tag">&lt;/div&gt;</span></code></pre>
+</div>
+</div>
+</li>
+
+<li id="link-disabled-">
+<span class="fn"><a class="name" href="#link-disabled-">disabled</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are disabled.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all input elements that are disabled.</p>
+<pre><code class="javascript">$(<span class="string">"input:disabled"</span>).val(<span class="string">"this&nbsp;is&nbsp;it"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"email"</span><span class="aname">&nbsp;disabled</span>=<span class="avalue">"disabled"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"id"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

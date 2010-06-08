@@ -1,0 +1,607 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head>
+<body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-change-">
+<span class="fn"><a class="name" href="#link-change-">change</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the change event of each matched element.<br>This
+causes all of the functions that have been bound to that change event
+to be executed, and calls the browser's default change action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the change event. The change
+event usually fires when a control loses the input focus and its value
+has been modified since gaining focus.</div>
+</div>
+</li>
+<li id="link-change-fn">
+<span class="fn"><a class="name" href="#link-change-fn">change</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the change event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the change event of each matched element.<br>The change event fires when a control loses the input focus and its value has been modified since gaining focus.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Attaches a change even to the select that gets the text for each
+selected option and writes them in the div. It then triggers the event
+for the initial text draw.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select"</span>).change(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;<span class="string">""</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select&nbsp;option:selected"</span>).each(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;+=&nbsp;$(<span class="keywords">this</span>).text()&nbsp;+&nbsp;<span class="string">"&nbsp;"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(str);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.change();&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"sweets"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Chocolate<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Candy<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Taffy<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Carmel<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Fudge<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Cookie<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To add a validity test to all text input elements:</p>
+<pre><code class="javascript">$(<span class="string">"input[@type='text']"</span>).change(&nbsp;<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;<span class="com">//&nbsp;check&nbsp;input&nbsp;for&nbsp;validity&nbsp;here</span>&nbsp;
+});</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-checkbox-">
+<span class="fn"><a class="name" href="#link-checkbox-">checkbox</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input elements of type checkbox.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all checkbox inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;input&nbsp;=&nbsp;$(<span class="string">":checkbox"</span>).css({background:<span class="string">"yellow"</span>,&nbsp;border:<span class="string">"3px&nbsp;red&nbsp;solid"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"For&nbsp;this&nbsp;type&nbsp;jQuery&nbsp;found&nbsp;"</span>&nbsp;+&nbsp;input.length&nbsp;+&nbsp;<span class="string">"."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;option</span><span class="tag">/&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-checked-">
+<span class="fn"><a class="name" href="#link-checked-">checked</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are checked.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all input elements that are checked.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;countChecked()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;$(<span class="string">"input:checked"</span>).length;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(n&nbsp;+&nbsp;(n&nbsp;==&nbsp;<span class="numbers">1</span>&nbsp;?&nbsp;<span class="string">"&nbsp;is"</span>&nbsp;:&nbsp;<span class="string">"&nbsp;are"</span>)&nbsp;+&nbsp;<span class="string">"&nbsp;checked!"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;countChecked();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">":checkbox"</span>).click(countChecked);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Hourly"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Daily"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Weekly"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Monthly"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Yearly"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html">[&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Daily"</span>&nbsp;<span class="tag">/&gt;</span>,&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Monthly"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;]</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-child-parentchild">
+<span class="fn"><a class="name" href="#link-child-parentchild">child</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Any valid selector.">parent</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A selector to match elements that are children of the first selector.">child</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all child elements specified by "child" of elements specified by "parent".<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all children of the element with id "main" which is yellow.</p>
+<pre><code class="javascript">$(<span class="string">"#main&nbsp;&gt;&nbsp;*"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"3px&nbsp;double&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"main"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Child<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"mini"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"mini"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"mini"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;button</span><span class="tag">&gt;</span>Grand<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>A&nbsp;Span&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>in<span class="tag">&lt;/em&gt;</span>&nbsp;child<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>A&nbsp;Span&nbsp;in&nbsp;main<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-children-expr">
+<span class="fn"><a class="name" href="#link-children-expr">children</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the child Elements with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing all of the unique immediate children of each of the matched set of elements.<br>This
+set can be filtered with an optional expression that will cause only
+elements matching the selector to be collected. Also note: while
+parents() will look at all ancestors, children() will only consider
+immediate child elements.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all children of the clicked element.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#container"</span>).click(<span class="keywords">function</span>&nbsp;(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"*"</span>).removeClass(<span class="string">"hilite"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;$kids&nbsp;=&nbsp;$(e.target).children();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;len&nbsp;=&nbsp;$kids.addClass(<span class="string">"hilite"</span>).length;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results&nbsp;span:first"</span>).text(len);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results&nbsp;span:last"</span>).text(e.target.tagName);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"container"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>This&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>is&nbsp;the&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>way<span class="tag">&lt;/em&gt;</span>&nbsp;we<span class="tag">&lt;/span&gt;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;write&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>the<span class="tag">&lt;/em&gt;</span>&nbsp;demo,<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;a</span><span class="aname">&nbsp;href</span>=<span class="avalue">"#"</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>w<span class="tag">&lt;/b&gt;</span>rit<span class="tag">&lt;b</span><span class="tag">&gt;</span>e<span class="tag">&lt;/b&gt;</span><span class="tag">&lt;/a&gt;</span>&nbsp;the&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>demo,<span class="tag">&lt;/span&gt;</span>&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>write&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the<span class="tag">&lt;/button&gt;</span>&nbsp;demo,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>the&nbsp;way&nbsp;we&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>write<span class="tag">&lt;/em&gt;</span>&nbsp;the&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>demo<span class="tag">&lt;/em&gt;</span>&nbsp;so<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"early"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;in&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>t<span class="tag">&lt;/span&gt;</span>he&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>m<span class="tag">&lt;/span&gt;</span>orning.&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"results"</span><span class="tag">&gt;</span>Found&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>0<span class="tag">&lt;/span&gt;</span>&nbsp;children&nbsp;in&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>TAG<span class="tag">&lt;/span&gt;</span>.<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all children of each div.</p>
+<pre><code class="javascript">$(<span class="string">"div"</span>).children().css(<span class="string">"border-bottom"</span>,&nbsp;<span class="string">"3px&nbsp;double&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello&nbsp;(this&nbsp;is&nbsp;a&nbsp;paragraph)<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello&nbsp;Again&nbsp;(this&nbsp;span&nbsp;is&nbsp;a&nbsp;child&nbsp;of&nbsp;the&nbsp;a&nbsp;div)<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>And&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Again<span class="tag">&lt;/span&gt;</span>&nbsp;(in&nbsp;another&nbsp;paragraph)<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>And&nbsp;One&nbsp;Last&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Time<span class="tag">&lt;/span&gt;</span>&nbsp;(most&nbsp;text&nbsp;directly&nbsp;in&nbsp;a&nbsp;div)<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all children with a class "selected" of each div.</p>
+<pre><code class="javascript">$(<span class="string">"div"</span>).children(<span class="string">".selected"</span>).css(<span class="string">"color"</span>,&nbsp;<span class="string">"blue"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>And&nbsp;Again<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>And&nbsp;One&nbsp;Last&nbsp;Time<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-class-class">
+<span class="fn"><a class="name" href="#link-class-class">class</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A class to search for. An element can have multiple classes, one of them must match.">class</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements with the given class. <br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the element with the class "myClass".</p>
+<pre><code class="javascript">$(<span class="string">".myClass"</span>).css(<span class="string">"border"</span>,<span class="string">"3px&nbsp;solid&nbsp;red"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"notMe"</span><span class="tag">&gt;</span>div<span class="aname">&nbsp;class</span>=<span class="avalue">"notMe"</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&gt;</span>div<span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&gt;</span>span<span class="aname">&nbsp;class</span>=<span class="avalue">"myClass"</span><span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-click-">
+<span class="fn"><a class="name" href="#link-click-">click</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Triggers the click event of each matched element.<br>Causes all of the functions that have been bound to that click event to be executed.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To trigger the click event on all of the paragraphs on the page:</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).click();</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-click-fn">
+<span class="fn"><a class="name" href="#link-click-fn">click</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the click event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Binds a function to the click event of each matched element.<br>The
+click event fires when the pointing device button is clicked over an
+element. A click is defined as a mousedown and mouseup over the same
+screen location. The sequence of these events
+is:&lt;ul&gt;&lt;li&gt;mousedown&lt;/li&gt;&lt;li&gt;mouseup&lt;/li&gt;&lt;li&gt;click&lt;/li&gt;&lt;/ul&gt;</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To hide paragraphs on a page when they are clicked:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).slideUp();&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hover(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).addClass(<span class="string">"hilite"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).removeClass(<span class="string">"hilite"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>First&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Second&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Yet&nbsp;one&nbsp;more&nbsp;Paragraph<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-clone-">
+<span class="fn"><a class="name" href="#link-clone-">clone</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Clone matched DOM Elements and select the clones.<br>This is useful for moving copies of the elements to another location in the DOM.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Clones all b elements (and selects the clones) and prepends them to all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"b"</span>).clone().prependTo(<span class="string">"p"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span>,&nbsp;how&nbsp;are&nbsp;you?<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+<h4>Result:</h4>
+<pre><code class="html"><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/b&gt;</span>,&nbsp;how&nbsp;are&nbsp;you?<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-clone-true">
+<span class="fn"><a class="name" href="#link-clone-true">clone</a>( <span class="arg-type tooltip" title="true or false.">Boolean</span> <span class="arg-name tooltip" title="Set to true to enable cloning of event handlers.">true</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Clone matched DOM Elements, and all their event handlers, and select the clones.<br>This is useful for moving copies of the elements, and their events, to another location in the DOM.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Create a button that's able to clone itself - and have the clones themselves be clonable.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).clone(<span class="keywords">true</span>).insertAfter(<span class="keywords">this</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Clone&nbsp;Me!<span class="tag">&lt;/button&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-closest-">
+<span class="fn"><a class="name" href="#link-closest-">closest</a>(  <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the elements with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc"><p>
+Closest works by first looking at the current element to see if it matches the specified expression, if so it just returns the element itself. If it doesn't match then it will continue to traverse up the document, parent by parent, until an element is found that matches the specified expression. If no matching element is found then none will be returned.
+</p>
+<p>
+Closest is especially useful for dealing with event delegation.
+</p>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Show how event delegation can be done with closest.</p>
+<pre><code class="javascript">$(document).bind(<span class="string">"click"</span>, function (e) {
+    $(e.target).closest(<span class="string">"li"</span>).toggleClass(<span class="string">"hilight"</span>);
+});
+</code></pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;ul&gt;
+</span><span class="tag">&lt;li</span><span class="tag">&gt;&lt;b&gt;</span>Click me!<span class="tag">&lt;/b&gt;&lt;/li&gt;
+&lt;li</span><span class="tag">&gt;</span>You can also<span class="tag">&lt;b&gt;</span>Click me!<span class="tag">&lt;/b&gt;&lt;/li&gt;<br>&lt;/ul&gt;</span></code></pre>
+<h4>Result:</h4>
+<pre><code class="html"><span class="tag">&lt;ul&gt;
+</span><span class="tag">&lt;li</span> <span class="aname">class</span>=<span class="avalue">&quot;hilight&quot;</span><span class="tag">&gt;&lt;b&gt;</span>Click me!<span class="tag">&lt;/b&gt;&lt;/li&gt;
+&lt;li</span> <span class="aname">class</span>=<span class="avalue">&quot;hilight&quot;</span><span class="tag">&gt;</span>You can also<span class="tag">&lt;b&gt;</span>Click me!<span class="tag">&lt;/b&gt;&lt;/li&gt;<br>&lt;/ul&gt;</span></code></pre>
+</div>
+</div>
+</li>
+<li id="link-contains-text">
+<span class="fn"><a class="name" href="#link-contains-text">contains</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="A string of text to look for. It's case sensitive.">text</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches elements which contain the given text.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all divs containing "John" and underlines them.</p>
+<pre><code class="javascript">$(<span class="string">"div:contains('John')"</span>).css(<span class="string">"text-decoration"</span>,&nbsp;<span class="string">"underline"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>John&nbsp;Resig<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>George&nbsp;Martin<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Malcom&nbsp;John&nbsp;Sinclair<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>J.&nbsp;Ohn</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-contents-">
+<span class="fn"><a class="name" href="#link-contents-">contents</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Find all the child nodes inside the matched elements
+(including text nodes), or the content document, if the element is an
+iframe.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all the text nodes inside a paragraph and wrap them with a bold tag.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).contents().not(<span class="string">"[nodeType=1]"</span>).wrap(<span class="string">"&lt;b/&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello&nbsp;<span class="tag">&lt;a</span><span class="aname">&nbsp;href</span>=<span class="avalue">"http://ejohn.org/"</span><span class="tag">&gt;</span>John<span class="tag">&lt;/a&gt;</span>,&nbsp;how&nbsp;are&nbsp;you&nbsp;doing?<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Append some new content into an empty iframe.</p>
+<pre><code class="javascript">$(<span class="string">"iframe"</span>).contents().find(<span class="string">"body"</span>).append(<span class="string">"I'm&nbsp;in&nbsp;an&nbsp;iframe!"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;iframe</span><span class="aname">&nbsp;src</span>=<span class="avalue">"/index-blank.html"</span><span class="aname">&nbsp;width</span>=<span class="avalue">"300"</span><span class="aname">&nbsp;height</span>=<span class="avalue">"100"</span><span class="tag">&gt;</span><span class="tag">&lt;/iframe&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-context-"> <span class="fn"><a class="name" href="#link-context-">context</a> returns <span class="type"><span class="tooltip" title="The Javascript object representation of a DOM Element.">Element</span></span></span>
+  <div class="more">
+    <div class="desc">Should be used in conjunction with selector to determine the exact query used. These two properties are mostly useful to plugin developers.</div>
+    <div class="example">
+      <h3>Example:</h3>
+      <p>Determine the exact context used.</p>
+      <pre><code class="javascript">&nbsp;&nbsp;
+$(<span class="string">&quot;ul&quot;</span>)<br>  .append(<span class="string">&quot;&lt;li&gt;&quot;</span> + $(<span class="string">&quot;ul&quot;</span>).context + <span class="string">&quot;&lt;/li&gt;&quot;</span>)<br>  .append(<span class="string">&quot;&lt;li&gt;&quot;</span> + $(<span class="string">&quot;ul&quot;</span>, document.body).context.nodeName + <span class="string">&quot;&lt;/li&gt;&quot;</span>);</code>
+  </pre>
+      <h4>HTML:</h4>
+      <pre><span class="html"><span class="tag">&lt;ul&gt;<br>&lt;li&gt;</span>[object HTMLDocument]<span class="tag">&lt;/li&gt;<br>&lt;li&gt;</span>BODY<span class="tag">&lt;/li&gt;<br>&lt;/ul&gt;</span></span></pre>
+    </div>
+  </div>
+</li>
+<li id="link-css-name">
+<span class="fn"><a class="name" href="#link-css-name">css</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the property to access.">name</span> ) returns <span class="type"><span class="tooltip" title="A string of characters.">String</span></span></span>
+<div class="more">
+<div class="desc">Return a style property on the first matched element.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To access the background color of a clicked div.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;color&nbsp;=&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"background-color"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#result"</span>).html(<span class="string">"That&nbsp;div&nbsp;is&nbsp;&lt;span&nbsp;style='color:"</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;+&nbsp;<span class="string">";'&gt;"</span>&nbsp;+&nbsp;color&nbsp;+&nbsp;<span class="string">"&lt;/span&gt;."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"result"</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"background-color:blue;"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"background-color:rgb(15,99,30);"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"background-color:#123456;"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"background-color:#f11;"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-css-properties">
+<span class="fn"><a class="name" href="#link-css-properties">css</a>( <span class="arg-type tooltip" title="A Javascript object that contains key/value pairs in the form of properties and values.">Map</span> <span class="arg-name tooltip" title="Key/value pairs to set as style properties.">properties</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set a key/value object as style properties to all matched elements.<br>This is the best way to set several style properties on all matched elements.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To set the color of all paragraphs to red and background to blue:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hover(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({&nbsp;backgroundColor:<span class="string">"yellow"</span>,&nbsp;fontWeight:<span class="string">"bolder"</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;cssObj&nbsp;=&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;<span class="string">"#ddd"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontWeight:&nbsp;<span class="string">""</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;<span class="string">"rgb(0,40,244)"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(cssObj);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Move&nbsp;the&nbsp;mouse&nbsp;over&nbsp;a&nbsp;paragraph.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Like&nbsp;this&nbsp;one&nbsp;or&nbsp;the&nbsp;one&nbsp;above.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>If the property name includes a "-", put it between quotation marks:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).hover(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({&nbsp;<span class="string">"background-color"</span>:<span class="string">"yellow"</span>,&nbsp;<span class="string">"font-weight"</span>:<span class="string">"bolder"</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;cssObj&nbsp;=&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"background-color"</span>:&nbsp;<span class="string">"#ddd"</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"font-weight"</span>:&nbsp;<span class="string">""</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;<span class="string">"rgb(0,40,244)"</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(cssObj);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Move&nbsp;the&nbsp;mouse&nbsp;over&nbsp;a&nbsp;paragraph.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Like&nbsp;this&nbsp;one&nbsp;or&nbsp;the&nbsp;one&nbsp;above.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-css-namevalue">
+<span class="fn"><a class="name" href="#link-css-namevalue">css</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="The name of the property to set.">name</span>, <span class="arg-type tooltip" title="">String or Number</span> <span class="arg-name tooltip" title="The value to set the property to.">value</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Set a single style property to a value on all matched elements.<br>If a number is provided, it is automatically converted into a pixel value.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To change the color of any paragraph to red on mouseover event.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).mouseover(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"color"</span>,<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Just&nbsp;roll&nbsp;the&nbsp;mouse&nbsp;over&nbsp;me.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Or&nbsp;me&nbsp;to&nbsp;see&nbsp;a&nbsp;color&nbsp;change.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To highlight a clicked word in the paragraph.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;words&nbsp;=&nbsp;$(<span class="string">"p:first"</span>).text().split(<span class="string">"&nbsp;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;text&nbsp;=&nbsp;words.join(<span class="string">"&lt;/span&gt;&nbsp;&lt;span&gt;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p:first"</span>).html(<span class="string">"&lt;span&gt;"</span>&nbsp;+&nbsp;text&nbsp;+&nbsp;<span class="string">"&lt;/span&gt;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"background-color"</span>,<span class="string">"yellow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Once&nbsp;upon&nbsp;a&nbsp;time&nbsp;there&nbsp;was&nbsp;a&nbsp;man&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;who&nbsp;lived&nbsp;in&nbsp;a&nbsp;pizza&nbsp;parlor.&nbsp;This&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;man&nbsp;just&nbsp;loved&nbsp;pizza&nbsp;and&nbsp;ate&nbsp;it&nbsp;all&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;time.&nbsp;&nbsp;He&nbsp;went&nbsp;on&nbsp;to&nbsp;be&nbsp;the&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;happiest&nbsp;man&nbsp;in&nbsp;the&nbsp;world.&nbsp;&nbsp;The&nbsp;end.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

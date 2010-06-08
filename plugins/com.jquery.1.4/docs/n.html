@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-next-expr">
+<span class="fn"><a class="name" href="#link-next-expr">next</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression with which to filter the returned set.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing the unique next siblings of each of the given set of elements.<br>next only returns the very next sibling for each element, not all next siblings (see nextAll).<br>
+<br>You may provide an optional expression to filter the returned set. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the very next sibling of each disabled button and change its text "this button is disabled".</p>
+<pre><code class="javascript">$(<span class="string">"button[disabled]"</span>).next().text(<span class="string">"this&nbsp;button&nbsp;is&nbsp;disabled"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;button</span><span class="aname">&nbsp;disabled</span>=<span class="avalue">"disabled"</span><span class="tag">&gt;</span>First<span class="tag">&lt;/button&gt;</span>&nbsp;-&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;button</span><span class="tag">&gt;</span>Second<span class="tag">&lt;/button&gt;</span>&nbsp;-&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;button</span><span class="aname">&nbsp;disabled</span>=<span class="avalue">"disabled"</span><span class="tag">&gt;</span>Third<span class="tag">&lt;/button&gt;</span>&nbsp;-&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the very next sibling of each paragraph that has a class "selected".</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).next(<span class="string">".selected"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>And&nbsp;Again<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-next-prevnext">
+<span class="fn"><a class="name" href="#link-next-prevnext">next</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Any valid selector.">prev</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A selector to match elements that are next to the first selector.">next</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all next elements specified by "next" that are next to elements specified by "prev".<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs that are next to a label.</p>
+<pre><code class="javascript">$(<span class="string">"label&nbsp;+&nbsp;input"</span>).css(<span class="string">"color"</span>,&nbsp;<span class="string">"blue"</span>).val(<span class="string">"Labeled!"</span>)</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label</span><span class="tag">&gt;</span>Name:<span class="tag">&lt;/label&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"name"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;fieldset</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label</span><span class="tag">&gt;</span>Newsletter:<span class="tag">&lt;/label&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"newsletter"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/fieldset&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;name</span>=<span class="avalue">"none"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-nextAll-expr">
+<span class="fn"><a class="name" href="#link-nextAll-expr">nextAll</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the next Elements with.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Find all sibling elements after the current element.<br>Use an optional expression to filter the matched set. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Locate all the divs after the first and give them a class.</p>
+<pre><code class="javascript">$(<span class="string">"div:first"</span>).nextAll().addClass(<span class="string">"after"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Locate all the paragraphs after the second child in the body and give them a class.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">":nth-child(1)"</span>).nextAll(<span class="string">"p"</span>).addClass(<span class="string">"after"</span>);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>p<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-not-selector">
+<span class="fn"><a class="name" href="#link-not-selector">not</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A selector with which to filter by.">selector</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Filters out all elements matching the given selector.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all inputs that are not checked and hilites the next sibling
+span. Notice there is no change when clicking the checkboxes since no
+click events have been linked.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input:not(:checked)&nbsp;+&nbsp;span"</span>).css(<span class="string">"background-color"</span>,&nbsp;<span class="string">"yellow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).attr(<span class="string">"disabled"</span>,&nbsp;<span class="string">"disabled"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"a"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Mary<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"b"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Paul<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"c"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Peter<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-not-expr">
+<span class="fn"><a class="name" href="#link-not-expr">not</a>( <span class="arg-type tooltip" title="">String, DOMElement, Array&lt;DOMElement&gt;</span> <span class="arg-name tooltip" title="An expression with which to remove matching elements, an element to remove from the set or a set of elements to remove from the jQuery set of matched elements.">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Removes elements matching the specified expression from the set of matched elements.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Adds a border to divs that are not green or blue.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).not(<span class="string">".green,&nbsp;#blueone"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"border-color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"blueone"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"green"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"green"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"gray"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).not(&nbsp;$(<span class="string">"#selected"</span>)[<span class="numbers">0</span>]&nbsp;)</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes the element with the ID "selected" from the set of all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).not(<span class="string">"#selected"</span>)</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Removes all elements that match "div p.selected" from the total set of all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).not($(<span class="string">"div&nbsp;p.selected"</span>))</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-nthChild-index">
+<span class="fn"><a class="name" href="#link-nthChild-index">nthChild</a>( <span class="arg-type tooltip" title="">Number/String</span> <span class="arg-name tooltip" title="The index of each child to match, starting with 1 or the string even, odd, or equation ( eg. :nth-child(even), :nth-child(4n) )">index</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches the nth-child of its parent or all its even or odd children.<br>While
+&lt;a href='Selectors/eq'&gt;:eq(index)&lt;/a&gt; matches only a single
+element, this matches more then one: One for each parent with index.
+Multiple for each parent with even, odd, or equation.<br>
+<br>The specified index is one-indexed, in contrast to :eq() which starts at zero.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds the second li in each matched ul and notes it.</p>
+<pre><code class="javascript">$(<span class="string">"ul&nbsp;li:nth-child(2)"</span>).append(<span class="string">"&lt;span&gt;&nbsp;-&nbsp;2nd!&lt;/span&gt;"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>John<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Karl<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Brandon<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Sam<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Glen<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Tane<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Ralph<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>David<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>This is a playground to see how the selector works with different
+strings. Notice that this is different from the :even and :odd which
+have no regard for parent and just filter the list of elements to every
+other one. The :nth-child, however, counts the index of the child to
+its particular parent. In any case, it's easier to see than explain
+so...</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;$(<span class="keywords">this</span>).text();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"tr"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"white"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"tr"</span>&nbsp;+&nbsp;str).css(<span class="string">"background"</span>,&nbsp;<span class="string">"#e2e1fb"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#inner"</span>).text(str);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(even)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(odd)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(3n)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(2)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(3n+1)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:nth-child(3n+2)<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:even<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>:odd<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;table</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>John<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Karl<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Brandon<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Benjamin<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;table</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Sam<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;table</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Glen<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Tane<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Ralph<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>David<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Mike<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>Dan<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;tr<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"inner"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

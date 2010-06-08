@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-get-">
+<span class="fn"><a class="name" href="#link-get-">get</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Access all matched DOM elements.<br>This serves as a
+backwards-compatible way of accessing all matched elements (other than
+the jQuery object itself, which is, in fact, an array of elements).<br>
+<br>It is useful if you need to operate on the DOM elements themselves instead of using built-in jQuery functions. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all divs in the document and returns the DOM Elements as an
+Array, then uses the built-in reverse-method to reverse that array.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;disp(divs)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;a&nbsp;=&nbsp;[];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">for</span>&nbsp;(<span class="keywords">var</span>&nbsp;i&nbsp;=&nbsp;<span class="numbers">0</span>;&nbsp;i&nbsp;&lt;&nbsp;divs.length;&nbsp;i++)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.push(divs[i].innerHTML);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(a.join(<span class="string">"&nbsp;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;disp(&nbsp;$(<span class="string">"div"</span>).get().reverse()&nbsp;);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html">Reversed&nbsp;-&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>One<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Two<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Three<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-get-index">
+<span class="fn"><a class="name" href="#link-get-index">get</a>( <span class="arg-type tooltip" title="A valid numeric.">Number</span> <span class="arg-name tooltip" title="Access the element in the Nth position.">index</span> ) returns <span class="type"><span class="tooltip" title="The Javascript object representation of a DOM Element.">Element</span></span></span>
+<div class="more">
+<div class="desc">Access a single matched DOM element at a specified index in the matched set.<br>This
+allows you to extract the actual DOM element and operate on it directly
+without necessarily using jQuery functionality on it. This function
+called as $(this).get(0) is the equivalent of using square bracket
+notation on the jQuery object itself like $(this)[0].</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Gives the tag name of the element clicked on.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"*"</span>,&nbsp;<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;(e)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.stopPropagation();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;domEl&nbsp;=&nbsp;$(<span class="keywords">this</span>).get(<span class="numbers">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span:first"</span>).text(<span class="string">"Clicked&nbsp;on&nbsp;-&nbsp;"</span>&nbsp;+&nbsp;domEl.tagName);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="entity">&amp;nbsp;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>In&nbsp;this&nbsp;paragraph&nbsp;is&nbsp;an&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>important<span class="tag">&lt;/span&gt;</span>&nbsp;section<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-gt-index">
+<span class="fn"><a class="name" href="#link-gt-index">gt</a>( <span class="arg-type tooltip" title="A valid numeric.">Number</span> <span class="arg-name tooltip" title="Zero-based index.">index</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements with an index above the given one.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds TD #5 and higher. Reminder: the indexing starts at 0.</p>
+<pre><code class="javascript">$(<span class="string">"td:gt(4)"</span>).css(<span class="string">"text-decoration"</span>,&nbsp;<span class="string">"line-through"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;table</span><span class="aname">&nbsp;border</span>=<span class="avalue">"1"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#0<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#1<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#2<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#3<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#4<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#5<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr</span><span class="tag">&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#6<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#7<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td</span><span class="tag">&gt;</span>TD&nbsp;#8<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/table&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>

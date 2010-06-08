@@ -1,0 +1,857 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery  API Browser </title>
+<link rel="stylesheet" href="assets/screen.css" media="screen,projector">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script type="text/javascript" src="assets/browser.js"></script><script type="text/javascript" src="assets/browser_002.js"></script>
+</head><body class="js">
+<h1>
+<a href="http://jquery.com/"><img src="images/logo_jquery_215x53.gif" alt="jQuery Logo"></a>
+</h1>
+<div id="content">
+  <ul id="docs">
+<li id="link-scroll-fn">
+<span class="fn"><a class="name" href="#link-scroll-fn">scroll</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the scroll event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the scroll event of each matched element.<br>The scroll event fires when a document view is scrolled.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To do something when your page is scrolled:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).clone().appendTo(<span class="global">document</span>.body);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).clone().appendTo(<span class="global">document</span>.body);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).clone().appendTo(<span class="global">document</span>.body);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">window</span>).scroll(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).css(<span class="string">"display"</span>,&nbsp;<span class="string">"inline"</span>).fadeOut(<span class="string">"slow"</span>);&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>Try&nbsp;scrolling&nbsp;the&nbsp;iframe.<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Paragraph&nbsp;-&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Scroll&nbsp;happened!<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-select-">
+<span class="fn"><a class="name" href="#link-select-">select</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Trigger the select event of each matched element.<br>This
+causes all of the functions that have been bound to that select event
+to be executed, and calls the browser's default select action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the select event.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To trigger the select event on all input elements, try:</p>
+<pre><code class="javascript">$(<span class="string">"input"</span>).select();</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-select-fn">
+<span class="fn"><a class="name" href="#link-select-fn">select</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the select event on each of the matched elements.
+
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the select event of each matched element.<br>The select event fires when a user selects some text in a text field, including input and textarea.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To do something when text in input boxes is selected:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>).select(&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"Something&nbsp;was&nbsp;selected"</span>).show().fadeOut(<span class="numbers">1000</span>);&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Click&nbsp;and&nbsp;drag&nbsp;the&nbsp;mouse&nbsp;to&nbsp;select&nbsp;text&nbsp;in&nbsp;the&nbsp;inputs.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Some&nbsp;text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"to&nbsp;test&nbsp;on"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-selected-">
+<span class="fn"><a class="name" href="#link-selected-">selected</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all elements that are selected.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Attaches a change even to the select that gets the text for each
+selected option and writes them in the div. It then triggers the event
+for the initial text draw.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select"</span>).change(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;<span class="string">""</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select&nbsp;option:selected"</span>).each(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;+=&nbsp;$(<span class="keywords">this</span>).text()&nbsp;+&nbsp;<span class="string">"&nbsp;"</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(str);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.trigger(<span class="string">'change'</span>);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"garden"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Flowers<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Shrubs<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Trees<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Bushes<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Grass<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Dirt<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-selector"> <span class="fn"><a class="name" href="#link-selector">selector</a>  returns <span class="type tooltip" title="A string of characters.">String</span></span>
+  <div class="more">
+    <div class="desc">Should be used in conjunction with context to determine the exact query used. These two properties are mostly useful to plugin developers.<br>
+    </div>
+    <div class="example">
+      <h3>Example:</h3>
+      <p>Determine the selector used.</p>
+      <pre><code class="javascript">$(<span class="string">&quot;ul&quot;</span>)<br>  .append(<span class="string">&quot;&lt;li&gt;&quot;</span> + $(<span class="string">&quot;ul&quot;</span>).selector + <span class="string">&quot;&lt;/li&gt;&quot;</span>)<br>  .append(<span class="string">&quot;&lt;li&gt;&quot;</span> + $(<span class="string">&quot;ul li&quot;</span>).selector + <span class="string">&quot;&lt;/li&gt;&quot;</span>)<br>  .append(<span class="string">&quot;&lt;li&gt;&quot;</span> + $(<span class="string">&quot;div#foo ul:not([class])&quot;</span>).selector + <span class="string">&quot;&lt;/li&gt;&quot;</span>);</code></pre>
+      <h4>HTML:</h4>
+      <pre><code class="html">Some selectors:
+&lt;ul&gt;&lt;/ul&gt;</code></pre>
+      <h4>Results:</h4>
+      <pre><code class="html">Some selectors:
+<span class="tag">&lt;ul&gt;</span>
+<span class="tag">&lt;li&gt;</span>ul<span class="tag">&lt;/li&gt;<br>&lt;li&gt;</span>ul li<span class="tag">&lt;/li&gt;<br>&lt;li&gt;</span>div#foo ul:not([class])<span class="tag">&lt;/li&gt;
+&lt;/ul&gt;</span></code></pre>
+    </div>
+  </div>
+</li>
+<li id="link-serialize-">
+<span class="fn"><a class="name" href="#link-serialize-">serialize</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Serializes a set of input elements into a string of data. This will serialize all given elements.<br>As
+of jQuery 1.2 the serialize method correctly serializes forms. For
+older versions of jQuery, the [http://www.malsup.com/jquery/form/ Form
+Plugin's] fieldSerialize method should be used.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Serialize a form to a query string, that could be sent to a server in an Ajax request.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;showValues()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;str&nbsp;=&nbsp;$(<span class="string">"form"</span>).serialize();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).text(str);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">":checkbox,&nbsp;:radio"</span>).click(showValues);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select"</span>).change(showValues);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;showValues();&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"single"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"multiple"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Multiple2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple3<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"check"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check1"</span><span class="tag">/&gt;</span>&nbsp;check1&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"check"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check2"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="tag">/&gt;</span>&nbsp;check2&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio1"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="tag">/&gt;</span>&nbsp;radio1&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio2"</span><span class="tag">/&gt;</span>&nbsp;radio2&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;tt</span><span class="aname">&nbsp;id</span>=<span class="avalue">"results"</span><span class="tag">&gt;</span><span class="tag">&lt;/tt&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-serializeArray-">
+<span class="fn"><a class="name" href="#link-serializeArray-">serializeArray</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Serializes all forms and form elements (like the
+&lt;a href='Ajax/serialize'&gt;.serialize()&lt;/a&gt; method) but
+returns a JSON data structure for you to work with.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Get the values from a form, iterate through them, and append them to a results display.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;showValues()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;fields&nbsp;=&nbsp;$(<span class="string">":input"</span>).serializeArray();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).empty();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery.each(fields,&nbsp;<span class="keywords">function</span>(i,&nbsp;field){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#results"</span>).append(field.value&nbsp;+&nbsp;<span class="string">"&nbsp;"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">":checkbox,&nbsp;:radio"</span>).click(showValues);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"select"</span>).change(showValues);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;showValues();&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span><span class="tag">&lt;b</span><span class="tag">&gt;</span>Results:<span class="tag">&lt;/b&gt;</span>&nbsp;<span class="tag">&lt;span</span><span class="aname">&nbsp;id</span>=<span class="avalue">"results"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"single"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Single2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="aname">&nbsp;name</span>=<span class="avalue">"multiple"</span><span class="aname">&nbsp;multiple</span>=<span class="avalue">"multiple"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="tag">&gt;</span>Multiple2<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option</span><span class="aname">&nbsp;selected</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Multiple3<span class="tag">&lt;/option&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span><span class="tag">&lt;br</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"check"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check1"</span><span class="tag">/&gt;</span>&nbsp;check1&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"check"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"check2"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="tag">/&gt;</span>&nbsp;check2&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio1"</span><span class="aname">&nbsp;checked</span>=<span class="avalue">"checked"</span><span class="tag">/&gt;</span>&nbsp;radio1&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;name</span>=<span class="avalue">"radio"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"radio2"</span><span class="tag">/&gt;</span>&nbsp;radio2&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-show-">
+<span class="fn"><a class="name" href="#link-show-">show</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Displays each of the set of matched elements if they are hidden.<br>Same
+as &lt;a href='Effects/show#speedcallback'&gt;show( speed, [callback]
+)&lt;/a&gt; without animations. Doesn't change anything if the selected
+elements are all visible. It doesn't matter if the element is hidden
+via a hide() call, or via a display:none in a stylesheet.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Shows all paragraphs.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).show()</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none"</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-show-speedcallback">
+<span class="fn"><a class="name" href="#link-show-speedcallback">show</a>( <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">speed</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.
+
+&lt;pre&gt;function callback() {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Show all matched elements using a graceful animation and firing an optional callback after completion.<br>The height, width, and opacity of each of the matched elements are changed dynamically according to the specified speed.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all hidden paragraphs to show slowly, completing the animation within 600 milliseconds.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).show(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Show&nbsp;it<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:&nbsp;none"</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all hidden divs to show fastly in order, completing each
+animation within 200 milliseconds. Once each animation is done, it
+starts the next one.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#showr"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:eq(0)"</span>).show(<span class="string">"fast"</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;use&nbsp;callee&nbsp;so&nbsp;don't&nbsp;have&nbsp;to&nbsp;name&nbsp;the&nbsp;function</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).next().show(<span class="string">"fast"</span>,&nbsp;<span class="keywords">arguments</span>.callee);&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#hidr"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).hide(<span class="numbers">2000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"showr"</span><span class="tag">&gt;</span>Show<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"hidr"</span><span class="tag">&gt;</span>Hide<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>Hello,<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>how<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>are<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>you?<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all span and input elements to show normally. Once the animation is done, it changes the text.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;doIt()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span,div"</span>).show(<span class="string">"normal"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(doIt);&nbsp;<span class="com">//&nbsp;can&nbsp;pass&nbsp;in&nbsp;function&nbsp;name</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="string">"input"</span>).val()&nbsp;==&nbsp;<span class="string">"yes"</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).show(<span class="numbers">4000</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).text(<span class="string">"Ok,&nbsp;DONE!&nbsp;(now&nbsp;showing)"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span,div"</span>).hide(<span class="string">"normal"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;<span class="com">//&nbsp;to&nbsp;stop&nbsp;the&nbsp;submit</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Do&nbsp;it!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Are&nbsp;you&nbsp;sure?&nbsp;(type&nbsp;'yes'&nbsp;if&nbsp;you&nbsp;are)&nbsp;<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span>I'm&nbsp;hidden...<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-siblings-expr">
+<span class="fn"><a class="name" href="#link-siblings-expr">siblings</a>( <span class="arg-type tooltip" title="A string of characters.">String</span> <span class="arg-name tooltip" title="An expression to filter the sibling Elements with">expr</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Get a set of elements containing all of the unique siblings of each of the matched set of elements.<br>
+<br>Can be filtered with an optional expressions. <br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find the unique siblings of all yellow li elements in the 3 lists (including other yellow li elements if appropriate).</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;len&nbsp;=&nbsp;$(<span class="string">".hilite"</span>).siblings()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.length;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"b"</span>).text(len);&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>One<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Two<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="aname">&nbsp;class</span>=<span class="avalue">"hilite"</span><span class="tag">&gt;</span>Three<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Four<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Five<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Six<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Seven<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;ul</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Eight<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="aname">&nbsp;class</span>=<span class="avalue">"hilite"</span><span class="tag">&gt;</span>Nine<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="tag">&gt;</span>Ten<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li</span><span class="aname">&nbsp;class</span>=<span class="avalue">"hilite"</span><span class="tag">&gt;</span>Eleven<span class="tag">&lt;/li&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>Unique&nbsp;siblings:&nbsp;<span class="tag">&lt;b</span><span class="tag">&gt;</span><span class="tag">&lt;/b&gt;</span><span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Find all siblings with a class "selected" of each div.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).siblings(<span class="string">".selected"</span>).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;span</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="aname">&nbsp;class</span>=<span class="avalue">"selected"</span><span class="tag">&gt;</span>Hello&nbsp;Again<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>And&nbsp;Again<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-siblings-prevsiblings">
+<span class="fn"><a class="name" href="#link-siblings-prevsiblings">siblings</a>( <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="Any valid selector.">prev</span>, <span class="arg-type tooltip" title="">Selector</span> <span class="arg-name tooltip" title="A filter selector to match elements that are following siblings to the first selector.">siblings</span> ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all sibling elements after the "prev" element that match the filtering "siblings" selector.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all divs that are siblings after the element with #prev as its
+id. Notice the span isn't selected since it is not a div and the
+"niece" isn't selected since it is a child of a sibling, not an actual
+sibling.</p>
+<pre><code class="javascript">$(<span class="string">"#prev&nbsp;~&nbsp;div"</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"3px&nbsp;groove&nbsp;blue"</span>);</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>div&nbsp;(doesn't&nbsp;match&nbsp;since&nbsp;before&nbsp;#prev)<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"prev"</span><span class="tag">&gt;</span>div#prev<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div&nbsp;sibling<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div&nbsp;sibling&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"small"</span><span class="tag">&gt;</span>div&nbsp;neice<span class="tag">&lt;/div&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>span&nbsp;sibling&nbsp;(not&nbsp;div)<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>div&nbsp;sibling<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-size-">
+<span class="fn"><a class="name" href="#link-size-">size</a>(  ) returns <span class="type"><span class="tooltip" title="A valid numeric.">Number</span></span></span>
+<div class="more">
+<div class="desc">The number of elements in the jQuery object.<br>This returns the same number as the '&lt;a href='Core/length'&gt;length&lt;/a&gt;' property of the jQuery object.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Count the divs.  Click to add more.</p>
+<pre><code class="javascript">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).append($(<span class="string">"&lt;div&gt;"</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;$(<span class="string">"div"</span>).size();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">"There&nbsp;are&nbsp;"</span>&nbsp;+&nbsp;n&nbsp;+&nbsp;<span class="string">"&nbsp;divs."</span>&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Click&nbsp;to&nbsp;add&nbsp;more."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}).click();&nbsp;<span class="com">//&nbsp;trigger&nbsp;the&nbsp;click&nbsp;to&nbsp;start</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-slice-startend">
+<span class="fn"><a class="name" href="#link-slice-startend">slice</a>( <span class="arg-type tooltip" title="">Integer</span> <span class="arg-name tooltip" title="Where to start the subset. The first element is at zero. Can be negative to start from the end of the selection.">start</span>, <span class="arg-type tooltip" title="">Integer</span> <span class="arg-name tooltip" title="Where to end the subset. If unspecified, ends at the end of the selection.">end</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Selects a subset of the matched elements.<br>Behaves exactly like the built-in Array slice method. </div>
+<div class="example">
+<h3>Example:</h3>
+<p>Turns divs yellow based on a random slice.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">function</span>&nbsp;colorEm()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;$div&nbsp;=&nbsp;$(<span class="string">"div"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;start&nbsp;=&nbsp;Math.floor(Math.random()&nbsp;*&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$div.length);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;end&nbsp;=&nbsp;Math.floor(Math.random()&nbsp;*&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($div.length&nbsp;-&nbsp;start))&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;+&nbsp;<span class="numbers">1</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(end&nbsp;==&nbsp;$div.length)&nbsp;end&nbsp;=&nbsp;undefined;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$div.css(<span class="string">"background"</span>,&nbsp;<span class="string">""</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;(end)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$div.slice(start,&nbsp;end).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$div.slice(start).css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">'$("div").slice('</span>&nbsp;+&nbsp;start&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(end&nbsp;?&nbsp;<span class="string">',&nbsp;'</span>&nbsp;+&nbsp;end&nbsp;:&nbsp;<span class="string">''</span>)&nbsp;+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">').css("background",&nbsp;"yellow");'</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(colorEm);&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Turn&nbsp;slice&nbsp;yellow<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>Click&nbsp;the&nbsp;button!<span class="tag">&lt;/span&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs, then slices the selection to include only the first element.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).slice(<span class="numbers">0</span>,&nbsp;<span class="numbers">1</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs, then slices the selection to include only the first and second element.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).slice(<span class="numbers">0</span>,&nbsp;<span class="numbers">2</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs, then slices the selection to include only the second element.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).slice(<span class="numbers">1</span>,&nbsp;<span class="numbers">2</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs, then slices the selection to include only the second and third element.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).slice(<span class="numbers">1</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Selects all paragraphs, then slices the selection to include only the third element.</p>
+<pre><code class="javascript">$(<span class="string">"p"</span>).slice(-<span class="numbers">1</span>).wrapInner(<span class="string">"&lt;b&gt;&lt;/b&gt;"</span>);</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-slideDown-speedcallback">
+<span class="fn"><a class="name" href="#link-slideDown-speedcallback">slideDown</a>( <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">speed</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.
+
+&lt;pre&gt;function callback() {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Reveal all matched elements by adjusting their height and firing an optional callback after completion.<br>Only the height is adjusted for this animation, causing all matched elements to be revealed in a "sliding" manner.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all divs to slide down and show themselves over 600 milliseconds.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="string">"div:first"</span>).is(<span class="string">":hidden"</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).slideDown(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).hide();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html">Click&nbsp;me!&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all inputs to slide down, completing the animation within
+1000 milliseconds. Once the animation is done, the input look is
+changed especially if it is the middle input which gets the focus.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css({&nbsp;borderStyle:<span class="string">"inset"</span>,&nbsp;cursor:<span class="string">"wait"</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"input"</span>).slideDown(<span class="numbers">1000</span>,<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).css(<span class="string">"border"</span>,&nbsp;<span class="string">"2px&nbsp;red&nbsp;inset"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.filter(<span class="string">".middle"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"background"</span>,&nbsp;<span class="string">"yellow"</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.focus();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).css(<span class="string">"visibility"</span>,&nbsp;<span class="string">"hidden"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>Push!<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;class</span>=<span class="avalue">"middle"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-slideToggle-speedcallback">
+<span class="fn"><a class="name" href="#link-slideToggle-speedcallback">slideToggle</a>( <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">speed</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.
+
+&lt;pre&gt;function callback() {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Toggle the visibility of all matched elements by adjusting their height and firing an optional callback after completion.<br>Only the height is adjusted for this animation, causing all matched elements to be hidden or shown in a "sliding" manner.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraphs to slide up or down, completing the animation within 600 milliseconds.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"p"</span>).slideToggle(<span class="string">"slow"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Toggle<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;p</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;paragraph&nbsp;to&nbsp;end&nbsp;all&nbsp;paragraphs.&nbsp;&nbsp;You&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;should&nbsp;feel&nbsp;<span class="tag">&lt;em</span><span class="tag">&gt;</span>lucky<span class="tag">&lt;/em&gt;</span>&nbsp;to&nbsp;have&nbsp;seen&nbsp;such&nbsp;a&nbsp;paragraph&nbsp;in&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;your&nbsp;life.&nbsp;&nbsp;Congratulations!&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/p&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates divs between dividers with a toggle that makes some appear and some disappear.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div:not(.still)"</span>).slideToggle(<span class="string">"slow"</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;n&nbsp;=&nbsp;<span class="global">parseInt</span>($(<span class="string">"span"</span>).text(),&nbsp;<span class="numbers">10</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(n&nbsp;+&nbsp;<span class="numbers">1</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="tag">&gt;</span>Toggle<span class="tag">&lt;/button&gt;</span>&nbsp;There&nbsp;have&nbsp;been&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span>0<span class="tag">&lt;/span&gt;</span>&nbsp;toggled&nbsp;divs.&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"still"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;style</span>=<span class="avalue">"display:none;"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"still"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"still"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"hider"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"still"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"hider"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span><span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"still"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-slideUp-speedcallback">
+<span class="fn"><a class="name" href="#link-slideUp-speedcallback">slideUp</a>( <span class="arg-type tooltip" title="">String, Number </span> <span class="arg-name tooltip" title="A string representing one of the three predefined speeds (&quot;slow&quot;, &quot;normal&quot;, or &quot;fast&quot;) or the number of milliseconds to run the animation (e.g. 1000).">speed</span>, <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to be executed whenever the animation completes, executes once for each element animated against.
+
+&lt;pre&gt;function callback() {
+  this; // dom element
+}
+&lt;/pre&gt;">callback</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Hide all matched elements by adjusting their height and firing an optional callback after completion.<br>Only the height is adjusted for this animation, causing all matched elements to be hidden in a "sliding" manner.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all divs to slide up, completing the animation within 400 milliseconds.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="global">document</span>.body).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="string">"div:first"</span>).is(<span class="string">":hidden"</span>))&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).show(<span class="string">"fast"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keywords">else</span>&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).slideUp();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html">Click&nbsp;me!&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Animates all paragraph to slide up, completing the animation within
+200 milliseconds. Once the animation is done, it displays an alert.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"button"</span>).click(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="keywords">this</span>).parent().slideUp(<span class="string">"slow"</span>,&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#msg"</span>).text($(<span class="string">"button"</span>,&nbsp;<span class="keywords">this</span>).text()&nbsp;+&nbsp;<span class="string">"&nbsp;has&nbsp;completed."</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Hide&nbsp;One<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"One"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Hide&nbsp;Two<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Two"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Hide&nbsp;Three<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Three"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;id</span>=<span class="avalue">"msg"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-stop-">
+<span class="fn"><a class="name" href="#link-stop-">stop</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Stops all the currently running animations on all the specified elements. <br>If any animations are queued to run, then they will begin immediately.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Click the Go button once to start the animation, then click the STOP
+button to stop it where it's currently positioned. Another option is to
+click several buttons to queue them up and see that stop just kills the
+currently playing one.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;Start&nbsp;animation</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#go"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).animate({left:&nbsp;<span class="string">'+=100px'</span>},&nbsp;<span class="numbers">2000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;Stop&nbsp;animation&nbsp;when&nbsp;button&nbsp;is&nbsp;clicked</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#stop"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).stop();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">//&nbsp;Start&nbsp;animation&nbsp;in&nbsp;the&nbsp;opposite&nbsp;direction</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"#back"</span>).click(<span class="keywords">function</span>(){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">".block"</span>).animate({left:&nbsp;<span class="string">'-=100px'</span>},&nbsp;<span class="numbers">2000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"go"</span><span class="tag">&gt;</span>Go<span class="tag">&lt;/button&gt;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"stop"</span><span class="tag">&gt;</span>STOP!<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="aname">&nbsp;id</span>=<span class="avalue">"back"</span><span class="tag">&gt;</span>Back<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="aname">&nbsp;class</span>=<span class="avalue">"block"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-submit-">
+<span class="fn"><a class="name" href="#link-submit-">submit</a>(  ) returns <span class="type"><span class="tooltip" title="An Array of DOM Elements.">Array&lt;Element&gt;</span></span></span>
+<div class="more">
+<div class="desc">Matches all input elements of type submit.<br>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>Finds all submit inputs.</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">var</span>&nbsp;input&nbsp;=&nbsp;$(<span class="string">":submit"</span>).css({background:<span class="string">"yellow"</span>,&nbsp;border:<span class="string">"3px&nbsp;red&nbsp;solid"</span>});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"div"</span>).text(<span class="string">"For&nbsp;this&nbsp;type&nbsp;jQuery&nbsp;found&nbsp;"</span>&nbsp;+&nbsp;input.length&nbsp;+&nbsp;<span class="string">"."</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.css(<span class="string">"color"</span>,&nbsp;<span class="string">"red"</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;});&nbsp;<span class="com">//&nbsp;so&nbsp;it&nbsp;won't&nbsp;submit</span>&nbsp;
+&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;form</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"button"</span><span class="aname">&nbsp;value</span>=<span class="avalue">"Input&nbsp;Button"</span><span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"checkbox"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"file"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"hidden"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"image"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"password"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"radio"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"reset"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select</span><span class="tag">&gt;</span><span class="tag">&lt;option</span><span class="tag">&gt;</span>Option<span class="tag">&lt;option</span><span class="tag">/&gt;</span><span class="tag">&lt;/select&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;textarea</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span><span class="tag">&gt;</span>Button<span class="tag">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-submit-">
+<span class="fn"><a class="name" href="#link-submit-">submit</a>(  ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Trigger the submit event of each matched element.<br>This
+causes all of the functions that have been bound to that submit event
+to be executed, and calls the browser's default submit action on the
+matching element(s). This default action can be prevented by returning
+false from one of the functions bound to the submit event.</div>
+<div class="example">
+<h3>Example:</h3>
+<p>To trigger the submit event on the first form on the page, try:</p>
+<pre><code class="javascript">$(<span class="string">"form:first"</span>).submit();</code>
+</pre>
+</div>
+</div>
+</li>
+<li id="link-submit-fn">
+<span class="fn"><a class="name" href="#link-submit-fn">submit</a>( <span class="arg-type tooltip" title="A reference to a Javascript function.">Function</span> <span class="arg-name tooltip" title="A function to bind to the submit event on each of the matched elements.
+&lt;pre&gt;function callback(eventObject) {
+  this; // dom element
+}
+&lt;/pre&gt;">fn</span> ) returns <span class="type"><span class="tooltip" title="A jQuery object.">jQuery</span></span></span>
+<div class="more">
+<div class="desc">Bind a function to the submit event of each matched element.<br>The select event fires when a form is submitted</div>
+<div class="example">
+<h3>Example:</h3>
+<p>If you'd like to prevent forms from being submitted unless a flag variable is set, try:</p>
+<pre><code class="javascript">&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"form"</span>).submit(<span class="keywords">function</span>()&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;($(<span class="string">"input:first"</span>).val()&nbsp;==&nbsp;<span class="string">"correct"</span>)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">"Validated..."</span>).show();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">"span"</span>).text(<span class="string">"Not&nbsp;valid!"</span>).show().fadeOut(<span class="numbers">1000</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+</code>
+</pre>
+<h4>HTML:</h4>
+<pre><code class="html"><span class="tag">&lt;p</span><span class="tag">&gt;</span>Type&nbsp;'correct'&nbsp;to&nbsp;validate.<span class="tag">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;form</span><span class="aname">&nbsp;action</span>=<span class="avalue">"javascript:alert('success!');"</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div</span><span class="tag">&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"text"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input</span><span class="aname">&nbsp;type</span>=<span class="avalue">"submit"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;/form&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="tag">&lt;span</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span></code>
+</pre>
+</div>
+<div class="example">
+<h3>Example:</h3>
+<p>If you'd like to prevent forms from being submitted unless a flag variable is set, try:</p>
+<pre><code class="javascript">$(<span class="string">"form"</span>).submit(&nbsp;<span class="keywords">function</span>&nbsp;()&nbsp;{&nbsp;
+&nbsp;&nbsp;<span class="keywords">return</span>&nbsp;<span class="keywords">this</span>.some_flag_variable;&nbsp;
+}&nbsp;);</code>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div style="display: none; position: absolute; z-index: 3000;" id="tooltip"><h3></h3><p class="body"></p><p class="url"></p></div></body></html>
