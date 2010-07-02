@@ -26,6 +26,10 @@
          version="0.0.0"/>
 
    <includes
+         id="com.jquery.1.4"
+         version="0.0.0"/>
+
+   <includes
          id="com.mochikit.1.4"
          version="0.0.0"/>
 
