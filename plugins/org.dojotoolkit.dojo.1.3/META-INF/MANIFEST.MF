@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.dojotoolkit.dojo.1.3;singleton:=true
-Bundle-Version: 1.3.0.00001
+Bundle-Version: 1.3.0.00002
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.help,
